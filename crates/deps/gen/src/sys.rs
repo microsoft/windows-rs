@@ -1,5 +1,7 @@
 use super::*;
 
+// TODO: move tool-specific code gen into the tool itself to avoid carrying this extra code in the shared crates?
+
 pub fn gen_sys(tree: &TypeTree, gen: &Gen) -> TokenStream {
     let functions = gen_functions(tree, gen);
     let types = gen_types(tree, gen);

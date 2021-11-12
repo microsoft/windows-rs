@@ -7,11 +7,8 @@ pub struct IWsbApplicationAsync(pub *mut ::core::ffi::c_void);
 pub struct IWsbApplicationBackupSupport(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWsbApplicationRestoreSupport(pub *mut ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_System_ServerBackup`*"]
 pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(7995396i32 as _);
-#[doc = "*Required features: `Win32_System_ServerBackup`*"]
 pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_ServerBackup`*"]
 pub const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSB_OB_REGISTRATION_INFO(i32);

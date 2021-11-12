@@ -1,200 +1,120 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn CloseTrace(tracehandle: u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ControlTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ControlTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateTraceInstanceId(reghandle: super::super::super::Foundation::HANDLE, instinfo: *mut EVENT_INSTANCE_INFO) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CveEventWrite(cveid: super::super::super::Foundation::PWSTR, additionaldetails: super::super::super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, controlguid: *const ::windows_sys::core::GUID, tracehandle: u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn EnableTraceEx(providerid: *const ::windows_sys::core::GUID, sourceid: *const ::windows_sys::core::GUID, tracehandle: u64, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn EnableTraceEx2(tracehandle: u64, providerid: *const ::windows_sys::core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: *const ENABLE_TRACE_PARAMETERS) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EnumerateTraceGuids(guidpropertiesarray: *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount: u32, guidcount: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: *const ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EventAccessControl(guid: *const ::windows_sys::core::GUID, operation: u32, sid: super::super::super::Foundation::PSID, rights: u32, allowordeny: super::super::super::Foundation::BOOLEAN) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn EventAccessQuery(guid: *const ::windows_sys::core::GUID, buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn EventAccessRemove(guid: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn EventActivityIdControl(controlcode: u32, activityid: *mut ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EventEnabled(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EventProviderEnabled(reghandle: u64, level: u8, keyword: u64) -> super::super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn EventRegister(providerid: *const ::windows_sys::core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn EventSetInformation(reghandle: u64, informationclass: EVENT_INFO_CLASS, eventinformation: *const ::core::ffi::c_void, informationlength: u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn EventUnregister(reghandle: u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows_sys::core::GUID, relatedactivityid: *const ::windows_sys::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EventWriteString(reghandle: u64, level: u8, keyword: u64, string: super::super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows_sys::core::GUID, relatedactivityid: *const ::windows_sys::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FlushTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FlushTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn GetTraceEnableFlags(tracehandle: u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn GetTraceEnableLevel(tracehandle: u64) -> u8;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn GetTraceLoggerHandle(buffer: *const ::core::ffi::c_void) -> u64;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_System_Time`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
     pub fn OpenTraceA(logfile: *mut EVENT_TRACE_LOGFILEA) -> u64;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_System_Time`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
     pub fn OpenTraceW(logfile: *mut EVENT_TRACE_LOGFILEW) -> u64;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ProcessTrace(handlearray: *const u64, handlecount: u32, starttime: *const super::super::super::Foundation::FILETIME, endtime: *const super::super::super::Foundation::FILETIME) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryAllTracesA(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryAllTracesW(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn QueryTraceProcessingHandle(processinghandle: u64, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: *const ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterTraceGuidsA(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PSTR, mofresourcename: super::super::super::Foundation::PSTR, registrationhandle: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterTraceGuidsW(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PWSTR, mofresourcename: super::super::super::Foundation::PWSTR, registrationhandle: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn RemoveTraceCallback(pguid: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn SetTraceCallback(pguid: *const ::windows_sys::core::GUID, eventcallback: PEVENT_CALLBACK) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StartTraceA(tracehandle: *mut u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StartTraceW(tracehandle: *mut u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StopTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StopTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const ::core::ffi::c_void, eventmatchallflags: *const super::super::super::Foundation::BOOLEAN, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhCloseDecodingHandle(handle: TDH_HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhCreatePayloadFilter(providerguid: *const ::windows_sys::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: super::super::super::Foundation::BOOLEAN, payloadpredicatecount: u32, payloadpredicates: *const PAYLOAD_FILTER_PREDICATE, payloadfilter: *mut *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhDeletePayloadFilter(payloadfilter: *mut *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhEnumerateManifestProviderEvents(providerguid: *const ::windows_sys::core::GUID, buffer: *mut PROVIDER_EVENT_INFO, buffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhEnumerateProviderFieldInformation(pguid: *const ::windows_sys::core::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhEnumerateProviderFilters(guid: *const ::windows_sys::core::GUID, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhEnumerateProviders(pbuffer: *mut PROVIDER_ENUMERATION_INFO, pbuffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: *mut PROVIDER_ENUMERATION_INFO, buffersize: u32, bufferrequired: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: *const EVENT_MAP_INFO, pointersize: u32, propertyintype: u16, propertyouttype: u16, propertylength: u16, userdatalength: u16, userdata: *const u8, buffersize: *mut u32, buffer: super::super::super::Foundation::PWSTR, userdataconsumed: *mut u16) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *mut TDH_CONTEXT) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhGetEventMapInformation(pevent: *const EVENT_RECORD, pmapname: super::super::super::Foundation::PWSTR, pbuffer: *mut EVENT_MAP_INFO, pbuffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhGetManifestEventInformation(providerguid: *const ::windows_sys::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhGetProperty(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, buffersize: u32, pbuffer: *mut u8) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhGetPropertySize(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, ppropertysize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhGetWppMessage(handle: TDH_HANDLE, eventrecord: *const EVENT_RECORD, buffersize: *mut u32, buffer: *mut u8) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhGetWppProperty(handle: TDH_HANDLE, eventrecord: *const EVENT_RECORD, propertyname: super::super::super::Foundation::PWSTR, buffersize: *mut u32, buffer: *mut u8) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhLoadManifest(manifest: super::super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhLoadManifestFromBinary(binarypath: super::super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhLoadManifestFromMemory(pdata: *const ::core::ffi::c_void, cbdata: u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhOpenDecodingHandle(handle: *mut TDH_HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhQueryProviderFieldInformation(pguid: *const ::windows_sys::core::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhSetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *const TDH_CONTEXT) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhUnloadManifest(manifest: super::super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TdhUnloadManifestFromMemory(pdata: *const ::core::ffi::c_void, cbdata: u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TraceEventInstance(tracehandle: u64, eventtrace: *const EVENT_INSTANCE_HEADER, instinfo: *const EVENT_INSTANCE_INFO, parentinstinfo: *const EVENT_INSTANCE_INFO) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows_sys::core::GUID, messagenumber: u16) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows_sys::core::GUID, messagenumber: u16, messagearglist: *const i8) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TraceQueryInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *mut ::core::ffi::c_void, informationlength: u32, returnlength: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn TraceSetInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *const ::core::ffi::c_void, informationlength: u32) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
     pub fn UnregisterTraceGuids(registrationhandle: u64) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdateTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdateTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
 }
@@ -211,136 +131,77 @@ pub const DefaultTraceSecurityGuid: ::windows_sys::core::GUID = ::windows_sys::G
 pub struct ENABLECALLBACK_ENABLED_STATE(i32);
 pub struct ENABLE_TRACE_PARAMETERS(i32);
 pub struct ENABLE_TRACE_PARAMETERS_V1(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ENABLE_TRACE_PARAMETERS_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ENABLE_TRACE_PARAMETERS_VERSION_2: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_ASCIICHAR_TYPE_VALUE: u32 = 102u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_ASCIISTRING_TYPE_VALUE: u32 = 103u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_BOOLEAN_TYPE_VALUE: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_BOOL_TYPE_VALUE: u32 = 108u32;
 pub struct ETW_BUFFER_CONTEXT(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_BYTE_TYPE_VALUE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_CHAR_TYPE_VALUE: u32 = 11u32;
 pub struct ETW_COMPRESSION_RESUMPTION_MODE(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_COUNTED_ANSISTRING_TYPE_VALUE: u32 = 109u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_COUNTED_STRING_TYPE_VALUE: u32 = 104u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_DATETIME_TYPE_VALUE: u32 = 119u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_DECIMAL_TYPE_VALUE: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_DOUBLE_TYPE_VALUE: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_GUID_TYPE_VALUE: u32 = 101u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_HIDDEN_TYPE_VALUE: u32 = 107u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_INT16_TYPE_VALUE: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_INT32_TYPE_VALUE: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_INT64_TYPE_VALUE: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_NON_NULL_TERMINATED_STRING_TYPE_VALUE: u32 = 112u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_NULL_TYPE_VALUE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_OBJECT_TYPE_VALUE: u32 = 1u32;
 pub struct ETW_PMC_COUNTER_OWNER(i32);
 pub struct ETW_PMC_COUNTER_OWNERSHIP_STATUS(i32);
 pub struct ETW_PMC_COUNTER_OWNER_TYPE(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_POINTER_TYPE_VALUE: u32 = 105u32;
 pub struct ETW_PROCESS_HANDLE_INFO_TYPE(i32);
 pub struct ETW_PROVIDER_TRAIT_TYPE(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_PTVECTOR_TYPE_VALUE: u32 = 117u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_REDUCED_ANSISTRING_TYPE_VALUE: u32 = 113u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_REDUCED_STRING_TYPE_VALUE: u32 = 114u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_REFRENCE_TYPE_VALUE: u32 = 120u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_REVERSED_COUNTED_ANSISTRING_TYPE_VALUE: u32 = 111u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_REVERSED_COUNTED_STRING_TYPE_VALUE: u32 = 110u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_SBYTE_TYPE_VALUE: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_SID_TYPE_VALUE: u32 = 115u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_SINGLE_TYPE_VALUE: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_SIZET_TYPE_VALUE: u32 = 106u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_STRING_TYPE_VALUE: u32 = 2u32;
 pub struct ETW_TRACE_PARTITION_INFORMATION(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct ETW_TRACE_PARTITION_INFORMATION_V2(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_UINT16_TYPE_VALUE: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_UINT32_TYPE_VALUE: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_UINT64_TYPE_VALUE: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_VARIANT_TYPE_VALUE: u32 = 116u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_WMITIME_TYPE_VALUE: u32 = 118u32;
 pub struct EVENTSECURITYOPERATION(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ACTIVITY_CTRL_CREATE_ID: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ACTIVITY_CTRL_GET_ID: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ACTIVITY_CTRL_GET_SET_ID: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ACTIVITY_CTRL_SET_ID: u32 = 2u32;
 pub struct EVENT_DATA_DESCRIPTOR(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_DATA_DESCRIPTOR_TYPE_EVENT_METADATA: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_DATA_DESCRIPTOR_TYPE_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: u32 = 3u32;
 pub struct EVENT_DESCRIPTOR(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_ENABLE_KEYWORD_0: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_ENABLE_SILOS: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_EVENT_KEY: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_EXCLUDE_INPRIVATE: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_IGNORE_KEYWORD_0: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_PROCESS_START_KEY: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_PROVIDER_GROUP: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_PSM_KEY: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_SID: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_SOURCE_CONTAINER_TRACKING: u32 = 2048u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_STACK_TRACE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_TS_ID: u32 = 2u32;
 pub struct EVENT_EXTENDED_ITEM_EVENT_KEY(i32);
 pub struct EVENT_EXTENDED_ITEM_INSTANCE(i32);
@@ -362,103 +223,55 @@ pub struct EVENT_FILTER_EVENT_NAME(i32);
 pub struct EVENT_FILTER_HEADER(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_FILTER_LEVEL_KW(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_EVENT_ID: u32 = 2147484160u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_EVENT_NAME: u32 = 2147484672u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_EXECUTABLE_NAME: u32 = 2147483656u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_PACKAGE_APP_ID: u32 = 2147483680u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_PACKAGE_ID: u32 = 2147483664u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_PAYLOAD: u32 = 2147483904u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_PID: u32 = 2147483652u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_SCHEMATIZED: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_STACKWALK: u32 = 2147487744u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_STACKWALK_LEVEL_KW: u32 = 2147500032u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_STACKWALK_NAME: u32 = 2147491840u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_SYSTEM_FLAGS: u32 = 2147483649u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_TRACEHANDLE: u32 = 2147483650u32;
 pub struct EVENT_HEADER(i32);
 pub struct EVENT_HEADER_EXTENDED_DATA_ITEM(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_CONTAINER_ID: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_CONTROL_GUID: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_EVENT_KEY: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_EVENT_SCHEMA_TL: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_INSTANCE_INFO: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_MAX: u32 = 19u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_PEBS_INDEX: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_PMC_COUNTERS: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_PROCESS_START_KEY: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_PROV_TRAITS: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_PSM_KEY: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_QPC_DELTA: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_RELATED_ACTIVITYID: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_SID: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_STACK_KEY32: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_STACK_KEY64: u32 = 18u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_STACK_TRACE32: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_STACK_TRACE64: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_TS_ID: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_FLAG_32_BIT_HEADER: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_FLAG_64_BIT_HEADER: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_FLAG_CLASSIC_HEADER: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_FLAG_DECODE_GUID: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_FLAG_EXTENDED_INFO: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_FLAG_NO_CPUTIME: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_FLAG_PRIVATE_SESSION: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_FLAG_PROCESSOR_INDEX: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_FLAG_STRING_ONLY: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_FLAG_TRACE_MESSAGE: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_PROPERTY_FORWARDED_XML: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_PROPERTY_RELOGGABLE: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_PROPERTY_XML: u32 = 1u32;
 pub struct EVENT_INFO_CLASS(i32);
 pub struct EVENT_INSTANCE_HEADER(i32);
@@ -466,315 +279,167 @@ pub struct EVENT_INSTANCE_HEADER(i32);
 pub struct EVENT_INSTANCE_INFO(i32);
 pub struct EVENT_MAP_ENTRY(i32);
 pub struct EVENT_MAP_INFO(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_MAX_LEVEL: u32 = 255u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_MIN_LEVEL: u32 = 0u32;
 pub struct EVENT_PROPERTY_INFO(i32);
 pub struct EVENT_RECORD(i32);
 pub struct EVENT_TRACE(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_ADDTO_TRIAGE_DUMP: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_ADD_HEADER_MODE: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_BUFFERING_MODE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_COMPRESSED_MODE: u32 = 67108864u32;
 pub struct EVENT_TRACE_CONTROL(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_CONTROL_CONVERT_TO_REALTIME: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_CONTROL_INCREMENT_FILE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_DELAY_OPEN_FILE_MODE: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FILE_MODE_APPEND: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FILE_MODE_CIRCULAR: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FILE_MODE_NEWFILE: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FILE_MODE_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FILE_MODE_PREALLOCATE: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FILE_MODE_SEQUENTIAL: u32 = 1u32;
 pub struct EVENT_TRACE_FLAG(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FLAG_DEBUG_EVENTS: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FLAG_ENABLE_RESERVE: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FLAG_EXTENSION: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_FLAG_FORWARD_WMI: u32 = 1073741824u32;
 pub struct EVENT_TRACE_HEADER(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_INDEPENDENT_SESSION_MODE: u32 = 134217728u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct EVENT_TRACE_LOGFILEA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct EVENT_TRACE_LOGFILEW(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_MODE_RESERVED: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_NONSTOPPABLE_MODE: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_NO_PER_PROCESSOR_BUFFERING: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_PERSIST_ON_HYBRID_SHUTDOWN: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_PRIVATE_IN_PROC: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_PRIVATE_LOGGER_MODE: u32 = 2048u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_TRACE_PROPERTIES(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_TRACE_PROPERTIES_V2(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_REAL_TIME_MODE: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_RELOG_MODE: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_SECURE_MODE: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_STOP_ON_HYBRID_SHUTDOWN: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_SYSTEM_LOGGER_MODE: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_ACCEPT: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_ACKDUP: u32 = 22u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_ACKFULL: u32 = 20u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_ACKPART: u32 = 21u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CHECKPOINT: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_BOOT: u32 = 37u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_CI_INFO: u32 = 29u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_CPU: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_DEFRAG: u32 = 31u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_DEVICEFAMILY: u32 = 33u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_DPI: u32 = 28u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_FLIGHTID: u32 = 34u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_IDECHANNEL: u32 = 23u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_IRQ: u32 = 21u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_LOGICALDISK: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_MACHINEID: u32 = 30u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_MOBILEPLATFORM: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_NETINFO: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_NIC: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_NUMANODE: u32 = 24u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_OPTICALMEDIA: u32 = 18u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_PHYSICALDISK: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_PLATFORM: u32 = 25u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_PNP: u32 = 22u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_POWER: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_PROCESSOR: u32 = 35u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_PROCESSORGROUP: u32 = 26u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_PROCESSORNUMBER: u32 = 27u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_SERVICES: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_VIDEO: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_VIRTUALIZATION: u32 = 36u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONNECT: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_CONNFAIL: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_COPY_ARP: u32 = 19u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_COPY_TCP: u32 = 18u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_DBGID_RSDS: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_DC_END: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_DC_START: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_DEQUEUE: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_DISCONNECT: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_END: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_EXTENSION: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_FLT_POSTOP_COMPLETION: u32 = 99u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_FLT_POSTOP_FAILURE: u32 = 101u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_FLT_POSTOP_INIT: u32 = 97u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_FLT_PREOP_COMPLETION: u32 = 98u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_FLT_PREOP_FAILURE: u32 = 100u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_FLT_PREOP_INIT: u32 = 96u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_GUIDMAP: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_INFO: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_IO_FLUSH: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_IO_FLUSH_INIT: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_IO_READ: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_IO_READ_INIT: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_IO_REDIRECTED_INIT: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_IO_WRITE: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_IO_WRITE_INIT: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_LOAD: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_MM_AV: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_MM_COW: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_MM_DZF: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_MM_GPF: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_MM_HPF: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_MM_TF: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_OPTICAL_IO_FLUSH: u32 = 57u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_OPTICAL_IO_FLUSH_INIT: u32 = 60u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_OPTICAL_IO_READ: u32 = 55u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_OPTICAL_IO_READ_INIT: u32 = 58u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_OPTICAL_IO_WRITE: u32 = 56u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_OPTICAL_IO_WRITE_INIT: u32 = 59u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_RECEIVE: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_RECONNECT: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGCLOSE: u32 = 27u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGCOMMIT: u32 = 30u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGCREATE: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGDELETE: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGDELETEVALUE: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGENUMERATEKEY: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGENUMERATEVALUEKEY: u32 = 18u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGFLUSH: u32 = 21u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGKCBCREATE: u32 = 22u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGKCBDELETE: u32 = 23u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGKCBRUNDOWNBEGIN: u32 = 24u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGKCBRUNDOWNEND: u32 = 25u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGMOUNTHIVE: u32 = 33u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGOPEN: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGPREPARE: u32 = 31u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGQUERY: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGQUERYMULTIPLEVALUE: u32 = 19u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGQUERYSECURITY: u32 = 29u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGQUERYVALUE: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGROLLBACK: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGSETINFORMATION: u32 = 20u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGSETSECURITY: u32 = 28u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGSETVALUE: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REGVIRTUALIZE: u32 = 26u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_REPLY: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_RESUME: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_RETRANSMIT: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_SECURITY: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_SEND: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_SIDINFO: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_START: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_STOP: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_SUSPEND: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_TERMINATE: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_WINEVT_RECEIVE: u32 = 240u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_TYPE_WINEVT_SEND: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_USE_GLOBAL_SEQUENCE: u32 = 16384u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_USE_KBYTES_FOR_SIZE: u32 = 8192u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_USE_LOCAL_SEQUENCE: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_USE_NOCPUTIME: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_USE_PAGED_MEMORY: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_USE_PROCTIME: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_WRITE_FLAG_INPRIVATE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_WRITE_FLAG_NO_FAULTING: u32 = 1u32;
 pub const EventTraceConfigGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 25508453, data2: 16783, data3: 20278, data4: [174, 252, 220, 15, 29, 47, 210, 53] };
 pub const EventTraceGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1761466624, data2: 19006, data3: 4561, data4: [132, 244, 0, 0, 248, 4, 100, 227] };
@@ -786,23 +451,14 @@ pub struct ITraceEventCallback(pub *mut ::core::ffi::c_void);
 pub struct ITraceRelogger(pub *mut ::core::ffi::c_void);
 pub struct MAP_FLAGS(i32);
 pub struct MAP_VALUETYPE(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const MAX_EVENT_DATA_DESCRIPTORS: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const MAX_EVENT_FILTERS_COUNT: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const MAX_EVENT_FILTER_DATA_SIZE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const MAX_EVENT_FILTER_EVENT_ID_COUNT: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const MAX_EVENT_FILTER_EVENT_NAME_SIZE: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const MAX_EVENT_FILTER_PAYLOAD_SIZE: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const MAX_EVENT_FILTER_PID_COUNT: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const MAX_MOF_FIELDS: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const MAX_PAYLOAD_PREDICATES: u32 = 8u32;
 pub struct MOF_FIELD(i32);
 pub struct OFFSETINSTANCEDATAANDLENGTH(i32);
@@ -814,11 +470,8 @@ pub struct PEVENT_CALLBACK(i32);
 pub struct PEVENT_RECORD_CALLBACK(i32);
 pub struct PEVENT_TRACE_BUFFER_CALLBACKA(i32);
 pub struct PEVENT_TRACE_BUFFER_CALLBACKW(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const PROCESS_TRACE_MODE_RAW_TIMESTAMP: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const PROCESS_TRACE_MODE_REAL_TIME: u32 = 256u32;
 pub struct PROFILE_SOURCE_INFO(i32);
 pub struct PROPERTY_DATA_DESCRIPTOR(i32);
@@ -829,195 +482,100 @@ pub struct PROVIDER_FIELD_INFO(i32);
 pub struct PROVIDER_FIELD_INFOARRAY(i32);
 pub struct PROVIDER_FILTER_INFO(i32);
 pub const PrivateLoggerNotificationGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 899001180, data2: 1066, data3: 19598, data4: [185, 66, 45, 5, 155, 254, 177, 177] };
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_ALPC_KW_GENERAL: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_CONFIG_KW_GRAPHICS: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_CONFIG_KW_NETWORK: u64 = 8u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_CONFIG_KW_OPTICAL: u64 = 64u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_CONFIG_KW_PNP: u64 = 32u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_CONFIG_KW_SERVICES: u64 = 16u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_CONFIG_KW_STORAGE: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_CONFIG_KW_SYSTEM: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_CPU_KW_CACHE_FLUSH: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_CPU_KW_CONFIG: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_CPU_KW_SPEC_CONTROL: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_EVENT_TYPE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_HYPERVISOR_KW_CALLOUTS: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_HYPERVISOR_KW_PROFILE: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_HYPERVISOR_KW_VTL_CHANGE: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_INTERRUPT_KW_CLOCK_INTERRUPT: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_INTERRUPT_KW_DPC: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_INTERRUPT_KW_DPC_QUEUE: u64 = 8u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_INTERRUPT_KW_GENERAL: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_INTERRUPT_KW_IPI: u64 = 64u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_INTERRUPT_KW_WDF_DPC: u64 = 16u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_INTERRUPT_KW_WDF_INTERRUPT: u64 = 32u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IOFILTER_KW_FAILURE: u64 = 8u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IOFILTER_KW_FASTIO: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IOFILTER_KW_GENERAL: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IOFILTER_KW_INIT: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IO_KW_CC: u64 = 256u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IO_KW_DISK: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IO_KW_DISK_INIT: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IO_KW_DRIVERS: u64 = 128u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IO_KW_FILE: u64 = 16u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IO_KW_FILENAME: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IO_KW_NETWORK: u64 = 512u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IO_KW_OPTICAL: u64 = 32u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IO_KW_OPTICAL_INIT: u64 = 64u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_IO_KW_SPLIT: u64 = 8u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_LOCK_KW_SPINLOCK: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_LOCK_KW_SPINLOCK_COUNTERS: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_LOCK_KW_SYNC_OBJECTS: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_ALL_FAULTS: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_CONTMEM_GEN: u64 = 512u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_FOOTPRINT: u64 = 2048u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_GENERAL: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_HARD_FAULTS: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_HEAP: u64 = 128u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_MEMINFO: u64 = 16u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_MEMINFO_WS: u64 = 64u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_NONTRADEABLE: u64 = 32768u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_PFSECTION: u64 = 32u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_POOL: u64 = 8u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_REFSET: u64 = 8192u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_SESSION: u64 = 4096u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_VAMAP: u64 = 16384u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_VIRTUAL_ALLOC: u64 = 1024u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_KW_WS: u64 = 256u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_MEMORY_POOL_FILTER_ID: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_OBJECT_KW_GENERAL: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_OBJECT_KW_HANDLE: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_POWER_KW_GENERAL: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_POWER_KW_HIBER_RUNDOWN: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_POWER_KW_IDLE_SELECTION: u64 = 8u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_POWER_KW_PPM_EXIT_LATENCY: u64 = 16u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_POWER_KW_PROCESSOR_IDLE: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_DBGPRINT: u64 = 256u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_DEBUG_EVENTS: u64 = 128u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_FREEZE: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_GENERAL: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_INSWAP: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_JOB: u64 = 512u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_LOADER: u64 = 4096u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_PERF_COUNTER: u64 = 8u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_THREAD: u64 = 2048u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_WAKE_COUNTER: u64 = 16u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_WAKE_DROP: u64 = 32u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_WAKE_EVENT: u64 = 64u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROCESS_KW_WORKER_THREAD: u64 = 1024u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROFILE_KW_GENERAL: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_PROFILE_KW_PMC_PROFILE: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_REGISTRY_KW_GENERAL: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_REGISTRY_KW_HIVE: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_REGISTRY_KW_NOTIFICATION: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_SCHEDULER_KW_AFFINITY: u64 = 64u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_SCHEDULER_KW_ANTI_STARVATION: u64 = 16u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_SCHEDULER_KW_COMPACT_CSWITCH: u64 = 1024u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_SCHEDULER_KW_CONTEXT_SWITCH: u64 = 512u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_SCHEDULER_KW_DISPATCHER: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_SCHEDULER_KW_IDEAL_PROCESSOR: u64 = 256u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_SCHEDULER_KW_KERNEL_QUEUE: u64 = 4u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_SCHEDULER_KW_LOAD_BALANCER: u64 = 32u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_SCHEDULER_KW_PRIORITY: u64 = 128u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_SCHEDULER_KW_SHOULD_YIELD: u64 = 8u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_SCHEDULER_KW_XSCHEDULER: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_SYSCALL_KW_GENERAL: u64 = 1u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_TIMER_KW_CLOCK_TIMER: u64 = 2u64;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const SYSTEM_TIMER_KW_GENERAL: u64 = 1u64;
 pub const SystemAlpcProviderGuid: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4240030383,
@@ -1096,23 +654,14 @@ pub struct TDH_CONTEXT(i32);
 pub struct TDH_CONTEXT_TYPE(i32);
 pub struct TDH_HANDLE(i32);
 pub struct TEMPLATE_FLAGS(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACELOG_ACCESS_KERNEL_LOGGER: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACELOG_ACCESS_REALTIME: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACELOG_CREATE_INPROC: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACELOG_CREATE_ONDISK: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACELOG_CREATE_REALTIME: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACELOG_GUID_ENABLE: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACELOG_JOIN_GROUP: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACELOG_LOG_EVENT: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACELOG_REGISTER_GUIDS: u32 = 2048u32;
 pub struct TRACE_ENABLE_INFO(i32);
 pub struct TRACE_EVENT_INFO(i32);
@@ -1121,37 +670,21 @@ pub struct TRACE_GUID_INFO(i32);
 pub struct TRACE_GUID_PROPERTIES(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRACE_GUID_REGISTRATION(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_HEADER_FLAG_LOG_WNODE: u32 = 262144u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_HEADER_FLAG_TRACED_GUID: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_HEADER_FLAG_USE_GUID_PTR: u32 = 524288u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_HEADER_FLAG_USE_MOF_PTR: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_HEADER_FLAG_USE_TIMESTAMP: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_CRITICAL: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_ERROR: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_FATAL: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_INFORMATION: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_RESERVED6: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_RESERVED7: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_RESERVED8: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_RESERVED9: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_VERBOSE: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_LEVEL_WARNING: u32 = 3u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER(i32);
@@ -1160,19 +693,13 @@ pub struct TRACE_LOGFILE_HEADER32(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER64(i32);
 pub struct TRACE_MESSAGE_FLAGS(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_MESSAGE_FLAG_MASK: u32 = 65535u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_MESSAGE_PERFORMANCE_TIMESTAMP: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_MESSAGE_POINTER32: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_MESSAGE_POINTER64: u32 = 128u32;
 pub struct TRACE_PERIODIC_CAPTURE_STATE_INFO(i32);
 pub struct TRACE_PROFILE_INTERVAL(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_PROVIDER_FLAG_LEGACY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_PROVIDER_FLAG_PRE_ENABLE: u32 = 2u32;
 pub struct TRACE_PROVIDER_INFO(i32);
 pub struct TRACE_PROVIDER_INSTANCE_INFO(i32);
@@ -1182,47 +709,27 @@ pub struct TRACE_STACK_CACHING_INFO(i32);
 pub struct TRACE_VERSION_INFO(i32);
 pub struct WMIDPREQUEST(i32);
 pub struct WMIDPREQUESTCODE(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIGUID_EXECUTE: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIGUID_NOTIFICATION: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIGUID_QUERY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIGUID_READ_DESCRIPTION: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIGUID_SET: u32 = 2u32;
 pub struct WMIREGGUIDW(i32);
 pub struct WMIREGINFOW(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIREG_FLAG_EVENT_ONLY_GUID: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIREG_FLAG_EXPENSIVE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIREG_FLAG_INSTANCE_BASENAME: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIREG_FLAG_INSTANCE_LIST: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIREG_FLAG_INSTANCE_PDO: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIREG_FLAG_REMOVE_GUID: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIREG_FLAG_RESERVED1: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIREG_FLAG_RESERVED2: u32 = 262144u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIREG_FLAG_TRACED_GUID: u32 = 524288u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIREG_FLAG_TRACE_CONTROL_GUID: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMI_GLOBAL_LOGGER_ID: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMI_GUIDTYPE_DATA: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMI_GUIDTYPE_EVENT: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMI_GUIDTYPE_TRACE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMI_GUIDTYPE_TRACECONTROL: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_ALL_DATA(i32);
@@ -1230,51 +737,28 @@ pub struct WNODE_ALL_DATA(i32);
 pub struct WNODE_EVENT_ITEM(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_EVENT_REFERENCE(i32);
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_ALL_DATA: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_ANSI_INSTANCENAMES: u32 = 16384u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_EVENT_ITEM: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_EVENT_REFERENCE: u32 = 8192u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_FIXED_INSTANCE_SIZE: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_INSTANCES_SAME: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_INTERNAL: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_LOG_WNODE: u32 = 262144u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_METHOD_ITEM: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_NO_HEADER: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_PDO_INSTANCE_NAMES: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_PERSIST_EVENT: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_SEND_DATA_BLOCK: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_SEVERITY_MASK: u32 = 4278190080u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_SINGLE_INSTANCE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_SINGLE_ITEM: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_STATIC_INSTANCE_NAMES: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_TOO_SMALL: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_TRACED_GUID: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_USE_GUID_PTR: u32 = 524288u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_USE_MOF_PTR: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_USE_TIMESTAMP: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_VERSIONED_PROPERTIES: u32 = 8388608u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_HEADER(i32);

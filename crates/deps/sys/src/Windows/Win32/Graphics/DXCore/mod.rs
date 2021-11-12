@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_Graphics_DXCore`*"]
     pub fn DXCoreCreateAdapterFactory(riid: *const ::windows_sys::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -33,5 +32,4 @@ pub struct IDXCoreAdapterFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDXCoreAdapterList(pub *mut ::core::ffi::c_void);
 pub struct PFN_DXCORE_NOTIFICATION_CALLBACK(i32);
-#[doc = "*Required features: `Win32_Graphics_DXCore`*"]
 pub const _FACDXCORE: u32 = 2176u32;

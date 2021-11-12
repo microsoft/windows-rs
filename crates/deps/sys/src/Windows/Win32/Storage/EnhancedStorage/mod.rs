@@ -3,82 +3,44 @@
 extern "system" {}
 pub struct ACT_AUTHORIZATION_STATE(i32);
 pub struct ACT_AUTHORIZATION_STATE_VALUE(i32);
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ACT_AUTHORIZE_ON_SESSION_UNLOCK: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ACT_UNAUTHORIZE_ON_SESSION_LOCK: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ACT_UNAUTHORIZE_ON_SUSPEND: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const APPUSERMODEL_STARTPINOPTION_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const APPUSERMODEL_STARTPINOPTION_NOPINONINSTALL: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const APPUSERMODEL_STARTPINOPTION_USERPINNED: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const AUDIO_CHANNELCOUNT_MONO: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const AUDIO_CHANNELCOUNT_STEREO: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const BLUETOOTH_ADDRESS_TYPE_PUBLIC: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const BLUETOOTH_ADDRESS_TYPE_RANDOM: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const BLUETOOTH_CACHED_MODE_UNCACHED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const BLUETOOTH_CACHE_MODE_CACHED: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_CAPABILITY_ASYMMETRIC_KEY_CRYPTOGRAPHY: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_CAPABILITY_CERTIFICATE_SUPPORT: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_CAPABILITY_HASH_ALG: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_CAPABILITY_OPTIONAL_FEATURES: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_CAPABILITY_SIGNATURE_ALG: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_MAX_CAPABILITY: u32 = 255u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_TYPE_ASCh: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_TYPE_ASCm: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_TYPE_EMPTY: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_TYPE_HCh: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_TYPE_PCp: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_TYPE_SIGNER: u32 = 6u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_VALIDATION_POLICY_BASIC: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_VALIDATION_POLICY_EXTENDED: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_VALIDATION_POLICY_NONE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CERT_VALIDATION_POLICY_RESERVED: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CREATOROPENWITHUIOPTION_HIDDEN: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const CREATOROPENWITHUIOPTION_VISIBLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ENHANCED_STORAGE_AUTHN_STATE_AUTHENTICATED: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ENHANCED_STORAGE_AUTHN_STATE_AUTHENTICATION_DENIED: u32 = 2147483649u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ENHANCED_STORAGE_AUTHN_STATE_DEVICE_ERROR: u32 = 2147483650u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ENHANCED_STORAGE_AUTHN_STATE_NOT_AUTHENTICATED: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ENHANCED_STORAGE_AUTHN_STATE_NO_AUTHENTICATION_REQUIRED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ENHANCED_STORAGE_AUTHN_STATE_UNKNOWN: u32 = 0u32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_CAPABILITY_ASYMMETRIC_KEY_CRYPTOGRAPHY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -89,7 +51,6 @@ pub const ENHANCED_STORAGE_CAPABILITY_ASYMMETRIC_KEY_CRYPTOGRAPHY: super::super:
     pid: 4002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_CAPABILITY_CERTIFICATE_EXTENSION_PARSING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -100,7 +61,6 @@ pub const ENHANCED_STORAGE_CAPABILITY_CERTIFICATE_EXTENSION_PARSING: super::supe
     pid: 4005u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_CAPABILITY_HASH_ALGS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -111,7 +71,6 @@ pub const ENHANCED_STORAGE_CAPABILITY_HASH_ALGS: super::super::UI::Shell::Proper
     pid: 4001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_CAPABILITY_RENDER_USER_DATA_UNUSABLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -122,7 +81,6 @@ pub const ENHANCED_STORAGE_CAPABILITY_RENDER_USER_DATA_UNUSABLE: super::super::U
     pid: 4004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_CAPABILITY_SIGNING_ALGS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -133,7 +91,6 @@ pub const ENHANCED_STORAGE_CAPABILITY_SIGNING_ALGS: super::super::UI::Shell::Pro
     pid: 4003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_ADMIN_CERTIFICATE_AUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -144,7 +101,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_ADMIN_CERTIFICATE_AUTHENTICATION: super:
     pid: 103u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_CREATE_CERTIFICATE_REQUEST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -155,7 +111,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_CREATE_CERTIFICATE_REQUEST: super::super
     pid: 108u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_DEVICE_CERTIFICATE_AUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -166,7 +121,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_DEVICE_CERTIFICATE_AUTHENTICATION: super
     pid: 102u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_GET_ACT_FRIENDLY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -177,7 +131,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_GET_ACT_FRIENDLY_NAME: super::super::UI:
     pid: 113u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_GET_CERTIFICATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -188,7 +141,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_GET_CERTIFICATE: super::super::UI::Shell
     pid: 106u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_GET_CERTIFICATE_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -199,7 +151,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_GET_CERTIFICATE_COUNT: super::super::UI:
     pid: 105u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -210,7 +161,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_CAPABILITIES: super::super::UI:
     pid: 112u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_CAPABILITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -221,7 +171,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_CAPABILITY: super::super::UI::S
     pid: 111u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -232,7 +181,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_GET_SILO_GUID: super::super::UI::Shell::
     pid: 114u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_HOST_CERTIFICATE_AUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -243,7 +191,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_HOST_CERTIFICATE_AUTHENTICATION: super::
     pid: 101u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_INITIALIZE_TO_MANUFACTURER_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -254,7 +201,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_INITIALIZE_TO_MANUFACTURER_STATE: super:
     pid: 104u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_SET_CERTIFICATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -265,7 +211,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_SET_CERTIFICATE: super::super::UI::Shell
     pid: 107u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_CERT_UNAUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -276,7 +221,6 @@ pub const ENHANCED_STORAGE_COMMAND_CERT_UNAUTHENTICATION: super::super::UI::Shel
     pid: 110u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_PASSWORD_AUTHORIZE_ACT_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -287,7 +231,6 @@ pub const ENHANCED_STORAGE_COMMAND_PASSWORD_AUTHORIZE_ACT_ACCESS: super::super::
     pid: 203u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CHANGE_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -298,7 +241,6 @@ pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CHANGE_PASSWORD: super::super::UI::S
     pid: 209u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CONFIG_ADMINISTRATOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -309,7 +251,6 @@ pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CONFIG_ADMINISTRATOR: super::super::
     pid: 206u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CREATE_USER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -320,7 +261,6 @@ pub const ENHANCED_STORAGE_COMMAND_PASSWORD_CREATE_USER: super::super::UI::Shell
     pid: 207u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_PASSWORD_DELETE_USER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -331,7 +271,6 @@ pub const ENHANCED_STORAGE_COMMAND_PASSWORD_DELETE_USER: super::super::UI::Shell
     pid: 208u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_PASSWORD_INITIALIZE_USER_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -342,7 +281,6 @@ pub const ENHANCED_STORAGE_COMMAND_PASSWORD_INITIALIZE_USER_PASSWORD: super::sup
     pid: 210u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_PASSWORD_QUERY_INFORMATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -353,7 +291,6 @@ pub const ENHANCED_STORAGE_COMMAND_PASSWORD_QUERY_INFORMATION: super::super::UI:
     pid: 205u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_PASSWORD_START_INITIALIZE_TO_MANUFACTURER_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -364,7 +301,6 @@ pub const ENHANCED_STORAGE_COMMAND_PASSWORD_START_INITIALIZE_TO_MANUFACTURER_STA
     pid: 211u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_PASSWORD_UNAUTHORIZE_ACT_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -375,7 +311,6 @@ pub const ENHANCED_STORAGE_COMMAND_PASSWORD_UNAUTHORIZE_ACT_ACCESS: super::super
     pid: 204u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_SILO_ENUMERATE_SILOS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -386,7 +321,6 @@ pub const ENHANCED_STORAGE_COMMAND_SILO_ENUMERATE_SILOS: super::super::UI::Shell
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_SILO_GET_AUTHENTICATION_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -397,7 +331,6 @@ pub const ENHANCED_STORAGE_COMMAND_SILO_GET_AUTHENTICATION_STATE: super::super::
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_COMMAND_SILO_IS_AUTHENTICATION_SILO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -410,7 +343,6 @@ pub const ENHANCED_STORAGE_COMMAND_SILO_IS_AUTHENTICATION_SILO: super::super::UI
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_ADMIN_HINT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -421,7 +353,6 @@ pub const ENHANCED_STORAGE_PROPERTY_ADMIN_HINT: super::super::UI::Shell::Propert
     pid: 2011u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_AUTHENTICATION_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -432,7 +363,6 @@ pub const ENHANCED_STORAGE_PROPERTY_AUTHENTICATION_STATE: super::super::UI::Shel
     pid: 1006u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -443,7 +373,6 @@ pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE: super::super::UI::Shell::Proper
     pid: 3009u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_ACT_FRIENDLY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -454,7 +383,6 @@ pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_ACT_FRIENDLY_NAME: super::super:
     pid: 3014u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_CAPABILITY_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -465,7 +393,6 @@ pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_CAPABILITY_TYPE: super::super::U
     pid: 3011u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -476,7 +403,6 @@ pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_INDEX: super::super::UI::Shell::
     pid: 3003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_LENGTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -487,7 +413,6 @@ pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_LENGTH: super::super::UI::Shell:
     pid: 3008u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_REQUEST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -498,7 +423,6 @@ pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_REQUEST: super::super::UI::Shell
     pid: 3010u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -509,7 +433,6 @@ pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_CAPABILITIES: super::super:
     pid: 3013u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_CAPABILITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -520,7 +443,6 @@ pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_CAPABILITY: super::super::U
     pid: 3012u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -531,7 +453,6 @@ pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_SILO_GUID: super::super::UI::She
     pid: 3015u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -542,7 +463,6 @@ pub const ENHANCED_STORAGE_PROPERTY_CERTIFICATE_TYPE: super::super::UI::Shell::P
     pid: 3004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_IS_AUTHENTICATION_SILO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -553,7 +473,6 @@ pub const ENHANCED_STORAGE_PROPERTY_IS_AUTHENTICATION_SILO: super::super::UI::Sh
     pid: 1009u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_MAX_AUTH_FAILURES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -564,7 +483,6 @@ pub const ENHANCED_STORAGE_PROPERTY_MAX_AUTH_FAILURES: super::super::UI::Shell::
     pid: 2001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_MAX_CERTIFICATE_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -575,7 +493,6 @@ pub const ENHANCED_STORAGE_PROPERTY_MAX_CERTIFICATE_COUNT: super::super::UI::She
     pid: 3001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_NEW_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -586,7 +503,6 @@ pub const ENHANCED_STORAGE_PROPERTY_NEW_PASSWORD: super::super::UI::Shell::Prope
     pid: 2008u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_NEW_PASSWORD_INDICATOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -597,7 +513,6 @@ pub const ENHANCED_STORAGE_PROPERTY_NEW_PASSWORD_INDICATOR: super::super::UI::Sh
     pid: 2007u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_NEXT_CERTIFICATE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -608,7 +523,6 @@ pub const ENHANCED_STORAGE_PROPERTY_NEXT_CERTIFICATE_INDEX: super::super::UI::Sh
     pid: 3006u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_NEXT_CERTIFICATE_OF_TYPE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -619,7 +533,6 @@ pub const ENHANCED_STORAGE_PROPERTY_NEXT_CERTIFICATE_OF_TYPE_INDEX: super::super
     pid: 3007u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_OLD_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -630,7 +543,6 @@ pub const ENHANCED_STORAGE_PROPERTY_OLD_PASSWORD: super::super::UI::Shell::Prope
     pid: 2005u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_PASSWORD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -641,7 +553,6 @@ pub const ENHANCED_STORAGE_PROPERTY_PASSWORD: super::super::UI::Shell::Propertie
     pid: 2004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_PASSWORD_INDICATOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -652,7 +563,6 @@ pub const ENHANCED_STORAGE_PROPERTY_PASSWORD_INDICATOR: super::super::UI::Shell:
     pid: 2006u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_PASSWORD_SILO_INFO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -663,7 +573,6 @@ pub const ENHANCED_STORAGE_PROPERTY_PASSWORD_SILO_INFO: super::super::UI::Shell:
     pid: 2014u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_QUERY_SILO_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -674,7 +583,6 @@ pub const ENHANCED_STORAGE_PROPERTY_QUERY_SILO_RESULTS: super::super::UI::Shell:
     pid: 2017u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_QUERY_SILO_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -685,7 +593,6 @@ pub const ENHANCED_STORAGE_PROPERTY_QUERY_SILO_TYPE: super::super::UI::Shell::Pr
     pid: 2016u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_SECURITY_IDENTIFIER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -696,7 +603,6 @@ pub const ENHANCED_STORAGE_PROPERTY_SECURITY_IDENTIFIER: super::super::UI::Shell
     pid: 2015u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_SIGNER_CERTIFICATE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -707,7 +613,6 @@ pub const ENHANCED_STORAGE_PROPERTY_SIGNER_CERTIFICATE_INDEX: super::super::UI::
     pid: 3016u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_SILO_FRIENDLYNAME_SPECIFIED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -718,7 +623,6 @@ pub const ENHANCED_STORAGE_PROPERTY_SILO_FRIENDLYNAME_SPECIFIED: super::super::U
     pid: 2013u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_SILO_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -729,7 +633,6 @@ pub const ENHANCED_STORAGE_PROPERTY_SILO_NAME: super::super::UI::Shell::Properti
     pid: 2012u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_STORED_CERTIFICATE_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -740,7 +643,6 @@ pub const ENHANCED_STORAGE_PROPERTY_STORED_CERTIFICATE_COUNT: super::super::UI::
     pid: 3002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_TEMPORARY_UNAUTHENTICATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -751,7 +653,6 @@ pub const ENHANCED_STORAGE_PROPERTY_TEMPORARY_UNAUTHENTICATION: super::super::UI
     pid: 1010u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_USER_HINT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -762,7 +663,6 @@ pub const ENHANCED_STORAGE_PROPERTY_USER_HINT: super::super::UI::Shell::Properti
     pid: 2009u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_USER_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -773,7 +673,6 @@ pub const ENHANCED_STORAGE_PROPERTY_USER_NAME: super::super::UI::Shell::Properti
     pid: 2010u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const ENHANCED_STORAGE_PROPERTY_VALIDATION_POLICY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2435088742,
@@ -783,57 +682,33 @@ pub const ENHANCED_STORAGE_PROPERTY_VALIDATION_POLICY: super::super::UI::Shell::
     },
     pid: 3005u32,
 };
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_AUTHN_ERROR_END: u32 = 1279u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_AUTHN_ERROR_START: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_GENERAL_ERROR_END: u32 = 1023u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_GENERAL_ERROR_START: u32 = 512u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_PW_SILO_ERROR_END: u32 = 4607u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_PW_SILO_ERROR_START: u32 = 4352u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_RESERVED_COM_ERROR_END: u32 = 511u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_RESERVED_COM_ERROR_START: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_RESERVED_SILO_ERROR_END: u32 = 4095u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_RESERVED_SILO_ERROR_START: u32 = 1280u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_RESERVED_SILO_SPECIFIC_ERROR_END: u32 = 49151u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_RESERVED_SILO_SPECIFIC_ERROR_START: u32 = 4608u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_VENDOR_ERROR_END: u32 = 65535u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_VENDOR_ERROR_START: u32 = 49152u32;
 pub struct EnhancedStorageACT(i32);
 pub struct EnhancedStorageSilo(i32);
 pub struct EnhancedStorageSiloAction(i32);
 pub struct EnumEnhancedStorageACT(i32);
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const FACILITY_ENHANCED_STORAGE: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE_PINNED: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const FILEOFFLINEAVAILABILITYSTATUS_EXCLUDED: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const FILEOFFLINEAVAILABILITYSTATUS_FOLDER_EMPTY: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const FILEOFFLINEAVAILABILITYSTATUS_NOTAVAILABLEOFFLINE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const FILEOFFLINEAVAILABILITYSTATUS_PARTIAL: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const FLAGSTATUS_COMPLETED: i32 = 1i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const FLAGSTATUS_FOLLOWUP: i32 = 2i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const FLAGSTATUS_NOTFLAGGED: i32 = 0i32;
 pub const GUID_DEVINTERFACE_ENHANCED_STORAGE_SILO: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 949483172,
@@ -853,190 +728,98 @@ pub struct IEnhancedStorageSilo(pub *mut ::core::ffi::c_void);
 pub struct IEnhancedStorageSiloAction(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IEnumEnhancedStorageACT(pub *mut ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const IMPORTANCE_HIGH_MAX: i32 = 5i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const IMPORTANCE_HIGH_MIN: i32 = 5i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const IMPORTANCE_HIGH_SET: i32 = 5i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const IMPORTANCE_LOW_MAX: i32 = 1i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const IMPORTANCE_LOW_MIN: i32 = 0i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const IMPORTANCE_LOW_SET: i32 = 1i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const IMPORTANCE_NORMAL_MAX: i32 = 4i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const IMPORTANCE_NORMAL_MIN: i32 = 2i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const IMPORTANCE_NORMAL_SET: i32 = 3i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ISDEFAULTSAVE_BOTH: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ISDEFAULTSAVE_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ISDEFAULTSAVE_NONOWNER: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ISDEFAULTSAVE_OWNER: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const LINK_STATUS_BROKEN: i32 = 2i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const LINK_STATUS_RESOLVED: i32 = 1i32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const OFFLINEAVAILABILITY_ALWAYS_AVAILABLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const OFFLINEAVAILABILITY_AVAILABLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const OFFLINEAVAILABILITY_NOT_AVAILABLE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const OFFLINESTATUS_OFFLINE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const OFFLINESTATUS_OFFLINE_ERROR: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const OFFLINESTATUS_OFFLINE_FORCED: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const OFFLINESTATUS_OFFLINE_ITEM_VERSION_CONFLICT: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const OFFLINESTATUS_OFFLINE_SLOW: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const OFFLINESTATUS_OFFLINE_SUSPENDED: u32 = 6u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const OFFLINESTATUS_ONLINE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_CONTRAST_HARD: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_CONTRAST_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_CONTRAST_SOFT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_EXPOSUREPROGRAM_ACTION: u32 = 6u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_EXPOSUREPROGRAM_APERTURE: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_EXPOSUREPROGRAM_CREATIVE: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_EXPOSUREPROGRAM_LANDSCAPE: u32 = 8u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_EXPOSUREPROGRAM_MANUAL: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_EXPOSUREPROGRAM_NORMAL: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_EXPOSUREPROGRAM_PORTRAIT: u32 = 7u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_EXPOSUREPROGRAM_SHUTTER: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_EXPOSUREPROGRAM_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_AUTO: u32 = 25u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_AUTO_NORETURNLIGHT: u32 = 29u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_AUTO_REDEYE: u32 = 89u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_AUTO_REDEYE_NORETURNLIGHT: u32 = 93u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_AUTO_REDEYE_RETURNLIGHT: u32 = 95u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_AUTO_RETURNLIGHT: u32 = 31u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_COMPULSORY: u32 = 9u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_COMPULSORY_NORETURNLIGHT: u32 = 13u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_COMPULSORY_REDEYE: u32 = 73u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_COMPULSORY_REDEYE_NORETURNLIGHT: u32 = 77u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_COMPULSORY_REDEYE_RETURNLIGHT: u32 = 79u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_COMPULSORY_RETURNLIGHT: u32 = 15u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_REDEYE: u32 = 65u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_REDEYE_NORETURNLIGHT: u32 = 69u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_FLASH_REDEYE_RETURNLIGHT: u32 = 71u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_NOFUNCTION: u32 = 32u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_NONE_AUTO: u32 = 24u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_NONE_COMPULSORY: u32 = 16u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_WITHOUTSTROBE: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_FLASH_WITHSTROBE: u32 = 7u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_GAINCONTROL_HIGHGAINDOWN: f64 = 4f64;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_GAINCONTROL_HIGHGAINUP: f64 = 2f64;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_GAINCONTROL_LOWGAINDOWN: f64 = 3f64;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_GAINCONTROL_LOWGAINUP: f64 = 1f64;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_GAINCONTROL_NONE: f64 = 0f64;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_LIGHTSOURCE_D55: u32 = 20u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_LIGHTSOURCE_D65: u32 = 21u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_LIGHTSOURCE_D75: u32 = 22u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_LIGHTSOURCE_DAYLIGHT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_LIGHTSOURCE_FLUORESCENT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_LIGHTSOURCE_STANDARD_A: u32 = 17u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_LIGHTSOURCE_STANDARD_B: u32 = 18u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_LIGHTSOURCE_STANDARD_C: u32 = 19u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_LIGHTSOURCE_TUNGSTEN: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_LIGHTSOURCE_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_PROGRAMMODE_ACTION: u32 = 6u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_PROGRAMMODE_APERTURE: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_PROGRAMMODE_CREATIVE: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_PROGRAMMODE_LANDSCAPE: u32 = 8u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_PROGRAMMODE_MANUAL: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_PROGRAMMODE_NORMAL: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_PROGRAMMODE_NOTDEFINED: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_PROGRAMMODE_PORTRAIT: u32 = 7u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_PROGRAMMODE_SHUTTER: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_SATURATION_HIGH: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_SATURATION_LOW: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_SATURATION_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_SHARPNESS_HARD: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_SHARPNESS_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_SHARPNESS_SOFT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_WHITEBALANCE_AUTO: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PHOTO_WHITEBALANCE_MANUAL: u32 = 1u32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AcquisitionID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1705609333,
@@ -1047,7 +830,6 @@ pub const PKEY_AcquisitionID: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Address_Country: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3229303193,
@@ -1058,7 +840,6 @@ pub const PKEY_Address_Country: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Address_CountryCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3229303193,
@@ -1069,7 +850,6 @@ pub const PKEY_Address_CountryCode: super::super::UI::Shell::PropertiesSystem::P
     pid: 101u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Address_Region: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3229303193,
@@ -1080,7 +860,6 @@ pub const PKEY_Address_Region: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 102u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Address_RegionCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3229303193,
@@ -1091,7 +870,6 @@ pub const PKEY_Address_RegionCode: super::super::UI::Shell::PropertiesSystem::PR
     pid: 103u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Address_Town: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3229303193,
@@ -1102,7 +880,6 @@ pub const PKEY_Address_Town: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 104u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_ExcludeFromShowInNewInstall: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1113,7 +890,6 @@ pub const PKEY_AppUserModel_ExcludeFromShowInNewInstall: super::super::UI::Shell
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1124,7 +900,6 @@ pub const PKEY_AppUserModel_ID: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_IsDestListSeparator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1135,7 +910,6 @@ pub const PKEY_AppUserModel_IsDestListSeparator: super::super::UI::Shell::Proper
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_IsDualMode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1146,7 +920,6 @@ pub const PKEY_AppUserModel_IsDualMode: super::super::UI::Shell::PropertiesSyste
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_PreventPinning: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1157,7 +930,6 @@ pub const PKEY_AppUserModel_PreventPinning: super::super::UI::Shell::PropertiesS
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_RelaunchCommand: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1168,7 +940,6 @@ pub const PKEY_AppUserModel_RelaunchCommand: super::super::UI::Shell::Properties
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_RelaunchDisplayNameResource: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1179,7 +950,6 @@ pub const PKEY_AppUserModel_RelaunchDisplayNameResource: super::super::UI::Shell
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_RelaunchIconResource: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1190,7 +960,6 @@ pub const PKEY_AppUserModel_RelaunchIconResource: super::super::UI::Shell::Prope
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_SettingsCommand: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1201,7 +970,6 @@ pub const PKEY_AppUserModel_SettingsCommand: super::super::UI::Shell::Properties
     pid: 38u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_StartPinOption: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1212,7 +980,6 @@ pub const PKEY_AppUserModel_StartPinOption: super::super::UI::Shell::PropertiesS
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_ToastActivatorCLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1223,7 +990,6 @@ pub const PKEY_AppUserModel_ToastActivatorCLSID: super::super::UI::Shell::Proper
     pid: 26u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_UninstallCommand: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1234,7 +1000,6 @@ pub const PKEY_AppUserModel_UninstallCommand: super::super::UI::Shell::Propertie
     pid: 37u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppUserModel_VisualElementsManifestHintPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2672568405,
@@ -1245,7 +1010,6 @@ pub const PKEY_AppUserModel_VisualElementsManifestHintPath: super::super::UI::Sh
     pid: 31u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_AppZoneIdentifier: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1345126059,
@@ -1256,43 +1020,36 @@ pub const PKEY_AppZoneIdentifier: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 102u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ApplicationDefinedProperties: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3451896167, data2: 13182, data3: 16856, data4: [175, 124, 140, 9, 32, 84, 41, 199] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ApplicationName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Audio_ChannelCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179216, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Audio_Compression: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179216, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Audio_EncodingBitrate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179216, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Audio_Format: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179216, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Audio_IsVariableBitRate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867291630,
@@ -1303,43 +1060,36 @@ pub const PKEY_Audio_IsVariableBitRate: super::super::UI::Shell::PropertiesSyste
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Audio_PeakValue: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 628745680, data2: 4374, data3: 16516, data4: [189, 154, 155, 79, 124, 180, 223, 94] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Audio_SampleRate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179216, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Audio_SampleSize: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179216, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Audio_StreamName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179216, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Audio_StreamNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179216, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Author: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CachedFileUpdaterContentIdForConflictResolution: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -1350,7 +1100,6 @@ pub const PKEY_CachedFileUpdaterContentIdForConflictResolution: super::super::UI
     pid: 114u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CachedFileUpdaterContentIdForStream: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -1361,19 +1110,16 @@ pub const PKEY_CachedFileUpdaterContentIdForStream: super::super::UI::Shell::Pro
     pid: 113u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_Duration: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 691839834, data2: 2474, data3: 19922, data4: [177, 128, 31, 226, 69, 114, 138, 82] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_IsOnline: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3220083017, data2: 58338, data3: 18855, data4: [168, 98, 192, 89, 136, 20, 92, 236] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_IsRecurring: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 828087437,
@@ -1384,7 +1130,6 @@ pub const PKEY_Calendar_IsRecurring: super::super::UI::Shell::PropertiesSystem::
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_Location: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4129762584,
@@ -1395,7 +1140,6 @@ pub const PKEY_Calendar_Location: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_OptionalAttendeeAddresses: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3579555418,
@@ -1406,7 +1150,6 @@ pub const PKEY_Calendar_OptionalAttendeeAddresses: super::super::UI::Shell::Prop
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_OptionalAttendeeNames: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 155358727,
@@ -1417,13 +1160,11 @@ pub const PKEY_Calendar_OptionalAttendeeNames: super::super::UI::Shell::Properti
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_OrganizerAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1951171138, data2: 19957, data3: 17772, data4: [171, 158, 1, 78, 251, 144, 33, 227] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_OrganizerName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2863030521,
@@ -1434,7 +1175,6 @@ pub const PKEY_Calendar_OrganizerName: super::super::UI::Shell::PropertiesSystem
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_ReminderTime: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1929141156,
@@ -1445,7 +1185,6 @@ pub const PKEY_Calendar_ReminderTime: super::super::UI::Shell::PropertiesSystem:
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_RequiredAttendeeAddresses: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 195548867,
@@ -1456,7 +1195,6 @@ pub const PKEY_Calendar_RequiredAttendeeAddresses: super::super::UI::Shell::Prop
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_RequiredAttendeeNames: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3006984971,
@@ -1467,13 +1205,11 @@ pub const PKEY_Calendar_RequiredAttendeeNames: super::super::UI::Shell::Properti
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_Resources: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16091704, data2: 50507, data3: 19520, data4: [134, 150, 151, 35, 89, 128, 234, 225] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_ResponseStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 411836305,
@@ -1484,7 +1220,6 @@ pub const PKEY_Calendar_ResponseStatus: super::super::UI::Shell::PropertiesSyste
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_ShowTimeAs: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1542690516,
@@ -1495,7 +1230,6 @@ pub const PKEY_Calendar_ShowTimeAs: super::super::UI::Shell::PropertiesSystem::P
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Calendar_ShowTimeAsText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1406818255,
@@ -1506,25 +1240,21 @@ pub const PKEY_Calendar_ShowTimeAsText: super::super::UI::Shell::PropertiesSyste
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Capacity: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2601995061, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Comment: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Communication_AccountName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -1535,7 +1265,6 @@ pub const PKEY_Communication_AccountName: super::super::UI::Shell::PropertiesSys
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Communication_DateItemExpires: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1115701420,
@@ -1546,7 +1275,6 @@ pub const PKEY_Communication_DateItemExpires: super::super::UI::Shell::Propertie
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Communication_Direction: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2387808304,
@@ -1557,7 +1285,6 @@ pub const PKEY_Communication_Direction: super::super::UI::Shell::PropertiesSyste
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Communication_FollowupIconIndex: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2208707710,
@@ -1568,13 +1295,11 @@ pub const PKEY_Communication_FollowupIconIndex: super::super::UI::Shell::Propert
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Communication_HeaderItem: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3385020292, data2: 8769, data3: 17409, data4: [182, 7, 189, 32, 237, 117, 174, 127] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Communication_PolicyTag: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3960160657,
@@ -1585,7 +1310,6 @@ pub const PKEY_Communication_PolicyTag: super::super::UI::Shell::PropertiesSyste
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Communication_SecurityFlags: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2249827510,
@@ -1596,13 +1320,11 @@ pub const PKEY_Communication_SecurityFlags: super::super::UI::Shell::PropertiesS
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Communication_Suffix: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2155570490, data2: 40593, data3: 17391, data4: [143, 151, 17, 206, 4, 238, 32, 197] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Communication_TaskStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3189404358,
@@ -1613,31 +1335,26 @@ pub const PKEY_Communication_TaskStatus: super::super::UI::Shell::PropertiesSyst
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Communication_TaskStatusText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2792637559, data2: 49719, data3: 18267, data4: [160, 117, 84, 243, 68, 152, 41, 42] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Company: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ComputerName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Computer_DecoratedFreeSpace: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2601995061, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_AccountPictureDynamicVideo: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 193703960,
@@ -1648,7 +1365,6 @@ pub const PKEY_Contact_AccountPictureDynamicVideo: super::super::UI::Shell::Prop
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_AccountPictureLarge: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 193703960,
@@ -1659,7 +1375,6 @@ pub const PKEY_Contact_AccountPictureLarge: super::super::UI::Shell::PropertiesS
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_AccountPictureSmall: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 193703960,
@@ -1670,7 +1385,6 @@ pub const PKEY_Contact_AccountPictureSmall: super::super::UI::Shell::PropertiesS
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Anniversary: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2597698267,
@@ -1681,7 +1395,6 @@ pub const PKEY_Contact_Anniversary: super::super::UI::Shell::PropertiesSystem::P
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_AssistantName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3440389276,
@@ -1692,7 +1405,6 @@ pub const PKEY_Contact_AssistantName: super::super::UI::Shell::PropertiesSystem:
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_AssistantTelephone: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2593334349,
@@ -1703,13 +1415,11 @@ pub const PKEY_Contact_AssistantTelephone: super::super::UI::Shell::PropertiesSy
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Birthday: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 47u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1930409693,
@@ -1720,97 +1430,81 @@ pub const PKEY_Contact_BusinessAddress: super::super::UI::Shell::PropertiesSyste
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress1Country: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 119u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress1Locality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 117u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress1PostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 120u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress1Region: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 118u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress1Street: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 116u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress2Country: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 124u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress2Locality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 122u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress2PostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 125u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress2Region: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 123u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress2Street: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 121u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress3Country: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 129u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress3Locality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 127u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress3PostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 130u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress3Region: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 128u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddress3Street: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 126u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddressCity: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1076582708,
@@ -1821,7 +1515,6 @@ pub const PKEY_Contact_BusinessAddressCity: super::super::UI::Shell::PropertiesS
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddressCountry: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2964878100,
@@ -1832,13 +1525,11 @@ pub const PKEY_Contact_BusinessAddressCountry: super::super::UI::Shell::Properti
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddressPostOfficeBox: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3159257550, data2: 6137, data3: 18645, data4: [190, 233, 2, 29, 240, 234, 84, 9] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddressPostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3788808350,
@@ -1849,13 +1540,11 @@ pub const PKEY_Contact_BusinessAddressPostalCode: super::super::UI::Shell::Prope
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddressState: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1148156031, data2: 4292, data3: 16843, data4: [166, 196, 77, 3, 67, 85, 21, 151] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessAddressStreet: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3721479695,
@@ -1866,7 +1555,6 @@ pub const PKEY_Contact_BusinessAddressStreet: super::super::UI::Shell::Propertie
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessEmailAddresses: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4067542617,
@@ -1877,7 +1565,6 @@ pub const PKEY_Contact_BusinessEmailAddresses: super::super::UI::Shell::Properti
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessFaxNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2448422643,
@@ -1888,7 +1575,6 @@ pub const PKEY_Contact_BusinessFaxNumber: super::super::UI::Shell::PropertiesSys
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessHomePage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1446054176,
@@ -1899,7 +1585,6 @@ pub const PKEY_Contact_BusinessHomePage: super::super::UI::Shell::PropertiesSyst
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_BusinessTelephone: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1779819936,
@@ -1910,7 +1595,6 @@ pub const PKEY_Contact_BusinessTelephone: super::super::UI::Shell::PropertiesSys
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_CallbackTelephone: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3209941443,
@@ -1921,7 +1605,6 @@ pub const PKEY_Contact_CallbackTelephone: super::super::UI::Shell::PropertiesSys
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_CarTelephone: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2413587946,
@@ -1932,7 +1615,6 @@ pub const PKEY_Contact_CarTelephone: super::super::UI::Shell::PropertiesSystem::
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Children: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3564279556,
@@ -1943,7 +1625,6 @@ pub const PKEY_Contact_Children: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_CompanyMainTelephone: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2240406657,
@@ -1954,7 +1635,6 @@ pub const PKEY_Contact_CompanyMainTelephone: super::super::UI::Shell::Properties
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_ConnectedServiceDisplayName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 968326991,
@@ -1965,7 +1645,6 @@ pub const PKEY_Contact_ConnectedServiceDisplayName: super::super::UI::Shell::Pro
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_ConnectedServiceIdentities: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2163482296,
@@ -1976,7 +1655,6 @@ pub const PKEY_Contact_ConnectedServiceIdentities: super::super::UI::Shell::Prop
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_ConnectedServiceName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3049802910,
@@ -1987,13 +1665,11 @@ pub const PKEY_Contact_ConnectedServiceName: super::super::UI::Shell::Properties
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_ConnectedServiceSupportedActions: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2711599017, data2: 587, data3: 17265, data4: [168, 191, 77, 41, 195, 228, 233, 201] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_DataSuppliers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2522923651,
@@ -2004,25 +1680,21 @@ pub const PKEY_Contact_DataSuppliers: super::super::UI::Shell::PropertiesSystem:
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Department: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4238308102, data2: 65423, data3: 19785, data4: [159, 182, 63, 254, 92, 9, 81, 236] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_DisplayBusinessPhoneNumbers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 910174426, data2: 55445, data3: 16894, data4: [165, 132, 48, 43, 27, 183, 10, 118] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_DisplayHomePhoneNumbers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1349041375, data2: 54935, data3: 19845, data4: [140, 83, 31, 28, 218, 176, 23, 99] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_DisplayMobilePhoneNumbers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2628830040,
@@ -2033,13 +1705,11 @@ pub const PKEY_Contact_DisplayMobilePhoneNumbers: super::super::UI::Shell::Prope
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_DisplayOtherPhoneNumbers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 50894963, data2: 36584, data3: 16785, data4: [189, 96, 211, 31, 114, 183, 144, 11] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_EmailAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4177166243,
@@ -2050,7 +1720,6 @@ pub const PKEY_Contact_EmailAddress: super::super::UI::Shell::PropertiesSystem::
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_EmailAddress2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 949375075,
@@ -2061,7 +1730,6 @@ pub const PKEY_Contact_EmailAddress2: super::super::UI::Shell::PropertiesSystem:
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_EmailAddress3: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1682782132,
@@ -2072,7 +1740,6 @@ pub const PKEY_Contact_EmailAddress3: super::super::UI::Shell::PropertiesSystem:
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_EmailAddresses: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2228810551,
@@ -2083,7 +1750,6 @@ pub const PKEY_Contact_EmailAddresses: super::super::UI::Shell::PropertiesSystem
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_EmailName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3429846820,
@@ -2094,7 +1760,6 @@ pub const PKEY_Contact_EmailName: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_FileAsName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4053944999,
@@ -2105,13 +1770,11 @@ pub const PKEY_Contact_FileAsName: super::super::UI::Shell::PropertiesSystem::PR
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_FirstName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 345471044, data2: 27465, data3: 19117, data4: [167, 20, 164, 81, 59, 246, 4, 96] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_FullName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1667141713,
@@ -2122,19 +1785,16 @@ pub const PKEY_Contact_FullName: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Gender: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1015869016, data2: 54512, data3: 19705, data4: [183, 86, 78, 93, 36, 68, 123, 205] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_GenderValue: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1015869016, data2: 54512, data3: 19705, data4: [183, 86, 78, 93, 36, 68, 123, 205] },
     pid: 101u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Hobbies: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1573004607,
@@ -2145,109 +1805,91 @@ pub const PKEY_Contact_Hobbies: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2566488916, data2: 24954, data3: 18104, data4: [133, 96, 91, 27, 100, 191, 31, 137] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress1Country: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 104u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress1Locality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 102u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress1PostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 105u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress1Region: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 103u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress1Street: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 101u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress2Country: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 109u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress2Locality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 107u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress2PostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 110u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress2Region: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 108u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress2Street: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 106u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress3Country: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 114u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress3Locality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 112u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress3PostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 115u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress3Region: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 113u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddress3Street: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 111u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddressCity: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 65u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddressCountry: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 145119905,
@@ -2258,13 +1900,11 @@ pub const PKEY_Contact_HomeAddressCountry: super::super::UI::Shell::PropertiesSy
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddressPostOfficeBox: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2074043289, data2: 2623, data3: 19218, data4: [137, 189, 74, 220, 81, 201, 24, 175] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddressPostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2331820400,
@@ -2275,7 +1915,6 @@ pub const PKEY_Contact_HomeAddressPostalCode: super::super::UI::Shell::Propertie
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddressState: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3365544912,
@@ -2286,13 +1925,11 @@ pub const PKEY_Contact_HomeAddressState: super::super::UI::Shell::PropertiesSyst
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeAddressStreet: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 182382944, data2: 56127, data3: 17160, data4: [154, 33, 6, 35, 123, 22, 250, 42] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeEmailAddresses: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1456017053,
@@ -2303,187 +1940,156 @@ pub const PKEY_Contact_HomeEmailAddresses: super::super::UI::Shell::PropertiesSy
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeFaxNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1712194774, data2: 33195, data3: 18807, data4: [160, 159, 130, 49, 49, 19, 171, 38] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_HomeTelephone: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_IMAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3599613322, data2: 13172, data3: 19329, data4: [153, 114, 62, 195, 6, 130, 219, 61] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Initials: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4091081741, data2: 20683, data3: 17570, data4: [151, 24, 64, 203, 145, 25, 73, 93] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JA_CompanyNamePhonetic: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2306553492, data2: 65182, data3: 17382, data4: [128, 102, 38, 15, 89, 12, 1, 0] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JA_FirstNamePhonetic: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2306553492, data2: 65182, data3: 17382, data4: [128, 102, 38, 15, 89, 12, 1, 0] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JA_LastNamePhonetic: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2306553492, data2: 65182, data3: 17382, data4: [128, 102, 38, 15, 89, 12, 1, 0] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo1CompanyAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 120u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo1CompanyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 102u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo1Department: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 106u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo1Manager: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 105u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo1OfficeLocation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 104u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo1Title: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 103u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo1YomiCompanyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 101u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo2CompanyAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 121u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo2CompanyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 108u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo2Department: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 113u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo2Manager: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 112u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo2OfficeLocation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 110u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo2Title: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 109u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo2YomiCompanyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 107u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo3CompanyAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 123u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo3CompanyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 115u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo3Department: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 119u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo3Manager: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 118u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo3OfficeLocation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 117u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo3Title: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 116u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobInfo3YomiCompanyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 114u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_JobTitle: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Label: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2544938377, data2: 57161, data3: 18892, data4: [131, 78, 102, 9, 116, 253, 117, 91] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_LastName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2402710016,
@@ -2494,7 +2100,6 @@ pub const PKEY_Contact_LastName: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_MailingAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3232505962,
@@ -2505,31 +2110,26 @@ pub const PKEY_Contact_MailingAddress: super::super::UI::Shell::PropertiesSystem
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_MiddleName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 71u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_MobileTelephone: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 35u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_NickName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 74u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OfficeLocation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1350656506,
@@ -2540,97 +2140,81 @@ pub const PKEY_Contact_OtherAddress: super::super::UI::Shell::PropertiesSystem::
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress1Country: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 134u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress1Locality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 132u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress1PostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 135u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress1Region: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 133u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress1Street: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 131u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress2Country: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 139u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress2Locality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 137u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress2PostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 140u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress2Region: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 138u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress2Street: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 136u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress3Country: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 144u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress3Locality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 142u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress3PostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 145u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress3Region: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 143u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddress3Street: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2813785494, data2: 54904, data3: 19393, data4: [176, 95, 2, 3, 210, 126, 138, 161] },
     pid: 141u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddressCity: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1852320035,
@@ -2641,7 +2225,6 @@ pub const PKEY_Contact_OtherAddressCity: super::super::UI::Shell::PropertiesSyst
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddressCountry: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2400613736,
@@ -2652,13 +2235,11 @@ pub const PKEY_Contact_OtherAddressCountry: super::super::UI::Shell::PropertiesS
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddressPostOfficeBox: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2334583361, data2: 1423, data3: 17398, data4: [174, 204, 64, 53, 104, 28, 233, 119] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddressPostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2512803521,
@@ -2669,7 +2250,6 @@ pub const PKEY_Contact_OtherAddressPostalCode: super::super::UI::Shell::Properti
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddressState: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1907587030,
@@ -2680,13 +2260,11 @@ pub const PKEY_Contact_OtherAddressState: super::super::UI::Shell::PropertiesSys
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherAddressStreet: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4288030217, data2: 47062, data3: 18841, data4: [134, 45, 149, 24, 13, 82, 154, 234] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_OtherEmailAddresses: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 299250539,
@@ -2697,7 +2275,6 @@ pub const PKEY_Contact_OtherEmailAddresses: super::super::UI::Shell::PropertiesS
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_PagerTelephone: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3593489921,
@@ -2708,37 +2285,31 @@ pub const PKEY_Contact_PagerTelephone: super::super::UI::Shell::PropertiesSystem
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_PersonalTitle: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 69u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_PhoneNumbersCanonical: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3494040225, data2: 37502, data3: 16565, data4: [165, 3, 110, 219, 212, 42, 81, 126] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Prefix: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 75u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_PrimaryAddressCity: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3370816752, data2: 43491, data3: 18793, data4: [169, 75, 156, 98, 169, 83, 36, 224] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_PrimaryAddressCountry: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3846011293, data2: 3903, data3: 18030, data4: [178, 255, 116, 99, 74, 60, 183, 164] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_PrimaryAddressPostOfficeBox: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3730764743,
@@ -2749,19 +2320,16 @@ pub const PKEY_Contact_PrimaryAddressPostOfficeBox: super::super::UI::Shell::Pro
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_PrimaryAddressPostalCode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 414962725, data2: 60669, data3: 18159, data4: [182, 18, 123, 74, 96, 52, 237, 160] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_PrimaryAddressState: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4044844542, data2: 28984, data3: 17984, data4: [139, 76, 174, 55, 93, 199, 10, 109] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_PrimaryAddressStreet: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1673681696,
@@ -2772,19 +2340,16 @@ pub const PKEY_Contact_PrimaryAddressStreet: super::super::UI::Shell::Properties
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_PrimaryEmailAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 48u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_PrimaryTelephone: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Profession: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1919463253,
@@ -2795,7 +2360,6 @@ pub const PKEY_Contact_Profession: super::super::UI::Shell::PropertiesSystem::PR
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_SpouseName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2636384438,
@@ -2806,25 +2370,21 @@ pub const PKEY_Contact_SpouseName: super::super::UI::Shell::PropertiesSystem::PR
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Suffix: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 393070140, data2: 9864, data3: 20105, data4: [129, 67, 163, 71, 128, 15, 37, 233] },
     pid: 73u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_TTYTDDTelephone: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2867948460, data2: 11093, data3: 17894, data4: [159, 109, 65, 94, 185, 73, 16, 223] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_TelexNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3310635324, data2: 49655, data3: 16577, data4: [167, 108, 239, 140, 6, 20, 0, 62] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_WebPage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -2835,25 +2395,21 @@ pub const PKEY_Contact_WebPage: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Webpage2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 124u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Contact_Webpage3: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 16137688, data2: 8893, data3: 19037, data4: [186, 52, 92, 176, 185, 189, 203, 3] },
     pid: 125u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ContainedItems: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 29u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ContentId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -2864,19 +2420,16 @@ pub const PKEY_ContentId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY
     pid: 132u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ContentStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 27u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ContentType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 26u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ContentUri: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -2887,25 +2440,21 @@ pub const PKEY_ContentUri: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 131u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Copyright: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CreatorAppId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3270116462, data2: 828, data3: 20113, data4: [189, 91, 212, 148, 47, 107, 190, 73] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CreatorOpenWithUIOptions: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3270116462, data2: 828, data3: 20113, data4: [189, 91, 212, 148, 47, 107, 190, 73] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DRM_DatePlayExpires: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2930514404,
@@ -2916,7 +2465,6 @@ pub const PKEY_DRM_DatePlayExpires: super::super::UI::Shell::PropertiesSystem::P
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DRM_DatePlayStarts: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2930514404,
@@ -2927,7 +2475,6 @@ pub const PKEY_DRM_DatePlayStarts: super::super::UI::Shell::PropertiesSystem::PR
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DRM_Description: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2930514404,
@@ -2938,7 +2485,6 @@ pub const PKEY_DRM_Description: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DRM_IsDisabled: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2930514404,
@@ -2949,7 +2495,6 @@ pub const PKEY_DRM_IsDisabled: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DRM_IsProtected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2930514404,
@@ -2960,7 +2505,6 @@ pub const PKEY_DRM_IsProtected: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DRM_PlayCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2930514404,
@@ -2971,31 +2515,26 @@ pub const PKEY_DRM_PlayCount: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DataObjectFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 511812600, data2: 41743, data3: 16967, data4: [185, 238, 29, 3, 104, 169, 66, 92] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DateAccessed: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DateAcquired: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 750430453, data2: 55327, data3: 18378, data4: [177, 122, 248, 216, 34, 48, 1, 49] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DateArchived: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1140381623, data2: 42052, data3: 20359, data4: [147, 131, 82, 39, 28, 155, 145, 92] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DateCompleted: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1929033601,
@@ -3006,25 +2545,21 @@ pub const PKEY_DateCompleted: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DateCreated: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DateImported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 18258u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DateModified: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DefaultSaveLocationDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1568061055,
@@ -3035,109 +2570,91 @@ pub const PKEY_DefaultSaveLocationDisplay: super::super::UI::Shell::PropertiesSy
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DescriptionID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Bluetooth_DeviceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 735477131, data2: 35819, data3: 18645, data4: [135, 224, 108, 218, 52, 40, 4, 10] },
     pid: 1u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Bluetooth_Flags: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 735477131, data2: 35819, data3: 18645, data4: [135, 224, 108, 218, 52, 40, 4, 10] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Bluetooth_LastConnectedTime: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 735477131, data2: 35819, data3: 18645, data4: [135, 224, 108, 218, 52, 40, 4, 10] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Bluetooth_Manufacturer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 735477131, data2: 35819, data3: 18645, data4: [135, 224, 108, 218, 52, 40, 4, 10] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Bluetooth_ModelNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 735477131, data2: 35819, data3: 18645, data4: [135, 224, 108, 218, 52, 40, 4, 10] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Bluetooth_ProductId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 735477131, data2: 35819, data3: 18645, data4: [135, 224, 108, 218, 52, 40, 4, 10] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Bluetooth_ProductVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 735477131, data2: 35819, data3: 18645, data4: [135, 224, 108, 218, 52, 40, 4, 10] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Bluetooth_ServiceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 735477131, data2: 35819, data3: 18645, data4: [135, 224, 108, 218, 52, 40, 4, 10] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Bluetooth_VendorId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 735477131, data2: 35819, data3: 18645, data4: [135, 224, 108, 218, 52, 40, 4, 10] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Bluetooth_VendorIdSource: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 735477131, data2: 35819, data3: 18645, data4: [135, 224, 108, 218, 52, 40, 4, 10] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Hid_IsReadOnly: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Hid_ProductId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Hid_UsageId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Hid_UsagePage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Hid_VendorId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Hid_VersionNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_PrinterDriverDirectory: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2222745310,
@@ -3148,7 +2665,6 @@ pub const PKEY_DeviceInterface_PrinterDriverDirectory: super::super::UI::Shell::
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_PrinterDriverName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2948886896,
@@ -3159,7 +2675,6 @@ pub const PKEY_DeviceInterface_PrinterDriverName: super::super::UI::Shell::Prope
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_PrinterEnumerationFlag: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2684830369,
@@ -3170,13 +2685,11 @@ pub const PKEY_DeviceInterface_PrinterEnumerationFlag: super::super::UI::Shell::
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_PrinterName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 175867119, data2: 3111, data3: 17983, data4: [132, 239, 6, 197, 7, 0, 1, 190] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_PrinterPortName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4006066017,
@@ -3187,13 +2700,11 @@ pub const PKEY_DeviceInterface_PrinterPortName: super::super::UI::Shell::Propert
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Proximity_SupportsNfc: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4214768333, data2: 40490, data3: 20355, data4: [143, 204, 75, 7, 97, 19, 154, 233] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Serial_PortName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1282142556,
@@ -3204,7 +2715,6 @@ pub const PKEY_DeviceInterface_Serial_PortName: super::super::UI::Shell::Propert
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Serial_UsbProductId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1282142556,
@@ -3215,7 +2725,6 @@ pub const PKEY_DeviceInterface_Serial_UsbProductId: super::super::UI::Shell::Pro
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_Serial_UsbVendorId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1282142556,
@@ -3226,73 +2735,61 @@ pub const PKEY_DeviceInterface_Serial_UsbVendorId: super::super::UI::Shell::Prop
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_WinUsb_DeviceInterfaceClasses: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2514560949, data2: 31180, data3: 20099, data4: [156, 158, 132, 34, 24, 123, 62, 14] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_WinUsb_UsbClass: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2514560949, data2: 31180, data3: 20099, data4: [156, 158, 132, 34, 24, 123, 62, 14] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_WinUsb_UsbProductId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2514560949, data2: 31180, data3: 20099, data4: [156, 158, 132, 34, 24, 123, 62, 14] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_WinUsb_UsbProtocol: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2514560949, data2: 31180, data3: 20099, data4: [156, 158, 132, 34, 24, 123, 62, 14] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_WinUsb_UsbSubClass: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2514560949, data2: 31180, data3: 20099, data4: [156, 158, 132, 34, 24, 123, 62, 14] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DeviceInterface_WinUsb_UsbVendorId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2514560949, data2: 31180, data3: 20099, data4: [156, 158, 132, 34, 24, 123, 62, 14] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Device_PrinterURL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 189330266, data2: 48750, data3: 20247, data4: [177, 8, 60, 64, 115, 209, 102, 154] },
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_CanPair: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 196746974, data2: 30054, data3: 20295, data4: [144, 236, 37, 252, 86, 124, 237, 42] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_Categories: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 196746974, data2: 30054, data3: 20295, data4: [144, 236, 37, 252, 86, 124, 237, 42] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_Children: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 196746974, data2: 30054, data3: 20295, data4: [144, 236, 37, 252, 86, 124, 237, 42] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_ContainerId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 196746974, data2: 30054, data3: 20295, data4: [144, 236, 37, 252, 86, 124, 237, 42] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_DialProtocol_InstalledApplications: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3303,43 +2800,36 @@ pub const PKEY_Devices_AepContainer_DialProtocol_InstalledApplications: super::s
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_IsPaired: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 196746974, data2: 30054, data3: 20295, data4: [144, 236, 37, 252, 86, 124, 237, 42] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_IsPresent: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 196746974, data2: 30054, data3: 20295, data4: [144, 236, 37, 252, 86, 124, 237, 42] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_Manufacturer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 196746974, data2: 30054, data3: 20295, data4: [144, 236, 37, 252, 86, 124, 237, 42] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_ModelIds: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 196746974, data2: 30054, data3: 20295, data4: [144, 236, 37, 252, 86, 124, 237, 42] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_ModelName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 196746974, data2: 30054, data3: 20295, data4: [144, 236, 37, 252, 86, 124, 237, 42] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_ProtocolIds: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 196746974, data2: 30054, data3: 20295, data4: [144, 236, 37, 252, 86, 124, 237, 42] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_SupportedUriSchemes: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3350,7 +2840,6 @@ pub const PKEY_Devices_AepContainer_SupportedUriSchemes: super::super::UI::Shell
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_SupportsAudio: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3361,7 +2850,6 @@ pub const PKEY_Devices_AepContainer_SupportsAudio: super::super::UI::Shell::Prop
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_SupportsCapturing: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3372,7 +2860,6 @@ pub const PKEY_Devices_AepContainer_SupportsCapturing: super::super::UI::Shell::
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_SupportsImages: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3383,7 +2870,6 @@ pub const PKEY_Devices_AepContainer_SupportsImages: super::super::UI::Shell::Pro
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_SupportsInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3394,7 +2880,6 @@ pub const PKEY_Devices_AepContainer_SupportsInformation: super::super::UI::Shell
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_SupportsLimitedDiscovery: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3405,7 +2890,6 @@ pub const PKEY_Devices_AepContainer_SupportsLimitedDiscovery: super::super::UI::
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_SupportsNetworking: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3416,7 +2900,6 @@ pub const PKEY_Devices_AepContainer_SupportsNetworking: super::super::UI::Shell:
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_SupportsObjectTransfer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3427,7 +2910,6 @@ pub const PKEY_Devices_AepContainer_SupportsObjectTransfer: super::super::UI::Sh
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_SupportsPositioning: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3438,7 +2920,6 @@ pub const PKEY_Devices_AepContainer_SupportsPositioning: super::super::UI::Shell
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_SupportsRendering: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3449,7 +2930,6 @@ pub const PKEY_Devices_AepContainer_SupportsRendering: super::super::UI::Shell::
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_SupportsTelephony: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3460,7 +2940,6 @@ pub const PKEY_Devices_AepContainer_SupportsTelephony: super::super::UI::Shell::
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepContainer_SupportsVideo: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1794465093,
@@ -3471,7 +2950,6 @@ pub const PKEY_Devices_AepContainer_SupportsVideo: super::super::UI::Shell::Prop
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepService_AepId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3384885673,
@@ -3482,7 +2960,6 @@ pub const PKEY_Devices_AepService_AepId: super::super::UI::Shell::PropertiesSyst
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepService_Bluetooth_CacheMode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2537828638,
@@ -3493,7 +2970,6 @@ pub const PKEY_Devices_AepService_Bluetooth_CacheMode: super::super::UI::Shell::
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepService_Bluetooth_ServiceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2744756935,
@@ -3504,7 +2980,6 @@ pub const PKEY_Devices_AepService_Bluetooth_ServiceGuid: super::super::UI::Shell
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepService_Bluetooth_TargetDevice: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2537828638,
@@ -3515,7 +2990,6 @@ pub const PKEY_Devices_AepService_Bluetooth_TargetDevice: super::super::UI::Shel
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepService_ContainerId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1903314774,
@@ -3526,7 +3000,6 @@ pub const PKEY_Devices_AepService_ContainerId: super::super::UI::Shell::Properti
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepService_FriendlyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1903314774,
@@ -3537,7 +3010,6 @@ pub const PKEY_Devices_AepService_FriendlyName: super::super::UI::Shell::Propert
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepService_IoT_ServiceInterfaces: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2044284546,
@@ -3548,7 +3020,6 @@ pub const PKEY_Devices_AepService_IoT_ServiceInterfaces: super::super::UI::Shell
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepService_ParentAepIsPaired: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3384885673,
@@ -3559,7 +3030,6 @@ pub const PKEY_Devices_AepService_ParentAepIsPaired: super::super::UI::Shell::Pr
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepService_ProtocolId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3384885673,
@@ -3570,7 +3040,6 @@ pub const PKEY_Devices_AepService_ProtocolId: super::super::UI::Shell::Propertie
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepService_ServiceClassId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1903314774,
@@ -3581,7 +3050,6 @@ pub const PKEY_Devices_AepService_ServiceClassId: super::super::UI::Shell::Prope
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AepService_ServiceId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3384885673,
@@ -3592,7 +3060,6 @@ pub const PKEY_Devices_AepService_ServiceId: super::super::UI::Shell::Properties
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_AepId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 992796678,
@@ -3603,7 +3070,6 @@ pub const PKEY_Devices_Aep_AepId: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Cod_Major: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1606235341,
@@ -3614,7 +3080,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Cod_Major: super::super::UI::Shell::Propert
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Cod_Minor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1606235341,
@@ -3625,7 +3090,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Cod_Minor: super::super::UI::Shell::Propert
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Audio: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1606235341,
@@ -3636,7 +3100,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Audio: super::super::UI::Shell
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Capturing: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1606235341,
@@ -3647,7 +3110,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Capturing: super::super::UI::S
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Information: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1606235341,
@@ -3658,7 +3120,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Information: super::super::UI:
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_LimitedDiscovery: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1606235341,
@@ -3669,7 +3130,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_LimitedDiscovery: super::super
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Networking: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1606235341,
@@ -3680,7 +3140,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Networking: super::super::UI::
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_ObjectXfer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1606235341,
@@ -3691,7 +3150,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_ObjectXfer: super::super::UI::
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Positioning: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1606235341,
@@ -3702,7 +3160,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Positioning: super::super::UI:
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Rendering: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1606235341,
@@ -3713,7 +3170,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Rendering: super::super::UI::S
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Telephony: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1606235341,
@@ -3724,13 +3180,11 @@ pub const PKEY_Devices_Aep_Bluetooth_Cod_Services_Telephony: super::super::UI::S
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_LastSeenTime: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 735477131, data2: 35819, data3: 18645, data4: [135, 224, 108, 218, 52, 40, 4, 10] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Le_AddressType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2573136048,
@@ -3741,7 +3195,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Le_AddressType: super::super::UI::Shell::Pr
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Le_Appearance: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2573136048,
@@ -3752,7 +3205,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Le_Appearance: super::super::UI::Shell::Pro
     pid: 1u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Le_Appearance_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2573136048,
@@ -3763,7 +3215,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Le_Appearance_Category: super::super::UI::S
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Le_Appearance_Subcategory: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2573136048,
@@ -3774,7 +3225,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Le_Appearance_Subcategory: super::super::UI
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Bluetooth_Le_IsConnectable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2573136048,
@@ -3785,7 +3235,6 @@ pub const PKEY_Devices_Aep_Bluetooth_Le_IsConnectable: super::super::UI::Shell::
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_CanPair: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3888380713,
@@ -3796,7 +3245,6 @@ pub const PKEY_Devices_Aep_CanPair: super::super::UI::Shell::PropertiesSystem::P
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2740557483,
@@ -3807,7 +3255,6 @@ pub const PKEY_Devices_Aep_Category: super::super::UI::Shell::PropertiesSystem::
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_ContainerId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3888380713,
@@ -3818,7 +3265,6 @@ pub const PKEY_Devices_Aep_ContainerId: super::super::UI::Shell::PropertiesSyste
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_DeviceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2740557483,
@@ -3829,7 +3275,6 @@ pub const PKEY_Devices_Aep_DeviceAddress: super::super::UI::Shell::PropertiesSys
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2740557483,
@@ -3840,7 +3285,6 @@ pub const PKEY_Devices_Aep_IsConnected: super::super::UI::Shell::PropertiesSyste
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_IsPaired: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2740557483,
@@ -3851,7 +3295,6 @@ pub const PKEY_Devices_Aep_IsPaired: super::super::UI::Shell::PropertiesSystem::
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_IsPresent: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2740557483,
@@ -3862,7 +3305,6 @@ pub const PKEY_Devices_Aep_IsPresent: super::super::UI::Shell::PropertiesSystem:
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_Manufacturer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2740557483,
@@ -3873,7 +3315,6 @@ pub const PKEY_Devices_Aep_Manufacturer: super::super::UI::Shell::PropertiesSyst
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_ModelId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2740557483,
@@ -3884,7 +3325,6 @@ pub const PKEY_Devices_Aep_ModelId: super::super::UI::Shell::PropertiesSystem::P
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_ModelName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2740557483,
@@ -3895,7 +3335,6 @@ pub const PKEY_Devices_Aep_ModelName: super::super::UI::Shell::PropertiesSystem:
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_PointOfService_ConnectionTypes: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3569312179,
@@ -3906,7 +3345,6 @@ pub const PKEY_Devices_Aep_PointOfService_ConnectionTypes: super::super::UI::She
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_ProtocolId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 992796678,
@@ -3917,7 +3355,6 @@ pub const PKEY_Devices_Aep_ProtocolId: super::super::UI::Shell::PropertiesSystem
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Aep_SignalStrength: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2740557483,
@@ -3928,13 +3365,11 @@ pub const PKEY_Devices_Aep_SignalStrength: super::super::UI::Shell::PropertiesSy
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AppPackageFamilyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1361274243, data2: 3146, data3: 20456, data4: [184, 31, 22, 106, 236, 19, 245, 16] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AudioDevice_Microphone_IsFarField: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2302915443,
@@ -3945,7 +3380,6 @@ pub const PKEY_Devices_AudioDevice_Microphone_IsFarField: super::super::UI::Shel
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AudioDevice_Microphone_SensitivityInDbfs: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2302915443,
@@ -3956,7 +3390,6 @@ pub const PKEY_Devices_AudioDevice_Microphone_SensitivityInDbfs: super::super::U
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AudioDevice_Microphone_SensitivityInDbfs2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2302915443,
@@ -3967,7 +3400,6 @@ pub const PKEY_Devices_AudioDevice_Microphone_SensitivityInDbfs2: super::super::
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AudioDevice_Microphone_SignalToNoiseRatioInDb: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2302915443,
@@ -3978,7 +3410,6 @@ pub const PKEY_Devices_AudioDevice_Microphone_SignalToNoiseRatioInDb: super::sup
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AudioDevice_RawProcessingSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2302915443,
@@ -3989,55 +3420,46 @@ pub const PKEY_Devices_AudioDevice_RawProcessingSupported: super::super::UI::She
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_AudioDevice_SpeechProcessingSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4213041252, data2: 57453, data3: 18420, data4: [130, 166, 138, 10, 239, 68, 73, 60] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_BatteryLife: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_BatteryPlusCharging: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 22u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_BatteryPlusChargingText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 91u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_CategoryGroup: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 94u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_CategoryIds: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 90u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_CategoryPlural: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 92u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_ChallengeAep: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 125055326,
@@ -4048,13 +3470,11 @@ pub const PKEY_Devices_ChallengeAep: super::super::UI::Shell::PropertiesSystem::
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_ChargingState: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Children: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1128310469,
@@ -4065,7 +3485,6 @@ pub const PKEY_Devices_Children: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_ClassGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2757502286,
@@ -4076,7 +3495,6 @@ pub const PKEY_Devices_ClassGuid: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_CompatibleIds: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2757502286,
@@ -4087,13 +3505,11 @@ pub const PKEY_Devices_CompatibleIds: super::super::UI::Shell::PropertiesSystem:
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Connected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 55u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_ContainerId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2357121542,
@@ -4104,7 +3520,6 @@ pub const PKEY_Devices_ContainerId: super::super::UI::Shell::PropertiesSystem::P
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_DefaultTooltip: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2282713250,
@@ -4115,7 +3530,6 @@ pub const PKEY_Devices_DefaultTooltip: super::super::UI::Shell::PropertiesSystem
     pid: 153u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_DevObjectType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 325533506,
@@ -4126,7 +3540,6 @@ pub const PKEY_Devices_DevObjectType: super::super::UI::Shell::PropertiesSystem:
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_DeviceCapabilities: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2757502286,
@@ -4137,7 +3550,6 @@ pub const PKEY_Devices_DeviceCapabilities: super::super::UI::Shell::PropertiesSy
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_DeviceCharacteristics: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2757502286,
@@ -4148,19 +3560,16 @@ pub const PKEY_Devices_DeviceCharacteristics: super::super::UI::Shell::Propertie
     pid: 29u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_DeviceDescription1: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 81u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_DeviceDescription2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 82u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_DeviceHasProblem: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1410045054,
@@ -4171,13 +3580,11 @@ pub const PKEY_Devices_DeviceHasProblem: super::super::UI::Shell::PropertiesSyst
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_DeviceInstanceId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 256u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_DeviceManufacturer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2757502286,
@@ -4188,7 +3595,6 @@ pub const PKEY_Devices_DeviceManufacturer: super::super::UI::Shell::PropertiesSy
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_DialProtocol_InstalledApplications: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1749404786,
@@ -4199,79 +3605,66 @@ pub const PKEY_Devices_DialProtocol_InstalledApplications: super::super::UI::She
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_DiscoveryMethod: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 52u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Dnssd_Domain: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3212427435, data2: 47988, data3: 19694, data4: [176, 112, 71, 11, 90, 226, 2, 234] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Dnssd_FullName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3212427435, data2: 47988, data3: 19694, data4: [176, 112, 71, 11, 90, 226, 2, 234] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Dnssd_HostName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3212427435, data2: 47988, data3: 19694, data4: [176, 112, 71, 11, 90, 226, 2, 234] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Dnssd_InstanceName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3212427435, data2: 47988, data3: 19694, data4: [176, 112, 71, 11, 90, 226, 2, 234] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Dnssd_NetworkAdapterId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3212427435, data2: 47988, data3: 19694, data4: [176, 112, 71, 11, 90, 226, 2, 234] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Dnssd_PortNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3212427435, data2: 47988, data3: 19694, data4: [176, 112, 71, 11, 90, 226, 2, 234] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Dnssd_Priority: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3212427435, data2: 47988, data3: 19694, data4: [176, 112, 71, 11, 90, 226, 2, 234] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Dnssd_ServiceName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3212427435, data2: 47988, data3: 19694, data4: [176, 112, 71, 11, 90, 226, 2, 234] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Dnssd_TextAttributes: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3212427435, data2: 47988, data3: 19694, data4: [176, 112, 71, 11, 90, 226, 2, 234] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Dnssd_Ttl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3212427435, data2: 47988, data3: 19694, data4: [176, 112, 71, 11, 90, 226, 2, 234] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Dnssd_Weight: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3212427435, data2: 47988, data3: 19694, data4: [176, 112, 71, 11, 90, 226, 2, 234] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_FriendlyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1701460915,
@@ -4282,7 +3675,6 @@ pub const PKEY_Devices_FriendlyName: super::super::UI::Shell::PropertiesSystem::
     pid: 12288u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_FunctionPaths: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3498955968,
@@ -4293,13 +3685,11 @@ pub const PKEY_Devices_FunctionPaths: super::super::UI::Shell::PropertiesSystem:
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_GlyphIcon: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1361274243, data2: 3146, data3: 20456, data4: [184, 31, 22, 106, 236, 19, 245, 16] },
     pid: 123u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_HardwareIds: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2757502286,
@@ -4310,13 +3700,11 @@ pub const PKEY_Devices_HardwareIds: super::super::UI::Shell::PropertiesSystem::P
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Icon: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 57u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_InLocalMachineContainer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2357121542,
@@ -4327,19 +3715,16 @@ pub const PKEY_Devices_InLocalMachineContainer: super::super::UI::Shell::Propert
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_InterfaceClassGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 40784238, data2: 47124, data3: 16715, data4: [131, 205, 133, 109, 111, 239, 72, 34] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_InterfaceEnabled: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 40784238, data2: 47124, data3: 16715, data4: [131, 205, 133, 109, 111, 239, 72, 34] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_InterfacePaths: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3498955968,
@@ -4350,7 +3735,6 @@ pub const PKEY_Devices_InterfacePaths: super::super::UI::Shell::PropertiesSystem
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_IpAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1701460915,
@@ -4361,43 +3745,36 @@ pub const PKEY_Devices_IpAddress: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 12297u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_IsDefault: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 86u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_IsNetworkConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 85u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_IsShared: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 84u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_IsSoftwareInstalling: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2212127526, data2: 38822, data3: 16520, data4: [148, 83, 161, 146, 63, 87, 59, 41] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_LaunchDeviceStageFromExplorer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 77u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_LocalMachine: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 70u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_LocationPaths: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2757502286,
@@ -4408,7 +3785,6 @@ pub const PKEY_Devices_LocationPaths: super::super::UI::Shell::PropertiesSystem:
     pid: 37u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Manufacturer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1701460915,
@@ -4419,13 +3795,11 @@ pub const PKEY_Devices_Manufacturer: super::super::UI::Shell::PropertiesSystem::
     pid: 8192u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_MetadataPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 71u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_MicrophoneArray_Geometry: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2709692066,
@@ -4436,19 +3810,16 @@ pub const PKEY_Devices_MicrophoneArray_Geometry: super::super::UI::Shell::Proper
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_MissedCalls: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_ModelId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2161647270, data2: 29811, data3: 19212, data4: [130, 22, 239, 193, 26, 44, 76, 139] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_ModelName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1701460915,
@@ -4459,7 +3830,6 @@ pub const PKEY_Devices_ModelName: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 8194u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_ModelNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1701460915,
@@ -4470,19 +3840,16 @@ pub const PKEY_Devices_ModelNumber: super::super::UI::Shell::PropertiesSystem::P
     pid: 8195u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_NetworkName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_NetworkType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_NetworkedTooltip: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2282713250,
@@ -4493,19 +3860,16 @@ pub const PKEY_Devices_NetworkedTooltip: super::super::UI::Shell::PropertiesSyst
     pid: 152u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_NewPictures: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_NotWorkingProperly: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 83u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Notification: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 108022540,
@@ -4516,7 +3880,6 @@ pub const PKEY_Devices_Notification: super::super::UI::Shell::PropertiesSystem::
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_NotificationStore: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 108022540,
@@ -4527,13 +3890,11 @@ pub const PKEY_Devices_NotificationStore: super::super::UI::Shell::PropertiesSys
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Notifications_LowBattery: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3300949803, data2: 34084, data3: 20070, data4: [174, 58, 166, 35, 95, 16, 59, 235] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Notifications_MissedCall: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1712648008,
@@ -4544,13 +3905,11 @@ pub const PKEY_Devices_Notifications_MissedCall: super::super::UI::Shell::Proper
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Notifications_NewMessage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 736699914, data2: 8210, data3: 18242, data4: [165, 85, 244, 27, 99, 139, 125, 203] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Notifications_NewVoicemail: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1498846550,
@@ -4561,7 +3920,6 @@ pub const PKEY_Devices_Notifications_NewVoicemail: super::super::UI::Shell::Prop
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Notifications_StorageFull: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2699038433,
@@ -4572,7 +3930,6 @@ pub const PKEY_Devices_Notifications_StorageFull: super::super::UI::Shell::Prope
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Notifications_StorageFullLinkText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2699038433,
@@ -4583,13 +3940,11 @@ pub const PKEY_Devices_Notifications_StorageFullLinkText: super::super::UI::Shel
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Paired: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2026065864, data2: 4170, data3: 19146, data4: [158, 164, 82, 77, 82, 153, 110, 87] },
     pid: 56u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Panel_PanelGroup: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2377948294,
@@ -4600,7 +3955,6 @@ pub const PKEY_Devices_Panel_PanelGroup: super::super::UI::Shell::PropertiesSyst
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Panel_PanelId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2377948294,
@@ -4611,7 +3965,6 @@ pub const PKEY_Devices_Panel_PanelId: super::super::UI::Shell::PropertiesSystem:
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Parent: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1128310469,
@@ -4622,7 +3975,6 @@ pub const PKEY_Devices_Parent: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_PhoneLineTransportDevice_Connected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2932813800,
@@ -4633,7 +3985,6 @@ pub const PKEY_Devices_PhoneLineTransportDevice_Connected: super::super::UI::She
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_PhysicalDeviceLocation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1410045054,
@@ -4644,7 +3995,6 @@ pub const PKEY_Devices_PhysicalDeviceLocation: super::super::UI::Shell::Properti
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_PlaybackPositionPercent: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 909368921,
@@ -4655,7 +4005,6 @@ pub const PKEY_Devices_PlaybackPositionPercent: super::super::UI::Shell::Propert
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_PlaybackState: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 909368921,
@@ -4666,7 +4015,6 @@ pub const PKEY_Devices_PlaybackState: super::super::UI::Shell::PropertiesSystem:
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_PlaybackTitle: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 909368921,
@@ -4677,7 +4025,6 @@ pub const PKEY_Devices_PlaybackTitle: super::super::UI::Shell::PropertiesSystem:
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Present: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1410045054,
@@ -4688,7 +4035,6 @@ pub const PKEY_Devices_Present: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_PresentationUrl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1701460915,
@@ -4699,7 +4045,6 @@ pub const PKEY_Devices_PresentationUrl: super::super::UI::Shell::PropertiesSyste
     pid: 8198u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_PrimaryCategory: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3498955968,
@@ -4710,7 +4055,6 @@ pub const PKEY_Devices_PrimaryCategory: super::super::UI::Shell::PropertiesSyste
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_RemainingDuration: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 909368921,
@@ -4721,19 +4065,16 @@ pub const PKEY_Devices_RemainingDuration: super::super::UI::Shell::PropertiesSys
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_RestrictedInterface: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 40784238, data2: 47124, data3: 16715, data4: [131, 205, 133, 109, 111, 239, 72, 34] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Roaming: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_SafeRemovalRequired: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2950264384,
@@ -4744,13 +4085,11 @@ pub const PKEY_Devices_SafeRemovalRequired: super::super::UI::Shell::PropertiesS
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_SchematicName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 40784238, data2: 47124, data3: 16715, data4: [131, 205, 133, 109, 111, 239, 72, 34] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_ServiceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1701460915,
@@ -4761,7 +4100,6 @@ pub const PKEY_Devices_ServiceAddress: super::super::UI::Shell::PropertiesSystem
     pid: 16384u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_ServiceId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1701460915,
@@ -4772,7 +4110,6 @@ pub const PKEY_Devices_ServiceId: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 16385u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_SharedTooltip: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2282713250,
@@ -4783,13 +4120,11 @@ pub const PKEY_Devices_SharedTooltip: super::super::UI::Shell::PropertiesSystem:
     pid: 151u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_SignalStrength: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_SmartCards_ReaderKind: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3602233475,
@@ -4800,7 +4135,6 @@ pub const PKEY_Devices_SmartCards_ReaderKind: super::super::UI::Shell::Propertie
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Status: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3498955968,
@@ -4811,7 +4145,6 @@ pub const PKEY_Devices_Status: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 259u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Status1: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3498955968,
@@ -4822,7 +4155,6 @@ pub const PKEY_Devices_Status1: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 257u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Status2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3498955968,
@@ -4833,37 +4165,31 @@ pub const PKEY_Devices_Status2: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 258u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_StorageCapacity: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_StorageFreeSpace: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_StorageFreeSpacePercent: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_TextMessages: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Voicemail: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1238179702, data2: 22054, data3: 19223, data4: [164, 232, 24, 180, 170, 26, 34, 19] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirectServices_AdvertisementId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 833845059,
@@ -4874,7 +4200,6 @@ pub const PKEY_Devices_WiFiDirectServices_AdvertisementId: super::super::UI::She
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirectServices_RequestServiceInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 833845059,
@@ -4885,7 +4210,6 @@ pub const PKEY_Devices_WiFiDirectServices_RequestServiceInformation: super::supe
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirectServices_ServiceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 833845059,
@@ -4896,7 +4220,6 @@ pub const PKEY_Devices_WiFiDirectServices_ServiceAddress: super::super::UI::Shel
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirectServices_ServiceConfigMethods: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 833845059,
@@ -4907,7 +4230,6 @@ pub const PKEY_Devices_WiFiDirectServices_ServiceConfigMethods: super::super::UI
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirectServices_ServiceInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 833845059,
@@ -4918,7 +4240,6 @@ pub const PKEY_Devices_WiFiDirectServices_ServiceInformation: super::super::UI::
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirectServices_ServiceName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 833845059,
@@ -4929,79 +4250,66 @@ pub const PKEY_Devices_WiFiDirectServices_ServiceName: super::super::UI::Shell::
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirect_DeviceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirect_GroupId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirect_InformationElements: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirect_InterfaceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirect_InterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirect_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirect_IsLegacyDevice: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirect_IsMiracastLcpSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirect_IsVisible: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirect_MiracastVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirect_Services: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFiDirect_SupportedChannelList: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiFi_InterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4010895339,
@@ -5012,13 +4320,11 @@ pub const PKEY_Devices_WiFi_InterfaceGuid: super::super::UI::Shell::PropertiesSy
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WiaDeviceType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1809653702, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_WinPhone8CameraFlags: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3082081820,
@@ -5029,7 +4335,6 @@ pub const PKEY_Devices_WinPhone8CameraFlags: super::super::UI::Shell::Properties
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Devices_Wwan_InterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4279330795,
@@ -5040,49 +4345,41 @@ pub const PKEY_Devices_Wwan_InterfaceGuid: super::super::UI::Shell::PropertiesSy
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_ByteCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_CharacterCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_ClientID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 661486512, data2: 23348, data3: 20400, data4: [170, 75, 21, 142, 209, 42, 24, 9] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_Contributor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4080275806, data2: 55835, data3: 17673, data4: [155, 61, 17, 149, 4, 220, 122, 187] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_DateCreated: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_DatePrinted: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_DateSaved: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_Division: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 503340774,
@@ -5093,7 +4390,6 @@ pub const PKEY_Document_Division: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_DocumentID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3767010760,
@@ -5104,103 +4400,86 @@ pub const PKEY_Document_DocumentID: super::super::UI::Shell::PropertiesSystem::P
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_HiddenSlideCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_LastAuthor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_LineCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_Manager: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_MultimediaClipCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_NoteCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_PageCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_ParagraphCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_PresentationFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_RevisionNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_Security: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_SlideCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_Template: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_TotalEditingTime: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_Version: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 29u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Document_WordCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_DueDate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1065644725,
@@ -5211,7 +4490,6 @@ pub const PKEY_DueDate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY =
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_EdgeGesture_DisableTouchWhenFullscreen: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 852375730,
@@ -5222,7 +4500,6 @@ pub const PKEY_EdgeGesture_DisableTouchWhenFullscreen: super::super::UI::Shell::
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_EndDate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3344935429,
@@ -5233,37 +4510,31 @@ pub const PKEY_EndDate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY =
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ExpandoProperties: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1872891366, data2: 53532, data3: 19869, data4: [161, 84, 100, 49, 118, 40, 193, 45] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FileAllocationSize: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FileAttributes: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FileCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FileDescription: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 217021779, data2: 64100, data3: 4561, data4: [162, 3, 0, 0, 248, 31, 237, 238] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FileExtension: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3841002044,
@@ -5274,13 +4545,11 @@ pub const PKEY_FileExtension: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FileFRN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FileName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1104108256,
@@ -5291,7 +4560,6 @@ pub const PKEY_FileName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY 
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FileOfflineAvailabilityStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -5302,13 +4570,11 @@ pub const PKEY_FileOfflineAvailabilityStatus: super::super::UI::Shell::Propertie
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FileOwner: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2601995060, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FilePlaceholderStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3002710486,
@@ -5319,25 +4585,21 @@ pub const PKEY_FilePlaceholderStatus: super::super::UI::Shell::PropertiesSystem:
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FileVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 217021779, data2: 64100, data3: 4561, data4: [162, 3, 0, 0, 248, 31, 237, 238] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FindData: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FlagColor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1742705886, data2: 3239, data3: 19823, data4: [183, 146, 5, 58, 62, 79, 3, 207] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FlagColorText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1173022535,
@@ -5348,7 +4610,6 @@ pub const PKEY_FlagColorText: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FlagStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -5359,13 +4620,11 @@ pub const PKEY_FlagStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FlagStatusText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3696557358, data2: 6301, data3: 18545, data4: [170, 1, 8, 194, 245, 122, 74, 188] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FolderKind: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -5376,25 +4635,21 @@ pub const PKEY_FolderKind: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 101u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FolderNameDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FreeSpace: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2601995061, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_FullText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 507439168, data2: 48171, data3: 18284, data4: [130, 55, 42, 205, 26, 131, 155, 34] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_Altitude: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2189351759,
@@ -5405,7 +4660,6 @@ pub const PKEY_GPS_Altitude: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_AltitudeDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2016685515,
@@ -5416,7 +4670,6 @@ pub const PKEY_GPS_AltitudeDenominator: super::super::UI::Shell::PropertiesSyste
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_AltitudeNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 766320311,
@@ -5427,13 +4680,11 @@ pub const PKEY_GPS_AltitudeNumerator: super::super::UI::Shell::PropertiesSystem:
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_AltitudeRef: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1185702557, data2: 30186, data3: 17685, data4: [134, 127, 109, 196, 50, 28, 88, 68] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_AreaInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2536387390,
@@ -5444,19 +4695,16 @@ pub const PKEY_GPS_AreaInformation: super::super::UI::Shell::PropertiesSystem::P
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DOP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 217643778, data2: 6199, data3: 17137, data4: [166, 151, 167, 1, 122, 162, 137, 185] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DOPDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2696844485, data2: 20666, data3: 18555, data4: [189, 53, 6, 84, 190, 136, 129, 237] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DOPNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1192651542,
@@ -5467,13 +4715,11 @@ pub const PKEY_GPS_DOPNumerator: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_Date: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 906151954, data2: 3899, data3: 17904, data4: [133, 173, 96, 52, 104, 214, 148, 35] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestBearing: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3329051452,
@@ -5484,7 +4730,6 @@ pub const PKEY_GPS_DestBearing: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestBearingDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2059203832,
@@ -5495,7 +4740,6 @@ pub const PKEY_GPS_DestBearingDenominator: super::super::UI::Shell::PropertiesSy
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestBearingNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3124436393,
@@ -5506,7 +4750,6 @@ pub const PKEY_GPS_DestBearingNumerator: super::super::UI::Shell::PropertiesSyst
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestBearingRef: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2595767187,
@@ -5517,13 +4760,11 @@ pub const PKEY_GPS_DestBearingRef: super::super::UI::Shell::PropertiesSystem::PR
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestDistance: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2839457284, data2: 26628, data3: 20260, data4: [172, 129, 9, 178, 102, 69, 33, 24] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestDistanceDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2613234075,
@@ -5534,13 +4775,11 @@ pub const PKEY_GPS_DestDistanceDenominator: super::super::UI::Shell::PropertiesS
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestDistanceNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 735725530, data2: 2246, data3: 20449, data4: [128, 188, 167, 47, 197, 23, 197, 208] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestDistanceRef: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3981308627,
@@ -5551,7 +4790,6 @@ pub const PKEY_GPS_DestDistanceRef: super::super::UI::Shell::PropertiesSystem::P
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestLatitude: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2635955397,
@@ -5562,7 +4800,6 @@ pub const PKEY_GPS_DestLatitude: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestLatitudeDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 976691858,
@@ -5573,7 +4810,6 @@ pub const PKEY_GPS_DestLatitudeDenominator: super::super::UI::Shell::PropertiesS
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestLatitudeNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3975460598,
@@ -5584,13 +4820,11 @@ pub const PKEY_GPS_DestLatitudeNumerator: super::super::UI::Shell::PropertiesSys
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestLatitudeRef: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3467124921, data2: 52833, data3: 18565, data4: [161, 40, 0, 93, 144, 135, 193, 146] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestLongitude: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1202283105,
@@ -5601,7 +4835,6 @@ pub const PKEY_GPS_DestLongitude: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestLongitudeDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1113418213,
@@ -5612,7 +4845,6 @@ pub const PKEY_GPS_DestLongitudeDenominator: super::super::UI::Shell::Properties
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestLongitudeNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2737111682,
@@ -5623,13 +4855,11 @@ pub const PKEY_GPS_DestLongitudeNumerator: super::super::UI::Shell::PropertiesSy
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_DestLongitudeRef: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 405544614, data2: 31772, data3: 16515, data4: [171, 75, 172, 108, 159, 78, 209, 40] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_Differential: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2868178469,
@@ -5640,7 +4870,6 @@ pub const PKEY_GPS_Differential: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_ImgDirection: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 373767313,
@@ -5651,19 +4880,16 @@ pub const PKEY_GPS_ImgDirection: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_ImgDirectionDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 280118677, data2: 16802, data3: 20000, data4: [147, 194, 87, 97, 193, 57, 95, 50] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_ImgDirectionNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3696785351, data2: 8799, data3: 17911, data4: [186, 199, 232, 19, 52, 182, 19, 10] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_ImgDirectionRef: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2762646967,
@@ -5674,7 +4900,6 @@ pub const PKEY_GPS_ImgDirectionRef: super::super::UI::Shell::PropertiesSystem::P
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_Latitude: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2267533311,
@@ -5685,19 +4910,16 @@ pub const PKEY_GPS_Latitude: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_LatitudeDecimal: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 257281506, data2: 20297, data3: 17677, data4: [146, 193, 220, 209, 99, 1, 177, 183] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_LatitudeDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 384185582, data2: 11263, data3: 18811, data4: [189, 138, 67, 65, 173, 57, 238, 185] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_LatitudeNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2111482577,
@@ -5708,7 +4930,6 @@ pub const PKEY_GPS_LatitudeNumerator: super::super::UI::Shell::PropertiesSystem:
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_LatitudeRef: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 43778642,
@@ -5719,7 +4940,6 @@ pub const PKEY_GPS_LatitudeRef: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_Longitude: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3301235634,
@@ -5730,13 +4950,11 @@ pub const PKEY_GPS_Longitude: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_LongitudeDecimal: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1182384565, data2: 33869, data3: 17808, data4: [186, 245, 243, 34, 35, 31, 27, 129] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_LongitudeDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3194885996,
@@ -5747,19 +4965,16 @@ pub const PKEY_GPS_LongitudeDenominator: super::super::UI::Shell::PropertiesSyst
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_LongitudeNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 45151881, data2: 43284, data3: 20037, data4: [130, 29, 29, 218, 69, 46, 210, 196] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_LongitudeRef: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 870117931, data2: 10453, data3: 17996, data4: [128, 53, 30, 233, 239, 210, 82, 120] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_MapDatum: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 748870374,
@@ -5770,43 +4985,36 @@ pub const PKEY_GPS_MapDatum: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_MeasureMode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2685791581, data2: 43754, data3: 19800, data4: [138, 134, 60, 88, 105, 32, 234, 11] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_ProcessingMethod: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1507106401, data2: 33807, data3: 19113, data4: [169, 57, 226, 9, 155, 127, 99, 153] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_Satellites: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1182721397, data2: 7973, data3: 17751, data4: [173, 78, 184, 181, 139, 13, 156, 21] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_Speed: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3663530082, data2: 28278, data3: 19995, data4: [186, 189, 112, 2, 27, 210, 84, 148] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_SpeedDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2098343258, data2: 44638, data3: 17205, data4: [136, 65, 215, 30, 124, 231, 47, 83] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_SpeedNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2898906685, data2: 49683, data3: 18754, data4: [139, 72, 109, 8, 32, 242, 28, 109] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_SpeedRef: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3975673033,
@@ -5817,13 +5025,11 @@ pub const PKEY_GPS_SpeedRef: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_Status: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 307532276, data2: 33167, data3: 18098, data4: [145, 181, 213, 55, 117, 54, 23, 178] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_Track: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1992333635,
@@ -5834,19 +5040,16 @@ pub const PKEY_GPS_Track: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_TrackDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3369177612, data2: 502, data3: 16576, data4: [172, 134, 47, 58, 74, 208, 7, 112] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_TrackNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1881745140, data2: 17574, data3: 17377, data4: [174, 113, 69, 98, 113, 22, 137, 59] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_TrackRef: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 903603966,
@@ -5857,7 +5060,6 @@ pub const PKEY_GPS_TrackRef: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_GPS_VersionID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 577785252,
@@ -5868,13 +5070,11 @@ pub const PKEY_GPS_VersionID: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_HighKeywords: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_History_SelectionCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 484497084,
@@ -5885,7 +5085,6 @@ pub const PKEY_History_SelectionCount: super::super::UI::Shell::PropertiesSystem
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_History_TargetUrlHostName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 484497084,
@@ -5896,25 +5095,21 @@ pub const PKEY_History_TargetUrlHostName: super::super::UI::Shell::PropertiesSys
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_History_VisitCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1556031367, data2: 18639, data3: 16904, data4: [185, 14, 238, 94, 93, 66, 2, 148] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2725202684, data2: 29510, data3: 17049, data4: [190, 71, 235, 26, 230, 19, 19, 159] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IdentityProvider_Name: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3111059323, data2: 13770, data3: 18997, data4: [134, 7, 41, 227, 165, 76, 70, 234] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IdentityProvider_Picture: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 606410351,
@@ -5925,13 +5120,11 @@ pub const PKEY_IdentityProvider_Picture: super::super::UI::Shell::PropertiesSyst
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_Blob: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2352714660, data2: 47853, data3: 6787, data4: [154, 50, 16, 46, 227, 19, 246, 235] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_DisplayName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2103984073,
@@ -5942,13 +5135,11 @@ pub const PKEY_Identity_DisplayName: super::super::UI::Shell::PropertiesSystem::
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_InternetSid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1835883849, data2: 9821, data3: 18056, data4: [159, 78, 31, 221, 51, 231, 204, 131] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_IsMeIdentity: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2752546568,
@@ -5959,25 +5150,21 @@ pub const PKEY_Identity_IsMeIdentity: super::super::UI::Shell::PropertiesSystem:
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_KeyProviderContext: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2725202684, data2: 29510, data3: 17049, data4: [190, 71, 235, 26, 230, 19, 19, 159] },
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_KeyProviderName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2725202684, data2: 29510, data3: 17049, data4: [190, 71, 235, 26, 230, 19, 19, 159] },
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_LogonStatusString: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4052610547, data2: 13183, data3: 17088, data4: [158, 3, 206, 224, 135, 8, 168, 195] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_PrimaryEmailAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4240533539,
@@ -5988,7 +5175,6 @@ pub const PKEY_Identity_PrimaryEmailAddress: super::super::UI::Shell::Properties
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_PrimarySid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 723222558,
@@ -5999,25 +5185,21 @@ pub const PKEY_Identity_PrimarySid: super::super::UI::Shell::PropertiesSystem::P
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_ProviderData: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2829536146, data2: 13851, data3: 20122, data4: [183, 34, 124, 74, 115, 48, 163, 18] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_ProviderID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1957158473, data2: 64017, data3: 19773, data4: [160, 6, 219, 126, 8, 103, 89, 22] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_QualifiedUserName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3662810705, data2: 62697, data3: 18233, data4: [172, 130, 2, 224, 169, 92, 144, 48] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_UniqueID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3848258480,
@@ -6028,7 +5210,6 @@ pub const PKEY_Identity_UniqueID: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Identity_UserName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3291620611,
@@ -6039,7 +5220,6 @@ pub const PKEY_Identity_UserName: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ImageParsingName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3614772960,
@@ -6050,91 +5230,76 @@ pub const PKEY_ImageParsingName: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_BitDepth: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179215, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_ColorSpace: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 40961u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_CompressedBitsPerPixel: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 910913449, data2: 14251, data3: 18474, data4: [190, 43, 174, 2, 246, 13, 67, 24] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_CompressedBitsPerPixelDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 529024225, data2: 9389, data3: 17672, data4: [157, 253, 83, 38, 164, 21, 206, 2] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_CompressedBitsPerPixelNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3524948296, data2: 54060, data3: 17956, data4: [137, 0, 39, 114, 16, 247, 156, 15] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_Compression: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 259u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_CompressionText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1057547887, data2: 12100, data3: 19385, data4: [166, 130, 172, 53, 210, 86, 35, 34] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_Dimensions: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179215, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_HorizontalResolution: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179215, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_HorizontalSize: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179215, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_ImageID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 282770949, data2: 12970, data3: 19497, data4: [191, 26, 99, 226, 210, 32, 88, 127] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_ResolutionUnit: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 431300518, data2: 8082, data3: 19036, data4: [171, 72, 125, 240, 171, 214, 116, 68] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_VerticalResolution: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179215, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Image_VerticalSize: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179215, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Importance: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -6145,31 +5310,26 @@ pub const PKEY_Importance: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ImportanceText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2746390417, data2: 30483, data3: 19997, data4: [187, 64, 23, 219, 133, 240, 24, 49] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_InfoTipText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_InternalName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 217021779, data2: 64100, data3: 4561, data4: [162, 3, 0, 0, 248, 31, 237, 238] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsAttachment: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4064232028, data2: 29089, data3: 20392, data4: [146, 47, 103, 142, 164, 166, 4, 8] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsDefaultNonOwnerSaveLocation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1568061055,
@@ -6180,7 +5340,6 @@ pub const PKEY_IsDefaultNonOwnerSaveLocation: super::super::UI::Shell::Propertie
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsDefaultSaveLocation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1568061055,
@@ -6191,7 +5350,6 @@ pub const PKEY_IsDefaultSaveLocation: super::super::UI::Shell::PropertiesSystem:
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsDeleted: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1557815240,
@@ -6202,7 +5360,6 @@ pub const PKEY_IsDeleted: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsEncrypted: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2430984526,
@@ -6213,7 +5370,6 @@ pub const PKEY_IsEncrypted: super::super::UI::Shell::PropertiesSystem::PROPERTYK
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsFlagged: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1571309413,
@@ -6224,13 +5380,11 @@ pub const PKEY_IsFlagged: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsFlaggedComplete: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2800967890, data2: 22009, data3: 18654, data4: [185, 9, 98, 14, 9, 10, 100, 124] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsIncomplete: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 879528913,
@@ -6241,7 +5395,6 @@ pub const PKEY_IsIncomplete: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsLocationSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1568061055,
@@ -6252,7 +5405,6 @@ pub const PKEY_IsLocationSupported: super::super::UI::Shell::PropertiesSystem::P
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsPinnedToNameSpaceTree: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1568061055,
@@ -6263,7 +5415,6 @@ pub const PKEY_IsPinnedToNameSpaceTree: super::super::UI::Shell::PropertiesSyste
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsRead: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -6274,7 +5425,6 @@ pub const PKEY_IsRead: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = 
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsSearchOnlyItem: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1568061055,
@@ -6285,13 +5435,11 @@ pub const PKEY_IsSearchOnlyItem: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsSendToTarget: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 33u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_IsShared: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4018687067,
@@ -6302,19 +5450,16 @@ pub const PKEY_IsShared: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY 
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemAuthors: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3500166922, data2: 17962, data3: 18596, data4: [187, 47, 55, 6, 232, 141, 189, 125] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemClassType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 75913389, data2: 11704, data3: 16804, data4: [187, 182, 172, 30, 241, 32, 126, 177] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemDate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4158354612,
@@ -6325,13 +5470,11 @@ pub const PKEY_ItemDate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY 
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemFolderNameDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemFolderPathDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -6342,13 +5485,11 @@ pub const PKEY_ItemFolderPathDisplay: super::super::UI::Shell::PropertiesSystem:
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemFolderPathDisplayNarrow: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3669831917, data2: 67, data3: 18313, data4: [167, 248, 208, 19, 164, 115, 102, 34] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1804443764,
@@ -6359,19 +5500,16 @@ pub const PKEY_ItemName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY 
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemNameDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemNameDisplayWithoutExtension: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemNamePrefix: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3610329073,
@@ -6382,13 +5520,11 @@ pub const PKEY_ItemNamePrefix: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemNameSortOverride: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemParticipants: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3570444822,
@@ -6399,7 +5535,6 @@ pub const PKEY_ItemParticipants: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemPathDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -6410,37 +5545,31 @@ pub const PKEY_ItemPathDisplay: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemPathDisplayNarrow: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemSubType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 37u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemTypeText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ItemUrl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1231625360, data2: 32279, data3: 4122, data4: [169, 28, 8, 0, 43, 46, 205, 169] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Journal_Contacts: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3735537708,
@@ -6451,7 +5580,6 @@ pub const PKEY_Journal_Contacts: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Journal_EntryType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2512302588,
@@ -6462,19 +5590,16 @@ pub const PKEY_Journal_EntryType: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Keywords: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Kind: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 507439168, data2: 48171, data3: 18284, data4: [130, 55, 42, 205, 26, 131, 155, 34] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_KindText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4031508373,
@@ -6485,13 +5610,11 @@ pub const PKEY_KindText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY 
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Language: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3587036418, data2: 11932, data3: 4123, data4: [147, 151, 8, 0, 43, 44, 249, 174] },
     pid: 28u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_LastSyncError: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -6502,7 +5625,6 @@ pub const PKEY_LastSyncError: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 107u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_LastSyncWarning: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -6513,7 +5635,6 @@ pub const PKEY_LastSyncWarning: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 128u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_LastWriterPackageFamilyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1345126059,
@@ -6524,19 +5645,16 @@ pub const PKEY_LastWriterPackageFamilyName: super::super::UI::Shell::PropertiesS
     pid: 101u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_LayoutPattern_ContentViewModeForBrowse: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 500u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_LayoutPattern_ContentViewModeForSearch: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 501u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_LibraryLocationsCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2424739527,
@@ -6547,31 +5665,26 @@ pub const PKEY_LibraryLocationsCount: super::super::UI::Shell::PropertiesSystem:
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_Arguments: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1131357799, data2: 5346, data3: 20459, data4: [179, 10, 20, 108, 83, 181, 182, 116] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_Comment: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3115627516, data2: 11089, data3: 19010, data4: [181, 216, 50, 65, 70, 175, 207, 37] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_DateVisited: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1556031367, data2: 18639, data3: 16904, data4: [185, 14, 238, 94, 93, 66, 2, 148] },
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_Description: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1556031367, data2: 18639, data3: 16904, data4: [185, 14, 238, 94, 93, 66, 2, 148] },
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_FeedItemLocalId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2318375417,
@@ -6582,13 +5695,11 @@ pub const PKEY_Link_FeedItemLocalId: super::super::UI::Shell::PropertiesSystem::
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_Status: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3115627516, data2: 11089, data3: 19010, data4: [181, 216, 50, 65, 70, 175, 207, 37] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_TargetExtension: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2055042804,
@@ -6599,31 +5710,26 @@ pub const PKEY_Link_TargetExtension: super::super::UI::Shell::PropertiesSystem::
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_TargetParsingPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3115627516, data2: 11089, data3: 19010, data4: [181, 216, 50, 65, 70, 175, 207, 37] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_TargetSFGAOFlags: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3115627516, data2: 11089, data3: 19010, data4: [181, 216, 50, 65, 70, 175, 207, 37] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_TargetSFGAOFlagsStrings: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3600031873, data2: 54587, data3: 17469, data4: [173, 71, 94, 5, 157, 156, 210, 122] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_TargetUrl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1556031367, data2: 18639, data3: 16904, data4: [185, 14, 238, 94, 93, 66, 2, 148] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_TargetUrlHostName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2318375417,
@@ -6634,7 +5740,6 @@ pub const PKEY_Link_TargetUrlHostName: super::super::UI::Shell::PropertiesSystem
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Link_TargetUrlPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2318375417,
@@ -6645,91 +5750,76 @@ pub const PKEY_Link_TargetUrlPath: super::super::UI::Shell::PropertiesSystem::PR
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_LowKeywords: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_MIMEType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 191095632, data2: 40140, data3: 4560, data4: [188, 219, 0, 128, 95, 204, 206, 4] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_AuthorUrl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 32u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_AverageLevel: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 166581686, data2: 45825, data3: 17349, data4: [153, 144, 208, 3, 2, 239, 253, 70] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_ClassPrimaryID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_ClassSecondaryID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_CollectionGroupID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_CollectionID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_ContentDistributor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_ContentID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 26u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_CreatorApplication: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 27u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_CreatorApplicationVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 28u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_DVDID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_DateEncoded: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 776692749, data2: 20505, data3: 18136, data4: [136, 129, 85, 65, 76, 197, 202, 160] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_DateReleased: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3728854057,
@@ -6740,109 +5830,91 @@ pub const PKEY_Media_DateReleased: super::super::UI::Shell::PropertiesSystem::PR
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_DlnaProfileID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3483573061, data2: 21085, data3: 18840, data4: [187, 68, 63, 125, 129, 84, 47, 164] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_Duration: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179216, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_EncodedBy: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 36u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_EncodingSettings: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 37u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_EpisodeNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_FrameCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179215, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_MCDI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_MetadataContentProvider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_Producer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 22u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_PromotionUrl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 33u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_ProtectionType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 38u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_ProviderRating: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 39u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_ProviderStyle: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 40u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_Publisher: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 30u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_SeasonNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 101u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_SeriesName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 42u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_SubTitle: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 38u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_SubscriptionContentId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2599136890,
@@ -6853,67 +5925,56 @@ pub const PKEY_Media_SubscriptionContentId: super::super::UI::Shell::PropertiesS
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_ThumbnailLargePath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 47u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_ThumbnailLargeUri: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 48u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_ThumbnailSmallPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 49u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_ThumbnailSmallUri: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 50u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_UniqueFileIdentifier: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 35u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_UserNoAutoInfo: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 41u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_UserWebUrl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 34u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_Writer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Media_Year: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_MediumKeywords: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 26u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_AttachmentContents: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 826523516,
@@ -6924,7 +5985,6 @@ pub const PKEY_Message_AttachmentContents: super::super::UI::Shell::PropertiesSy
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_AttachmentNames: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -6935,7 +5995,6 @@ pub const PKEY_Message_AttachmentNames: super::super::UI::Shell::PropertiesSyste
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_BccAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -6946,7 +6005,6 @@ pub const PKEY_Message_BccAddress: super::super::UI::Shell::PropertiesSystem::PR
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_BccName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -6957,7 +6015,6 @@ pub const PKEY_Message_BccName: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_CcAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -6968,7 +6025,6 @@ pub const PKEY_Message_CcAddress: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_CcName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -6979,19 +6035,16 @@ pub const PKEY_Message_CcName: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_ConversationID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3700392125, data2: 44830, data3: 17033, data4: [133, 182, 61, 252, 27, 73, 57, 146] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_ConversationIndex: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3700392125, data2: 44830, data3: 17033, data4: [133, 182, 61, 252, 27, 73, 57, 146] },
     pid: 101u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_DateReceived: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -7002,7 +6055,6 @@ pub const PKEY_Message_DateReceived: super::super::UI::Shell::PropertiesSystem::
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_DateSent: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -7013,13 +6065,11 @@ pub const PKEY_Message_DateSent: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_Flags: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2821562087, data2: 51815, data3: 17170, data4: [150, 94, 34, 107, 206, 168, 80, 35] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_FromAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -7030,7 +6080,6 @@ pub const PKEY_Message_FromAddress: super::super::UI::Shell::PropertiesSystem::P
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_FromName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -7041,7 +6090,6 @@ pub const PKEY_Message_FromName: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_HasAttachments: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2619330420,
@@ -7052,43 +6100,36 @@ pub const PKEY_Message_HasAttachments: super::super::UI::Shell::PropertiesSystem
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_IsFwdOrReply: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2593898632, data2: 20333, data3: 18078, data4: [153, 25, 231, 5, 65, 32, 64, 249] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_MessageClass: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3449738328, data2: 2254, data3: 16783, data4: [167, 14, 249, 18, 199, 187, 156, 92] },
     pid: 103u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_Participants: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 446408197, data2: 36476, data3: 19729, data4: [173, 125, 165, 10, 218, 24, 186, 27] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_ProofInProgress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2425942844, data2: 39549, data3: 18600, data4: [141, 229, 46, 18, 39, 166, 78, 145] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_SenderAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 199346407, data2: 6529, data3: 18038, data4: [174, 20, 253, 215, 143, 5, 166, 231] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_SenderName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 228859130, data2: 53796, data3: 18968, data4: [174, 47, 89, 97, 88, 219, 75, 58] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_Store: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -7099,7 +6140,6 @@ pub const PKEY_Message_Store: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_ToAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -7110,13 +6150,11 @@ pub const PKEY_Message_ToAddress: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_ToDoFlags: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 528837279, data2: 26880, data3: 19130, data4: [149, 5, 45, 95, 27, 77, 102, 203] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_ToDoTitle: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3167521340,
@@ -7127,7 +6165,6 @@ pub const PKEY_Message_ToDoTitle: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Message_ToName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3823130700,
@@ -7138,37 +6175,31 @@ pub const PKEY_Message_ToName: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_MileageInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4260905840, data2: 794, data3: 19165, data4: [158, 145, 13, 119, 95, 28, 102, 5] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_AlbumArtist: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_AlbumArtistSortOverride: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4059935919, data2: 63372, data3: 18028, data4: [187, 5, 86, 233, 45, 176, 184, 236] },
     pid: 103u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_AlbumID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_AlbumTitle: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_AlbumTitleSortOverride: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 334200828,
@@ -7179,13 +6210,11 @@ pub const PKEY_Music_AlbumTitleSortOverride: super::super::UI::Shell::Properties
     pid: 101u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_Artist: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_ArtistSortOverride: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3739954613,
@@ -7196,37 +6225,31 @@ pub const PKEY_Music_ArtistSortOverride: super::super::UI::Shell::PropertiesSyst
     pid: 102u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_BeatsPerMinute: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 35u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_Composer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_ComposerSortOverride: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 12329123, data2: 48456, data3: 16517, data4: [135, 44, 168, 141, 119, 245, 9, 126] },
     pid: 105u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_Conductor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 36u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_ContentGroupDescription: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 33u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_DiscNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1795060791,
@@ -7237,7 +6260,6 @@ pub const PKEY_Music_DiscNumber: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 104u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_DisplayArtist: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4245825875,
@@ -7248,19 +6270,16 @@ pub const PKEY_Music_DisplayArtist: super::super::UI::Shell::PropertiesSystem::P
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_Genre: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_InitialKey: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 34u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_IsCompilation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3293173195,
@@ -7271,31 +6290,26 @@ pub const PKEY_Music_IsCompilation: super::super::UI::Shell::PropertiesSystem::P
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_Lyrics: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_Mood: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 39u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_PartOfSet: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 37u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_Period: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 31u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_SynchronizedLyrics: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1797405546,
@@ -7306,37 +6320,31 @@ pub const PKEY_Music_SynchronizedLyrics: super::super::UI::Shell::PropertiesSyst
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Music_TrackNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_NamespaceCLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Note_Color: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1198967546, data2: 48356, data3: 19633, data4: [162, 62, 38, 94, 118, 216, 235, 17] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Note_ColorText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1186261214, data2: 52658, data3: 17421, data4: [136, 92, 22, 88, 235, 101, 185, 20] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Null: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] },
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_OfflineAvailability: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2839972022,
@@ -7347,7 +6355,6 @@ pub const PKEY_OfflineAvailability: super::super::UI::Shell::PropertiesSystem::P
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_OfflineStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1831110799,
@@ -7358,13 +6365,11 @@ pub const PKEY_OfflineStatus: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_OriginalFileName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 217021779, data2: 64100, data3: 4561, data4: [162, 3, 0, 0, 248, 31, 237, 238] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_OwnerSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1568061055,
@@ -7375,13 +6380,11 @@ pub const PKEY_OwnerSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY 
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ParentalRating: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ParentalRatingReason: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 278416906,
@@ -7392,67 +6395,56 @@ pub const PKEY_ParentalRatingReason: super::super::UI::Shell::PropertiesSystem::
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ParentalRatingsOrganization: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2818443328, data2: 4932, data3: 18160, data4: [141, 55, 82, 237, 113, 42, 75, 249] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ParsingBindContext: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3753484365, data2: 13871, data3: 19619, data4: [179, 11, 2, 84, 177, 123, 91, 132] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ParsingName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ParsingPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 30u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PerceivedType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PercentFull: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2601995061, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_Aperture: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 37378u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ApertureDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3785991051, data2: 26245, data3: 18109, data4: [135, 94, 87, 13, 199, 173, 115, 32] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ApertureNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 53996780, data2: 14843, data3: 17793, data4: [160, 189, 76, 76, 197, 30, 153, 20] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_Brightness: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 443554806, data2: 18316, data3: 17249, data4: [131, 171, 55, 1, 187, 5, 60, 88] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_BrightnessDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1857972550,
@@ -7463,7 +6455,6 @@ pub const PKEY_Photo_BrightnessDenominator: super::super::UI::Shell::PropertiesS
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_BrightnessNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2658996623,
@@ -7474,31 +6465,26 @@ pub const PKEY_Photo_BrightnessNumerator: super::super::UI::Shell::PropertiesSys
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_CameraManufacturer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 271u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_CameraModel: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 272u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_CameraSerialNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 273u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_Contrast: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 712530857, data2: 36131, data3: 19949, data4: [130, 230, 96, 163, 80, 200, 106, 16] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ContrastText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1507715570,
@@ -7509,13 +6495,11 @@ pub const PKEY_Photo_ContrastText: super::super::UI::Shell::PropertiesSystem::PR
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_DateTaken: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 36867u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_DigitalZoom: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4166776896,
@@ -7526,7 +6510,6 @@ pub const PKEY_Photo_DigitalZoom: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_DigitalZoomDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1952165646,
@@ -7537,7 +6520,6 @@ pub const PKEY_Photo_DigitalZoomDenominator: super::super::UI::Shell::Properties
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_DigitalZoomNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 382449956,
@@ -7548,31 +6530,26 @@ pub const PKEY_Photo_DigitalZoomNumerator: super::super::UI::Shell::PropertiesSy
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_EXIFVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3546248250, data2: 60206, data3: 18418, data4: [162, 134, 132, 65, 50, 203, 20, 39] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_Event: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 18248u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ExposureBias: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 37380u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ExposureBiasDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2871025232, data2: 1207, data3: 17948, data4: [161, 140, 47, 35, 56, 54, 230, 39] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ExposureBiasNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1938551428,
@@ -7583,7 +6560,6 @@ pub const PKEY_Photo_ExposureBiasNumerator: super::super::UI::Shell::PropertiesS
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ExposureIndex: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2524666616,
@@ -7594,13 +6570,11 @@ pub const PKEY_Photo_ExposureIndex: super::super::UI::Shell::PropertiesSystem::P
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ExposureIndexDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2467377033, data2: 49803, data3: 18735, data4: [138, 157, 75, 226, 6, 44, 238, 138] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ExposureIndexNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3454914352,
@@ -7611,13 +6585,11 @@ pub const PKEY_Photo_ExposureIndexNumerator: super::super::UI::Shell::Properties
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ExposureProgram: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 34850u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ExposureProgramText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4274426039,
@@ -7628,31 +6600,26 @@ pub const PKEY_Photo_ExposureProgramText: super::super::UI::Shell::PropertiesSys
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ExposureTime: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 33434u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ExposureTimeDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1441367447, data2: 44310, data3: 17120, data4: [182, 36, 33, 89, 154, 25, 152, 56] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ExposureTimeNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 629032162, data2: 36913, data3: 17187, data4: [172, 56, 133, 197, 82, 135, 27, 46] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 33437u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FNumberDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3911853206,
@@ -7663,25 +6630,21 @@ pub const PKEY_Photo_FNumberDenominator: super::super::UI::Shell::PropertiesSyst
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FNumberNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 462910346, data2: 65020, data3: 17967, data4: [157, 147, 25, 87, 224, 139, 233, 12] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_Flash: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 37385u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FlashEnergy: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 41483u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FlashEnergyDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3619036272,
@@ -7692,7 +6655,6 @@ pub const PKEY_Photo_FlashEnergyDenominator: super::super::UI::Shell::Properties
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FlashEnergyNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4239211837,
@@ -7703,7 +6665,6 @@ pub const PKEY_Photo_FlashEnergyNumerator: super::super::UI::Shell::PropertiesSy
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FlashManufacturer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2864379593,
@@ -7714,7 +6675,6 @@ pub const PKEY_Photo_FlashManufacturer: super::super::UI::Shell::PropertiesSyste
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FlashModel: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4270046005,
@@ -7725,37 +6685,31 @@ pub const PKEY_Photo_FlashModel: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FlashText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1804298486, data2: 8203, data3: 18410, data4: [141, 37, 216, 5, 15, 87, 51, 159] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FocalLength: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 37386u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FocalLengthDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 811320853, data2: 56481, data3: 17573, data4: [159, 212, 16, 192, 186, 121, 65, 46] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FocalLengthInFilm: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2699511305, data2: 47181, data3: 20297, data4: [184, 96, 70, 43, 217, 151, 31, 152] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FocalLengthNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2003528507, data2: 7741, data3: 19212, data4: [154, 14, 143, 186, 242, 168, 73, 42] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FocalPlaneXResolution: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3485502871,
@@ -7766,7 +6720,6 @@ pub const PKEY_Photo_FocalPlaneXResolution: super::super::UI::Shell::PropertiesS
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FocalPlaneXResolutionDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 154399733,
@@ -7777,13 +6730,11 @@ pub const PKEY_Photo_FocalPlaneXResolutionDenominator: super::super::UI::Shell::
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FocalPlaneXResolutionNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3704295599, data2: 46306, data3: 19336, data4: [149, 249, 3, 27, 77, 90, 180, 144] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FocalPlaneYResolution: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1342170320,
@@ -7794,13 +6745,11 @@ pub const PKEY_Photo_FocalPlaneYResolution: super::super::UI::Shell::PropertiesS
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FocalPlaneYResolutionDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 492927398, data2: 43126, data3: 16433, data4: [176, 19, 51, 71, 178, 182, 77, 200] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_FocalPlaneYResolutionNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2732933573,
@@ -7811,13 +6760,11 @@ pub const PKEY_Photo_FocalPlaneYResolutionNumerator: super::super::UI::Shell::Pr
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_GainControl: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4197468041, data2: 199, data3: 19840, data4: [144, 74, 30, 77, 204, 114, 101, 170] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_GainControlDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1116098045,
@@ -7828,7 +6775,6 @@ pub const PKEY_Photo_GainControlDenominator: super::super::UI::Shell::Properties
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_GainControlNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2391723900,
@@ -7839,19 +6785,16 @@ pub const PKEY_Photo_GainControlNumerator: super::super::UI::Shell::PropertiesSy
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_GainControlText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3227662514, data2: 3065, data3: 17017, data4: [167, 35, 37, 133, 103, 21, 203, 157] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ISOSpeed: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 34855u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_LensManufacturer: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3873295095,
@@ -7862,7 +6805,6 @@ pub const PKEY_Photo_LensManufacturer: super::super::UI::Shell::PropertiesSystem
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_LensModel: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3777459478,
@@ -7873,13 +6815,11 @@ pub const PKEY_Photo_LensModel: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_LightSource: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 37384u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_MakerNote: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4197462867,
@@ -7890,19 +6830,16 @@ pub const PKEY_Photo_MakerNote: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_MakerNoteOffset: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2168406308, data2: 13542, data3: 19735, data4: [171, 62, 107, 31, 60, 34, 71, 161] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_MaxAperture: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 150394818, data2: 58354, data3: 17660, data4: [175, 30, 90, 165, 200, 26, 45, 62] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_MaxApertureDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3346474196,
@@ -7913,7 +6850,6 @@ pub const PKEY_Photo_MaxApertureDenominator: super::super::UI::Shell::Properties
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_MaxApertureNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3238519185,
@@ -7924,13 +6860,11 @@ pub const PKEY_Photo_MaxApertureNumerator: super::super::UI::Shell::PropertiesSy
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_MeteringMode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 37383u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_MeteringModeText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4129881484,
@@ -7941,13 +6875,11 @@ pub const PKEY_Photo_MeteringModeText: super::super::UI::Shell::PropertiesSystem
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_Orientation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 274u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_OrientationText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2850691388,
@@ -7958,13 +6890,11 @@ pub const PKEY_Photo_OrientationText: super::super::UI::Shell::PropertiesSystem:
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_PeopleNames: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3895499630, data2: 2124, data3: 18868, data4: [177, 252, 144, 168, 3, 49, 182, 56] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_PhotometricInterpretation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 873961201,
@@ -7975,31 +6905,26 @@ pub const PKEY_Photo_PhotometricInterpretation: super::super::UI::Shell::Propert
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_PhotometricInterpretationText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2182363094, data2: 40619, data3: 18277, data4: [165, 137, 59, 28, 187, 210, 42, 97] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ProgramMode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1830911853, data2: 16234, data3: 18469, data4: [180, 112, 95, 3, 202, 47, 190, 155] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ProgramModeText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2145626663, data2: 9800, data3: 17139, data4: [137, 176, 69, 78, 92, 177, 80, 195] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_RelatedSoundFile: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 831155013, data2: 2175, data3: 19906, data4: [184, 204, 5, 53, 149, 81, 252, 158] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_Saturation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1227060005,
@@ -8010,7 +6935,6 @@ pub const PKEY_Photo_Saturation: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_SaturationText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1632078856,
@@ -8021,7 +6945,6 @@ pub const PKEY_Photo_SaturationText: super::super::UI::Shell::PropertiesSystem::
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_Sharpness: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4234770139,
@@ -8032,19 +6955,16 @@ pub const PKEY_Photo_Sharpness: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_SharpnessText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1374437191, data2: 56656, data3: 16925, data4: [135, 105, 51, 79, 80, 66, 75, 30] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ShutterSpeed: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 37377u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ShutterSpeedDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3778906485,
@@ -8055,19 +6975,16 @@ pub const PKEY_Photo_ShutterSpeedDenominator: super::super::UI::Shell::Propertie
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_ShutterSpeedNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 384450626, data2: 55028, data3: 19402, data4: [131, 73, 124, 120, 211, 15, 179, 51] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_SubjectDistance: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 37382u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_SubjectDistanceDenominator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 209980040,
@@ -8078,7 +6995,6 @@ pub const PKEY_Photo_SubjectDistanceDenominator: super::super::UI::Shell::Proper
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_SubjectDistanceNumerator: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2331285020,
@@ -8089,19 +7005,16 @@ pub const PKEY_Photo_SubjectDistanceNumerator: super::super::UI::Shell::Properti
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_TagViewAggregate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3088249181, data2: 49880, data3: 19391, data4: [186, 205, 121, 116, 67, 70, 17, 63] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_TranscodedForSync: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2593045365, data2: 25688, data3: 20098, data4: [186, 203, 53, 192, 9, 91, 3, 187] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_WhiteBalance: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3996990858,
@@ -8112,7 +7025,6 @@ pub const PKEY_Photo_WhiteBalance: super::super::UI::Shell::PropertiesSystem::PR
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Photo_WhiteBalanceText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1664530782,
@@ -8123,7 +7035,6 @@ pub const PKEY_Photo_WhiteBalanceText: super::super::UI::Shell::PropertiesSystem
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Priority: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2619330420,
@@ -8134,7 +7045,6 @@ pub const PKEY_Priority: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY 
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PriorityText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3649825163,
@@ -8145,7 +7055,6 @@ pub const PKEY_PriorityText: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Project: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 967309602,
@@ -8156,13 +7065,11 @@ pub const PKEY_Project: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY =
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Advanced: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2416590907, data2: 2427, data3: 19349, data4: [138, 226, 7, 31, 218, 238, 177, 24] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Audio: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 671405161,
@@ -8173,31 +7080,26 @@ pub const PKEY_PropGroup_Audio: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Calendar: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2574504629, data2: 49112, data3: 17290, data4: [186, 148, 83, 73, 178, 147, 24, 26] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Camera: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3724598834, data2: 21630, data3: 18817, data4: [173, 75, 84, 47, 46, 144, 7, 216] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Contact: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3751239635, data2: 9482, data3: 16388, data4: [133, 143, 52, 226, 154, 62, 55, 170] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Content: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3503993018, data2: 13962, data3: 16464, data4: [168, 130, 108, 1, 15, 209, 154, 79] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Description: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2305405557,
@@ -8208,13 +7110,11 @@ pub const PKEY_PropGroup_Description: super::super::UI::Shell::PropertiesSystem:
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_FileSystem: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3819426497, data2: 33020, data3: 19264, data4: [143, 52, 48, 234, 17, 27, 220, 46] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_GPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4084284122,
@@ -8225,13 +7125,11 @@ pub const PKEY_PropGroup_GPS: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_General: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3425703472, data2: 45458, data3: 19490, data4: [179, 114, 159, 76, 109, 51, 142, 7] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Image: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3815312007,
@@ -8242,13 +7140,11 @@ pub const PKEY_PropGroup_Image: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Media: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1636248823, data2: 27486, data3: 19275, data4: [172, 45, 89, 218, 132, 69, 146, 72] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_MediaAdvanced: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2287575684,
@@ -8259,7 +7155,6 @@ pub const PKEY_PropGroup_MediaAdvanced: super::super::UI::Shell::PropertiesSyste
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Message: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2144806301,
@@ -8270,13 +7165,11 @@ pub const PKEY_PropGroup_Message: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Music: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1759338644, data2: 29206, data3: 16625, data4: [160, 41, 67, 254, 113, 39, 4, 63] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Origin: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 630772475,
@@ -8287,13 +7180,11 @@ pub const PKEY_PropGroup_Origin: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_PhotoAdvanced: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 213040986, data2: 40679, data3: 19078, data4: [130, 34, 240, 30, 7, 253, 173, 175] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_RecordedTV: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3887280696,
@@ -8304,7 +7195,6 @@ pub const PKEY_PropGroup_RecordedTV: super::super::UI::Shell::PropertiesSystem::
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropGroup_Video: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3200125216,
@@ -8315,49 +7205,41 @@ pub const PKEY_PropGroup_Video: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_ConflictPrompt: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_ContentViewModeForBrowse: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_ContentViewModeForSearch: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_ExtendedTileInfo: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_FileOperationPrompt: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_FullDetails: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_InfoTip: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_NonPersonal: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1238436127,
@@ -8368,31 +7250,26 @@ pub const PKEY_PropList_NonPersonal: super::super::UI::Shell::PropertiesSystem::
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_PreviewDetails: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_PreviewTitle: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_QuickTip: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_TileInfo: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3381938721, data2: 41990, data3: 18686, data4: [130, 37, 174, 199, 226, 76, 33, 27] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PropList_XPDetailsPanel: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4062663808,
@@ -8403,7 +7280,6 @@ pub const PKEY_PropList_XPDetailsPanel: super::super::UI::Shell::PropertiesSyste
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ProviderItemID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4062026049,
@@ -8414,13 +7290,11 @@ pub const PKEY_ProviderItemID: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Rating: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RatingText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2417589415,
@@ -8431,85 +7305,71 @@ pub const PKEY_RatingText: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_ChannelNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1836355042, data2: 36152, data3: 19651, data4: [172, 96, 240, 9, 176, 87, 197, 87] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_Credits: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1836355042, data2: 36152, data3: 19651, data4: [172, 96, 240, 9, 176, 87, 197, 87] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_DateContentExpires: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1836355042, data2: 36152, data3: 19651, data4: [172, 96, 240, 9, 176, 87, 197, 87] },
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_EpisodeName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1836355042, data2: 36152, data3: 19651, data4: [172, 96, 240, 9, 176, 87, 197, 87] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_IsATSCContent: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1836355042, data2: 36152, data3: 19651, data4: [172, 96, 240, 9, 176, 87, 197, 87] },
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_IsClosedCaptioningAvailable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1836355042, data2: 36152, data3: 19651, data4: [172, 96, 240, 9, 176, 87, 197, 87] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_IsDTVContent: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1836355042, data2: 36152, data3: 19651, data4: [172, 96, 240, 9, 176, 87, 197, 87] },
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_IsHDContent: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1836355042, data2: 36152, data3: 19651, data4: [172, 96, 240, 9, 176, 87, 197, 87] },
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_IsRepeatBroadcast: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1836355042, data2: 36152, data3: 19651, data4: [172, 96, 240, 9, 176, 87, 197, 87] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_IsSAP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1836355042, data2: 36152, data3: 19651, data4: [172, 96, 240, 9, 176, 87, 197, 87] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_NetworkAffiliation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 743688211, data2: 64355, data3: 20002, data4: [161, 171, 11, 51, 28, 161, 226, 115] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_OriginalBroadcastDate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1183121047, data2: 34661, data3: 18498, data4: [156, 19, 240, 6, 68, 123, 23, 140] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_ProgramDescription: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1836355042, data2: 36152, data3: 19651, data4: [172, 96, 240, 9, 176, 87, 197, 87] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_RecordingTime: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2772926305,
@@ -8520,13 +7380,11 @@ pub const PKEY_RecordedTV_RecordingTime: super::super::UI::Shell::PropertiesSyst
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_StationCallSign: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1836355042, data2: 36152, data3: 19651, data4: [172, 96, 240, 9, 176, 87, 197, 87] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RecordedTV_StationName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 458504679,
@@ -8537,7 +7395,6 @@ pub const PKEY_RecordedTV_StationName: super::super::UI::Shell::PropertiesSystem
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_RemoteConflictingFile: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -8548,19 +7405,16 @@ pub const PKEY_RemoteConflictingFile: super::super::UI::Shell::PropertiesSystem:
     pid: 115u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_SFGAOFlags: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_AutoSummary: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1443641024, data2: 20538, data3: 4559, data4: [186, 161, 0, 0, 76, 117, 42, 154] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_ContainerHash: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3169772163,
@@ -8571,73 +7425,61 @@ pub const PKEY_Search_ContainerHash: super::super::UI::Shell::PropertiesSystem::
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_Contents: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_EntryID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1231625360, data2: 32279, data3: 4122, data4: [169, 28, 8, 0, 43, 46, 205, 169] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_ExtendedProperties: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2063840582, data2: 64079, data3: 19026, data4: [162, 254, 3, 213, 49, 30, 88, 101] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_GatherTime: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 191095632, data2: 40140, data3: 4560, data4: [188, 219, 0, 128, 95, 204, 206, 4] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_HitCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1231625360, data2: 32279, data3: 4122, data4: [169, 28, 8, 0, 43, 46, 205, 169] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_IsClosedDirectory: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 191095619, data2: 40140, data3: 4560, data4: [188, 219, 0, 128, 95, 204, 206, 4] },
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_IsFullyContained: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 191095619, data2: 40140, data3: 4560, data4: [188, 219, 0, 128, 95, 204, 206, 4] },
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_QueryFocusedSummary: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1443641024, data2: 20538, data3: 4559, data4: [186, 161, 0, 0, 76, 117, 42, 154] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_QueryFocusedSummaryWithFallback: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1443641024, data2: 20538, data3: 4559, data4: [186, 161, 0, 0, 76, 117, 42, 154] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_QueryPropertyHits: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1231625360, data2: 32279, data3: 4122, data4: [169, 28, 8, 0, 43, 46, 205, 169] },
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_Rank: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1231625360, data2: 32279, data3: 4122, data4: [169, 28, 8, 0, 43, 46, 205, 169] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_Store: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2691273395,
@@ -8648,19 +7490,16 @@ pub const PKEY_Search_Store: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_UrlToIndex: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 191095619, data2: 40140, data3: 4560, data4: [188, 219, 0, 128, 95, 204, 206, 4] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Search_UrlToIndexWithModificationTime: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 191095619, data2: 40140, data3: 4560, data4: [188, 219, 0, 128, 95, 204, 206, 4] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Security_AllowedEnterpriseDataProtectionIdentities: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 953430912,
@@ -8671,7 +7510,6 @@ pub const PKEY_Security_AllowedEnterpriseDataProtectionIdentities: super::super:
     pid: 32u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Security_EncryptionOwners: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1599799146,
@@ -8682,19 +7520,16 @@ pub const PKEY_Security_EncryptionOwners: super::super::UI::Shell::PropertiesSys
     pid: 34u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Security_EncryptionOwnersDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3730971535, data2: 57637, data3: 17315, data4: [163, 45, 86, 101, 68, 109, 99, 42] },
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sensitivity: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4174640812, data2: 18548, data3: 17099, data4: [190, 89, 171, 69, 75, 48, 113, 106] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_SensitivityText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3502764116,
@@ -8705,13 +7540,11 @@ pub const PKEY_SensitivityText: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ShareUserRating: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_SharedWith: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4018687067,
@@ -8722,7 +7555,6 @@ pub const PKEY_SharedWith: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 200u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_SharingStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4018687067,
@@ -8733,7 +7565,6 @@ pub const PKEY_SharingStatus: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 300u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Shell_OmitFromView: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3728024972,
@@ -8744,31 +7575,26 @@ pub const PKEY_Shell_OmitFromView: super::super::UI::Shell::PropertiesSystem::PR
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Shell_SFGAOFlagsStrings: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3600031873, data2: 54587, data3: 17469, data4: [173, 71, 94, 5, 157, 156, 210, 122] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_SimpleRating: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2694776910, data2: 44353, data3: 18591, data4: [128, 118, 170, 91, 227, 8, 43, 202] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Size: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_SoftwareUsed: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] },
     pid: 305u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Software_DateLastUsed: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2216578960,
@@ -8779,25 +7605,21 @@ pub const PKEY_Software_DateLastUsed: super::super::UI::Shell::PropertiesSystem:
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Software_ProductName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 217021779, data2: 64100, data3: 4561, data4: [162, 3, 0, 0, 248, 31, 237, 238] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_SourceItem: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1720508325, data2: 31259, data3: 17187, data4: [174, 75, 229, 39, 57, 58, 29, 129] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_SourcePackageFamilyName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4289633719, data2: 7309, data3: 17407, data4: [129, 140, 132, 64, 58, 163, 115, 45] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StartDate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1224568520,
@@ -8808,25 +7630,21 @@ pub const PKEY_StartDate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Status: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 136353, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StatusBarSelectedItemCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 651962492, data2: 28221, data3: 19411, data4: [178, 176, 106, 38, 186, 46, 52, 109] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StatusBarViewItemCount: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 651962492, data2: 28221, data3: 19411, data4: [178, 176, 106, 38, 186, 46, 52, 109] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderCallerVersionInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3002710486,
@@ -8837,7 +7655,6 @@ pub const PKEY_StorageProviderCallerVersionInformation: super::super::UI::Shell:
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderError: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -8848,7 +7665,6 @@ pub const PKEY_StorageProviderError: super::super::UI::Shell::PropertiesSystem::
     pid: 109u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderFileChecksum: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3002710486,
@@ -8859,7 +7675,6 @@ pub const PKEY_StorageProviderFileChecksum: super::super::UI::Shell::PropertiesS
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderFileFlags: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3002710486,
@@ -8870,7 +7685,6 @@ pub const PKEY_StorageProviderFileFlags: super::super::UI::Shell::PropertiesSyst
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderFileHasConflict: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3002710486,
@@ -8881,7 +7695,6 @@ pub const PKEY_StorageProviderFileHasConflict: super::super::UI::Shell::Properti
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderFileIdentifier: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3002710486,
@@ -8892,7 +7705,6 @@ pub const PKEY_StorageProviderFileIdentifier: super::super::UI::Shell::Propertie
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderFileRemoteUri: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -8903,7 +7715,6 @@ pub const PKEY_StorageProviderFileRemoteUri: super::super::UI::Shell::Properties
     pid: 112u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderFileVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3002710486,
@@ -8914,7 +7725,6 @@ pub const PKEY_StorageProviderFileVersion: super::super::UI::Shell::PropertiesSy
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderFileVersionWaterline: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3002710486,
@@ -8925,7 +7735,6 @@ pub const PKEY_StorageProviderFileVersionWaterline: super::super::UI::Shell::Pro
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -8936,7 +7745,6 @@ pub const PKEY_StorageProviderId: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 108u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderShareStatuses: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -8947,7 +7755,6 @@ pub const PKEY_StorageProviderShareStatuses: super::super::UI::Shell::Properties
     pid: 111u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderSharingStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -8958,7 +7765,6 @@ pub const PKEY_StorageProviderSharingStatus: super::super::UI::Shell::Properties
     pid: 117u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_StorageProviderStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -8969,31 +7775,26 @@ pub const PKEY_StorageProviderStatus: super::super::UI::Shell::PropertiesSystem:
     pid: 110u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Storage_Portable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Storage_RemovableMedia: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Storage_SystemCritical: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1293860584, data2: 2051, data3: 18292, data4: [152, 66, 183, 125, 181, 2, 101, 233] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Subject: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Supplemental_Album: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 208908609,
@@ -9004,7 +7805,6 @@ pub const PKEY_Supplemental_Album: super::super::UI::Shell::PropertiesSystem::PR
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Supplemental_AlbumID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 208908609,
@@ -9015,7 +7815,6 @@ pub const PKEY_Supplemental_AlbumID: super::super::UI::Shell::PropertiesSystem::
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Supplemental_Location: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 208908609,
@@ -9026,7 +7825,6 @@ pub const PKEY_Supplemental_Location: super::super::UI::Shell::PropertiesSystem:
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Supplemental_Person: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 208908609,
@@ -9037,7 +7835,6 @@ pub const PKEY_Supplemental_Person: super::super::UI::Shell::PropertiesSystem::P
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Supplemental_ResourceId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 208908609,
@@ -9048,7 +7845,6 @@ pub const PKEY_Supplemental_ResourceId: super::super::UI::Shell::PropertiesSyste
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Supplemental_Tag: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 208908609,
@@ -9059,7 +7855,6 @@ pub const PKEY_Supplemental_Tag: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_SyncTransferStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -9070,7 +7865,6 @@ pub const PKEY_SyncTransferStatus: super::super::UI::Shell::PropertiesSystem::PR
     pid: 103u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_Comments: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2077578046,
@@ -9081,7 +7875,6 @@ pub const PKEY_Sync_Comments: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_ConflictDescription: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3461398873,
@@ -9092,7 +7885,6 @@ pub const PKEY_Sync_ConflictDescription: super::super::UI::Shell::PropertiesSyst
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_ConflictFirstLocation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3461398873,
@@ -9103,7 +7895,6 @@ pub const PKEY_Sync_ConflictFirstLocation: super::super::UI::Shell::PropertiesSy
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_ConflictSecondLocation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3461398873,
@@ -9114,7 +7905,6 @@ pub const PKEY_Sync_ConflictSecondLocation: super::super::UI::Shell::PropertiesS
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_HandlerCollectionID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2077578046,
@@ -9125,7 +7915,6 @@ pub const PKEY_Sync_HandlerCollectionID: super::super::UI::Shell::PropertiesSyst
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_HandlerID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2077578046,
@@ -9136,7 +7925,6 @@ pub const PKEY_Sync_HandlerID: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_HandlerName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3461398873,
@@ -9147,7 +7935,6 @@ pub const PKEY_Sync_HandlerName: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_HandlerType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2077578046,
@@ -9158,7 +7945,6 @@ pub const PKEY_Sync_HandlerType: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_HandlerTypeLabel: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2077578046,
@@ -9169,7 +7955,6 @@ pub const PKEY_Sync_HandlerTypeLabel: super::super::UI::Shell::PropertiesSystem:
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_ItemID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2077578046,
@@ -9180,7 +7965,6 @@ pub const PKEY_Sync_ItemID: super::super::UI::Shell::PropertiesSystem::PROPERTYK
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_ItemName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3461398873,
@@ -9191,7 +7975,6 @@ pub const PKEY_Sync_ItemName: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_ProgressPercentage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2077578046,
@@ -9202,7 +7985,6 @@ pub const PKEY_Sync_ProgressPercentage: super::super::UI::Shell::PropertiesSyste
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_State: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2077578046,
@@ -9213,7 +7995,6 @@ pub const PKEY_Sync_State: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Sync_Status: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2077578046,
@@ -9224,13 +8005,11 @@ pub const PKEY_Sync_Status: super::super::UI::Shell::PropertiesSystem::PROPERTYK
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Task_BillingInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3548205766, data2: 9756, data3: 17155, data4: [130, 179, 8, 185, 38, 172, 111, 18] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Task_CompletionStatus: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 139299338,
@@ -9241,7 +8020,6 @@ pub const PKEY_Task_CompletionStatus: super::super::UI::Shell::PropertiesSystem:
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Task_Owner: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 147311711,
@@ -9252,31 +8030,26 @@ pub const PKEY_Task_Owner: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Thumbnail: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ThumbnailCacheId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1147999921, data2: 36269, data3: 18544, data4: [167, 72, 64, 46, 164, 61, 120, 140] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ThumbnailStream: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 27u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Title: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4070540768, data2: 20473, data3: 4200, data4: [171, 145, 8, 0, 43, 39, 179, 217] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_TitleSortOverride: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4042758221,
@@ -9287,19 +8060,16 @@ pub const PKEY_TitleSortOverride: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 300u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_TotalFileSize: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Trademarks: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 217021779, data2: 64100, data3: 4561, data4: [162, 3, 0, 0, 248, 31, 237, 238] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_TransferOrder: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -9310,7 +8080,6 @@ pub const PKEY_TransferOrder: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 106u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_TransferPosition: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -9321,7 +8090,6 @@ pub const PKEY_TransferPosition: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 104u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_TransferSize: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4243583315,
@@ -9332,133 +8100,111 @@ pub const PKEY_TransferSize: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 105u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_Compression: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_Director: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179218, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_EncodingBitrate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_FourCC: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 44u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_FrameHeight: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_FrameRate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_FrameWidth: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_HorizontalAspectRatio: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 42u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_IsSpherical: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 100u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_IsStereo: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 98u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_Orientation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 99u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_SampleSize: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_StreamName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_StreamNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_TotalBitrate: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 43u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_TranscodedForSync: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 46u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Video_VerticalAspectRatio: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1682179217, data2: 19595, data3: 4561, data4: [139, 112, 8, 0, 54, 177, 26, 3] },
     pid: 45u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_VolumeId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1147999921, data2: 36269, data3: 18544, data4: [167, 72, 64, 46, 164, 61, 120, 140] },
     pid: 104u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Volume_FileSystem: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2601995061, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Volume_IsMappedDrive: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 345770857, data2: 11309, data3: 18684, data4: [128, 143, 211, 24, 215, 140, 70, 54] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_Volume_IsRoot: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2601995061, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_ZoneIdentifier: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1345126059,
@@ -9468,98 +8214,52 @@ pub const PKEY_ZoneIdentifier: super::super::UI::Shell::PropertiesSystem::PROPER
     },
     pid: 100u32,
 };
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PLAYBACKSTATE_NOMEDIA: u32 = 7u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PLAYBACKSTATE_PAUSED: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PLAYBACKSTATE_PLAYING: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PLAYBACKSTATE_RECORDING: u32 = 6u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PLAYBACKSTATE_RECORDINGPAUSED: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PLAYBACKSTATE_STOPPED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PLAYBACKSTATE_TRANSITIONING: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const PLAYBACKSTATE_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_FIVE_STARS_MAX: u32 = 99u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_FIVE_STARS_MIN: u32 = 88u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_FIVE_STARS_SET: u32 = 99u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_FOUR_STARS_MAX: u32 = 87u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_FOUR_STARS_MIN: u32 = 63u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_FOUR_STARS_SET: u32 = 75u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_ONE_STAR_MAX: u32 = 12u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_ONE_STAR_MIN: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_ONE_STAR_SET: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_THREE_STARS_MAX: u32 = 62u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_THREE_STARS_MIN: u32 = 38u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_THREE_STARS_SET: u32 = 50u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_TWO_STARS_MAX: u32 = 37u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_TWO_STARS_MIN: u32 = 13u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const RATING_TWO_STARS_SET: u32 = 25u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SHARINGSTATUS_NOTSHARED: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SHARINGSTATUS_PRIVATE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SHARINGSTATUS_SHARED: u32 = 1u32;
 pub struct SILO_INFO(i32);
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const STORAGE_PROVIDER_SHARINGSTATUS_NOTSHARED: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const STORAGE_PROVIDER_SHARINGSTATUS_PRIVATE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const STORAGE_PROVIDER_SHARINGSTATUS_PUBLIC: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const STORAGE_PROVIDER_SHARINGSTATUS_PUBLIC_COOWNED: u32 = 7u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const STORAGE_PROVIDER_SHARINGSTATUS_PUBLIC_OWNED: u32 = 6u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const STORAGE_PROVIDER_SHARINGSTATUS_SHARED: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const STORAGE_PROVIDER_SHARINGSTATUS_SHARED_COOWNED: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const STORAGE_PROVIDER_SHARINGSTATUS_SHARED_OWNED: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SYNC_HANDLERTYPE_COMPUTERS: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SYNC_HANDLERTYPE_DEVICES: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SYNC_HANDLERTYPE_FOLDERS: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SYNC_HANDLERTYPE_OTHER: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SYNC_HANDLERTYPE_PROGRAMS: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SYNC_HANDLERTYPE_WEBSERVICES: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SYNC_STATE_ERROR: u32 = 3u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SYNC_STATE_IDLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SYNC_STATE_NOTSETUP: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SYNC_STATE_PENDING: u32 = 4u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SYNC_STATE_SYNCING: u32 = 5u32;
-#[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const SYNC_STATE_SYNCNOTRUN: u32 = 1u32;
 pub const WPD_CATEGORY_ENHANCED_STORAGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2435088742,

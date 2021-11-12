@@ -6,199 +6,112 @@ pub struct IWCNConnectNotify(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWCNDevice(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_WCN_DeviceType_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] },
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_WCN_DeviceType_SubCategory: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] },
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_WCN_DeviceType_SubCategoryOUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] },
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_WCN_SSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] },
     pid: 32u32,
 };
 pub const SID_WcnProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3238051530, data2: 54074, data3: 19019, data4: [191, 35, 187, 239, 70, 99, 208, 23] };
 pub struct WCNDeviceObject(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_API_MAX_BUFFER_SIZE: u32 = 2096u32;
 pub struct WCN_ATTRIBUTE_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_E_AUTHENTICATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147206142i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_E_CONNECTION_REJECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147206141i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_E_PEER_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147206143i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_E_PROTOCOL_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147206139i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_E_SESSION_TIMEDOUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147206140i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_FLAG_AUTHENTICATED_VE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_FLAG_DISCOVERY_VE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_FLAG_ENCRYPTED_VE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_MICROSOFT_VENDOR_ID: u32 = 311u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_NO_SUBTYPE: u32 = 4294967294u32;
 pub struct WCN_PASSWORD_TYPE(i32);
 pub struct WCN_SESSION_STATUS(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_AUDIO_DEVICE: u32 = 11u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_CAMERA: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_COMPUTER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_DISPLAY: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_GAMING_DEVICE: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_INPUT_DEVICE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_MULTIMEDIA_DEVICE: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_NETWORK_INFRASTRUCTURE: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_OTHER: u32 = 255u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_PRINTER: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_STORAGE: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_TELEPHONE: u32 = 10u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__HEADPHONES: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__HEADSET: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__HOMETHEATER: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__MICROPHONE: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__PMP: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__SPEAKERS: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__TUNER_RECEIVER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_CAMERA__SECURITY_CAMERA: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_CAMERA__STILL_CAMERA: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_CAMERA__VIDEO_CAMERA: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_CAMERA__WEB_CAMERA: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__DESKTOP: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__MEDIACENTER: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__MID: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__NETBOOK: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__NOTEBOOK: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__PC: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__SERVER: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__ULTRAMOBILEPC: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_DISPLAY__MONITOR: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_DISPLAY__PICTURE_FRAME: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_DISPLAY__PROJECTOR: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_DISPLAY__TELEVISION: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_GAMING_DEVICE__CONSOLE_ADAPT: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_GAMING_DEVICE__PLAYSTATION: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_GAMING_DEVICE__PORTABLE: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_GAMING_DEVICE__XBOX: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_GAMING_DEVICE__XBOX360: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__BARCODEREADER: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__BIOMETRICREADER: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__GAMECONTROLLER: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__JOYSTICK: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__KEYBOARD: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__MOUSE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__REMOTE: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__TOUCHSCREEN: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__TRACKBALL: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_MULTIMEDIA_DEVICE__DAR: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_MULTIMEDIA_DEVICE__MCX: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_MULTIMEDIA_DEVICE__MEDIA_SERVER_ADAPT_EXT: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_MULTIMEDIA_DEVICE__PVP: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_MULTIMEDIA_DEVICE__PVR: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_MULTIMEDIA_DEVICE__SETTOPBOX: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_NETWORK_INFRASTRUCUTURE__AP: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_NETWORK_INFRASTRUCUTURE__BRIDGE: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_NETWORK_INFRASTRUCUTURE__GATEWAY: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_NETWORK_INFRASTRUCUTURE__ROUTER: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_NETWORK_INFRASTRUCUTURE__SWITCH: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_PRINTER__ALLINONE: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_PRINTER__COPIER: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_PRINTER__FAX: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_PRINTER__PRINTER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_PRINTER__SCANNER: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_STORAGE__NAS: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__PHONE_DUALMODE: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__PHONE_SINGLEMODE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__SMARTPHONE_DUALMODE: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__SMARTPHONE_SINGLEMODE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__WINDOWS_MOBILE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_WIFI_OUI: u32 = 5304836u32;
 pub struct WCN_VALUE_TYPE_ASSOCIATION_STATE(i32);
 pub struct WCN_VALUE_TYPE_AUTHENTICATION_TYPE(i32);

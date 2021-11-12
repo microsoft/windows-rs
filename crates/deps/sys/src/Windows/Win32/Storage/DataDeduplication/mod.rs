@@ -3,7 +3,6 @@
 extern "system" {}
 pub struct DDP_FILE_EXTENT(i32);
 pub struct DEDUP_BACKUP_SUPPORT_PARAM_TYPE(i32);
-#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;
 pub struct DEDUP_CHUNK_INFO_HASH32(i32);
 pub struct DEDUP_CONTAINER_EXTENT(i32);

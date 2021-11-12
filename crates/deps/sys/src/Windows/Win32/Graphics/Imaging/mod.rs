@@ -3,29 +3,20 @@
 pub mod D2D;
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub fn WICConvertBitmapSource(dstformat: *const ::windows_sys::core::GUID, pisrc: IWICBitmapSource, ppidst: *mut IWICBitmapSource) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WICCreateBitmapFromSection(width: u32, height: u32, pixelformat: *const ::windows_sys::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, ppibitmap: *mut IWICBitmap) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelformat: *const ::windows_sys::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel, ppibitmap: *mut IWICBitmap) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
     pub fn WICGetMetadataContentSize(guidcontainerformat: *const ::windows_sys::core::GUID, piwriter: IWICMetadataWriter, pcbsize: *mut u64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WICMapGuidToShortName(guid: *const ::windows_sys::core::GUID, cchname: u32, wzname: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WICMapSchemaToName(guidmetadataformat: *const ::windows_sys::core::GUID, pwzschema: super::super::Foundation::PWSTR, cchname: u32, wzname: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WICMapShortNameToGuid(wzname: super::super::Foundation::PWSTR, pguid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn WICMatchMetadataContent(guidcontainerformat: *const ::windows_sys::core::GUID, pguidvendor: *const ::windows_sys::core::GUID, pistream: super::super::System::Com::IStream, pguidmetadataformat: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn WICSerializeMetadataContent(guidcontainerformat: *const ::windows_sys::core::GUID, piwriter: IWICMetadataWriter, dwpersistoptions: u32, pistream: super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
 }
@@ -433,7 +424,6 @@ pub const CLSID_WICXMPSeqMetadataReader: ::windows_sys::core::GUID = ::windows_s
 pub const CLSID_WICXMPSeqMetadataWriter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1835586014, data2: 54322, data3: 19215, data4: [146, 58, 9, 17, 131, 169, 189, 167] };
 pub const CLSID_WICXMPStructMetadataReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 28904858, data2: 33289, data3: 18423, data4: [156, 82, 225, 36, 75, 245, 12, 237] };
 pub const CLSID_WICXMPStructMetadataWriter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 583147411, data2: 32219, data3: 16668, data4: [155, 23, 197, 183, 189, 6, 74, 188] };
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const FACILITY_WINCODEC_ERR: u32 = 2200u32;
 pub const GUID_ContainerFormatAdng: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4093603085,
@@ -1259,33 +1249,19 @@ pub struct WICProgressNotification(i32);
 pub struct WICProgressOperation(i32);
 pub struct WICRawCapabilities(i32);
 pub struct WICRawCapabilitiesInfo(i32);
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_Contrast: u32 = 16u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_DestinationColorContext: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_ExposureCompensation: u32 = 1u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_Gamma: u32 = 32u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_KelvinWhitePoint: u32 = 4u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_NamedWhitePoint: u32 = 2u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_NoiseReduction: u32 = 512u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_RGBWhitePoint: u32 = 8u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_RenderMode: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_Rotation: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_Saturation: u32 = 128u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_Sharpness: u32 = 64u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_Tint: u32 = 256u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_ToneCurve: u32 = 2048u32;
 pub struct WICRawParameterSet(i32);
 pub struct WICRawRenderMode(i32);
@@ -1297,45 +1273,24 @@ pub struct WICSectionAccessLevel(i32);
 pub struct WICTiffCompressionOption(i32);
 pub struct WICWebpAnimProperties(i32);
 pub struct WICWebpAnmfProperties(i32);
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WIC_JPEG_HUFFMAN_BASELINE_ONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WIC_JPEG_HUFFMAN_BASELINE_THREE: u32 = 1118464u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WIC_JPEG_MAX_COMPONENT_COUNT: u32 = 4u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WIC_JPEG_MAX_TABLE_INDEX: u32 = 3u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WIC_JPEG_QUANTIZATION_BASELINE_ONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WIC_JPEG_QUANTIZATION_BASELINE_THREE: u32 = 65792u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WIC_JPEG_SAMPLE_FACTORS_ONE: u32 = 17u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WIC_JPEG_SAMPLE_FACTORS_THREE_420: u32 = 1118498u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WIC_JPEG_SAMPLE_FACTORS_THREE_422: u32 = 1118497u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WIC_JPEG_SAMPLE_FACTORS_THREE_440: u32 = 1118482u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WIC_JPEG_SAMPLE_FACTORS_THREE_444: u32 = 1118481u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WINCODEC_ERR_ABORTED: i32 = -2147467260i32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WINCODEC_ERR_ACCESSDENIED: i32 = -2147024891i32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WINCODEC_ERR_BASE: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WINCODEC_ERR_GENERIC_ERROR: i32 = -2147467259i32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WINCODEC_ERR_INVALIDPARAMETER: i32 = -2147024809i32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WINCODEC_ERR_NOTIMPLEMENTED: i32 = -2147467263i32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WINCODEC_ERR_OUTOFMEMORY: i32 = -2147024882i32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WINCODEC_SDK_VERSION: u32 = 567u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WINCODEC_SDK_VERSION1: u32 = 566u32;
-#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WINCODEC_SDK_VERSION2: u32 = 567u32;

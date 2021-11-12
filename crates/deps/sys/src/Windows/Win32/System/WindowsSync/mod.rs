@@ -169,7 +169,6 @@ pub struct ISyncSessionState2(pub *mut ::core::ffi::c_void);
 pub struct ISynchronousDataRetriever(pub *mut ::core::ffi::c_void);
 pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1430988010,
@@ -180,7 +179,6 @@ pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem:
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_CLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1430988010,
@@ -191,7 +189,6 @@ pub const PKEY_CONFIGUI_CLSID: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1430988010,
@@ -202,7 +199,6 @@ pub const PKEY_CONFIGUI_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1430988010,
@@ -213,7 +209,6 @@ pub const PKEY_CONFIGUI_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1430988010,
@@ -224,7 +219,6 @@ pub const PKEY_CONFIGUI_ICON: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_INSTANCEID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1430988010,
@@ -235,7 +229,6 @@ pub const PKEY_CONFIGUI_INSTANCEID: super::super::UI::Shell::PropertiesSystem::P
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_IS_GLOBAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1430988010,
@@ -246,7 +239,6 @@ pub const PKEY_CONFIGUI_IS_GLOBAL: super::super::UI::Shell::PropertiesSystem::PR
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_MENUITEM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1430988010,
@@ -257,7 +249,6 @@ pub const PKEY_CONFIGUI_MENUITEM: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_MENUITEM_NOUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1430988010,
@@ -268,7 +259,6 @@ pub const PKEY_CONFIGUI_MENUITEM_NOUI: super::super::UI::Shell::PropertiesSystem
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1430988010,
@@ -279,7 +269,6 @@ pub const PKEY_CONFIGUI_NAME: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1430988010,
@@ -290,7 +279,6 @@ pub const PKEY_CONFIGUI_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::Propert
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_CONFIGUI_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1430988010,
@@ -301,7 +289,6 @@ pub const PKEY_CONFIGUI_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2216140385,
@@ -312,7 +299,6 @@ pub const PKEY_PROVIDER_CAPABILITIES: super::super::UI::Shell::PropertiesSystem:
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_CLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2216140385,
@@ -323,7 +309,6 @@ pub const PKEY_PROVIDER_CLSID: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_CONFIGUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2216140385,
@@ -334,7 +319,6 @@ pub const PKEY_PROVIDER_CONFIGUI: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2216140385,
@@ -345,7 +329,6 @@ pub const PKEY_PROVIDER_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2216140385,
@@ -356,7 +339,6 @@ pub const PKEY_PROVIDER_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2216140385,
@@ -367,7 +349,6 @@ pub const PKEY_PROVIDER_ICON: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_INSTANCEID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2216140385,
@@ -378,7 +359,6 @@ pub const PKEY_PROVIDER_INSTANCEID: super::super::UI::Shell::PropertiesSystem::P
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2216140385,
@@ -389,7 +369,6 @@ pub const PKEY_PROVIDER_NAME: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2216140385,
@@ -400,7 +379,6 @@ pub const PKEY_PROVIDER_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::Propert
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_System_WindowsSync`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_PROVIDER_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2216140385,
@@ -410,22 +388,15 @@ pub const PKEY_PROVIDER_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PRO
     },
     pid: 10u32,
 };
-#[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_CHANGE_FLAG_DELETED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_CHANGE_FLAG_DOES_NOT_EXIST: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_CHANGE_FLAG_GHOST: u32 = 4u32;
 pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYNC_FILTER_CHANGE(i32);
-#[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_FILTER_INFO_FLAG_CHANGE_UNIT_LIST: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_FILTER_INFO_FLAG_CUSTOM: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_FILTER_INFO_FLAG_ITEM_LIST: u32 = 1u32;
 pub struct SYNC_FULL_ENUMERATION_ACTION(i32);
 pub struct SYNC_PROGRESS_STAGE(i32);
@@ -434,15 +405,12 @@ pub struct SYNC_RANGE(i32);
 pub struct SYNC_REGISTRATION_EVENT(i32);
 pub struct SYNC_RESOLVE_ACTION(i32);
 pub struct SYNC_SERIALIZATION_VERSION(i32);
-#[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
 pub struct SYNC_SESSION_STATISTICS(i32);
 pub struct SYNC_STATISTICS(i32);
 pub struct SYNC_TIME(i32);
 pub struct SYNC_VERSION(i32);
-#[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct SyncProviderConfigUIConfiguration(i32);

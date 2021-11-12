@@ -1,19 +1,19 @@
 use super::*;
 
-// TODO: add option to elide doc comments for the package itself - its only needed for the published docs
 pub struct Gen {
     pub relative: &'static str,
     pub root: &'static str,
     pub ignore_windows_features: bool,
+    pub docs: bool,
 }
 
 impl Gen {
     pub fn absolute() -> Self {
-        Gen { relative: "", root: "", ignore_windows_features: false }
+        Gen { relative: "", root: "", ignore_windows_features: false, docs: false }
     }
 
     pub fn relative(namespace: &'static str) -> Self {
-        Gen { relative: namespace, root: "", ignore_windows_features: false }
+        Gen { relative: namespace, root: "", ignore_windows_features: false, docs: false }
     }
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {
@@ -99,7 +99,7 @@ impl Gen {
     }
 
     pub fn gen_cfg_doc(&self, features: &BTreeSet<&'static str>) -> TokenStream {
-        if self.root.is_empty() {
+        if !self.docs || self.root.is_empty() {
             return TokenStream::new();
         }
 

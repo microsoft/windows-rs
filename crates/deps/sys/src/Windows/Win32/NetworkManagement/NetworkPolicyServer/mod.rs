@@ -61,7 +61,6 @@ pub struct RADIUS_CODE(i32);
 pub struct RADIUS_DATA_TYPE(i32);
 pub struct RADIUS_EXTENSION_CONTROL_BLOCK(i32);
 pub struct RADIUS_EXTENSION_POINT(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 pub const RADIUS_EXTENSION_VERSION: u32 = 1u32;
 pub struct RADIUS_REJECT_REASON_CODE(i32);
 pub struct RADIUS_VSA_FORMAT(i32);

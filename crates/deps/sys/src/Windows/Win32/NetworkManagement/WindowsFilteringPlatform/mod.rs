@@ -1,577 +1,388 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmCalloutAdd0(enginehandle: super::super::Foundation::HANDLE, callout: *const FWPM_CALLOUT0, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmCalloutCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_CALLOUT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmCalloutDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmCalloutDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmCalloutDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmCalloutEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CALLOUT0, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmCalloutGetById0(enginehandle: super::super::Foundation::HANDLE, id: u32, callout: *mut *mut FWPM_CALLOUT0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmCalloutGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, callout: *mut *mut FWPM_CALLOUT0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmCalloutGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmCalloutSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmCalloutSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: FWPM_CALLOUT_CHANGE_CALLBACK0, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmCalloutSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0, numentries: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmCalloutUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmConnectionCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_CONNECTION_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmConnectionDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmConnectionEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CONNECTION0, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmConnectionGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, connection: *mut *mut FWPM_CONNECTION0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmConnectionGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmConnectionSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmConnectionSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: FWPM_CONNECTION_CALLBACK0, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmConnectionUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, eventshandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: FWPM_DYNAMIC_KEYWORD_CALLBACK0, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmDynamicKeywordUnsubscribe0(subscriptionhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmEngineClose0(enginehandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmEngineGetOption0(enginehandle: super::super::Foundation::HANDLE, option: FWPM_ENGINE_OPTION, value: *mut *mut FWP_VALUE0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmEngineGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Rpc`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Rpc"))]
     pub fn FwpmEngineOpen0(servername: super::super::Foundation::PWSTR, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmEngineSetOption0(enginehandle: super::super::Foundation::HANDLE, option: FWPM_ENGINE_OPTION, newvalue: *const FWP_VALUE0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmEngineSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmFilterAdd0(enginehandle: super::super::Foundation::HANDLE, filter: *const FWPM_FILTER0, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmFilterCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_FILTER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmFilterDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmFilterDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmFilterDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmFilterEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_FILTER0, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmFilterGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, filter: *mut *mut FWPM_FILTER0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmFilterGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, filter: *mut *mut FWPM_FILTER0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmFilterGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmFilterSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmFilterSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: FWPM_FILTER_CHANGE_CALLBACK0, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmFilterSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0, numentries: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmFilterUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
     pub fn FwpmFreeMemory0(p: *mut *mut ::core::ffi::c_void);
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmGetAppIdFromFileName0(filename: super::super::Foundation::PWSTR, appid: *mut *mut FWP_BYTE_BLOB) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmIPsecTunnelAdd0(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT0, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT0, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmIPsecTunnelAdd1(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT1, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT1, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows_sys::core::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmIPsecTunnelAdd2(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT2, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT2, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows_sys::core::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmIPsecTunnelAdd3(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT3_, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT3_, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows_sys::core::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmIPsecTunnelDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmLayerCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_LAYER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmLayerDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmLayerEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_LAYER0, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmLayerGetById0(enginehandle: super::super::Foundation::HANDLE, id: u16, layer: *mut *mut FWPM_LAYER0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmLayerGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, layer: *mut *mut FWPM_LAYER0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmLayerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmLayerSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_NET_EVENT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmNetEventDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT0, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT1, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventEnum2(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT2, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventEnum3(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT3, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventEnum4(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT4_, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventEnum5(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT5_, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK0, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventSubscribe1(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK1, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventSubscribe2(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK2, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventSubscribe3(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK3, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventSubscribe4(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK4, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0, numentries: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmNetEventUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, eventshandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventsGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmNetEventsSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderAdd0(enginehandle: super::super::Foundation::HANDLE, provider: *const FWPM_PROVIDER0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextAdd0(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT0, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextAdd1(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT1, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextAdd2(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT2, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextAdd3(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT3_, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderContextCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderContextDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderContextDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderContextDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT0, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT1, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextEnum2(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT2, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextEnum3(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT3_, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextGetById1(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextGetById2(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextGetById3(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3_) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextGetByKey1(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextGetByKey2(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextGetByKey3(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3_) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderContextSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderContextSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderContextSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderContextUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_PROVIDER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER0, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, provider: *mut *mut FWPM_PROVIDER0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmProviderSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: FWPM_PROVIDER_CHANGE_CALLBACK0, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0, numentries: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmProviderUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSessionCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_SESSION_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSessionDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmSessionEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SESSION0, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmSubLayerAdd0(enginehandle: super::super::Foundation::HANDLE, sublayer: *const FWPM_SUBLAYER0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSubLayerCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const FWPM_SUBLAYER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSubLayerDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSubLayerDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSubLayerEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SUBLAYER0, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSubLayerGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, sublayer: *mut *mut FWPM_SUBLAYER0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmSubLayerSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const ::windows_sys::core::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSubLayerSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: FWPM_SUBLAYER_CHANGE_CALLBACK0, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSubLayerSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0, numentries: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSubLayerUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSystemPortsGet0(enginehandle: super::super::Foundation::HANDLE, sysports: *mut *mut FWPM_SYSTEM_PORTS0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSystemPortsSubscribe0(enginehandle: super::super::Foundation::HANDLE, reserved: *mut ::core::ffi::c_void, callback: FWPM_SYSTEM_PORTS_CALLBACK0, context: *const ::core::ffi::c_void, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmSystemPortsUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, sysportshandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmTransactionAbort0(enginehandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmTransactionBegin0(enginehandle: super::super::Foundation::HANDLE, flags: u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmTransactionCommit0(enginehandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmvSwitchEventSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: FWPM_VSWITCH_EVENT_CALLBACK0, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FwpmvSwitchEventUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, subscriptionhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmvSwitchEventsSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecDospGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecDospGetStatistics0(enginehandle: super::super::Foundation::HANDLE, idpstatistics: *mut IPSEC_DOSP_STATISTICS0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecDospSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecDospStateCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const IPSEC_DOSP_STATE_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecDospStateDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecDospStateEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_DOSP_STATE0, numentries: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecGetStatistics0(enginehandle: super::super::Foundation::HANDLE, ipsecstatistics: *mut IPSEC_STATISTICS0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecGetStatistics1(enginehandle: super::super::Foundation::HANDLE, ipsecstatistics: *mut IPSEC_STATISTICS1) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecKeyManagerAddAndRegister0(enginehandle: super::super::Foundation::HANDLE, keymanager: *const IPSEC_KEY_MANAGER0, keymanagercallbacks: *const IPSEC_KEY_MANAGER_CALLBACKS0, keymgmthandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecKeyManagerSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecKeyManagerUnregisterAndDelete0(enginehandle: super::super::Foundation::HANDLE, keymgmthandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecKeyManagersGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut IPSEC_KEY_MANAGER0, numentries: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextAddInbound0(enginehandle: super::super::Foundation::HANDLE, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextAddInbound1(enginehandle: super::super::Foundation::HANDLE, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE1) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextAddOutbound0(enginehandle: super::super::Foundation::HANDLE, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextAddOutbound1(enginehandle: super::super::Foundation::HANDLE, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE1) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextCreate0(enginehandle: super::super::Foundation::HANDLE, outboundtraffic: *const IPSEC_TRAFFIC0, inboundfilterid: *mut u64, id: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextCreate1(enginehandle: super::super::Foundation::HANDLE, outboundtraffic: *const IPSEC_TRAFFIC1, virtualiftunnelinfo: *const IPSEC_VIRTUAL_IF_TUNNEL_INFO0, inboundfilterid: *mut u64, id: *mut u64) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecSaContextCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecSaContextEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT0, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecSaContextEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT1, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextExpire0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecSaContextGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecSaContextGetById1(enginehandle: super::super::Foundation::HANDLE, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT1) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextGetSpi0(enginehandle: super::super::Foundation::HANDLE, id: u64, getspi: *const IPSEC_GETSPI0, inboundspi: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextGetSpi1(enginehandle: super::super::Foundation::HANDLE, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextSetSpi0(enginehandle: super::super::Foundation::HANDLE, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecSaContextSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: IPSEC_SA_CONTEXT_CALLBACK0, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecSaContextSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaContextUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, eventshandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecSaContextUpdate0(enginehandle: super::super::Foundation::HANDLE, flags: u64, newvalues: *const IPSEC_SA_CONTEXT1) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const IPSEC_SA_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecSaDbGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecSaDbSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IPsecSaDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecSaEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS0, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IPsecSaEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS1, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IkeextGetStatistics0(enginehandle: super::super::Foundation::HANDLE, ikeextstatistics: *mut IKEEXT_STATISTICS0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IkeextGetStatistics1(enginehandle: super::super::Foundation::HANDLE, ikeextstatistics: *mut IKEEXT_STATISTICS1) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IkeextSaCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: *const IKEEXT_SA_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IkeextSaDbGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn IkeextSaDbSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IkeextSaDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IkeextSaDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IkeextSaEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS0, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IkeextSaEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS1, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IkeextSaEnum2(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS2, numentriesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IkeextSaGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, sa: *mut *mut IKEEXT_SA_DETAILS0) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IkeextSaGetById1(enginehandle: super::super::Foundation::HANDLE, id: u64, salookupcontext: *const ::windows_sys::core::GUID, sa: *mut *mut IKEEXT_SA_DETAILS1) -> u32;
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IkeextSaGetById2(enginehandle: super::super::Foundation::HANDLE, id: u64, salookupcontext: *const ::windows_sys::core::GUID, sa: *mut *mut IKEEXT_SA_DETAILS2) -> u32;
 }
 pub struct ARP_HARDWARE_TYPE(i32);
 pub struct ARP_HEADER(i32);
 pub struct ARP_OPCODE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const BYTE_ORDER: u32 = 1234u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const DL_ADDRESS_LENGTH_MAXIMUM: u32 = 32u32;
 pub struct DL_ADDRESS_TYPE(i32);
 pub struct DL_EI48(i32);
 pub struct DL_EI64(i32);
 pub struct DL_EUI48(i32);
 pub struct DL_EUI64(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const DL_HEADER_LENGTH_MAXIMUM: u32 = 64u32;
 pub struct DL_OUI(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -581,52 +392,30 @@ pub struct DL_TEREDO_ADDRESS_PRV(i32);
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Kernel"))]
 pub struct DL_TUNNEL_ADDRESS(i32);
 pub struct ETHERNET_HEADER(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETHERNET_TYPE_802_1AD: u32 = 34984u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETHERNET_TYPE_802_1Q: u32 = 33024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETHERNET_TYPE_ARP: u32 = 2054u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETHERNET_TYPE_IPV4: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETHERNET_TYPE_IPV6: u32 = 34525u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETHERNET_TYPE_MINIMUM: u32 = 1536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETH_LENGTH_OF_HEADER: u32 = 14u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETH_LENGTH_OF_SNAP_HEADER: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ETH_LENGTH_OF_VLAN_HEADER: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const EXT_LEN_UNIT: u32 = 8u32;
 pub struct FALLBACK_INDEX(i32);
 pub struct FWPM_ACTION0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_ADD: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_ADD_LINK: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_BEGIN_READ_TXN: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_BEGIN_WRITE_TXN: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_CLASSIFY: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_ENUM: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_OPEN: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_READ: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_READ_STATS: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_SUBSCRIBE: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ACTRL_WRITE: u32 = 1024u32;
 pub struct FWPM_APPC_NETWORK_CAPABILITY_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_AUTO_WEIGHT_BITS: u32 = 60u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_CALLOUT0(i32);
@@ -664,11 +453,8 @@ pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: ::windows_sys::core::GUID =
 };
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_RESOURCE_ASSIGNMENT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 127602704, data2: 61893, data3: 20429, data4: [174, 5, 218, 65, 16, 122, 189, 11] };
 pub struct FWPM_CALLOUT_ENUM_TEMPLATE0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_CALLOUT_FLAG_PERSISTENT: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_CALLOUT_FLAG_REGISTERED: u32 = 262144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT: u32 = 131072u32;
 pub const FWPM_CALLOUT_HTTP_TEMPLATE_SSL_HANDSHAKE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3007459913,
@@ -1338,7 +1124,6 @@ pub const FWPM_CONDITION_VSWITCH_TENANT_NETWORK_ID: ::windows_sys::core::GUID = 
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_CONNECTION0(i32);
 pub struct FWPM_CONNECTION_CALLBACK0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1u32;
 pub struct FWPM_CONNECTION_ENUM_TEMPLATE0(i32);
 pub struct FWPM_CONNECTION_EVENT_TYPE(i32);
@@ -1347,13 +1132,9 @@ pub struct FWPM_CONNECTION_SUBSCRIPTION0(i32);
 pub struct FWPM_DISPLAY_DATA0(i32);
 pub struct FWPM_DYNAMIC_KEYWORD_CALLBACK0(i32);
 pub struct FWPM_ENGINE_OPTION(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ENGINE_OPTION_PACKET_BATCH_INBOUND: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_FORWARD: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_INBOUND: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_ENGINE_OPTION_PACKET_QUEUE_NONE: u32 = 0u32;
 pub struct FWPM_FIELD0(i32);
 pub struct FWPM_FIELD_TYPE(i32);
@@ -1366,19 +1147,12 @@ pub struct FWPM_FILTER_CONDITION0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_FILTER_ENUM_TEMPLATE0(i32);
 pub struct FWPM_FILTER_FLAGS(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_GAMEOS_ONLY: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_HAS_SECURITY_REALM_PROVIDER_CONTEXT: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_IPSEC_NO_ACQUIRE_INITIATE: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_RESERVED0: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_RESERVED1: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_SILENT_MODE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: u32 = 256u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_FILTER_SUBSCRIPTION0(i32);
@@ -1528,13 +1302,9 @@ pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V4: ::windows_sys::core::GUID = ::
 };
 pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 455995171, data2: 6273, data3: 16573, data4: [130, 244, 66, 84, 230, 49, 65, 203] };
 pub struct FWPM_LAYER_ENUM_TEMPLATE0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_LAYER_FLAG_BUFFERED: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_LAYER_FLAG_BUILTIN: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_LAYER_FLAG_CLASSIFY_MOSTLY: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_LAYER_FLAG_KERNEL: u32 = 1u32;
 pub const FWPM_LAYER_IKEEXT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2974514139,
@@ -1804,33 +1574,19 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP2(i32);
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_ENUM_TEMPLATE0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_APP_ID_SET: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_EFFECTIVE_NAME_SET: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_ENTERPRISE_ID_SET: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_IP_PROTOCOL_SET: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_IP_VERSION_SET: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_LOCAL_ADDR_SET: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_LOCAL_PORT_SET: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_PACKAGE_ID_SET: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_POLICY_FLAGS_SET: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_REAUTH_REASON_SET: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_REMOTE_ADDR_SET: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_REMOTE_PORT_SET: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_SCOPE_ID_SET: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_FLAG_USER_ID_SET: u32 = 64u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_HEADER0(i32);
@@ -1843,18 +1599,14 @@ pub struct FWPM_NET_EVENT_HEADER3(i32);
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: u32 = 1u32;
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0(i32);
@@ -1862,17 +1614,11 @@ pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0(i32);
 pub struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_(i32);
 pub struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0(i32);
 pub struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_CAPABILITY_ALLOW: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_CAPABILITY_DROP: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_CLASSIFY_ALLOW: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_INBOUND_BCAST: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: u32 = 32u32;
 pub struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1893,9 +1639,7 @@ pub struct FWPM_PROVIDER_CONTEXT3_(i32);
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE0(i32);
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0(i32);
 pub struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: u32 = 1u32;
 pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_AUTHIP: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2992547840,
@@ -1912,9 +1656,7 @@ pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_IPSEC: ::windows_sys::core::GUID =
 pub struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0(i32);
 pub struct FWPM_PROVIDER_CONTEXT_TYPE(i32);
 pub struct FWPM_PROVIDER_ENUM_TEMPLATE0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_PROVIDER_FLAG_DISABLED: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_PROVIDER_FLAG_PERSISTENT: u32 = 1u32;
 pub const FWPM_PROVIDER_IKEEXT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 279810582, data2: 52446, data3: 17772, data4: [139, 22, 233, 240, 78, 96, 169, 11] };
 pub const FWPM_PROVIDER_IPSEC_DOSP_CONFIG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1013712297, data2: 49244, data3: 19385, data4: [131, 56, 35, 39, 129, 76, 232, 191] };
@@ -1944,9 +1686,7 @@ pub struct FWPM_SERVICE_STATE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_SESSION0(i32);
 pub struct FWPM_SESSION_ENUM_TEMPLATE0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_SESSION_FLAG_DYNAMIC: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_SESSION_FLAG_RESERVED: u32 = 268435456u32;
 pub struct FWPM_STATISTICS0(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -1954,7 +1694,6 @@ pub struct FWPM_SUBLAYER0(i32);
 pub struct FWPM_SUBLAYER_CHANGE0(i32);
 pub struct FWPM_SUBLAYER_CHANGE_CALLBACK0(i32);
 pub struct FWPM_SUBLAYER_ENUM_TEMPLATE0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_SUBLAYER_FLAG_PERSISTENT: u32 = 1u32;
 pub const FWPM_SUBLAYER_INSPECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2272598497, data2: 59049, data3: 16805, data4: [129, 180, 140, 79, 17, 142, 74, 96] };
 pub const FWPM_SUBLAYER_IPSEC_DOSP: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -2019,323 +1758,173 @@ pub struct FWPM_SYSTEM_PORTS0(i32);
 pub struct FWPM_SYSTEM_PORTS_BY_TYPE0(i32);
 pub struct FWPM_SYSTEM_PORTS_CALLBACK0(i32);
 pub struct FWPM_SYSTEM_PORT_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_TUNNEL_FLAG_ENABLE_VIRTUAL_IF_TUNNELING: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_TUNNEL_FLAG_POINT_TO_POINT: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_TUNNEL_FLAG_RESERVED0: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_TXN_READ_ONLY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT0(i32);
 pub struct FWPM_VSWITCH_EVENT_CALLBACK0(i32);
 pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0(i32);
 pub struct FWPM_VSWITCH_EVENT_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_WEIGHT_RANGE_IKE_EXEMPTIONS: u32 = 12u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPM_WEIGHT_RANGE_IPSEC: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_ALE_ENDPOINT_FLAG_IPSEC_SECURED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_CLASSIFY_OUT_FLAG_ABSORB: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_CLASSIFY_OUT_FLAG_ALE_FAST_CACHE_CHECK: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_CLASSIFY_OUT_FLAG_ALE_FAST_CACHE_POSSIBLE: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_CLASSIFY_OUT_FLAG_BUFFER_LIMIT_REACHED: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_CLASSIFY_OUT_FLAG_NO_MORE_DATA: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_CLEAR_ACTION_RIGHT: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_HAS_SECURITY_REALM_PROVIDER_CONTEXT: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_IPSEC_NO_ACQUIRE_INITIATE: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_OR_CONDITIONS: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_PERMIT_IF_CALLOUT_UNREGISTERED: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_RESERVED0: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_RESERVED1: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_FILTER_FLAG_SILENT_MODE: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_ABSORB: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_CACHE_SAFE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_CONNECTION_FAILING_INDICATION: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_ENFORCE_QUERY: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_IS_LOCAL_ONLY_FLOW: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_IS_LOOSE_SOURCE_FLOW: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_MID_STREAM_INSPECTION: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_RECLASSIFY: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_INCOMING_FLAG_RESERVED0: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_INCOMING_FLAG_IS_RAW_IPV4_FRAMING: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_INCOMING_FLAG_IS_RAW_IPV6_FRAMING: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_INCOMING_FLAG_RECLASSIFY_MULTI_DESTINATION: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_ETHERNET_MAC_HEADER_SIZE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_RESERVED: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_VSWITCH_DESTINATION_PORT_ID: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_VSWITCH_PACKET_CONTEXT: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_VSWITCH_SOURCE_NIC_INDEX: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_VSWITCH_SOURCE_PORT_ID: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_L2_METADATA_FIELD_WIFI_OPERATION_MODE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_ALE_CLASSIFY_REQUIRED: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_COMPARTMENT_ID: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_COMPLETION_HANDLE: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_DESTINATION_INTERFACE_INDEX: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_DESTINATION_PREFIX: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_DISCARD_REASON: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_ETHER_FRAME_LENGTH: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_FLOW_HANDLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_FORWARD_LAYER_INBOUND_PASS_THRU: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_FORWARD_LAYER_OUTBOUND_PASS_THRU: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_FRAGMENT_DATA: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_ICMP_ID_AND_SEQUENCE: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_IP_HEADER_SIZE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_LOCAL_REDIRECT_TARGET_PID: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_ORIGINAL_DESTINATION: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_PACKET_DIRECTION: u32 = 262144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_PACKET_SYSTEM_CRITICAL: u32 = 524288u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_PARENT_ENDPOINT_HANDLE: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_PATH_MTU: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_PROCESS_ID: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_PROCESS_PATH: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_REDIRECT_RECORD_HANDLE: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_REMOTE_SCOPE_ID: u32 = 131072u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_RESERVED: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_SOURCE_INTERFACE_INDEX: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_SUB_PROCESS_TAG: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_SYSTEM_FLAGS: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_TOKEN: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_TRANSPORT_CONTROL_DATA: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_TRANSPORT_ENDPOINT_HANDLE: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_TRANSPORT_HEADER_INCLUDE_HEADER: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_METADATA_FIELD_TRANSPORT_HEADER_SIZE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWPS_RIGHT_ACTION_WRITE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTION_FLAG_CALLOUT: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTION_FLAG_NON_TERMINATING: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTION_FLAG_TERMINATING: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTION_NONE: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTION_NONE_NO_MATCH: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_ACTRL_MATCH_FILTER: u32 = 1u32;
 pub struct FWP_AF(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_BYTEMAP_ARRAY64_SIZE: u32 = 8u32;
 pub struct FWP_BYTE_ARRAY16(i32);
 pub struct FWP_BYTE_ARRAY6(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_BYTE_ARRAY6_SIZE: u32 = 6u32;
 pub struct FWP_BYTE_BLOB(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_L2_BATCH_CLASSIFY: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_MID_STREAM_INSPECTION: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_OFFLOAD: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_RECLASSIFY: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_RSC: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_URO: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ALLOW_USO: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_CONDITIONAL_ON_FLOW: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_ENABLE_COMMIT_ADD_NOTIFY: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_RESERVED1: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CALLOUT_FLAG_RESERVED2: u32 = 1024u32;
 pub struct FWP_CLASSIFY_OPTION_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_APPCONTAINER_LOOPBACK: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_AUTH_FW: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_CONNECTION_REDIRECTED: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_FRAGMENT: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_FRAGMENT_GROUP: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_HONORING_POLICY_AUTHORIZE: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_IMPLICIT_BIND: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_INBOUND_PASS_THRU: u32 = 524288u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_IPSEC_NATT_RECLASSIFY: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_IPSEC_SECURED: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_LOOPBACK: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_NAME_APP_SPECIFIED: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_NON_APPCONTAINER_LOOPBACK: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_OUTBOUND_PASS_THRU: u32 = 262144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_PROMISCUOUS: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_PROXY_CONNECTION: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_RAW_ENDPOINT: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_REASSEMBLED: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_REAUTHORIZE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_RECLASSIFY: u32 = 131072u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_RESERVED: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_IS_WILDCARD_BIND: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_FLAG_REQUIRES_ALE_CLASSIFY: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IF_CONNECTOR_PRESENT: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_IP_FRAGMENT_GROUP: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_MALFORMED_PACKET: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_MOBILE_BROADBAND: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_NATIVE_ETHERNET: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_VM2VM: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_WIFI: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_L2_IS_WIFI_DIRECT_DATA: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_CHECK_OFFLOAD: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_CLASSIFY_COMPLETION: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_EDP_POLICY_CHANGED: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_IPSEC_PROPERTIES_CHANGED: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_MID_STREAM_INSPECTION: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_NEW_ARRIVAL_INTERFACE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_NEW_INBOUND_MCAST_BCAST_PACKET: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_NEW_NEXTHOP_INTERFACE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_POLICY_CHANGE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_PROFILE_CROSSING: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_PROXY_HANDLE_CHANGED: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_REAUTHORIZE_REASON_SOCKET_PROPERTY_CHANGED: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_ALLOW_EDGE_TRAFFIC: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_DENY_EDGE_TRAFFIC: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_IS_SYSTEM_PORT_RPC: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWP_CONDITION_VALUE0(i32);
 pub struct FWP_DATA_TYPE(i32);
 pub struct FWP_DIRECTION(i32);
 pub struct FWP_ETHER_ENCAP_METHOD(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_BEST_TERMINATING_MATCH: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_BOOTTIME_ONLY: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_INCLUDE_BOOTTIME: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_INCLUDE_DISABLED: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_RESERVED1: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_FILTER_ENUM_FLAG_SORTED: u32 = 2u32;
 pub struct FWP_FILTER_ENUM_TYPE(i32);
 pub struct FWP_IP_VERSION(i32);
 pub struct FWP_MATCH_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_ALLOW_GLOBAL_MULTICAST_STATE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_ALLOW_MULTICAST_STATE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_DENY_MULTICAST_STATE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_DISABLE_LOCAL_ONLY_MAPPING: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_DISABLE_LOOSE_SOURCE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_ENABLE_LOCAL_ONLY_MAPPING: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_OPTION_VALUE_ENABLE_LOOSE_SOURCE: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWP_RANGE0(i32);
@@ -2343,42 +1932,29 @@ pub struct FWP_RANGE0(i32);
 pub struct FWP_TOKEN_INFORMATION(i32);
 pub struct FWP_V4_ADDR_AND_MASK(i32);
 pub struct FWP_V6_ADDR_AND_MASK(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const FWP_V6_ADDR_SIZE: u32 = 16u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWP_VALUE0(i32);
 pub struct FWP_VSWITCH_NETWORK_TYPE(i32);
 pub struct ICMP4_TIME_EXCEED_CODE(i32);
 pub struct ICMP4_UNREACH_CODE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_DST_UNREACH_ADDR: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_DST_UNREACH_ADMIN: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_DST_UNREACH_BEYONDSCOPE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_DST_UNREACH_NOPORT: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_DST_UNREACH_NOROUTE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_PARAMPROB_HEADER: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_PARAMPROB_NEXTHEADER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_PARAMPROB_OPTION: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_TIME_EXCEED_REASSEMBLY: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMP6_TIME_EXCEED_TRANSIT: u32 = 0u32;
 pub struct ICMPV4_ADDRESS_MASK_MESSAGE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMPV4_INVALID_PREFERENCE_LEVEL: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct ICMPV4_ROUTER_ADVERT_ENTRY(i32);
 pub struct ICMPV4_ROUTER_ADVERT_HEADER(i32);
 pub struct ICMPV4_ROUTER_SOLICIT(i32);
 pub struct ICMPV4_TIMESTAMP_MESSAGE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ICMPV6_ECHO_REQUEST_FLAG_REVERSE: u32 = 1u32;
 pub struct ICMP_HEADER(i32);
 pub struct ICMP_MESSAGE(i32);
@@ -2389,16 +1965,11 @@ pub struct IGMPV3_REPORT_HEADER(i32);
 pub struct IGMPV3_REPORT_RECORD_HEADER(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IGMP_HEADER(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_LEAVE_GROUP_TYPE: u32 = 23u32;
 pub struct IGMP_MAX_RESP_CODE_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_QUERY_TYPE: u32 = 17u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_VERSION1_REPORT_TYPE: u32 = 18u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_VERSION2_REPORT_TYPE: u32 = 22u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IGMP_VERSION3_REPORT_TYPE: u32 = 34u32;
 pub struct IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -2417,18 +1988,14 @@ pub struct IKEEXT_CERTIFICATE_CREDENTIAL1(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERTIFICATE_CRITERIA0(i32);
 pub struct IKEEXT_CERT_AUTH(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_AUTH_FLAG_DISABLE_CRL_CHECK: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_AUTH_FLAG_DISABLE_REQUEST_PAYLOAD: u32 = 64u32;
 pub struct IKEEXT_CERT_CONFIG_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_CREDENTIAL_FLAG_NAP_CERT: u32 = 1u32;
 pub struct IKEEXT_CERT_CRITERIA_NAME_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERT_EKUS0(i32);
 pub struct IKEEXT_CERT_FLAGS(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_CERT_HASH_LEN: u32 = 20u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_CERT_NAME0(i32);
@@ -2478,7 +2045,6 @@ pub struct IKEEXT_KERBEROS_AUTHENTICATION0(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION1(i32);
 pub struct IKEEXT_KERBEROS_AUTHENTICATION_FLAGS(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_KERB_AUTH_FORCE_PROXY_ON_INITIATOR: u32 = 4u32;
 pub struct IKEEXT_KEYMODULE_STATISTICS0(i32);
 pub struct IKEEXT_KEYMODULE_STATISTICS1(i32);
@@ -2487,7 +2053,6 @@ pub struct IKEEXT_MM_SA_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_NAME_CREDENTIAL0(i32);
 pub struct IKEEXT_NTLM_V2_AUTHENTICATION0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_POLICY0(i32);
@@ -2495,16 +2060,11 @@ pub struct IKEEXT_POLICY0(i32);
 pub struct IKEEXT_POLICY1(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct IKEEXT_POLICY2(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION: u32 = 128u32;
 pub struct IKEEXT_POLICY_FLAG(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_FLAG_IMS_VPN: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_FLAG_MOBIKE_NOT_SUPPORTED: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_FLAG_SITE_TO_SITE: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IKEEXT_POLICY_SUPPORT_LOW_POWER_MODE: u32 = 256u32;
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION0(i32);
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1(i32);
@@ -2525,27 +2085,16 @@ pub struct IKEEXT_SA_ROLE(i32);
 pub struct IKEEXT_STATISTICS0(i32);
 pub struct IKEEXT_STATISTICS1(i32);
 pub struct IKEEXT_TRAFFIC0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IN6_EMBEDDEDV4_BITS_IN_BYTE: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IN6_EMBEDDEDV4_UOCTET_POSITION: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP4_OFF_MASK: u32 = 65311u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6F_MORE_FRAG: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6F_OFF_MASK: u32 = 63743u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6F_RESERVED_MASK: u32 = 1536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6OPT_MUTABLE: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6OPT_TYPE_DISCARD: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6OPT_TYPE_FORCEICMP: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6OPT_TYPE_ICMP: u32 = 192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP6OPT_TYPE_SKIP: u32 = 0u32;
 pub struct IPSEC_ADDRESS_INFO0(i32);
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0(i32);
@@ -2553,49 +2102,31 @@ pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1(i32);
 pub struct IPSEC_AGGREGATE_SA_STATISTICS0(i32);
 pub struct IPSEC_AH_DROP_PACKET_STATISTICS0(i32);
 pub struct IPSEC_AUTH_AND_CIPHER_TRANSFORM0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_GCM_AES_128: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_GCM_AES_192: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_GCM_AES_256: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_HMAC_MD5_96: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_HMAC_SHA_1_96: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_HMAC_SHA_256_128: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_AUTH_CONFIG_MAX: u32 = 6u32;
 pub struct IPSEC_AUTH_TRANSFORM0(i32);
 pub struct IPSEC_AUTH_TRANSFORM_ID0(i32);
 pub struct IPSEC_AUTH_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_CBC_3DES: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_CBC_AES_128: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_CBC_AES_192: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_CBC_AES_256: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_CBC_DES: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_GCM_AES_128: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_GCM_AES_192: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_GCM_AES_256: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_CIPHER_CONFIG_MAX: u32 = 9u32;
 pub struct IPSEC_CIPHER_TRANSFORM0(i32);
 pub struct IPSEC_CIPHER_TRANSFORM_ID0(i32);
 pub struct IPSEC_CIPHER_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_DOSP_DSCP_DISABLE_VALUE: u32 = 255u32;
 pub struct IPSEC_DOSP_FLAGS(i32);
 pub struct IPSEC_DOSP_OPTIONS0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE: u32 = 0u32;
 pub struct IPSEC_DOSP_STATE0(i32);
 pub struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0(i32);
@@ -2608,7 +2139,6 @@ pub struct IPSEC_GETSPI1(i32);
 pub struct IPSEC_ID0(i32);
 pub struct IPSEC_KEYING_POLICY0(i32);
 pub struct IPSEC_KEYING_POLICY1(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: u32 = 1u32;
 pub struct IPSEC_KEYMODULE_STATE0(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -2616,17 +2146,13 @@ pub struct IPSEC_KEY_MANAGER0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0(i32);
 pub struct IPSEC_KEY_MANAGER_DICTATE_KEY0(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: u32 = 1u32;
 pub struct IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0(i32);
 pub struct IPSEC_KEY_MANAGER_NOTIFY_KEY0(i32);
 pub struct IPSEC_PFS_GROUP(i32);
 pub struct IPSEC_POLICY_FLAG(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_POLICY_FLAG_KEY_MANAGER_ALLOW_NOTIFY_KEY: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_POLICY_FLAG_RESERVED1: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_POLICY_FLAG_SITE_TO_SITE_TUNNEL: u32 = 65536u32;
 pub struct IPSEC_PROPOSAL0(i32);
 pub struct IPSEC_SA0(i32);
@@ -2637,31 +2163,18 @@ pub struct IPSEC_SA_BUNDLE0(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct IPSEC_SA_BUNDLE1(i32);
 pub struct IPSEC_SA_BUNDLE_FLAGS(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_ENABLE_OPTIONAL_ASYMMETRIC_IDLE: u32 = 262144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_FORCE_INBOUND_CONNECTIONS: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_FORCE_OUTBOUND_CONNECTIONS: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_FORWARD_PATH_INITIATOR: u32 = 131072u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_IP_IN_IP_PKT: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_LOCALLY_DICTATED_KEYS: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_LOW_POWER_MODE_SUPPORT: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_NLB: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_NO_EXPLICIT_CRED_MATCH: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_NO_IMPERSONATION_LUID_VERIFY: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_NO_MACHINE_LUID_VERIFY: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_SA_OFFLOADED: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_USING_DICTATED_KEYS: u32 = 524288u32;
 pub struct IPSEC_SA_CIPHER_INFORMATION0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2721,31 +2234,22 @@ pub struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0(i32);
 pub struct IPTLS_METADATA(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IPV4_HEADER(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV4_MAX_MINIMUM_MTU: u32 = 576u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV4_MINIMUM_MTU: u32 = 576u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV4_MIN_MINIMUM_MTU: u32 = 352u32;
 pub struct IPV4_OPTION_HEADER(i32);
 pub struct IPV4_OPTION_TYPE(i32);
 pub struct IPV4_ROUTING_HEADER(i32);
 pub struct IPV4_TIMESTAMP_OPTION(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV4_VERSION: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_ECN_MASK: u32 = 12288u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_ECN_SHIFT: u32 = 12u32;
 pub struct IPV6_EXTENSION_HEADER(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_FLOW_LABEL_MASK: u32 = 4294905600u32;
 pub struct IPV6_FRAGMENT_HEADER(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_FULL_TRAFFIC_CLASS_MASK: u32 = 61455u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IPV6_HEADER(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_MINIMUM_MTU: u32 = 1280u32;
 pub struct IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS(i32);
 pub struct IPV6_OPTION_HEADER(i32);
@@ -2754,18 +2258,12 @@ pub struct IPV6_OPTION_ROUTER_ALERT(i32);
 pub struct IPV6_OPTION_TYPE(i32);
 pub struct IPV6_ROUTER_ADVERTISEMENT_FLAGS(i32);
 pub struct IPV6_ROUTING_HEADER(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_TRAFFIC_CLASS_MASK: u32 = 49167u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPV6_VERSION: u32 = 96u32;
 pub struct IP_OPTION_TIMESTAMP_FLAGS(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP_VER_MASK: u32 = 240u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const MAX_IPV4_HLEN: u32 = 60u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const MAX_IPV4_PACKET: u32 = 65535u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const MAX_IPV6_PAYLOAD: u32 = 65535u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MLDV2_QUERY_HEADER(i32);
@@ -2775,98 +2273,55 @@ pub struct MLDV2_REPORT_RECORD_HEADER(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MLD_HEADER(i32);
 pub struct MLD_MAX_RESP_CODE_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_NA_FLAG_OVERRIDE: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_NA_FLAG_ROUTER: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_NA_FLAG_SOLICITED: u32 = 1073741824u32;
 pub struct ND_OPTION_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_DNSSL_MIN_LEN: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_PI_FLAG_AUTO: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_PI_FLAG_ONLINK: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_PI_FLAG_ROUTE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_PI_FLAG_ROUTER_ADDR: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_PI_FLAG_SITE_PREFIX: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_RDNSS_MIN_LEN: u32 = 24u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_OPT_RI_FLAG_PREFERENCE: u32 = 24u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_RA_FLAG_HOME_AGENT: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_RA_FLAG_MANAGED: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_RA_FLAG_OTHER: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const ND_RA_FLAG_PREFERENCE: u32 = 24u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct NPI_MODULEID(i32);
 pub struct NPI_MODULEID_TYPE(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SIZEOF_IP_OPT_ROUTERALERT: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SIZEOF_IP_OPT_ROUTING_HEADER: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SIZEOF_IP_OPT_SECURITY: u32 = 11u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SIZEOF_IP_OPT_STREAMIDENTIFIER: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SIZEOF_IP_OPT_TIMESTAMP_HEADER: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SNAP_CONTROL: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SNAP_DSAP: u32 = 170u32;
 pub struct SNAP_HEADER(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SNAP_OUI: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const SNAP_SSAP: u32 = 170u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_ACK: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_CWR: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_ECE: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_FIN: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_EOL: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_FASTOPEN: u32 = 34u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_MSS: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_NOP: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_SACK: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_SACK_PERMITTED: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_TS: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_OPT_WS: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_PSH: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_RST: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_SYN: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const TH_URG: u32 = 32u32;
 pub struct TUNNEL_SUB_TYPE(i32);
 pub struct VLAN_TAG(i32);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const _BIG_ENDIAN: u32 = 4321u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const _LITTLE_ENDIAN: u32 = 1234u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const _PDP_ENDIAN: u32 = 3412u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct nd_neighbor_advert(i32);

@@ -10,19 +10,12 @@ pub struct IObjectArray(pub *mut ::core::ffi::c_void);
 pub struct IObjectCollection(pub *mut ::core::ffi::c_void);
 pub struct ITEMIDLIST(i32);
 pub struct PERCEIVED(i32);
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_GDIPLUS: u32 = 16u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_HARDCODED: u32 = 2u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_NATIVESUPPORT: u32 = 4u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_SOFTCODED: u32 = 1u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_UNDEFINED: u32 = 0u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_WMSDK: u32 = 32u32;
-#[doc = "*Required features: `Win32_UI_Shell_Common`*"]
 pub const PERCEIVEDFLAG_ZIPFOLDER: u32 = 64u32;
 pub struct SHCOLSTATE(i32);
 #[cfg(feature = "Win32_Foundation")]

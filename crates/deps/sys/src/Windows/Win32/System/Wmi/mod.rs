@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub fn MI_Application_InitializeV1(flags: u32, applicationid: *const u16, extendederror: *mut *mut MI_Instance, application: *mut MI_Application) -> MI_Result;
 }
 pub struct CIMTYPE_ENUMERATION(i32);
@@ -152,7 +151,6 @@ pub struct MI_ArrayField(i32);
 pub struct MI_BooleanA(i32);
 pub struct MI_BooleanAField(i32);
 pub struct MI_BooleanField(i32);
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_CALL_VERSION: u32 = 1u32;
 pub struct MI_CallbackMode(i32);
 pub struct MI_CancelCallback(i32);
@@ -225,63 +223,34 @@ pub struct MI_DestinationOptions(i32);
 pub struct MI_DestinationOptionsFT(i32);
 pub struct MI_DestinationOptions_ImpersonationType(i32);
 pub struct MI_ErrorCategory(i32);
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_ABSTRACT: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_ADOPT: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_ANY: u32 = 127u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_ASSOCIATION: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_BORROW: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_CLASS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_DISABLEOVERRIDE: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_ENABLEOVERRIDE: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_EXPENSIVE: u32 = 524288u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_EXTENDED: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_IN: u32 = 8192u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_INDICATION: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_KEY: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_METHOD: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_NOT_MODIFIED: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_NULL: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_OUT: u32 = 16384u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_PARAMETER: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_PROPERTY: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_READONLY: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_REFERENCE: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_REQUIRED: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_RESTRICTED: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_STATIC: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_STREAM: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_TERMINAL: u32 = 262144u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_TOSUBCLASS: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_TRANSLATABLE: u32 = 2048u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_VERSION: u32 = 469762048u32;
 pub struct MI_FeatureDecl(i32);
 pub struct MI_Filter(i32);
@@ -296,23 +265,14 @@ pub struct MI_InstanceFT(i32);
 pub struct MI_InstanceField(i32);
 pub struct MI_Interval(i32);
 pub struct MI_LocaleType(i32);
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MAX_LOCALE_SIZE: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_BOOLEANS: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_CPLUSPLUS: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_DESCRIPTIONS: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_FILTER_SUPPORT: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_LOCALIZED: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_MAPPING_STRINGS: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_STANDARD_QUALIFIERS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_VALUES: u32 = 4u32;
 pub struct MI_MainFunction(i32);
 pub struct MI_MethodDecl(i32);
@@ -321,27 +281,16 @@ pub struct MI_Module(i32);
 pub struct MI_Module_Load(i32);
 pub struct MI_Module_Self(i32);
 pub struct MI_Module_Unload(i32);
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_BASIC_RTTI: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_DEFAULT_RTTI: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_EXPENSIVE_PROPERTIES: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_FULL_RTTI: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_LOCALIZED_QUALIFIERS: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_MANUAL_ACK_RESULTS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_NO_RTTI: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_POLYMORPHISM_DEEP_BASE_PROPS_ONLY: u32 = 384u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_POLYMORPHISM_SHALLOW: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_REPORT_OPERATION_STARTED: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_STANDARD_RTTI: u32 = 2048u32;
 pub struct MI_ObjectDecl(i32);
 pub struct MI_Operation(i32);
@@ -395,9 +344,7 @@ pub struct MI_ReferenceA(i32);
 pub struct MI_ReferenceAField(i32);
 pub struct MI_ReferenceField(i32);
 pub struct MI_Result(i32);
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_SERIALIZER_FLAGS_CLASS_DEEP: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: u32 = 1u32;
 pub struct MI_SchemaDecl(i32);
 pub struct MI_Serializer(i32);
@@ -443,11 +390,8 @@ pub struct MI_UserCredentials(i32);
 pub struct MI_UsernamePasswordCreds(i32);
 pub struct MI_UtilitiesFT(i32);
 pub struct MI_Value(i32);
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_WRITEMESSAGE_CHANNEL_DEBUG: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_WRITEMESSAGE_CHANNEL_VERBOSE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_WRITEMESSAGE_CHANNEL_WARNING: u32 = 0u32;
 pub struct MofCompiler(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -492,17 +436,11 @@ pub struct SWbemSink(i32);
 pub struct UnsecuredApartment(i32);
 pub struct WBEMSTATUS(i32);
 pub struct WBEMSTATUS_FORMAT(i32);
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const WBEMS_DISPID_COMPLETED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const WBEMS_DISPID_CONNECTION_READY: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const WBEMS_DISPID_DERIVATION: u32 = 23u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const WBEMS_DISPID_OBJECT_PUT: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const WBEMS_DISPID_OBJECT_READY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const WBEMS_DISPID_PROGRESS: u32 = 3u32;
 pub struct WBEM_BACKUP_RESTORE_FLAGS(i32);
 pub struct WBEM_BATCH_TYPE(i32);

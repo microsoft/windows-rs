@@ -1,10 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
     pub fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: *const ::windows_sys::core::GUID, factory: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
 }
-#[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 pub const DWRITE_ALPHA_MAX: u32 = 255u32;
 pub struct DWRITE_AUTOMATIC_FONT_AXES(i32);
 pub struct DWRITE_BASELINE(i32);
@@ -17,15 +15,10 @@ pub struct DWRITE_COLOR_GLYPH_RUN(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_COLOR_GLYPH_RUN1(i32);
 pub struct DWRITE_CONTAINER_TYPE(i32);
-#[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 pub const DWRITE_ERR_BASE: u32 = 20480u32;
-#[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 pub const DWRITE_E_DOWNLOADCANCELLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003283954i32 as _);
-#[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 pub const DWRITE_E_DOWNLOADFAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003283953i32 as _);
-#[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 pub const DWRITE_E_REMOTEFONT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003283955i32 as _);
-#[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 pub const DWRITE_E_TOOMANYDOWNLOADS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003283952i32 as _);
 pub struct DWRITE_FACTORY_TYPE(i32);
 pub struct DWRITE_FILE_FRAGMENT(i32);
@@ -134,7 +127,6 @@ pub struct DWRITE_UNDERLINE(i32);
 pub struct DWRITE_UNICODE_RANGE(i32);
 pub struct DWRITE_VERTICAL_GLYPH_ORIENTATION(i32);
 pub struct DWRITE_WORD_WRAPPING(i32);
-#[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 pub const FACILITY_DWRITE: u32 = 2200u32;
 #[repr(transparent)]
 pub struct IDWriteAsyncResult(pub *mut ::core::ffi::c_void);

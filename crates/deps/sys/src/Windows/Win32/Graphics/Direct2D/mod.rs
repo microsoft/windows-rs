@@ -3,21 +3,15 @@
 pub mod Common;
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Dxgi`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub fn D2D1CreateDevice(dxgidevice: super::Dxgi::IDXGIDevice, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevice: *mut ID2D1Device) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Dxgi`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub fn D2D1CreateDeviceContext(dxgisurface: super::Dxgi::IDXGISurface, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevicecontext: *mut ID2D1DeviceContext) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::windows_sys::core::GUID, pfactoryoptions: *const D2D1_FACTORY_OPTIONS, ppifactory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Direct2D_Common`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
         ppoint0: *const Common::D2D_POINT_2F,
@@ -37,23 +31,16 @@ extern "system" {
         ptensorpoint21: *mut Common::D2D_POINT_2F,
         ptensorpoint22: *mut Common::D2D_POINT_2F,
     );
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
     pub fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
     pub fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub fn D2D1MakeRotateMatrix(angle: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32);
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub fn D2D1Tan(angle: f32) -> f32;
-    #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
     pub fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32;
 }
 pub const CLSID_D2D12DAffineTransform: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -282,7 +269,6 @@ pub struct D2D1_3DPERSPECTIVETRANSFORM_PROP(i32);
 pub struct D2D1_3DTRANSFORM_INTERPOLATION_MODE(i32);
 pub struct D2D1_3DTRANSFORM_PROP(i32);
 pub struct D2D1_ANTIALIAS_MODE(i32);
-#[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub const D2D1_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_ARC_SEGMENT(i32);
@@ -339,7 +325,6 @@ pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES(i32);
 pub struct D2D1_DASH_STYLE(i32);
 pub struct D2D1_DC_INITIALIZE_MODE(i32);
 pub struct D2D1_DEBUG_LEVEL(i32);
-#[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub const D2D1_DEFAULT_FLATTENING_TOLERANCE: f32 = 0.25f32;
 pub struct D2D1_DEVICE_CONTEXT_OPTIONS(i32);
 pub struct D2D1_DIRECTIONALBLUR_OPTIMIZATION(i32);
@@ -466,7 +451,6 @@ pub struct D2D1_ROUNDED_RECT(i32);
 pub struct D2D1_SATURATION_PROP(i32);
 pub struct D2D1_SCALE_INTERPOLATION_MODE(i32);
 pub struct D2D1_SCALE_PROP(i32);
-#[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub const D2D1_SCENE_REFERRED_SDR_WHITE_LEVEL: f32 = 80f32;
 pub struct D2D1_SEPIA_PROP(i32);
 pub struct D2D1_SHADOW_OPTIMIZATION(i32);
@@ -525,7 +509,6 @@ pub struct D2D1_WINDOW_STATE(i32);
 pub struct D2D1_YCBCR_CHROMA_SUBSAMPLING(i32);
 pub struct D2D1_YCBCR_INTERPOLATION_MODE(i32);
 pub struct D2D1_YCBCR_PROP(i32);
-#[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub const FACILITY_D2D: u32 = 2201u32;
 #[repr(transparent)]
 pub struct ID2D1AnalysisTransform(pub *mut ::core::ffi::c_void);

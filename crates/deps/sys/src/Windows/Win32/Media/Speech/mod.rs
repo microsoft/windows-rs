@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {}
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const DEFAULT_WEIGHT: u32 = 1u32;
 pub struct DISPIDSPRG(i32);
 pub struct DISPIDSPTSI(i32);
@@ -246,7 +245,6 @@ pub struct ISpeechWaveFormatEx(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISpeechXMLRecoResult(pub *mut ::core::ffi::c_void);
 pub struct PHONETICALPHABET(i32);
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SAPI_ERROR_BASE: u32 = 20480u32;
 pub struct SPADAPTATIONRELEVANCE(i32);
 pub struct SPADAPTATIONSETTINGS(i32);
@@ -308,7 +306,6 @@ pub struct SPRECOGNIZERSTATUS(i32);
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPRECORESULTTIMES(i32);
 pub struct SPRECOSTATE(i32);
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SPRP_NORMAL: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPRULE(i32);
@@ -351,21 +348,13 @@ pub struct SPWORDPRONUNCIATION(i32);
 pub struct SPWORDPRONUNCIATIONLIST(i32);
 pub struct SPWORDTYPE(i32);
 pub struct SPXMLRESULTOPTIONS(i32);
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SP_EMULATE_RESULT: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SP_LOW_CONFIDENCE: i32 = -1i32;
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SP_MAX_LANGIDS: u32 = 20u32;
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SP_MAX_PRON_LENGTH: u32 = 384u32;
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SP_MAX_WORD_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SP_NORMAL_CONFIDENCE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SP_STREAMPOS_ASAP: u32 = 0u32;
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SP_STREAMPOS_REALTIME: i32 = -1i32;
 pub struct SpAudioFormat(i32);
 pub struct SpCompressedLexicon(i32);
@@ -395,7 +384,6 @@ pub struct SpTextSelectionInformation(i32);
 pub struct SpUnCompressedLexicon(i32);
 pub struct SpVoice(i32);
 pub struct SpWaveFormatEx(i32);
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SpeechAllElements: i32 = -1i32;
 pub struct SpeechAudioFormatType(i32);
 pub struct SpeechAudioState(i32);
@@ -433,15 +421,10 @@ pub struct SpeechVoicePriority(i32);
 pub struct SpeechVoiceSpeakFlags(i32);
 pub struct SpeechWordPronounceable(i32);
 pub struct SpeechWordType(i32);
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const Speech_Default_Weight: f32 = 1f32;
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const Speech_Max_Pron_Length: i32 = 384i32;
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const Speech_Max_Word_Length: i32 = 128i32;
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const Speech_StreamPos_Asap: i32 = 0i32;
-#[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const Speech_StreamPos_RealTime: i32 = -1i32;
 #[repr(transparent)]
 pub struct _ISpeechRecoContextEvents(pub *mut ::core::ffi::c_void);

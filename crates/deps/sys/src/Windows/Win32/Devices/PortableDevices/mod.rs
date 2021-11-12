@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DMProcessConfigXMLFiltered(pszxmlin: super::super::Foundation::PWSTR, rgszallowedcspnodes: *const super::super::Foundation::PWSTR, dwnumallowedcspnodes: u32, pbstrxmlout: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
 }
@@ -9,7 +8,6 @@ pub const CLSID_WPD_NAMESPACE_EXTENSION: ::windows_sys::core::GUID = ::windows_s
 pub struct DELETE_OBJECT_OPTIONS(i32);
 pub struct DEVICE_RADIO_STATE(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const DEVPKEY_MTPBTH_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3927062522,
@@ -19,136 +17,71 @@ pub const DEVPKEY_MTPBTH_IsConnected: super::super::UI::Shell::PropertiesSystem:
     },
     pid: 2u32,
 };
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const DEVSVCTYPE_ABSTRACT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const DEVSVCTYPE_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const DEVSVC_SERVICEINFO_VERSION: u32 = 100u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_AnchorResults_AnchorStateInvalid: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_AnchorResults_AnchorStateNormal: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_AnchorResults_AnchorStateOld: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_AnchorResults_ItemStateChanged: u32 = 4u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_AnchorResults_ItemStateCreated: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_AnchorResults_ItemStateDeleted: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_AnchorResults_ItemStateInvalid: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_AnchorResults_ItemStateUpdated: u32 = 3u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_CalendarObj_BusyStatusBusy: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_CalendarObj_BusyStatusFree: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_CalendarObj_BusyStatusOutOfOffice: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_CalendarObj_BusyStatusTentative: u32 = 3u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_DeviceMetadataObj_DefaultCABFalse: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_DeviceMetadataObj_DefaultCABTrue: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PatternInstanceFirst: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PatternInstanceFourth: u32 = 4u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PatternInstanceLast: u32 = 5u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PatternInstanceNone: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PatternInstanceSecond: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PatternInstanceThird: u32 = 3u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PatternTypeDaily: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PatternTypeMonthly: u32 = 3u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PatternTypeWeekly: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PatternTypeYearly: u32 = 4u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PriorityHighest: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PriorityLowest: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_PriorityNormal: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_ReadFalse: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_MessageObj_ReadTrue: u32 = 255u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_StatusSvc_ChargingActive: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_StatusSvc_ChargingInactive: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_StatusSvc_ChargingUnknown: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_StatusSvc_RoamingActive: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_StatusSvc_RoamingInactive: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_StatusSvc_RoamingUnknown: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_SyncSvc_SyncObjectReferencesDisabled: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_SyncSvc_SyncObjectReferencesEnabled: u32 = 255u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_TaskObj_CompleteFalse: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const ENUM_TaskObj_CompleteTrue: u32 = 255u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_DEVICE_ALREADY_OPENED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731135i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_DEVICE_IS_HUNG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731130i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_DEVICE_NOT_OPEN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731134i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_OBJECT_ALREADY_ATTACHED_TO_DEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731133i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_OBJECT_ALREADY_ATTACHED_TO_SERVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144730934i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_OBJECT_NOT_ATTACHED_TO_DEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731132i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_OBJECT_NOT_ATTACHED_TO_SERVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144730933i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_OBJECT_NOT_COMMITED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731131i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_SERVICE_ALREADY_OPENED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144730936i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_SERVICE_BAD_PARAMETER_ORDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144730932i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_SERVICE_NOT_OPEN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144730935i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_SMS_INVALID_MESSAGE_BODY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731035i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_SMS_INVALID_RECIPIENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731036i32 as _);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const E_WPD_SMS_SERVICE_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731034i32 as _);
 pub struct EnumBthMtpConnectors(i32);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const FACILITY_WPD: u32 = 42u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const FLAG_MessageObj_DayOfWeekFriday: u32 = 32u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const FLAG_MessageObj_DayOfWeekMonday: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const FLAG_MessageObj_DayOfWeekNone: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const FLAG_MessageObj_DayOfWeekSaturday: u32 = 64u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const FLAG_MessageObj_DayOfWeekSunday: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const FLAG_MessageObj_DayOfWeekThursday: u32 = 16u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const FLAG_MessageObj_DayOfWeekTuesday: u32 = 4u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const FLAG_MessageObj_DayOfWeekWednesday: u32 = 8u32;
 pub const GUID_DEVINTERFACE_WPD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1791129720, data2: 42746, data3: 16725, data4: [186, 133, 249, 143, 73, 29, 79, 51] };
 pub const GUID_DEVINTERFACE_WPD_PRIVATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -173,9 +106,7 @@ pub struct IEnumPortableDeviceObjectIDs(pub *mut ::core::ffi::c_void);
 pub struct IMediaRadioManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IMediaRadioManagerNotifySink(pub *mut ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const IOCTL_WPD_MESSAGE_READWRITE_ACCESS: u32 = 4243720u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const IOCTL_WPD_MESSAGE_READ_ACCESS: u32 = 4210952u32;
 #[repr(transparent)]
 pub struct IPortableDevice(pub *mut ::core::ffi::c_void);
@@ -246,72 +177,40 @@ pub struct PortableDeviceServiceFTM(i32);
 pub struct PortableDeviceValues(i32);
 pub struct PortableDeviceValuesCollection(i32);
 pub struct PortableDeviceWebControl(i32);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMAX_MessageObj_PatternDayOfMonth: u32 = 31u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMAX_MessageObj_PatternMonthOfYear: u32 = 12u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMAX_StatusSvc_BatteryLife: u32 = 100u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMAX_StatusSvc_MissedCalls: u32 = 255u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMAX_StatusSvc_NewPictures: u32 = 65535u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMAX_StatusSvc_SignalStrength: u32 = 4u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMAX_StatusSvc_TextMessages: u32 = 255u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMAX_StatusSvc_VoiceMail: u32 = 255u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMIN_MessageObj_PatternDayOfMonth: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMIN_MessageObj_PatternMonthOfYear: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMIN_StatusSvc_BatteryLife: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGEMIN_StatusSvc_SignalStrength: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGESTEP_MessageObj_PatternDayOfMonth: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGESTEP_MessageObj_PatternMonthOfYear: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGESTEP_StatusSvc_BatteryLife: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const RANGESTEP_StatusSvc_SignalStrength: u32 = 1u32;
 pub struct SMS_MESSAGE_TYPES(i32);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const SYNCSVC_FILTER_CALENDAR_WINDOW_WITH_RECURRENCE: u32 = 3u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const SYNCSVC_FILTER_CONTACTS_WITH_PHONE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const SYNCSVC_FILTER_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const SYNCSVC_FILTER_TASK_ACTIVE: u32 = 2u32;
 pub struct SYSTEM_RADIO_STATE(i32);
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_AnchorSyncSvc: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_CalendarSvc: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_ContactsSvc: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_DeviceMetadataSvc: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_FullEnumSyncSvc: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_HintsSvc: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_MessageSvc: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_NotesSvc: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_RingtonesSvc: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_StatusSvc: u32 = 0u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_TasksSvc: u32 = 0u32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPDNSE_OBJECT_HAS_ALBUM_ART: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 886510601,
@@ -322,7 +221,6 @@ pub const WPDNSE_OBJECT_HAS_ALBUM_ART: super::super::UI::Shell::PropertiesSystem
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPDNSE_OBJECT_HAS_AUDIO_CLIP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 886510601,
@@ -333,7 +231,6 @@ pub const WPDNSE_OBJECT_HAS_AUDIO_CLIP: super::super::UI::Shell::PropertiesSyste
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPDNSE_OBJECT_HAS_CONTACT_PHOTO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 886510601,
@@ -344,7 +241,6 @@ pub const WPDNSE_OBJECT_HAS_CONTACT_PHOTO: super::super::UI::Shell::PropertiesSy
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPDNSE_OBJECT_HAS_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 886510601,
@@ -355,7 +251,6 @@ pub const WPDNSE_OBJECT_HAS_ICON: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPDNSE_OBJECT_HAS_THUMBNAIL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 886510601,
@@ -366,7 +261,6 @@ pub const WPDNSE_OBJECT_HAS_THUMBNAIL: super::super::UI::Shell::PropertiesSystem
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPDNSE_OBJECT_OPTIMAL_READ_BLOCK_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 886510601,
@@ -382,33 +276,24 @@ pub const WPDNSE_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys
     data3: 19840,
     data4: [170, 172, 58, 40, 164, 163, 179, 230],
 };
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const WPDNSE_PROPSHEET_CONTENT_DETAILS: u32 = 32u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const WPDNSE_PROPSHEET_CONTENT_GENERAL: u32 = 4u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const WPDNSE_PROPSHEET_CONTENT_REFERENCES: u32 = 8u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const WPDNSE_PROPSHEET_CONTENT_RESOURCES: u32 = 16u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const WPDNSE_PROPSHEET_DEVICE_GENERAL: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const WPDNSE_PROPSHEET_STORAGE_GENERAL: u32 = 2u32;
 pub const WPD_API_OPTIONS_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 283462206, data2: 1325, data3: 18295, data4: [161, 60, 222, 118, 20, 190, 43, 196] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_API_OPTION_IOCTL_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 283462206, data2: 1325, data3: 18295, data4: [161, 60, 222, 118, 20, 190, 43, 196] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_API_OPTION_USE_CLEAR_DATA_STREAM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 283462206, data2: 1325, data3: 18295, data4: [161, 60, 222, 118, 20, 190, 43, 196] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_APPOINTMENT_ACCEPTED_ATTENDEES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4187946243,
@@ -419,7 +304,6 @@ pub const WPD_APPOINTMENT_ACCEPTED_ATTENDEES: super::super::UI::Shell::Propertie
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_APPOINTMENT_DECLINED_ATTENDEES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4187946243,
@@ -430,7 +314,6 @@ pub const WPD_APPOINTMENT_DECLINED_ATTENDEES: super::super::UI::Shell::Propertie
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_APPOINTMENT_LOCATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4187946243,
@@ -447,7 +330,6 @@ pub const WPD_APPOINTMENT_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::wi
     data4: [161, 201, 78, 34, 13, 156, 136, 211],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_APPOINTMENT_OPTIONAL_ATTENDEES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4187946243,
@@ -458,7 +340,6 @@ pub const WPD_APPOINTMENT_OPTIONAL_ATTENDEES: super::super::UI::Shell::Propertie
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_APPOINTMENT_REQUIRED_ATTENDEES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4187946243,
@@ -469,7 +350,6 @@ pub const WPD_APPOINTMENT_REQUIRED_ATTENDEES: super::super::UI::Shell::Propertie
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_APPOINTMENT_RESOURCES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4187946243,
@@ -480,7 +360,6 @@ pub const WPD_APPOINTMENT_RESOURCES: super::super::UI::Shell::PropertiesSystem::
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_APPOINTMENT_TENTATIVE_ATTENDEES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4187946243,
@@ -491,7 +370,6 @@ pub const WPD_APPOINTMENT_TENTATIVE_ATTENDEES: super::super::UI::Shell::Properti
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_APPOINTMENT_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4187946243,
@@ -502,7 +380,6 @@ pub const WPD_APPOINTMENT_TYPE: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_AUDIO_BITRATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3005543786,
@@ -513,7 +390,6 @@ pub const WPD_AUDIO_BITRATE: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_AUDIO_BIT_DEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3005543786,
@@ -524,7 +400,6 @@ pub const WPD_AUDIO_BIT_DEPTH: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_AUDIO_BLOCK_ALIGNMENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3005543786,
@@ -535,7 +410,6 @@ pub const WPD_AUDIO_BLOCK_ALIGNMENT: super::super::UI::Shell::PropertiesSystem::
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_AUDIO_CHANNEL_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3005543786,
@@ -546,7 +420,6 @@ pub const WPD_AUDIO_CHANNEL_COUNT: super::super::UI::Shell::PropertiesSystem::PR
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_AUDIO_FORMAT_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3005543786,
@@ -627,7 +500,6 @@ pub const WPD_CATEGORY_STORAGE: ::windows_sys::core::GUID = ::windows_sys::GUID 
     data4: [151, 251, 208, 7, 250, 71, 236, 148],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLASS_EXTENSION_OPTIONS_DEVICE_IDENTIFICATION_VALUES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1043699162,
@@ -638,7 +510,6 @@ pub const WPD_CLASS_EXTENSION_OPTIONS_DEVICE_IDENTIFICATION_VALUES: super::super
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLASS_EXTENSION_OPTIONS_DONT_REGISTER_WPD_DEVICE_INTERFACE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1661599727,
@@ -649,7 +520,6 @@ pub const WPD_CLASS_EXTENSION_OPTIONS_DONT_REGISTER_WPD_DEVICE_INTERFACE: super:
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLASS_EXTENSION_OPTIONS_MULTITRANSPORT_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1043699162,
@@ -660,7 +530,6 @@ pub const WPD_CLASS_EXTENSION_OPTIONS_MULTITRANSPORT_MODE: super::super::UI::She
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLASS_EXTENSION_OPTIONS_REGISTER_WPD_PRIVATE_DEVICE_INTERFACE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1661599727,
@@ -671,13 +540,11 @@ pub const WPD_CLASS_EXTENSION_OPTIONS_REGISTER_WPD_PRIVATE_DEVICE_INTERFACE: sup
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLASS_EXTENSION_OPTIONS_SILENCE_AUTOPLAY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1707172088, data2: 4967, data3: 19682, data4: [147, 157, 131, 16, 131, 159, 13, 48] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLASS_EXTENSION_OPTIONS_SUPPORTED_CONTENT_TYPES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1661599727,
@@ -688,7 +555,6 @@ pub const WPD_CLASS_EXTENSION_OPTIONS_SUPPORTED_CONTENT_TYPES: super::super::UI:
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLASS_EXTENSION_OPTIONS_TRANSPORT_BANDWIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1043699162,
@@ -724,74 +590,62 @@ pub const WPD_CLASS_EXTENSION_V2: ::windows_sys::core::GUID = ::windows_sys::GUI
     data4: [156, 178, 247, 59, 163, 11, 103, 88],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLIENT_DESIRED_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLIENT_EVENT_COOKIE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 11u32,
 };
 pub const WPD_CLIENT_INFORMATION_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLIENT_MAJOR_VERSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLIENT_MANUAL_CLOSE_ON_DISCONNECT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLIENT_MINIMUM_RESULTS_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLIENT_MINOR_VERSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLIENT_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLIENT_REVISION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLIENT_SECURITY_QUALITY_OF_SERVICE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLIENT_SHARE_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLIENT_WMDRM_APPLICATION_CERTIFICATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CLIENT_WMDRM_APPLICATION_PRIVATE_KEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 6u32,
@@ -801,67 +655,56 @@ pub struct WPD_COLOR_CORRECTED_STATUS_VALUES(i32);
 pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY(i32);
 pub struct WPD_COMMAND_ACCESS_TYPES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CAPABILITIES_GET_COMMAND_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CAPABILITIES_GET_EVENT_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CAPABILITIES_GET_FIXED_PROPERTY_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CAPABILITIES_GET_FUNCTIONAL_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_COMMANDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_CONTENT_TYPES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_EVENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_FORMAT_PROPERTIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CAPABILITIES_GET_SUPPORTED_FUNCTIONAL_CATEGORIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CLASS_EXTENSION_REGISTER_SERVICE_INTERFACES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2131196341,
@@ -872,7 +715,6 @@ pub const WPD_COMMAND_CLASS_EXTENSION_REGISTER_SERVICE_INTERFACES: super::super:
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CLASS_EXTENSION_UNREGISTER_SERVICE_INTERFACES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2131196341,
@@ -883,7 +725,6 @@ pub const WPD_COMMAND_CLASS_EXTENSION_UNREGISTER_SERVICE_INTERFACES: super::supe
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_CLASS_EXTENSION_WRITE_DEVICE_INFORMATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 872090897,
@@ -894,7 +735,6 @@ pub const WPD_COMMAND_CLASS_EXTENSION_WRITE_DEVICE_INFORMATION: super::super::UI
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_COMMIT_KEYPAIR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2029635324,
@@ -905,7 +745,6 @@ pub const WPD_COMMAND_COMMIT_KEYPAIR: super::super::UI::Shell::PropertiesSystem:
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_COMMON_GET_OBJECT_IDS_FROM_PERSISTENT_UNIQUE_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -916,7 +755,6 @@ pub const WPD_COMMAND_COMMON_GET_OBJECT_IDS_FROM_PERSISTENT_UNIQUE_IDS: super::s
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_COMMON_RESET_DEVICE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -927,7 +765,6 @@ pub const WPD_COMMAND_COMMON_RESET_DEVICE: super::super::UI::Shell::PropertiesSy
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_COMMON_SAVE_CLIENT_INFORMATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -938,7 +775,6 @@ pub const WPD_COMMAND_COMMON_SAVE_CLIENT_INFORMATION: super::super::UI::Shell::P
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_DEVICE_HINTS_GET_CONTENT_LOCATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 224377131,
@@ -949,7 +785,6 @@ pub const WPD_COMMAND_DEVICE_HINTS_GET_CONTENT_LOCATION: super::super::UI::Shell
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_GENERATE_KEYPAIR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2029635324,
@@ -960,7 +795,6 @@ pub const WPD_COMMAND_GENERATE_KEYPAIR: super::super::UI::Shell::PropertiesSyste
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_MEDIA_CAPTURE_PAUSE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1504981946,
@@ -971,7 +805,6 @@ pub const WPD_COMMAND_MEDIA_CAPTURE_PAUSE: super::super::UI::Shell::PropertiesSy
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_MEDIA_CAPTURE_START: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1504981946,
@@ -982,7 +815,6 @@ pub const WPD_COMMAND_MEDIA_CAPTURE_START: super::super::UI::Shell::PropertiesSy
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_MEDIA_CAPTURE_STOP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1504981946,
@@ -993,73 +825,61 @@ pub const WPD_COMMAND_MEDIA_CAPTURE_STOP: super::super::UI::Shell::PropertiesSys
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_MTP_EXT_END_DATA_TRANSFER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_MTP_EXT_EXECUTE_COMMAND_WITHOUT_DATA_PHASE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_MTP_EXT_EXECUTE_COMMAND_WITH_DATA_TO_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_MTP_EXT_EXECUTE_COMMAND_WITH_DATA_TO_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_MTP_EXT_GET_SUPPORTED_VENDOR_OPCODES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_MTP_EXT_GET_VENDOR_EXTENSION_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_MTP_EXT_READ_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_MTP_EXT_WRITE_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_ENUMERATION_END_FIND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3074903697, data2: 59384, data3: 19161, data4: [180, 0, 173, 26, 75, 88, 238, 236] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_ENUMERATION_FIND_NEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3074903697, data2: 59384, data3: 19161, data4: [180, 0, 173, 26, 75, 88, 238, 236] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_ENUMERATION_START_FIND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3074903697, data2: 59384, data3: 19161, data4: [180, 0, 173, 26, 75, 88, 238, 236] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_COMMIT_OBJECT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -1070,7 +890,6 @@ pub const WPD_COMMAND_OBJECT_MANAGEMENT_COMMIT_OBJECT: super::super::UI::Shell::
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_COPY_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -1081,7 +900,6 @@ pub const WPD_COMMAND_OBJECT_MANAGEMENT_COPY_OBJECTS: super::super::UI::Shell::P
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_CREATE_OBJECT_WITH_PROPERTIES_AND_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -1092,7 +910,6 @@ pub const WPD_COMMAND_OBJECT_MANAGEMENT_CREATE_OBJECT_WITH_PROPERTIES_AND_DATA: 
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_CREATE_OBJECT_WITH_PROPERTIES_ONLY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -1103,7 +920,6 @@ pub const WPD_COMMAND_OBJECT_MANAGEMENT_CREATE_OBJECT_WITH_PROPERTIES_ONLY: supe
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_DELETE_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -1114,7 +930,6 @@ pub const WPD_COMMAND_OBJECT_MANAGEMENT_DELETE_OBJECTS: super::super::UI::Shell:
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_MOVE_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -1125,7 +940,6 @@ pub const WPD_COMMAND_OBJECT_MANAGEMENT_MOVE_OBJECTS: super::super::UI::Shell::P
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_REVERT_OBJECT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -1136,7 +950,6 @@ pub const WPD_COMMAND_OBJECT_MANAGEMENT_REVERT_OBJECT: super::super::UI::Shell::
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_UPDATE_OBJECT_WITH_PROPERTIES_AND_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -1147,7 +960,6 @@ pub const WPD_COMMAND_OBJECT_MANAGEMENT_UPDATE_OBJECT_WITH_PROPERTIES_AND_DATA: 
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_MANAGEMENT_WRITE_OBJECT_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -1158,7 +970,6 @@ pub const WPD_COMMAND_OBJECT_MANAGEMENT_WRITE_OBJECT_DATA: super::super::UI::She
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_FORMAT_END: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -1169,7 +980,6 @@ pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_FORMAT_END: su
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_FORMAT_NEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -1180,7 +990,6 @@ pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_FORMAT_NEXT: s
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_FORMAT_START: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -1191,7 +1000,6 @@ pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_FORMAT_START: 
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_LIST_END: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -1202,7 +1010,6 @@ pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_LIST_END: supe
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_LIST_NEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -1213,7 +1020,6 @@ pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_LIST_NEXT: sup
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_LIST_START: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -1224,7 +1030,6 @@ pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_GET_VALUES_BY_OBJECT_LIST_START: su
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_SET_VALUES_BY_OBJECT_LIST_END: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -1235,7 +1040,6 @@ pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_SET_VALUES_BY_OBJECT_LIST_END: supe
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_SET_VALUES_BY_OBJECT_LIST_NEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -1246,7 +1050,6 @@ pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_SET_VALUES_BY_OBJECT_LIST_NEXT: sup
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_SET_VALUES_BY_OBJECT_LIST_START: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -1257,115 +1060,96 @@ pub const WPD_COMMAND_OBJECT_PROPERTIES_BULK_SET_VALUES_BY_OBJECT_LIST_START: su
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_DELETE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2656404196, data2: 2068, data3: 17638, data4: [152, 26, 178, 153, 141, 88, 56, 4] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_GET: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2656404196, data2: 2068, data3: 17638, data4: [152, 26, 178, 153, 141, 88, 56, 4] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_GET_ALL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2656404196, data2: 2068, data3: 17638, data4: [152, 26, 178, 153, 141, 88, 56, 4] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_GET_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2656404196, data2: 2068, data3: 17638, data4: [152, 26, 178, 153, 141, 88, 56, 4] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_GET_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2656404196, data2: 2068, data3: 17638, data4: [152, 26, 178, 153, 141, 88, 56, 4] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_PROPERTIES_SET: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2656404196, data2: 2068, data3: 17638, data4: [152, 26, 178, 153, 141, 88, 56, 4] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_RESOURCES_CLOSE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_RESOURCES_COMMIT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_RESOURCES_CREATE_RESOURCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_RESOURCES_DELETE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_RESOURCES_GET_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_RESOURCES_GET_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_RESOURCES_OPEN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_RESOURCES_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_RESOURCES_REVERT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_RESOURCES_SEEK: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_RESOURCES_SEEK_IN_UNITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_OBJECT_RESOURCES_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_PROCESS_WIRELESS_PROFILE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2029635324,
@@ -1376,97 +1160,81 @@ pub const WPD_COMMAND_PROCESS_WIRELESS_PROFILE: super::super::UI::Shell::Propert
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_COMMAND_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_EVENT_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_EVENT_PARAMETER_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_FORMAT_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_FORMAT_PROPERTY_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_FORMAT_RENDERING_PROFILES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_INHERITED_SERVICES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_METHOD_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_METHOD_PARAMETER_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_COMMANDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_EVENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_FORMAT_PROPERTIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_METHODS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_CAPABILITIES_GET_SUPPORTED_METHODS_BY_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_COMMON_GET_SERVICE_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 841942813,
@@ -1477,25 +1245,21 @@ pub const WPD_COMMAND_SERVICE_COMMON_GET_SERVICE_OBJECT_ID: super::super::UI::Sh
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_METHODS_CANCEL_INVOKE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 760356008, data2: 49584, data3: 17000, data4: [163, 66, 207, 25, 50, 21, 105, 188] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_METHODS_END_INVOKE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 760356008, data2: 49584, data3: 17000, data4: [163, 66, 207, 25, 50, 21, 105, 188] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SERVICE_METHODS_START_INVOKE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 760356008, data2: 49584, data3: 17000, data4: [163, 66, 207, 25, 50, 21, 105, 188] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_SMS_SEND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2948750694,
@@ -1506,7 +1270,6 @@ pub const WPD_COMMAND_SMS_SEND: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_STILL_IMAGE_CAPTURE_INITIATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1338861954,
@@ -1517,7 +1280,6 @@ pub const WPD_COMMAND_STILL_IMAGE_CAPTURE_INITIATE: super::super::UI::Shell::Pro
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_STORAGE_EJECT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3640199078,
@@ -1528,7 +1290,6 @@ pub const WPD_COMMAND_STORAGE_EJECT: super::super::UI::Shell::PropertiesSystem::
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMAND_STORAGE_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3640199078,
@@ -1539,44 +1300,37 @@ pub const WPD_COMMAND_STORAGE_FORMAT: super::super::UI::Shell::PropertiesSystem:
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMON_INFORMATION_BODY_TEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2995448139, data2: 1444, data3: 20110, data4: [190, 1, 114, 204, 126, 9, 157, 143] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMON_INFORMATION_END_DATETIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2995448139, data2: 1444, data3: 20110, data4: [190, 1, 114, 204, 126, 9, 157, 143] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMON_INFORMATION_NOTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2995448139, data2: 1444, data3: 20110, data4: [190, 1, 114, 204, 126, 9, 157, 143] },
     pid: 7u32,
 };
 pub const WPD_COMMON_INFORMATION_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2995448139, data2: 1444, data3: 20110, data4: [190, 1, 114, 204, 126, 9, 157, 143] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMON_INFORMATION_PRIORITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2995448139, data2: 1444, data3: 20110, data4: [190, 1, 114, 204, 126, 9, 157, 143] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMON_INFORMATION_START_DATETIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2995448139, data2: 1444, data3: 20110, data4: [190, 1, 114, 204, 126, 9, 157, 143] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_COMMON_INFORMATION_SUBJECT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2995448139, data2: 1444, data3: 20110, data4: [190, 1, 114, 204, 126, 9, 157, 143] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_ANNIVERSARY_DATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1587,7 +1341,6 @@ pub const WPD_CONTACT_ANNIVERSARY_DATE: super::super::UI::Shell::PropertiesSyste
     pid: 62u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_ASSISTANT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1598,7 +1351,6 @@ pub const WPD_CONTACT_ASSISTANT: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 61u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BIRTHDATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1609,7 +1361,6 @@ pub const WPD_CONTACT_BIRTHDATE: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 57u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_EMAIL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1620,7 +1371,6 @@ pub const WPD_CONTACT_BUSINESS_EMAIL: super::super::UI::Shell::PropertiesSystem:
     pid: 34u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_EMAIL2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1631,7 +1381,6 @@ pub const WPD_CONTACT_BUSINESS_EMAIL2: super::super::UI::Shell::PropertiesSystem
     pid: 35u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_FAX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1642,7 +1391,6 @@ pub const WPD_CONTACT_BUSINESS_FAX: super::super::UI::Shell::PropertiesSystem::P
     pid: 45u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_FULL_POSTAL_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1653,7 +1401,6 @@ pub const WPD_CONTACT_BUSINESS_FULL_POSTAL_ADDRESS: super::super::UI::Shell::Pro
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_PHONE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1664,7 +1411,6 @@ pub const WPD_CONTACT_BUSINESS_PHONE: super::super::UI::Shell::PropertiesSystem:
     pid: 40u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_PHONE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1675,7 +1421,6 @@ pub const WPD_CONTACT_BUSINESS_PHONE2: super::super::UI::Shell::PropertiesSystem
     pid: 41u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_CITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1686,7 +1431,6 @@ pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_CITY: super::super::UI::Shell::Pro
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_COUNTRY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1697,7 +1441,6 @@ pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_COUNTRY: super::super::UI::Shell::
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_LINE1: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1708,7 +1451,6 @@ pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_LINE1: super::super::UI::Shell::Pr
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_LINE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1719,7 +1461,6 @@ pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_LINE2: super::super::UI::Shell::Pr
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_POSTAL_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1730,7 +1471,6 @@ pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_POSTAL_CODE: super::super::UI::She
     pid: 22u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_REGION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1741,7 +1481,6 @@ pub const WPD_CONTACT_BUSINESS_POSTAL_ADDRESS_REGION: super::super::UI::Shell::P
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_BUSINESS_WEB_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1752,7 +1491,6 @@ pub const WPD_CONTACT_BUSINESS_WEB_ADDRESS: super::super::UI::Shell::PropertiesS
     pid: 50u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_CHILDREN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1763,7 +1501,6 @@ pub const WPD_CONTACT_CHILDREN: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 60u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_COMPANY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1774,7 +1511,6 @@ pub const WPD_CONTACT_COMPANY_NAME: super::super::UI::Shell::PropertiesSystem::P
     pid: 54u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_DISPLAY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1785,7 +1521,6 @@ pub const WPD_CONTACT_DISPLAY_NAME: super::super::UI::Shell::PropertiesSystem::P
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_FIRST_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1796,7 +1531,6 @@ pub const WPD_CONTACT_FIRST_NAME: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_INSTANT_MESSENGER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1807,7 +1541,6 @@ pub const WPD_CONTACT_INSTANT_MESSENGER: super::super::UI::Shell::PropertiesSyst
     pid: 51u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_INSTANT_MESSENGER2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1818,7 +1551,6 @@ pub const WPD_CONTACT_INSTANT_MESSENGER2: super::super::UI::Shell::PropertiesSys
     pid: 52u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_INSTANT_MESSENGER3: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1829,7 +1561,6 @@ pub const WPD_CONTACT_INSTANT_MESSENGER3: super::super::UI::Shell::PropertiesSys
     pid: 53u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_LAST_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1840,7 +1571,6 @@ pub const WPD_CONTACT_LAST_NAME: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_MIDDLE_NAMES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1851,7 +1581,6 @@ pub const WPD_CONTACT_MIDDLE_NAMES: super::super::UI::Shell::PropertiesSystem::P
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_MOBILE_PHONE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1862,7 +1591,6 @@ pub const WPD_CONTACT_MOBILE_PHONE: super::super::UI::Shell::PropertiesSystem::P
     pid: 42u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_MOBILE_PHONE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1879,7 +1607,6 @@ pub const WPD_CONTACT_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::window
     data4: [179, 249, 114, 97, 133, 169, 49, 43],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_OTHER_EMAILS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1890,7 +1617,6 @@ pub const WPD_CONTACT_OTHER_EMAILS: super::super::UI::Shell::PropertiesSystem::P
     pid: 36u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_OTHER_FULL_POSTAL_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1901,7 +1627,6 @@ pub const WPD_CONTACT_OTHER_FULL_POSTAL_ADDRESS: super::super::UI::Shell::Proper
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_OTHER_PHONES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1912,7 +1637,6 @@ pub const WPD_CONTACT_OTHER_PHONES: super::super::UI::Shell::PropertiesSystem::P
     pid: 47u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_CITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1923,7 +1647,6 @@ pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_CITY: super::super::UI::Shell::Proper
     pid: 27u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_LINE1: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1934,7 +1657,6 @@ pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_LINE1: super::super::UI::Shell::Prope
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_LINE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1945,7 +1667,6 @@ pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_LINE2: super::super::UI::Shell::Prope
     pid: 26u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_POSTAL_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1956,7 +1677,6 @@ pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_POSTAL_CODE: super::super::UI::Shell:
     pid: 29u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_POSTAL_COUNTRY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1967,7 +1687,6 @@ pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_POSTAL_COUNTRY: super::super::UI::She
     pid: 30u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_REGION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1978,7 +1697,6 @@ pub const WPD_CONTACT_OTHER_POSTAL_ADDRESS_REGION: super::super::UI::Shell::Prop
     pid: 28u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PAGER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -1989,7 +1707,6 @@ pub const WPD_CONTACT_PAGER: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 46u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_EMAIL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2000,7 +1717,6 @@ pub const WPD_CONTACT_PERSONAL_EMAIL: super::super::UI::Shell::PropertiesSystem:
     pid: 32u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_EMAIL2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2011,7 +1727,6 @@ pub const WPD_CONTACT_PERSONAL_EMAIL2: super::super::UI::Shell::PropertiesSystem
     pid: 33u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_FAX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2022,7 +1737,6 @@ pub const WPD_CONTACT_PERSONAL_FAX: super::super::UI::Shell::PropertiesSystem::P
     pid: 44u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_FULL_POSTAL_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2033,7 +1747,6 @@ pub const WPD_CONTACT_PERSONAL_FULL_POSTAL_ADDRESS: super::super::UI::Shell::Pro
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_PHONE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2044,7 +1757,6 @@ pub const WPD_CONTACT_PERSONAL_PHONE: super::super::UI::Shell::PropertiesSystem:
     pid: 38u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_PHONE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2055,7 +1767,6 @@ pub const WPD_CONTACT_PERSONAL_PHONE2: super::super::UI::Shell::PropertiesSystem
     pid: 39u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_CITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2066,7 +1777,6 @@ pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_CITY: super::super::UI::Shell::Pro
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_COUNTRY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2077,7 +1787,6 @@ pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_COUNTRY: super::super::UI::Shell::
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_LINE1: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2088,7 +1797,6 @@ pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_LINE1: super::super::UI::Shell::Pr
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_LINE2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2099,7 +1807,6 @@ pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_LINE2: super::super::UI::Shell::Pr
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_POSTAL_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2110,7 +1817,6 @@ pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_POSTAL_CODE: super::super::UI::She
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_REGION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2121,7 +1827,6 @@ pub const WPD_CONTACT_PERSONAL_POSTAL_ADDRESS_REGION: super::super::UI::Shell::P
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PERSONAL_WEB_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2132,7 +1837,6 @@ pub const WPD_CONTACT_PERSONAL_WEB_ADDRESS: super::super::UI::Shell::PropertiesS
     pid: 49u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PHONETIC_COMPANY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2143,7 +1847,6 @@ pub const WPD_CONTACT_PHONETIC_COMPANY_NAME: super::super::UI::Shell::Properties
     pid: 55u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PHONETIC_FIRST_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2154,7 +1857,6 @@ pub const WPD_CONTACT_PHONETIC_FIRST_NAME: super::super::UI::Shell::PropertiesSy
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PHONETIC_LAST_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2165,7 +1867,6 @@ pub const WPD_CONTACT_PHONETIC_LAST_NAME: super::super::UI::Shell::PropertiesSys
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PREFIX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2176,7 +1877,6 @@ pub const WPD_CONTACT_PREFIX: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PRIMARY_EMAIL_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2187,7 +1887,6 @@ pub const WPD_CONTACT_PRIMARY_EMAIL_ADDRESS: super::super::UI::Shell::Properties
     pid: 31u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PRIMARY_FAX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2198,7 +1897,6 @@ pub const WPD_CONTACT_PRIMARY_FAX: super::super::UI::Shell::PropertiesSystem::PR
     pid: 58u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PRIMARY_PHONE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2209,7 +1907,6 @@ pub const WPD_CONTACT_PRIMARY_PHONE: super::super::UI::Shell::PropertiesSystem::
     pid: 37u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_PRIMARY_WEB_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2220,7 +1917,6 @@ pub const WPD_CONTACT_PRIMARY_WEB_ADDRESS: super::super::UI::Shell::PropertiesSy
     pid: 48u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_RINGTONE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2231,7 +1927,6 @@ pub const WPD_CONTACT_RINGTONE: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 63u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_ROLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2242,7 +1937,6 @@ pub const WPD_CONTACT_ROLE: super::super::UI::Shell::PropertiesSystem::PROPERTYK
     pid: 56u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_SPOUSE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2253,7 +1947,6 @@ pub const WPD_CONTACT_SPOUSE: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 59u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_CONTACT_SUFFIX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4225039787,
@@ -2357,11 +2050,9 @@ pub const WPD_CONTENT_TYPE_WIRELESS_PROFILE: ::windows_sys::core::GUID = ::windo
     data3: 19876,
     data4: [168, 246, 61, 228, 77, 104, 253, 108],
 };
-#[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const WPD_CONTROL_FUNCTION_GENERIC_MESSAGE: u32 = 66u32;
 pub struct WPD_CROPPED_STATUS_VALUES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_DATETIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2372,7 +2063,6 @@ pub const WPD_DEVICE_DATETIME: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_EDP_IDENTITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1814792076,
@@ -2383,7 +2073,6 @@ pub const WPD_DEVICE_EDP_IDENTITY: super::super::UI::Shell::PropertiesSystem::PR
     pid: 1u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_FIRMWARE_VERSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2394,7 +2083,6 @@ pub const WPD_DEVICE_FIRMWARE_VERSION: super::super::UI::Shell::PropertiesSystem
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_FRIENDLY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2405,7 +2093,6 @@ pub const WPD_DEVICE_FRIENDLY_NAME: super::super::UI::Shell::PropertiesSystem::P
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_FUNCTIONAL_UNIQUE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1178457698,
@@ -2416,7 +2103,6 @@ pub const WPD_DEVICE_FUNCTIONAL_UNIQUE_ID: super::super::UI::Shell::PropertiesSy
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_MANUFACTURER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2427,7 +2113,6 @@ pub const WPD_DEVICE_MANUFACTURER: super::super::UI::Shell::PropertiesSystem::PR
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_MODEL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2438,7 +2123,6 @@ pub const WPD_DEVICE_MODEL: super::super::UI::Shell::PropertiesSystem::PROPERTYK
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_MODEL_UNIQUE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1178457698,
@@ -2449,7 +2133,6 @@ pub const WPD_DEVICE_MODEL_UNIQUE_ID: super::super::UI::Shell::PropertiesSystem:
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_NETWORK_IDENTIFIER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2460,7 +2143,6 @@ pub const WPD_DEVICE_NETWORK_IDENTIFIER: super::super::UI::Shell::PropertiesSyst
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_POWER_LEVEL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2471,7 +2153,6 @@ pub const WPD_DEVICE_POWER_LEVEL: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_POWER_SOURCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2500,7 +2181,6 @@ pub const WPD_DEVICE_PROPERTIES_V3: ::windows_sys::core::GUID = ::windows_sys::G
     data4: [180, 37, 215, 167, 94, 35, 229, 237],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_PROTOCOL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2511,7 +2191,6 @@ pub const WPD_DEVICE_PROTOCOL: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_SERIAL_NUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2522,7 +2201,6 @@ pub const WPD_DEVICE_SERIAL_NUMBER: super::super::UI::Shell::PropertiesSystem::P
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_SUPPORTED_DRM_SCHEMES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2533,7 +2211,6 @@ pub const WPD_DEVICE_SUPPORTED_DRM_SCHEMES: super::super::UI::Shell::PropertiesS
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_SUPPORTED_FORMATS_ARE_ORDERED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2544,7 +2221,6 @@ pub const WPD_DEVICE_SUPPORTED_FORMATS_ARE_ORDERED: super::super::UI::Shell::Pro
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_SUPPORTS_NON_CONSUMABLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2555,7 +2231,6 @@ pub const WPD_DEVICE_SUPPORTS_NON_CONSUMABLE: super::super::UI::Shell::Propertie
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_SYNC_PARTNER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2566,7 +2241,6 @@ pub const WPD_DEVICE_SYNC_PARTNER: super::super::UI::Shell::PropertiesSystem::PR
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_TRANSPORT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1178457698,
@@ -2578,7 +2252,6 @@ pub const WPD_DEVICE_TRANSPORT: super::super::UI::Shell::PropertiesSystem::PROPE
 };
 pub struct WPD_DEVICE_TRANSPORTS(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 651466650,
@@ -2590,7 +2263,6 @@ pub const WPD_DEVICE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
 };
 pub struct WPD_DEVICE_TYPES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_DEVICE_USE_DEVICE_STAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1178457698,
@@ -2603,44 +2275,37 @@ pub const WPD_DEVICE_USE_DEVICE_STAGE: super::super::UI::Shell::PropertiesSystem
 pub const WPD_DOCUMENT_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 185664003, data2: 60309, data3: 20226, data4: [147, 224, 151, 198, 49, 73, 58, 213] };
 pub struct WPD_EFFECT_MODES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EMAIL_BCC_LINE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1106835034, data2: 21636, data3: 18306, data4: [177, 61, 71, 64, 221, 124, 55, 197] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EMAIL_CC_LINE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1106835034, data2: 21636, data3: 18306, data4: [177, 61, 71, 64, 221, 124, 55, 197] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EMAIL_HAS_ATTACHMENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1106835034, data2: 21636, data3: 18306, data4: [177, 61, 71, 64, 221, 124, 55, 197] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EMAIL_HAS_BEEN_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1106835034, data2: 21636, data3: 18306, data4: [177, 61, 71, 64, 221, 124, 55, 197] },
     pid: 7u32,
 };
 pub const WPD_EMAIL_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1106835034, data2: 21636, data3: 18306, data4: [177, 61, 71, 64, 221, 124, 55, 197] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EMAIL_RECEIVED_TIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1106835034, data2: 21636, data3: 18306, data4: [177, 61, 71, 64, 221, 124, 55, 197] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EMAIL_SENDER_ADDRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1106835034, data2: 21636, data3: 18306, data4: [177, 61, 71, 64, 221, 124, 55, 197] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EMAIL_TO_LINE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1106835034, data2: 21636, data3: 18306, data4: [177, 61, 71, 64, 221, 124, 55, 197] },
     pid: 2u32,
@@ -2652,7 +2317,6 @@ pub const WPD_EVENT_ATTRIBUTES_V1: ::windows_sys::core::GUID = ::windows_sys::GU
     data4: [173, 222, 224, 140, 166, 19, 143, 109],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 281634168,
@@ -2663,7 +2327,6 @@ pub const WPD_EVENT_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSystem::P
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_ATTRIBUTE_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 281634168,
@@ -2674,7 +2337,6 @@ pub const WPD_EVENT_ATTRIBUTE_OPTIONS: super::super::UI::Shell::PropertiesSystem
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_ATTRIBUTE_PARAMETERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 281634168,
@@ -2715,61 +2377,51 @@ pub const WPD_EVENT_OBJECT_TRANSFER_REQUESTED: ::windows_sys::core::GUID = ::win
 pub const WPD_EVENT_OBJECT_UPDATED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 340109145, data2: 11777, data3: 18525, data4: [159, 39, 255, 7, 218, 230, 151, 171] };
 pub const WPD_EVENT_OPTIONS_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3017333463, data2: 41825, data3: 19331, data4: [138, 72, 91, 2, 206, 16, 113, 59] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_OPTION_IS_AUTOPLAY_EVENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3017333463, data2: 41825, data3: 19331, data4: [138, 72, 91, 2, 206, 16, 113, 59] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_OPTION_IS_BROADCAST_EVENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3017333463, data2: 41825, data3: 19331, data4: [138, 72, 91, 2, 206, 16, 113, 59] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_PARAMETER_CHILD_HIERARCHY_CHANGED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 363534675, data2: 63511, data3: 20463, data4: [169, 33, 86, 118, 232, 56, 246, 224] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_PARAMETER_EVENT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 363534675, data2: 63511, data3: 20463, data4: [169, 33, 86, 118, 232, 56, 246, 224] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_PARAMETER_OBJECT_CREATION_COOKIE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 363534675, data2: 63511, data3: 20463, data4: [169, 33, 86, 118, 232, 56, 246, 224] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_PARAMETER_OBJECT_PARENT_PERSISTENT_UNIQUE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 363534675, data2: 63511, data3: 20463, data4: [169, 33, 86, 118, 232, 56, 246, 224] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_PARAMETER_OPERATION_PROGRESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 363534675, data2: 63511, data3: 20463, data4: [169, 33, 86, 118, 232, 56, 246, 224] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_PARAMETER_OPERATION_STATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 363534675, data2: 63511, data3: 20463, data4: [169, 33, 86, 118, 232, 56, 246, 224] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_PARAMETER_PNP_DEVICE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 363534675, data2: 63511, data3: 20463, data4: [169, 33, 86, 118, 232, 56, 246, 224] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_EVENT_PARAMETER_SERVICE_METHOD_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1384151946,
@@ -2794,7 +2446,6 @@ pub struct WPD_FLASH_MODES(i32);
 pub struct WPD_FOCUS_METERING_MODES(i32);
 pub struct WPD_FOCUS_MODES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_FOLDER_CONTENT_TYPES_ALLOWED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2124053183, data2: 58728, data3: 19252, data4: [170, 47, 19, 187, 18, 171, 23, 125] },
     pid: 2u32,
@@ -2802,13 +2453,11 @@ pub const WPD_FOLDER_CONTENT_TYPES_ALLOWED: super::super::UI::Shell::PropertiesS
 pub const WPD_FOLDER_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2124053183, data2: 58728, data3: 19252, data4: [170, 47, 19, 187, 18, 171, 23, 125] };
 pub const WPD_FORMAT_ATTRIBUTES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2694848512, data2: 48303, data3: 19432, data4: [179, 245, 35, 63, 35, 28, 245, 143] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_FORMAT_ATTRIBUTE_MIMETYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2694848512, data2: 48303, data3: 19432, data4: [179, 245, 35, 63, 35, 28, 245, 143] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_FORMAT_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2694848512, data2: 48303, data3: 19432, data4: [179, 245, 35, 63, 35, 28, 245, 143] },
     pid: 2u32,
@@ -2843,7 +2492,6 @@ pub const WPD_FUNCTIONAL_CATEGORY_VIDEO_CAPTURE: ::windows_sys::core::GUID = ::w
     data4: [141, 241, 14, 179, 217, 104, 169, 24],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_FUNCTIONAL_OBJECT_CATEGORY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2399481235,
@@ -2860,7 +2508,6 @@ pub const WPD_FUNCTIONAL_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::win
     data4: [165, 172, 176, 29, 244, 219, 229, 152],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_IMAGE_BITDEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1674987784,
@@ -2871,7 +2518,6 @@ pub const WPD_IMAGE_BITDEPTH: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_IMAGE_COLOR_CORRECTED_STATUS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1674987784,
@@ -2882,7 +2528,6 @@ pub const WPD_IMAGE_COLOR_CORRECTED_STATUS: super::super::UI::Shell::PropertiesS
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_IMAGE_CROPPED_STATUS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1674987784,
@@ -2893,7 +2538,6 @@ pub const WPD_IMAGE_CROPPED_STATUS: super::super::UI::Shell::PropertiesSystem::P
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_IMAGE_EXPOSURE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1674987784,
@@ -2904,7 +2548,6 @@ pub const WPD_IMAGE_EXPOSURE_INDEX: super::super::UI::Shell::PropertiesSystem::P
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_IMAGE_EXPOSURE_TIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1674987784,
@@ -2915,7 +2558,6 @@ pub const WPD_IMAGE_EXPOSURE_TIME: super::super::UI::Shell::PropertiesSystem::PR
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_IMAGE_FNUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1674987784,
@@ -2926,7 +2568,6 @@ pub const WPD_IMAGE_FNUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_IMAGE_HORIZONTAL_RESOLUTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1674987784,
@@ -2943,7 +2584,6 @@ pub const WPD_IMAGE_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_
     data4: [133, 186, 153, 82, 33, 100, 71, 219],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_IMAGE_VERTICAL_RESOLUTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1674987784,
@@ -2954,7 +2594,6 @@ pub const WPD_IMAGE_VERTICAL_RESOLUTION: super::super::UI::Shell::PropertiesSyst
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_ALBUM_ARTIST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -2965,7 +2604,6 @@ pub const WPD_MEDIA_ALBUM_ARTIST: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_ARTIST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -2976,7 +2614,6 @@ pub const WPD_MEDIA_ARTIST: super::super::UI::Shell::PropertiesSystem::PROPERTYK
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_AUDIO_ENCODING_PROFILE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -2987,7 +2624,6 @@ pub const WPD_MEDIA_AUDIO_ENCODING_PROFILE: super::super::UI::Shell::PropertiesS
     pid: 49u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_BITRATE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -2998,7 +2634,6 @@ pub const WPD_MEDIA_BITRATE_TYPE: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_BUY_NOW: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3009,7 +2644,6 @@ pub const WPD_MEDIA_BUY_NOW: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_BYTE_BOOKMARK: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3020,7 +2654,6 @@ pub const WPD_MEDIA_BYTE_BOOKMARK: super::super::UI::Shell::PropertiesSystem::PR
     pid: 36u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_COMPOSER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3031,7 +2664,6 @@ pub const WPD_MEDIA_COMPOSER: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_COPYRIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3042,7 +2674,6 @@ pub const WPD_MEDIA_COPYRIGHT: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3053,7 +2684,6 @@ pub const WPD_MEDIA_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 31u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_DESTINATION_URL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3064,7 +2694,6 @@ pub const WPD_MEDIA_DESTINATION_URL: super::super::UI::Shell::PropertiesSystem::
     pid: 30u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_DURATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3075,7 +2704,6 @@ pub const WPD_MEDIA_DURATION: super::super::UI::Shell::PropertiesSystem::PROPERT
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_EFFECTIVE_RATING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3086,7 +2714,6 @@ pub const WPD_MEDIA_EFFECTIVE_RATING: super::super::UI::Shell::PropertiesSystem:
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_ENCODING_PROFILE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3097,7 +2724,6 @@ pub const WPD_MEDIA_ENCODING_PROFILE: super::super::UI::Shell::PropertiesSystem:
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_GENRE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3108,7 +2734,6 @@ pub const WPD_MEDIA_GENRE: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 32u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3119,7 +2744,6 @@ pub const WPD_MEDIA_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY
     pid: 38u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3130,7 +2754,6 @@ pub const WPD_MEDIA_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYK
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_LAST_ACCESSED_TIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3141,7 +2764,6 @@ pub const WPD_MEDIA_LAST_ACCESSED_TIME: super::super::UI::Shell::PropertiesSyste
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_LAST_BUILD_DATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3152,7 +2774,6 @@ pub const WPD_MEDIA_LAST_BUILD_DATE: super::super::UI::Shell::PropertiesSystem::
     pid: 35u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_MANAGING_EDITOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3163,7 +2784,6 @@ pub const WPD_MEDIA_MANAGING_EDITOR: super::super::UI::Shell::PropertiesSystem::
     pid: 27u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_META_GENRE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3174,7 +2794,6 @@ pub const WPD_MEDIA_META_GENRE: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_OBJECT_BOOKMARK: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3185,7 +2804,6 @@ pub const WPD_MEDIA_OBJECT_BOOKMARK: super::super::UI::Shell::PropertiesSystem::
     pid: 34u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_OWNER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3196,7 +2814,6 @@ pub const WPD_MEDIA_OWNER: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 26u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_PARENTAL_RATING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3213,7 +2830,6 @@ pub const WPD_MEDIA_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GU
     data4: [176, 208, 188, 149, 172, 57, 106, 200],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_RELEASE_DATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3224,7 +2840,6 @@ pub const WPD_MEDIA_RELEASE_DATE: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_SAMPLE_RATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3235,7 +2850,6 @@ pub const WPD_MEDIA_SAMPLE_RATE: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_SKIP_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3246,7 +2860,6 @@ pub const WPD_MEDIA_SKIP_COUNT: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_SOURCE_URL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3257,7 +2870,6 @@ pub const WPD_MEDIA_SOURCE_URL: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 29u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_STAR_RATING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3268,7 +2880,6 @@ pub const WPD_MEDIA_STAR_RATING: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_SUBSCRIPTION_CONTENT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3279,7 +2890,6 @@ pub const WPD_MEDIA_SUBSCRIPTION_CONTENT_ID: super::super::UI::Shell::Properties
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_SUB_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3290,7 +2900,6 @@ pub const WPD_MEDIA_SUB_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::
     pid: 39u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_SUB_TITLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3301,7 +2910,6 @@ pub const WPD_MEDIA_SUB_TITLE: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_TIME_BOOKMARK: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3312,7 +2920,6 @@ pub const WPD_MEDIA_TIME_BOOKMARK: super::super::UI::Shell::PropertiesSystem::PR
     pid: 33u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_TIME_TO_LIVE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3323,7 +2930,6 @@ pub const WPD_MEDIA_TIME_TO_LIVE: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 37u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_TITLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3334,7 +2940,6 @@ pub const WPD_MEDIA_TITLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_TOTAL_BITRATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3345,7 +2950,6 @@ pub const WPD_MEDIA_TOTAL_BITRATE: super::super::UI::Shell::PropertiesSystem::PR
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_USER_EFFECTIVE_RATING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3356,7 +2960,6 @@ pub const WPD_MEDIA_USER_EFFECTIVE_RATING: super::super::UI::Shell::PropertiesSy
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_USE_COUNT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3367,7 +2970,6 @@ pub const WPD_MEDIA_USE_COUNT: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_WEBMASTER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3378,7 +2980,6 @@ pub const WPD_MEDIA_WEBMASTER: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 28u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MEDIA_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 785955333,
@@ -3392,31 +2993,26 @@ pub const WPD_MEMO_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_s
 pub struct WPD_META_GENRES(i32);
 pub const WPD_METHOD_ATTRIBUTES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4051325041, data2: 61497, data3: 17583, data4: [142, 254, 67, 44, 243, 46, 67, 42] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_METHOD_ATTRIBUTE_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4051325041, data2: 61497, data3: 17583, data4: [142, 254, 67, 44, 243, 46, 67, 42] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_METHOD_ATTRIBUTE_ASSOCIATED_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4051325041, data2: 61497, data3: 17583, data4: [142, 254, 67, 44, 243, 46, 67, 42] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_METHOD_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4051325041, data2: 61497, data3: 17583, data4: [142, 254, 67, 44, 243, 46, 67, 42] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_METHOD_ATTRIBUTE_PARAMETERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4051325041, data2: 61497, data3: 17583, data4: [142, 254, 67, 44, 243, 46, 67, 42] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MUSIC_ALBUM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3005543786,
@@ -3427,7 +3023,6 @@ pub const WPD_MUSIC_ALBUM: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MUSIC_LYRICS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3005543786,
@@ -3438,7 +3033,6 @@ pub const WPD_MUSIC_LYRICS: super::super::UI::Shell::PropertiesSystem::PROPERTYK
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MUSIC_MOOD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3005543786,
@@ -3455,7 +3049,6 @@ pub const WPD_MUSIC_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_
     data4: [182, 223, 210, 234, 65, 72, 136, 198],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_MUSIC_TRACK: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3005543786,
@@ -3466,20 +3059,17 @@ pub const WPD_MUSIC_TRACK: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_NETWORK_ASSOCIATION_HOST_NETWORK_IDENTIFIERS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3838393375, data2: 45571, data3: 17393, data4: [161, 0, 90, 7, 209, 27, 2, 116] },
     pid: 2u32,
 };
 pub const WPD_NETWORK_ASSOCIATION_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3838393375, data2: 45571, data3: 17393, data4: [161, 0, 90, 7, 209, 27, 2, 116] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_NETWORK_ASSOCIATION_X509V3SEQUENCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3838393375, data2: 45571, data3: 17393, data4: [161, 0, 90, 7, 209, 27, 2, 116] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_BACK_REFERENCES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -3490,7 +3080,6 @@ pub const WPD_OBJECT_BACK_REFERENCES: super::super::UI::Shell::PropertiesSystem:
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_CAN_DELETE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -3501,7 +3090,6 @@ pub const WPD_OBJECT_CAN_DELETE: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 26u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_CONTAINER_FUNCTIONAL_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -3512,7 +3100,6 @@ pub const WPD_OBJECT_CONTAINER_FUNCTIONAL_OBJECT_ID: super::super::UI::Shell::Pr
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_CONTENT_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -3523,7 +3110,6 @@ pub const WPD_OBJECT_CONTENT_TYPE: super::super::UI::Shell::PropertiesSystem::PR
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_DATE_AUTHORED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -3534,7 +3120,6 @@ pub const WPD_OBJECT_DATE_AUTHORED: super::super::UI::Shell::PropertiesSystem::P
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_DATE_CREATED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -3545,7 +3130,6 @@ pub const WPD_OBJECT_DATE_CREATED: super::super::UI::Shell::PropertiesSystem::PR
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_DATE_MODIFIED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -3556,7 +3140,6 @@ pub const WPD_OBJECT_DATE_MODIFIED: super::super::UI::Shell::PropertiesSystem::P
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -3973,7 +3556,6 @@ pub const WPD_OBJECT_FORMAT_XML: ::windows_sys::core::GUID = ::windows_sys::GUID
     data4: [152, 186, 197, 123, 70, 150, 95, 231],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_GENERATE_THUMBNAIL_FROM_RESOURCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -3984,7 +3566,6 @@ pub const WPD_OBJECT_GENERATE_THUMBNAIL_FROM_RESOURCE: super::super::UI::Shell::
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_HINT_LOCATION_DISPLAY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -3995,7 +3576,6 @@ pub const WPD_OBJECT_HINT_LOCATION_DISPLAY_NAME: super::super::UI::Shell::Proper
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4006,7 +3586,6 @@ pub const WPD_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY 
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_ISHIDDEN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4017,7 +3596,6 @@ pub const WPD_OBJECT_ISHIDDEN: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_ISSYSTEM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4028,7 +3606,6 @@ pub const WPD_OBJECT_ISSYSTEM: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_IS_DRM_PROTECTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4039,7 +3616,6 @@ pub const WPD_OBJECT_IS_DRM_PROTECTED: super::super::UI::Shell::PropertiesSystem
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_KEYWORDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4050,7 +3626,6 @@ pub const WPD_OBJECT_KEYWORDS: super::super::UI::Shell::PropertiesSystem::PROPER
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_LANGUAGE_LOCALE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4061,7 +3636,6 @@ pub const WPD_OBJECT_LANGUAGE_LOCALE: super::super::UI::Shell::PropertiesSystem:
     pid: 27u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4072,7 +3646,6 @@ pub const WPD_OBJECT_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_NON_CONSUMABLE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4083,7 +3656,6 @@ pub const WPD_OBJECT_NON_CONSUMABLE: super::super::UI::Shell::PropertiesSystem::
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_ORIGINAL_FILE_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4094,7 +3666,6 @@ pub const WPD_OBJECT_ORIGINAL_FILE_NAME: super::super::UI::Shell::PropertiesSyst
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_PARENT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4105,7 +3676,6 @@ pub const WPD_OBJECT_PARENT_ID: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_PERSISTENT_UNIQUE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4128,7 +3698,6 @@ pub const WPD_OBJECT_PROPERTIES_V2: ::windows_sys::core::GUID = ::windows_sys::G
     data4: [180, 216, 115, 232, 218, 116, 231, 117],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_REFERENCES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4139,7 +3708,6 @@ pub const WPD_OBJECT_REFERENCES: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4150,7 +3718,6 @@ pub const WPD_OBJECT_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_SUPPORTED_UNITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 57920829,
@@ -4161,7 +3728,6 @@ pub const WPD_OBJECT_SUPPORTED_UNITS: super::super::UI::Shell::PropertiesSystem:
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OBJECT_SYNC_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4016785677,
@@ -4173,7 +3739,6 @@ pub const WPD_OBJECT_SYNC_ID: super::super::UI::Shell::PropertiesSystem::PROPERT
 };
 pub struct WPD_OPERATION_STATES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OPTION_OBJECT_MANAGEMENT_RECURSIVE_DELETE_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -4184,25 +3749,21 @@ pub const WPD_OPTION_OBJECT_MANAGEMENT_RECURSIVE_DELETE_SUPPORTED: super::super:
     pid: 5001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OPTION_OBJECT_RESOURCES_NO_INPUT_BUFFER_ON_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 5003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OPTION_OBJECT_RESOURCES_SEEK_ON_READ_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 5001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OPTION_OBJECT_RESOURCES_SEEK_ON_WRITE_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 5002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OPTION_SMS_BINARY_MESSAGE_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2948750694,
@@ -4213,7 +3774,6 @@ pub const WPD_OPTION_SMS_BINARY_MESSAGE_SUPPORTED: super::super::UI::Shell::Prop
     pid: 5001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_OPTION_VALID_OBJECT_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -4230,7 +3790,6 @@ pub const WPD_PARAMETER_ATTRIBUTES_V1: ::windows_sys::core::GUID = ::windows_sys
     data4: [161, 213, 151, 207, 115, 182, 202, 88],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PARAMETER_ATTRIBUTE_DEFAULT_VALUE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867561431,
@@ -4241,7 +3800,6 @@ pub const WPD_PARAMETER_ATTRIBUTE_DEFAULT_VALUE: super::super::UI::Shell::Proper
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PARAMETER_ATTRIBUTE_ENUMERATION_ELEMENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867561431,
@@ -4252,7 +3810,6 @@ pub const WPD_PARAMETER_ATTRIBUTE_ENUMERATION_ELEMENTS: super::super::UI::Shell:
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PARAMETER_ATTRIBUTE_FORM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867561431,
@@ -4263,7 +3820,6 @@ pub const WPD_PARAMETER_ATTRIBUTE_FORM: super::super::UI::Shell::PropertiesSyste
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PARAMETER_ATTRIBUTE_MAX_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867561431,
@@ -4274,7 +3830,6 @@ pub const WPD_PARAMETER_ATTRIBUTE_MAX_SIZE: super::super::UI::Shell::PropertiesS
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PARAMETER_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867561431,
@@ -4285,7 +3840,6 @@ pub const WPD_PARAMETER_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSyste
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PARAMETER_ATTRIBUTE_ORDER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867561431,
@@ -4296,7 +3850,6 @@ pub const WPD_PARAMETER_ATTRIBUTE_ORDER: super::super::UI::Shell::PropertiesSyst
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PARAMETER_ATTRIBUTE_RANGE_MAX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867561431,
@@ -4307,7 +3860,6 @@ pub const WPD_PARAMETER_ATTRIBUTE_RANGE_MAX: super::super::UI::Shell::Properties
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PARAMETER_ATTRIBUTE_RANGE_MIN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867561431,
@@ -4318,7 +3870,6 @@ pub const WPD_PARAMETER_ATTRIBUTE_RANGE_MIN: super::super::UI::Shell::Properties
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PARAMETER_ATTRIBUTE_RANGE_STEP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867561431,
@@ -4329,7 +3880,6 @@ pub const WPD_PARAMETER_ATTRIBUTE_RANGE_STEP: super::super::UI::Shell::Propertie
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PARAMETER_ATTRIBUTE_REGULAR_EXPRESSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867561431,
@@ -4340,7 +3890,6 @@ pub const WPD_PARAMETER_ATTRIBUTE_REGULAR_EXPRESSION: super::super::UI::Shell::P
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PARAMETER_ATTRIBUTE_USAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867561431,
@@ -4351,7 +3900,6 @@ pub const WPD_PARAMETER_ATTRIBUTE_USAGE: super::super::UI::Shell::PropertiesSyst
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PARAMETER_ATTRIBUTE_VARTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3867561431,
@@ -4388,7 +3936,6 @@ pub const WPD_PROPERTY_ATTRIBUTES_V2: ::windows_sys::core::GUID = ::windows_sys:
     data4: [133, 169, 254, 85, 90, 128, 121, 142],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_CAN_DELETE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2876851160,
@@ -4399,7 +3946,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_CAN_DELETE: super::super::UI::Shell::Properties
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_CAN_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2876851160,
@@ -4410,7 +3956,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_CAN_READ: super::super::UI::Shell::PropertiesSy
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_CAN_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2876851160,
@@ -4421,7 +3966,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_CAN_WRITE: super::super::UI::Shell::PropertiesS
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_DEFAULT_VALUE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2876851160,
@@ -4432,7 +3976,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_DEFAULT_VALUE: super::super::UI::Shell::Propert
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_ENUMERATION_ELEMENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2876851160,
@@ -4443,7 +3986,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_ENUMERATION_ELEMENTS: super::super::UI::Shell::
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_FAST_PROPERTY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2876851160,
@@ -4454,7 +3996,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_FAST_PROPERTY: super::super::UI::Shell::Propert
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_FORM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2876851160,
@@ -4465,7 +4006,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_FORM: super::super::UI::Shell::PropertiesSystem
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_MAX_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2876851160,
@@ -4476,7 +4016,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_MAX_SIZE: super::super::UI::Shell::PropertiesSy
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1570611552,
@@ -4487,7 +4026,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_NAME: super::super::UI::Shell::PropertiesSystem
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_RANGE_MAX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2876851160,
@@ -4498,7 +4036,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_RANGE_MAX: super::super::UI::Shell::PropertiesS
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_RANGE_MIN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2876851160,
@@ -4509,7 +4046,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_RANGE_MIN: super::super::UI::Shell::PropertiesS
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_RANGE_STEP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2876851160,
@@ -4520,7 +4056,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_RANGE_STEP: super::super::UI::Shell::Properties
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_REGULAR_EXPRESSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2876851160,
@@ -4531,7 +4066,6 @@ pub const WPD_PROPERTY_ATTRIBUTE_REGULAR_EXPRESSION: super::super::UI::Shell::Pr
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_ATTRIBUTE_VARTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1570611552,
@@ -4542,97 +4076,81 @@ pub const WPD_PROPERTY_ATTRIBUTE_VARTYPE: super::super::UI::Shell::PropertiesSys
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_COMMAND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_COMMAND_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_CONTENT_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1008u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_CONTENT_TYPES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1007u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_EVENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1014u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_EVENT_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1015u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1010u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1009u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_FUNCTIONAL_CATEGORIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_FUNCTIONAL_CATEGORY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1005u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_FUNCTIONAL_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1006u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_PROPERTY_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1012u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_PROPERTY_KEYS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1011u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_SUPPORTED_COMMANDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CAPABILITIES_SUPPORTED_EVENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
     pid: 1013u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CLASS_EXTENSION_DEVICE_INFORMATION_VALUES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 872090897,
@@ -4643,7 +4161,6 @@ pub const WPD_PROPERTY_CLASS_EXTENSION_DEVICE_INFORMATION_VALUES: super::super::
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CLASS_EXTENSION_DEVICE_INFORMATION_WRITE_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 872090897,
@@ -4654,7 +4171,6 @@ pub const WPD_PROPERTY_CLASS_EXTENSION_DEVICE_INFORMATION_WRITE_RESULTS: super::
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CLASS_EXTENSION_SERVICE_INTERFACES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2131196341,
@@ -4665,7 +4181,6 @@ pub const WPD_PROPERTY_CLASS_EXTENSION_SERVICE_INTERFACES: super::super::UI::She
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CLASS_EXTENSION_SERVICE_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2131196341,
@@ -4676,7 +4191,6 @@ pub const WPD_PROPERTY_CLASS_EXTENSION_SERVICE_OBJECT_ID: super::super::UI::Shel
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_CLASS_EXTENSION_SERVICE_REGISTRATION_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2131196341,
@@ -4687,7 +4201,6 @@ pub const WPD_PROPERTY_CLASS_EXTENSION_SERVICE_REGISTRATION_RESULTS: super::supe
     pid: 1003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_COMMON_ACTIVITY_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -4698,7 +4211,6 @@ pub const WPD_PROPERTY_COMMON_ACTIVITY_ID: super::super::UI::Shell::PropertiesSy
     pid: 1011u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_COMMON_CLIENT_INFORMATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -4709,7 +4221,6 @@ pub const WPD_PROPERTY_COMMON_CLIENT_INFORMATION: super::super::UI::Shell::Prope
     pid: 1009u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_COMMON_CLIENT_INFORMATION_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -4720,7 +4231,6 @@ pub const WPD_PROPERTY_COMMON_CLIENT_INFORMATION_CONTEXT: super::super::UI::Shel
     pid: 1010u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_COMMON_COMMAND_CATEGORY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -4731,7 +4241,6 @@ pub const WPD_PROPERTY_COMMON_COMMAND_CATEGORY: super::super::UI::Shell::Propert
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_COMMON_COMMAND_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -4742,7 +4251,6 @@ pub const WPD_PROPERTY_COMMON_COMMAND_ID: super::super::UI::Shell::PropertiesSys
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_COMMON_COMMAND_TARGET: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -4753,7 +4261,6 @@ pub const WPD_PROPERTY_COMMON_COMMAND_TARGET: super::super::UI::Shell::Propertie
     pid: 1006u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_COMMON_DRIVER_ERROR_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -4764,7 +4271,6 @@ pub const WPD_PROPERTY_COMMON_DRIVER_ERROR_CODE: super::super::UI::Shell::Proper
     pid: 1004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_COMMON_HRESULT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -4775,7 +4281,6 @@ pub const WPD_PROPERTY_COMMON_HRESULT: super::super::UI::Shell::PropertiesSystem
     pid: 1003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_COMMON_OBJECT_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -4786,7 +4291,6 @@ pub const WPD_PROPERTY_COMMON_OBJECT_IDS: super::super::UI::Shell::PropertiesSys
     pid: 1008u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_COMMON_PERSISTENT_UNIQUE_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4030868124,
@@ -4797,7 +4301,6 @@ pub const WPD_PROPERTY_COMMON_PERSISTENT_UNIQUE_IDS: super::super::UI::Shell::Pr
     pid: 1007u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_DEVICE_HINTS_CONTENT_LOCATIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 224377131,
@@ -4808,7 +4311,6 @@ pub const WPD_PROPERTY_DEVICE_HINTS_CONTENT_LOCATIONS: super::super::UI::Shell::
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_DEVICE_HINTS_CONTENT_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 224377131,
@@ -4819,7 +4321,6 @@ pub const WPD_PROPERTY_DEVICE_HINTS_CONTENT_TYPE: super::super::UI::Shell::Prope
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_EVENT_PARAMS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1297371224,
@@ -4830,127 +4331,106 @@ pub const WPD_PROPERTY_MTP_EXT_EVENT_PARAMS: super::super::UI::Shell::Properties
     pid: 1011u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_OPERATION_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_OPERATION_PARAMS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_OPTIMAL_TRANSFER_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1013u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_RESPONSE_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_RESPONSE_PARAMS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1006u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1012u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_NUM_BYTES_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1009u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_NUM_BYTES_TO_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1008u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_NUM_BYTES_TO_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1010u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_NUM_BYTES_WRITTEN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1011u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_TRANSFER_TOTAL_DATA_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1007u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_VENDOR_EXTENSION_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1014u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_MTP_EXT_VENDOR_OPERATION_CODES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1297371224, data2: 6702, data3: 16646, data4: [163, 87, 119, 30, 8, 25, 252, 86] },
     pid: 1005u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_NULL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] },
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_ENUMERATION_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3074903697, data2: 59384, data3: 19161, data4: [180, 0, 173, 26, 75, 88, 238, 236] },
     pid: 1004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_ENUMERATION_FILTER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3074903697, data2: 59384, data3: 19161, data4: [180, 0, 173, 26, 75, 88, 238, 236] },
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_ENUMERATION_NUM_OBJECTS_REQUESTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3074903697, data2: 59384, data3: 19161, data4: [180, 0, 173, 26, 75, 88, 238, 236] },
     pid: 1005u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_ENUMERATION_OBJECT_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3074903697, data2: 59384, data3: 19161, data4: [180, 0, 173, 26, 75, 88, 238, 236] },
     pid: 1003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_ENUMERATION_PARENT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3074903697, data2: 59384, data3: 19161, data4: [180, 0, 173, 26, 75, 88, 238, 236] },
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -4961,7 +4441,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_CONTEXT: super::super::UI::Shell::Prope
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_COPY_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -4972,7 +4451,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_COPY_RESULTS: super::super::UI::Shell::
     pid: 1013u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_CREATION_PROPERTIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -4983,7 +4461,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_CREATION_PROPERTIES: super::super::UI::
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -4994,7 +4471,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_DATA: super::super::UI::Shell::Properti
     pid: 1005u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_DELETE_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -5005,7 +4481,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_DELETE_OPTIONS: super::super::UI::Shell
     pid: 1007u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_DELETE_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -5016,7 +4491,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_DELETE_RESULTS: super::super::UI::Shell
     pid: 1010u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_DESTINATION_FOLDER_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -5027,7 +4501,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_DESTINATION_FOLDER_OBJECT_ID: super::su
     pid: 1011u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_MOVE_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -5038,7 +4511,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_MOVE_RESULTS: super::super::UI::Shell::
     pid: 1012u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_NUM_BYTES_TO_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -5049,7 +4521,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_NUM_BYTES_TO_WRITE: super::super::UI::S
     pid: 1003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_NUM_BYTES_WRITTEN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -5060,7 +4531,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_NUM_BYTES_WRITTEN: super::super::UI::Sh
     pid: 1004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_OBJECT_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -5071,7 +4541,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_OBJECT_FORMAT: super::super::UI::Shell:
     pid: 1016u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -5082,7 +4551,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_OBJECT_ID: super::super::UI::Shell::Pro
     pid: 1006u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_OBJECT_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -5093,7 +4561,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_OBJECT_IDS: super::super::UI::Shell::Pr
     pid: 1009u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_OPTIMAL_TRANSFER_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -5104,7 +4571,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_OPTIMAL_TRANSFER_BUFFER_SIZE: super::su
     pid: 1008u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_PROPERTY_KEYS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -5115,7 +4581,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_PROPERTY_KEYS: super::super::UI::Shell:
     pid: 1015u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_MANAGEMENT_UPDATE_PROPERTIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4011738077,
@@ -5126,7 +4591,6 @@ pub const WPD_PROPERTY_OBJECT_MANAGEMENT_UPDATE_PROPERTIES: super::super::UI::Sh
     pid: 1014u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -5137,7 +4601,6 @@ pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_CONTEXT: super::super::UI::Shell::
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_DEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -5148,7 +4611,6 @@ pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_DEPTH: super::super::UI::Shell::Pr
     pid: 1005u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_OBJECT_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -5159,7 +4621,6 @@ pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_OBJECT_FORMAT: super::super::UI::S
     pid: 1007u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_OBJECT_IDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -5170,7 +4631,6 @@ pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_OBJECT_IDS: super::super::UI::Shel
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_PARENT_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -5181,7 +4641,6 @@ pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_PARENT_OBJECT_ID: super::super::UI
     pid: 1006u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_PROPERTY_KEYS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -5192,7 +4651,6 @@ pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_PROPERTY_KEYS: super::super::UI::S
     pid: 1004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_VALUES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -5203,7 +4661,6 @@ pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_VALUES: super::super::UI::Shell::P
     pid: 1003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_WRITE_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 298329309,
@@ -5214,139 +4671,116 @@ pub const WPD_PROPERTY_OBJECT_PROPERTIES_BULK_WRITE_RESULTS: super::super::UI::S
     pid: 1008u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2656404196, data2: 2068, data3: 17638, data4: [152, 26, 178, 153, 141, 88, 56, 4] },
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2656404196, data2: 2068, data3: 17638, data4: [152, 26, 178, 153, 141, 88, 56, 4] },
     pid: 1003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_DELETE_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2656404196, data2: 2068, data3: 17638, data4: [152, 26, 178, 153, 141, 88, 56, 4] },
     pid: 1006u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_KEYS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2656404196, data2: 2068, data3: 17638, data4: [152, 26, 178, 153, 141, 88, 56, 4] },
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_VALUES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2656404196, data2: 2068, data3: 17638, data4: [152, 26, 178, 153, 141, 88, 56, 4] },
     pid: 1004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_PROPERTIES_PROPERTY_WRITE_RESULTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2656404196, data2: 2068, data3: 17638, data4: [152, 26, 178, 153, 141, 88, 56, 4] },
     pid: 1005u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_ACCESS_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1005u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_DATA: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1010u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_NUM_BYTES_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1007u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_NUM_BYTES_TO_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1006u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_NUM_BYTES_TO_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1008u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_NUM_BYTES_WRITTEN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1009u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_OPTIMAL_TRANSFER_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1011u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_POSITION_FROM_START: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1014u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_RESOURCE_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_RESOURCE_KEYS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_SEEK_OFFSET: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1012u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_SEEK_ORIGIN_FLAG: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1013u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_STREAM_UNITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1016u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_OBJECT_RESOURCES_SUPPORTS_UNITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3013784109, data2: 42389, data3: 16648, data4: [190, 10, 252, 60, 150, 95, 61, 74] },
     pid: 1015u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_PUBLIC_KEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2029635324,
@@ -5357,151 +4791,126 @@ pub const WPD_PROPERTY_PUBLIC_KEY: super::super::UI::Shell::PropertiesSystem::PR
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_COMMAND: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1018u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_COMMAND_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1019u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_EVENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1012u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_EVENT_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1013u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1007u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_FORMAT_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1008u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_INHERITANCE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1014u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_INHERITED_SERVICES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1015u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_METHOD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_METHOD_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_PARAMETER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1005u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_PARAMETER_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1006u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_PROPERTY_ATTRIBUTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1010u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_PROPERTY_KEYS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1009u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_RENDERING_PROFILES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1016u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_SUPPORTED_COMMANDS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1017u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_SUPPORTED_EVENTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1011u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_CAPABILITIES_SUPPORTED_METHODS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 608534132, data2: 11935, data3: 17657, data4: [140, 87, 29, 27, 203, 23, 11, 137] },
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_METHOD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 760356008, data2: 49584, data3: 17000, data4: [163, 66, 207, 25, 50, 21, 105, 188] },
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_METHOD_CONTEXT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 760356008, data2: 49584, data3: 17000, data4: [163, 66, 207, 25, 50, 21, 105, 188] },
     pid: 1004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_METHOD_HRESULT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 760356008, data2: 49584, data3: 17000, data4: [163, 66, 207, 25, 50, 21, 105, 188] },
     pid: 1005u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_METHOD_PARAMETER_VALUES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 760356008, data2: 49584, data3: 17000, data4: [163, 66, 207, 25, 50, 21, 105, 188] },
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_METHOD_RESULT_VALUES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 760356008, data2: 49584, data3: 17000, data4: [163, 66, 207, 25, 50, 21, 105, 188] },
     pid: 1003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SERVICE_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 841942813,
@@ -5512,7 +4921,6 @@ pub const WPD_PROPERTY_SERVICE_OBJECT_ID: super::super::UI::Shell::PropertiesSys
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SMS_BINARY_MESSAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2948750694,
@@ -5523,7 +4931,6 @@ pub const WPD_PROPERTY_SMS_BINARY_MESSAGE: super::super::UI::Shell::PropertiesSy
     pid: 1004u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SMS_MESSAGE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2948750694,
@@ -5534,7 +4941,6 @@ pub const WPD_PROPERTY_SMS_MESSAGE_TYPE: super::super::UI::Shell::PropertiesSyst
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SMS_RECIPIENT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2948750694,
@@ -5545,7 +4951,6 @@ pub const WPD_PROPERTY_SMS_RECIPIENT: super::super::UI::Shell::PropertiesSystem:
     pid: 1001u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_SMS_TEXT_MESSAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 2948750694,
@@ -5556,7 +4961,6 @@ pub const WPD_PROPERTY_SMS_TEXT_MESSAGE: super::super::UI::Shell::PropertiesSyst
     pid: 1003u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_STORAGE_DESTINATION_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3640199078,
@@ -5567,7 +4971,6 @@ pub const WPD_PROPERTY_STORAGE_DESTINATION_OBJECT_ID: super::super::UI::Shell::P
     pid: 1002u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_PROPERTY_STORAGE_OBJECT_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3640199078,
@@ -5584,7 +4987,6 @@ pub const WPD_RENDERING_INFORMATION_OBJECT_PROPERTIES_V1: ::windows_sys::core::G
     data4: [133, 144, 118, 57, 135, 152, 112, 180],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RENDERING_INFORMATION_PROFILES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3309110175,
@@ -5595,7 +4997,6 @@ pub const WPD_RENDERING_INFORMATION_PROFILES: super::super::UI::Shell::Propertie
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_CREATABLE_RESOURCES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3309110175,
@@ -5606,7 +5007,6 @@ pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_CREATABLE_RESOURCES: super::su
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3309110175,
@@ -5618,7 +5018,6 @@ pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE: super::super::UI::Shell:
 };
 pub struct WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_ALBUM_ART: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 4029326164, data2: 8960, data3: 20013, data4: [161, 185, 59, 103, 48, 247, 250, 33] },
     pid: 0u32,
@@ -5630,7 +5029,6 @@ pub const WPD_RESOURCE_ATTRIBUTES_V1: ::windows_sys::core::GUID = ::windows_sys:
     data4: [147, 204, 91, 184, 192, 102, 86, 182],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_ATTRIBUTE_CAN_DELETE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 515307012,
@@ -5641,7 +5039,6 @@ pub const WPD_RESOURCE_ATTRIBUTE_CAN_DELETE: super::super::UI::Shell::Properties
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_ATTRIBUTE_CAN_READ: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 515307012,
@@ -5652,7 +5049,6 @@ pub const WPD_RESOURCE_ATTRIBUTE_CAN_READ: super::super::UI::Shell::PropertiesSy
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_ATTRIBUTE_CAN_WRITE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 515307012,
@@ -5663,7 +5059,6 @@ pub const WPD_RESOURCE_ATTRIBUTE_CAN_WRITE: super::super::UI::Shell::PropertiesS
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_ATTRIBUTE_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 515307012,
@@ -5674,7 +5069,6 @@ pub const WPD_RESOURCE_ATTRIBUTE_FORMAT: super::super::UI::Shell::PropertiesSyst
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_ATTRIBUTE_OPTIMAL_READ_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 515307012,
@@ -5685,7 +5079,6 @@ pub const WPD_RESOURCE_ATTRIBUTE_OPTIMAL_READ_BUFFER_SIZE: super::super::UI::She
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_ATTRIBUTE_OPTIMAL_WRITE_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 515307012,
@@ -5696,7 +5089,6 @@ pub const WPD_RESOURCE_ATTRIBUTE_OPTIMAL_WRITE_BUFFER_SIZE: super::super::UI::Sh
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_ATTRIBUTE_RESOURCE_KEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 515307012,
@@ -5707,7 +5099,6 @@ pub const WPD_RESOURCE_ATTRIBUTE_RESOURCE_KEY: super::super::UI::Shell::Properti
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_ATTRIBUTE_TOTAL_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 515307012,
@@ -5718,7 +5109,6 @@ pub const WPD_RESOURCE_ATTRIBUTE_TOTAL_SIZE: super::super::UI::Shell::Properties
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_AUDIO_CLIP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1002518914,
@@ -5729,7 +5119,6 @@ pub const WPD_RESOURCE_AUDIO_CLIP: super::super::UI::Shell::PropertiesSystem::PR
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_BRANDING_ART: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3056841134,
@@ -5740,7 +5129,6 @@ pub const WPD_RESOURCE_BRANDING_ART: super::super::UI::Shell::PropertiesSystem::
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_CONTACT_PHOTO: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 743270403,
@@ -5751,7 +5139,6 @@ pub const WPD_RESOURCE_CONTACT_PHOTO: super::super::UI::Shell::PropertiesSystem:
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_DEFAULT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3894311358,
@@ -5762,13 +5149,11 @@ pub const WPD_RESOURCE_DEFAULT: super::super::UI::Shell::PropertiesSystem::PROPE
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_GENERIC: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3115971861, data2: 47728, data3: 17991, data4: [148, 220, 250, 73, 37, 233, 90, 7] },
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 4053139160,
@@ -5779,7 +5164,6 @@ pub const WPD_RESOURCE_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTY
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_THUMBNAIL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3351513018,
@@ -5790,13 +5174,11 @@ pub const WPD_RESOURCE_THUMBNAIL: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_RESOURCE_VIDEO_CLIP: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3043421762, data2: 25448, data3: 17040, data4: [134, 98, 112, 24, 47, 183, 159, 32] },
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_SECTION_DATA_LENGTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1365966123,
@@ -5807,7 +5189,6 @@ pub const WPD_SECTION_DATA_LENGTH: super::super::UI::Shell::PropertiesSystem::PR
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_SECTION_DATA_OFFSET: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1365966123,
@@ -5818,7 +5199,6 @@ pub const WPD_SECTION_DATA_OFFSET: super::super::UI::Shell::PropertiesSystem::PR
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_SECTION_DATA_REFERENCED_OBJECT_RESOURCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1365966123,
@@ -5829,7 +5209,6 @@ pub const WPD_SECTION_DATA_REFERENCED_OBJECT_RESOURCE: super::super::UI::Shell::
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_SECTION_DATA_UNITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 1365966123,
@@ -5849,276 +5228,231 @@ pub const WPD_SECTION_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::window
 pub struct WPD_SERVICE_INHERITANCE_TYPES(i32);
 pub const WPD_SERVICE_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1964009866, data2: 52052, data3: 18460, data4: [184, 219, 13, 117, 201, 63, 28, 6] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_SERVICE_VERSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1964009866, data2: 52052, data3: 18460, data4: [184, 219, 13, 117, 201, 63, 28, 6] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_SMS_ENCODING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2115007692, data2: 20735, data3: 19921, data4: [167, 66, 83, 190, 111, 9, 58, 13] },
     pid: 5u32,
 };
 pub struct WPD_SMS_ENCODING_TYPES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_SMS_MAX_PAYLOAD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2115007692, data2: 20735, data3: 19921, data4: [167, 66, 83, 190, 111, 9, 58, 13] },
     pid: 4u32,
 };
 pub const WPD_SMS_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2115007692, data2: 20735, data3: 19921, data4: [167, 66, 83, 190, 111, 9, 58, 13] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_SMS_PROVIDER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2115007692, data2: 20735, data3: 19921, data4: [167, 66, 83, 190, 111, 9, 58, 13] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_SMS_TIMEOUT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 2115007692, data2: 20735, data3: 19921, data4: [167, 66, 83, 190, 111, 9, 58, 13] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_ARTIST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 29u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_BURST_INTERVAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 24u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_BURST_NUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 23u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_CAMERA_MANUFACTURER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 31u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_CAMERA_MODEL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 30u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_CAPTURE_DELAY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_CAPTURE_FORMAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_CAPTURE_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 18u32,
 };
 pub const WPD_STILL_IMAGE_CAPTURE_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_CAPTURE_RESOLUTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_COMPRESSION_SETTING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_CONTRAST: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 19u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_DIGITAL_ZOOM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 21u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_EFFECT_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 22u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_EXPOSURE_BIAS_COMPENSATION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_EXPOSURE_INDEX: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_EXPOSURE_METERING_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_EXPOSURE_PROGRAM_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_EXPOSURE_TIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_FLASH_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 12u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_FNUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_FOCAL_LENGTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_FOCUS_DISTANCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_FOCUS_METERING_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 27u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_FOCUS_MODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_RGB_GAIN: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_SHARPNESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 20u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_TIMELAPSE_INTERVAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 26u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_TIMELAPSE_NUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 25u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_UPLOAD_URL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 28u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STILL_IMAGE_WHITE_BALANCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1489334764, data2: 7115, data3: 17063, data4: [138, 197, 187, 41, 21, 115, 162, 96] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STORAGE_ACCESS_CAPABILITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 11u32,
 };
 pub struct WPD_STORAGE_ACCESS_CAPABILITY_VALUES(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STORAGE_CAPACITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STORAGE_CAPACITY_IN_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STORAGE_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STORAGE_FILE_SYSTEM_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STORAGE_FREE_SPACE_IN_BYTES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STORAGE_FREE_SPACE_IN_OBJECTS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STORAGE_MAX_OBJECT_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 9u32,
 };
 pub const WPD_STORAGE_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STORAGE_SERIAL_NUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_STORAGE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 2u32,
@@ -6132,7 +5466,6 @@ pub const WPD_TASK_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_s
     data4: [160, 58, 12, 178, 104, 56, 219, 199],
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_TASK_OWNER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3813992798,
@@ -6143,7 +5476,6 @@ pub const WPD_TASK_OWNER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_TASK_PERCENT_COMPLETE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3813992798,
@@ -6154,7 +5486,6 @@ pub const WPD_TASK_PERCENT_COMPLETE: super::super::UI::Shell::PropertiesSystem::
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_TASK_REMINDER_DATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3813992798,
@@ -6165,7 +5496,6 @@ pub const WPD_TASK_REMINDER_DATE: super::super::UI::Shell::PropertiesSystem::PRO
     pid: 10u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_TASK_STATUS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
         data1: 3813992798,
@@ -6176,74 +5506,62 @@ pub const WPD_TASK_STATUS: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_VIDEO_AUTHOR: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_VIDEO_BITRATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 13u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_VIDEO_BUFFER_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_VIDEO_CREDITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_VIDEO_FOURCC_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_VIDEO_FRAMERATE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_VIDEO_KEY_FRAME_DISTANCE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 10u32,
 };
 pub const WPD_VIDEO_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_VIDEO_QUALITY_SETTING: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 11u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_VIDEO_RECORDEDTV_CHANNEL_NUMBER: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_VIDEO_RECORDEDTV_REPEAT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_VIDEO_RECORDEDTV_STATION_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const WPD_VIDEO_SCAN_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 12u32,

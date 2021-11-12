@@ -1,17 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_System_EventNotificationService`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsDestinationReachableA(lpszdestination: super::super::Foundation::PSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_System_EventNotificationService`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsDestinationReachableW(lpszdestination: super::super::Foundation::PWSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `Win32_System_EventNotificationService`, `Win32_Foundation`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
 }
-#[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 pub const CONNECTION_AOL: u32 = 4u32;
 #[repr(transparent)]
 pub struct ISensLogon(pub *mut ::core::ffi::c_void);
@@ -21,13 +17,9 @@ pub struct ISensLogon2(pub *mut ::core::ffi::c_void);
 pub struct ISensNetwork(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISensOnNow(pub *mut ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 pub const NETWORK_ALIVE_AOL: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 pub const NETWORK_ALIVE_INTERNET: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 pub const NETWORK_ALIVE_LAN: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_EventNotificationService`*"]
 pub const NETWORK_ALIVE_WAN: u32 = 2u32;
 pub struct QOCINFO(i32);
 pub struct SENS(i32);

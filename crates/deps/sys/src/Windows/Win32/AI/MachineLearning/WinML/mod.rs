@@ -1,9 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub fn MLCreateOperatorRegistry(registry: *mut IMLOperatorRegistry) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub fn WinMLCreateRuntime(runtime: *mut IWinMLRuntime) -> ::windows_sys::core::HRESULT;
 }
 #[repr(transparent)]
@@ -79,7 +77,6 @@ pub struct WINML_SEQUENCE_BINDING_DESC(i32);
 pub struct WINML_SEQUENCE_VARIABLE_DESC(i32);
 pub struct WINML_TENSOR_BINDING_DESC(i32);
 pub struct WINML_TENSOR_DATA_TYPE(i32);
-#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4u32;
 pub struct WINML_TENSOR_VARIABLE_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
