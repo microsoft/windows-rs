@@ -141,14 +141,10 @@ pub struct IVideoFrameFactory(pub *mut ::core::ffi::c_void);
 pub struct IVideoFrameStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ImageDisplayProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct MediaControl(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct MediaControlContract(i32);
 #[repr(transparent)]
 pub struct MediaExtensionManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct MediaMarkerTypes(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct MediaPlaybackAutoRepeatMode(i32);
 #[repr(C)]
@@ -192,7 +188,5 @@ pub struct SystemMediaTransportControlsPropertyChangedEventArgs(pub *mut ::core:
 pub struct SystemMediaTransportControlsTimelineProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VideoDisplayProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct VideoEffects(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VideoFrame(pub *mut ::core::ffi::c_void);

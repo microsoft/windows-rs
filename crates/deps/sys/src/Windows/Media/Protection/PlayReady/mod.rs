@@ -141,8 +141,6 @@ pub struct NDStreamParserNotifier(pub *mut ::core::ffi::c_void);
 pub struct NDTCPMessenger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlayReadyContentHeader(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct PlayReadyContentResolver(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PlayReadyDecryptorSetup(i32);
 #[repr(transparent)]
@@ -174,8 +172,6 @@ pub struct PlayReadyLicenseIterable(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlayReadyLicenseIterator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct PlayReadyLicenseManagement(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct PlayReadyLicenseSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlayReadyMeteringReportServiceRequest(pub *mut ::core::ffi::c_void);
@@ -189,5 +185,3 @@ pub struct PlayReadySecureStopIterator(pub *mut ::core::ffi::c_void);
 pub struct PlayReadySecureStopServiceRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlayReadySoapMessage(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct PlayReadyStatics(pub *mut ::core::ffi::c_void);

@@ -7,8 +7,6 @@ pub struct ClosedCaptionColor(i32);
 pub struct ClosedCaptionEdgeEffect(i32);
 #[repr(C)]
 pub struct ClosedCaptionOpacity(i32);
-#[repr(transparent)]
-pub struct ClosedCaptionProperties(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct ClosedCaptionSize(i32);
 #[repr(C)]

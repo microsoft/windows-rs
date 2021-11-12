@@ -2,8 +2,6 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
-pub struct AppServiceCatalog(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct AppServiceClosedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct AppServiceClosedStatus(i32);

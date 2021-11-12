@@ -5,5 +5,3 @@ pub mod Input;
 extern "system" {}
 #[repr(transparent)]
 pub struct IInteractiveSessionStatics(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct InteractiveSession(pub *mut ::core::ffi::c_void);

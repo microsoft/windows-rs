@@ -18,11 +18,7 @@ pub struct ILocalLocationRatingInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPlaceInfoHelperStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct LocalCategories(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct LocalLocation(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct LocalLocationFinder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LocalLocationFinderResult(pub *mut ::core::ffi::c_void);
 #[repr(C)]
@@ -31,5 +27,3 @@ pub struct LocalLocationFinderStatus(i32);
 pub struct LocalLocationHoursOfOperationItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LocalLocationRatingInfo(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct PlaceInfoHelper(pub *mut ::core::ffi::c_void);

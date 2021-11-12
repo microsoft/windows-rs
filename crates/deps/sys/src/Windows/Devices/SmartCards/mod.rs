@@ -112,8 +112,6 @@ pub struct ISmartCardTriggerDetails2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISmartCardTriggerDetails3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct KnownSmartCardAppletIds(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct SmartCard(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct SmartCardActivationPolicyChangeResult(i32);

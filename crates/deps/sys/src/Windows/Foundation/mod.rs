@@ -36,8 +36,6 @@ pub struct EventRegistrationToken(i32);
 #[repr(C)]
 pub struct FoundationContract(i32);
 #[repr(transparent)]
-pub struct GuidHelper(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct IAsyncAction(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IAsyncActionWithProgress<TProgress>(pub *mut ::core::ffi::c_void);
@@ -93,8 +91,6 @@ pub struct MemoryBuffer(pub *mut ::core::ffi::c_void);
 pub struct Point(i32);
 #[repr(C)]
 pub struct PropertyType(i32);
-#[repr(transparent)]
-pub struct PropertyValue(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct Rect(i32);
 #[repr(C)]

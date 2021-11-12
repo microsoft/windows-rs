@@ -138,8 +138,6 @@ pub struct IRemoteSystemWebAccountFilter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IRemoteSystemWebAccountFilterFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct KnownRemoteSystemCapabilities(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct RemoteSystem(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct RemoteSystemAccessStatus(i32);
@@ -165,8 +163,6 @@ pub struct RemoteSystemDiscoveryTypeFilter(pub *mut ::core::ffi::c_void);
 pub struct RemoteSystemEnumerationCompletedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteSystemKindFilter(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct RemoteSystemKinds(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct RemoteSystemPlatform(i32);
 #[repr(transparent)]

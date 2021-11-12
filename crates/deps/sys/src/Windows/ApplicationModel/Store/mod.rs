@@ -5,10 +5,6 @@ pub mod LicenseManagement;
 pub mod Preview;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct CurrentApp(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct CurrentAppSimulator(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct FulfillmentResult(i32);
 #[repr(transparent)]

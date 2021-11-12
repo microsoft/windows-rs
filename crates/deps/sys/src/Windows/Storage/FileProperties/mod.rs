@@ -6,8 +6,6 @@ pub struct BasicProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DocumentProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct GeotagHelper(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct IBasicProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDocumentProperties(pub *mut ::core::ffi::c_void);

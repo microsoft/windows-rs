@@ -4,8 +4,6 @@ extern "system" {}
 #[repr(transparent)]
 pub struct Enterprise(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct EnterpriseEnrollmentManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct EnterpriseEnrollmentResult(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct EnterpriseEnrollmentStatus(i32);
@@ -25,7 +23,5 @@ pub struct IInstallationManagerStatics2(pub *mut ::core::ffi::c_void);
 pub struct IPackageInstallResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPackageInstallResult2(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct InstallationManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PackageInstallResult(pub *mut ::core::ffi::c_void);

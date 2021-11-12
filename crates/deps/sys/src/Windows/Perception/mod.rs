@@ -17,5 +17,3 @@ pub struct IPerceptionTimestampHelperStatics(pub *mut ::core::ffi::c_void);
 pub struct IPerceptionTimestampHelperStatics2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PerceptionTimestamp(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct PerceptionTimestampHelper(pub *mut ::core::ffi::c_void);

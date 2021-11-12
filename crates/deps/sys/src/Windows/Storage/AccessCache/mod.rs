@@ -24,8 +24,6 @@ pub struct ItemRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct RecentStorageItemVisibility(i32);
 #[repr(transparent)]
-pub struct StorageApplicationPermissions(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct StorageItemAccessList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorageItemMostRecentlyUsedList(pub *mut ::core::ffi::c_void);

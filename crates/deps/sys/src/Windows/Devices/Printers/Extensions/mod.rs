@@ -34,8 +34,6 @@ pub struct Print3DWorkflowPrinterChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct Print3DWorkflowStatus(i32);
 #[repr(transparent)]
-pub struct PrintExtensionContext(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct PrintNotificationEventDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintTaskConfiguration(pub *mut ::core::ffi::c_void);

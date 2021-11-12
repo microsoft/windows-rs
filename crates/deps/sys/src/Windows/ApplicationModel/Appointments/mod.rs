@@ -32,8 +32,6 @@ pub struct AppointmentException(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppointmentInvitee(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct AppointmentManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct AppointmentManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppointmentOrganizer(pub *mut ::core::ffi::c_void);
@@ -41,8 +39,6 @@ pub struct AppointmentOrganizer(pub *mut ::core::ffi::c_void);
 pub struct AppointmentParticipantResponse(i32);
 #[repr(C)]
 pub struct AppointmentParticipantRole(i32);
-#[repr(transparent)]
-pub struct AppointmentProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppointmentRecurrence(pub *mut ::core::ffi::c_void);
 #[repr(C)]

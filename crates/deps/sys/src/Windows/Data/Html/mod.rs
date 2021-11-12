@@ -2,6 +2,4 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
-pub struct HtmlUtilities(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct IHtmlUtilities(pub *mut ::core::ffi::c_void);

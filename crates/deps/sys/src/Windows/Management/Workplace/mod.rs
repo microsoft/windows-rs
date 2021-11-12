@@ -7,11 +7,7 @@ pub struct IMdmAllowPolicyStatics(pub *mut ::core::ffi::c_void);
 pub struct IMdmPolicyStatics2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWorkplaceSettingsStatics(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct MdmPolicy(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct MessagingSyncPolicy(i32);
-#[repr(transparent)]
-pub struct WorkplaceSettings(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct WorkplaceSettingsContract(i32);

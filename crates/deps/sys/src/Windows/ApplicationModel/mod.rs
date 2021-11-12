@@ -70,10 +70,6 @@ pub struct AppInstallerPolicySource(i32);
 #[repr(transparent)]
 pub struct AppInstance(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct CameraApplicationManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct DesignMode(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct EnteredBackgroundEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct FullTrustAppContract(i32);
@@ -81,8 +77,6 @@ pub struct FullTrustAppContract(i32);
 pub struct FullTrustLaunchResult(i32);
 #[repr(transparent)]
 pub struct FullTrustProcessLaunchResult(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct FullTrustProcessLauncher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IAppDisplayInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -203,8 +197,6 @@ pub struct LeavingBackgroundEventArgs(pub *mut ::core::ffi::c_void);
 pub struct LimitedAccessFeatureRequestResult(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct LimitedAccessFeatureStatus(i32);
-#[repr(transparent)]
-pub struct LimitedAccessFeatures(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Package(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

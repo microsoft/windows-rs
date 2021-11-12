@@ -9,5 +9,3 @@ pub struct ISpatialGraphInteropPreviewStatics(pub *mut ::core::ffi::c_void);
 pub struct ISpatialGraphInteropPreviewStatics2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialGraphInteropFrameOfReferencePreview(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct SpatialGraphInteropPreview(pub *mut ::core::ffi::c_void);

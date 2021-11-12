@@ -74,13 +74,9 @@ pub struct SpatialAnchorExportSufficiency(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialAnchorExporter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct SpatialAnchorManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialAnchorStore(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct SpatialAnchorTransferManager(pub *mut ::core::ffi::c_void);
 #[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
 pub struct SpatialBoundingBox(i32);

@@ -8,8 +8,6 @@ pub struct IPlatformTelemetryRegistrationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPlatformTelemetryRegistrationSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct PlatformTelemetryClient(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct PlatformTelemetryRegistrationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PlatformTelemetryRegistrationSettings(pub *mut ::core::ffi::c_void);

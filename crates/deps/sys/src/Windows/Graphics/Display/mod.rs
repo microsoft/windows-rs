@@ -32,8 +32,6 @@ pub struct DisplayInformation(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct DisplayOrientations(i32);
 #[repr(transparent)]
-pub struct DisplayProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct DisplayPropertiesEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DisplayServices(pub *mut ::core::ffi::c_void);

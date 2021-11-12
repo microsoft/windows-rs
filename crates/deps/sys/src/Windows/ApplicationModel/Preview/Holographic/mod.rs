@@ -2,8 +2,6 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
-pub struct HolographicApplicationPreview(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct HolographicKeyboardPlacementOverridePreview(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IHolographicApplicationPreviewStatics(pub *mut ::core::ffi::c_void);

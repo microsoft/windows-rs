@@ -25,5 +25,3 @@ pub struct IOControlAccessMode(i32);
 pub struct IOControlBufferingMethod(i32);
 #[repr(transparent)]
 pub struct IOControlCode(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownDeviceTypes(pub *mut ::core::ffi::c_void);

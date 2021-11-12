@@ -4,8 +4,6 @@ extern "system" {}
 #[repr(C)]
 pub struct AuthenticationProtocol(i32);
 #[repr(transparent)]
-pub struct CredentialPicker(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct CredentialPickerOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CredentialPickerResults(pub *mut ::core::ffi::c_void);
@@ -21,7 +19,5 @@ pub struct ICredentialPickerStatics(pub *mut ::core::ffi::c_void);
 pub struct IUserConsentVerifierStatics(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct UserConsentVerificationResult(i32);
-#[repr(transparent)]
-pub struct UserConsentVerifier(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct UserConsentVerifierAvailability(i32);

@@ -32,8 +32,6 @@ pub struct UserDataAccount(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct UserDataAccountContentKinds(i32);
 #[repr(transparent)]
-pub struct UserDataAccountManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct UserDataAccountManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct UserDataAccountOtherAppReadAccess(i32);

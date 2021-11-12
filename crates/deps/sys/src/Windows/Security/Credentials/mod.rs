@@ -44,8 +44,6 @@ pub struct KeyCredentialAttestationStatus(i32);
 #[repr(C)]
 pub struct KeyCredentialCreationOption(i32);
 #[repr(transparent)]
-pub struct KeyCredentialManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct KeyCredentialOperationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeyCredentialRetrievalResult(pub *mut ::core::ffi::c_void);

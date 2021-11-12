@@ -10,8 +10,6 @@ pub struct AudioEffectDefinition(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct AudioEffectType(i32);
 #[repr(transparent)]
-pub struct AudioEffectsManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct AudioRenderEffectsManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CompositeVideoFrameContext(pub *mut ::core::ffi::c_void);

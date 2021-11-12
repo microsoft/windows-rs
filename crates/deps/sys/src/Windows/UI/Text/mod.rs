@@ -81,8 +81,6 @@ pub struct SelectionType(i32);
 pub struct TabAlignment(i32);
 #[repr(C)]
 pub struct TabLeader(i32);
-#[repr(transparent)]
-pub struct TextConstants(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct TextDecorations(i32);
 #[repr(C)]

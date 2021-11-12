@@ -15,8 +15,6 @@ pub struct SystemUpdateItem(pub *mut ::core::ffi::c_void);
 pub struct SystemUpdateItemState(i32);
 #[repr(transparent)]
 pub struct SystemUpdateLastErrorInfo(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct SystemUpdateManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct SystemUpdateManagerState(i32);
 #[repr(C)]

@@ -8,8 +8,6 @@ pub struct CertificateChain(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct CertificateChainPolicy(i32);
 #[repr(transparent)]
-pub struct CertificateEnrollmentManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct CertificateExtension(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CertificateKeyUsages(pub *mut ::core::ffi::c_void);
@@ -19,8 +17,6 @@ pub struct CertificateQuery(pub *mut ::core::ffi::c_void);
 pub struct CertificateRequestProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CertificateStore(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct CertificateStores(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChainBuildingParameters(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -127,22 +123,14 @@ pub struct IUserCertificateEnrollmentManager2(pub *mut ::core::ffi::c_void);
 pub struct IUserCertificateStore(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct InstallOptions(i32);
-#[repr(transparent)]
-pub struct KeyAlgorithmNames(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KeyAttestationHelper(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct KeyProtectionLevel(i32);
 #[repr(C)]
 pub struct KeySize(i32);
 #[repr(transparent)]
-pub struct KeyStorageProviderNames(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct PfxImportParameters(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct SignatureValidationResult(i32);
-#[repr(transparent)]
-pub struct StandardCertificateStoreNames(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SubjectAlternativeNameInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

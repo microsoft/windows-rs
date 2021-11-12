@@ -6,8 +6,6 @@ pub struct INamedPolicyData(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct INamedPolicyStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct NamedPolicy(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct NamedPolicyData(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct NamedPolicyKind(i32);

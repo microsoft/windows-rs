@@ -26,8 +26,6 @@ pub struct CodecKind(i32);
 #[repr(transparent)]
 pub struct CodecQuery(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct CodecSubtypes(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct DataCue(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FaceDetectedEventArgs(pub *mut ::core::ffi::c_void);
@@ -263,8 +261,6 @@ pub struct IVideoTrackSupportInfo(pub *mut ::core::ffi::c_void);
 pub struct ImageCue(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InitializeMediaStreamSourceRequestedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct LowLightFusion(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LowLightFusionResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

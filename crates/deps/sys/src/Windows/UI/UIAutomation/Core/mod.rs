@@ -10,8 +10,6 @@ pub struct AutomationRemoteOperationResult(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct AutomationRemoteOperationStatus(i32);
 #[repr(transparent)]
-pub struct CoreAutomationRegistrar(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct CoreAutomationRemoteOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreAutomationRemoteOperationContext(pub *mut ::core::ffi::c_void);
@@ -47,7 +45,5 @@ pub struct RemoteAutomationClientSession(pub *mut ::core::ffi::c_void);
 pub struct RemoteAutomationConnectionRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteAutomationDisconnectedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct RemoteAutomationServer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RemoteAutomationWindow(pub *mut ::core::ffi::c_void);

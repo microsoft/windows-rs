@@ -25,7 +25,5 @@ pub struct MdmAlertDataType(i32);
 pub struct MdmAlertMark(i32);
 #[repr(transparent)]
 pub struct MdmSession(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct MdmSessionManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct MdmSessionState(i32);

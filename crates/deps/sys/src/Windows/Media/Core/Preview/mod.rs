@@ -3,5 +3,3 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct ISoundLevelBrokerStatics(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct SoundLevelBroker(pub *mut ::core::ffi::c_void);

@@ -86,20 +86,6 @@ pub struct IPerceptionInfraredFrameSourceWatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPerceptionVideoProfile(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct KnownCameraIntrinsicsProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownPerceptionColorFrameSourceProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownPerceptionDepthFrameSourceProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownPerceptionFrameSourceProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownPerceptionInfraredFrameSourceProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownPerceptionVideoFrameSourceProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownPerceptionVideoProfileProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct PerceptionColorFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PerceptionColorFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);

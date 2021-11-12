@@ -57,11 +57,16 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
-    // TODO: only gen handle if the class has a default interface (not a static class)
-    let name = gen_type_name(def, gen);
-    quote! { 
-        #[repr(transparent)]
-        pub struct #name(pub *mut ::core::ffi::c_void);
+    let has_default = def.interface_impls().any(|interface|interface.is_default());
+        
+    if has_default {
+        let name = gen_type_name(def, gen);
+        quote! { 
+            #[repr(transparent)]
+            pub struct #name(pub *mut ::core::ffi::c_void);
+        }
+    } else {
+        quote! {}
     }
 }
 

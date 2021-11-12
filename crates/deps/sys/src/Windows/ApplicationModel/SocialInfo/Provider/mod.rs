@@ -11,5 +11,3 @@ pub struct ISocialInfoProviderManagerStatics(pub *mut ::core::ffi::c_void);
 pub struct SocialDashboardItemUpdater(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SocialFeedUpdater(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct SocialInfoProviderManager(pub *mut ::core::ffi::c_void);

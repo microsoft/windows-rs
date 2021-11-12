@@ -15,5 +15,3 @@ pub struct IPhoneCallOriginManagerStatics2(pub *mut ::core::ffi::c_void);
 pub struct IPhoneCallOriginManagerStatics3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PhoneCallOrigin(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct PhoneCallOriginManager(pub *mut ::core::ffi::c_void);

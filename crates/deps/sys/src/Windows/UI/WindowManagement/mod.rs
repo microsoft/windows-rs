@@ -88,8 +88,6 @@ pub struct IWindowingEnvironmentRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWindowingEnvironmentStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct WindowServices(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct WindowingEnvironment(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WindowingEnvironmentAddedEventArgs(pub *mut ::core::ffi::c_void);

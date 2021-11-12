@@ -56,8 +56,6 @@ pub struct WebAccountClientView(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct WebAccountClientViewType(i32);
 #[repr(transparent)]
-pub struct WebAccountManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct WebAccountProviderAddAccountOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebAccountProviderDeleteAccountOperation(pub *mut ::core::ffi::c_void);

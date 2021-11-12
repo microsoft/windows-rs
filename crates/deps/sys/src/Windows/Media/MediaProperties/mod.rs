@@ -8,8 +8,6 @@ pub struct AudioEncodingQuality(i32);
 #[repr(transparent)]
 pub struct ContainerEncodingProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct H264ProfileIds(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct IAudioEncodingProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IAudioEncodingProperties2(pub *mut ::core::ffi::c_void);
@@ -89,8 +87,6 @@ pub struct IVideoEncodingPropertiesStatics2(pub *mut ::core::ffi::c_void);
 pub struct ImageEncodingProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaEncodingProfile(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct MediaEncodingSubtypes(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct MediaMirroringOptions(i32);
 #[repr(C)]
@@ -103,8 +99,6 @@ pub struct MediaRatio(pub *mut ::core::ffi::c_void);
 pub struct MediaRotation(i32);
 #[repr(C)]
 pub struct MediaThumbnailFormat(i32);
-#[repr(transparent)]
-pub struct Mpeg2ProfileIds(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct SphericalVideoFrameFormat(i32);
 #[repr(C)]

@@ -72,8 +72,6 @@ pub struct SuspendingEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SuspendingOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct WebUIApplication(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct WebUIAppointmentsProviderAddAppointmentActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -83,8 +81,6 @@ pub struct WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs(pub *mu
 pub struct WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct WebUIBackgroundTaskInstance(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebUIBackgroundTaskInstanceRuntimeClass(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

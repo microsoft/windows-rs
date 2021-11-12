@@ -73,8 +73,6 @@ pub struct IsolatedWindowsEnvironmentCreateResult(pub *mut ::core::ffi::c_void);
 pub struct IsolatedWindowsEnvironmentCreateStatus(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentFile(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct IsolatedWindowsEnvironmentHost(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct IsolatedWindowsEnvironmentHostError(i32);
 #[repr(transparent)]
@@ -83,8 +81,6 @@ pub struct IsolatedWindowsEnvironmentLaunchFileResult(pub *mut ::core::ffi::c_vo
 pub struct IsolatedWindowsEnvironmentLaunchFileStatus(i32);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOptions(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct IsolatedWindowsEnvironmentOwnerRegistration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationData(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -121,7 +117,5 @@ pub struct IsolatedWindowsEnvironmentStartProcessStatus(i32);
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentUserInfo(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct IsolatedWindowsHostMessenger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MessageReceivedCallback(pub *mut ::core::ffi::c_void);

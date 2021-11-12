@@ -33,18 +33,12 @@ pub struct ApplicationDataCreateDisposition(i32);
 pub struct ApplicationDataLocality(i32);
 #[repr(transparent)]
 pub struct ApplicationDataSetVersionHandler(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct CachedFileManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct CreationCollisionOption(i32);
-#[repr(transparent)]
-pub struct DownloadsFolder(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct FileAccessMode(i32);
 #[repr(C)]
 pub struct FileAttributes(i32);
-#[repr(transparent)]
-pub struct FileIO(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IAppDataPaths(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -179,16 +173,12 @@ pub struct IUserDataPaths(pub *mut ::core::ffi::c_void);
 pub struct IUserDataPathsStatics(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct KnownFolderId(i32);
-#[repr(transparent)]
-pub struct KnownFolders(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct KnownFoldersAccessStatus(i32);
 #[repr(C)]
 pub struct KnownLibraryId(i32);
 #[repr(C)]
 pub struct NameCollisionOption(i32);
-#[repr(transparent)]
-pub struct PathIO(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SetVersionDeferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -241,8 +231,6 @@ pub struct SystemMediaProperties(pub *mut ::core::ffi::c_void);
 pub struct SystemMusicProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SystemPhotoProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct SystemProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SystemVideoProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

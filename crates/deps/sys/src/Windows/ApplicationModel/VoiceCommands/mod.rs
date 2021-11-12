@@ -40,8 +40,6 @@ pub struct VoiceCommandContentTileType(i32);
 #[repr(transparent)]
 pub struct VoiceCommandDefinition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct VoiceCommandDefinitionManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct VoiceCommandDisambiguationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct VoiceCommandResponse(pub *mut ::core::ffi::c_void);

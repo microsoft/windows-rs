@@ -18,8 +18,6 @@ pub struct ESimDiscoverResultKind(i32);
 #[repr(transparent)]
 pub struct ESimDownloadProfileMetadataResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct ESimManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct ESimOperationResult(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct ESimOperationStatus(i32);
@@ -51,8 +49,6 @@ pub struct ESimUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct ESimWatcher(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct ESimWatcherStatus(i32);
-#[repr(transparent)]
-pub struct FdnAccessManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HotspotAuthenticationContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -281,14 +277,6 @@ pub struct IUssdReply(pub *mut ::core::ffi::c_void);
 pub struct IUssdSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUssdSessionStatics(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownCSimFilePaths(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownRuimFilePaths(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownSimFilePaths(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownUSimFilePaths(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct LegacyNetworkOperatorsContract(i32);
 #[repr(transparent)]

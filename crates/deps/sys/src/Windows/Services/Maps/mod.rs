@@ -94,21 +94,15 @@ pub struct MapLocation(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct MapLocationDesiredAccuracy(i32);
 #[repr(transparent)]
-pub struct MapLocationFinder(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct MapLocationFinderResult(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct MapLocationFinderStatus(i32);
-#[repr(transparent)]
-pub struct MapManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct MapManeuverNotices(i32);
 #[repr(transparent)]
 pub struct MapRoute(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapRouteDrivingOptions(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct MapRouteFinder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MapRouteFinderResult(pub *mut ::core::ffi::c_void);
 #[repr(C)]
@@ -123,8 +117,6 @@ pub struct MapRouteManeuverKind(i32);
 pub struct MapRouteOptimization(i32);
 #[repr(C)]
 pub struct MapRouteRestrictions(i32);
-#[repr(transparent)]
-pub struct MapService(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct MapServiceDataUsagePreference(i32);
 #[repr(transparent)]

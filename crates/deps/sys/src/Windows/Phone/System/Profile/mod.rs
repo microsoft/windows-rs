@@ -3,5 +3,3 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct IRetailModeStatics(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct RetailMode(pub *mut ::core::ffi::c_void);

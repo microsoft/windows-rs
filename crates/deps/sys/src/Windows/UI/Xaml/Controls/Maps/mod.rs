@@ -332,10 +332,6 @@ pub struct MapStyle(i32);
 #[repr(transparent)]
 pub struct MapStyleSheet(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct MapStyleSheetEntries(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct MapStyleSheetEntryStates(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct MapTargetCameraChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct MapTileAnimationState(i32);

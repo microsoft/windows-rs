@@ -133,8 +133,6 @@ pub struct PhoneAudioRoutingEndpoint(i32);
 pub struct PhoneCall(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PhoneCallAudioDevice(i32);
-#[repr(transparent)]
-pub struct PhoneCallBlocking(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PhoneCallDirection(i32);
 #[repr(transparent)]
@@ -154,8 +152,6 @@ pub struct PhoneCallHistoryEntryRawAddressKind(i32);
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryReader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct PhoneCallHistoryManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct PhoneCallHistoryManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PhoneCallHistorySourceIdKind(i32);
@@ -165,8 +161,6 @@ pub struct PhoneCallHistoryStore(pub *mut ::core::ffi::c_void);
 pub struct PhoneCallHistoryStoreAccessType(i32);
 #[repr(transparent)]
 pub struct PhoneCallInfo(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct PhoneCallManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PhoneCallMedia(i32);
 #[repr(C)]
@@ -177,8 +171,6 @@ pub struct PhoneCallStatus(i32);
 pub struct PhoneCallStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PhoneCallVideoCapabilities(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct PhoneCallVideoCapabilitiesManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PhoneCallsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

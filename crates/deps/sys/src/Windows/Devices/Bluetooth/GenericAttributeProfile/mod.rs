@@ -6,8 +6,6 @@ pub struct GattCharacteristic(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct GattCharacteristicProperties(i32);
 #[repr(transparent)]
-pub struct GattCharacteristicUuids(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct GattCharacteristicsResult(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct GattClientCharacteristicConfigurationDescriptorValue(i32);
@@ -17,8 +15,6 @@ pub struct GattClientNotificationResult(pub *mut ::core::ffi::c_void);
 pub struct GattCommunicationStatus(i32);
 #[repr(transparent)]
 pub struct GattDescriptor(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct GattDescriptorUuids(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattDescriptorsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -43,12 +39,8 @@ pub struct GattLocalService(pub *mut ::core::ffi::c_void);
 pub struct GattOpenStatus(i32);
 #[repr(transparent)]
 pub struct GattPresentationFormat(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct GattPresentationFormatTypes(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct GattProtectionLevel(i32);
-#[repr(transparent)]
-pub struct GattProtocolError(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattReadClientCharacteristicConfigurationDescriptorResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -73,8 +65,6 @@ pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(pub *mut ::cor
 pub struct GattServiceProviderAdvertisingParameters(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattServiceProviderResult(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct GattServiceUuids(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GattSession(pub *mut ::core::ffi::c_void);
 #[repr(C)]

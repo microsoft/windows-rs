@@ -21,5 +21,3 @@ pub struct IDeviceAccountConfiguration2(pub *mut ::core::ffi::c_void);
 pub struct IUserDataAccountSystemAccessManagerStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUserDataAccountSystemAccessManagerStatics2(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct UserDataAccountSystemAccessManager(pub *mut ::core::ffi::c_void);

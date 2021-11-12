@@ -58,8 +58,6 @@ pub struct PhotoImportItemImportedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PhotoImportItemSelectionMode(i32);
 #[repr(transparent)]
-pub struct PhotoImportManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct PhotoImportOperation(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PhotoImportPowerSource(i32);

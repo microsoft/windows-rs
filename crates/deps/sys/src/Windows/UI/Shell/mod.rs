@@ -2,8 +2,6 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
-pub struct AdaptiveCardBuilder(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct IAdaptiveCard(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IAdaptiveCardBuilderStatics(pub *mut ::core::ffi::c_void);

@@ -7,9 +7,5 @@ pub struct IServiceDeviceStatics(pub *mut ::core::ffi::c_void);
 pub struct IStorageDeviceStatics(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PortableDeviceContract(i32);
-#[repr(transparent)]
-pub struct ServiceDevice(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct ServiceDeviceType(i32);
-#[repr(transparent)]
-pub struct StorageDevice(pub *mut ::core::ffi::c_void);

@@ -6,8 +6,6 @@ pub struct BackPressedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CameraEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct HardwareButtons(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct IBackPressedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ICameraEventArgs(pub *mut ::core::ffi::c_void);

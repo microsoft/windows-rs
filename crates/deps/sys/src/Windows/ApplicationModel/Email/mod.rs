@@ -80,8 +80,6 @@ pub struct EmailMailboxSyncManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct EmailMailboxSyncStatus(i32);
 #[repr(transparent)]
-pub struct EmailManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct EmailManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EmailMeetingInfo(pub *mut ::core::ffi::c_void);

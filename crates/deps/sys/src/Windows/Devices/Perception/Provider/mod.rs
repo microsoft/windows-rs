@@ -36,8 +36,6 @@ pub struct IPerceptionVideoFrameAllocator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPerceptionVideoFrameAllocatorFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct KnownPerceptionFrameKind(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct PerceptionControlGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PerceptionCorrelation(pub *mut ::core::ffi::c_void);
@@ -49,8 +47,6 @@ pub struct PerceptionFaceAuthenticationGroup(pub *mut ::core::ffi::c_void);
 pub struct PerceptionFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PerceptionFrameProviderInfo(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct PerceptionFrameProviderManagerService(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PerceptionPropertyChangeRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -68,8 +68,6 @@ pub struct InputStreamOverStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct OutputStreamOverStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct RandomAccessStream(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct RandomAccessStreamOverStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RandomAccessStreamReference(pub *mut ::core::ffi::c_void);

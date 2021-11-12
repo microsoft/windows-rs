@@ -6,8 +6,6 @@ pub struct CachedFileOptions(i32);
 #[repr(C)]
 pub struct CachedFileTarget(i32);
 #[repr(transparent)]
-pub struct CachedFileUpdater(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct CachedFileUpdaterUI(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct CloudFilesContract(i32);
@@ -100,8 +98,6 @@ pub struct StorageProviderHydrationPolicyModifier(i32);
 #[repr(C)]
 pub struct StorageProviderInSyncPolicy(i32);
 #[repr(transparent)]
-pub struct StorageProviderItemProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct StorageProviderItemProperty(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorageProviderItemPropertyDefinition(pub *mut ::core::ffi::c_void);
@@ -115,8 +111,6 @@ pub struct StorageProviderState(i32);
 pub struct StorageProviderStatus(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StorageProviderSyncRootInfo(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct StorageProviderSyncRootManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct StorageProviderUriSourceStatus(i32);
 #[repr(C)]

@@ -28,10 +28,6 @@ pub struct BluetoothError(i32);
 #[repr(transparent)]
 pub struct BluetoothLEAppearance(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct BluetoothLEAppearanceCategories(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct BluetoothLEAppearanceSubcategories(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct BluetoothLEConnectionParameters(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BluetoothLEConnectionPhy(pub *mut ::core::ffi::c_void);
@@ -53,8 +49,6 @@ pub struct BluetoothMinorClass(i32);
 pub struct BluetoothServiceCapabilities(i32);
 #[repr(transparent)]
 pub struct BluetoothSignalStrengthFilter(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct BluetoothUuidHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IBluetoothAdapter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -44,8 +44,6 @@ pub struct WebAccountEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebAccountMonitor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct WebAuthenticationCoreManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct WebProviderError(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebTokenRequest(pub *mut ::core::ffi::c_void);

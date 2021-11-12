@@ -5,7 +5,5 @@ extern "system" {}
 pub struct IPowerManagerStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPowerManagerStatics2(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct PowerManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PowerSavingMode(i32);

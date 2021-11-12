@@ -9,8 +9,6 @@ pub struct IPlatformDiagnosticTraceInfo(pub *mut ::core::ffi::c_void);
 pub struct IPlatformDiagnosticTraceRuntimeInfo(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PlatformDiagnosticActionState(i32);
-#[repr(transparent)]
-pub struct PlatformDiagnosticActions(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PlatformDiagnosticEscalationType(i32);
 #[repr(C)]

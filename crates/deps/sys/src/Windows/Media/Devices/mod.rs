@@ -230,8 +230,6 @@ pub struct MediaCaptureOptimization(i32);
 #[repr(C)]
 pub struct MediaCapturePauseBehavior(i32);
 #[repr(transparent)]
-pub struct MediaDevice(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct MediaDeviceControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MediaDeviceControlCapabilities(pub *mut ::core::ffi::c_void);

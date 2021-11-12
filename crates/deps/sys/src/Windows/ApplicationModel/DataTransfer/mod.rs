@@ -6,8 +6,6 @@ pub mod ShareTarget;
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
-pub struct Clipboard(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct ClipboardContentOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ClipboardHistoryChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -41,8 +39,6 @@ pub struct DataRequestDeferral(pub *mut ::core::ffi::c_void);
 pub struct DataRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DataTransferManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct HtmlFormatHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IClipboardContentOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -159,9 +155,5 @@ pub struct ShareTargetInfo(pub *mut ::core::ffi::c_void);
 pub struct ShareUIOptions(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct ShareUITheme(i32);
-#[repr(transparent)]
-pub struct SharedStorageAccessManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct StandardDataFormats(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TargetApplicationChosenEventArgs(pub *mut ::core::ffi::c_void);

@@ -7,8 +7,6 @@ extern "system" {}
 pub struct ComponentLoadFailedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ComponentLoadFailedEventHandler(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct ComponentRenewal(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct GraphicsTrustStatus(i32);
 #[repr(C)]

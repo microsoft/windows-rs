@@ -33,8 +33,6 @@ pub struct AppBroadcastExitBroadcastModeReason(i32);
 pub struct AppBroadcastGlobalSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppBroadcastHeartbeatRequestedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct AppBroadcastManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct AppBroadcastMicrophoneCaptureState(i32);
 #[repr(transparent)]
@@ -107,8 +105,6 @@ pub struct AppCaptureDurationGeneratedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct AppCaptureFileGeneratedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct AppCaptureHistoricalBufferLengthUnit(i32);
-#[repr(transparent)]
-pub struct AppCaptureManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct AppCaptureMetadataContract(i32);
 #[repr(C)]
@@ -155,8 +151,6 @@ pub struct CameraCaptureUIPhotoFormat(i32);
 pub struct CameraCaptureUIVideoCaptureSettings(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct CameraCaptureUIVideoFormat(i32);
-#[repr(transparent)]
-pub struct CameraOptionsUI(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CapturedFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

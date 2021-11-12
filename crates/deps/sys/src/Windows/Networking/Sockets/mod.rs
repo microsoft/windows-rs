@@ -177,8 +177,6 @@ pub struct SocketActivityKind(i32);
 pub struct SocketActivityTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct SocketActivityTriggerReason(i32);
-#[repr(transparent)]
-pub struct SocketError(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct SocketErrorStatus(i32);
 #[repr(C)]
@@ -211,8 +209,6 @@ pub struct StreamWebSocketControl(pub *mut ::core::ffi::c_void);
 pub struct StreamWebSocketInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebSocketClosedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct WebSocketError(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebSocketKeepAlive(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -116,5 +116,3 @@ pub struct PrintTaskSourceRequestedArgs(pub *mut ::core::ffi::c_void);
 pub struct PrintTaskSourceRequestedDeferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintTaskSourceRequestedHandler(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct StandardPrintTaskOptions(pub *mut ::core::ffi::c_void);

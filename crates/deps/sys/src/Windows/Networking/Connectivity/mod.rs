@@ -20,8 +20,6 @@ pub struct ConnectionSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ConnectivityInterval(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct ConnectivityManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct DataPlanStatus(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DataPlanUsage(pub *mut ::core::ffi::c_void);
@@ -121,8 +119,6 @@ pub struct NetworkConnectivityLevel(i32);
 pub struct NetworkCostType(i32);
 #[repr(C)]
 pub struct NetworkEncryptionType(i32);
-#[repr(transparent)]
-pub struct NetworkInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NetworkItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

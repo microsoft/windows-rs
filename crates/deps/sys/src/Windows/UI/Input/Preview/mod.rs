@@ -5,5 +5,3 @@ pub mod Injection;
 extern "system" {}
 #[repr(transparent)]
 pub struct IInputActivationListenerPreviewStatics(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct InputActivationListenerPreview(pub *mut ::core::ffi::c_void);

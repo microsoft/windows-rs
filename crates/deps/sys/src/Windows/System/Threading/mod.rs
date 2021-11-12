@@ -10,8 +10,6 @@ pub struct IThreadPoolTimer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IThreadPoolTimerStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct ThreadPool(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct ThreadPoolTimer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TimerDestroyedHandler(pub *mut ::core::ffi::c_void);

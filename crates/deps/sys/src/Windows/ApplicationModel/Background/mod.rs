@@ -6,8 +6,6 @@ pub struct ActivitySensorTrigger(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct AlarmAccessStatus(i32);
 #[repr(transparent)]
-pub struct AlarmApplicationManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct AppBroadcastTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AppBroadcastTriggerProviderInfo(pub *mut ::core::ffi::c_void);
@@ -25,8 +23,6 @@ pub struct BackgroundAccessRequestKind(i32);
 pub struct BackgroundAccessStatus(i32);
 #[repr(C)]
 pub struct BackgroundAlarmApplicationContract(i32);
-#[repr(transparent)]
-pub struct BackgroundExecutionManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BackgroundTaskBuilder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -49,8 +45,6 @@ pub struct BackgroundTaskRegistration(pub *mut ::core::ffi::c_void);
 pub struct BackgroundTaskRegistrationGroup(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct BackgroundTaskThrottleCounter(i32);
-#[repr(transparent)]
-pub struct BackgroundWorkCost(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct BackgroundWorkCostValue(i32);
 #[repr(transparent)]

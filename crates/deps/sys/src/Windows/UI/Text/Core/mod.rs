@@ -36,8 +36,6 @@ pub struct CoreTextSelectionUpdatingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct CoreTextSelectionUpdatingResult(i32);
 #[repr(transparent)]
-pub struct CoreTextServicesConstants(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct CoreTextServicesManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreTextTextRequest(pub *mut ::core::ffi::c_void);

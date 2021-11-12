@@ -21,8 +21,6 @@ pub struct ApplicationViewOrientation(i32);
 pub struct ApplicationViewScaling(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct ApplicationViewState(i32);
-#[repr(transparent)]
-pub struct ApplicationViewSwitcher(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct ApplicationViewSwitchingOptions(i32);
 #[repr(transparent)]
@@ -137,8 +135,6 @@ pub struct IViewModePreferencesStatics(pub *mut ::core::ffi::c_void);
 pub struct InputPane(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InputPaneVisibilityEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct ProjectionManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StatusBar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

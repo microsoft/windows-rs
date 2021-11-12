@@ -2,10 +2,6 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
-pub struct BackgroundEnergyDiagnostics(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct ForegroundEnergyDiagnostics(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct IBackgroundEnergyDiagnosticsStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IForegroundEnergyDiagnosticsStatics(pub *mut ::core::ffi::c_void);

@@ -9,8 +9,6 @@ pub struct ILicenseManagerStatics2(pub *mut ::core::ffi::c_void);
 pub struct ILicenseSatisfactionInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ILicenseSatisfactionResult(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct LicenseManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct LicenseRefreshOption(i32);
 #[repr(transparent)]

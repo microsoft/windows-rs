@@ -28,8 +28,6 @@ pub struct OnlineIdServiceTicket(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct OnlineIdServiceTicketRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct OnlineIdSystemAuthenticator(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct OnlineIdSystemAuthenticatorForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct OnlineIdSystemIdentity(pub *mut ::core::ffi::c_void);

@@ -74,8 +74,6 @@ pub struct ContactInstantMessageField(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactJobInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct ContactLaunchActionVerbs(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct ContactList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactListLimitedWriteOperations(pub *mut ::core::ffi::c_void);
@@ -91,8 +89,6 @@ pub struct ContactListSyncManager(pub *mut ::core::ffi::c_void);
 pub struct ContactListSyncStatus(i32);
 #[repr(transparent)]
 pub struct ContactLocationField(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct ContactManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContactManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -291,8 +287,6 @@ pub struct IPinnedContactIdsQueryResult(pub *mut ::core::ffi::c_void);
 pub struct IPinnedContactManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPinnedContactManagerStatics(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownContactField(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PinnedContactIdsQueryResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

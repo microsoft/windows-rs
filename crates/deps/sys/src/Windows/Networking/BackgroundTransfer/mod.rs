@@ -15,8 +15,6 @@ pub struct BackgroundTransferCompletionGroupTriggerDetails(pub *mut ::core::ffi:
 pub struct BackgroundTransferContentPart(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct BackgroundTransferCostPolicy(i32);
-#[repr(transparent)]
-pub struct BackgroundTransferError(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct BackgroundTransferFileRange(i32);
 #[repr(transparent)]
@@ -31,8 +29,6 @@ pub struct BackgroundTransferStatus(i32);
 pub struct BackgroundUploadProgress(i32);
 #[repr(transparent)]
 pub struct BackgroundUploader(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct ContentPrefetcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DownloadOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

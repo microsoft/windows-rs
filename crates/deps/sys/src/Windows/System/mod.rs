@@ -71,8 +71,6 @@ pub struct AppUriHandlerRegistration(pub *mut ::core::ffi::c_void);
 pub struct AppUriHandlerRegistrationManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct AutoUpdateTimeZoneStatus(i32);
-#[repr(transparent)]
-pub struct DateTimeSettings(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct DiagnosticAccessStatus(i32);
 #[repr(transparent)]
@@ -249,8 +247,6 @@ pub struct IUserStatics(pub *mut ::core::ffi::c_void);
 pub struct IUserStatics2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUserWatcher(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownUserProperties(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct LaunchFileStatus(i32);
 #[repr(C)]
@@ -262,17 +258,11 @@ pub struct LaunchUriResult(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct LaunchUriStatus(i32);
 #[repr(transparent)]
-pub struct Launcher(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct LauncherOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LauncherUIOptions(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct MemoryManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PowerState(i32);
-#[repr(transparent)]
-pub struct ProcessLauncher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ProcessLauncherOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -286,17 +276,11 @@ pub struct ProtocolForResultsOperation(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct RemoteLaunchUriStatus(i32);
 #[repr(transparent)]
-pub struct RemoteLauncher(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct RemoteLauncherOptions(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct ShutdownKind(i32);
-#[repr(transparent)]
-pub struct ShutdownManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct SystemManagementContract(i32);
-#[repr(transparent)]
-pub struct TimeZoneSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct User(pub *mut ::core::ffi::c_void);
 #[repr(C)]
@@ -311,8 +295,6 @@ pub struct UserAuthenticationStatusChangeDeferral(pub *mut ::core::ffi::c_void);
 pub struct UserAuthenticationStatusChangingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserChangedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct UserDeviceAssociation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserDeviceAssociationChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

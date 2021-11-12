@@ -2,13 +2,9 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
-pub struct AsymmetricAlgorithmNames(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct AsymmetricKeyAlgorithmProvider(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct Capi1KdfTargetAlgorithm(i32);
-#[repr(transparent)]
-pub struct CryptographicEngine(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CryptographicHash(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -20,11 +16,7 @@ pub struct CryptographicPrivateKeyBlobType(i32);
 #[repr(C)]
 pub struct CryptographicPublicKeyBlobType(i32);
 #[repr(transparent)]
-pub struct EccCurveNames(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct EncryptedAndAuthenticatedData(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct HashAlgorithmNames(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HashAlgorithmProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -88,18 +80,10 @@ pub struct ISymmetricKeyAlgorithmProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISymmetricKeyAlgorithmProviderStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct KeyDerivationAlgorithmNames(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct KeyDerivationAlgorithmProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeyDerivationParameters(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct MacAlgorithmNames(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct MacAlgorithmProvider(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct PersistedKeyProvider(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct SymmetricAlgorithmNames(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SymmetricKeyAlgorithmProvider(pub *mut ::core::ffi::c_void);

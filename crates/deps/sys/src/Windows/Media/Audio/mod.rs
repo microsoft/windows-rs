@@ -233,7 +233,5 @@ pub struct SetDefaultSpatialAudioFormatStatus(i32);
 pub struct SpatialAudioDeviceConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialAudioFormatConfiguration(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct SpatialAudioFormatSubtype(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct SpatialAudioModel(i32);

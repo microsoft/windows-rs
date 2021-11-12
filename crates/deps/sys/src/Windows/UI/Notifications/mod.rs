@@ -12,8 +12,6 @@ pub struct BadgeNotification(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct BadgeTemplateType(i32);
 #[repr(transparent)]
-pub struct BadgeUpdateManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct BadgeUpdateManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BadgeUpdater(pub *mut ::core::ffi::c_void);
@@ -148,12 +146,6 @@ pub struct IUserNotification(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUserNotificationChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct KnownAdaptiveNotificationHints(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownAdaptiveNotificationTextStyles(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct KnownNotificationBindings(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct Notification(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NotificationBinding(pub *mut ::core::ffi::c_void);
@@ -184,15 +176,11 @@ pub struct TileFlyoutNotification(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct TileFlyoutTemplateType(i32);
 #[repr(transparent)]
-pub struct TileFlyoutUpdateManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct TileFlyoutUpdater(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TileNotification(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct TileTemplateType(i32);
-#[repr(transparent)]
-pub struct TileUpdateManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TileUpdateManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -219,8 +207,6 @@ pub struct ToastNotificationActionTriggerDetail(pub *mut ::core::ffi::c_void);
 pub struct ToastNotificationHistory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ToastNotificationHistoryChangedTriggerDetail(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct ToastNotificationManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ToastNotificationManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(C)]

@@ -5,8 +5,6 @@ extern "system" {}
 pub struct BufferProtectUnprotectResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DataProtectionInfo(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct DataProtectionManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct DataProtectionStatus(i32);
 #[repr(C)]
@@ -15,12 +13,8 @@ pub struct EnforcementLevel(i32);
 pub struct EnterpriseDataContract(i32);
 #[repr(transparent)]
 pub struct FileProtectionInfo(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct FileProtectionManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct FileProtectionStatus(i32);
-#[repr(transparent)]
-pub struct FileRevocationManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FileUnprotectOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

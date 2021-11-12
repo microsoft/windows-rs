@@ -4,8 +4,6 @@ extern "system" {}
 #[repr(C)]
 pub struct AutoLoadedDisplayPropertyKind(i32);
 #[repr(transparent)]
-pub struct BackgroundMediaPlayer(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct CurrentMediaPlaybackItemChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct FailedMediaStreamKind(i32);

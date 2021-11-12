@@ -11,5 +11,3 @@ pub struct IWalletManagerSystemStatics(pub *mut ::core::ffi::c_void);
 pub struct WalletItemAppAssociation(i32);
 #[repr(transparent)]
 pub struct WalletItemSystemStore(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct WalletManagerSystem(pub *mut ::core::ffi::c_void);

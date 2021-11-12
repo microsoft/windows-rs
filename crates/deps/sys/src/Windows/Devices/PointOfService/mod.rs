@@ -20,8 +20,6 @@ pub struct BarcodeScannerStatus(i32);
 #[repr(transparent)]
 pub struct BarcodeScannerStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct BarcodeSymbologies(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct BarcodeSymbologyAttributes(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct BarcodeSymbologyDecodeLengthKind(i32);
@@ -334,10 +332,6 @@ pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(pub *mut ::core::ff
 #[repr(transparent)]
 pub struct MagneticStripeReaderCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct MagneticStripeReaderCardTypes(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct MagneticStripeReaderEncryptionAlgorithms(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct MagneticStripeReaderErrorOccurredEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct MagneticStripeReaderErrorReportingType(i32);
@@ -367,8 +361,6 @@ pub struct PosPrinterBarcodeTextPosition(i32);
 pub struct PosPrinterCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PosPrinterCartridgeSensors(i32);
-#[repr(transparent)]
-pub struct PosPrinterCharacterSetIds(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PosPrinterColorCapabilities(i32);
 #[repr(C)]

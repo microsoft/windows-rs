@@ -4,8 +4,6 @@ extern "system" {}
 #[repr(C)]
 pub struct AccountPictureKind(i32);
 #[repr(transparent)]
-pub struct AdvertisingManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct AdvertisingManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AssignedAccessSettings(pub *mut ::core::ffi::c_void);
@@ -13,8 +11,6 @@ pub struct AssignedAccessSettings(pub *mut ::core::ffi::c_void);
 pub struct DiagnosticsSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FirstSignInSettings(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct GlobalizationPreferences(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct GlobalizationPreferencesForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -53,14 +49,10 @@ pub struct IUserInformationStatics(pub *mut ::core::ffi::c_void);
 pub struct IUserProfilePersonalizationSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUserProfilePersonalizationSettingsStatics(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct LockScreen(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct SetAccountPictureResult(i32);
 #[repr(C)]
 pub struct SetImageFeedResult(i32);
-#[repr(transparent)]
-pub struct UserInformation(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct UserProfileContract(i32);
 #[repr(C)]

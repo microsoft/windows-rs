@@ -108,6 +108,4 @@ pub struct SpeechRecognizerTimeouts(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpeechRecognizerUIOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct VoiceCommandManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct VoiceCommandSet(pub *mut ::core::ffi::c_void);

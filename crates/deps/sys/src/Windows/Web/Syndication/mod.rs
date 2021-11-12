@@ -57,8 +57,6 @@ pub struct SyndicationCategory(pub *mut ::core::ffi::c_void);
 pub struct SyndicationClient(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SyndicationContent(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct SyndicationError(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct SyndicationErrorStatus(i32);
 #[repr(transparent)]

@@ -4,8 +4,6 @@ extern "system" {}
 #[repr(transparent)]
 pub struct ChatCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct ChatCapabilitiesManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct ChatConversation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChatConversationReader(pub *mut ::core::ffi::c_void);
@@ -20,8 +18,6 @@ pub struct ChatMessage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChatMessageAttachment(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct ChatMessageBlocking(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct ChatMessageChange(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChatMessageChangeReader(pub *mut ::core::ffi::c_void);
@@ -35,8 +31,6 @@ pub struct ChatMessageChangedDeferral(pub *mut ::core::ffi::c_void);
 pub struct ChatMessageChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct ChatMessageKind(i32);
-#[repr(transparent)]
-pub struct ChatMessageManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ChatMessageNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(C)]
@@ -191,8 +185,6 @@ pub struct RcsEndUserMessageAvailableEventArgs(pub *mut ::core::ffi::c_void);
 pub struct RcsEndUserMessageAvailableTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RcsEndUserMessageManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct RcsManager(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct RcsServiceKind(i32);
 #[repr(transparent)]

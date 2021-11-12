@@ -14,8 +14,6 @@ pub struct IVibrationDevice(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVibrationDeviceStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct KnownSimpleHapticsControllerWaveforms(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct SimpleHapticsController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SimpleHapticsControllerFeedback(pub *mut ::core::ffi::c_void);

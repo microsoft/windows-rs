@@ -5,8 +5,6 @@ extern "system" {}
 pub struct Direct3D11CaptureFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Direct3D11CaptureFramePool(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct GraphicsCaptureAccess(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct GraphicsCaptureAccessKind(i32);
 #[repr(transparent)]

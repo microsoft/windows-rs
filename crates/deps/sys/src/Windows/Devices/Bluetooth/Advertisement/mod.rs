@@ -8,8 +8,6 @@ pub struct BluetoothLEAdvertisementBytePattern(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementDataSection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct BluetoothLEAdvertisementDataTypes(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct BluetoothLEAdvertisementFilter(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct BluetoothLEAdvertisementFlags(i32);

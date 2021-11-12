@@ -50,8 +50,6 @@ pub struct IStoredContact(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IStoredContactFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct KnownContactProperties(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct StoredContact(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct VCardFormat(i32);

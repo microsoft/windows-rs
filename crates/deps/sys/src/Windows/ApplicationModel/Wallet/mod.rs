@@ -48,8 +48,6 @@ pub struct WalletItemKind(i32);
 #[repr(transparent)]
 pub struct WalletItemStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct WalletManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct WalletRelevantLocation(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct WalletSummaryViewPosition(i32);

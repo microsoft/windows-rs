@@ -47,8 +47,6 @@ pub struct AllJoynSessionLostReason(i32);
 pub struct AllJoynSessionMemberAddedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AllJoynSessionMemberRemovedEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct AllJoynStatus(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct AllJoynTrafficType(i32);
 #[repr(transparent)]

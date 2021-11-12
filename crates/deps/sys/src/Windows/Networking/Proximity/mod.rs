@@ -36,8 +36,6 @@ pub struct MessageTransmittedHandler(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PeerDiscoveryTypes(i32);
 #[repr(transparent)]
-pub struct PeerFinder(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct PeerInformation(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PeerRole(i32);

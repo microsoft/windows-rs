@@ -28,8 +28,6 @@ pub struct IRawNotification3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PushNotificationChannel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
-pub struct PushNotificationChannelManager(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct PushNotificationChannelManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PushNotificationChannelsRevokedEventArgs(pub *mut ::core::ffi::c_void);

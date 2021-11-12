@@ -63,8 +63,6 @@ pub struct TextPredictionOptions(i32);
 pub struct TextReverseConversionGenerator(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct TextSegment(i32);
-#[repr(transparent)]
-pub struct UnicodeCharacters(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct UnicodeGeneralCategory(i32);
 #[repr(C)]

@@ -154,8 +154,6 @@ pub struct StoreRateAndReviewResult(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct StoreRateAndReviewStatus(i32);
 #[repr(transparent)]
-pub struct StoreRequestHelper(pub *mut ::core::ffi::c_void);
-#[repr(transparent)]
 pub struct StoreSendRequestResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct StoreSku(pub *mut ::core::ffi::c_void);
