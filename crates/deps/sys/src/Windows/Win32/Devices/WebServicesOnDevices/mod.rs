@@ -117,8 +117,8 @@ pub struct IWSDiscoveryProviderNotify(pub *mut ::core::ffi::c_void);
 pub struct IWSDiscoveryPublisher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWSDiscoveryPublisherNotify(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PWSD_SOAP_MESSAGE_HANDLER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PWSD_SOAP_MESSAGE_HANDLER = unsafe extern "system" fn(thisunknown: ::windows_sys::core::IUnknown, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct REQUESTBODY_GetStatus(i32);
@@ -410,8 +410,8 @@ pub struct WSD_SOAP_HEADER(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WSD_SOAP_MESSAGE(i32);
-#[repr(C)]
-pub struct WSD_STUB_FUNCTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type WSD_STUB_FUNCTION = unsafe extern "system" fn(server: ::windows_sys::core::IUnknown, session: IWSDServiceMessaging, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT(i32);

@@ -820,24 +820,17 @@ extern "system" {
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct BY_HANDLE_FILE_INFORMATION(i32);
-#[repr(C)]
-pub struct CACHE_ACCESS_CHECK(i32);
-#[repr(C)]
-pub struct CACHE_DESTROY_CALLBACK(i32);
-#[repr(C)]
-pub struct CACHE_KEY_COMPARE(i32);
-#[repr(C)]
-pub struct CACHE_KEY_HASH(i32);
-#[repr(C)]
-pub struct CACHE_READ_CALLBACK(i32);
-#[repr(C)]
-pub struct CLAIMMEDIALABEL(i32);
-#[repr(C)]
-pub struct CLAIMMEDIALABELEX(i32);
-#[repr(C)]
-pub struct CLFS_BLOCK_ALLOCATION(i32);
-#[repr(C)]
-pub struct CLFS_BLOCK_DEALLOCATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub type CACHE_ACCESS_CHECK = unsafe extern "system" fn(psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::super::Foundation::BOOL;
+pub type CACHE_DESTROY_CALLBACK = unsafe extern "system" fn(cb: u32, lpb: *mut u8);
+pub type CACHE_KEY_COMPARE = unsafe extern "system" fn(cbkey1: u32, lpbkey1: *mut u8, cbkey2: u32, lpbkey2: *mut u8) -> i32;
+pub type CACHE_KEY_HASH = unsafe extern "system" fn(lpbkey: *mut u8, cbkey: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type CACHE_READ_CALLBACK = unsafe extern "system" fn(cb: u32, lpb: *mut u8, lpvcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type CLAIMMEDIALABEL = unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo) -> u32;
+pub type CLAIMMEDIALABELEX = unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut ::windows_sys::core::GUID) -> u32;
+pub type CLFS_BLOCK_ALLOCATION = unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+pub type CLFS_BLOCK_DEALLOCATION = unsafe extern "system" fn(pvbuffer: *mut ::core::ffi::c_void, pvusercontext: *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CLFS_CONTEXT_MODE(pub i32);
 pub const ClfsContextNone: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(0i32);
@@ -1108,10 +1101,10 @@ pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
 pub struct ERASE_TAPE_TYPE(pub i32);
 pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(1i32);
 pub const TAPE_ERASE_SHORT: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(0i32);
-#[repr(C)]
-pub struct FCACHE_CREATE_CALLBACK(i32);
-#[repr(C)]
-pub struct FCACHE_RICHCREATE_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type FCACHE_CREATE_CALLBACK = unsafe extern "system" fn(lpstrname: super::super::Foundation::PSTR, lpvdata: *mut ::core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE;
+#[cfg(feature = "Win32_Foundation")]
+pub type FCACHE_RICHCREATE_CALLBACK = unsafe extern "system" fn(lpstrname: super::super::Foundation::PSTR, lpvdata: *mut ::core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut super::super::Foundation::BOOL, pfisstuffed: *mut super::super::Foundation::BOOL, pfstoredwithdots: *mut super::super::Foundation::BOOL, pfstoredwithterminatingdot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct FH_OVERLAPPED(i32);
@@ -1479,8 +1472,8 @@ pub const LOCKFILE_FAIL_IMMEDIATELY: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(1u32);
 pub struct LOG_MANAGEMENT_CALLBACKS(i32);
 pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
 pub const LOG_POLICY_PERSIST: u32 = 2u32;
-#[repr(C)]
-pub struct LPPROGRESS_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPPROGRESS_ROUTINE = unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const ::core::ffi::c_void) -> u32;
 #[repr(transparent)]
 pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(pub u32);
 pub const CALLBACK_CHUNK_FINISHED: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(0u32);
@@ -1511,8 +1504,7 @@ pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16u32);
 pub const OF_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1u32);
 pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u32);
 pub const OF_VERIFY: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1024u32);
-#[repr(C)]
-pub struct MAXMEDIALABEL(i32);
+pub type MAXMEDIALABEL = unsafe extern "system" fn(pmaxsize: *mut u32) -> u32;
 pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64u32;
 pub const MAX_SID_SIZE: u32 = 256u32;
 pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
@@ -2055,22 +2047,19 @@ pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows_sys::core::GUID = ::windows_s
     data3: 17969,
     data4: [165, 197, 38, 210, 36, 56, 115, 170],
 };
-#[repr(C)]
-pub struct PCLFS_COMPLETION_ROUTINE(i32);
-#[repr(C)]
-pub struct PCOPYFILE2_PROGRESS_ROUTINE(i32);
-#[repr(C)]
-pub struct PFE_EXPORT_FUNC(i32);
-#[repr(C)]
-pub struct PFE_IMPORT_FUNC(i32);
-#[repr(C)]
-pub struct PFN_IO_COMPLETION(i32);
-#[repr(C)]
-pub struct PLOG_FULL_HANDLER_CALLBACK(i32);
-#[repr(C)]
-pub struct PLOG_TAIL_ADVANCE_CALLBACK(i32);
-#[repr(C)]
-pub struct PLOG_UNPINNED_CALLBACK(i32);
+pub type PCLFS_COMPLETION_ROUTINE = unsafe extern "system" fn(pvoverlapped: *mut ::core::ffi::c_void, ulreserved: u32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PCOPYFILE2_PROGRESS_ROUTINE = unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const ::core::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION;
+pub type PFE_EXPORT_FUNC = unsafe extern "system" fn(pbdata: *const u8, pvcallbackcontext: *const ::core::ffi::c_void, ullength: u32) -> u32;
+pub type PFE_IMPORT_FUNC = unsafe extern "system" fn(pbdata: *mut u8, pvcallbackcontext: *const ::core::ffi::c_void, ullength: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_IO_COMPLETION = unsafe extern "system" fn(pcontext: *mut FIO_CONTEXT, lpo: *mut FH_OVERLAPPED, cb: u32, dwcompletionstatus: u32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PLOG_FULL_HANDLER_CALLBACK = unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, dwerror: u32, flogispinned: super::super::Foundation::BOOL, pvclientcontext: *mut ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type PLOG_TAIL_ADVANCE_CALLBACK = unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, lsntarget: CLS_LSN, pvclientcontext: *mut ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type PLOG_UNPINNED_CALLBACK = unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PREPARE_TAPE_OPERATION(pub i32);
 pub const TAPE_FORMAT: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(5i32);
@@ -2543,8 +2532,8 @@ pub struct WOF_FILE_COMPRESSION_INFO_V0(i32);
 pub struct WOF_FILE_COMPRESSION_INFO_V1(i32);
 pub const WOF_PROVIDER_FILE: u32 = 2u32;
 pub const WOF_PROVIDER_WIM: u32 = 1u32;
-#[repr(C)]
-pub struct WofEnumEntryProc(i32);
-#[repr(C)]
-pub struct WofEnumFilesProc(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type WofEnumEntryProc = unsafe extern "system" fn(entryinfo: *const ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type WofEnumFilesProc = unsafe extern "system" fn(filepath: super::super::Foundation::PWSTR, externalfileinfo: *const ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 pub const _FT_TYPES_DEFINITION_: u32 = 1u32;

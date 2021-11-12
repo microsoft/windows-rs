@@ -81,8 +81,8 @@ pub const DEVICE_ATTENTION: u32 = 1024u32;
 pub const DUP: u32 = 4u32;
 pub const DUPLEX: u32 = 4u32;
 pub const DUP_READY: u32 = 4u32;
-#[repr(C)]
-pub struct DeviceDialogFunction(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type DeviceDialogFunction = unsafe extern "system" fn(param0: *mut DEVICEDIALOGDATA) -> ::windows_sys::core::HRESULT;
 pub const EFFECTMODE_BW: u32 = 2u32;
 pub const EFFECTMODE_SEPIA: u32 = 3u32;
 pub const EFFECTMODE_STANDARD: u32 = 1u32;

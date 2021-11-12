@@ -600,12 +600,10 @@ pub const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
 pub const INIT_ONCE_INIT_FAILED: u32 = 4u32;
 #[repr(C)]
 pub struct IO_COUNTERS(i32);
-#[repr(C)]
-pub struct LPFIBER_START_ROUTINE(i32);
+pub type LPFIBER_START_ROUTINE = unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct LPPROC_THREAD_ATTRIBUTE_LIST(i32);
-#[repr(C)]
-pub struct LPTHREAD_START_ROUTINE(i32);
+pub type LPTHREAD_START_ROUTINE = unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32;
 #[repr(transparent)]
 pub struct MACHINE_ATTRIBUTES(pub u32);
 pub const UserEnabled: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(1u32);
@@ -629,10 +627,9 @@ pub struct PEB(i32);
 #[cfg(feature = "Win32_System_Kernel")]
 #[repr(C)]
 pub struct PEB_LDR_DATA(i32);
-#[repr(C)]
-pub struct PFLS_CALLBACK_FUNCTION(i32);
-#[repr(C)]
-pub struct PINIT_ONCE_FN(i32);
+pub type PFLS_CALLBACK_FUNCTION = unsafe extern "system" fn(lpflsdata: *const ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type PINIT_ONCE_FN = unsafe extern "system" fn(initonce: *mut RTL_RUN_ONCE, parameter: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 pub const PME_CURRENT_VERSION: u32 = 1u32;
 pub const PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: u32 = 0u32;
 pub const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1u32;
@@ -640,8 +637,7 @@ pub const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1u32;
 pub struct POWER_REQUEST_CONTEXT_FLAGS(pub u32);
 pub const POWER_REQUEST_CONTEXT_DETAILED_STRING: POWER_REQUEST_CONTEXT_FLAGS = POWER_REQUEST_CONTEXT_FLAGS(2u32);
 pub const POWER_REQUEST_CONTEXT_SIMPLE_STRING: POWER_REQUEST_CONTEXT_FLAGS = POWER_REQUEST_CONTEXT_FLAGS(1u32);
-#[repr(C)]
-pub struct PPS_POST_PROCESS_INIT_ROUTINE(i32);
+pub type PPS_POST_PROCESS_INIT_ROUTINE = unsafe extern "system" fn();
 pub const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1u32;
 #[repr(transparent)]
 pub struct PROCESSINFOCLASS(pub i32);
@@ -828,24 +824,17 @@ pub const PROTECTION_LEVEL_NONE: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_L
 #[repr(C)]
 pub struct PROCESS_PROTECTION_LEVEL_INFORMATION(i32);
 pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
-#[repr(C)]
-pub struct PRTL_UMS_SCHEDULER_ENTRY_POINT(i32);
-#[repr(C)]
-pub struct PTIMERAPCROUTINE(i32);
-#[repr(C)]
-pub struct PTP_CLEANUP_GROUP_CANCEL_CALLBACK(i32);
+#[cfg(feature = "Win32_System_SystemServices")]
+pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: super::SystemServices::RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void);
+pub type PTIMERAPCROUTINE = unsafe extern "system" fn(lpargtocompletionroutine: *const ::core::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32);
+pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = unsafe extern "system" fn(objectcontext: *mut ::core::ffi::c_void, cleanupcontext: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct PTP_POOL(i32);
-#[repr(C)]
-pub struct PTP_SIMPLE_CALLBACK(i32);
-#[repr(C)]
-pub struct PTP_TIMER_CALLBACK(i32);
-#[repr(C)]
-pub struct PTP_WAIT_CALLBACK(i32);
-#[repr(C)]
-pub struct PTP_WIN32_IO_CALLBACK(i32);
-#[repr(C)]
-pub struct PTP_WORK_CALLBACK(i32);
+pub type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void);
+pub type PTP_TIMER_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, timer: *mut TP_TIMER);
+pub type PTP_WAIT_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, wait: *mut TP_WAIT, waitresult: u32);
+pub type PTP_WIN32_IO_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, overlapped: *mut ::core::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: *mut TP_IO);
+pub type PTP_WORK_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, work: *mut TP_WORK);
 #[repr(transparent)]
 pub struct QUEUE_USER_APC_FLAGS(pub i32);
 pub const QUEUE_USER_APC_FLAGS_NONE: QUEUE_USER_APC_FLAGS = QUEUE_USER_APC_FLAGS(0i32);
@@ -993,8 +982,8 @@ pub struct TimerQueueHandle(i32);
 pub struct UMS_SCHEDULER_STARTUP_INFO(i32);
 #[repr(C)]
 pub struct UMS_SYSTEM_THREAD_INFORMATION(i32);
-#[repr(C)]
-pub struct WAITORTIMERCALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type WAITORTIMERCALLBACK = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN);
 pub const WAIT_ABANDONED: u32 = 128u32;
 pub const WAIT_ABANDONED_0: u32 = 128u32;
 pub const WAIT_IO_COMPLETION: u32 = 192u32;

@@ -407,14 +407,13 @@ pub struct KeyCredentialManagerOperationType(pub i32);
 pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(0i32);
 pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(1i32);
 pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(2i32);
-#[repr(C)]
-pub struct LPOCNCHKPROC(i32);
-#[repr(C)]
-pub struct LPOCNCONNPROCA(i32);
-#[repr(C)]
-pub struct LPOCNCONNPROCW(i32);
-#[repr(C)]
-pub struct LPOCNDSCPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPOCNCHKPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPOCNCONNPROCA = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *const ::core::ffi::c_void) -> usize;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPOCNCONNPROCW = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::core::ffi::c_void) -> usize;
+pub type LPOCNDSCPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void);
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
 #[cfg(feature = "Win32_Foundation")]

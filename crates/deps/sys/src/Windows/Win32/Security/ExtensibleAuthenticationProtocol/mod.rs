@@ -568,8 +568,7 @@ pub const NCRYPT_PIN_CACHE_PIN_BYTE_LENGTH: u32 = 90u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct NgcTicketContext(i32);
-#[repr(C)]
-pub struct NotificationHandler(i32);
+pub type NotificationHandler = unsafe extern "system" fn(connectionid: ::windows_sys::core::GUID, pcontextdata: *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PPP_EAP_ACTION(pub i32);
 pub const EAPACTION_NoAction: PPP_EAP_ACTION = PPP_EAP_ACTION(0i32);

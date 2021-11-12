@@ -296,8 +296,8 @@ pub const NLS_IME_DISABLE: u32 = 536870912u32;
 pub const NLS_KATAKANA: u32 = 131072u32;
 pub const NLS_ROMAN: u32 = 4194304u32;
 pub const NUMLOCK_ON: u32 = 32u32;
-#[repr(C)]
-pub struct PHANDLER_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PHANDLER_ROUTINE = unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL;
 pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;
 pub const RIGHTMOST_BUTTON_PRESSED: u32 = 2u32;
 pub const RIGHT_ALT_PRESSED: u32 = 1u32;

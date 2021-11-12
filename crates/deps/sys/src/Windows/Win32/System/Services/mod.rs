@@ -212,18 +212,14 @@ pub const FIREWALL_PORT_CLOSE_GUID: ::windows_sys::core::GUID = ::windows_sys::G
     data4: [157, 150, 230, 71, 64, 177, 165, 36],
 };
 pub const FIREWALL_PORT_OPEN_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3075907079, data2: 33825, data3: 20192, data4: [173, 16, 134, 145, 90, 253, 173, 9] };
-#[repr(C)]
-pub struct HANDLER_FUNCTION(i32);
-#[repr(C)]
-pub struct HANDLER_FUNCTION_EX(i32);
-#[repr(C)]
-pub struct LPHANDLER_FUNCTION(i32);
-#[repr(C)]
-pub struct LPHANDLER_FUNCTION_EX(i32);
-#[repr(C)]
-pub struct LPSERVICE_MAIN_FUNCTIONA(i32);
-#[repr(C)]
-pub struct LPSERVICE_MAIN_FUNCTIONW(i32);
+pub type HANDLER_FUNCTION = unsafe extern "system" fn(dwcontrol: u32);
+pub type HANDLER_FUNCTION_EX = unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> u32;
+pub type LPHANDLER_FUNCTION = unsafe extern "system" fn(dwcontrol: u32);
+pub type LPHANDLER_FUNCTION_EX = unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPSERVICE_MAIN_FUNCTIONA = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PSTR);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPSERVICE_MAIN_FUNCTIONW = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PWSTR);
 pub const MACHINE_POLICY_PRESENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1704970982,
     data2: 23515,
@@ -243,10 +239,8 @@ pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows_sys::core::GUI
     data3: 17992,
     data4: [132, 122, 182, 189, 249, 147, 227, 53],
 };
-#[repr(C)]
-pub struct PFN_SC_NOTIFY_CALLBACK(i32);
-#[repr(C)]
-pub struct PSC_NOTIFICATION_CALLBACK(i32);
+pub type PFN_SC_NOTIFY_CALLBACK = unsafe extern "system" fn(pparameter: *const ::core::ffi::c_void);
+pub type PSC_NOTIFICATION_CALLBACK = unsafe extern "system" fn(dwnotify: u32, pcallbackcontext: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct QUERY_SERVICE_CONFIGA(i32);
@@ -385,10 +379,9 @@ pub struct SERVICE_LAUNCH_PROTECTED_INFO(i32);
 pub const SERVICE_LAUNCH_PROTECTED_NONE: u32 = 0u32;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1u32;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT: u32 = 2u32;
-#[repr(C)]
-pub struct SERVICE_MAIN_FUNCTIONA(i32);
-#[repr(C)]
-pub struct SERVICE_MAIN_FUNCTIONW(i32);
+pub type SERVICE_MAIN_FUNCTIONA = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut *mut i8);
+#[cfg(feature = "Win32_Foundation")]
+pub type SERVICE_MAIN_FUNCTIONW = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PWSTR);
 #[repr(transparent)]
 pub struct SERVICE_NOTIFY(pub u32);
 pub const SERVICE_NOTIFY_CREATED: SERVICE_NOTIFY = SERVICE_NOTIFY(128u32);

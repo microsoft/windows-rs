@@ -377,8 +377,7 @@ pub const DNS_OPCODE_UPDATE: u32 = 5u32;
 pub struct DNS_OPT_DATA(i32);
 pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
 pub const DNS_PORT_NET_ORDER: u32 = 13568u32;
-#[repr(C)]
-pub struct DNS_PROXY_COMPLETION_ROUTINE(i32);
+pub type DNS_PROXY_COMPLETION_ROUTINE = unsafe extern "system" fn(completioncontext: *const ::core::ffi::c_void, status: i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DNS_PROXY_INFORMATION(i32);
@@ -721,16 +720,16 @@ pub struct MDNS_QUERY_HANDLE(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct MDNS_QUERY_REQUEST(i32);
-#[repr(C)]
-pub struct PDNS_QUERY_COMPLETION_ROUTINE(i32);
-#[repr(C)]
-pub struct PDNS_SERVICE_BROWSE_CALLBACK(i32);
-#[repr(C)]
-pub struct PDNS_SERVICE_REGISTER_COMPLETE(i32);
-#[repr(C)]
-pub struct PDNS_SERVICE_RESOLVE_COMPLETE(i32);
-#[repr(C)]
-pub struct PMDNS_QUERY_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PDNS_QUERY_COMPLETION_ROUTINE = unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT);
+#[cfg(feature = "Win32_Foundation")]
+pub type PDNS_SERVICE_BROWSE_CALLBACK = unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pdnsrecord: *const DNS_RECORDA);
+#[cfg(feature = "Win32_Foundation")]
+pub type PDNS_SERVICE_REGISTER_COMPLETE = unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE);
+#[cfg(feature = "Win32_Foundation")]
+pub type PDNS_SERVICE_RESOLVE_COMPLETE = unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE);
+#[cfg(feature = "Win32_Foundation")]
+pub type PMDNS_QUERY_CALLBACK = unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT);
 pub const SIZEOF_IP4_ADDRESS: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]

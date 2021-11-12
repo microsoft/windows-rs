@@ -767,14 +767,14 @@ pub const OBJECT_PUSH_FORMAT_VCARD_3_0: u32 = 2u32;
 pub const OBJECT_PUSH_FORMAT_VMESSAGE: u32 = 6u32;
 pub const OBJECT_PUSH_FORMAT_VNOTE: u32 = 5u32;
 pub const PANUServiceClassID_UUID16: u32 = 4373u32;
-#[repr(C)]
-pub struct PFN_AUTHENTICATION_CALLBACK(i32);
-#[repr(C)]
-pub struct PFN_AUTHENTICATION_CALLBACK_EX(i32);
-#[repr(C)]
-pub struct PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK(i32);
-#[repr(C)]
-pub struct PFN_DEVICE_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_AUTHENTICATION_CALLBACK = unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_AUTHENTICATION_CALLBACK_EX = unsafe extern "system" fn(pvparam: *const ::core::ffi::c_void, pauthcallbackparams: *const BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = unsafe extern "system" fn(uattribid: u32, pvaluestream: *const u8, cbstreamsize: u32, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_DEVICE_CALLBACK = unsafe extern "system" fn(pvparam: *mut ::core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
 pub const PF_BTH: u16 = 32u16;
 pub const PSM_3DSP: u32 = 33u32;
 pub const PSM_ATT: u32 = 31u32;

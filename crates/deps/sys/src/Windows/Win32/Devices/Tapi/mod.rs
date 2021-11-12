@@ -483,8 +483,7 @@ pub const AS_BUSY_ACD: AGENT_STATE = AGENT_STATE(2i32);
 pub const AS_BUSY_INCOMING: AGENT_STATE = AGENT_STATE(3i32);
 pub const AS_BUSY_OUTGOING: AGENT_STATE = AGENT_STATE(4i32);
 pub const AS_UNKNOWN: AGENT_STATE = AGENT_STATE(5i32);
-#[repr(C)]
-pub struct ASYNC_COMPLETION(i32);
+pub type ASYNC_COMPLETION = unsafe extern "system" fn(dwrequestid: u32, lresult: i32);
 #[repr(transparent)]
 pub struct CALLHUB_EVENT(pub i32);
 pub const CHE_CALLJOIN: CALLHUB_EVENT = CALLHUB_EVENT(0i32);
@@ -1099,8 +1098,7 @@ pub const LINEBUSYMODE_STATION: u32 = 1u32;
 pub const LINEBUSYMODE_TRUNK: u32 = 2u32;
 pub const LINEBUSYMODE_UNAVAIL: u32 = 8u32;
 pub const LINEBUSYMODE_UNKNOWN: u32 = 4u32;
-#[repr(C)]
-pub struct LINECALLBACK(i32);
+pub type LINECALLBACK = unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize);
 pub const LINECALLCOMPLCOND_BUSY: u32 = 1u32;
 pub const LINECALLCOMPLCOND_NOANSWER: u32 = 2u32;
 pub const LINECALLCOMPLMODE_CALLBACK: u32 = 2u32;
@@ -1452,8 +1450,7 @@ pub const LINEERR_TARGETSELF: u32 = 2147483727u32;
 pub const LINEERR_UNINITIALIZED: u32 = 2147483728u32;
 pub const LINEERR_USERCANCELLED: u32 = 2147483741u32;
 pub const LINEERR_USERUSERINFOTOOBIG: u32 = 2147483729u32;
-#[repr(C)]
-pub struct LINEEVENT(i32);
+pub type LINEEVENT = unsafe extern "system" fn(htline: *mut HTAPILINE__, htcall: *mut HTAPICALL__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize);
 #[repr(C)]
 pub struct LINEEXTENSIONID(i32);
 pub const LINEFEATURE_DEVSPECIFIC: u32 = 1u32;
@@ -1694,12 +1691,12 @@ pub const LINE_QUEUESTATUS: i32 = 28i32;
 pub const LINE_REMOVE: i32 = 25i32;
 pub const LINE_REPLY: i32 = 12i32;
 pub const LINE_REQUEST: i32 = 13i32;
-#[repr(C)]
-pub struct LPGETTNEFSTREAMCODEPAGE(i32);
-#[repr(C)]
-pub struct LPOPENTNEFSTREAM(i32);
-#[repr(C)]
-pub struct LPOPENTNEFSTREAMEX(i32);
+#[cfg(feature = "Win32_System_Com")]
+pub type LPGETTNEFSTREAMCODEPAGE = unsafe extern "system" fn(lpstream: super::super::System::Com::IStream, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows_sys::core::HRESULT;
+#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
+pub type LPOPENTNEFSTREAM = unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT;
+#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
+pub type LPOPENTNEFSTREAMEX = unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpadressbook: super::super::System::AddressBook::IAddrBook, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT;
 #[repr(transparent)]
 pub struct MSP_ADDRESS_EVENT(pub i32);
 pub const ADDRESS_TERMINAL_AVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(0i32);
@@ -1800,8 +1797,7 @@ pub const PHONEBUTTONSTATE_DOWN: u32 = 2u32;
 pub const PHONEBUTTONSTATE_UNAVAIL: u32 = 8u32;
 pub const PHONEBUTTONSTATE_UNKNOWN: u32 = 4u32;
 pub const PHONEBUTTONSTATE_UP: u32 = 1u32;
-#[repr(C)]
-pub struct PHONECALLBACK(i32);
+pub type PHONECALLBACK = unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize);
 #[repr(C)]
 pub struct PHONECAPS(i32);
 #[repr(transparent)]
@@ -1859,8 +1855,7 @@ pub const PHONEERR_RESOURCEUNAVAIL: u32 = 2415919135u32;
 pub const PHONEERR_SERVICE_NOT_RUNNING: u32 = 2415919141u32;
 pub const PHONEERR_STRUCTURETOOSMALL: u32 = 2415919137u32;
 pub const PHONEERR_UNINITIALIZED: u32 = 2415919138u32;
-#[repr(C)]
-pub struct PHONEEVENT(i32);
+pub type PHONEEVENT = unsafe extern "system" fn(htphone: *mut HTAPIPHONE__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize);
 #[repr(C)]
 pub struct PHONEEXTENSIONID(i32);
 pub const PHONEFEATURE_GENERICPHONE: u32 = 268435456u32;
@@ -2456,8 +2451,7 @@ pub const TSPI_PROVIDERSHUTDOWN: u32 = 594u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct TUISPICREATEDIALOGINSTANCEPARAMS(i32);
-#[repr(C)]
-pub struct TUISPIDLLCALLBACK(i32);
+pub type TUISPIDLLCALLBACK = unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
 pub const TUISPIDLL_OBJECT_DIALOGINSTANCE: i32 = 4i32;
 pub const TUISPIDLL_OBJECT_LINEID: i32 = 1i32;
 pub const TUISPIDLL_OBJECT_PHONEID: i32 = 2i32;

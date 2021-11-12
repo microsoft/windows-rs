@@ -789,12 +789,9 @@ pub const CDS_VIDEOPARAMETERS: CDS_TYPE = CDS_TYPE(32u32);
 pub const CDS_ENABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(256u32);
 pub const CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(512u32);
 pub const CDS_RESET_EX: CDS_TYPE = CDS_TYPE(536870912u32);
-#[repr(C)]
-pub struct CFP_ALLOCPROC(i32);
-#[repr(C)]
-pub struct CFP_FREEPROC(i32);
-#[repr(C)]
-pub struct CFP_REALLOCPROC(i32);
+pub type CFP_ALLOCPROC = unsafe extern "system" fn(param0: usize) -> *mut ::core::ffi::c_void;
+pub type CFP_FREEPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
+pub type CFP_REALLOCPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: usize) -> *mut ::core::ffi::c_void;
 pub const CHARSET_DEFAULT: u32 = 1u32;
 pub const CHARSET_GLYPHIDX: u32 = 3u32;
 pub const CHECKJPEGFORMAT: u32 = 4119u32;
@@ -1215,8 +1212,8 @@ pub const EDGE_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
 pub const EDGE_ETCHED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(6u32);
 pub const EDGE_BUMP: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(9u32);
 pub const DRAWPATTERNRECT: u32 = 25u32;
-#[repr(C)]
-pub struct DRAWSTATEPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type DRAWSTATEPROC = unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> super::super::Foundation::BOOL;
 #[repr(transparent)]
 pub struct DRAWSTATE_FLAGS(pub u32);
 pub const DST_COMPLEX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
@@ -1611,8 +1608,8 @@ pub struct ENHMETAHEADER(i32);
 pub struct ENHMETARECORD(i32);
 pub const ENHMETA_SIGNATURE: u32 = 1179469088u32;
 pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648u32;
-#[repr(C)]
-pub struct ENHMFENUMPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type ENHMFENUMPROC = unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::super::Foundation::LPARAM) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ENUMLOGFONTA(i32);
@@ -1807,10 +1804,10 @@ pub const FIXED_PITCH: u32 = 1u32;
 pub const FLI_GLYPHS: i32 = 262144i32;
 pub const FLI_MASK: u32 = 4155u32;
 pub const FLUSHOUTPUT: u32 = 6u32;
-#[repr(C)]
-pub struct FONTENUMPROCA(i32);
-#[repr(C)]
-pub struct FONTENUMPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type FONTENUMPROCA = unsafe extern "system" fn(param0: *const LOGFONTA, param1: *const TEXTMETRICA, param2: u32, param3: super::super::Foundation::LPARAM) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type FONTENUMPROCW = unsafe extern "system" fn(param0: *const LOGFONTW, param1: *const TEXTMETRICW, param2: u32, param3: super::super::Foundation::LPARAM) -> i32;
 pub const FONTMAPPER_MAX: u32 = 10u32;
 #[repr(transparent)]
 pub struct FONT_CLIP_PRECISION(pub u32);
@@ -2060,8 +2057,8 @@ pub struct GLYPHMETRICS(i32);
 #[repr(C)]
 pub struct GLYPHSET(i32);
 pub const GM_LAST: u32 = 2u32;
-#[repr(C)]
-pub struct GOBJENUMPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type GOBJENUMPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::LPARAM) -> i32;
 #[repr(transparent)]
 pub struct GRADIENT_FILL(pub u32);
 pub const GRADIENT_FILL_RECT_H: GRADIENT_FILL = GRADIENT_FILL(0u32);
@@ -2076,8 +2073,8 @@ pub struct GRADIENT_TRIANGLE(i32);
 pub struct GRAPHICS_MODE(pub u32);
 pub const GM_COMPATIBLE: GRAPHICS_MODE = GRAPHICS_MODE(1u32);
 pub const GM_ADVANCED: GRAPHICS_MODE = GRAPHICS_MODE(2u32);
-#[repr(C)]
-pub struct GRAYSTRINGPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type GRAYSTRINGPROC = unsafe extern "system" fn(param0: HDC, param1: super::super::Foundation::LPARAM, param2: i32) -> super::super::Foundation::BOOL;
 pub const GREEK_CHARSET: u32 = 161u32;
 pub const GS_8BIT_INDICES: u32 = 1u32;
 #[repr(C)]
@@ -2168,8 +2165,8 @@ pub const LC_WIDE: u32 = 16u32;
 pub const LC_WIDESTYLED: u32 = 64u32;
 pub const LF_FACESIZE: u32 = 32u32;
 pub const LF_FULLFACESIZE: u32 = 64u32;
-#[repr(C)]
-pub struct LINEDDAPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LINEDDAPROC = unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM);
 #[repr(C)]
 pub struct LOGBRUSH(i32);
 #[repr(C)]
@@ -2196,10 +2193,10 @@ pub const LPD_SWAP_EXCHANGE: u32 = 512u32;
 pub const LPD_TRANSPARENT: u32 = 4096u32;
 pub const LPD_TYPE_COLORINDEX: u32 = 1u32;
 pub const LPD_TYPE_RGBA: u32 = 0u32;
-#[repr(C)]
-pub struct LPFNDEVCAPS(i32);
-#[repr(C)]
-pub struct LPFNDEVMODE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNDEVCAPS = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: u32, param3: super::super::Foundation::PSTR, param4: *mut DEVMODEA) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNDEVMODE = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, param2: *mut DEVMODEA, param3: super::super::Foundation::PSTR, param4: super::super::Foundation::PSTR, param5: *mut DEVMODEA, param6: super::super::Foundation::PSTR, param7: u32) -> u32;
 pub const MAC_CHARSET: u32 = 77u32;
 #[repr(C)]
 pub struct MAT2(i32);
@@ -2279,8 +2276,8 @@ pub const META_STRETCHBLT: u32 = 2851u32;
 pub const META_STRETCHDIB: u32 = 3907u32;
 pub const META_TEXTOUT: u32 = 1313u32;
 pub const MFCOMMENT: u32 = 15u32;
-#[repr(C)]
-pub struct MFENUMPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type MFENUMPROC = unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const METARECORD, nobj: i32, param4: super::super::Foundation::LPARAM) -> i32;
 pub const MILCORE_TS_QUERYVER_RESULT_FALSE: u32 = 0u32;
 pub const MILCORE_TS_QUERYVER_RESULT_TRUE: u32 = 2147483647u32;
 pub const MM_MAX_AXES_NAMELEN: u32 = 16u32;
@@ -2290,8 +2287,8 @@ pub struct MODIFY_WORLD_TRANSFORM_MODE(pub u32);
 pub const MWT_IDENTITY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(1u32);
 pub const MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(2u32);
 pub const MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(3u32);
-#[repr(C)]
-pub struct MONITORENUMPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type MONITORENUMPROC = unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct MONITORINFO(i32);
@@ -2611,8 +2608,7 @@ pub const RC_SCALING: u32 = 4u32;
 pub const RC_STRETCHBLT: u32 = 2048u32;
 pub const RC_STRETCHDIB: u32 = 8192u32;
 pub const RDH_RECTANGLES: u32 = 1u32;
-#[repr(C)]
-pub struct READEMBEDPROC(i32);
+pub type READEMBEDPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: u32) -> u32;
 #[repr(transparent)]
 pub struct REDRAW_WINDOW_FLAGS(pub u32);
 pub const RDW_INVALIDATE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(1u32);
@@ -2891,7 +2887,6 @@ pub const WGL_SWAP_UNDERLAY6: u32 = 2097152u32;
 pub const WGL_SWAP_UNDERLAY7: u32 = 4194304u32;
 pub const WGL_SWAP_UNDERLAY8: u32 = 8388608u32;
 pub const WGL_SWAP_UNDERLAY9: u32 = 16777216u32;
-#[repr(C)]
-pub struct WRITEEMBEDPROC(i32);
+pub type WRITEEMBEDPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
 #[repr(C)]
 pub struct XFORM(i32);

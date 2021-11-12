@@ -346,8 +346,8 @@ pub const DRT_ADDRESS_FLAG_INQUIRE: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(128i32
 pub struct DRT_ADDRESS_LIST(i32);
 #[repr(C)]
 pub struct DRT_BOOTSTRAP_PROVIDER(i32);
-#[repr(C)]
-pub struct DRT_BOOTSTRAP_RESOLVE_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = unsafe extern "system" fn(hr: ::windows_sys::core::HRESULT, pvcontext: *mut ::core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL);
 #[repr(C)]
 pub struct DRT_DATA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -773,14 +773,12 @@ pub struct PEER_VERSION_DATA(i32);
 pub struct PEER_WATCH_PERMISSION(pub i32);
 pub const PEER_WATCH_BLOCKED: PEER_WATCH_PERMISSION = PEER_WATCH_PERMISSION(0i32);
 pub const PEER_WATCH_ALLOWED: PEER_WATCH_PERMISSION = PEER_WATCH_PERMISSION(1i32);
-#[repr(C)]
-pub struct PFNPEER_FREE_SECURITY_DATA(i32);
-#[repr(C)]
-pub struct PFNPEER_ON_PASSWORD_AUTH_FAILED(i32);
-#[repr(C)]
-pub struct PFNPEER_SECURE_RECORD(i32);
-#[repr(C)]
-pub struct PFNPEER_VALIDATE_RECORD(i32);
+pub type PFNPEER_FREE_SECURITY_DATA = unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, psecuritydata: *const PEER_DATA) -> ::windows_sys::core::HRESULT;
+pub type PFNPEER_ON_PASSWORD_AUTH_FAILED = unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNPEER_SECURE_RECORD = unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE, ppsecuritydata: *mut *mut PEER_DATA) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNPEER_VALIDATE_RECORD = unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct PNRPCLOUDINFO(i32);
 pub const PNRPINFO_HINT: u32 = 1u32;

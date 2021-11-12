@@ -83,10 +83,10 @@ pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MES
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct BSMINFO(i32);
-#[repr(C)]
-pub struct DESKTOPENUMPROCA(i32);
-#[repr(C)]
-pub struct DESKTOPENUMPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type DESKTOPENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type DESKTOPENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[repr(C)]
 pub struct HDESK(i32);
 #[repr(C)]
@@ -102,7 +102,7 @@ pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(
 pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(2u32);
 pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3u32);
 pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4u32);
-#[repr(C)]
-pub struct WINSTAENUMPROCA(i32);
-#[repr(C)]
-pub struct WINSTAENUMPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type WINSTAENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type WINSTAENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;

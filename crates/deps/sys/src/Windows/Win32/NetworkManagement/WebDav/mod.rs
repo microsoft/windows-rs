@@ -43,7 +43,6 @@ pub struct DAV_CALLBACK_AUTH_UNP(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DAV_CALLBACK_CRED(i32);
-#[repr(C)]
-pub struct PFNDAVAUTHCALLBACK(i32);
-#[repr(C)]
-pub struct PFNDAVAUTHCALLBACK_FREECRED(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNDAVAUTHCALLBACK = unsafe extern "system" fn(lpwzservername: super::super::Foundation::PWSTR, lpwzremotename: super::super::Foundation::PWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32;
+pub type PFNDAVAUTHCALLBACK_FREECRED = unsafe extern "system" fn(pbuffer: *const ::core::ffi::c_void) -> u32;

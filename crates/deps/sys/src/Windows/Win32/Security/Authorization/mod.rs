@@ -606,8 +606,8 @@ pub struct EXPLICIT_ACCESS_A(i32);
 pub struct EXPLICIT_ACCESS_W(i32);
 #[repr(C)]
 pub struct FN_OBJECT_MGR_FUNCTIONS(i32);
-#[repr(C)]
-pub struct FN_PROGRESS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type FN_PROGRESS = unsafe extern "system" fn(pobjectname: super::super::Foundation::PWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void, securityset: super::super::Foundation::BOOL);
 #[repr(transparent)]
 pub struct IAzApplication(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -698,16 +698,15 @@ pub struct OBJECTS_AND_NAME_W(i32);
 #[repr(C)]
 pub struct OBJECTS_AND_SID(i32);
 pub const OLESCRIPT_E_SYNTAX: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147352319i32 as _);
-#[repr(C)]
-pub struct PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS(i32);
-#[repr(C)]
-pub struct PFN_AUTHZ_DYNAMIC_ACCESS_CHECK(i32);
-#[repr(C)]
-pub struct PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY(i32);
-#[repr(C)]
-pub struct PFN_AUTHZ_FREE_DYNAMIC_GROUPS(i32);
-#[repr(C)]
-pub struct PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const ::core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: *const super::ACE_HEADER, pargs: *const ::core::ffi::c_void, pbaceapplicable: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = unsafe extern "system" fn(pcentralaccesspolicy: *const ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = unsafe extern "system" fn(psidattrarray: *const super::SID_AND_ATTRIBUTES);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::super::Foundation::PSID, pargs: *const ::core::ffi::c_void, pcentralaccesspolicyapplicable: *mut super::super::Foundation::BOOL, ppcentralaccesspolicy: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[repr(transparent)]
 pub struct PROG_INVOKE_SETTING(pub i32);
 pub const ProgressInvokeNever: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(1i32);

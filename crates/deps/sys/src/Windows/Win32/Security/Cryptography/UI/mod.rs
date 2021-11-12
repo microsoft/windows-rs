@@ -266,14 +266,14 @@ pub struct CTL_MODIFY_REQUEST_OPERATION(pub u32);
 pub const CTL_MODIFY_REQUEST_ADD_TRUSTED: CTL_MODIFY_REQUEST_OPERATION = CTL_MODIFY_REQUEST_OPERATION(3u32);
 pub const CTL_MODIFY_REQUEST_ADD_NOT_TRUSTED: CTL_MODIFY_REQUEST_OPERATION = CTL_MODIFY_REQUEST_OPERATION(1u32);
 pub const CTL_MODIFY_REQUEST_REMOVE: CTL_MODIFY_REQUEST_OPERATION = CTL_MODIFY_REQUEST_OPERATION(2u32);
-#[repr(C)]
-pub struct PFNCFILTERPROC(i32);
-#[repr(C)]
-pub struct PFNCMFILTERPROC(i32);
-#[repr(C)]
-pub struct PFNCMHOOKPROC(i32);
-#[repr(C)]
-pub struct PFNTRUSTHELPER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNCFILTERPROC = unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, pfinitialselectedcert: *mut super::super::super::Foundation::BOOL, pvcallbackdata: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNCMFILTERPROC = unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, param1: super::super::super::Foundation::LPARAM, param2: u32, param3: u32) -> super::super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNCMHOOKPROC = unsafe extern "system" fn(hwnddialog: super::super::super::Foundation::HWND, message: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNTRUSTHELPER = unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, lcustdata: super::super::super::Foundation::LPARAM, fleafcertificate: super::super::super::Foundation::BOOL, pbtrustblob: *mut u8) -> ::windows_sys::core::HRESULT;
 pub const POLICY_IGNORE_NON_CRITICAL_BC: u32 = 1u32;
 pub const SELCERT_ALGORITHM: u32 = 105u32;
 pub const SELCERT_CERTLIST: u32 = 102u32;

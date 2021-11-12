@@ -1354,21 +1354,19 @@ pub struct PF_FILTER_STATS(i32);
 pub struct PF_INTERFACE_STATS(i32);
 #[repr(C)]
 pub struct PF_LATEBIND_INFO(i32);
-#[repr(C)]
-pub struct PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(i32);
-#[repr(C)]
-pub struct PIPFORWARD_CHANGE_CALLBACK(i32);
-#[repr(C)]
-pub struct PIPINTERFACE_CHANGE_CALLBACK(i32);
-#[repr(C)]
-pub struct PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK(i32);
+pub type PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+pub type PIPFORWARD_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, row: *const MIB_IPFORWARD_ROW2, notificationtype: MIB_NOTIFICATION_TYPE);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+pub type PIPINTERFACE_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, row: *const MIB_IPINTERFACE_ROW, notificationtype: MIB_NOTIFICATION_TYPE);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, connectivityhint: super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT);
 pub const PROXY_ARP: u32 = 22u32;
-#[repr(C)]
-pub struct PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK(i32);
-#[repr(C)]
-pub struct PTEREDO_PORT_CHANGE_CALLBACK(i32);
-#[repr(C)]
-pub struct PUNICAST_IPADDRESS_CHANGE_CALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+pub type PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, addresstable: *const MIB_UNICASTIPADDRESS_TABLE);
+pub type PTEREDO_PORT_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, port: u16, notificationtype: MIB_NOTIFICATION_TYPE);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::core::ffi::c_void, row: *const MIB_UNICASTIPADDRESS_ROW, notificationtype: MIB_NOTIFICATION_TYPE);
 pub const ROUTE_LONGER: u32 = 32u32;
 pub const ROUTE_MATCHING: u32 = 31u32;
 pub const ROUTE_SHORTER: u32 = 33u32;

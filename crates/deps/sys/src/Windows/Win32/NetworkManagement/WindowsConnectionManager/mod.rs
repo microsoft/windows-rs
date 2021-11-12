@@ -28,8 +28,7 @@ pub struct NET_INTERFACE_CONTEXT(i32);
 pub struct NET_INTERFACE_CONTEXT_TABLE(i32);
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
-#[repr(C)]
-pub struct ONDEMAND_NOTIFICATION_CALLBACK(i32);
+pub type ONDEMAND_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *const ::core::ffi::c_void);
 pub const WCM_API_VERSION: u32 = 1u32;
 pub const WCM_API_VERSION_1_0: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]

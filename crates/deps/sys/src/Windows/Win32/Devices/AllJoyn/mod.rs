@@ -1223,8 +1223,8 @@ pub struct _alljoyn_abouticon_handle(i32);
 pub struct _alljoyn_abouticonobj_handle(i32);
 #[repr(C)]
 pub struct _alljoyn_abouticonproxy_handle(i32);
-#[repr(C)]
-pub struct alljoyn_about_announced_ptr(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_about_announced_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg);
 #[repr(transparent)]
 pub struct alljoyn_about_announceflag(pub i32);
 pub const UNANNOUNCED: alljoyn_about_announceflag = alljoyn_about_announceflag(0i32);
@@ -1236,10 +1236,9 @@ pub struct alljoyn_aboutdatalistener(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct alljoyn_aboutdatalistener_callbacks(i32);
-#[repr(C)]
-pub struct alljoyn_aboutdatalistener_getaboutdata_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_aboutdatalistener_getannouncedaboutdata_ptr(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_aboutdatalistener_getaboutdata_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, msgarg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
+pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, msgarg: alljoyn_msgarg) -> QStatus;
 #[repr(C)]
 pub struct alljoyn_aboutlistener(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -1261,61 +1260,53 @@ pub const NEED_UPDATE: alljoyn_applicationstate = alljoyn_applicationstate(3i32)
 pub struct alljoyn_applicationstatelistener(i32);
 #[repr(C)]
 pub struct alljoyn_applicationstatelistener_callbacks(i32);
-#[repr(C)]
-pub struct alljoyn_applicationstatelistener_state_ptr(i32);
+pub type alljoyn_applicationstatelistener_state_ptr = unsafe extern "system" fn(busname: *mut i8, publickey: *mut i8, applicationstate: alljoyn_applicationstate, context: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct alljoyn_authlistener(i32);
-#[repr(C)]
-pub struct alljoyn_authlistener_authenticationcomplete_ptr(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_authlistener_authenticationcomplete_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, success: i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct alljoyn_authlistener_callbacks(i32);
-#[repr(C)]
-pub struct alljoyn_authlistener_requestcredentials_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_authlistener_requestcredentialsasync_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_authlistener_securityviolation_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_authlistener_verifycredentials_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_authlistener_verifycredentialsasync_ptr(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_authlistener_requestcredentials_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, authcount: u16, username: super::super::Foundation::PSTR, credmask: u16, credentials: alljoyn_credentials) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_authlistener_requestcredentialsasync_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, authcount: u16, username: super::super::Foundation::PSTR, credmask: u16, authcontext: *mut ::core::ffi::c_void) -> QStatus;
+pub type alljoyn_authlistener_securityviolation_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, status: QStatus, msg: alljoyn_message);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_authlistener_verifycredentials_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, credentials: alljoyn_credentials) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_authlistener_verifycredentialsasync_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, credentials: alljoyn_credentials, authcontext: *mut ::core::ffi::c_void) -> QStatus;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct alljoyn_authlistenerasync_callbacks(i32);
 #[repr(C)]
 pub struct alljoyn_autopinger(i32);
-#[repr(C)]
-pub struct alljoyn_autopinger_destination_found_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_autopinger_destination_lost_ptr(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_autopinger_destination_found_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_autopinger_destination_lost_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR);
 #[repr(C)]
 pub struct alljoyn_busattachment(i32);
-#[repr(C)]
-pub struct alljoyn_busattachment_joinsessioncb_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_busattachment_setlinktimeoutcb_ptr(i32);
+pub type alljoyn_busattachment_joinsessioncb_ptr = unsafe extern "system" fn(status: QStatus, sessionid: u32, opts: alljoyn_sessionopts, context: *mut ::core::ffi::c_void);
+pub type alljoyn_busattachment_setlinktimeoutcb_ptr = unsafe extern "system" fn(status: QStatus, timeout: u32, context: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct alljoyn_buslistener(i32);
-#[repr(C)]
-pub struct alljoyn_buslistener_bus_disconnected_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_buslistener_bus_prop_changed_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_buslistener_bus_stopping_ptr(i32);
+pub type alljoyn_buslistener_bus_disconnected_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_buslistener_bus_prop_changed_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, prop_name: super::super::Foundation::PSTR, prop_value: alljoyn_msgarg);
+pub type alljoyn_buslistener_bus_stopping_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct alljoyn_buslistener_callbacks(i32);
-#[repr(C)]
-pub struct alljoyn_buslistener_found_advertised_name_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_buslistener_listener_registered_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_buslistener_listener_unregistered_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_buslistener_lost_advertised_name_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_buslistener_name_owner_changed_ptr(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_buslistener_found_advertised_name_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, name: super::super::Foundation::PSTR, transport: u16, nameprefix: super::super::Foundation::PSTR);
+pub type alljoyn_buslistener_listener_registered_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, bus: alljoyn_busattachment);
+pub type alljoyn_buslistener_listener_unregistered_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_buslistener_lost_advertised_name_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, name: super::super::Foundation::PSTR, transport: u16, nameprefix: super::super::Foundation::PSTR);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_buslistener_name_owner_changed_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, previousowner: super::super::Foundation::PSTR, newowner: super::super::Foundation::PSTR);
 #[repr(C)]
 pub struct alljoyn_busobject(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -1324,12 +1315,11 @@ pub struct alljoyn_busobject_callbacks(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct alljoyn_busobject_methodentry(i32);
-#[repr(C)]
-pub struct alljoyn_busobject_object_registration_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_busobject_prop_get_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_busobject_prop_set_ptr(i32);
+pub type alljoyn_busobject_object_registration_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_busobject_prop_get_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg) -> QStatus;
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_busobject_prop_set_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg) -> QStatus;
 #[repr(C)]
 pub struct alljoyn_certificateid(i32);
 #[repr(C)]
@@ -1358,34 +1348,29 @@ pub struct alljoyn_interfacedescription_securitypolicy(pub i32);
 pub const AJ_IFC_SECURITY_INHERIT: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(0i32);
 pub const AJ_IFC_SECURITY_REQUIRED: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(1i32);
 pub const AJ_IFC_SECURITY_OFF: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(2i32);
-#[repr(C)]
-pub struct alljoyn_interfacedescription_translation_callback_ptr(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_interfacedescription_translation_callback_ptr = unsafe extern "system" fn(sourcelanguage: super::super::Foundation::PSTR, targetlanguage: super::super::Foundation::PSTR, sourcetext: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
 #[repr(C)]
 pub struct alljoyn_keystore(i32);
 #[repr(C)]
 pub struct alljoyn_keystorelistener(i32);
-#[repr(C)]
-pub struct alljoyn_keystorelistener_acquireexclusivelock_ptr(i32);
+pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus;
 #[repr(C)]
 pub struct alljoyn_keystorelistener_callbacks(i32);
-#[repr(C)]
-pub struct alljoyn_keystorelistener_loadrequest_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_keystorelistener_releaseexclusivelock_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_keystorelistener_storerequest_ptr(i32);
+pub type alljoyn_keystorelistener_loadrequest_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus;
+pub type alljoyn_keystorelistener_releaseexclusivelock_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener);
+pub type alljoyn_keystorelistener_storerequest_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus;
 #[repr(C)]
 pub struct alljoyn_keystorelistener_with_synchronization_callbacks(i32);
 #[repr(C)]
 pub struct alljoyn_manifestarray(i32);
 #[repr(C)]
 pub struct alljoyn_message(i32);
-#[repr(C)]
-pub struct alljoyn_messagereceiver_methodhandler_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_messagereceiver_replyhandler_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_messagereceiver_signalhandler_ptr(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_messagereceiver_methodhandler_ptr = unsafe extern "system" fn(bus: alljoyn_busobject, member: *const alljoyn_interfacedescription_member, message: alljoyn_message);
+pub type alljoyn_messagereceiver_replyhandler_ptr = unsafe extern "system" fn(message: alljoyn_message, context: *mut ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_messagereceiver_signalhandler_ptr = unsafe extern "system" fn(member: *const alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR, message: alljoyn_message);
 #[repr(transparent)]
 pub struct alljoyn_messagetype(pub i32);
 pub const ALLJOYN_MESSAGE_INVALID: alljoyn_messagetype = alljoyn_messagetype(0i32);
@@ -1397,10 +1382,8 @@ pub const ALLJOYN_MESSAGE_SIGNAL: alljoyn_messagetype = alljoyn_messagetype(4i32
 pub struct alljoyn_msgarg(i32);
 #[repr(C)]
 pub struct alljoyn_observer(i32);
-#[repr(C)]
-pub struct alljoyn_observer_object_discovered_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_observer_object_lost_ptr(i32);
+pub type alljoyn_observer_object_discovered_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref);
+pub type alljoyn_observer_object_lost_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref);
 #[repr(C)]
 pub struct alljoyn_observerlistener(i32);
 #[repr(C)]
@@ -1409,14 +1392,10 @@ pub struct alljoyn_observerlistener_callback(i32);
 pub struct alljoyn_permissionconfigurationlistener(i32);
 #[repr(C)]
 pub struct alljoyn_permissionconfigurationlistener_callbacks(i32);
-#[repr(C)]
-pub struct alljoyn_permissionconfigurationlistener_endmanagement_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_permissionconfigurationlistener_factoryreset_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_permissionconfigurationlistener_policychanged_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_permissionconfigurationlistener_startmanagement_ptr(i32);
+pub type alljoyn_permissionconfigurationlistener_endmanagement_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+pub type alljoyn_permissionconfigurationlistener_factoryreset_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> QStatus;
+pub type alljoyn_permissionconfigurationlistener_policychanged_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
 #[repr(C)]
 pub struct alljoyn_permissionconfigurator(i32);
 #[repr(C)]
@@ -1426,16 +1405,12 @@ pub struct alljoyn_pinglistener(i32);
 pub struct alljoyn_pinglistener_callback(i32);
 #[repr(C)]
 pub struct alljoyn_proxybusobject(i32);
-#[repr(C)]
-pub struct alljoyn_proxybusobject_listener_getallpropertiescb_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_proxybusobject_listener_getpropertycb_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_proxybusobject_listener_introspectcb_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_proxybusobject_listener_propertieschanged_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_proxybusobject_listener_setpropertycb_ptr(i32);
+pub type alljoyn_proxybusobject_listener_getallpropertiescb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, values: alljoyn_msgarg, context: *mut ::core::ffi::c_void);
+pub type alljoyn_proxybusobject_listener_getpropertycb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, value: alljoyn_msgarg, context: *mut ::core::ffi::c_void);
+pub type alljoyn_proxybusobject_listener_introspectcb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_proxybusobject_listener_propertieschanged_ptr = unsafe extern "system" fn(obj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, changed: alljoyn_msgarg, invalidated: alljoyn_msgarg, context: *mut ::core::ffi::c_void);
+pub type alljoyn_proxybusobject_listener_setpropertycb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct alljoyn_proxybusobject_ref(i32);
 #[repr(C)]
@@ -1445,12 +1420,11 @@ pub struct alljoyn_sessionlistener(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct alljoyn_sessionlistener_callbacks(i32);
-#[repr(C)]
-pub struct alljoyn_sessionlistener_sessionlost_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_sessionlistener_sessionmemberadded_ptr(i32);
-#[repr(C)]
-pub struct alljoyn_sessionlistener_sessionmemberremoved_ptr(i32);
+pub type alljoyn_sessionlistener_sessionlost_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, reason: alljoyn_sessionlostreason);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_sessionlistener_sessionmemberadded_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR);
 #[repr(transparent)]
 pub struct alljoyn_sessionlostreason(pub i32);
 pub const ALLJOYN_SESSIONLOST_INVALID: alljoyn_sessionlostreason = alljoyn_sessionlostreason(0i32);
@@ -1463,13 +1437,13 @@ pub const ALLJOYN_SESSIONLOST_REASON_OTHER: alljoyn_sessionlostreason = alljoyn_
 pub struct alljoyn_sessionopts(i32);
 #[repr(C)]
 pub struct alljoyn_sessionportlistener(i32);
-#[repr(C)]
-pub struct alljoyn_sessionportlistener_acceptsessionjoiner_ptr(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, joiner: super::super::Foundation::PSTR, opts: alljoyn_sessionopts) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct alljoyn_sessionportlistener_callbacks(i32);
-#[repr(C)]
-pub struct alljoyn_sessionportlistener_sessionjoined_ptr(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type alljoyn_sessionportlistener_sessionjoined_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, id: u32, joiner: super::super::Foundation::PSTR);
 #[repr(transparent)]
 pub struct alljoyn_typeid(pub i32);
 pub const ALLJOYN_INVALID: alljoyn_typeid = alljoyn_typeid(0i32);

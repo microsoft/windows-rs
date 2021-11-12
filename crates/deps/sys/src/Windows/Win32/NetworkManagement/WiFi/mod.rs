@@ -1804,8 +1804,8 @@ pub const WFD_API_VERSION: u32 = 1u32;
 pub const WFD_API_VERSION_1_0: u32 = 1u32;
 #[repr(C)]
 pub struct WFD_GROUP_ID(i32);
-#[repr(C)]
-pub struct WFD_OPEN_SESSION_COMPLETE_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::core::ffi::c_void, guidsessioninterface: ::windows_sys::core::GUID, dwerror: u32, dwreasoncode: u32);
 #[repr(transparent)]
 pub struct WFD_ROLE_TYPE(pub i32);
 pub const WFD_ROLE_TYPE_NONE: WFD_ROLE_TYPE = WFD_ROLE_TYPE(0i32);
@@ -2066,8 +2066,7 @@ pub const wlan_notification_acm_profile_blocked: WLAN_NOTIFICATION_ACM = WLAN_NO
 pub const wlan_notification_acm_scan_list_refresh: WLAN_NOTIFICATION_ACM = WLAN_NOTIFICATION_ACM(26i32);
 pub const wlan_notification_acm_operational_state_change: WLAN_NOTIFICATION_ACM = WLAN_NOTIFICATION_ACM(27i32);
 pub const wlan_notification_acm_end: WLAN_NOTIFICATION_ACM = WLAN_NOTIFICATION_ACM(28i32);
-#[repr(C)]
-pub struct WLAN_NOTIFICATION_CALLBACK(i32);
+pub type WLAN_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *mut L2_NOTIFICATION_DATA, param1: *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WLAN_NOTIFICATION_MSM(pub i32);
 pub const wlan_notification_msm_start: WLAN_NOTIFICATION_MSM = WLAN_NOTIFICATION_MSM(0i32);

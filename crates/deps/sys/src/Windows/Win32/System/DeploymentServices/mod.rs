@@ -256,22 +256,22 @@ pub const WDS_CLI_MSG_START: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLB
 pub const WDS_CLI_MSG_COMPLETE: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(1u32);
 pub const WDS_CLI_MSG_PROGRESS: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(2u32);
 pub const WDS_CLI_MSG_TEXT: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(3u32);
-#[repr(C)]
-pub struct PFN_WdsCliCallback(i32);
-#[repr(C)]
-pub struct PFN_WdsCliTraceFunction(i32);
-#[repr(C)]
-pub struct PFN_WdsTransportClientReceiveContents(i32);
-#[repr(C)]
-pub struct PFN_WdsTransportClientReceiveMetadata(i32);
-#[repr(C)]
-pub struct PFN_WdsTransportClientSessionComplete(i32);
-#[repr(C)]
-pub struct PFN_WdsTransportClientSessionNegotiate(i32);
-#[repr(C)]
-pub struct PFN_WdsTransportClientSessionStart(i32);
-#[repr(C)]
-pub struct PFN_WdsTransportClientSessionStartEx(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_WdsCliCallback = unsafe extern "system" fn(dwmessageid: PFN_WDS_CLI_CALLBACK_MESSAGE_ID, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pvuserdata: *const ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_WdsCliTraceFunction = unsafe extern "system" fn(pwszformat: super::super::Foundation::PWSTR, params: *const i8);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_WdsTransportClientReceiveContents = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, pcontents: *const ::core::ffi::c_void, ulsize: u32, pullcontentoffset: *const u64);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_WdsTransportClientReceiveMetadata = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, pmetadata: *const ::core::ffi::c_void, ulsize: u32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_WdsTransportClientSessionComplete = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, dwerror: u32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_WdsTransportClientSessionNegotiate = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, pinfo: *const TRANSPORTCLIENT_SESSION_INFO, hnegotiatekey: super::super::Foundation::HANDLE);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_WdsTransportClientSessionStart = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, ullfilesize: *const u64);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_WdsTransportClientSessionStartEx = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, info: *const TRANSPORTCLIENT_SESSION_INFO);
 #[repr(C)]
 pub struct PXE_ADDRESS(i32);
 pub const PXE_ADDR_BROADCAST: u32 = 1u32;

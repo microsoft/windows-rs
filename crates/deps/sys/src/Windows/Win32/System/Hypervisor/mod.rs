@@ -165,8 +165,8 @@ extern "system" {
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DOS_IMAGE_INFO(i32);
-#[repr(C)]
-pub struct FOUND_IMAGE_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type FOUND_IMAGE_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL;
 #[repr(C)]
 pub struct GPA_MEMORY_CHUNK(i32);
 #[repr(C)]
@@ -192,8 +192,8 @@ pub const GuestOsVendorUndefined: GUEST_OS_VENDOR = GUEST_OS_VENDOR(0i32);
 pub const GuestOsVendorMicrosoft: GUEST_OS_VENDOR = GUEST_OS_VENDOR(1i32);
 pub const GuestOsVendorHPE: GUEST_OS_VENDOR = GUEST_OS_VENDOR(2i32);
 pub const GuestOsVendorLANCOM: GUEST_OS_VENDOR = GUEST_OS_VENDOR(512i32);
-#[repr(C)]
-pub struct GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = unsafe extern "system" fn(infomessage: super::super::Foundation::PSTR);
 pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1072875819, data2: 26008, data3: 20064, data4: [142, 28, 12, 207, 73, 39, 227, 25] };
 #[repr(transparent)]
 pub struct HDV_DEVICE_TYPE(pub i32);
@@ -221,35 +221,26 @@ pub const HDV_PCI_BAR2: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(2i32);
 pub const HDV_PCI_BAR3: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(3i32);
 pub const HDV_PCI_BAR4: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(4i32);
 pub const HDV_PCI_BAR5: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(5i32);
-#[repr(C)]
-pub struct HDV_PCI_DEVICE_GET_DETAILS(i32);
-#[repr(C)]
-pub struct HDV_PCI_DEVICE_INITIALIZE(i32);
+pub type HDV_PCI_DEVICE_GET_DETAILS = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type HDV_PCI_DEVICE_INITIALIZE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct HDV_PCI_DEVICE_INTERFACE(i32);
-#[repr(C)]
-pub struct HDV_PCI_DEVICE_SET_CONFIGURATION(i32);
-#[repr(C)]
-pub struct HDV_PCI_DEVICE_START(i32);
-#[repr(C)]
-pub struct HDV_PCI_DEVICE_STOP(i32);
-#[repr(C)]
-pub struct HDV_PCI_DEVICE_TEARDOWN(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type HDV_PCI_DEVICE_SET_CONFIGURATION = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, configurationvaluecount: u32, configurationvalues: *const super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+pub type HDV_PCI_DEVICE_START = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type HDV_PCI_DEVICE_STOP = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void);
+pub type HDV_PCI_DEVICE_TEARDOWN = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HDV_PCI_INTERFACE_VERSION(pub i32);
 pub const HdvPciDeviceInterfaceVersionInvalid: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(0i32);
 pub const HdvPciDeviceInterfaceVersion1: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(1i32);
 #[repr(C)]
 pub struct HDV_PCI_PNP_ID(i32);
-#[repr(C)]
-pub struct HDV_PCI_READ_CONFIG_SPACE(i32);
-#[repr(C)]
-pub struct HDV_PCI_READ_INTERCEPTED_MEMORY(i32);
-#[repr(C)]
-pub struct HDV_PCI_WRITE_CONFIG_SPACE(i32);
-#[repr(C)]
-pub struct HDV_PCI_WRITE_INTERCEPTED_MEMORY(i32);
+pub type HDV_PCI_READ_CONFIG_SPACE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type HDV_PCI_READ_INTERCEPTED_MEMORY = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *mut u8) -> ::windows_sys::core::HRESULT;
+pub type HDV_PCI_WRITE_CONFIG_SPACE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: u32) -> ::windows_sys::core::HRESULT;
+pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> ::windows_sys::core::HRESULT;
 pub const HVSOCKET_ADDRESS_FLAG_PASSTHRU: u32 = 1u32;
 #[repr(C)]
 pub struct HVSOCKET_ADDRESS_INFO(i32);
@@ -539,22 +530,17 @@ pub const WHvCreateVpciDeviceFlagUseLogicalInterrupts: WHV_CREATE_VPCI_DEVICE_FL
 pub struct WHV_DOORBELL_MATCH_DATA(i32);
 #[repr(C)]
 pub struct WHV_EMULATOR_CALLBACKS(i32);
-#[repr(C)]
-pub struct WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK(i32);
+pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct WHV_EMULATOR_IO_ACCESS_INFO(i32);
-#[repr(C)]
-pub struct WHV_EMULATOR_IO_PORT_CALLBACK(i32);
+pub type WHV_EMULATOR_IO_PORT_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ioaccess: *mut WHV_EMULATOR_IO_ACCESS_INFO) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct WHV_EMULATOR_MEMORY_ACCESS_INFO(i32);
-#[repr(C)]
-pub struct WHV_EMULATOR_MEMORY_CALLBACK(i32);
-#[repr(C)]
-pub struct WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK(i32);
+pub type WHV_EMULATOR_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, memoryaccess: *mut WHV_EMULATOR_MEMORY_ACCESS_INFO) -> ::windows_sys::core::HRESULT;
+pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct WHV_EMULATOR_STATUS(i32);
-#[repr(C)]
-pub struct WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK(i32);
+pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> ::windows_sys::core::HRESULT;
 #[repr(transparent)]
 pub struct WHV_EXCEPTION_TYPE(pub i32);
 pub const WHvX64ExceptionTypeDivideErrorFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(0i32);

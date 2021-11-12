@@ -190,8 +190,7 @@ pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1u32;
 #[repr(C)]
 pub struct DRMBOUNDLICENSEPARAMS(i32);
 pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
-#[repr(C)]
-pub struct DRMCALLBACK(i32);
+pub type DRMCALLBACK = unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: ::windows_sys::core::HRESULT, param2: *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub const DRMCALLBACKVERSION: u32 = 1u32;
 pub const DRMCLIENTSTRUCTVERSION: u32 = 1u32;
 #[repr(transparent)]

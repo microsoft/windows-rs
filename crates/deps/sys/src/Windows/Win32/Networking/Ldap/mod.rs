@@ -485,10 +485,10 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32;
 }
-#[repr(C)]
-pub struct DBGPRINT(i32);
-#[repr(C)]
-pub struct DEREFERENCECONNECTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type DBGPRINT = unsafe extern "system" fn(format: super::super::Foundation::PSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type DEREFERENCECONNECTION = unsafe extern "system" fn(primaryconnection: *mut ldap, connectiontodereference: *mut ldap) -> u32;
 pub const LAPI_MAJOR_VER1: u32 = 1u32;
 pub const LAPI_MINOR_VER1: u32 = 1u32;
 pub const LBER_DEFAULT: i32 = -1i32;
@@ -713,16 +713,16 @@ pub const LDAP_VERSION3: u32 = 3u32;
 pub const LDAP_VERSION_MAX: u32 = 3u32;
 pub const LDAP_VERSION_MIN: u32 = 2u32;
 pub const LDAP_VLVINFO_VERSION: u32 = 1u32;
-#[repr(C)]
-pub struct NOTIFYOFNEWCONNECTION(i32);
-#[repr(C)]
-pub struct QUERYCLIENTCERT(i32);
-#[repr(C)]
-pub struct QUERYFORCONNECTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type NOTIFYOFNEWCONNECTION = unsafe extern "system" fn(primaryconnection: *mut ldap, referralfromconnection: *mut ldap, newdn: super::super::Foundation::PWSTR, hostname: super::super::Foundation::PSTR, newconnection: *mut ldap, portnumber: u32, secauthidentity: *mut ::core::ffi::c_void, currentuser: *mut ::core::ffi::c_void, errorcodefrombind: u32) -> super::super::Foundation::BOOLEAN;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+pub type QUERYCLIENTCERT = unsafe extern "system" fn(connection: *mut ldap, trusted_cas: *mut super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertificate: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN;
+#[cfg(feature = "Win32_Foundation")]
+pub type QUERYFORCONNECTION = unsafe extern "system" fn(primaryconnection: *mut ldap, referralfromconnection: *mut ldap, newdn: super::super::Foundation::PWSTR, hostname: super::super::Foundation::PSTR, portnumber: u32, secauthidentity: *mut ::core::ffi::c_void, currentusertoken: *mut ::core::ffi::c_void, connectiontouse: *mut *mut ldap) -> u32;
 pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
-#[repr(C)]
-pub struct VERIFYSERVERCERT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+pub type VERIFYSERVERCERT = unsafe extern "system" fn(connection: *mut ldap, pservercert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct berelement(i32);

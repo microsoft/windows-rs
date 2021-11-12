@@ -1588,14 +1588,14 @@ pub struct IPrivateDispatch(pub *mut ::core::ffi::c_void);
 pub struct IPrivateUnknown(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IQueryForm(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LPCQADDFORMSPROC(i32);
-#[repr(C)]
-pub struct LPCQADDPAGESPROC(i32);
-#[repr(C)]
-pub struct LPCQPAGEPROC(i32);
-#[repr(C)]
-pub struct LPDSENUMATTRIBUTES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type LPCQADDFORMSPROC = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> ::windows_sys::core::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type LPCQADDPAGESPROC = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, clsidform: *const ::windows_sys::core::GUID, ppage: *mut CQPAGE) -> ::windows_sys::core::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type LPCQPAGEPROC = unsafe extern "system" fn(ppage: *mut CQPAGE, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDSENUMATTRIBUTES = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct LargeInteger(i32);
 pub const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1u32;

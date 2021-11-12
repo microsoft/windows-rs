@@ -28,8 +28,8 @@ extern "system" {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn StartPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
 }
-#[repr(C)]
-pub struct ABORTPROC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub type ABORTPROC = unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL;
 #[repr(transparent)]
 pub struct DEVICE_CAPABILITIES(pub u32);
 pub const DC_BINNAMES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(12u32);

@@ -454,8 +454,8 @@ pub struct JET_BKINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct JET_BKLOGTIME(i32);
-#[repr(C)]
-pub struct JET_CALLBACK(i32);
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+pub type JET_CALLBACK = unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut ::core::ffi::c_void, pvarg2: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct JET_COLUMNBASE_A(i32);
@@ -648,12 +648,11 @@ pub const JET_OnlineDefragAllOBSOLETE: u32 = 1u32;
 pub const JET_OnlineDefragDatabases: u32 = 2u32;
 pub const JET_OnlineDefragDisable: u32 = 0u32;
 pub const JET_OnlineDefragSpaceTrees: u32 = 4u32;
-#[repr(C)]
-pub struct JET_PFNDURABLECOMMITCALLBACK(i32);
-#[repr(C)]
-pub struct JET_PFNREALLOC(i32);
-#[repr(C)]
-pub struct JET_PFNSTATUS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+pub type JET_PFNDURABLECOMMITCALLBACK = unsafe extern "system" fn(instance: super::StructuredStorage::JET_INSTANCE, pcommitidseen: *const JET_COMMIT_ID, grbit: u32) -> i32;
+pub type JET_PFNREALLOC = unsafe extern "system" fn(pvcontext: *const ::core::ffi::c_void, pv: *const ::core::ffi::c_void, cb: u32) -> *mut ::core::ffi::c_void;
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+pub type JET_PFNSTATUS = unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, snp: u32, snt: u32, pv: *const ::core::ffi::c_void) -> i32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]

@@ -323,13 +323,12 @@ pub struct PAGE_TYPE(pub u32);
 pub const MEM_PRIVATE: PAGE_TYPE = PAGE_TYPE(131072u32);
 pub const MEM_MAPPED: PAGE_TYPE = PAGE_TYPE(262144u32);
 pub const MEM_IMAGE: PAGE_TYPE = PAGE_TYPE(16777216u32);
-#[repr(C)]
-pub struct PBAD_MEMORY_CALLBACK_ROUTINE(i32);
+pub type PBAD_MEMORY_CALLBACK_ROUTINE = unsafe extern "system" fn();
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct PROCESS_HEAP_ENTRY(i32);
-#[repr(C)]
-pub struct PSECURE_MEMORY_CACHE_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PSECURE_MEMORY_CACHE_CALLBACK = unsafe extern "system" fn(addr: *const ::core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN;
 #[repr(transparent)]
 pub struct UNMAP_VIEW_OF_FILE_FLAGS(pub u32);
 pub const MEM_UNMAP_NONE: UNMAP_VIEW_OF_FILE_FLAGS = UNMAP_VIEW_OF_FILE_FLAGS(0u32);

@@ -29,8 +29,8 @@ pub const ExceptionCollidedUnwind: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[repr(C)]
 pub struct EXCEPTION_REGISTRATION_RECORD(i32);
-#[repr(C)]
-pub struct EXCEPTION_ROUTINE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+pub type EXCEPTION_ROUTINE = unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::core::ffi::c_void) -> EXCEPTION_DISPOSITION;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[repr(C)]
 pub struct FLOATING_SAVE_AREA(i32);

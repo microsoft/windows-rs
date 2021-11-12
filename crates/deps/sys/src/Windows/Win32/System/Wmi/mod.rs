@@ -184,8 +184,7 @@ pub struct MI_CallbackMode(pub i32);
 pub const MI_CALLBACKMODE_REPORT: MI_CallbackMode = MI_CallbackMode(0i32);
 pub const MI_CALLBACKMODE_INQUIRE: MI_CallbackMode = MI_CallbackMode(1i32);
 pub const MI_CALLBACKMODE_IGNORE: MI_CallbackMode = MI_CallbackMode(2i32);
-#[repr(C)]
-pub struct MI_CancelCallback(i32);
+pub type MI_CancelCallback = unsafe extern "system" fn(reason: MI_CancellationReason, callbackdata: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MI_CancellationReason(pub i32);
 pub const MI_REASON_NONE: MI_CancellationReason = MI_CancellationReason(0i32);
@@ -318,8 +317,7 @@ pub struct MI_DatetimeField(i32);
 pub struct MI_Deserializer(i32);
 #[repr(C)]
 pub struct MI_DeserializerFT(i32);
-#[repr(C)]
-pub struct MI_Deserializer_ClassObjectNeeded(i32);
+pub type MI_Deserializer_ClassObjectNeeded = unsafe extern "system" fn(context: *const ::core::ffi::c_void, servername: *const u16, namespacename: *const u16, classname: *const u16, requestedclassobject: *mut *mut MI_Class) -> MI_Result;
 #[repr(C)]
 pub struct MI_DestinationOptions(i32);
 #[repr(C)]
@@ -433,20 +431,16 @@ pub const MI_MODULE_FLAG_LOCALIZED: u32 = 64u32;
 pub const MI_MODULE_FLAG_MAPPING_STRINGS: u32 = 8u32;
 pub const MI_MODULE_FLAG_STANDARD_QUALIFIERS: u32 = 1u32;
 pub const MI_MODULE_FLAG_VALUES: u32 = 4u32;
-#[repr(C)]
-pub struct MI_MainFunction(i32);
+pub type MI_MainFunction = unsafe extern "system" fn(server: *mut MI_Server) -> *mut MI_Module;
 #[repr(C)]
 pub struct MI_MethodDecl(i32);
-#[repr(C)]
-pub struct MI_MethodDecl_Invoke(i32);
+pub type MI_MethodDecl_Invoke = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, parameters: *const MI_Instance);
 #[repr(C)]
 pub struct MI_Module(i32);
-#[repr(C)]
-pub struct MI_Module_Load(i32);
+pub type MI_Module_Load = unsafe extern "system" fn(self_: *mut *mut MI_Module_Self, context: *const MI_Context);
 #[repr(C)]
 pub struct MI_Module_Self(i32);
-#[repr(C)]
-pub struct MI_Module_Unload(i32);
+pub type MI_Module_Unload = unsafe extern "system" fn(self_: *const MI_Module_Self, context: *const MI_Context);
 pub const MI_OPERATIONFLAGS_BASIC_RTTI: u32 = 2u32;
 pub const MI_OPERATIONFLAGS_DEFAULT_RTTI: u32 = 0u32;
 pub const MI_OPERATIONFLAGS_EXPENSIVE_PROPERTIES: u32 = 64u32;
@@ -462,28 +456,20 @@ pub const MI_OPERATIONFLAGS_STANDARD_RTTI: u32 = 2048u32;
 pub struct MI_ObjectDecl(i32);
 #[repr(C)]
 pub struct MI_Operation(i32);
-#[repr(C)]
-pub struct MI_OperationCallback_Class(i32);
-#[repr(C)]
-pub struct MI_OperationCallback_Indication(i32);
-#[repr(C)]
-pub struct MI_OperationCallback_Instance(i32);
-#[repr(C)]
-pub struct MI_OperationCallback_PromptUser(i32);
+pub type MI_OperationCallback_Class = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, classresult: *const MI_Class, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize);
+pub type MI_OperationCallback_Indication = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, instance: *const MI_Instance, bookmark: *const u16, machineid: *const u16, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize);
+pub type MI_OperationCallback_Instance = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, instance: *const MI_Instance, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize);
+pub type MI_OperationCallback_PromptUser = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, message: *const u16, prompttype: MI_PromptType, promptuserresult: isize);
 #[repr(transparent)]
 pub struct MI_OperationCallback_ResponseType(pub i32);
 pub const MI_OperationCallback_ResponseType_No: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(0i32);
 pub const MI_OperationCallback_ResponseType_Yes: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(1i32);
 pub const MI_OperationCallback_ResponseType_NoToAll: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(2i32);
 pub const MI_OperationCallback_ResponseType_YesToAll: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(3i32);
-#[repr(C)]
-pub struct MI_OperationCallback_StreamedParameter(i32);
-#[repr(C)]
-pub struct MI_OperationCallback_WriteError(i32);
-#[repr(C)]
-pub struct MI_OperationCallback_WriteMessage(i32);
-#[repr(C)]
-pub struct MI_OperationCallback_WriteProgress(i32);
+pub type MI_OperationCallback_StreamedParameter = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, parametername: *const u16, resulttype: MI_Type, result: *const MI_Value, resultacknowledgement: isize);
+pub type MI_OperationCallback_WriteError = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, instance: *const MI_Instance, writeerrorresult: isize);
+pub type MI_OperationCallback_WriteMessage = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, channel: u32, message: *const u16);
+pub type MI_OperationCallback_WriteProgress = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, activity: *const u16, currentoperation: *const u16, statusdescription: *const u16, percentagecomplete: u32, secondsremaining: u32);
 #[repr(C)]
 pub struct MI_OperationCallbacks(i32);
 #[repr(C)]
@@ -514,34 +500,20 @@ pub const MI_PROVIDER_ARCHITECTURE_32BIT: MI_ProviderArchitecture = MI_ProviderA
 pub const MI_PROVIDER_ARCHITECTURE_64BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(1i32);
 #[repr(C)]
 pub struct MI_ProviderFT(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_AssociatorInstances(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_CreateInstance(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_DeleteInstance(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_DisableIndications(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_EnableIndications(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_EnumerateInstances(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_GetInstance(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_Invoke(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_Load(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_ModifyInstance(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_ReferenceInstances(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_Subscribe(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_Unload(i32);
-#[repr(C)]
-pub struct MI_ProviderFT_Unsubscribe(i32);
+pub type MI_ProviderFT_AssociatorInstances = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, resultclass: *const u16, role: *const u16, resultrole: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter);
+pub type MI_ProviderFT_CreateInstance = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, newinstance: *const MI_Instance);
+pub type MI_ProviderFT_DeleteInstance = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance);
+pub type MI_ProviderFT_DisableIndications = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16);
+pub type MI_ProviderFT_EnableIndications = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16);
+pub type MI_ProviderFT_EnumerateInstances = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter);
+pub type MI_ProviderFT_GetInstance = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, propertyset: *const MI_PropertySet);
+pub type MI_ProviderFT_Invoke = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, inputparameters: *const MI_Instance);
+pub type MI_ProviderFT_Load = unsafe extern "system" fn(self_: *mut *mut ::core::ffi::c_void, selfmodule: *const MI_Module_Self, context: *const MI_Context);
+pub type MI_ProviderFT_ModifyInstance = unsafe extern "system" fn(self_: *mut ::core::ffi::c_void, context: *mut MI_Context, namespace: *const u16, classname: *const u16, modifiedinstance: *const MI_Instance, propertyset: *const MI_PropertySet);
+pub type MI_ProviderFT_ReferenceInstances = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, role: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter);
+pub type MI_ProviderFT_Subscribe = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, filter: *const MI_Filter, bookmark: *const u16, subscriptionid: u64, subscriptionself: *mut *mut ::core::ffi::c_void);
+pub type MI_ProviderFT_Unload = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context);
+pub type MI_ProviderFT_Unsubscribe = unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, subscriptionid: u64, subscriptionself: *const ::core::ffi::c_void);
 #[repr(C)]
 pub struct MI_Qualifier(i32);
 #[repr(C)]

@@ -230,68 +230,67 @@ pub const WNPS_DIR: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(
 pub const WNPS_MULT: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(2u32);
 #[repr(C)]
 pub struct NetEnumHandle(i32);
-#[repr(C)]
-pub struct PF_AddConnectNotify(i32);
-#[repr(C)]
-pub struct PF_CancelConnectNotify(i32);
-#[repr(C)]
-pub struct PF_NPAddConnection(i32);
-#[repr(C)]
-pub struct PF_NPAddConnection3(i32);
-#[repr(C)]
-pub struct PF_NPAddConnection4(i32);
-#[repr(C)]
-pub struct PF_NPCancelConnection(i32);
-#[repr(C)]
-pub struct PF_NPCancelConnection2(i32);
-#[repr(C)]
-pub struct PF_NPCloseEnum(i32);
-#[repr(C)]
-pub struct PF_NPDeviceMode(i32);
-#[repr(C)]
-pub struct PF_NPDirectoryNotify(i32);
-#[repr(C)]
-pub struct PF_NPEnumResource(i32);
-#[repr(C)]
-pub struct PF_NPFMXEditPerm(i32);
-#[repr(C)]
-pub struct PF_NPFMXGetPermCaps(i32);
-#[repr(C)]
-pub struct PF_NPFMXGetPermHelp(i32);
-#[repr(C)]
-pub struct PF_NPFormatNetworkName(i32);
-#[repr(C)]
-pub struct PF_NPGetCaps(i32);
-#[repr(C)]
-pub struct PF_NPGetConnection(i32);
-#[repr(C)]
-pub struct PF_NPGetConnection3(i32);
-#[repr(C)]
-pub struct PF_NPGetConnectionPerformance(i32);
-#[repr(C)]
-pub struct PF_NPGetDirectoryType(i32);
-#[repr(C)]
-pub struct PF_NPGetPersistentUseOptionsForConnection(i32);
-#[repr(C)]
-pub struct PF_NPGetPropertyText(i32);
-#[repr(C)]
-pub struct PF_NPGetResourceInformation(i32);
-#[repr(C)]
-pub struct PF_NPGetResourceParent(i32);
-#[repr(C)]
-pub struct PF_NPGetUniversalName(i32);
-#[repr(C)]
-pub struct PF_NPGetUser(i32);
-#[repr(C)]
-pub struct PF_NPLogonNotify(i32);
-#[repr(C)]
-pub struct PF_NPOpenEnum(i32);
-#[repr(C)]
-pub struct PF_NPPasswordChangeNotify(i32);
-#[repr(C)]
-pub struct PF_NPPropertyDialog(i32);
-#[repr(C)]
-pub struct PF_NPSearchDialog(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_AddConnectNotify = unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpaddinfo: *const NOTIFYADD) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_CancelConnectNotify = unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpcancelinfo: *const NOTIFYCANCEL) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPAddConnection = unsafe extern "system" fn(lpnetresource: *const NETRESOURCEW, lppassword: super::super::Foundation::PWSTR, lpusername: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPAddConnection3 = unsafe extern "system" fn(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: super::super::Foundation::PWSTR, lpusername: super::super::Foundation::PWSTR, dwflags: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPAddConnection4 = unsafe extern "system" fn(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPCancelConnection = unsafe extern "system" fn(lpname: super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPCancelConnection2 = unsafe extern "system" fn(lpname: super::super::Foundation::PWSTR, fforce: super::super::Foundation::BOOL, dwflags: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPCloseEnum = unsafe extern "system" fn(henum: super::super::Foundation::HANDLE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPDeviceMode = unsafe extern "system" fn(hparent: super::super::Foundation::HWND) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPDirectoryNotify = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpdir: super::super::Foundation::PWSTR, dwoper: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPEnumResource = unsafe extern "system" fn(henum: super::super::Foundation::HANDLE, lpccount: *mut u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPFMXEditPerm = unsafe extern "system" fn(lpdrivename: super::super::Foundation::PWSTR, hwndfmx: super::super::Foundation::HWND, ndialogtype: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPFMXGetPermCaps = unsafe extern "system" fn(lpdrivename: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPFMXGetPermHelp = unsafe extern "system" fn(lpdrivename: super::super::Foundation::PWSTR, ndialogtype: u32, fdirectory: super::super::Foundation::BOOL, lpfilenamebuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32, lpnhelpcontext: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPFormatNetworkName = unsafe extern "system" fn(lpremotename: super::super::Foundation::PWSTR, lpformattedname: super::super::Foundation::PWSTR, lpnlength: *mut u32, dwflags: u32, dwavecharperline: u32) -> u32;
+pub type PF_NPGetCaps = unsafe extern "system" fn(ndex: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPGetConnection = unsafe extern "system" fn(lplocalname: super::super::Foundation::PWSTR, lpremotename: super::super::Foundation::PWSTR, lpnbufferlen: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPGetConnection3 = unsafe extern "system" fn(lplocalname: super::super::Foundation::PWSTR, dwlevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPGetConnectionPerformance = unsafe extern "system" fn(lpremotename: super::super::Foundation::PWSTR, lpnetconnectinfo: *mut NETCONNECTINFOSTRUCT) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPGetDirectoryType = unsafe extern "system" fn(lpname: super::super::Foundation::PWSTR, lptype: *const i32, bflushcache: super::super::Foundation::BOOL) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPGetPersistentUseOptionsForConnection = unsafe extern "system" fn(lpremotepath: super::super::Foundation::PWSTR, lpreaduseoptions: *const u8, cbreaduseoptions: u32, lpwriteuseoptions: *mut u8, lpsizewriteuseoptions: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPGetPropertyText = unsafe extern "system" fn(ibutton: u32, npropsel: u32, lpname: super::super::Foundation::PWSTR, lpbuttonname: super::super::Foundation::PWSTR, nbuttonnamelen: u32, ntype: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPGetResourceInformation = unsafe extern "system" fn(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32, lplpsystem: *mut super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPGetResourceParent = unsafe extern "system" fn(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPGetUniversalName = unsafe extern "system" fn(lplocalpath: super::super::Foundation::PWSTR, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpnbuffersize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPGetUser = unsafe extern "system" fn(lpname: super::super::Foundation::PWSTR, lpusername: super::super::Foundation::PWSTR, lpnbufferlen: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPLogonNotify = unsafe extern "system" fn(lplogonid: *const super::super::Foundation::LUID, lpauthentinfotype: super::super::Foundation::PWSTR, lpauthentinfo: *const ::core::ffi::c_void, lppreviousauthentinfotype: super::super::Foundation::PWSTR, lppreviousauthentinfo: *const ::core::ffi::c_void, lpstationname: super::super::Foundation::PWSTR, stationhandle: *const ::core::ffi::c_void, lplogonscript: *mut super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPOpenEnum = unsafe extern "system" fn(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource: *const NETRESOURCEW, lphenum: *mut super::super::Foundation::HANDLE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPPasswordChangeNotify = unsafe extern "system" fn(lpauthentinfotype: super::super::Foundation::PWSTR, lpauthentinfo: *const ::core::ffi::c_void, lppreviousauthentinfotype: super::super::Foundation::PWSTR, lppreviousauthentinfo: *const ::core::ffi::c_void, lpstationname: super::super::Foundation::PWSTR, stationhandle: *const ::core::ffi::c_void, dwchangeinfo: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPPropertyDialog = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, ibuttondlg: u32, npropsel: u32, lpfilename: super::super::Foundation::PWSTR, ntype: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PF_NPSearchDialog = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, lpnflags: *mut u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct REMOTE_NAME_INFOA(i32);

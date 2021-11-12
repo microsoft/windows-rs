@@ -4412,8 +4412,7 @@ pub const MFNominalRange_Last: MFNominalRange = MFNominalRange(5i32);
 pub const MFNominalRange_ForceDWORD: MFNominalRange = MFNominalRange(2147483647i32);
 #[repr(C)]
 pub struct MFOffset(i32);
-#[repr(C)]
-pub struct MFPERIODICCALLBACK(i32);
+pub type MFPERIODICCALLBACK = unsafe extern "system" fn(pcontext: ::windows_sys::core::IUnknown);
 #[repr(transparent)]
 pub struct MFPMPSESSION_CREATION_FLAGS(pub i32);
 pub const MFPMPSESSION_UNPROTECTED_PROCESS: MFPMPSESSION_CREATION_FLAGS = MFPMPSESSION_CREATION_FLAGS(1i32);
@@ -9269,42 +9268,41 @@ pub struct OPM_VIDEO_OUTPUT_SEMANTICS(pub i32);
 pub const OPM_VOS_COPP_SEMANTICS: OPM_VIDEO_OUTPUT_SEMANTICS = OPM_VIDEO_OUTPUT_SEMANTICS(0i32);
 pub const OPM_VOS_OPM_SEMANTICS: OPM_VIDEO_OUTPUT_SEMANTICS = OPM_VIDEO_OUTPUT_SEMANTICS(1i32);
 pub const OPM_VOS_OPM_INDIRECT_DISPLAY: OPM_VIDEO_OUTPUT_SEMANTICS = OPM_VIDEO_OUTPUT_SEMANTICS(2i32);
-#[repr(C)]
-pub struct PDXVAHDSW_CreateDevice(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_CreateVideoProcessor(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_DestroyDevice(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_DestroyVideoProcessor(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_GetVideoProcessBltStatePrivate(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_GetVideoProcessStreamStatePrivate(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_GetVideoProcessorCaps(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_GetVideoProcessorCustomRates(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_GetVideoProcessorDeviceCaps(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_GetVideoProcessorFilterRange(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_GetVideoProcessorInputFormats(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_GetVideoProcessorOutputFormats(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_Plugin(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_ProposeVideoPrivateFormat(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_SetVideoProcessBltState(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_SetVideoProcessStreamState(i32);
-#[repr(C)]
-pub struct PDXVAHDSW_VideoProcessBltHD(i32);
-#[repr(C)]
-pub struct PDXVAHD_CreateDevice(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub type PDXVAHDSW_CreateDevice = unsafe extern "system" fn(pd3ddevice: super::super::Graphics::Direct3D9::IDirect3DDevice9Ex, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PDXVAHDSW_CreateVideoProcessor = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: *const ::windows_sys::core::GUID, phvideoprocessor: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PDXVAHDSW_DestroyDevice = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PDXVAHDSW_DestroyVideoProcessor = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PDXVAHDSW_GetVideoProcessBltStatePrivate = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, pdata: *mut DXVAHD_BLT_STATE_PRIVATE_DATA) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PDXVAHDSW_GetVideoProcessStreamStatePrivate = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, streamnumber: u32, pdata: *mut DXVAHD_STREAM_STATE_PRIVATE_DATA) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PDXVAHDSW_GetVideoProcessorCaps = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pcaps: *mut DXVAHD_VPCAPS) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PDXVAHDSW_GetVideoProcessorCustomRates = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: *const ::windows_sys::core::GUID, count: u32, prates: *mut DXVAHD_CUSTOM_RATE_DATA) -> ::windows_sys::core::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub type PDXVAHDSW_GetVideoProcessorDeviceCaps = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pcaps: *mut DXVAHD_VPDEVCAPS) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PDXVAHDSW_GetVideoProcessorFilterRange = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, filter: DXVAHD_FILTER, prange: *mut DXVAHD_FILTER_RANGE_DATA) -> ::windows_sys::core::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub type PDXVAHDSW_GetVideoProcessorInputFormats = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows_sys::core::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub type PDXVAHDSW_GetVideoProcessorOutputFormats = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows_sys::core::HRESULT;
+pub type PDXVAHDSW_Plugin = unsafe extern "system" fn(size: u32, pcallbacks: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub type PDXVAHDSW_ProposeVideoPrivateFormat = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pformat: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PDXVAHDSW_SetVideoProcessBltState = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PDXVAHDSW_SetVideoProcessStreamState = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub type PDXVAHDSW_VideoProcessBltHD = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, poutputsurface: super::super::Graphics::Direct3D9::IDirect3DSurface9, outputframe: u32, streamcount: u32, pstreams: *const DXVAHD_STREAM_DATA) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type PDXVAHD_CreateDevice = unsafe extern "system" fn(pd3ddevice: super::super::Graphics::Direct3D9::IDirect3DDevice9Ex, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin, ppdevice: *mut IDXVAHD_Device) -> ::windows_sys::core::HRESULT;
 #[repr(transparent)]
 pub struct PLAYTO_SOURCE_CREATEFLAGS(pub i32);
 pub const PLAYTO_SOURCE_NONE: PLAYTO_SOURCE_CREATEFLAGS = PLAYTO_SOURCE_CREATEFLAGS(0i32);

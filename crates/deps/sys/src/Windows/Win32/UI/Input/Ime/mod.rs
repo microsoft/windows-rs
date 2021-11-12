@@ -455,8 +455,8 @@ pub struct IImePadApplet(pub *mut ::core::ffi::c_void);
 pub struct IImePlugInDictDictionaryList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IImeSpecifyApplets(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct IMCENUMPROC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+pub type IMCENUMPROC = unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
 pub const IMC_GETCANDIDATEPOS: u32 = 7u32;
 pub const IMC_GETCOMPOSITIONFONT: u32 = 9u32;
@@ -1050,8 +1050,8 @@ pub const CPS_CANCEL: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(4u32);
 pub const CPS_COMPLETE: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(1u32);
 pub const CPS_CONVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(2u32);
 pub const CPS_REVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(3u32);
-#[repr(C)]
-pub struct PFNLOG(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNLOG = unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows_sys::core::HRESULT) -> super::super::super::Foundation::BOOL;
 #[repr(C)]
 pub struct POSTBL(i32);
 pub const POS_UNDEFINED: u32 = 0u32;
@@ -1062,10 +1062,10 @@ pub const RECONVOPT_USECANCELNOTIFY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct REGISTERWORDA(i32);
-#[repr(C)]
-pub struct REGISTERWORDENUMPROCA(i32);
-#[repr(C)]
-pub struct REGISTERWORDENUMPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type REGISTERWORDENUMPROCA = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PSTR, param1: u32, lpszstring: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type REGISTERWORDENUMPROCW = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PWSTR, param1: u32, lpszstring: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct REGISTERWORDW(i32);
@@ -1115,12 +1115,9 @@ pub const VERSION_QUERYPOSITION: u32 = 1u32;
 pub const VERSION_RECONVERSION: u32 = 1u32;
 #[repr(C)]
 pub struct WDD(i32);
-#[repr(C)]
-pub struct fpCreateIFECommonInstanceType(i32);
-#[repr(C)]
-pub struct fpCreateIFEDictionaryInstanceType(i32);
-#[repr(C)]
-pub struct fpCreateIFELanguageInstanceType(i32);
+pub type fpCreateIFECommonInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type fpCreateIFEDictionaryInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type fpCreateIFELanguageInstanceType = unsafe extern "system" fn(clsid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct tabIMEFAREASTINFO(i32);
 #[cfg(feature = "Win32_Foundation")]

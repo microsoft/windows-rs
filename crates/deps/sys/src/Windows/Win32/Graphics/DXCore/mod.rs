@@ -66,6 +66,5 @@ pub struct IDXCoreAdapter(pub *mut ::core::ffi::c_void);
 pub struct IDXCoreAdapterFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDXCoreAdapterList(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PFN_DXCORE_NOTIFICATION_CALLBACK(i32);
+pub type PFN_DXCORE_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::windows_sys::core::IUnknown, context: *const ::core::ffi::c_void);
 pub const _FACDXCORE: u32 = 2176u32;

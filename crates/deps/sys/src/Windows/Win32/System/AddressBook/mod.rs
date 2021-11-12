@@ -106,8 +106,7 @@ pub struct ADRLIST(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[repr(C)]
 pub struct ADRPARM(i32);
-#[repr(C)]
-pub struct CALLERRELEASE(i32);
+pub type CALLERRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ITableData, lpvue: IMAPITable);
 #[repr(C)]
 pub struct DTBLBUTTON(i32);
 #[repr(C)]
@@ -233,8 +232,8 @@ pub struct FLATENTRY(i32);
 pub struct FLATENTRYLIST(i32);
 #[repr(C)]
 pub struct FLATMTSIDLIST(i32);
-#[repr(C)]
-pub struct FNIDLE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type FNIDLE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[repr(transparent)]
 pub struct Gender(pub i32);
 pub const genderUnspecified: Gender = Gender(0i32);
@@ -344,70 +343,53 @@ pub struct ITableData(pub *mut ::core::ffi::c_void);
 pub struct IWABExtInit(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWABOBJECT_(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct IWABOBJECT_AddRef_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_AllocateBuffer_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_AllocateMore_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_Backup_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_Find_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_FreeBuffer_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_GetLastError_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_GetMe_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_Import_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_LDAPUrl_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_QueryInterface_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_Release_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_SetMe_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_VCardCreate_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_VCardDisplay_METHOD(i32);
-#[repr(C)]
-pub struct IWABOBJECT_VCardRetrieve_METHOD(i32);
+pub type IWABOBJECT_AddRef_METHOD = unsafe extern "system" fn() -> u32;
+pub type IWABOBJECT_AllocateBuffer_METHOD = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_AllocateMore_METHOD = unsafe extern "system" fn(cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type IWABOBJECT_Backup_METHOD = unsafe extern "system" fn(lpfilename: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type IWABOBJECT_Find_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_FreeBuffer_METHOD = unsafe extern "system" fn(lpbuffer: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_GetLastError_METHOD = unsafe extern "system" fn(hresult: ::windows_sys::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type IWABOBJECT_GetMe_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type IWABOBJECT_Import_METHOD = unsafe extern "system" fn(lpwip: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type IWABOBJECT_LDAPUrl_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: super::super::Foundation::PSTR, lppmailuser: *mut IMailUser) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_QueryInterface_METHOD = unsafe extern "system" fn(riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_Release_METHOD = unsafe extern "system" fn() -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type IWABOBJECT_SetMe_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type IWABOBJECT_VCardCreate_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lpmailuser: IMailUser) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type IWABOBJECT_VCardDisplay_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type IWABOBJECT_VCardRetrieve_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lppmailuser: *mut IMailUser) -> ::windows_sys::core::HRESULT;
 #[repr(transparent)]
 pub struct IWABObject(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LPALLOCATEBUFFER(i32);
-#[repr(C)]
-pub struct LPALLOCATEMORE(i32);
-#[repr(C)]
-pub struct LPCREATECONVERSATIONINDEX(i32);
-#[repr(C)]
-pub struct LPDISPATCHNOTIFICATIONS(i32);
-#[repr(C)]
-pub struct LPFNABSDI(i32);
-#[repr(C)]
-pub struct LPFNBUTTON(i32);
-#[repr(C)]
-pub struct LPFNDISMISS(i32);
-#[repr(C)]
-pub struct LPFREEBUFFER(i32);
-#[repr(C)]
-pub struct LPNOTIFCALLBACK(i32);
-#[repr(C)]
-pub struct LPOPENSTREAMONFILE(i32);
-#[repr(C)]
-pub struct LPWABALLOCATEBUFFER(i32);
-#[repr(C)]
-pub struct LPWABALLOCATEMORE(i32);
-#[repr(C)]
-pub struct LPWABFREEBUFFER(i32);
-#[repr(C)]
-pub struct LPWABOPEN(i32);
-#[repr(C)]
-pub struct LPWABOPENEX(i32);
+pub type LPALLOCATEBUFFER = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
+pub type LPALLOCATEMORE = unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
+pub type LPCREATECONVERSATIONINDEX = unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32;
+pub type LPDISPATCHNOTIFICATIONS = unsafe extern "system" fn(ulflags: u32) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNABSDI = unsafe extern "system" fn(uluiparam: usize, lpvmsg: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPFNBUTTON = unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void, cbentryid: u32, lpselection: *mut ENTRYID, ulflags: u32) -> i32;
+pub type LPFNDISMISS = unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void);
+pub type LPFREEBUFFER = unsafe extern "system" fn(lpbuffer: *mut ::core::ffi::c_void) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub type LPNOTIFCALLBACK = unsafe extern "system" fn(lpvcontext: *mut ::core::ffi::c_void, cnotification: u32, lpnotifications: *mut NOTIFICATION) -> i32;
+#[cfg(feature = "Win32_System_Com")]
+pub type LPOPENSTREAMONFILE = unsafe extern "system" fn(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut super::Com::IStream) -> ::windows_sys::core::HRESULT;
+pub type LPWABALLOCATEBUFFER = unsafe extern "system" fn(lpwabobject: IWABObject, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
+pub type LPWABALLOCATEMORE = unsafe extern "system" fn(lpwabobject: IWABObject, cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
+pub type LPWABFREEBUFFER = unsafe extern "system" fn(lpwabobject: IWABObject, lpbuffer: *mut ::core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPWABOPEN = unsafe extern "system" fn(lppadrbook: *mut IAddrBook, lppwabobject: *mut IWABObject, lpwp: *mut WAB_PARAM, reserved2: u32) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPWABOPENEX = unsafe extern "system" fn(lppadrbook: *mut IAddrBook, lppwabobject: *mut IWABObject, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: LPALLOCATEBUFFER, fnallocatemore: LPALLOCATEMORE, fnfreebuffer: LPFREEBUFFER) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct MAPIERROR(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -447,8 +429,8 @@ pub struct NOTIFICATION(i32);
 pub struct NOTIFKEY(i32);
 #[repr(C)]
 pub struct OBJECT_NOTIFICATION(i32);
-#[repr(C)]
-pub struct PFNIDLE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNIDLE = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
 pub const PRIHIGHEST: u32 = 32767u32;
 pub const PRILOWEST: i32 = -32768i32;
 pub const PRIUSER: u32 = 0u32;

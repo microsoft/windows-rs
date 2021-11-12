@@ -698,24 +698,19 @@ pub struct BinaryParam(i32);
 pub struct CLIENT_CALL_RETURN(i32);
 #[repr(C)]
 pub struct COMM_FAULT_OFFSETS(i32);
-#[repr(C)]
-pub struct CS_TAG_GETTING_ROUTINE(i32);
-#[repr(C)]
-pub struct CS_TYPE_FROM_NETCS_ROUTINE(i32);
-#[repr(C)]
-pub struct CS_TYPE_LOCAL_SIZE_ROUTINE(i32);
-#[repr(C)]
-pub struct CS_TYPE_NET_SIZE_ROUTINE(i32);
-#[repr(C)]
-pub struct CS_TYPE_TO_NETCS_ROUTINE(i32);
+pub type CS_TAG_GETTING_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut u32);
+pub type CS_TYPE_FROM_NETCS_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, pnetworkdata: *mut u8, ulnetworkdatalength: u32, ullocalbuffersize: u32, plocaldata: *mut ::core::ffi::c_void, pullocaldatalength: *mut u32, pstatus: *mut u32);
+pub type CS_TYPE_LOCAL_SIZE_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, ulnetworkbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pullocalbuffersize: *mut u32, pstatus: *mut u32);
+pub type CS_TYPE_NET_SIZE_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, ullocalbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pulnetworkbuffersize: *mut u32, pstatus: *mut u32);
+pub type CS_TYPE_TO_NETCS_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, plocaldata: *mut ::core::ffi::c_void, ullocaldatalength: u32, pnetworkdata: *mut u8, pulnetworkdatalength: *mut u32, pstatus: *mut u32);
 pub const DCE_C_ERROR_STRING_LEN: u32 = 256u32;
 pub const EEInfoGCCOM: u32 = 11u32;
 pub const EEInfoGCFRS: u32 = 12u32;
 pub const EEInfoNextRecordsMissing: u32 = 2u32;
 pub const EEInfoPreviousRecordsMissing: u32 = 1u32;
 pub const EEInfoUseFileTime: u32 = 4u32;
-#[repr(C)]
-pub struct EXPR_EVAL(i32);
+#[cfg(feature = "Win32_System_Com")]
+pub type EXPR_EVAL = unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE);
 #[repr(transparent)]
 pub struct EXPR_TOKEN(pub i32);
 pub const FC_EXPR_START: EXPR_TOKEN = EXPR_TOKEN(0i32);
@@ -739,12 +734,10 @@ pub const eeptBinary: ExtendedErrorParamTypes = ExtendedErrorParamTypes(7i32);
 pub struct FULL_PTR_XLAT_TABLES(i32);
 #[repr(C)]
 pub struct GENERIC_BINDING_INFO(i32);
-#[repr(C)]
-pub struct GENERIC_BINDING_ROUTINE(i32);
+pub type GENERIC_BINDING_ROUTINE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct GENERIC_BINDING_ROUTINE_PAIR(i32);
-#[repr(C)]
-pub struct GENERIC_UNBIND_ROUTINE(i32);
+pub type GENERIC_UNBIND_ROUTINE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut u8);
 #[repr(transparent)]
 pub struct GROUP_NAME_SYNTAX(pub u32);
 pub const RPC_C_NS_SYNTAX_DEFAULT: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(0u32);
@@ -755,35 +748,26 @@ pub const IDL_CS_NO_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(0i32);
 pub const IDL_CS_IN_PLACE_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(1i32);
 pub const IDL_CS_NEW_BUFFER_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(2i32);
 pub const INVALID_FRAGMENT_ID: u32 = 0u32;
-#[repr(C)]
-pub struct I_RpcFreeCalloutStateFn(i32);
-#[repr(C)]
-pub struct I_RpcPerformCalloutFn(i32);
+pub type I_RpcFreeCalloutStateFn = unsafe extern "system" fn(calloutstate: *mut RDR_CALLOUT_STATE);
+pub type I_RpcPerformCalloutFn = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct I_RpcProxyCallbackInterface(i32);
-#[repr(C)]
-pub struct I_RpcProxyFilterIfFn(i32);
-#[repr(C)]
-pub struct I_RpcProxyGetClientAddressFn(i32);
-#[repr(C)]
-pub struct I_RpcProxyGetClientSessionAndResourceUUID(i32);
-#[repr(C)]
-pub struct I_RpcProxyGetConnectionTimeoutFn(i32);
-#[repr(C)]
-pub struct I_RpcProxyIsValidMachineFn(i32);
-#[repr(C)]
-pub struct I_RpcProxyUpdatePerfCounterBackendServerFn(i32);
-#[repr(C)]
-pub struct I_RpcProxyUpdatePerfCounterFn(i32);
+pub type I_RpcProxyFilterIfFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifuuid: *const ::windows_sys::core::GUID, ifmajorversion: u16, fallow: *mut i32) -> RPC_STATUS;
+#[cfg(feature = "Win32_Foundation")]
+pub type I_RpcProxyGetClientAddressFn = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, buffer: super::super::Foundation::PSTR, bufferlength: *mut u32) -> RPC_STATUS;
+pub type I_RpcProxyGetClientSessionAndResourceUUID = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionidpresent: *mut i32, sessionid: *mut ::windows_sys::core::GUID, resourceidpresent: *mut i32, resourceid: *mut ::windows_sys::core::GUID) -> RPC_STATUS;
+pub type I_RpcProxyGetConnectionTimeoutFn = unsafe extern "system" fn(connectiontimeout: *mut u32) -> RPC_STATUS;
+pub type I_RpcProxyIsValidMachineFn = unsafe extern "system" fn(machine: *const u16, dotmachine: *const u16, portnumber: u32) -> RPC_STATUS;
+pub type I_RpcProxyUpdatePerfCounterBackendServerFn = unsafe extern "system" fn(machinename: *const u16, isconnectevent: i32);
+pub type I_RpcProxyUpdatePerfCounterFn = unsafe extern "system" fn(counter: RpcProxyPerfCounters, modifytrend: i32, size: u32);
 #[repr(transparent)]
 pub struct LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(pub i32);
 pub const MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(0i32);
 pub const MarshalDirectionUnmarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(1i32);
 #[repr(C)]
 pub struct MALLOC_FREE_STRUCT(i32);
-#[repr(C)]
-pub struct MIDL_ES_ALLOC(i32);
+pub type MIDL_ES_ALLOC = unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32);
 #[repr(transparent)]
 pub struct MIDL_ES_CODE(pub i32);
 pub const MES_ENCODE: MIDL_ES_CODE = MIDL_ES_CODE(0i32);
@@ -794,10 +778,9 @@ pub struct MIDL_ES_HANDLE_STYLE(pub i32);
 pub const MES_INCREMENTAL_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(0i32);
 pub const MES_FIXED_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(1i32);
 pub const MES_DYNAMIC_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(2i32);
-#[repr(C)]
-pub struct MIDL_ES_READ(i32);
-#[repr(C)]
-pub struct MIDL_ES_WRITE(i32);
+pub type MIDL_ES_READ = unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32);
+#[cfg(feature = "Win32_Foundation")]
+pub type MIDL_ES_WRITE = unsafe extern "system" fn(state: *mut ::core::ffi::c_void, buffer: super::super::Foundation::PSTR, size: u32);
 #[repr(C)]
 pub struct MIDL_FORMAT_STRING(i32);
 #[repr(C)]
@@ -975,14 +958,11 @@ pub const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456u32;
 pub const NDR_DEFAULT_ALLOCATOR: u32 = 536870912u32;
 #[repr(C)]
 pub struct NDR_EXPR_DESC(i32);
-#[repr(C)]
-pub struct NDR_NOTIFY2_ROUTINE(i32);
-#[repr(C)]
-pub struct NDR_NOTIFY_ROUTINE(i32);
+pub type NDR_NOTIFY2_ROUTINE = unsafe extern "system" fn(flag: u8);
+pub type NDR_NOTIFY_ROUTINE = unsafe extern "system" fn();
 #[repr(C)]
 pub struct NDR_POINTER_QUEUE_STATE(i32);
-#[repr(C)]
-pub struct NDR_RUNDOWN(i32);
+pub type NDR_RUNDOWN = unsafe extern "system" fn(context: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct NDR_SCONTEXT_1(i32);
 #[cfg(feature = "Win32_System_Com")]
@@ -992,8 +972,8 @@ pub struct NDR_USER_MARSHAL_INFO(i32);
 #[repr(C)]
 pub struct NDR_USER_MARSHAL_INFO_LEVEL1(i32);
 pub const NT351_INTERFACE_SIZE: u32 = 64u32;
-#[repr(C)]
-pub struct PFN_RPCNOTIFICATION_ROUTINE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+pub type PFN_RPCNOTIFICATION_ROUTINE = unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut ::core::ffi::c_void, event: RPC_ASYNC_EVENT);
 #[repr(transparent)]
 pub struct PROXY_PHASE(pub i32);
 pub const PROXY_CALCSIZE: PROXY_PHASE = PROXY_PHASE(0i32);
@@ -1001,8 +981,7 @@ pub const PROXY_GETBUFFER: PROXY_PHASE = PROXY_PHASE(1i32);
 pub const PROXY_MARSHAL: PROXY_PHASE = PROXY_PHASE(2i32);
 pub const PROXY_SENDRECEIVE: PROXY_PHASE = PROXY_PHASE(3i32);
 pub const PROXY_UNMARSHAL: PROXY_PHASE = PROXY_PHASE(4i32);
-#[repr(C)]
-pub struct PRPC_RUNDOWN(i32);
+pub type PRPC_RUNDOWN = unsafe extern "system" fn(associationcontext: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct RDR_CALLOUT_STATE(i32);
 pub const RPCFLG_ACCESSIBILITY_BIT1: u32 = 1048576u32;
@@ -1020,10 +999,8 @@ pub const RPCFLG_NDR64_CONTAINS_ARM_LAYOUT: u32 = 67108864u32;
 pub const RPCFLG_NON_NDR: u32 = 2147483648u32;
 pub const RPCFLG_SENDER_WAITING_FOR_REPLY: u32 = 8388608u32;
 pub const RPCFLG_WINRT_REMOTE_ASYNC: u32 = 32u32;
-#[repr(C)]
-pub struct RPCLT_PDU_FILTER_FUNC(i32);
-#[repr(C)]
-pub struct RPC_ADDRESS_CHANGE_FN(i32);
+pub type RPCLT_PDU_FILTER_FUNC = unsafe extern "system" fn(buffer: *mut ::core::ffi::c_void, bufferlength: u32, fdatagram: i32);
+pub type RPC_ADDRESS_CHANGE_FN = unsafe extern "system" fn(arg: *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RPC_ADDRESS_CHANGE_TYPE(pub i32);
 pub const PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(1i32);
@@ -1042,8 +1019,7 @@ pub struct RPC_ASYNC_NOTIFICATION_INFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[repr(C)]
 pub struct RPC_ASYNC_STATE(i32);
-#[repr(C)]
-pub struct RPC_AUTH_KEY_RETRIEVAL_FN(i32);
+pub type RPC_AUTH_KEY_RETRIEVAL_FN = unsafe extern "system" fn(arg: *const ::core::ffi::c_void, serverprincname: *const u16, keyver: u32, key: *mut *mut ::core::ffi::c_void, status: *mut RPC_STATUS);
 pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: u32 = 4u32;
 pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1u32;
 #[repr(transparent)]
@@ -1064,8 +1040,7 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A(i32);
 pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W(i32);
 #[repr(C)]
 pub struct RPC_BINDING_VECTOR(i32);
-#[repr(C)]
-pub struct RPC_BLOCKING_FN(i32);
+pub type RPC_BLOCKING_FN = unsafe extern "system" fn(hwnd: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, hsyncevent: *mut ::core::ffi::c_void) -> RPC_STATUS;
 pub const RPC_BUFFER_ASYNC: u32 = 32768u32;
 pub const RPC_BUFFER_COMPLETE: u32 = 4096u32;
 pub const RPC_BUFFER_EXTRA: u32 = 16384u32;
@@ -1094,10 +1069,8 @@ pub const RPC_CALL_ATTRIBUTES_VERSION: u32 = 2u32;
 pub struct RPC_CALL_LOCAL_ADDRESS_V1(i32);
 pub const RPC_CALL_STATUS_CANCELLED: u32 = 1u32;
 pub const RPC_CALL_STATUS_DISCONNECTED: u32 = 2u32;
-#[repr(C)]
-pub struct RPC_CLIENT_ALLOC(i32);
-#[repr(C)]
-pub struct RPC_CLIENT_FREE(i32);
+pub type RPC_CLIENT_ALLOC = unsafe extern "system" fn(size: usize) -> *mut ::core::ffi::c_void;
+pub type RPC_CLIENT_FREE = unsafe extern "system" fn(ptr: *const ::core::ffi::c_void);
 #[repr(C)]
 pub struct RPC_CLIENT_INFORMATION1(i32);
 #[repr(C)]
@@ -1250,8 +1223,7 @@ pub const RPC_C_VERS_COMPATIBLE: u32 = 2u32;
 pub const RPC_C_VERS_EXACT: u32 = 3u32;
 pub const RPC_C_VERS_MAJOR_ONLY: u32 = 4u32;
 pub const RPC_C_VERS_UPTO: u32 = 5u32;
-#[repr(C)]
-pub struct RPC_DISPATCH_FUNCTION(i32);
+pub type RPC_DISPATCH_FUNCTION = unsafe extern "system" fn(message: *mut RPC_MESSAGE);
 #[repr(C)]
 pub struct RPC_DISPATCH_TABLE(i32);
 pub const RPC_EEINFO_VERSION: u32 = 1u32;
@@ -1268,11 +1240,9 @@ pub struct RPC_ERROR_ENUM_HANDLE(i32);
 #[repr(C)]
 pub struct RPC_EXTENDED_ERROR_INFO(i32);
 pub const RPC_FLAGS_VALID_BIT: u32 = 32768u32;
-#[repr(C)]
-pub struct RPC_FORWARD_FUNCTION(i32);
+pub type RPC_FORWARD_FUNCTION = unsafe extern "system" fn(interfaceid: *mut ::windows_sys::core::GUID, interfaceversion: *mut RPC_VERSION, objectid: *mut ::windows_sys::core::GUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
 pub const RPC_FW_IF_FLAG_DCOM: u32 = 1u32;
-#[repr(C)]
-pub struct RPC_HTTP_PROXY_FREE_STRING(i32);
+pub type RPC_HTTP_PROXY_FREE_STRING = unsafe extern "system" fn(string: *const u16);
 #[repr(transparent)]
 pub struct RPC_HTTP_REDIRECTOR_STAGE(pub i32);
 pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(1i32);
@@ -1298,8 +1268,7 @@ pub const RPC_IF_ALLOW_SECURE_ONLY: u32 = 8u32;
 pub const RPC_IF_ALLOW_UNKNOWN_AUTHORITY: u32 = 4u32;
 pub const RPC_IF_ASYNC_CALLBACK: u32 = 256u32;
 pub const RPC_IF_AUTOLISTEN: u32 = 1u32;
-#[repr(C)]
-pub struct RPC_IF_CALLBACK_FN(i32);
+pub type RPC_IF_CALLBACK_FN = unsafe extern "system" fn(interfaceuuid: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> RPC_STATUS;
 #[repr(C)]
 pub struct RPC_IF_ID(i32);
 #[repr(C)]
@@ -1309,8 +1278,7 @@ pub const RPC_IF_SEC_CACHE_PER_PROC: u32 = 128u32;
 pub const RPC_IF_SEC_NO_CACHE: u32 = 64u32;
 #[repr(C)]
 pub struct RPC_IMPORT_CONTEXT_P(i32);
-#[repr(C)]
-pub struct RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN(i32);
+pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = unsafe extern "system" fn(ifgroup: *const ::core::ffi::c_void, idlecallbackcontext: *const ::core::ffi::c_void, isgroupidle: u32);
 pub const RPC_INTERFACE_HAS_PIPES: u32 = 1u32;
 #[repr(C)]
 pub struct RPC_INTERFACE_TEMPLATEA(i32);
@@ -1318,14 +1286,12 @@ pub struct RPC_INTERFACE_TEMPLATEA(i32);
 pub struct RPC_INTERFACE_TEMPLATEW(i32);
 #[repr(C)]
 pub struct RPC_MESSAGE(i32);
-#[repr(C)]
-pub struct RPC_MGMT_AUTHORIZATION_FN(i32);
+pub type RPC_MGMT_AUTHORIZATION_FN = unsafe extern "system" fn(clientbinding: *const ::core::ffi::c_void, requestedmgmtoperation: u32, status: *mut RPC_STATUS) -> i32;
 pub const RPC_NCA_FLAGS_BROADCAST: u32 = 2u32;
 pub const RPC_NCA_FLAGS_DEFAULT: u32 = 0u32;
 pub const RPC_NCA_FLAGS_IDEMPOTENT: u32 = 1u32;
 pub const RPC_NCA_FLAGS_MAYBE: u32 = 4u32;
-#[repr(C)]
-pub struct RPC_NEW_HTTP_PROXY_CHANNEL(i32);
+pub type RPC_NEW_HTTP_PROXY_CHANNEL = unsafe extern "system" fn(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: *const u16, serverport: *const u16, remoteuser: *const u16, authtype: *const u16, resourceuuid: *mut ::core::ffi::c_void, sessionid: *mut ::core::ffi::c_void, interface: *const ::core::ffi::c_void, reserved: *const ::core::ffi::c_void, flags: u32, newservername: *mut *mut u16, newserverport: *mut *mut u16) -> RPC_STATUS;
 #[repr(transparent)]
 pub struct RPC_NOTIFICATIONS(pub i32);
 pub const RpcNotificationCallNone: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(0i32);
@@ -1339,8 +1305,7 @@ pub const RpcNotificationTypeApc: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPE
 pub const RpcNotificationTypeIoc: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(3i32);
 pub const RpcNotificationTypeHwnd: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(4i32);
 pub const RpcNotificationTypeCallback: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(5i32);
-#[repr(C)]
-pub struct RPC_OBJECT_INQ_FN(i32);
+pub type RPC_OBJECT_INQ_FN = unsafe extern "system" fn(objectuuid: *const ::windows_sys::core::GUID, typeuuid: *mut ::windows_sys::core::GUID, status: *mut RPC_STATUS);
 #[repr(C)]
 pub struct RPC_POLICY(i32);
 #[repr(C)]
@@ -1364,8 +1329,7 @@ pub const RPC_QUERY_CLIENT_PRINCIPAL_NAME: u32 = 4u32;
 pub const RPC_QUERY_IS_CLIENT_LOCAL: u32 = 32u32;
 pub const RPC_QUERY_NO_AUTH_REQUIRED: u32 = 64u32;
 pub const RPC_QUERY_SERVER_PRINCIPAL_NAME: u32 = 2u32;
-#[repr(C)]
-pub struct RPC_SECURITY_CALLBACK_FN(i32);
+pub type RPC_SECURITY_CALLBACK_FN = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct RPC_SECURITY_QOS(i32);
@@ -1397,8 +1361,7 @@ pub struct RPC_SECURITY_QOS_V5_W(i32);
 pub struct RPC_SEC_CONTEXT_KEY_INFO(i32);
 #[repr(C)]
 pub struct RPC_SERVER_INTERFACE(i32);
-#[repr(C)]
-pub struct RPC_SETFILTER_FUNC(i32);
+pub type RPC_SETFILTER_FUNC = unsafe extern "system" fn(pfnfilter: RPCLT_PDU_FILTER_FUNC);
 #[repr(C)]
 pub struct RPC_STATS_VECTOR(i32);
 #[repr(transparent)]
@@ -1556,16 +1519,15 @@ pub const SEC_WINNT_AUTH_IDENTITY_UNICODE: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_A
 pub struct SEC_WINNT_AUTH_IDENTITY_A(i32);
 #[repr(C)]
 pub struct SEC_WINNT_AUTH_IDENTITY_W(i32);
-#[repr(C)]
-pub struct SERVER_ROUTINE(i32);
+pub type SERVER_ROUTINE = unsafe extern "system" fn() -> i32;
 #[repr(transparent)]
 pub struct STUB_PHASE(pub i32);
 pub const STUB_UNMARSHAL: STUB_PHASE = STUB_PHASE(0i32);
 pub const STUB_CALL_SERVER: STUB_PHASE = STUB_PHASE(1i32);
 pub const STUB_MARSHAL: STUB_PHASE = STUB_PHASE(2i32);
 pub const STUB_CALL_SERVER_NO_HRESULT: STUB_PHASE = STUB_PHASE(3i32);
-#[repr(C)]
-pub struct STUB_THUNK(i32);
+#[cfg(feature = "Win32_System_Com")]
+pub type STUB_THUNK = unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE);
 pub const TARGET_IS_NT100_OR_LATER: u32 = 1u32;
 pub const TARGET_IS_NT351_OR_WIN95_OR_LATER: u32 = 1u32;
 pub const TARGET_IS_NT40_OR_LATER: u32 = 1u32;
@@ -1602,24 +1564,20 @@ pub const USER_MARSHAL_FC_ULONG: u32 = 9u32;
 pub const USER_MARSHAL_FC_USHORT: u32 = 7u32;
 pub const USER_MARSHAL_FC_USMALL: u32 = 4u32;
 pub const USER_MARSHAL_FC_WCHAR: u32 = 5u32;
-#[repr(C)]
-pub struct USER_MARSHAL_FREEING_ROUTINE(i32);
-#[repr(C)]
-pub struct USER_MARSHAL_MARSHALLING_ROUTINE(i32);
+pub type USER_MARSHAL_FREEING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: *mut ::core::ffi::c_void);
+pub type USER_MARSHAL_MARSHALLING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8;
 #[repr(C)]
 pub struct USER_MARSHAL_ROUTINE_QUADRUPLE(i32);
-#[repr(C)]
-pub struct USER_MARSHAL_SIZING_ROUTINE(i32);
-#[repr(C)]
-pub struct USER_MARSHAL_UNMARSHALLING_ROUTINE(i32);
+pub type USER_MARSHAL_SIZING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: u32, param2: *mut ::core::ffi::c_void) -> u32;
+pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8;
 #[repr(C)]
 pub struct UUID_VECTOR(i32);
 #[repr(transparent)]
 pub struct XLAT_SIDE(pub i32);
 pub const XLAT_SERVER: XLAT_SIDE = XLAT_SIDE(1i32);
 pub const XLAT_CLIENT: XLAT_SIDE = XLAT_SIDE(2i32);
-#[repr(C)]
-pub struct XMIT_HELPER_ROUTINE(i32);
+#[cfg(feature = "Win32_System_Com")]
+pub type XMIT_HELPER_ROUTINE = unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE);
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct XMIT_ROUTINE_QUINTUPLE(i32);

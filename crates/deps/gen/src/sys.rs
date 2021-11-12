@@ -123,11 +123,6 @@ fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
     quote! { #cfg #[repr(C)] pub struct #name(i32); }
 }
 
-fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_type_name(def, gen);
-    quote! { #[repr(C)] pub struct #name(i32); }
-}
-
 fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
     let name = def.name();
     let name = to_ident(name);
@@ -221,7 +216,25 @@ fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_sys_guid(guid: &GUID) -> TokenStream {
+fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
+    let name = gen_type_name(def, gen);
+    let signature = def.invoke_method().signature(&[]);
+    let return_sig = gen_sys_return_sig(&signature, gen);
+    let cfg = gen.gen_function_cfg(def.attributes(), &signature);
+
+    let params = signature.params.iter().map(|p| {
+        let name = gen_param_name(&p.param);
+        let tokens = gen_sys_param(p, gen);
+        quote! { #name: #tokens }
+    });
+
+    quote! {
+        #cfg
+        pub type #name = unsafe extern "system" fn(#(#params),*) #return_sig;
+    }
+}
+
+fn gen_sys_guid(guid: &GUID) -> TokenStream {
     let a = Literal::u32_unsuffixed(guid.0);
     let b = Literal::u16_unsuffixed(guid.1);
     let c = Literal::u16_unsuffixed(guid.2);
@@ -234,6 +247,8 @@ pub fn gen_sys_guid(guid: &GUID) -> TokenStream {
     let j = Literal::u8_unsuffixed(guid.9);
     let k = Literal::u8_unsuffixed(guid.10);
 
+    // TODO: once code complete measure how much longer it takes if-any to use from_u128 to produce a more compact package
+    
     quote! {
         ::windows_sys::GUID { data1:#a, data2:#b, data3:#c, data4:[#d, #e, #f, #g, #h, #i, #j, #k] }
     }

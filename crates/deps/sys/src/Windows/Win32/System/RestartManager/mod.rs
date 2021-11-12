@@ -76,5 +76,4 @@ pub const RmShutdownOnlyRegistered: RM_SHUTDOWN_TYPE = RM_SHUTDOWN_TYPE(16i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct RM_UNIQUE_PROCESS(i32);
-#[repr(C)]
-pub struct RM_WRITE_STATUS_CALLBACK(i32);
+pub type RM_WRITE_STATUS_CALLBACK = unsafe extern "system" fn(npercentcomplete: u32);

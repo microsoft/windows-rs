@@ -1799,9 +1799,6 @@ pub struct Matrix4x4F(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
 pub struct Matrix5x4F(i32);
-#[repr(C)]
-pub struct PD2D1_EFFECT_FACTORY(i32);
-#[repr(C)]
-pub struct PD2D1_PROPERTY_GET_FUNCTION(i32);
-#[repr(C)]
-pub struct PD2D1_PROPERTY_SET_FUNCTION(i32);
+pub type PD2D1_EFFECT_FACTORY = unsafe extern "system" fn(effectimpl: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+pub type PD2D1_PROPERTY_GET_FUNCTION = unsafe extern "system" fn(effect: ::windows_sys::core::IUnknown, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type PD2D1_PROPERTY_SET_FUNCTION = unsafe extern "system" fn(effect: ::windows_sys::core::IUnknown, data: *const u8, datasize: u32) -> ::windows_sys::core::HRESULT;

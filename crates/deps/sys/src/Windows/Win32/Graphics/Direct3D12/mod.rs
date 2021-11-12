@@ -33,8 +33,8 @@ pub const D3D12ExperimentalShaderModels: ::windows_sys::core::GUID = ::windows_s
     data3: 16629,
     data4: [178, 151, 129, 206, 158, 24, 147, 63],
 };
-#[repr(C)]
-pub struct D3D12MessageFunc(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type D3D12MessageFunc = unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: super::super::Foundation::PSTR, pcontext: *mut ::core::ffi::c_void);
 pub const D3D12MetaCommand: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3342125438,
     data2: 32887,
@@ -3257,20 +3257,16 @@ pub struct ID3D12Tools(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ID3D12VersionedRootSignatureDeserializer(pub *mut ::core::ffi::c_void);
 pub const LUID_DEFINED: u32 = 1u32;
-#[repr(C)]
-pub struct PFN_D3D12_CREATE_DEVICE(i32);
-#[repr(C)]
-pub struct PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER(i32);
-#[repr(C)]
-pub struct PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER(i32);
-#[repr(C)]
-pub struct PFN_D3D12_GET_DEBUG_INTERFACE(i32);
-#[repr(C)]
-pub struct PFN_D3D12_GET_INTERFACE(i32);
-#[repr(C)]
-pub struct PFN_D3D12_SERIALIZE_ROOT_SIGNATURE(i32);
-#[repr(C)]
-pub struct PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+pub type PFN_D3D12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows_sys::core::IUnknown, param1: super::Direct3D::D3D_FEATURE_LEVEL, param2: *const ::windows_sys::core::GUID, param3: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows_sys::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows_sys::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type PFN_D3D12_GET_DEBUG_INTERFACE = unsafe extern "system" fn(param0: *const ::windows_sys::core::GUID, param1: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type PFN_D3D12_GET_INTERFACE = unsafe extern "system" fn(param0: *const ::windows_sys::core::GUID, param1: *const ::windows_sys::core::GUID, param2: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+pub type PFN_D3D12_SERIALIZE_ROOT_SIGNATURE = unsafe extern "system" fn(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut super::Direct3D::ID3DBlob, pperrorblob: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+pub type PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE = unsafe extern "system" fn(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut super::Direct3D::ID3DBlob, pperrorblob: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT;
 pub const WKPDID_D3DAutoDebugObjectNameW: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3566218806,
     data2: 30074,

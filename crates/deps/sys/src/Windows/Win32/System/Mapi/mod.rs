@@ -3,32 +3,30 @@
 extern "system" {
     pub fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32;
 }
-#[repr(C)]
-pub struct LPMAPIADDRESS(i32);
-#[repr(C)]
-pub struct LPMAPIDELETEMAIL(i32);
-#[repr(C)]
-pub struct LPMAPIDETAILS(i32);
-#[repr(C)]
-pub struct LPMAPIFINDNEXT(i32);
-#[repr(C)]
-pub struct LPMAPIFREEBUFFER(i32);
-#[repr(C)]
-pub struct LPMAPILOGOFF(i32);
-#[repr(C)]
-pub struct LPMAPILOGON(i32);
-#[repr(C)]
-pub struct LPMAPIREADMAIL(i32);
-#[repr(C)]
-pub struct LPMAPIRESOLVENAME(i32);
-#[repr(C)]
-pub struct LPMAPISAVEMAIL(i32);
-#[repr(C)]
-pub struct LPMAPISENDDOCUMENTS(i32);
-#[repr(C)]
-pub struct LPMAPISENDMAIL(i32);
-#[repr(C)]
-pub struct LPMAPISENDMAILW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPMAPIADDRESS = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszcaption: super::super::Foundation::PSTR, neditfields: u32, lpszlabels: super::super::Foundation::PSTR, nrecips: u32, lprecips: *mut MapiRecipDesc, flflags: u32, ulreserved: u32, lpnnewrecips: *mut u32, lppnewrecips: *mut *mut MapiRecipDesc) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPMAPIDELETEMAIL = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPMAPIDETAILS = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lprecip: *mut MapiRecipDesc, flflags: u32, ulreserved: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPMAPIFINDNEXT = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessagetype: super::super::Foundation::PSTR, lpszseedmessageid: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32, lpszmessageid: super::super::Foundation::PSTR) -> u32;
+pub type LPMAPIFREEBUFFER = unsafe extern "system" fn(pv: *mut ::core::ffi::c_void) -> u32;
+pub type LPMAPILOGOFF = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, flflags: u32, ulreserved: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPMAPILOGON = unsafe extern "system" fn(uluiparam: usize, lpszprofilename: super::super::Foundation::PSTR, lpszpassword: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32, lplhsession: *mut usize) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPMAPIREADMAIL = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32, lppmessage: *mut *mut MapiMessage) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPMAPIRESOLVENAME = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszname: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32, lpprecip: *mut *mut MapiRecipDesc) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPMAPISAVEMAIL = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32, lpszmessageid: super::super::Foundation::PSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPMAPISENDDOCUMENTS = unsafe extern "system" fn(uluiparam: usize, lpszdelimchar: super::super::Foundation::PSTR, lpszfilepaths: super::super::Foundation::PSTR, lpszfilenames: super::super::Foundation::PSTR, ulreserved: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPMAPISENDMAIL = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPMAPISENDMAILW = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *const MapiMessageW, flflags: u32, ulreserved: u32) -> u32;
 pub const MAPI_AB_NOMODIFY: u32 = 1024u32;
 pub const MAPI_BCC: u32 = 3u32;
 pub const MAPI_BODY_AS_FILE: u32 = 512u32;

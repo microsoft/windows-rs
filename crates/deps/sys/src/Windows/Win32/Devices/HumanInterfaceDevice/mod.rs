@@ -2790,32 +2790,32 @@ pub const KEY_TERMSRV_SHADOW: u32 = 16u32;
 pub const KEY_TERMSRV_VKPACKET: u32 = 32u32;
 pub const KEY_UNICODE_SEQUENCE_END: u32 = 512u32;
 pub const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256u32;
-#[repr(C)]
-pub struct LPDICONFIGUREDEVICESCALLBACK(i32);
-#[repr(C)]
-pub struct LPDIENUMCREATEDEFFECTOBJECTSCALLBACK(i32);
-#[repr(C)]
-pub struct LPDIENUMDEVICEOBJECTSCALLBACKA(i32);
-#[repr(C)]
-pub struct LPDIENUMDEVICEOBJECTSCALLBACKW(i32);
-#[repr(C)]
-pub struct LPDIENUMDEVICESBYSEMANTICSCBA(i32);
-#[repr(C)]
-pub struct LPDIENUMDEVICESBYSEMANTICSCBW(i32);
-#[repr(C)]
-pub struct LPDIENUMDEVICESCALLBACKA(i32);
-#[repr(C)]
-pub struct LPDIENUMDEVICESCALLBACKW(i32);
-#[repr(C)]
-pub struct LPDIENUMEFFECTSCALLBACKA(i32);
-#[repr(C)]
-pub struct LPDIENUMEFFECTSCALLBACKW(i32);
-#[repr(C)]
-pub struct LPDIENUMEFFECTSINFILECALLBACK(i32);
-#[repr(C)]
-pub struct LPDIJOYTYPECALLBACK(i32);
-#[repr(C)]
-pub struct LPFNSHOWJOYCPL(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDICONFIGUREDEVICESCALLBACK = unsafe extern "system" fn(param0: ::windows_sys::core::IUnknown, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = unsafe extern "system" fn(param0: IDirectInputEffect, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDIENUMDEVICEOBJECTSCALLBACKA = unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDIENUMDEVICEOBJECTSCALLBACKW = unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDIENUMDEVICESBYSEMANTICSCBA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: IDirectInputDevice8A, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDIENUMDEVICESBYSEMANTICSCBW = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: IDirectInputDevice8W, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDIENUMDEVICESCALLBACKA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDIENUMDEVICESCALLBACKW = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDIENUMEFFECTSCALLBACKA = unsafe extern "system" fn(param0: *mut DIEFFECTINFOA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDIENUMEFFECTSCALLBACKW = unsafe extern "system" fn(param0: *mut DIEFFECTINFOW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDIENUMEFFECTSINFILECALLBACK = unsafe extern "system" fn(param0: *mut DIFILEEFFECT, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDIJOYTYPECALLBACK = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNSHOWJOYCPL = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND);
 pub const MAXCPOINTSNUM: u32 = 8u32;
 pub const MAX_JOYSTICKOEMVXDNAME: u32 = 260u32;
 pub const MAX_JOYSTRING: u32 = 256u32;
@@ -2854,10 +2854,10 @@ pub const MOUSE_TERMSRV_SRC_SHADOW: u32 = 256u32;
 pub struct MOUSE_UNIT_ID_PARAMETER(i32);
 pub const MOUSE_VIRTUAL_DESKTOP: u32 = 2u32;
 pub const MOUSE_WHEEL: u32 = 1024u32;
-#[repr(C)]
-pub struct PFN_HidP_GetVersionInternal(i32);
-#[repr(C)]
-pub struct PHIDP_INSERT_SCANCODES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_HidP_GetVersionInternal = unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS;
+#[cfg(feature = "Win32_Foundation")]
+pub type PHIDP_INSERT_SCANCODES = unsafe extern "system" fn(context: *const ::core::ffi::c_void, newscancodes: super::super::Foundation::PSTR, length: u32) -> super::super::Foundation::BOOLEAN;
 #[repr(C)]
 pub struct USAGE_AND_PAGE(i32);
 pub const WHEELMOUSE_HID_HARDWARE: u32 = 256u32;

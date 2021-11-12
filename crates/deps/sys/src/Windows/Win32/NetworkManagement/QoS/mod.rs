@@ -78,10 +78,8 @@ pub struct AD_GENERAL_PARAMS(i32);
 pub struct AD_GUARANTEED(i32);
 pub const ALLOWED_TO_SEND_DATA: u32 = 50001u32;
 pub const ANY_DEST_ADDR: u32 = 4294967295u32;
-#[repr(C)]
-pub struct CBADMITRESULT(i32);
-#[repr(C)]
-pub struct CBGETRSVPOBJECTS(i32);
+pub type CBADMITRESULT = unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut policy_decision) -> *mut u32;
+pub type CBGETRSVPOBJECTS = unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32;
 pub const CONTROLLED_DELAY_SERV: u32 = 4u32;
 pub const CONTROLLED_LOAD_SERV: u32 = 5u32;
 #[repr(C)]
@@ -304,16 +302,14 @@ pub const Opt_Share_mask: u32 = 24u32;
 pub const Opt_Shared: u32 = 16u32;
 pub const Opt_SndSel_mask: u32 = 7u32;
 pub const Opt_Wildcard: u32 = 1u32;
-#[repr(C)]
-pub struct PALLOCMEM(i32);
+pub type PALLOCMEM = unsafe extern "system" fn(size: u32) -> *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct PARAM_BUFFER(i32);
 pub const PCM_VERSION_1: u32 = 1u32;
 pub const PE_ATTRIB_TYPE_CREDENTIAL: u32 = 2u32;
 pub const PE_ATTRIB_TYPE_POLICY_LOCATOR: u32 = 1u32;
 pub const PE_TYPE_APPID: u32 = 3u32;
-#[repr(C)]
-pub struct PFREEMEM(i32);
+pub type PFREEMEM = unsafe extern "system" fn(pv: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct POLICY_DATA(i32);
 #[repr(C)]
@@ -754,17 +750,17 @@ pub const TCBASE: u32 = 7500u32;
 pub struct TCG_PCClientPCREventStruct(i32);
 #[repr(C)]
 pub struct TCG_PCClientTaggedEventStruct(i32);
-#[repr(C)]
-pub struct TCI_ADD_FLOW_COMPLETE_HANDLER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type TCI_ADD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct TCI_CLIENT_FUNC_LIST(i32);
-#[repr(C)]
-pub struct TCI_DEL_FLOW_COMPLETE_HANDLER(i32);
-#[repr(C)]
-pub struct TCI_MOD_FLOW_COMPLETE_HANDLER(i32);
-#[repr(C)]
-pub struct TCI_NOTIFY_HANDLER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type TCI_DEL_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
+#[cfg(feature = "Win32_Foundation")]
+pub type TCI_MOD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
+#[cfg(feature = "Win32_Foundation")]
+pub type TCI_NOTIFY_HANDLER = unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const ::core::ffi::c_void);
 #[repr(C)]
 pub struct TC_GEN_FILTER(i32);
 #[repr(C)]

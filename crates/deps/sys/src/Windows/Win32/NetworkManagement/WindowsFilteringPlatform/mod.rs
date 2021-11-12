@@ -474,8 +474,7 @@ pub const FWPM_CALLOUT_BUILT_IN_RESERVED_4: ::windows_sys::core::GUID = ::window
 };
 #[repr(C)]
 pub struct FWPM_CALLOUT_CHANGE0(i32);
-#[repr(C)]
-pub struct FWPM_CALLOUT_CHANGE_CALLBACK0(i32);
+pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_CALLOUT_CHANGE0);
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 860383925,
     data2: 27998,
@@ -1163,8 +1162,8 @@ pub const FWPM_CONDITION_VSWITCH_TENANT_NETWORK_ID: ::windows_sys::core::GUID = 
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct FWPM_CONNECTION0(i32);
-#[repr(C)]
-pub struct FWPM_CONNECTION_CALLBACK0(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type FWPM_CONNECTION_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: *const FWPM_CONNECTION0);
 pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1u32;
 #[repr(C)]
 pub struct FWPM_CONNECTION_ENUM_TEMPLATE0(i32);
@@ -1178,8 +1177,7 @@ pub struct FWPM_CONNECTION_SUBSCRIPTION0(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct FWPM_DISPLAY_DATA0(i32);
-#[repr(C)]
-pub struct FWPM_DYNAMIC_KEYWORD_CALLBACK0(i32);
+pub type FWPM_DYNAMIC_KEYWORD_CALLBACK0 = unsafe extern "system" fn(notification: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FWPM_ENGINE_OPTION(pub i32);
 pub const FWPM_ENGINE_COLLECT_NET_EVENTS: FWPM_ENGINE_OPTION = FWPM_ENGINE_OPTION(0i32);
@@ -1206,8 +1204,7 @@ pub const FWPM_FIELD_TYPE_MAX: FWPM_FIELD_TYPE = FWPM_FIELD_TYPE(3i32);
 pub struct FWPM_FILTER0(i32);
 #[repr(C)]
 pub struct FWPM_FILTER_CHANGE0(i32);
-#[repr(C)]
-pub struct FWPM_FILTER_CHANGE_CALLBACK0(i32);
+pub type FWPM_FILTER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_FILTER_CHANGE0);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[repr(C)]
 pub struct FWPM_FILTER_CONDITION0(i32);
@@ -1641,16 +1638,16 @@ pub struct FWPM_NET_EVENT4_(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[repr(C)]
 pub struct FWPM_NET_EVENT5_(i32);
-#[repr(C)]
-pub struct FWPM_NET_EVENT_CALLBACK0(i32);
-#[repr(C)]
-pub struct FWPM_NET_EVENT_CALLBACK1(i32);
-#[repr(C)]
-pub struct FWPM_NET_EVENT_CALLBACK2(i32);
-#[repr(C)]
-pub struct FWPM_NET_EVENT_CALLBACK3(i32);
-#[repr(C)]
-pub struct FWPM_NET_EVENT_CALLBACK4(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub type FWPM_NET_EVENT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT1);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub type FWPM_NET_EVENT_CALLBACK1 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT2);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub type FWPM_NET_EVENT_CALLBACK2 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT3);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub type FWPM_NET_EVENT_CALLBACK3 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT4_);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub type FWPM_NET_EVENT_CALLBACK4 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, event: *const FWPM_NET_EVENT5_);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct FWPM_NET_EVENT_CAPABILITY_ALLOW0(i32);
@@ -1757,8 +1754,7 @@ pub const FWPM_NET_EVENT_TYPE_MAX: FWPM_NET_EVENT_TYPE = FWPM_NET_EVENT_TYPE(11i
 pub struct FWPM_PROVIDER0(i32);
 #[repr(C)]
 pub struct FWPM_PROVIDER_CHANGE0(i32);
-#[repr(C)]
-pub struct FWPM_PROVIDER_CHANGE_CALLBACK0(i32);
+pub type FWPM_PROVIDER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CHANGE0);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT0(i32);
@@ -1773,8 +1769,7 @@ pub struct FWPM_PROVIDER_CONTEXT2(i32);
 pub struct FWPM_PROVIDER_CONTEXT3_(i32);
 #[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE0(i32);
-#[repr(C)]
-pub struct FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0(i32);
+pub type FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_PROVIDER_CONTEXT_CHANGE0);
 #[repr(C)]
 pub struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0(i32);
 pub const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: u32 = 2u32;
@@ -1859,8 +1854,7 @@ pub struct FWPM_STATISTICS0(i32);
 pub struct FWPM_SUBLAYER0(i32);
 #[repr(C)]
 pub struct FWPM_SUBLAYER_CHANGE0(i32);
-#[repr(C)]
-pub struct FWPM_SUBLAYER_CHANGE_CALLBACK0(i32);
+pub type FWPM_SUBLAYER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_SUBLAYER_CHANGE0);
 #[repr(C)]
 pub struct FWPM_SUBLAYER_ENUM_TEMPLATE0(i32);
 pub const FWPM_SUBLAYER_FLAG_PERSISTENT: u32 = 1u32;
@@ -1931,8 +1925,7 @@ pub const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_DELETE: FWPM_SUBSCRIPTION_FLAGS = FWP
 pub struct FWPM_SYSTEM_PORTS0(i32);
 #[repr(C)]
 pub struct FWPM_SYSTEM_PORTS_BY_TYPE0(i32);
-#[repr(C)]
-pub struct FWPM_SYSTEM_PORTS_CALLBACK0(i32);
+pub type FWPM_SYSTEM_PORTS_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, sysports: *const FWPM_SYSTEM_PORTS0);
 #[repr(transparent)]
 pub struct FWPM_SYSTEM_PORT_TYPE(pub i32);
 pub const FWPM_SYSTEM_PORT_RPC_EPMAP: FWPM_SYSTEM_PORT_TYPE = FWPM_SYSTEM_PORT_TYPE(0i32);
@@ -1947,8 +1940,8 @@ pub const FWPM_TXN_READ_ONLY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct FWPM_VSWITCH_EVENT0(i32);
-#[repr(C)]
-pub struct FWPM_VSWITCH_EVENT_CALLBACK0(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type FWPM_VSWITCH_EVENT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, vswitchevent: *const FWPM_VSWITCH_EVENT0) -> u32;
 #[repr(C)]
 pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0(i32);
 #[repr(transparent)]
@@ -2682,13 +2675,13 @@ pub struct IPSEC_KEY_MANAGER0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[repr(C)]
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0(i32);
-#[repr(C)]
-pub struct IPSEC_KEY_MANAGER_DICTATE_KEY0(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub type IPSEC_KEY_MANAGER_DICTATE_KEY0 = unsafe extern "system" fn(inboundsadetails: *mut IPSEC_SA_DETAILS1, outboundsadetails: *mut IPSEC_SA_DETAILS1, keyingmodulegenkey: *mut super::super::Foundation::BOOL) -> u32;
 pub const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: u32 = 1u32;
-#[repr(C)]
-pub struct IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0(i32);
-#[repr(C)]
-pub struct IPSEC_KEY_MANAGER_NOTIFY_KEY0(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = unsafe extern "system" fn(iketraffic: *const IKEEXT_TRAFFIC0, willdictatekey: *mut super::super::Foundation::BOOL, weight: *mut u32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub type IPSEC_KEY_MANAGER_NOTIFY_KEY0 = unsafe extern "system" fn(inboundsa: *const IPSEC_SA_DETAILS1, outboundsa: *const IPSEC_SA_DETAILS1);
 #[repr(transparent)]
 pub struct IPSEC_PFS_GROUP(pub i32);
 pub const IPSEC_PFS_NONE: IPSEC_PFS_GROUP = IPSEC_PFS_GROUP(0i32);
@@ -2766,8 +2759,7 @@ pub struct IPSEC_SA_CONTEXT0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[repr(C)]
 pub struct IPSEC_SA_CONTEXT1(i32);
-#[repr(C)]
-pub struct IPSEC_SA_CONTEXT_CALLBACK0(i32);
+pub type IPSEC_SA_CONTEXT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const IPSEC_SA_CONTEXT_CHANGE0);
 #[repr(C)]
 pub struct IPSEC_SA_CONTEXT_CHANGE0(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

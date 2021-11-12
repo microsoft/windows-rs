@@ -271,8 +271,8 @@ pub const ACMDRIVERDETAILS_SUPPORTF_DISABLED: i32 = -2147483648i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: i32 = 4i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
-#[repr(C)]
-pub struct ACMDRIVERENUMCB(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMDRIVERENUMCB = unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[repr(C)]
 pub struct ACMDRVFORMATSUGGEST(i32);
 #[repr(C)]
@@ -289,10 +289,10 @@ pub const ACMERR_UNPREPARED: u32 = 514u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ACMFILTERCHOOSEA(i32);
-#[repr(C)]
-pub struct ACMFILTERCHOOSEHOOKPROCA(i32);
-#[repr(C)]
-pub struct ACMFILTERCHOOSEHOOKPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMFILTERCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMFILTERCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ACMFILTERCHOOSEW(i32);
@@ -308,27 +308,27 @@ pub struct ACMFILTERDETAILSA(i32);
 #[repr(C)]
 pub struct ACMFILTERDETAILSW(i32);
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
-#[repr(C)]
-pub struct ACMFILTERENUMCBA(i32);
-#[repr(C)]
-pub struct ACMFILTERENUMCBW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMFILTERENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMFILTERENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ACMFILTERTAGDETAILSA(i32);
 #[repr(C)]
 pub struct ACMFILTERTAGDETAILSW(i32);
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
-#[repr(C)]
-pub struct ACMFILTERTAGENUMCBA(i32);
-#[repr(C)]
-pub struct ACMFILTERTAGENUMCBW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMFILTERTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMFILTERTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ACMFORMATCHOOSEA(i32);
-#[repr(C)]
-pub struct ACMFORMATCHOOSEHOOKPROCA(i32);
-#[repr(C)]
-pub struct ACMFORMATCHOOSEHOOKPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMFORMATCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMFORMATCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ACMFORMATCHOOSEW(i32);
@@ -342,20 +342,20 @@ pub const ACMFORMATCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
 #[repr(C)]
 pub struct ACMFORMATDETAILSA(i32);
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
-#[repr(C)]
-pub struct ACMFORMATENUMCBA(i32);
-#[repr(C)]
-pub struct ACMFORMATENUMCBW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMFORMATENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMFORMATENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct ACMFORMATTAGDETAILSA(i32);
 #[repr(C)]
 pub struct ACMFORMATTAGDETAILSW(i32);
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
-#[repr(C)]
-pub struct ACMFORMATTAGENUMCBA(i32);
-#[repr(C)]
-pub struct ACMFORMATTAGENUMCBW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMFORMATTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type ACMFORMATTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[repr(C)]
 pub struct ACMSTREAMHEADER(i32);
@@ -866,12 +866,12 @@ pub struct ISpatialAudioObjectRenderStreamForMetadata(pub *mut ::core::ffi::c_vo
 pub struct ISpatialAudioObjectRenderStreamNotify(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISubunit(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LPACMDRIVERPROC(i32);
-#[repr(C)]
-pub struct LPMIDICALLBACK(i32);
-#[repr(C)]
-pub struct LPWAVECALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPACMDRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+#[cfg(feature = "Win32_Media_Multimedia")]
+pub type LPMIDICALLBACK = unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
+#[cfg(feature = "Win32_Media_Multimedia")]
+pub type LPWAVECALLBACK = unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 pub const MEVT_F_CALLBACK: i32 = 1073741824i32;
 pub const MEVT_F_LONG: i32 = -2147483648i32;
 pub const MEVT_F_SHORT: i32 = 0i32;
@@ -1121,8 +1121,7 @@ pub const MOD_SQSYNTH: u32 = 3u32;
 pub const MOD_SWSYNTH: u32 = 7u32;
 pub const MOD_SYNTH: u32 = 2u32;
 pub const MOD_WAVETABLE: u32 = 6u32;
-#[repr(C)]
-pub struct PAudioStateMonitorCallback(i32);
+pub type PAudioStateMonitorCallback = unsafe extern "system" fn(audiostatemonitor: IAudioStateMonitor, context: *const ::core::ffi::c_void);
 #[repr(C)]
 pub struct PCMWAVEFORMAT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]

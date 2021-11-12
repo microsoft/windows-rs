@@ -558,36 +558,22 @@ pub const GLU_VERTEX: u32 = 100101u32;
 pub const GLU_V_STEP: u32 = 100207u32;
 #[repr(C)]
 pub struct GLUnurbs(i32);
-#[repr(C)]
-pub struct GLUnurbsErrorProc(i32);
+pub type GLUnurbsErrorProc = unsafe extern "system" fn(param0: u32);
 #[repr(C)]
 pub struct GLUquadric(i32);
-#[repr(C)]
-pub struct GLUquadricErrorProc(i32);
-#[repr(C)]
-pub struct GLUtessBeginDataProc(i32);
-#[repr(C)]
-pub struct GLUtessBeginProc(i32);
-#[repr(C)]
-pub struct GLUtessCombineDataProc(i32);
-#[repr(C)]
-pub struct GLUtessCombineProc(i32);
-#[repr(C)]
-pub struct GLUtessEdgeFlagDataProc(i32);
-#[repr(C)]
-pub struct GLUtessEdgeFlagProc(i32);
-#[repr(C)]
-pub struct GLUtessEndDataProc(i32);
-#[repr(C)]
-pub struct GLUtessEndProc(i32);
-#[repr(C)]
-pub struct GLUtessErrorDataProc(i32);
-#[repr(C)]
-pub struct GLUtessErrorProc(i32);
-#[repr(C)]
-pub struct GLUtessVertexDataProc(i32);
-#[repr(C)]
-pub struct GLUtessVertexProc(i32);
+pub type GLUquadricErrorProc = unsafe extern "system" fn(param0: u32);
+pub type GLUtessBeginDataProc = unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void);
+pub type GLUtessBeginProc = unsafe extern "system" fn(param0: u32);
+pub type GLUtessCombineDataProc = unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::core::ffi::c_void, param2: *mut f32, param3: *mut *mut ::core::ffi::c_void, param4: *mut ::core::ffi::c_void);
+pub type GLUtessCombineProc = unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::core::ffi::c_void, param2: *mut f32, param3: *mut *mut ::core::ffi::c_void);
+pub type GLUtessEdgeFlagDataProc = unsafe extern "system" fn(param0: u8, param1: *mut ::core::ffi::c_void);
+pub type GLUtessEdgeFlagProc = unsafe extern "system" fn(param0: u8);
+pub type GLUtessEndDataProc = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
+pub type GLUtessEndProc = unsafe extern "system" fn();
+pub type GLUtessErrorDataProc = unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void);
+pub type GLUtessErrorProc = unsafe extern "system" fn(param0: u32);
+pub type GLUtessVertexDataProc = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void);
+pub type GLUtessVertexProc = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct GLUtesselator(i32);
 #[repr(C)]
@@ -1184,40 +1170,23 @@ pub const GL_ZOOM_Y: u32 = 3351u32;
 pub struct HGLRC(i32);
 #[repr(C)]
 pub struct LAYERPLANEDESCRIPTOR(i32);
-#[repr(C)]
-pub struct PFNGLADDSWAPHINTRECTWINPROC(i32);
-#[repr(C)]
-pub struct PFNGLARRAYELEMENTARRAYEXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLARRAYELEMENTEXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLCOLORPOINTEREXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLCOLORSUBTABLEEXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLCOLORTABLEEXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLDRAWARRAYSEXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLDRAWRANGEELEMENTSWINPROC(i32);
-#[repr(C)]
-pub struct PFNGLEDGEFLAGPOINTEREXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLGETCOLORTABLEEXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLGETCOLORTABLEPARAMETERFVEXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLGETCOLORTABLEPARAMETERIVEXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLGETPOINTERVEXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLINDEXPOINTEREXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLNORMALPOINTEREXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLTEXCOORDPOINTEREXTPROC(i32);
-#[repr(C)]
-pub struct PFNGLVERTEXPOINTEREXTPROC(i32);
+pub type PFNGLADDSWAPHINTRECTWINPROC = unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32);
+pub type PFNGLARRAYELEMENTARRAYEXTPROC = unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::core::ffi::c_void);
+pub type PFNGLARRAYELEMENTEXTPROC = unsafe extern "system" fn(i: i32);
+pub type PFNGLCOLORPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void);
+pub type PFNGLCOLORSUBTABLEEXTPROC = unsafe extern "system" fn(target: u32, start: i32, count: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void);
+pub type PFNGLCOLORTABLEEXTPROC = unsafe extern "system" fn(target: u32, internalformat: u32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void);
+pub type PFNGLDRAWARRAYSEXTPROC = unsafe extern "system" fn(mode: u32, first: i32, count: i32);
+pub type PFNGLDRAWRANGEELEMENTSWINPROC = unsafe extern "system" fn(mode: u32, start: u32, end: u32, count: i32, r#type: u32, indices: *const ::core::ffi::c_void);
+pub type PFNGLEDGEFLAGPOINTEREXTPROC = unsafe extern "system" fn(stride: i32, count: i32, pointer: *const u8);
+pub type PFNGLGETCOLORTABLEEXTPROC = unsafe extern "system" fn(target: u32, format: u32, r#type: u32, data: *mut ::core::ffi::c_void);
+pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = unsafe extern "system" fn(target: u32, pname: u32, params: *mut f32);
+pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = unsafe extern "system" fn(target: u32, pname: u32, params: *mut i32);
+pub type PFNGLGETPOINTERVEXTPROC = unsafe extern "system" fn(pname: u32, params: *mut *mut ::core::ffi::c_void);
+pub type PFNGLINDEXPOINTEREXTPROC = unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void);
+pub type PFNGLNORMALPOINTEREXTPROC = unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void);
+pub type PFNGLTEXCOORDPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void);
+pub type PFNGLVERTEXPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void);
 #[repr(C)]
 pub struct PIXELFORMATDESCRIPTOR(i32);
 #[repr(C)]

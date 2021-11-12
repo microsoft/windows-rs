@@ -116,10 +116,10 @@ pub struct INTERACTION_CONTEXT_OUTPUT(i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[repr(C)]
 pub struct INTERACTION_CONTEXT_OUTPUT2(i32);
-#[repr(C)]
-pub struct INTERACTION_CONTEXT_OUTPUT_CALLBACK(i32);
-#[repr(C)]
-pub struct INTERACTION_CONTEXT_OUTPUT_CALLBACK2(i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2);
 #[repr(transparent)]
 pub struct INTERACTION_CONTEXT_PROPERTY(pub i32);
 pub const INTERACTION_CONTEXT_PROPERTY_MEASUREMENT_UNITS: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(1i32);

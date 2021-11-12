@@ -403,10 +403,10 @@ pub const PRODUCT_ULTIMATE_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(28u32);
 pub const PRODUCT_UNDEFINED: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(0u32);
 pub const PRODUCT_WEB_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(17u32);
 pub const PRODUCT_WEB_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(29u32);
-#[repr(C)]
-pub struct PGET_SYSTEM_WOW64_DIRECTORY_A(i32);
-#[repr(C)]
-pub struct PGET_SYSTEM_WOW64_DIRECTORY_W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PGET_SYSTEM_WOW64_DIRECTORY_A = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PGET_SYSTEM_WOW64_DIRECTORY_W = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
 #[repr(transparent)]
 pub struct PROCESSOR_CACHE_TYPE(pub i32);
 pub const CacheUnified: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(0i32);

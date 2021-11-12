@@ -312,8 +312,7 @@ pub const IT_INCLUSIVE: i32 = 0i32;
 #[repr(transparent)]
 pub struct IWordBreakerConfig(pub *mut ::core::ffi::c_void);
 pub const MAX_COLUMNS: u32 = 256u32;
-#[repr(C)]
-pub struct PFNCOLHEAPFREE(i32);
+pub type PFNCOLHEAPFREE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32;
 #[repr(transparent)]
 pub struct PRIORITY(pub i32);
 pub const PRIORITY_LOW: PRIORITY = PRIORITY(0i32);

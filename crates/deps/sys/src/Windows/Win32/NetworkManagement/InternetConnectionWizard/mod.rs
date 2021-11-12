@@ -19,7 +19,6 @@ pub const ICW_MAX_RASNAME: u32 = 256u32;
 pub const ICW_MAX_SERVERNAME: u32 = 64u32;
 pub const ICW_USEDEFAULTS: u32 = 1u32;
 pub const ICW_USE_SHELLNEXT: u32 = 1024u32;
-#[repr(C)]
-pub struct PFNCHECKCONNECTIONWIZARD(i32);
-#[repr(C)]
-pub struct PFNSETSHELLNEXT(i32);
+pub type PFNCHECKCONNECTIONWIZARD = unsafe extern "system" fn(param0: u32, param1: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNSETSHELLNEXT = unsafe extern "system" fn(param0: super::super::Foundation::PSTR) -> u32;

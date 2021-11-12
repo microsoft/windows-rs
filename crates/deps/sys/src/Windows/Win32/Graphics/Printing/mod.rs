@@ -1003,8 +1003,8 @@ pub const ECBF_OVERLAY_ECBICON_IF_CHECKED: u32 = 16u32;
 pub const ECBF_OVERLAY_NO_ICON: u32 = 64u32;
 pub const ECBF_OVERLAY_STOP_ICON: u32 = 32u32;
 pub const ECBF_OVERLAY_WARNING_ICON: u32 = 8u32;
-#[repr(C)]
-pub struct EMFPLAYPROC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub type EMFPLAYPROC = unsafe extern "system" fn(param0: super::Gdi::HDC, param1: i32, param2: super::super::Foundation::HANDLE) -> i32;
 pub const EMF_PP_COLOR_OPTIMIZATION: u32 = 1u32;
 pub const EPF_ICONID_AS_HICON: u32 = 8u32;
 pub const EPF_INCL_SETUP_TITLE: u32 = 2u32;
@@ -1994,8 +1994,8 @@ pub const NOTIFICATION_RELEASE: ::windows_sys::core::GUID = ::windows_sys::GUID 
 pub const NO_BORDER_PRINT: u32 = 1u32;
 pub const NO_COLOR_OPTIMIZATION: u32 = 0u32;
 pub const NO_PRIORITY: u32 = 0u32;
-#[repr(C)]
-pub struct OEMCUIPCALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type OEMCUIPCALLBACK = unsafe extern "system" fn(param0: *mut CPSUICBPARAM, param1: *mut OEMCUIPPARAM) -> i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[repr(C)]
 pub struct OEMCUIPPARAM(i32);
@@ -2111,16 +2111,16 @@ pub const OTS_PUSH_NO_DOT_DOT_DOT: u32 = 64u32;
 pub const PDEV_ADJUST_PAPER_MARGIN_TYPE: u32 = 1u32;
 pub const PDEV_HOSTFONT_ENABLED_TYPE: u32 = 2u32;
 pub const PDEV_USE_TRUE_COLOR_TYPE: u32 = 3u32;
-#[repr(C)]
-pub struct PFNCOMPROPSHEET(i32);
-#[repr(C)]
-pub struct PFNPROPSHEETUI(i32);
-#[repr(C)]
-pub struct PFN_DrvGetDriverSetting(i32);
-#[repr(C)]
-pub struct PFN_DrvUpdateUISetting(i32);
-#[repr(C)]
-pub struct PFN_DrvUpgradeRegistrySetting(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNCOMPROPSHEET = unsafe extern "system" fn(hcompropsheet: super::super::Foundation::HANDLE, function: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> isize;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNPROPSHEETUI = unsafe extern "system" fn(ppsuiinfo: *mut PROPSHEETUI_INFO, lparam: super::super::Foundation::LPARAM) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_DrvGetDriverSetting = unsafe extern "system" fn(pdriverobj: *mut ::core::ffi::c_void, feature: super::super::Foundation::PSTR, poutput: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_DrvUpdateUISetting = unsafe extern "system" fn(pdriverobj: *mut ::core::ffi::c_void, poptitem: *mut ::core::ffi::c_void, dwpreviousselection: u32, dwmode: u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_DrvUpgradeRegistrySetting = unsafe extern "system" fn(hprinter: super::super::Foundation::HANDLE, pfeature: super::super::Foundation::PSTR, poption: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
 #[repr(C)]
 pub struct PORT_DATA_1(i32);
 #[repr(C)]
@@ -2640,8 +2640,8 @@ pub const RAWTCP: u32 = 1u32;
 pub const REVERSE_PAGES_FOR_REVERSE_DUPLEX: u32 = 1u32;
 pub const REVERSE_PRINT: u32 = 1u32;
 pub const RIGHT_THEN_DOWN: u32 = 1u32;
-#[repr(C)]
-pub struct ROUTER_NOTIFY_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type ROUTER_NOTIFY_CALLBACK = unsafe extern "system" fn(dwcommand: u32, pcontext: *const ::core::ffi::c_void, dwcolor: u32, pnofityinfo: *const PRINTER_NOTIFY_INFO, fdwflags: u32, pdwresult: *mut u32) -> super::super::Foundation::BOOL;
 pub const ROUTER_STOP_ROUTING: u32 = 2u32;
 pub const ROUTER_SUCCESS: u32 = 1u32;
 pub const ROUTER_UNKNOWN: u32 = 0u32;
@@ -2771,8 +2771,8 @@ pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XPSRAS_PIXEL_FORMAT = XP
 pub struct XPSRAS_RENDERING_MODE(pub i32);
 pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(0i32);
 pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(1i32);
-#[repr(C)]
-pub struct _CPSUICALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type _CPSUICALLBACK = unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32;
 #[repr(C)]
 pub struct _SPLCLIENT_INFO_2_V1(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]

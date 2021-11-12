@@ -125,8 +125,8 @@ pub struct HCS_CREATE_OPTIONS_1(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct HCS_EVENT(i32);
-#[repr(C)]
-pub struct HCS_EVENT_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type HCS_EVENT_CALLBACK = unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HCS_EVENT_OPTIONS(pub u32);
 pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0u32);
@@ -166,16 +166,15 @@ pub const HcsNotificationSystemPassThru: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(1
 pub const HcsNotificationProcessExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(65536i32);
 pub const HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16777216i32);
 pub const HcsNotificationFlagsReserved: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(-268435456i32);
-#[repr(C)]
-pub struct HCS_NOTIFICATION_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type HCS_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_sys::core::HRESULT, notificationdata: super::super::Foundation::PWSTR);
 #[repr(transparent)]
 pub struct HCS_NOTIFICATION_FLAGS(pub i32);
 pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(0i32);
 pub const HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(-2147483648i32);
 #[repr(C)]
 pub struct HCS_OPERATION(i32);
-#[repr(C)]
-pub struct HCS_OPERATION_COMPLETION(i32);
+pub type HCS_OPERATION_COMPLETION = unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HCS_OPERATION_TYPE(pub i32);
 pub const HcsOperationTypeNone: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(-1i32);

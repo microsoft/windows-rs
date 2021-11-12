@@ -746,8 +746,7 @@ pub const SQLITE_WIN32_TEMP_DIRECTORY_TYPE: u32 = 2u32;
 pub const __SQLITESESSION_H_: u32 = 1u32;
 #[repr(C)]
 pub struct fts5_api(i32);
-#[repr(C)]
-pub struct fts5_extension_function(i32);
+pub type fts5_extension_function = unsafe extern "system" fn(papi: *const Fts5ExtensionApi, pfts: *mut Fts5Context, pctx: *mut sqlite3_context, nval: i32, apval: *mut *mut sqlite3_value);
 #[repr(C)]
 pub struct fts5_tokenizer(i32);
 #[repr(C)]
@@ -764,12 +763,10 @@ pub struct sqlite3_api_routines(i32);
 pub struct sqlite3_backup(i32);
 #[repr(C)]
 pub struct sqlite3_blob(i32);
-#[repr(C)]
-pub struct sqlite3_callback(i32);
+pub type sqlite3_callback = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut *mut i8, param3: *mut *mut i8) -> i32;
 #[repr(C)]
 pub struct sqlite3_context(i32);
-#[repr(C)]
-pub struct sqlite3_destructor_type(i32);
+pub type sqlite3_destructor_type = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct sqlite3_file(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -777,8 +774,8 @@ pub struct sqlite3_file(i32);
 pub struct sqlite3_index_info(i32);
 #[repr(C)]
 pub struct sqlite3_io_methods(i32);
-#[repr(C)]
-pub struct sqlite3_loadext_entry(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type sqlite3_loadext_entry = unsafe extern "system" fn(db: *mut sqlite3, pzerrmsg: *mut *mut i8, pthunk: *const sqlite3_api_routines) -> i32;
 #[repr(C)]
 pub struct sqlite3_mem_methods(i32);
 #[repr(C)]
@@ -805,8 +802,7 @@ pub struct sqlite3_snapshot(i32);
 pub struct sqlite3_stmt(i32);
 #[repr(C)]
 pub struct sqlite3_str(i32);
-#[repr(C)]
-pub struct sqlite3_syscall_ptr(i32);
+pub type sqlite3_syscall_ptr = unsafe extern "system" fn();
 #[repr(C)]
 pub struct sqlite3_value(i32);
 #[cfg(feature = "Win32_Foundation")]

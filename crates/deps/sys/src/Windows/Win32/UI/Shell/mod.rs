@@ -1450,8 +1450,8 @@ pub const AIM_COMMENTS: APPINFODATAFLAGS = APPINFODATAFLAGS(32768i32);
 pub const AIM_IMAGE: APPINFODATAFLAGS = APPINFODATAFLAGS(131072i32);
 pub const AIM_READMEURL: APPINFODATAFLAGS = APPINFODATAFLAGS(262144i32);
 pub const AIM_UPDATEINFOURL: APPINFODATAFLAGS = APPINFODATAFLAGS(524288i32);
-#[repr(C)]
-pub struct APPLET_PROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type APPLET_PROC = unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32;
 #[repr(transparent)]
 pub struct APPLICATION_VIEW_MIN_WIDTH(pub i32);
 pub const AVMW_DEFAULT: APPLICATION_VIEW_MIN_WIDTH = APPLICATION_VIEW_MIN_WIDTH(0i32);
@@ -1687,8 +1687,8 @@ pub struct BASEBROWSERDATALH(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 #[repr(C)]
 pub struct BASEBROWSERDATAXP(i32);
-#[repr(C)]
-pub struct BFFCALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type BFFCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32;
 pub const BFFM_ENABLEOK: u32 = 1125u32;
 pub const BFFM_INITIALIZED: u32 = 1u32;
 pub const BFFM_IUNKNOWN: u32 = 5u32;
@@ -2561,8 +2561,7 @@ pub struct DISPLAY_DEVICE_TYPE(pub i32);
 pub const DEVICE_PRIMARY: DISPLAY_DEVICE_TYPE = DISPLAY_DEVICE_TYPE(0i32);
 pub const DEVICE_IMMERSIVE: DISPLAY_DEVICE_TYPE = DISPLAY_DEVICE_TYPE(1i32);
 pub const DLG_SCRNSAVECONFIGURE: u32 = 2003u32;
-#[repr(C)]
-pub struct DLLGETVERSIONPROC(i32);
+pub type DLLGETVERSIONPROC = unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct DLLVERSIONINFO(i32);
 #[repr(C)]
@@ -4796,10 +4795,10 @@ pub const LSF_MAKEUNIQUENAME: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(2i32);
 pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927231i32 as _);
 pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927232i32 as _);
 pub const LINK_E_DELETE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927485i32 as _);
-#[repr(C)]
-pub struct LPFNDFMCALLBACK(i32);
-#[repr(C)]
-pub struct LPFNVIEWCALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub type LPFNDFMCALLBACK = unsafe extern "system" fn(psf: IShellFolder, hwnd: super::super::Foundation::HWND, pdtobj: super::super::System::Com::IDataObject, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNVIEWCALLBACK = unsafe extern "system" fn(psvouter: IShellView, psf: IShellFolder, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct LocalThumbnailCache(i32);
 pub const MAXFILELEN: u32 = 13u32;
@@ -5134,10 +5133,10 @@ pub const PANE_PRIVACY: u32 = 7u32;
 pub const PANE_PROGRESS: u32 = 6u32;
 pub const PANE_SSL: u32 = 4u32;
 pub const PANE_ZONE: u32 = 1u32;
-#[repr(C)]
-pub struct PAPPCONSTRAIN_CHANGE_ROUTINE(i32);
-#[repr(C)]
-pub struct PAPPSTATE_CHANGE_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PAPPCONSTRAIN_CHANGE_ROUTINE = unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type PAPPSTATE_CHANGE_ROUTINE = unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct PARSEDURLA(i32);
@@ -5168,10 +5167,10 @@ pub const PDTIMER_RESUME: u32 = 3u32;
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[repr(C)]
 pub struct PERSIST_FOLDER_TARGET_INFO(i32);
-#[repr(C)]
-pub struct PFNCANSHAREFOLDERW(i32);
-#[repr(C)]
-pub struct PFNSHOWSHAREFOLDERUIW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNCANSHAREFOLDERW = unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNSHOWSHAREFOLDERUIW = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 pub const PIDASI_AVG_DATA_RATE: u32 = 4u32;
 pub const PIDASI_CHANNEL_COUNT: u32 = 7u32;
 pub const PIDASI_COMPRESSION: u32 = 10u32;
@@ -6630,8 +6629,8 @@ pub const STPF_USEAPPTHUMBNAILALWAYS: STPFLAG = STPFLAG(1i32);
 pub const STPF_USEAPPTHUMBNAILWHENACTIVE: STPFLAG = STPFLAG(2i32);
 pub const STPF_USEAPPPEEKALWAYS: STPFLAG = STPFLAG(4i32);
 pub const STPF_USEAPPPEEKWHENACTIVE: STPFLAG = STPFLAG(8i32);
-#[repr(C)]
-pub struct SUBCLASSPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type SUBCLASSPROC = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct SV2CVW2_PARAMS(i32);

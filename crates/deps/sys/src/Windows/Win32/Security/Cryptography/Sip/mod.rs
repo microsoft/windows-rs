@@ -71,21 +71,21 @@ pub const SPC_INC_PE_RESOURCES_FLAG: u32 = 128u32;
 pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1u32;
 pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1u32;
 pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048u32;
-#[repr(C)]
-pub struct pCryptSIPCreateIndirectData(i32);
-#[repr(C)]
-pub struct pCryptSIPGetCaps(i32);
-#[repr(C)]
-pub struct pCryptSIPGetSealedDigest(i32);
-#[repr(C)]
-pub struct pCryptSIPGetSignedDataMsg(i32);
-#[repr(C)]
-pub struct pCryptSIPPutSignedDataMsg(i32);
-#[repr(C)]
-pub struct pCryptSIPRemoveSignedDataMsg(i32);
-#[repr(C)]
-pub struct pCryptSIPVerifyIndirectData(i32);
-#[repr(C)]
-pub struct pfnIsFileSupported(i32);
-#[repr(C)]
-pub struct pfnIsFileSupportedName(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPCreateIndirectData = unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPGetCaps = unsafe extern "system" fn(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET_V3) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPGetSealedDigest = unsafe extern "system" fn(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPGetSignedDataMsg = unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut u32, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPPutSignedDataMsg = unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: u32, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPRemoveSignedDataMsg = unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPVerifyIndirectData = unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type pfnIsFileSupported = unsafe extern "system" fn(hfile: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type pfnIsFileSupportedName = unsafe extern "system" fn(pwszfilename: super::super::super::Foundation::PWSTR, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL;

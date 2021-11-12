@@ -67,8 +67,7 @@ pub const GAMING_DEVICE_VENDOR_ID_MICROSOFT: GAMING_DEVICE_VENDOR_ID = GAMING_DE
 pub struct GameExplorer(i32);
 #[repr(C)]
 pub struct GameStatistics(i32);
-#[repr(C)]
-pub struct GameUICompletionRoutine(i32);
+pub type GameUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IGameExplorer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -107,8 +106,7 @@ pub const XPRIVILEGE_PROFILE_VIEWING: KnownGamingPrivileges = KnownGamingPrivile
 pub const XPRIVILEGE_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(252i32);
 pub const XPRIVILEGE_MULTIPLAYER_SESSIONS: KnownGamingPrivileges = KnownGamingPrivileges(254i32);
 pub const XPRIVILEGE_ADD_FRIEND: KnownGamingPrivileges = KnownGamingPrivileges(255i32);
-#[repr(C)]
-pub struct PlayerPickerUICompletionRoutine(i32);
+pub type PlayerPickerUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::windows_sys::core::HSTRING, selectedxuidscount: usize);
 #[repr(transparent)]
 pub struct XBL_IDP_AUTH_TOKEN_STATUS(pub i32);
 pub const XBL_IDP_AUTH_TOKEN_STATUS_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(0i32);

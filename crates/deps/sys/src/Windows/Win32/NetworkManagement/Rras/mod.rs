@@ -1007,82 +1007,73 @@ pub const MPR_VS_L2tpOnly: MPR_VS = MPR_VS(3u32);
 pub const MPR_VS_L2tpFirst: MPR_VS = MPR_VS(4u32);
 pub const MPR_VS_Ikev2First: u32 = 8u32;
 pub const MPR_VS_Ikev2Only: u32 = 7u32;
-#[repr(C)]
-pub struct ORASADFUNC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type ORASADFUNC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL;
 pub const PENDING: u32 = 600u32;
-#[repr(C)]
-pub struct PFNRASFREEBUFFER(i32);
-#[repr(C)]
-pub struct PFNRASGETBUFFER(i32);
-#[repr(C)]
-pub struct PFNRASRECEIVEBUFFER(i32);
-#[repr(C)]
-pub struct PFNRASRETRIEVEBUFFER(i32);
-#[repr(C)]
-pub struct PFNRASSENDBUFFER(i32);
-#[repr(C)]
-pub struct PFNRASSETCOMMSETTINGS(i32);
+pub type PFNRASFREEBUFFER = unsafe extern "system" fn(pbufer: *mut u8) -> u32;
+pub type PFNRASGETBUFFER = unsafe extern "system" fn(ppbuffer: *mut *mut u8, pdwsize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNRASRECEIVEBUFFER = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32, dwtimeout: u32, hevent: super::super::Foundation::HANDLE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNRASRETRIEVEBUFFER = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNRASSENDBUFFER = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, dwsize: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNRASSETCOMMSETTINGS = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, prascommsettings: *mut RASCOMMSETTINGS, pvreserved: *mut ::core::ffi::c_void) -> u32;
 pub const PID_ATALK: u32 = 41u32;
 pub const PID_IP: u32 = 33u32;
 pub const PID_IPV6: u32 = 87u32;
 pub const PID_IPX: u32 = 43u32;
 pub const PID_NBF: u32 = 63u32;
-#[repr(C)]
-pub struct PMGM_CREATION_ALERT_CALLBACK(i32);
-#[repr(C)]
-pub struct PMGM_DISABLE_IGMP_CALLBACK(i32);
-#[repr(C)]
-pub struct PMGM_ENABLE_IGMP_CALLBACK(i32);
-#[repr(C)]
-pub struct PMGM_JOIN_ALERT_CALLBACK(i32);
-#[repr(C)]
-pub struct PMGM_LOCAL_JOIN_CALLBACK(i32);
-#[repr(C)]
-pub struct PMGM_LOCAL_LEAVE_CALLBACK(i32);
-#[repr(C)]
-pub struct PMGM_PRUNE_ALERT_CALLBACK(i32);
-#[repr(C)]
-pub struct PMGM_RPF_CALLBACK(i32);
-#[repr(C)]
-pub struct PMGM_WRONG_IF_CALLBACK(i32);
-#[repr(C)]
-pub struct PMPRADMINACCEPTNEWCONNECTION(i32);
-#[repr(C)]
-pub struct PMPRADMINACCEPTNEWCONNECTION2(i32);
-#[repr(C)]
-pub struct PMPRADMINACCEPTNEWCONNECTION3(i32);
-#[repr(C)]
-pub struct PMPRADMINACCEPTNEWCONNECTIONEX(i32);
-#[repr(C)]
-pub struct PMPRADMINACCEPTNEWLINK(i32);
-#[repr(C)]
-pub struct PMPRADMINACCEPTREAUTHENTICATION(i32);
-#[repr(C)]
-pub struct PMPRADMINACCEPTREAUTHENTICATIONEX(i32);
-#[repr(C)]
-pub struct PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX(i32);
-#[repr(C)]
-pub struct PMPRADMINCONNECTIONHANGUPNOTIFICATION(i32);
-#[repr(C)]
-pub struct PMPRADMINCONNECTIONHANGUPNOTIFICATION2(i32);
-#[repr(C)]
-pub struct PMPRADMINCONNECTIONHANGUPNOTIFICATION3(i32);
-#[repr(C)]
-pub struct PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX(i32);
-#[repr(C)]
-pub struct PMPRADMINGETIPADDRESSFORUSER(i32);
-#[repr(C)]
-pub struct PMPRADMINGETIPV6ADDRESSFORUSER(i32);
-#[repr(C)]
-pub struct PMPRADMINLINKHANGUPNOTIFICATION(i32);
-#[repr(C)]
-pub struct PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX(i32);
-#[repr(C)]
-pub struct PMPRADMINRELEASEIPADRESS(i32);
-#[repr(C)]
-pub struct PMPRADMINRELEASEIPV6ADDRESSFORUSER(i32);
-#[repr(C)]
-pub struct PMPRADMINTERMINATEDLL(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PMGM_CREATION_ALERT_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwinifindex: u32, dwinifnexthopaddr: u32, dwifcount: u32, pmieoutiflist: *mut MGM_IF_ENTRY) -> u32;
+pub type PMGM_DISABLE_IGMP_CALLBACK = unsafe extern "system" fn(dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+pub type PMGM_ENABLE_IGMP_CALLBACK = unsafe extern "system" fn(dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMGM_JOIN_ALERT_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, bmemberupdate: super::super::Foundation::BOOL) -> u32;
+pub type PMGM_LOCAL_JOIN_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+pub type PMGM_LOCAL_LEAVE_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMGM_PRUNE_ALERT_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32, bmemberdelete: super::super::Foundation::BOOL, pdwtimeout: *mut u32) -> u32;
+pub type PMGM_RPF_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, pdwinifindex: *mut u32, pdwinifnexthopaddr: *mut u32, pdwupstreamnbr: *mut u32, dwhdrsize: u32, pbpackethdr: *mut u8, pbroute: *mut u8) -> u32;
+pub type PMGM_WRONG_IF_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwgroupaddr: u32, dwifindex: u32, dwifnexthopaddr: u32, dwhdrsize: u32, pbpackethdr: *mut u8) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTNEWCONNECTION = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTNEWCONNECTION2 = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTNEWCONNECTION3 = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTNEWCONNECTIONEX = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTNEWLINK = unsafe extern "system" fn(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTREAUTHENTICATION = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTREAUTHENTICATIONEX = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1);
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION2 = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2);
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION3 = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: RAS_CONNECTION_3);
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX);
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINGETIPADDRESSFORUSER = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut u32, param3: *mut super::super::Foundation::BOOL) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+pub type PMPRADMINGETIPV6ADDRESSFORUSER = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR, param3: *mut super::super::Foundation::BOOL) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINLINKHANGUPNOTIFICATION = unsafe extern "system" fn(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1);
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX = unsafe extern "system" fn(param0: *mut AUTH_VALIDATION_EX) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PMPRADMINRELEASEIPADRESS = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut u32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+pub type PMPRADMINRELEASEIPV6ADDRESSFORUSER = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR);
+pub type PMPRADMINTERMINATEDLL = unsafe extern "system" fn() -> u32;
 #[repr(C)]
 pub struct PPP_ATCP_INFO(i32);
 pub const PPP_CCP_COMPRESSION: u32 = 1u32;
@@ -1146,10 +1137,10 @@ pub struct PROJECTION_INFO(i32);
 #[repr(C)]
 pub struct PROJECTION_INFO2(i32);
 pub const RASADFLG_PositionDlg: u32 = 1u32;
-#[repr(C)]
-pub struct RASADFUNCA(i32);
-#[repr(C)]
-pub struct RASADFUNCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type RASADFUNCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type RASADFUNCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct RASADPARAMS(i32);
@@ -1285,12 +1276,9 @@ pub struct RASDIALDLG(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct RASDIALEXTENSIONS(i32);
-#[repr(C)]
-pub struct RASDIALFUNC(i32);
-#[repr(C)]
-pub struct RASDIALFUNC1(i32);
-#[repr(C)]
-pub struct RASDIALFUNC2(i32);
+pub type RASDIALFUNC = unsafe extern "system" fn(param0: u32, param1: RASCONNSTATE, param2: u32);
+pub type RASDIALFUNC1 = unsafe extern "system" fn(param0: HRASCONN, param1: u32, param2: RASCONNSTATE, param3: u32, param4: u32);
+pub type RASDIALFUNC2 = unsafe extern "system" fn(param0: usize, param1: u32, param2: HRASCONN, param3: u32, param4: RASCONNSTATE, param5: u32, param6: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct RASDIALPARAMSA(i32);
@@ -1465,10 +1453,10 @@ pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct RASPBDLGA(i32);
-#[repr(C)]
-pub struct RASPBDLGFUNCA(i32);
-#[repr(C)]
-pub struct RASPBDLGFUNCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type RASPBDLGFUNCA = unsafe extern "system" fn(param0: usize, param1: u32, param2: super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type RASPBDLGFUNCW = unsafe extern "system" fn(param0: usize, param1: u32, param2: super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct RASPBDLGW(i32);
@@ -1527,8 +1515,7 @@ pub const RASP_PppIpv6: RASPROJECTION = RASPROJECTION(32855i32);
 pub struct RASPROJECTION_INFO_TYPE(pub i32);
 pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = RASPROJECTION_INFO_TYPE(1i32);
 pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = RASPROJECTION_INFO_TYPE(2i32);
-#[repr(C)]
-pub struct RASSECURITYPROC(i32);
+pub type RASSECURITYPROC = unsafe extern "system" fn() -> u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct RASSUBENTRYA(i32);
@@ -1690,8 +1677,7 @@ pub const RTM_DEST_FLAG_NATURAL_NET: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct RTM_DEST_INFO(i32);
-#[repr(C)]
-pub struct RTM_ENTITY_EXPORT_METHOD(i32);
+pub type RTM_ENTITY_EXPORT_METHOD = unsafe extern "system" fn(callerhandle: isize, calleehandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, output: *mut RTM_ENTITY_METHOD_OUTPUT);
 #[repr(C)]
 pub struct RTM_ENTITY_EXPORT_METHODS(i32);
 #[repr(C)]
@@ -1709,8 +1695,7 @@ pub const RTM_ENUM_OWN_DESTS: u32 = 16777216u32;
 pub const RTM_ENUM_OWN_ROUTES: u32 = 65536u32;
 pub const RTM_ENUM_RANGE: u32 = 2u32;
 pub const RTM_ENUM_START: u32 = 0u32;
-#[repr(C)]
-pub struct RTM_EVENT_CALLBACK(i32);
+pub type RTM_EVENT_CALLBACK = unsafe extern "system" fn(rtmreghandle: isize, eventtype: RTM_EVENT_TYPE, context1: *mut ::core::ffi::c_void, context2: *mut ::core::ffi::c_void) -> u32;
 #[repr(transparent)]
 pub struct RTM_EVENT_TYPE(pub i32);
 pub const RTM_ENTITY_REGISTERED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(0i32);
@@ -1775,18 +1760,18 @@ pub const RTM_VIEW_MASK_MCAST: u32 = 2u32;
 pub const RTM_VIEW_MASK_NONE: u32 = 0u32;
 pub const RTM_VIEW_MASK_SIZE: u32 = 32u32;
 pub const RTM_VIEW_MASK_UCAST: u32 = 1u32;
-#[repr(C)]
-pub struct RasCustomDeleteEntryNotifyFn(i32);
-#[repr(C)]
-pub struct RasCustomDialDlgFn(i32);
-#[repr(C)]
-pub struct RasCustomDialFn(i32);
-#[repr(C)]
-pub struct RasCustomEntryDlgFn(i32);
-#[repr(C)]
-pub struct RasCustomHangUpFn(i32);
-#[repr(C)]
-pub struct RasCustomScriptExecuteFn(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type RasCustomDeleteEntryNotifyFn = unsafe extern "system" fn(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, dwflags: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type RasCustomDialDlgFn = unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, dwflags: u32, lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpszphonenumber: super::super::Foundation::PWSTR, lpinfo: *mut RASDIALDLG, pvinfo: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type RasCustomDialFn = unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lprasdialextensions: *mut RASDIALEXTENSIONS, lpszphonebook: super::super::Foundation::PWSTR, lprasdialparams: *mut RASDIALPARAMSA, dwnotifiertype: u32, lpvnotifier: *mut ::core::ffi::c_void, lphrasconn: *mut HRASCONN, dwflags: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type RasCustomEntryDlgFn = unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASENTRYDLGA, dwflags: u32) -> super::super::Foundation::BOOL;
+pub type RasCustomHangUpFn = unsafe extern "system" fn(hrasconn: HRASCONN) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type RasCustomScriptExecuteFn =
+    unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, lpszphonebook: super::super::Foundation::PWSTR, lpszentryname: super::super::Foundation::PWSTR, pfnrasgetbuffer: PFNRASGETBUFFER, pfnrasfreebuffer: PFNRASFREEBUFFER, pfnrassendbuffer: PFNRASSENDBUFFER, pfnrasreceivebuffer: PFNRASRECEIVEBUFFER, pfnrasretrievebuffer: PFNRASRETRIEVEBUFFER, hwnd: super::super::Foundation::HWND, prasdialparams: *mut RASDIALPARAMSA, pvreserved: *mut ::core::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct SECURITY_MESSAGE(i32);

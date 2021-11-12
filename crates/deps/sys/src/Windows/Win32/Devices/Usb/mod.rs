@@ -834,8 +834,7 @@ pub struct USB_HUB_DESCRIPTOR(i32);
 pub struct USB_HUB_STATUS(i32);
 #[repr(C)]
 pub struct USB_HUB_STATUS_AND_CHANGE(i32);
-#[repr(C)]
-pub struct USB_IDLE_CALLBACK(i32);
+pub type USB_IDLE_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
 #[repr(C)]
 pub struct USB_IDLE_CALLBACK_INFO(i32);
 pub const USB_IDLE_NOTIFICATION: u32 = 9u32;

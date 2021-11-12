@@ -564,8 +564,8 @@ pub const UNPROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = O
 pub const UNPROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(268435456u32);
 #[repr(C)]
 pub struct OBJECT_TYPE_LIST(i32);
-#[repr(C)]
-pub struct PLSA_AP_CALL_PACKAGE_UNTRUSTED(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct PRIVILEGE_SET(i32);
@@ -606,8 +606,7 @@ pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONAT
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct SECURITY_QUALITY_OF_SERVICE(i32);
-#[repr(C)]
-pub struct SEC_THREAD_START(i32);
+pub type SEC_THREAD_START = unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct SE_ACCESS_REPLY(i32);

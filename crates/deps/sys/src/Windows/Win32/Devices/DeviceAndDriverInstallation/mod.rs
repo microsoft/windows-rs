@@ -2487,10 +2487,9 @@ pub struct PCCARD_DES(i32);
 pub struct PCCARD_RESOURCE(i32);
 pub const PCD_MAX_IO: u32 = 2u32;
 pub const PCD_MAX_MEMORY: u32 = 2u32;
-#[repr(C)]
-pub struct PCM_NOTIFY_CALLBACK(i32);
-#[repr(C)]
-pub struct PDETECT_PROGRESS_NOTIFY(i32);
+pub type PCM_NOTIFY_CALLBACK = unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const ::core::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: *const CM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PDETECT_PROGRESS_NOTIFY = unsafe extern "system" fn(progressnotifyparam: *const ::core::ffi::c_void, detectcomplete: u32) -> super::super::Foundation::BOOL;
 #[repr(transparent)]
 pub struct PNP_VETO_TYPE(pub i32);
 pub const PNP_VetoTypeUnknown: PNP_VETO_TYPE = PNP_VETO_TYPE(0i32);
@@ -2510,12 +2509,9 @@ pub const PNP_VetoAlreadyRemoved: PNP_VETO_TYPE = PNP_VETO_TYPE(13i32);
 pub const PRIORITY_BIT: u32 = 8u32;
 pub const PRIORITY_EQUAL_FIRST: u32 = 8u32;
 pub const PRIORITY_EQUAL_LAST: u32 = 0u32;
-#[repr(C)]
-pub struct PSP_DETSIG_CMPPROC(i32);
-#[repr(C)]
-pub struct PSP_FILE_CALLBACK_A(i32);
-#[repr(C)]
-pub struct PSP_FILE_CALLBACK_W(i32);
+pub type PSP_DETSIG_CMPPROC = unsafe extern "system" fn(deviceinfoset: *const ::core::ffi::c_void, newdevicedata: *const SP_DEVINFO_DATA, existingdevicedata: *const SP_DEVINFO_DATA, comparecontext: *const ::core::ffi::c_void) -> u32;
+pub type PSP_FILE_CALLBACK_A = unsafe extern "system" fn(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32;
+pub type PSP_FILE_CALLBACK_W = unsafe extern "system" fn(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32;
 pub const ROLLBACK_BITS: u32 = 1u32;
 pub const ROLLBACK_FLAG_NO_UI: u32 = 1u32;
 pub const RegDisposition_Bits: u32 = 1u32;

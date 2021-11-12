@@ -246,12 +246,9 @@ pub struct IWeakReferenceSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWebAuthenticationCoreManagerInterop(pub *mut ::core::ffi::c_void);
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
-#[repr(C)]
-pub struct PINSPECT_HSTRING_CALLBACK(i32);
-#[repr(C)]
-pub struct PINSPECT_HSTRING_CALLBACK2(i32);
-#[repr(C)]
-pub struct PINSPECT_MEMORY_CALLBACK(i32);
+pub type PINSPECT_HSTRING_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
+pub type PINSPECT_HSTRING_CALLBACK2 = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
+pub type PINSPECT_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct ROPARAMIIDHANDLE(i32);
 #[repr(transparent)]

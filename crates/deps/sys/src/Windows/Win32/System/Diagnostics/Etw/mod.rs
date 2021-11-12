@@ -615,16 +615,13 @@ pub const PAYLOADFIELD_DOESNTCONTAIN: PAYLOAD_OPERATOR = PAYLOAD_OPERATOR(21i32)
 pub const PAYLOADFIELD_IS: PAYLOAD_OPERATOR = PAYLOAD_OPERATOR(30i32);
 pub const PAYLOADFIELD_ISNOT: PAYLOAD_OPERATOR = PAYLOAD_OPERATOR(31i32);
 pub const PAYLOADFIELD_INVALID: PAYLOAD_OPERATOR = PAYLOAD_OPERATOR(32i32);
-#[repr(C)]
-pub struct PENABLECALLBACK(i32);
-#[repr(C)]
-pub struct PEVENT_CALLBACK(i32);
-#[repr(C)]
-pub struct PEVENT_RECORD_CALLBACK(i32);
-#[repr(C)]
-pub struct PEVENT_TRACE_BUFFER_CALLBACKA(i32);
-#[repr(C)]
-pub struct PEVENT_TRACE_BUFFER_CALLBACKW(i32);
+pub type PENABLECALLBACK = unsafe extern "system" fn(sourceid: *const ::windows_sys::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void);
+pub type PEVENT_CALLBACK = unsafe extern "system" fn(pevent: *mut EVENT_TRACE);
+pub type PEVENT_RECORD_CALLBACK = unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+pub type PEVENT_TRACE_BUFFER_CALLBACKA = unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEA) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+pub type PEVENT_TRACE_BUFFER_CALLBACKW = unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEW) -> u32;
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456u32;
 pub const PROCESS_TRACE_MODE_RAW_TIMESTAMP: u32 = 4096u32;
 pub const PROCESS_TRACE_MODE_REAL_TIME: u32 = 256u32;
@@ -940,8 +937,7 @@ pub const MaxTraceSetInfoClass: TRACE_QUERY_INFO_CLASS = TRACE_QUERY_INFO_CLASS(
 pub struct TRACE_STACK_CACHING_INFO(i32);
 #[repr(C)]
 pub struct TRACE_VERSION_INFO(i32);
-#[repr(C)]
-pub struct WMIDPREQUEST(i32);
+pub type WMIDPREQUEST = unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const ::core::ffi::c_void, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
 #[repr(transparent)]
 pub struct WMIDPREQUESTCODE(pub i32);
 pub const WMI_GET_ALL_DATA: WMIDPREQUESTCODE = WMIDPREQUESTCODE(0i32);

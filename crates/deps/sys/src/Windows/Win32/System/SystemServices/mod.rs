@@ -102,8 +102,7 @@ pub struct ANON_OBJECT_HEADER_BIGOBJ(i32);
 #[repr(C)]
 pub struct ANON_OBJECT_HEADER_V2(i32);
 pub const ANYSIZE_ARRAY: u32 = 1u32;
-#[repr(C)]
-pub struct APC_CALLBACK_FUNCTION(i32);
+pub type APC_CALLBACK_FUNCTION = unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct APPCOMMAND_ID(pub u32);
 pub const APPCOMMAND_BROWSER_BACKWARD: APPCOMMAND_ID = APPCOMMAND_ID(1u32);
@@ -3237,8 +3236,9 @@ pub const PERFSTATE_POLICY_CHANGE_IDEAL_AGGRESSIVE: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2u32;
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1u32;
-#[repr(C)]
-pub struct PEXCEPTION_FILTER(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+pub type PEXCEPTION_FILTER = unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const ::core::ffi::c_void) -> i32;
 pub const PF_ALPHA_BYTE_INSTRUCTIONS: u32 = 5u32;
 pub const PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: u32 = 19u32;
 pub const PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE: u32 = 43u32;
@@ -3260,13 +3260,14 @@ pub const PF_SSSE3_INSTRUCTIONS_AVAILABLE: u32 = 36u32;
 pub const PF_TEMPORAL_LEVEL_1: u32 = 1u32;
 pub const PF_TEMPORAL_LEVEL_2: u32 = 2u32;
 pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
-#[repr(C)]
-pub struct PIMAGE_TLS_CALLBACK(i32);
+pub type PIMAGE_TLS_CALLBACK = unsafe extern "system" fn(dllhandle: *mut ::core::ffi::c_void, reason: u32, reserved: *mut ::core::ffi::c_void);
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
-#[repr(C)]
-pub struct POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(i32);
-#[repr(C)]
-pub struct POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(i32);
+#[cfg(any(target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32;
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32;
 pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: u32 = 2u32;
 pub const POWERBUTTON_ACTION_INDEX_NOTHING: u32 = 0u32;
 pub const POWERBUTTON_ACTION_INDEX_SHUTDOWN: u32 = 3u32;
@@ -3690,12 +3691,13 @@ pub const PRODUCT_XBOX_GAMEOS: u32 = 194u32;
 pub const PRODUCT_XBOX_NATIVEOS: u32 = 193u32;
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
-#[repr(C)]
-pub struct PTERMINATION_HANDLER(i32);
-#[repr(C)]
-pub struct PTERMINATION_HANDLER(i32);
-#[repr(C)]
-pub struct PUMS_SCHEDULER_ENTRY_POINT(i32);
+#[cfg(any(target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+pub type PTERMINATION_HANDLER = unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64);
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(feature = "Win32_Foundation")]
+pub type PTERMINATION_HANDLER = unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut ::core::ffi::c_void);
+pub type PUMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void);
 pub const PcTeb: u32 = 24u32;
 #[repr(C)]
 pub struct QUOTA_LIMITS_EX(i32);
@@ -4640,8 +4642,7 @@ pub struct VolLockBroadcast(i32);
 pub const WDT_INPROC64_CALL: u32 = 1349805143u32;
 pub const WDT_INPROC_CALL: u32 = 1215587415u32;
 pub const WDT_REMOTE_CALL: u32 = 1383359575u32;
-#[repr(C)]
-pub struct WORKERCALLBACKFUNC(i32);
+pub type WORKERCALLBACKFUNC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
 pub const WRITE_DAC: u32 = 262144u32;
 pub const WRITE_NV_MEMORY_FLAG_FLUSH: u32 = 1u32;
 pub const WRITE_NV_MEMORY_FLAG_NON_TEMPORAL: u32 = 2u32;

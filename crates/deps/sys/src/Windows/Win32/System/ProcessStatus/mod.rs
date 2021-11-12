@@ -66,10 +66,10 @@ pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODUL
 pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(2u32);
 #[repr(C)]
 pub struct MODULEINFO(i32);
-#[repr(C)]
-pub struct PENUM_PAGE_FILE_CALLBACKA(i32);
-#[repr(C)]
-pub struct PENUM_PAGE_FILE_CALLBACKW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PENUM_PAGE_FILE_CALLBACKA = unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PENUM_PAGE_FILE_CALLBACKW = unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
 #[repr(C)]
 pub struct PERFORMANCE_INFORMATION(i32);
 #[repr(C)]

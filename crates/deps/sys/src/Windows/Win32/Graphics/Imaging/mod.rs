@@ -1183,8 +1183,7 @@ pub struct IWICProgressiveLevelControl(pub *mut ::core::ffi::c_void);
 pub struct IWICStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWICStreamProvider(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PFNProgressNotification(i32);
+pub type PFNProgressNotification = unsafe extern "system" fn(pvdata: *const ::core::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows_sys::core::HRESULT;
 #[repr(transparent)]
 pub struct WIC8BIMIptcDigestProperties(pub u32);
 pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(1u32);

@@ -801,8 +801,8 @@ pub struct MSDiscMasterObj(i32);
 pub struct MSDiscRecorderObj(i32);
 #[repr(C)]
 pub struct MSEnumDiscRecordersObj(i32);
-#[repr(C)]
-pub struct MSGCALLRELEASE(i32);
+#[cfg(feature = "Win32_System_AddressBook")]
+pub type MSGCALLRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lpmessage: super::super::System::AddressBook::IMessage);
 #[repr(C)]
 pub struct MsftDiscFormat2Data(i32);
 #[repr(C)]

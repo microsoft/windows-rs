@@ -1478,8 +1478,7 @@ pub struct PHYSICAL_ELEMENT_STATUS(i32);
 pub struct PHYSICAL_ELEMENT_STATUS_DESCRIPTOR(i32);
 #[repr(C)]
 pub struct PHYSICAL_ELEMENT_STATUS_REQUEST(i32);
-#[repr(C)]
-pub struct PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(i32);
+pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = unsafe extern "system" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: i64);
 #[repr(C)]
 pub struct PLEX_READ_DATA_REQUEST(i32);
 #[cfg(feature = "Win32_Foundation")]

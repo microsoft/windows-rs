@@ -309,8 +309,7 @@ pub const EffectivePowerModeHighPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_PO
 pub const EffectivePowerModeMaxPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(4i32);
 pub const EffectivePowerModeGameMode: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(5i32);
 pub const EffectivePowerModeMixedReality: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(6i32);
-#[repr(C)]
-pub struct EFFECTIVE_POWER_MODE_CALLBACK(i32);
+pub type EFFECTIVE_POWER_MODE_CALLBACK = unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::core::ffi::c_void);
 pub const EFFECTIVE_POWER_MODE_V1: u32 = 1u32;
 pub const EFFECTIVE_POWER_MODE_V2: u32 = 2u32;
 #[repr(C)]
@@ -443,8 +442,7 @@ pub const PDCAP_WAKE_FROM_S0_SUPPORTED: u32 = 1048576u32;
 pub const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152u32;
 pub const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304u32;
 pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608u32;
-#[repr(C)]
-pub struct PDEVICE_NOTIFY_CALLBACK_ROUTINE(i32);
+pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = unsafe extern "system" fn(context: *const ::core::ffi::c_void, r#type: u32, setting: *const ::core::ffi::c_void) -> u32;
 #[repr(C)]
 pub struct POWERBROADCAST_SETTING(i32);
 #[repr(transparent)]
@@ -643,10 +641,10 @@ pub struct PROCESSOR_OBJECT_INFO_EX(i32);
 pub struct PROCESSOR_POWER_POLICY(i32);
 #[repr(C)]
 pub struct PROCESSOR_POWER_POLICY_INFO(i32);
-#[repr(C)]
-pub struct PWRSCHEMESENUMPROC(i32);
-#[repr(C)]
-pub struct PWRSCHEMESENUMPROC_V1(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PWRSCHEMESENUMPROC = unsafe extern "system" fn(index: u32, namesize: u32, name: super::super::Foundation::PWSTR, descriptionsize: u32, description: super::super::Foundation::PWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
+#[cfg(feature = "Win32_Foundation")]
+pub type PWRSCHEMESENUMPROC_V1 = unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
 #[repr(C)]
 pub struct SET_POWER_SETTING_VALUE(i32);
 #[cfg(feature = "Win32_Foundation")]

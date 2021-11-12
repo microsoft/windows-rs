@@ -91,10 +91,9 @@ pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = DXC_OUT_KIND(-1i32);
 pub struct DxcArgPair(i32);
 #[repr(C)]
 pub struct DxcBuffer(i32);
-#[repr(C)]
-pub struct DxcCreateInstance2Proc(i32);
-#[repr(C)]
-pub struct DxcCreateInstanceProc(i32);
+#[cfg(feature = "Win32_System_Com")]
+pub type DxcCreateInstance2Proc = unsafe extern "system" fn(pmalloc: super::super::super::System::Com::IMalloc, rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type DxcCreateInstanceProc = unsafe extern "system" fn(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct DxcDefine(i32);

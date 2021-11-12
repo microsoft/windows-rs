@@ -431,10 +431,10 @@ pub struct GamutShellTriangle(i32);
 pub struct HCOLORSPACE(i32);
 #[repr(C)]
 pub struct HiFiCOLOR(i32);
-#[repr(C)]
-pub struct ICMENUMPROCA(i32);
-#[repr(C)]
-pub struct ICMENUMPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type ICMENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type ICMENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> i32;
 #[repr(transparent)]
 pub struct ICM_COMMAND(pub u32);
 pub const ICM_ADDPROFILE: ICM_COMMAND = ICM_COMMAND(1u32);
@@ -463,8 +463,8 @@ pub struct LOGCOLORSPACEA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[repr(C)]
 pub struct LOGCOLORSPACEW(i32);
-#[repr(C)]
-pub struct LPBMCALLBACKFN(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPBMCALLBACKFN = unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[repr(C)]
 pub struct LabCOLOR(i32);
 pub const MAX_COLOR_CHANNELS: u32 = 8u32;
@@ -473,10 +473,10 @@ pub struct NAMEDCOLOR(i32);
 #[repr(C)]
 pub struct NAMED_PROFILE_INFO(i32);
 pub const NORMAL_MODE: u32 = 2u32;
-#[repr(C)]
-pub struct PCMSCALLBACKA(i32);
-#[repr(C)]
-pub struct PCMSCALLBACKW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type PCMSCALLBACKA = unsafe extern "system" fn(param0: *mut COLORMATCHSETUPA, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type PCMSCALLBACKW = unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 pub const PRESERVEBLACK: u32 = 1048576u32;
 #[repr(C)]
 pub struct PROFILE(i32);

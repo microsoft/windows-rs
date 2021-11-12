@@ -1318,18 +1318,18 @@ pub const ItemContainer_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys:
 pub const ItemStatus_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1373504289, data2: 14707, data3: 17383, data4: [137, 19, 11, 8, 232, 19, 195, 127] };
 pub const ItemType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3453633357, data2: 25122, data3: 16699, data4: [166, 138, 50, 93, 209, 212, 15, 57] };
 pub const LIBID_Accessibility: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 514120688, data2: 15419, data3: 4559, data4: [129, 12, 0, 170, 0, 56, 155, 113] };
-#[repr(C)]
-pub struct LPFNACCESSIBLECHILDREN(i32);
-#[repr(C)]
-pub struct LPFNACCESSIBLEOBJECTFROMPOINT(i32);
-#[repr(C)]
-pub struct LPFNACCESSIBLEOBJECTFROMWINDOW(i32);
-#[repr(C)]
-pub struct LPFNCREATESTDACCESSIBLEOBJECT(i32);
-#[repr(C)]
-pub struct LPFNLRESULTFROMOBJECT(i32);
-#[repr(C)]
-pub struct LPFNOBJECTFROMLRESULT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub type LPFNACCESSIBLECHILDREN = unsafe extern "system" fn(pacccontainer: IAccessible, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Com::VARIANT, pcobtained: *mut i32) -> ::windows_sys::core::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub type LPFNACCESSIBLEOBJECTFROMPOINT = unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut IAccessible, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNACCESSIBLEOBJECTFROMWINDOW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNCREATESTDACCESSIBLEOBJECT = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNLRESULTFROMOBJECT = unsafe extern "system" fn(riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, punk: ::windows_sys::core::IUnknown) -> super::super::Foundation::LRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNOBJECTFROMLRESULT = unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub const LabeledBy_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3854078539,
     data2: 64650,
@@ -2906,8 +2906,8 @@ pub struct UiaChangesEventArgs(i32);
 pub struct UiaCondition(i32);
 #[repr(C)]
 pub struct UiaEventArgs(i32);
-#[repr(C)]
-pub struct UiaEventCallback(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub type UiaEventCallback = unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: super::super::Foundation::BSTR);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct UiaFindParams(i32);
@@ -2921,8 +2921,8 @@ pub struct UiaPropertyChangedEventArgs(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[repr(C)]
 pub struct UiaPropertyCondition(i32);
-#[repr(C)]
-pub struct UiaProviderCallback(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub type UiaProviderCallback = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY;
 #[repr(C)]
 pub struct UiaRect(i32);
 pub const UiaRootObjectId: i32 = -25i32;
@@ -2961,8 +2961,8 @@ pub const VisualEffects_Property_GUID: ::windows_sys::core::GUID = ::windows_sys
     data3: 18135,
     data4: [158, 112, 78, 138, 132, 32, 212, 32],
 };
-#[repr(C)]
-pub struct WINEVENTPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type WINEVENTPROC = unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32);
 #[repr(transparent)]
 pub struct WindowInteractionState(pub i32);
 pub const WindowInteractionState_Running: WindowInteractionState = WindowInteractionState(0i32);

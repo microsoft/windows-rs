@@ -251,22 +251,22 @@ pub const FR_WRAPAROUND: u32 = 1048576u32;
 pub struct IPrintDialogCallback(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPrintDialogServices(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LPCCHOOKPROC(i32);
-#[repr(C)]
-pub struct LPCFHOOKPROC(i32);
-#[repr(C)]
-pub struct LPFRHOOKPROC(i32);
-#[repr(C)]
-pub struct LPOFNHOOKPROC(i32);
-#[repr(C)]
-pub struct LPPAGEPAINTHOOK(i32);
-#[repr(C)]
-pub struct LPPAGESETUPHOOK(i32);
-#[repr(C)]
-pub struct LPPRINTHOOKPROC(i32);
-#[repr(C)]
-pub struct LPSETUPHOOKPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPCCHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPCFHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFRHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPOFNHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPPAGEPAINTHOOK = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPPAGESETUPHOOK = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPPRINTHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPSETUPHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
 pub const NUM_BASIC_COLORS: u32 = 48u32;
 pub const NUM_CUSTOM_COLORS: u32 = 16u32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]

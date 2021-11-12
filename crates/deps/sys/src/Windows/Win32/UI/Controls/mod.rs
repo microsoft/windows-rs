@@ -749,8 +749,8 @@ pub const DTS_UPDOWN: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[repr(C)]
 pub struct DTTOPTS(i32);
-#[repr(C)]
-pub struct DTT_CALLBACK_PROC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub type DTT_CALLBACK_PROC = unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: super::super::Foundation::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32;
 pub const DTT_FLAGS2VALIDBITS: u32 = 1u32;
 pub const DTT_GRAYED: u32 = 1u32;
 pub const ECM_FIRST: u32 = 5376u32;
@@ -776,10 +776,10 @@ pub const TTI_WARNING: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(2u32);
 pub const TTI_INFO_LARGE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(4u32);
 pub const TTI_WARNING_LARGE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(5u32);
 pub const TTI_ERROR_LARGE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(6u32);
-#[repr(C)]
-pub struct EDITWORDBREAKPROCA(i32);
-#[repr(C)]
-pub struct EDITWORDBREAKPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type EDITWORDBREAKPROCA = unsafe extern "system" fn(lpch: super::super::Foundation::PSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type EDITWORDBREAKPROCW = unsafe extern "system" fn(lpch: super::super::Foundation::PWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32;
 #[repr(transparent)]
 pub struct EMPTYMARKUPPARTS(pub i32);
 pub const EMP_MARKUPTEXT: EMPTYMARKUPPARTS = EMPTYMARKUPPARTS(1i32);
@@ -1275,26 +1275,26 @@ pub struct LOGOFFBUTTONSSTATES(pub i32);
 pub const SPLS_NORMAL: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(1i32);
 pub const SPLS_HOT: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(2i32);
 pub const SPLS_PRESSED: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(3i32);
-#[repr(C)]
-pub struct LPFNADDPROPSHEETPAGES(i32);
-#[repr(C)]
-pub struct LPFNCCINFOA(i32);
-#[repr(C)]
-pub struct LPFNCCINFOW(i32);
-#[repr(C)]
-pub struct LPFNCCSIZETOTEXTA(i32);
-#[repr(C)]
-pub struct LPFNCCSIZETOTEXTW(i32);
-#[repr(C)]
-pub struct LPFNCCSTYLEA(i32);
-#[repr(C)]
-pub struct LPFNCCSTYLEW(i32);
-#[repr(C)]
-pub struct LPFNPSPCALLBACKA(i32);
-#[repr(C)]
-pub struct LPFNPSPCALLBACKW(i32);
-#[repr(C)]
-pub struct LPFNSVADDPROPSHEETPAGE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNADDPROPSHEETPAGES = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: LPFNSVADDPROPSHEETPAGE, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub type LPFNCCINFOA = unsafe extern "system" fn(acci: *mut CCINFOA) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub type LPFNCCINFOW = unsafe extern "system" fn(acci: *mut CCINFOW) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub type LPFNCCSIZETOTEXTA = unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: super::super::Foundation::PSTR) -> i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub type LPFNCCSIZETOTEXTW = unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: super::super::Foundation::PWSTR) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNCCSTYLEA = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEA) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNCCSTYLEW = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEW) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type LPFNPSPCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEA) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type LPFNPSPCALLBACKW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEW) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNSVADDPROPSHEETPAGE = unsafe extern "system" fn(param0: HPROPSHEETPAGE, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 pub const LVA_ALIGNLEFT: u32 = 1u32;
 pub const LVA_ALIGNTOP: u32 = 2u32;
 pub const LVA_DEFAULT: u32 = 0u32;
@@ -2304,30 +2304,27 @@ pub const PBS_MARQUEE: u32 = 8u32;
 pub const PBS_SMOOTH: u32 = 1u32;
 pub const PBS_SMOOTHREVERSE: u32 = 16u32;
 pub const PBS_VERTICAL: u32 = 4u32;
-#[repr(C)]
-pub struct PFNDACOMPARE(i32);
-#[repr(C)]
-pub struct PFNDACOMPARECONST(i32);
-#[repr(C)]
-pub struct PFNDAENUMCALLBACK(i32);
-#[repr(C)]
-pub struct PFNDAENUMCALLBACKCONST(i32);
-#[repr(C)]
-pub struct PFNDPAMERGE(i32);
-#[repr(C)]
-pub struct PFNDPAMERGECONST(i32);
-#[repr(C)]
-pub struct PFNDPASTREAM(i32);
-#[repr(C)]
-pub struct PFNLVCOMPARE(i32);
-#[repr(C)]
-pub struct PFNLVGROUPCOMPARE(i32);
-#[repr(C)]
-pub struct PFNPROPSHEETCALLBACK(i32);
-#[repr(C)]
-pub struct PFNTVCOMPARE(i32);
-#[repr(C)]
-pub struct PFTASKDIALOGCALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNDACOMPARE = unsafe extern "system" fn(p1: *const ::core::ffi::c_void, p2: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNDACOMPARECONST = unsafe extern "system" fn(p1: *const ::core::ffi::c_void, p2: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32;
+pub type PFNDAENUMCALLBACK = unsafe extern "system" fn(p: *const ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> i32;
+pub type PFNDAENUMCALLBACKCONST = unsafe extern "system" fn(p: *const ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNDPAMERGE = unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::core::ffi::c_void, pvsrc: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::core::ffi::c_void;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNDPAMERGECONST = unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::core::ffi::c_void, pvsrc: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::core::ffi::c_void;
+#[cfg(feature = "Win32_System_Com")]
+pub type PFNDPASTREAM = unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: super::super::System::Com::IStream, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNLVCOMPARE = unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32;
+pub type PFNLVGROUPCOMPARE = unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut ::core::ffi::c_void) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNPROPSHEETCALLBACK = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::LPARAM) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNTVCOMPARE = unsafe extern "system" fn(lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM, lparamsort: super::super::Foundation::LPARAM) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFTASKDIALOGCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> ::windows_sys::core::HRESULT;
 pub const PGB_BOTTOMORRIGHT: u32 = 1u32;
 pub const PGB_TOPORLEFT: u32 = 0u32;
 pub const PGF_DEPRESSED: u32 = 4u32;

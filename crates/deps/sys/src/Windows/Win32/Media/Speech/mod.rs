@@ -890,8 +890,8 @@ pub const SubsequenceContentRequired: SPMATCHINGMODE = SPMATCHINGMODE(5i32);
 pub const OrderedSubsetContentRequired: SPMATCHINGMODE = SPMATCHINGMODE(7i32);
 #[repr(C)]
 pub struct SPNORMALIZATIONLIST(i32);
-#[repr(C)]
-pub struct SPNOTIFYCALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type SPNOTIFYCALLBACK = unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM);
 #[repr(transparent)]
 pub struct SPPARTOFSPEECH(pub i32);
 pub const SPPS_NotOverriden: SPPARTOFSPEECH = SPPARTOFSPEECH(-1i32);

@@ -491,8 +491,7 @@ pub const ALINF_QUIET: u32 = 4u32;
 pub const ALINF_ROLLBACK: u32 = 64u32;
 pub const ALINF_ROLLBKDOALL: u32 = 256u32;
 pub const ALINF_UPDHLPDLLS: u32 = 16u32;
-#[repr(C)]
-pub struct APPLICATION_RECOVERY_CALLBACK(i32);
+pub type APPLICATION_RECOVERY_CALLBACK = unsafe extern "system" fn(pvparameter: *mut ::core::ffi::c_void) -> u32;
 pub const ARSR_NOMESSAGES: u32 = 8u32;
 pub const ARSR_REGSECTION: u32 = 128u32;
 pub const ARSR_REMOVREGBKDATA: u32 = 4096u32;
@@ -761,8 +760,7 @@ pub const EFS_DROP_ALTERNATE_STREAMS: u32 = 16u32;
 pub const EFS_USE_RECOVERY_KEYS: u32 = 1u32;
 pub const ENTITY_LIST_ID: u32 = 0u32;
 pub const ENTITY_TYPE_ID: u32 = 1u32;
-#[repr(C)]
-pub struct ENUM_CALLBACK(i32);
+pub type ENUM_CALLBACK = unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut ::core::ffi::c_void);
 pub const ER_ICMP: u32 = 896u32;
 pub const EVENPARITY: u32 = 2u32;
 pub const EVENTLOG_FULL_INFO: u32 = 0u32;
@@ -1068,22 +1066,20 @@ pub const ONE5STOPBITS: u32 = 1u32;
 pub const ONESTOPBIT: u32 = 0u32;
 pub const OPERATION_API_VERSION: u32 = 1u32;
 pub const OVERWRITE_HIDDEN: u32 = 4u32;
-#[repr(C)]
-pub struct PDELAYLOAD_FAILURE_DLL_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *const DELAYLOAD_INFO) -> *mut ::core::ffi::c_void;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct PERUSERSECTIONA(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct PERUSERSECTIONW(i32);
-#[repr(C)]
-pub struct PFEATURE_STATE_CHANGE_CALLBACK(i32);
-#[repr(C)]
-pub struct PFIBER_CALLOUT_ROUTINE(i32);
-#[repr(C)]
-pub struct PIO_APC_ROUTINE(i32);
-#[repr(C)]
-pub struct PQUERYACTCTXW_FUNC(i32);
+pub type PFEATURE_STATE_CHANGE_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+pub type PFIBER_CALLOUT_ROUTINE = unsafe extern "system" fn(lpparameter: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+#[cfg(feature = "Win32_Foundation")]
+pub type PIO_APC_ROUTINE = unsafe extern "system" fn(apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PQUERYACTCTXW_FUNC = unsafe extern "system" fn(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const ::core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL;
 pub const PROCESS_CREATION_ALL_APPLICATION_PACKAGES_OPT_OUT: u32 = 1u32;
 pub const PROCESS_CREATION_CHILD_PROCESS_OVERRIDE: u32 = 2u32;
 pub const PROCESS_CREATION_CHILD_PROCESS_RESTRICTED: u32 = 1u32;
@@ -1130,43 +1126,38 @@ pub struct PUBLIC_OBJECT_BASIC_INFORMATION(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct PUBLIC_OBJECT_TYPE_INFORMATION(i32);
-#[repr(C)]
-pub struct PWINSTATIONQUERYINFORMATIONW(i32);
-#[repr(C)]
-pub struct PWLDP_ISAPPAPPROVEDBYPOLICY_API(i32);
-#[repr(C)]
-pub struct PWLDP_ISDYNAMICCODEPOLICYENABLED_API(i32);
-#[repr(C)]
-pub struct PWLDP_ISPRODUCTIONCONFIGURATION_API(i32);
-#[repr(C)]
-pub struct PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API(i32);
-#[repr(C)]
-pub struct PWLDP_QUERYDEVICESECURITYINFORMATION_API(i32);
-#[repr(C)]
-pub struct PWLDP_QUERYDYNAMICODETRUST_API(i32);
-#[repr(C)]
-pub struct PWLDP_QUERYPOLICYSETTINGENABLED2_API(i32);
-#[repr(C)]
-pub struct PWLDP_QUERYPOLICYSETTINGENABLED_API(i32);
-#[repr(C)]
-pub struct PWLDP_QUERYWINDOWSLOCKDOWNMODE_API(i32);
-#[repr(C)]
-pub struct PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API(i32);
-#[repr(C)]
-pub struct PWLDP_RESETPRODUCTIONCONFIGURATION_API(i32);
-#[repr(C)]
-pub struct PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API(i32);
-#[repr(C)]
-pub struct PWLDP_SETDYNAMICCODETRUST_API(i32);
-#[repr(C)]
-pub struct PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PWINSTATIONQUERYINFORMATIONW = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut ::core::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN;
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = unsafe extern "system" fn(packagefamilyname: super::super::Foundation::PWSTR, packageversion: u64) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = unsafe extern "system" fn(pbenabled: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_QUERYDEVICESECURITYINFORMATION_API = unsafe extern "system" fn(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_QUERYDYNAMICODETRUST_API = unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, baseimage: *const ::core::ffi::c_void, imagesize: u32) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_QUERYPOLICYSETTINGENABLED2_API = unsafe extern "system" fn(setting: super::super::Foundation::PWSTR, enabled: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_QUERYPOLICYSETTINGENABLED_API = unsafe extern "system" fn(setting: WLDP_POLICY_SETTING, enabled: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+pub type PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = unsafe extern "system" fn(lockdownmode: *mut WLDP_WINDOWS_LOCKDOWN_MODE) -> ::windows_sys::core::HRESULT;
+pub type PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API = unsafe extern "system" fn(lockdownrestriction: *mut WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> ::windows_sys::core::HRESULT;
+pub type PWLDP_RESETPRODUCTIONCONFIGURATION_API = unsafe extern "system" fn() -> ::windows_sys::core::HRESULT;
+pub type PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = unsafe extern "system" fn() -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_SETDYNAMICCODETRUST_API = unsafe extern "system" fn(hfilehandle: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+pub type PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = unsafe extern "system" fn(lockdownrestriction: WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> ::windows_sys::core::HRESULT;
 pub const QUERY_ACTCTX_FLAG_ACTCTX_IS_ADDRESS: u32 = 16u32;
 pub const QUERY_ACTCTX_FLAG_ACTCTX_IS_HMODULE: u32 = 8u32;
 pub const QUERY_ACTCTX_FLAG_NO_ADDREF: u32 = 2147483648u32;
 pub const QUERY_ACTCTX_FLAG_USE_ACTIVE_ACTCTX: u32 = 4u32;
 pub const RECOVERY_DEFAULT_PING_INTERVAL: u32 = 5000u32;
-#[repr(C)]
-pub struct REGINSTALLA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type REGINSTALLA = unsafe extern "system" fn(hm: super::super::Foundation::HINSTANCE, pszsection: super::super::Foundation::PSTR, psttable: *mut STRTABLEA) -> ::windows_sys::core::HRESULT;
 pub const REMOTE_PROTOCOL_INFO_FLAG_LOOPBACK: u32 = 1u32;
 pub const REMOTE_PROTOCOL_INFO_FLAG_OFFLINE: u32 = 2u32;
 pub const REMOTE_PROTOCOL_INFO_FLAG_PERSISTENT_HANDLE: u32 = 4u32;
@@ -1348,8 +1339,8 @@ pub struct WINSTATIONINFOCLASS(pub i32);
 pub const WinStationInformation: WINSTATIONINFOCLASS = WINSTATIONINFOCLASS(8i32);
 #[repr(C)]
 pub struct WINSTATIONINFORMATIONW(i32);
-#[repr(C)]
-pub struct WINWATCHNOTIFYPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type WINWATCHNOTIFYPROC = unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM);
 pub const WINWATCHNOTIFY_CHANGED: u32 = 4u32;
 pub const WINWATCHNOTIFY_CHANGING: u32 = 3u32;
 pub const WINWATCHNOTIFY_DESTROY: u32 = 2u32;

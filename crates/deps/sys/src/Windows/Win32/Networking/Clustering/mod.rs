@@ -2399,14 +2399,10 @@ pub const LOG_INFORMATION: LOG_LEVEL = LOG_LEVEL(0i32);
 pub const LOG_WARNING: LOG_LEVEL = LOG_LEVEL(1i32);
 pub const LOG_ERROR: LOG_LEVEL = LOG_LEVEL(2i32);
 pub const LOG_SEVERE: LOG_LEVEL = LOG_LEVEL(3i32);
-#[repr(C)]
-pub struct LPGROUP_CALLBACK_EX(i32);
-#[repr(C)]
-pub struct LPNODE_CALLBACK(i32);
-#[repr(C)]
-pub struct LPRESOURCE_CALLBACK(i32);
-#[repr(C)]
-pub struct LPRESOURCE_CALLBACK_EX(i32);
+pub type LPGROUP_CALLBACK_EX = unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HGROUP, param2: *mut _HGROUP, param3: *mut ::core::ffi::c_void) -> u32;
+pub type LPNODE_CALLBACK = unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HNODE, param2: CLUSTER_NODE_STATE, param3: *mut ::core::ffi::c_void) -> u32;
+pub type LPRESOURCE_CALLBACK = unsafe extern "system" fn(param0: *mut _HRESOURCE, param1: *mut _HRESOURCE, param2: *mut ::core::ffi::c_void) -> u32;
+pub type LPRESOURCE_CALLBACK_EX = unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HRESOURCE, param2: *mut _HRESOURCE, param3: *mut ::core::ffi::c_void) -> u32;
 #[repr(transparent)]
 pub struct MAINTENANCE_MODE_TYPE_ENUM(pub i32);
 pub const MaintenanceModeTypeDisableIsAliveCheck: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(1i32);
@@ -2448,466 +2444,368 @@ pub const NT8_MAJOR_VERSION: u32 = 7u32;
 pub const NT9_MAJOR_VERSION: u32 = 8u32;
 #[repr(C)]
 pub struct NodeUtilizationInfoElement(i32);
-#[repr(C)]
-pub struct PARBITRATE_ROUTINE(i32);
-#[repr(C)]
-pub struct PBEGIN_RESCALL_AS_USER_ROUTINE(i32);
-#[repr(C)]
-pub struct PBEGIN_RESCALL_ROUTINE(i32);
-#[repr(C)]
-pub struct PBEGIN_RESTYPECALL_AS_USER_ROUTINE(i32);
-#[repr(C)]
-pub struct PBEGIN_RESTYPECALL_ROUTINE(i32);
-#[repr(C)]
-pub struct PCANCEL_ROUTINE(i32);
-#[repr(C)]
-pub struct PCHANGE_RESOURCE_PROCESS_FOR_DUMPS(i32);
-#[repr(C)]
-pub struct PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS(i32);
-#[repr(C)]
-pub struct PCLOSE_CLUSTER_CRYPT_PROVIDER(i32);
-#[repr(C)]
-pub struct PCLOSE_ROUTINE(i32);
-#[repr(C)]
-pub struct PCLUSAPIClusWorkerCheckTerminate(i32);
-#[repr(C)]
-pub struct PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_ADD_CLUSTER_NODE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_ADD_CLUSTER_NODE_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES(i32);
-#[repr(C)]
-pub struct PCLUSAPI_BACKUP_CLUSTER_DATABASE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CAN_RESOURCE_BE_DEPENDENT(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLOSE_CLUSTER(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLOSE_CLUSTER_GROUP(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLOSE_CLUSTER_GROUP_GROUPSET(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLOSE_CLUSTER_NETWORK(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLOSE_CLUSTER_NET_INTERFACE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLOSE_CLUSTER_NODE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLOSE_CLUSTER_NOTIFY_PORT(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLOSE_CLUSTER_RESOURCE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_CLOSE_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_CLOSE_ENUM_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_CONTROL(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_ENUM_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_GET_ENUM_COUNT(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_GET_ENUM_COUNT_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_GROUP_CONTROL(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_GROUP_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_GROUP_ENUM_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NETWORK_CONTROL(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NETWORK_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NODE_CONTROL(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NODE_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NODE_ENUM_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NODE_OPEN_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_OPEN_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_OPEN_ENUM_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_CLOSE_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_CREATE_BATCH(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_CREATE_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_DELETE_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_DELETE_VALUE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_ENUM_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_ENUM_VALUE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_OPEN_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_QUERY_VALUE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_SET_VALUE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REG_SYNC_DATABASE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUP_GROUPSET(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_CONTROL(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_ENUM_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUSTER_UPGRADE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUS_WORKER_CREATE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CLUS_WORKER_TERMINATE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CREATE_CLUSTER(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CREATE_CLUSTER_AVAILABILITY_SET(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CREATE_CLUSTER_CNOLESS(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CREATE_CLUSTER_GROUP(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CREATE_CLUSTER_GROUPEX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CREATE_CLUSTER_GROUP_GROUPSET(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CREATE_CLUSTER_NAME_ACCOUNT(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CREATE_CLUSTER_RESOURCE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_DELETE_CLUSTER_GROUP(i32);
-#[repr(C)]
-pub struct PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET(i32);
-#[repr(C)]
-pub struct PCLUSAPI_DELETE_CLUSTER_RESOURCE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_DESTROY_CLUSTER(i32);
-#[repr(C)]
-pub struct PCLUSAPI_DESTROY_CLUSTER_GROUP(i32);
-#[repr(C)]
-pub struct PCLUSAPI_EVICT_CLUSTER_NODE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_EVICT_CLUSTER_NODE_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_FAIL_CLUSTER_RESOURCE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_FROM_GROUP(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_FROM_GROUP_GROUPSET(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_FROM_NETWORK(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_FROM_NODE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_FROM_RESOURCE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_GROUP_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_GROUP_STATE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_INFORMATION(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_NETWORK_ID(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_NETWORK_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_NETWORK_STATE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_NET_INTERFACE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_NODE_ID(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_NODE_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_NODE_STATE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_NOTIFY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_NOTIFY_V2(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_RESOURCE_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_RESOURCE_STATE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_NODE_CLUSTER_STATE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2(i32);
-#[repr(C)]
-pub struct PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME(i32);
-#[repr(C)]
-pub struct PCLUSAPI_MOVE_CLUSTER_GROUP(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OFFLINE_CLUSTER_GROUP(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OFFLINE_CLUSTER_RESOURCE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_ONLINE_CLUSTER_GROUP(i32);
-#[repr(C)]
-pub struct PCLUSAPI_ONLINE_CLUSTER_RESOURCE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER_GROUP(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER_GROUP_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER_GROUP_GROUPSET(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER_NETWORK(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER_NETWORK_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER_NET_INTERFACE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER_NODE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER_NODE_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER_RESOURCE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_CLUSTER_RESOURCE_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_OPEN_NODE_BY_ID(i32);
-#[repr(C)]
-pub struct PCLUSAPI_PAUSE_CLUSTER_NODE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_PAUSE_CLUSTER_NODE_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_REGISTER_CLUSTER_NOTIFY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2(i32);
-#[repr(C)]
-pub struct PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT(i32);
-#[repr(C)]
-pub struct PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY(i32);
-#[repr(C)]
-pub struct PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES(i32);
-#[repr(C)]
-pub struct PCLUSAPI_RESTART_CLUSTER_RESOURCE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_RESTORE_CLUSTER_DATABASE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_RESUME_CLUSTER_NODE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_RESUME_CLUSTER_NODE_EX(i32);
-#[repr(C)]
-pub struct PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION(i32);
-#[repr(C)]
-pub struct PCLUSAPI_SET_CLUSTER_GROUP_NAME(i32);
-#[repr(C)]
-pub struct PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST(i32);
-#[repr(C)]
-pub struct PCLUSAPI_SET_CLUSTER_NETWORK_NAME(i32);
-#[repr(C)]
-pub struct PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER(i32);
-#[repr(C)]
-pub struct PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION(i32);
-#[repr(C)]
-pub struct PCLUSAPI_SET_CLUSTER_RESOURCE_NAME(i32);
-#[repr(C)]
-pub struct PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD(i32);
-#[repr(C)]
-pub struct PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION(i32);
-#[repr(C)]
-pub struct PCLUSAPI_SHARED_VOLUME_SET_SNAPSHOT_STATE(i32);
-#[repr(C)]
-pub struct PCLUSAPI_SetClusterName(i32);
-#[repr(C)]
-pub struct PCLUSTER_CLEAR_BACKUP_STATE_FOR_SHARED_VOLUME(i32);
-#[repr(C)]
-pub struct PCLUSTER_DECRYPT(i32);
-#[repr(C)]
-pub struct PCLUSTER_ENCRYPT(i32);
-#[repr(C)]
-pub struct PCLUSTER_GET_VOLUME_NAME_FOR_VOLUME_MOUNT_POINT(i32);
-#[repr(C)]
-pub struct PCLUSTER_GET_VOLUME_PATH_NAME(i32);
-#[repr(C)]
-pub struct PCLUSTER_IS_PATH_ON_SHARED_VOLUME(i32);
-#[repr(C)]
-pub struct PCLUSTER_PREPARE_SHARED_VOLUME_FOR_BACKUP(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_BATCH_ADD_COMMAND(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_BATCH_CLOSE_NOTIFICATION(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_BATCH_READ_COMMAND(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_CLOSE_BATCH(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_CLOSE_READ_BATCH(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_CLOSE_READ_BATCH_EX(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_CLOSE_READ_BATCH_REPLY(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_CREATE_READ_BATCH(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_GET_BATCH_NOTIFICATION(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_READ_BATCH_ADD_COMMAND(i32);
-#[repr(C)]
-pub struct PCLUSTER_REG_READ_BATCH_REPLY_NEXT_COMMAND(i32);
-#[repr(C)]
-pub struct PCLUSTER_SETUP_PROGRESS_CALLBACK(i32);
-#[repr(C)]
-pub struct PCLUSTER_SET_ACCOUNT_ACCESS(i32);
-#[repr(C)]
-pub struct PCLUSTER_UPGRADE_PROGRESS_CALLBACK(i32);
-#[repr(C)]
-pub struct PEND_CONTROL_CALL(i32);
-#[repr(C)]
-pub struct PEND_TYPE_CONTROL_CALL(i32);
-#[repr(C)]
-pub struct PEXTEND_RES_CONTROL_CALL(i32);
-#[repr(C)]
-pub struct PEXTEND_RES_TYPE_CONTROL_CALL(i32);
-#[repr(C)]
-pub struct PFREE_CLUSTER_CRYPT(i32);
-#[repr(C)]
-pub struct PIS_ALIVE_ROUTINE(i32);
+pub type PARBITRATE_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void, lostquorumresource: PQUORUM_RESOURCE_LOST) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PBEGIN_RESCALL_AS_USER_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void, tokenhandle: super::super::Foundation::HANDLE, controlcode: u32, inbuffer: *mut ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PBEGIN_RESCALL_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void, controlcode: u32, inbuffer: *mut ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PBEGIN_RESTYPECALL_AS_USER_ROUTINE = unsafe extern "system" fn(resourcetypename: super::super::Foundation::PWSTR, tokenhandle: super::super::Foundation::HANDLE, controlcode: u32, inbuffer: *mut ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PBEGIN_RESTYPECALL_ROUTINE = unsafe extern "system" fn(resourcetypename: super::super::Foundation::PWSTR, controlcode: u32, inbuffer: *mut ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32;
+pub type PCANCEL_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void, cancelflags_reserved: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCHANGE_RESOURCE_PROCESS_FOR_DUMPS = unsafe extern "system" fn(resource: isize, processname: super::super::Foundation::PWSTR, processid: u32, isadd: super::super::Foundation::BOOL) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS = unsafe extern "system" fn(resourcetypename: super::super::Foundation::PWSTR, processname: super::super::Foundation::PWSTR, processid: u32, isadd: super::super::Foundation::BOOL) -> u32;
+pub type PCLOSE_CLUSTER_CRYPT_PROVIDER = unsafe extern "system" fn(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER) -> u32;
+pub type PCLOSE_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPIClusWorkerCheckTerminate = unsafe extern "system" fn(lpworker: *mut CLUS_WORKER) -> super::super::Foundation::BOOL;
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY = unsafe extern "system" fn(hdependentgroup: *const _HGROUP, hprovidergroup: *const _HGROUP) -> u32;
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY = unsafe extern "system" fn(hdependentgroupset: *const _HGROUPSET, hprovidergroupset: *const _HGROUPSET) -> u32;
+pub type PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = unsafe extern "system" fn(hdependentgroup: *const _HGROUP, hprovidergroupset: *const _HGROUPSET) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_ADD_CLUSTER_NODE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HNODE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_ADD_CLUSTER_NODE_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, dwflags: u32, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HNODE;
+pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hdependson: *mut _HRESOURCE) -> u32;
+pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hnode: *mut _HNODE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY = unsafe extern "system" fn(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: super::super::Foundation::PWSTR, lpremotegroupsetname: super::super::Foundation::PWSTR) -> u32;
+pub type PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES = unsafe extern "system" fn(hresource: *const _HRESOURCE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_BACKUP_CLUSTER_DATABASE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszpathname: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CAN_RESOURCE_BE_DEPENDENT = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hresourcedependent: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
+pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hgroup: *mut _HGROUP) -> u32;
+pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hgroup: *mut _HGROUP, flags: u64) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLOSE_CLUSTER = unsafe extern "system" fn(hcluster: *const _HCLUSTER) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLOSE_CLUSTER_GROUP = unsafe extern "system" fn(hgroup: *const _HGROUP) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLOSE_CLUSTER_GROUP_GROUPSET = unsafe extern "system" fn(hgroupset: *const _HGROUPSET) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLOSE_CLUSTER_NETWORK = unsafe extern "system" fn(hnetwork: *const _HNETWORK) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLOSE_CLUSTER_NET_INTERFACE = unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLOSE_CLUSTER_NODE = unsafe extern "system" fn(hnode: *const _HNODE) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLOSE_CLUSTER_NOTIFY_PORT = unsafe extern "system" fn(hchange: *const _HCHANGE) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLOSE_CLUSTER_RESOURCE = unsafe extern "system" fn(hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR, hgroup: *const _HGROUP) -> u32;
+pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET = unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hgroup: *const _HGROUP) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL = unsafe extern "system" fn(hcluster: *const _HCLUSTER, affinityrulename: super::super::Foundation::PWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+pub type PCLUSAPI_CLUSTER_CLOSE_ENUM = unsafe extern "system" fn(henum: *const _HCLUSENUM) -> u32;
+pub type PCLUSAPI_CLUSTER_CLOSE_ENUM_EX = unsafe extern "system" fn(hclusterenum: *const _HCLUSENUMEX) -> u32;
+pub type PCLUSAPI_CLUSTER_CONTROL = unsafe extern "system" fn(hcluster: *const _HCLUSTER, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR, ruletype: CLUS_AFFINITY_RULE_TYPE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_ENUM = unsafe extern "system" fn(henum: *const _HCLUSENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_ENUM_EX = unsafe extern "system" fn(hclusterenum: *const _HCLUSENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32;
+pub type PCLUSAPI_CLUSTER_GET_ENUM_COUNT = unsafe extern "system" fn(henum: *const _HCLUSENUM) -> u32;
+pub type PCLUSAPI_CLUSTER_GET_ENUM_COUNT_EX = unsafe extern "system" fn(hclusterenum: *const _HCLUSENUMEX) -> u32;
+pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM = unsafe extern "system" fn(hgroupenum: *mut _HGROUPENUM) -> u32;
+pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX = unsafe extern "system" fn(hgroupenumex: *const _HGROUPENUMEX) -> u32;
+pub type PCLUSAPI_CLUSTER_GROUP_CONTROL = unsafe extern "system" fn(hgroup: *const _HGROUP, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_GROUP_ENUM = unsafe extern "system" fn(hgroupenum: *const _HGROUPENUM, dwindex: u32, lpdwtype: *mut u32, lpszresourcename: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_GROUP_ENUM_EX = unsafe extern "system" fn(hgroupenumex: *const _HGROUPENUMEX, dwindex: u32, pitem: *mut CLUSTER_GROUP_ENUM_ITEM, cbitem: *mut u32) -> u32;
+pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT = unsafe extern "system" fn(hgroupenum: *const _HGROUPENUM) -> u32;
+pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX = unsafe extern "system" fn(hgroupenumex: *const _HGROUPENUMEX) -> u32;
+pub type PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL = unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM = unsafe extern "system" fn(hgroup: *mut _HGROUP, dwtype: u32) -> *mut _HGROUPENUM;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszproperties: super::super::Foundation::PWSTR, cbproperties: u32, lpszroproperties: super::super::Foundation::PWSTR, cbroproperties: u32, dwflags: u32) -> *mut _HGROUPENUMEX;
+pub type PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM = unsafe extern "system" fn(hnetworkenum: *const _HNETWORKENUM) -> u32;
+pub type PCLUSAPI_CLUSTER_NETWORK_CONTROL = unsafe extern "system" fn(hnetwork: *const _HNETWORK, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_NETWORK_ENUM = unsafe extern "system" fn(hnetworkenum: *const _HNETWORKENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+pub type PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT = unsafe extern "system" fn(hnetworkenum: *const _HNETWORKENUM) -> u32;
+pub type PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM = unsafe extern "system" fn(hnetwork: *const _HNETWORK, dwtype: u32) -> *mut _HNETWORKENUM;
+pub type PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL = unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM = unsafe extern "system" fn(hnodeenum: *const _HNODEENUM) -> u32;
+pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX = unsafe extern "system" fn(hnodeenum: *const _HNODEENUMEX) -> u32;
+pub type PCLUSAPI_CLUSTER_NODE_CONTROL = unsafe extern "system" fn(hnode: *const _HNODE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_NODE_ENUM = unsafe extern "system" fn(hnodeenum: *const _HNODEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_NODE_ENUM_EX = unsafe extern "system" fn(hnodeenum: *const _HNODEENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32;
+pub type PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT = unsafe extern "system" fn(hnodeenum: *const _HNODEENUM) -> u32;
+pub type PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT_EX = unsafe extern "system" fn(hnodeenum: *const _HNODEENUMEX) -> u32;
+pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM = unsafe extern "system" fn(hnode: *const _HNODE, dwtype: u32) -> *mut _HNODEENUM;
+pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX = unsafe extern "system" fn(hnode: *const _HNODE, dwtype: u32, poptions: *const ::core::ffi::c_void) -> *mut _HNODEENUMEX;
+pub type PCLUSAPI_CLUSTER_OPEN_ENUM = unsafe extern "system" fn(hcluster: *const _HCLUSTER, dwtype: u32) -> *mut _HCLUSENUM;
+pub type PCLUSAPI_CLUSTER_OPEN_ENUM_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, dwtype: u32, poptions: *const ::core::ffi::c_void) -> *mut _HCLUSENUMEX;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_CLOSE_KEY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY) -> i32;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_CLUSTER_REG_CREATE_BATCH = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phregbatch: *mut *mut _HREGBATCH) -> i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: super::super::Foundation::PWSTR, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32) -> i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: super::super::Foundation::PWSTR) -> i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: super::super::Foundation::PWSTR) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_ENUM_KEY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_ENUM_VALUE = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszvaluename: super::super::Foundation::PWSTR, lpcchvaluename: *mut u32, lpdwtype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, requestedinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_OPEN_KEY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: super::super::Foundation::PWSTR, samdesired: u32, phkresult: *mut super::super::System::Registry::HKEY) -> i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_QUERY_VALUE = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: super::super::Foundation::PWSTR, lpdwvaluetype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, securityinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR) -> i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_CLUSTER_REG_SET_VALUE = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: super::super::Foundation::PWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32;
+pub type PCLUSAPI_CLUSTER_REG_SYNC_DATABASE = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, flags: u32) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR, hgroup: *const _HGROUP) -> u32;
+pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUP_GROUPSET = unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hgroupname: *const _HGROUP) -> u32;
+pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM = unsafe extern "system" fn(hresenum: *mut _HRESENUM) -> u32;
+pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX = unsafe extern "system" fn(hresourceenumex: *const _HRESENUMEX) -> u32;
+pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL = unsafe extern "system" fn(hresource: *const _HRESOURCE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM = unsafe extern "system" fn(hresenum: *const _HRESENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM_EX = unsafe extern "system" fn(hresourceenumex: *const _HRESENUMEX, dwindex: u32, pitem: *mut CLUSTER_RESOURCE_ENUM_ITEM, cbitem: *mut u32) -> u32;
+pub type PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT = unsafe extern "system" fn(hresenum: *const _HRESENUM) -> u32;
+pub type PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT_EX = unsafe extern "system" fn(hresourceenumex: *const _HRESENUMEX) -> u32;
+pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM = unsafe extern "system" fn(hresource: *mut _HRESOURCE, dwtype: u32) -> *mut _HRESENUM;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszproperties: super::super::Foundation::PWSTR, cbproperties: u32, lpszroproperties: super::super::Foundation::PWSTR, cbroproperties: u32, dwflags: u32) -> *mut _HRESENUMEX;
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM = unsafe extern "system" fn(hrestypeenum: *const _HRESTYPEENUM) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM = unsafe extern "system" fn(hrestypeenum: *const _HRESTYPEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT = unsafe extern "system" fn(hrestypeenum: *const _HRESTYPEENUM) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR, dwtype: u32) -> *mut _HRESTYPEENUM;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUSTER_UPGRADE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, perform: super::super::Foundation::BOOL, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUS_WORKER_CREATE = unsafe extern "system" fn(lpworker: *mut CLUS_WORKER, lpstartaddress: PWORKER_START_ROUTINE, lpparameter: *mut ::core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CLUS_WORKER_TERMINATE = unsafe extern "system" fn(lpworker: *const CLUS_WORKER);
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CREATE_CLUSTER = unsafe extern "system" fn(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HCLUSTER;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CREATE_CLUSTER_AVAILABILITY_SET = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpavailabilitysetname: super::super::Foundation::PWSTR, pavailabilitysetconfig: *const CLUSTER_AVAILABILITY_SET_CONFIG) -> *mut _HGROUPSET;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CREATE_CLUSTER_CNOLESS = unsafe extern "system" fn(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HCLUSTER;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CREATE_CLUSTER_GROUP = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszgroupname: super::super::Foundation::PWSTR) -> *mut _HGROUP;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CREATE_CLUSTER_GROUPEX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszgroupname: super::super::Foundation::PWSTR, pgroupinfo: *const CLUSTER_CREATE_GROUP_INFO) -> *mut _HGROUP;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CREATE_CLUSTER_GROUP_GROUPSET = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszgroupsetname: super::super::Foundation::PWSTR) -> *mut _HGROUPSET;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CREATE_CLUSTER_NAME_ACCOUNT = unsafe extern "system" fn(hcluster: *const _HCLUSTER, pconfig: *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> u32;
+pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT = unsafe extern "system" fn(hchange: *const _HCHANGE, hcluster: *const _HCLUSTER, dwfilter: u32, dwnotifykey: usize) -> *mut _HCHANGE;
+pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2 = unsafe extern "system" fn(hchange: *const _HCHANGE, hcluster: *const _HCLUSTER, filters: *const NOTIFY_FILTER_AND_TYPE, dwfiltercount: u32, dwnotifykey: usize) -> *mut _HCHANGE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE = unsafe extern "system" fn(hgroup: *mut _HGROUP, lpszresourcename: super::super::Foundation::PWSTR, lpszresourcetype: super::super::Foundation::PWSTR, dwflags: u32) -> *mut _HRESOURCE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR, lpszdisplayname: super::super::Foundation::PWSTR, lpszresourcetypedll: super::super::Foundation::PWSTR, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32) -> u32;
+pub type PCLUSAPI_DELETE_CLUSTER_GROUP = unsafe extern "system" fn(hgroup: *mut _HGROUP) -> u32;
+pub type PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET = unsafe extern "system" fn(hgroupset: *const _HGROUPSET) -> u32;
+pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE = unsafe extern "system" fn(hresource: *mut _HRESOURCE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_DESTROY_CLUSTER = unsafe extern "system" fn(hcluster: *const _HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void, fdeletevirtualcomputerobjects: super::super::Foundation::BOOL) -> u32;
+pub type PCLUSAPI_DESTROY_CLUSTER_GROUP = unsafe extern "system" fn(hgroup: *mut _HGROUP) -> u32;
+pub type PCLUSAPI_EVICT_CLUSTER_NODE = unsafe extern "system" fn(hnode: *const _HNODE) -> u32;
+pub type PCLUSAPI_EVICT_CLUSTER_NODE_EX = unsafe extern "system" fn(hnode: *const _HNODE, dwtimeout: u32, phrcleanupstatus: *mut ::windows_sys::core::HRESULT) -> u32;
+pub type PCLUSAPI_FAIL_CLUSTER_RESOURCE = unsafe extern "system" fn(hresource: *mut _HRESOURCE) -> u32;
+pub type PCLUSAPI_GET_CLUSTER_FROM_GROUP = unsafe extern "system" fn(hgroup: *const _HGROUP) -> *mut _HCLUSTER;
+pub type PCLUSAPI_GET_CLUSTER_FROM_GROUP_GROUPSET = unsafe extern "system" fn(hgroupset: *const _HGROUPSET) -> *mut _HCLUSTER;
+pub type PCLUSAPI_GET_CLUSTER_FROM_NETWORK = unsafe extern "system" fn(hnetwork: *const _HNETWORK) -> *mut _HCLUSTER;
+pub type PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE = unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE) -> *mut _HCLUSTER;
+pub type PCLUSAPI_GET_CLUSTER_FROM_NODE = unsafe extern "system" fn(hnode: *const _HNODE) -> *mut _HCLUSTER;
+pub type PCLUSAPI_GET_CLUSTER_FROM_RESOURCE = unsafe extern "system" fn(hresource: *const _HRESOURCE) -> *mut _HCLUSTER;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_GROUP_KEY = unsafe extern "system" fn(hgroup: *mut _HGROUP, samdesired: u32) -> super::super::System::Registry::HKEY;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_CLUSTER_GROUP_STATE = unsafe extern "system" fn(hgroup: *const _HGROUP, lpsznodename: super::super::Foundation::PWSTR, lpcchnodename: *mut u32) -> CLUSTER_GROUP_STATE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_CLUSTER_INFORMATION = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszclustername: super::super::Foundation::PWSTR, lpcchclustername: *mut u32, lpclusterinfo: *mut CLUSTERVERSIONINFO) -> u32;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_KEY = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, samdesired: u32) -> super::super::System::Registry::HKEY;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_CLUSTER_NETWORK_ID = unsafe extern "system" fn(hnetwork: *const _HNETWORK, lpsznetworkid: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_NETWORK_KEY = unsafe extern "system" fn(hnetwork: *const _HNETWORK, samdesired: u32) -> super::super::System::Registry::HKEY;
+pub type PCLUSAPI_GET_CLUSTER_NETWORK_STATE = unsafe extern "system" fn(hnetwork: *const _HNETWORK) -> CLUSTER_NETWORK_STATE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, lpsznetworkname: super::super::Foundation::PWSTR, lpszinterfacename: super::super::Foundation::PWSTR, lpcchinterfacename: *mut u32) -> u32;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY = unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE, samdesired: u32) -> super::super::System::Registry::HKEY;
+pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE = unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_CLUSTER_NODE_ID = unsafe extern "system" fn(hnode: *const _HNODE, lpsznodeid: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_NODE_KEY = unsafe extern "system" fn(hnode: *mut _HNODE, samdesired: u32) -> super::super::System::Registry::HKEY;
+pub type PCLUSAPI_GET_CLUSTER_NODE_STATE = unsafe extern "system" fn(hnode: *const _HNODE) -> CLUSTER_NODE_STATE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_CLUSTER_NOTIFY = unsafe extern "system" fn(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, dwmilliseconds: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_CLUSTER_NOTIFY_V2 =
+    unsafe extern "system" fn(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: *mut NOTIFY_FILTER_AND_TYPE, buffer: *mut u8, lpcchbuffersize: *mut u32, lpszobjectid: super::super::Foundation::PWSTR, lpcchobjectid: *mut u32, lpszparentid: super::super::Foundation::PWSTR, lpcchparentid: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpsztype: super::super::Foundation::PWSTR, lpcchtype: *mut u32, dwmilliseconds: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcename: super::super::Foundation::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: super::super::Foundation::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszdependencyexpression: super::super::Foundation::PWSTR, lpcchdependencyexpression: *mut u32) -> u32;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSAPI_GET_CLUSTER_RESOURCE_KEY = unsafe extern "system" fn(hresource: *mut _HRESOURCE, samdesired: u32) -> super::super::System::Registry::HKEY;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME = unsafe extern "system" fn(hresource: *const _HRESOURCE, lpbuffer: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_CLUSTER_RESOURCE_STATE = unsafe extern "system" fn(hresource: *const _HRESOURCE, lpsznodename: super::super::Foundation::PWSTR, lpcchnodename: *mut u32, lpszgroupname: super::super::Foundation::PWSTR, lpcchgroupname: *mut u32) -> CLUSTER_RESOURCE_STATE;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsztypename: super::super::Foundation::PWSTR, samdesired: u32) -> super::super::System::Registry::HKEY;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_NODE_CLUSTER_STATE = unsafe extern "system" fn(lpsznodename: super::super::Foundation::PWSTR, pdwclusterstate: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2 = unsafe extern "system" fn(hchange: *const _HCHANGE, lphtargetevent: *mut super::super::Foundation::HANDLE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME = unsafe extern "system" fn(lpszpathname: super::super::Foundation::PWSTR, pbfileisonsharedvolume: *mut super::super::Foundation::BOOL) -> u32;
+pub type PCLUSAPI_MOVE_CLUSTER_GROUP = unsafe extern "system" fn(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32;
+pub type PCLUSAPI_OFFLINE_CLUSTER_GROUP = unsafe extern "system" fn(hgroup: *mut _HGROUP) -> u32;
+pub type PCLUSAPI_OFFLINE_CLUSTER_RESOURCE = unsafe extern "system" fn(hresource: *mut _HRESOURCE) -> u32;
+pub type PCLUSAPI_ONLINE_CLUSTER_GROUP = unsafe extern "system" fn(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32;
+pub type PCLUSAPI_ONLINE_CLUSTER_RESOURCE = unsafe extern "system" fn(hresource: *mut _HRESOURCE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER = unsafe extern "system" fn(lpszclustername: super::super::Foundation::PWSTR) -> *mut _HCLUSTER;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER_EX = unsafe extern "system" fn(lpszclustername: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HCLUSTER;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER_GROUP = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszgroupname: super::super::Foundation::PWSTR) -> *mut _HGROUP;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER_GROUP_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszgroupname: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HGROUP;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER_GROUP_GROUPSET = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszgroupsetname: super::super::Foundation::PWSTR) -> *mut _HGROUPSET;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznetinterfacename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNETINTERFACE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER_NETWORK = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznetworkname: super::super::Foundation::PWSTR) -> *mut _HNETWORK;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER_NETWORK_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznetworkname: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNETWORK;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER_NET_INTERFACE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszinterfacename: super::super::Foundation::PWSTR) -> *mut _HNETINTERFACE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER_NODE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR) -> *mut _HNODE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER_NODE_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNODE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER_RESOURCE = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, lpszresourcename: super::super::Foundation::PWSTR) -> *mut _HRESOURCE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_OPEN_CLUSTER_RESOURCE_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HRESOURCE;
+pub type PCLUSAPI_OPEN_NODE_BY_ID = unsafe extern "system" fn(hcluster: *const _HCLUSTER, nodeid: u32) -> *mut _HNODE;
+pub type PCLUSAPI_PAUSE_CLUSTER_NODE = unsafe extern "system" fn(hnode: *const _HNODE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX = unsafe extern "system" fn(hnode: *const _HNODE, bdrainnode: super::super::Foundation::BOOL, dwpauseflags: u32, hnodedraintarget: *const _HNODE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY = unsafe extern "system" fn(hchange: *const _HCHANGE, dwfiltertype: u32, hobject: super::super::Foundation::HANDLE, dwnotifykey: usize) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2 = unsafe extern "system" fn(hchange: *const _HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: super::super::Foundation::HANDLE, dwnotifykey: usize) -> u32;
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY = unsafe extern "system" fn(hgroup: *const _HGROUP, hdependson: *const _HGROUP) -> u32;
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY = unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hdependson: *const _HGROUPSET) -> u32;
+pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = unsafe extern "system" fn(hgroup: *const _HGROUP, hdependson: *const _HGROUPSET) -> u32;
+pub type PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT = unsafe extern "system" fn(hcluster: *const _HCLUSTER) -> u32;
+pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hdependson: *mut _HRESOURCE) -> u32;
+pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hnode: *mut _HNODE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY = unsafe extern "system" fn(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: super::super::Foundation::PWSTR, lpremotegroupsetname: super::super::Foundation::PWSTR) -> u32;
+pub type PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES = unsafe extern "system" fn(hresource: *const _HRESOURCE) -> u32;
+pub type PCLUSAPI_RESTART_CLUSTER_RESOURCE = unsafe extern "system" fn(hresource: *mut _HRESOURCE, dwflags: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_RESTORE_CLUSTER_DATABASE = unsafe extern "system" fn(lpszpathname: super::super::Foundation::PWSTR, bforce: super::super::Foundation::BOOL, lpszquorumdriveletter: super::super::Foundation::PWSTR) -> u32;
+pub type PCLUSAPI_RESUME_CLUSTER_NODE = unsafe extern "system" fn(hnode: *const _HNODE) -> u32;
+pub type PCLUSAPI_RESUME_CLUSTER_NODE_EX = unsafe extern "system" fn(hnode: *const _HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION = unsafe extern "system" fn(hgroupset: *const _HGROUPSET, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_SET_CLUSTER_GROUP_NAME = unsafe extern "system" fn(hgroup: *mut _HGROUP, lpszgroupname: super::super::Foundation::PWSTR) -> u32;
+pub type PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST = unsafe extern "system" fn(hgroup: *const _HGROUP, nodecount: u32, nodelist: *const *const _HNODE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_SET_CLUSTER_NETWORK_NAME = unsafe extern "system" fn(hnetwork: *const _HNETWORK, lpszname: super::super::Foundation::PWSTR) -> u32;
+pub type PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER = unsafe extern "system" fn(hcluster: *const _HCLUSTER, networkcount: u32, networklist: *const *const _HNETWORK) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE = unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszdevicename: super::super::Foundation::PWSTR, dwmaxquologsize: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_SET_CLUSTER_RESOURCE_NAME = unsafe extern "system" fn(hresource: *mut _HRESOURCE, lpszresourcename: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD = unsafe extern "system" fn(lpszclustername: super::super::Foundation::PWSTR, lpsznewpassword: super::super::Foundation::PWSTR, dwflags: u32, lpreturnstatusbuffer: *mut CLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION = unsafe extern "system" fn(hgroupset: *const _HGROUP, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_SHARED_VOLUME_SET_SNAPSHOT_STATE = unsafe extern "system" fn(guidsnapshotset: ::windows_sys::core::GUID, lpszvolumename: super::super::Foundation::PWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSAPI_SetClusterName = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznewclustername: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_CLEAR_BACKUP_STATE_FOR_SHARED_VOLUME = unsafe extern "system" fn(lpszvolumepathname: super::super::Foundation::PWSTR) -> u32;
+pub type PCLUSTER_DECRYPT = unsafe extern "system" fn(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pcryptinput: *const u8, cbcryptinput: u32, ppcryptoutput: *mut *mut u8, pcbcryptoutput: *mut u32) -> u32;
+pub type PCLUSTER_ENCRYPT = unsafe extern "system" fn(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pdata: *const u8, cbdata: u32, ppdata: *mut *mut u8, pcbdata: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_GET_VOLUME_NAME_FOR_VOLUME_MOUNT_POINT = unsafe extern "system" fn(lpszvolumemountpoint: super::super::Foundation::PWSTR, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_GET_VOLUME_PATH_NAME = unsafe extern "system" fn(lpszfilename: super::super::Foundation::PWSTR, lpszvolumepathname: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_IS_PATH_ON_SHARED_VOLUME = unsafe extern "system" fn(lpszpathname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_PREPARE_SHARED_VOLUME_FOR_BACKUP = unsafe extern "system" fn(lpszfilename: super::super::Foundation::PWSTR, lpszvolumepathname: super::super::Foundation::PWSTR, lpcchvolumepathname: *mut u32, lpszvolumename: super::super::Foundation::PWSTR, lpcchvolumename: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_REG_BATCH_ADD_COMMAND = unsafe extern "system" fn(hregbatch: *const _HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: super::super::Foundation::PWSTR, dwoptions: u32, lpdata: *const ::core::ffi::c_void, cbdata: u32) -> i32;
+pub type PCLUSTER_REG_BATCH_CLOSE_NOTIFICATION = unsafe extern "system" fn(hbatchnotification: *const _HREGBATCHNOTIFICATION) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_REG_BATCH_READ_COMMAND = unsafe extern "system" fn(hbatchnotification: *const _HREGBATCHNOTIFICATION, pbatchcommand: *mut CLUSTER_BATCH_COMMAND) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_REG_CLOSE_BATCH = unsafe extern "system" fn(hregbatch: *const _HREGBATCH, bcommit: super::super::Foundation::BOOL, failedcommandnumber: *mut i32) -> i32;
+pub type PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT = unsafe extern "system" fn(hbatchnotifyport: *const _HREGBATCHPORT) -> i32;
+pub type PCLUSTER_REG_CLOSE_READ_BATCH = unsafe extern "system" fn(hregreadbatch: *const _HREGREADBATCH, phregreadbatchreply: *mut *mut _HREGREADBATCHREPLY) -> i32;
+pub type PCLUSTER_REG_CLOSE_READ_BATCH_EX = unsafe extern "system" fn(hregreadbatch: *const _HREGREADBATCH, flags: u32, phregreadbatchreply: *mut *mut _HREGREADBATCHREPLY) -> i32;
+pub type PCLUSTER_REG_CLOSE_READ_BATCH_REPLY = unsafe extern "system" fn(hregreadbatchreply: *const _HREGREADBATCHREPLY) -> i32;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phbatchnotifyport: *mut *mut _HREGBATCHPORT) -> i32;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PCLUSTER_REG_CREATE_READ_BATCH = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phregreadbatch: *mut *mut _HREGREADBATCH) -> i32;
+pub type PCLUSTER_REG_GET_BATCH_NOTIFICATION = unsafe extern "system" fn(hbatchnotify: *const _HREGBATCHPORT, phbatchnotification: *mut *mut _HREGBATCHNOTIFICATION) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_REG_READ_BATCH_ADD_COMMAND = unsafe extern "system" fn(hregreadbatch: *const _HREGREADBATCH, wzsubkeyname: super::super::Foundation::PWSTR, wzvaluename: super::super::Foundation::PWSTR) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_REG_READ_BATCH_REPLY_NEXT_COMMAND = unsafe extern "system" fn(hregreadbatchreply: *const _HREGREADBATCHREPLY, pbatchcommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_SETUP_PROGRESS_CALLBACK = unsafe extern "system" fn(pvcallbackarg: *mut ::core::ffi::c_void, esetupphase: CLUSTER_SETUP_PHASE, ephasetype: CLUSTER_SETUP_PHASE_TYPE, ephaseseverity: CLUSTER_SETUP_PHASE_SEVERITY, dwpercentcomplete: u32, lpszobjectname: super::super::Foundation::PWSTR, dwstatus: u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_SET_ACCOUNT_ACCESS = unsafe extern "system" fn(hcluster: *const _HCLUSTER, szaccountsid: super::super::Foundation::PWSTR, dwaccess: u32, dwcontroltype: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PCLUSTER_UPGRADE_PROGRESS_CALLBACK = unsafe extern "system" fn(pvcallbackarg: *mut ::core::ffi::c_void, eupgradephase: CLUSTER_UPGRADE_PHASE) -> super::super::Foundation::BOOL;
+pub type PEND_CONTROL_CALL = unsafe extern "system" fn(context: i64, status: u32) -> u32;
+pub type PEND_TYPE_CONTROL_CALL = unsafe extern "system" fn(context: i64, status: u32) -> u32;
+pub type PEXTEND_RES_CONTROL_CALL = unsafe extern "system" fn(context: i64, newtimeoutinms: u32) -> u32;
+pub type PEXTEND_RES_TYPE_CONTROL_CALL = unsafe extern "system" fn(context: i64, newtimeoutinms: u32) -> u32;
+pub type PFREE_CLUSTER_CRYPT = unsafe extern "system" fn(pcryptinfo: *const ::core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PIS_ALIVE_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[repr(transparent)]
 pub struct PLACEMENT_OPTIONS(pub i32);
 pub const PLACEMENT_OPTIONS_MIN_VALUE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(0i32);
@@ -2923,236 +2821,218 @@ pub const PLACEMENT_OPTIONS_DONT_RESUME_AVAILABILTY_SET_VMS_WITH_EXISTING_TEMP_D
 pub const PLACEMENT_OPTIONS_SAVE_AVAILABILTY_SET_VMS_WITH_LOCAL_DISK_ON_DRAIN_OVERWRITE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(256i32);
 pub const PLACEMENT_OPTIONS_AVAILABILITY_SET_DOMAIN_AFFINITY: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(512i32);
 pub const PLACEMENT_OPTIONS_ALL: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(1023i32);
-#[repr(C)]
-pub struct PLOG_EVENT_ROUTINE(i32);
-#[repr(C)]
-pub struct PLOOKS_ALIVE_ROUTINE(i32);
-#[repr(C)]
-pub struct POFFLINE_ROUTINE(i32);
-#[repr(C)]
-pub struct POFFLINE_V2_ROUTINE(i32);
-#[repr(C)]
-pub struct PONLINE_ROUTINE(i32);
-#[repr(C)]
-pub struct PONLINE_V2_ROUTINE(i32);
-#[repr(C)]
-pub struct POPEN_CLUSTER_CRYPT_PROVIDER(i32);
-#[repr(C)]
-pub struct POPEN_CLUSTER_CRYPT_PROVIDEREX(i32);
-#[repr(C)]
-pub struct POPEN_ROUTINE(i32);
-#[repr(C)]
-pub struct POPEN_V2_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PLOG_EVENT_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, loglevel: LOG_LEVEL, formatstring: super::super::Foundation::PWSTR);
+#[cfg(feature = "Win32_Foundation")]
+pub type PLOOKS_ALIVE_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type POFFLINE_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type POFFLINE_V2_ROUTINE = unsafe extern "system" fn(resource: *const ::core::ffi::c_void, destinationnodename: super::super::Foundation::PWSTR, offlineflags: u32, inbuffer: *const u8, inbuffersize: u32, reserved: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PONLINE_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PONLINE_V2_ROUTINE = unsafe extern "system" fn(resource: *const ::core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE, onlineflags: u32, inbuffer: *const u8, inbuffersize: u32, reserved: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type POPEN_CLUSTER_CRYPT_PROVIDER = unsafe extern "system" fn(lpszresource: super::super::Foundation::PWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER;
+#[cfg(feature = "Win32_Foundation")]
+pub type POPEN_CLUSTER_CRYPT_PROVIDEREX = unsafe extern "system" fn(lpszresource: super::super::Foundation::PWSTR, lpszkeyname: super::super::Foundation::PWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type POPEN_ROUTINE = unsafe extern "system" fn(resourcename: super::super::Foundation::PWSTR, resourcekey: super::super::System::Registry::HKEY, resourcehandle: isize) -> *mut ::core::ffi::c_void;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type POPEN_V2_ROUTINE = unsafe extern "system" fn(resourcename: super::super::Foundation::PWSTR, resourcekey: super::super::System::Registry::HKEY, resourcehandle: isize, openflags: u32) -> *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct POST_UPGRADE_VERSION_INFO(i32);
-#[repr(C)]
-pub struct PQUERY_APPINSTANCE_VERSION(i32);
-#[repr(C)]
-pub struct PQUORUM_RESOURCE_LOST(i32);
-#[repr(C)]
-pub struct PRAISE_RES_TYPE_NOTIFICATION(i32);
-#[repr(C)]
-pub struct PREGISTER_APPINSTANCE(i32);
-#[repr(C)]
-pub struct PREGISTER_APPINSTANCE_VERSION(i32);
-#[repr(C)]
-pub struct PRELEASE_ROUTINE(i32);
-#[repr(C)]
-pub struct PREQUEST_DUMP_ROUTINE(i32);
-#[repr(C)]
-pub struct PRESET_ALL_APPINSTANCE_VERSIONS(i32);
-#[repr(C)]
-pub struct PRESOURCE_CONTROL_ROUTINE(i32);
-#[repr(C)]
-pub struct PRESOURCE_TYPE_CONTROL_ROUTINE(i32);
-#[repr(C)]
-pub struct PRESUTIL_ADD_UNKNOWN_PROPERTIES(i32);
-#[repr(C)]
-pub struct PRESUTIL_CREATE_DIRECTORY_TREE(i32);
-#[repr(C)]
-pub struct PRESUTIL_DUP_PARAMETER_BLOCK(i32);
-#[repr(C)]
-pub struct PRESUTIL_DUP_STRING(i32);
-#[repr(C)]
-pub struct PRESUTIL_ENUM_PRIVATE_PROPERTIES(i32);
-#[repr(C)]
-pub struct PRESUTIL_ENUM_PROPERTIES(i32);
-#[repr(C)]
-pub struct PRESUTIL_ENUM_RESOURCES(i32);
-#[repr(C)]
-pub struct PRESUTIL_ENUM_RESOURCES_EX(i32);
-#[repr(C)]
-pub struct PRESUTIL_ENUM_RESOURCES_EX2(i32);
-#[repr(C)]
-pub struct PRESUTIL_EXPAND_ENVIRONMENT_STRINGS(i32);
-#[repr(C)]
-pub struct PRESUTIL_FIND_BINARY_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_FIND_DEPENDENT_DISK_RESOURCE_DRIVE_LETTER(i32);
-#[repr(C)]
-pub struct PRESUTIL_FIND_DWORD_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_FIND_EXPANDED_SZ_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_FIND_EXPAND_SZ_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_FIND_FILETIME_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_FIND_LONG_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_FIND_MULTI_SZ_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_FIND_SZ_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_FIND_ULARGEINTEGER_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_FREE_ENVIRONMENT(i32);
-#[repr(C)]
-pub struct PRESUTIL_FREE_PARAMETER_BLOCK(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_ALL_PROPERTIES(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_BINARY_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_BINARY_VALUE(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_CORE_CLUSTER_RESOURCES(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_CORE_CLUSTER_RESOURCES_EX(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_DWORD_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_DWORD_VALUE(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_ENVIRONMENT_WITH_NET_NAME(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_EXPAND_SZ_VALUE(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_FILETIME_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_LONG_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_MULTI_SZ_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_PRIVATE_PROPERTIES(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_PROPERTIES(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_PROPERTY_FORMATS(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_PROPERTY_SIZE(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_QWORD_VALUE(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_RESOURCE_DEPENDENCY(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS_EX(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME_EX(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_RESOURCE_DEPENDENCY_EX(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_RESOURCE_DEPENDENTIP_ADDRESS_PROPS(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_RESOURCE_NAME(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY_EX(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_SZ_PROPERTY(i32);
-#[repr(C)]
-pub struct PRESUTIL_GET_SZ_VALUE(i32);
-#[repr(C)]
-pub struct PRESUTIL_IS_PATH_VALID(i32);
-#[repr(C)]
-pub struct PRESUTIL_IS_RESOURCE_CLASS_EQUAL(i32);
-#[repr(C)]
-pub struct PRESUTIL_PROPERTY_LIST_FROM_PARAMETER_BLOCK(i32);
-#[repr(C)]
-pub struct PRESUTIL_REMOVE_RESOURCE_SERVICE_ENVIRONMENT(i32);
-#[repr(C)]
-pub struct PRESUTIL_RESOURCES_EQUAL(i32);
-#[repr(C)]
-pub struct PRESUTIL_RESOURCE_TYPES_EQUAL(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_BINARY_VALUE(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_DWORD_VALUE(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_EXPAND_SZ_VALUE(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_MULTI_SZ_VALUE(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_PRIVATE_PROPERTY_LIST(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_PROPERTY_TABLE(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_PROPERTY_TABLE_EX(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_QWORD_VALUE(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_RESOURCE_SERVICE_ENVIRONMENT(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS_EX(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_SZ_VALUE(i32);
-#[repr(C)]
-pub struct PRESUTIL_SET_UNKNOWN_PROPERTIES(i32);
-#[repr(C)]
-pub struct PRESUTIL_START_RESOURCE_SERVICE(i32);
-#[repr(C)]
-pub struct PRESUTIL_STOP_RESOURCE_SERVICE(i32);
-#[repr(C)]
-pub struct PRESUTIL_STOP_SERVICE(i32);
-#[repr(C)]
-pub struct PRESUTIL_TERMINATE_SERVICE_PROCESS_FROM_RES_DLL(i32);
-#[repr(C)]
-pub struct PRESUTIL_VERIFY_PRIVATE_PROPERTY_LIST(i32);
-#[repr(C)]
-pub struct PRESUTIL_VERIFY_PROPERTY_TABLE(i32);
-#[repr(C)]
-pub struct PRESUTIL_VERIFY_RESOURCE_SERVICE(i32);
-#[repr(C)]
-pub struct PRESUTIL_VERIFY_SERVICE(i32);
-#[repr(C)]
-pub struct PRES_UTIL_VERIFY_SHUTDOWN_SAFE(i32);
-#[repr(C)]
-pub struct PSET_INTERNAL_STATE(i32);
-#[repr(C)]
-pub struct PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE(i32);
-#[repr(C)]
-pub struct PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE(i32);
-#[repr(C)]
-pub struct PSET_RESOURCE_LOCKED_MODE_ROUTINE(i32);
-#[repr(C)]
-pub struct PSET_RESOURCE_STATUS_ROUTINE(i32);
-#[repr(C)]
-pub struct PSET_RESOURCE_STATUS_ROUTINE_EX(i32);
-#[repr(C)]
-pub struct PSIGNAL_FAILURE_ROUTINE(i32);
-#[repr(C)]
-pub struct PSTARTUP_EX_ROUTINE(i32);
-#[repr(C)]
-pub struct PSTARTUP_ROUTINE(i32);
-#[repr(C)]
-pub struct PTERMINATE_ROUTINE(i32);
-#[repr(C)]
-pub struct PWORKER_START_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PQUERY_APPINSTANCE_VERSION = unsafe extern "system" fn(appinstanceid: *const ::windows_sys::core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32;
+pub type PQUORUM_RESOURCE_LOST = unsafe extern "system" fn(resource: isize);
+#[cfg(feature = "Win32_Foundation")]
+pub type PRAISE_RES_TYPE_NOTIFICATION = unsafe extern "system" fn(resourcetype: super::super::Foundation::PWSTR, ppayload: *const u8, payloadsize: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PREGISTER_APPINSTANCE = unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, appinstanceid: *const ::windows_sys::core::GUID, childreninheritappinstance: super::super::Foundation::BOOL) -> u32;
+pub type PREGISTER_APPINSTANCE_VERSION = unsafe extern "system" fn(appinstanceid: *const ::windows_sys::core::GUID, instanceversionhigh: u64, instanceversionlow: u64) -> u32;
+pub type PRELEASE_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PREQUEST_DUMP_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, dumpduetocallinprogress: super::super::Foundation::BOOL, dumpdelayinms: u32) -> u32;
+pub type PRESET_ALL_APPINSTANCE_VERSIONS = unsafe extern "system" fn() -> u32;
+pub type PRESOURCE_CONTROL_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void, controlcode: u32, inbuffer: *mut ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESOURCE_TYPE_CONTROL_ROUTINE = unsafe extern "system" fn(resourcetypename: super::super::Foundation::PWSTR, controlcode: u32, inbuffer: *mut ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_ADD_UNKNOWN_PROPERTIES = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, pcboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_CREATE_DIRECTORY_TREE = unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_DUP_PARAMETER_BLOCK = unsafe extern "system" fn(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_DUP_STRING = unsafe extern "system" fn(pszinstring: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_ENUM_PRIVATE_PROPERTIES = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszoutproperties: super::super::Foundation::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_ENUM_PROPERTIES = unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, pszoutproperties: super::super::Foundation::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_ENUM_RESOURCES = unsafe extern "system" fn(hself: *mut _HRESOURCE, lpszrestypename: super::super::Foundation::PWSTR, prescallback: LPRESOURCE_CALLBACK, pparameter: *mut ::core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_ENUM_RESOURCES_EX = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: super::super::Foundation::PWSTR, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut ::core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_ENUM_RESOURCES_EX2 = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: super::super::Foundation::PWSTR, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut ::core::ffi::c_void, dwdesiredaccess: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_EXPAND_ENVIRONMENT_STRINGS = unsafe extern "system" fn(pszsrc: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_FIND_BINARY_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pbpropertyvalue: *mut *mut u8, pcbpropertyvaluesize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_FIND_DEPENDENT_DISK_RESOURCE_DRIVE_LETTER = unsafe extern "system" fn(hcluster: *const _HCLUSTER, hresource: *const _HRESOURCE, pszdriveletter: super::super::Foundation::PWSTR, pcchdriveletter: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_FIND_DWORD_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pdwpropertyvalue: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_FIND_EXPANDED_SZ_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_FIND_EXPAND_SZ_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_FIND_FILETIME_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_FIND_LONG_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, plpropertyvalue: *mut i32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_FIND_MULTI_SZ_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pszpropertyvalue: *mut super::super::Foundation::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_FIND_SZ_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_FIND_ULARGEINTEGER_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, plpropertyvalue: *mut u64) -> u32;
+pub type PRESUTIL_FREE_ENVIRONMENT = unsafe extern "system" fn(lpenvironment: *mut ::core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_FREE_PARAMETER_BLOCK = unsafe extern "system" fn(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_GET_ALL_PROPERTIES = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+pub type PRESUTIL_GET_BINARY_PROPERTY = unsafe extern "system" fn(ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_BINARY, pboldvalue: *const u8, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_GET_BINARY_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32;
+pub type PRESUTIL_GET_CORE_CLUSTER_RESOURCES = unsafe extern "system" fn(hcluster: *const _HCLUSTER, phclusternameresource: *mut *mut _HRESOURCE, phclusteripaddressresource: *mut *mut _HRESOURCE, phclusterquorumresource: *mut *mut _HRESOURCE) -> u32;
+pub type PRESUTIL_GET_CORE_CLUSTER_RESOURCES_EX = unsafe extern "system" fn(hclusterin: *const _HCLUSTER, phclusternameresourceout: *mut *mut _HRESOURCE, phclusteripaddressresourceout: *mut *mut _HRESOURCE, phclusterquorumresourceout: *mut *mut _HRESOURCE, dwdesiredaccess: u32) -> u32;
+pub type PRESUTIL_GET_DWORD_PROPERTY = unsafe extern "system" fn(pdwoutvalue: *mut u32, pvaluestruct: *const CLUSPROP_DWORD, dwoldvalue: u32, dwminimum: u32, dwmaximum: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_GET_DWORD_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, pdwoutvalue: *mut u32, dwdefaultvalue: u32) -> u32;
+pub type PRESUTIL_GET_ENVIRONMENT_WITH_NET_NAME = unsafe extern "system" fn(hresource: *const _HRESOURCE) -> *mut ::core::ffi::c_void;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_GET_EXPAND_SZ_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, bexpand: super::super::Foundation::BOOL) -> super::super::Foundation::PWSTR;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_FILETIME_PROPERTY = unsafe extern "system" fn(pftoutvalue: *mut super::super::Foundation::FILETIME, pvaluestruct: *const CLUSPROP_FILETIME, ftoldvalue: super::super::Foundation::FILETIME, ftminimum: super::super::Foundation::FILETIME, ftmaximum: super::super::Foundation::FILETIME, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
+pub type PRESUTIL_GET_LONG_PROPERTY = unsafe extern "system" fn(ploutvalue: *mut i32, pvaluestruct: *const CLUSPROP_LONG, loldvalue: i32, lminimum: i32, lmaximum: i32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_MULTI_SZ_PROPERTY = unsafe extern "system" fn(ppszoutvalue: *mut super::super::Foundation::PWSTR, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: super::super::Foundation::PWSTR, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_GET_PRIVATE_PROPERTIES = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_GET_PROPERTIES = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: super::super::Foundation::BOOL, psznameofpropinerror: *mut super::super::Foundation::PWSTR) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_GET_PROPERTY = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, poutpropertyitem: *mut *mut ::core::ffi::c_void, pcboutpropertyitemsize: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_PROPERTY_FORMATS = unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist: *mut ::core::ffi::c_void, cbpropertyformatlistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_GET_PROPERTY_SIZE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, pcboutpropertylistsize: *mut u32, pnpropertycount: *mut u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_GET_QWORD_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, pqwoutvalue: *mut u64, qwdefaultvalue: u64) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_RESOURCE_DEPENDENCY = unsafe extern "system" fn(hself: super::super::Foundation::HANDLE, lpszresourcetype: super::super::Foundation::PWSTR) -> *mut _HRESOURCE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: super::super::Foundation::BOOL) -> *mut _HRESOURCE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS_EX = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> *mut _HRESOURCE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: super::super::Foundation::PWSTR, brecurse: super::super::Foundation::BOOL) -> *mut _HRESOURCE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME_EX = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: super::super::Foundation::PWSTR, brecurse: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> *mut _HRESOURCE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_EX = unsafe extern "system" fn(hself: super::super::Foundation::HANDLE, lpszresourcetype: super::super::Foundation::PWSTR, dwdesiredaccess: u32) -> *mut _HRESOURCE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_RESOURCE_DEPENDENTIP_ADDRESS_PROPS = unsafe extern "system" fn(hresource: *const _HRESOURCE, pszaddress: super::super::Foundation::PWSTR, pcchaddress: *mut u32, pszsubnetmask: super::super::Foundation::PWSTR, pcchsubnetmask: *mut u32, psznetwork: super::super::Foundation::PWSTR, pcchnetwork: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_RESOURCE_NAME = unsafe extern "system" fn(hresource: *const _HRESOURCE, pszresourcename: super::super::Foundation::PWSTR, pcchresourcenameinout: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY = unsafe extern "system" fn(lpszresourcename: super::super::Foundation::PWSTR, lpszresourcetype: super::super::Foundation::PWSTR) -> *mut _HRESOURCE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY_EX = unsafe extern "system" fn(lpszresourcename: super::super::Foundation::PWSTR, lpszresourcetype: super::super::Foundation::PWSTR, dwdesiredaccess: u32) -> *mut _HRESOURCE;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_GET_SZ_PROPERTY = unsafe extern "system" fn(ppszoutvalue: *mut super::super::Foundation::PWSTR, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: super::super::Foundation::PWSTR, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_GET_SZ_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_IS_PATH_VALID = unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_IS_RESOURCE_CLASS_EQUAL = unsafe extern "system" fn(prci: *mut CLUS_RESOURCE_CLASS_INFO, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_PROPERTY_LIST_FROM_PARAMETER_BLOCK = unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, pcboutpropertylistsize: *mut u32, pinparams: *const u8, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_REMOVE_RESOURCE_SERVICE_ENVIRONMENT = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_RESOURCES_EQUAL = unsafe extern "system" fn(hself: *mut _HRESOURCE, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_RESOURCE_TYPES_EQUAL = unsafe extern "system" fn(lpszresourcetypename: super::super::Foundation::PWSTR, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_SET_BINARY_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, pbnewvalue: *const u8, cbnewvaluesize: u32, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_SET_DWORD_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, dwnewvalue: u32, pdwoutvalue: *mut u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_SET_EXPAND_SZ_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, psznewvalue: super::super::Foundation::PWSTR, ppszoutstring: *mut super::super::Foundation::PWSTR) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_SET_MULTI_SZ_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, psznewvalue: super::super::Foundation::PWSTR, cbnewvaluesize: u32, ppszoutvalue: *mut super::super::Foundation::PWSTR, pcboutvaluesize: *mut u32) -> u32;
+#[cfg(feature = "Win32_System_Registry")]
+pub type PRESUTIL_SET_PRIVATE_PROPERTY_LIST = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: super::super::Foundation::BOOL, poutparams: *mut u8) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_SET_PROPERTY_TABLE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_SET_PROPERTY_TABLE_EX = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: super::super::Foundation::BOOL, poutparams: *mut u8) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_SET_QWORD_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, qwnewvalue: u64, pqwoutvalue: *mut u64) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_SET_RESOURCE_SERVICE_ENVIRONMENT = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR, hresource: *mut _HRESOURCE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub type PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR, schscmhandle: super::super::Security::SC_HANDLE, phservice: *mut isize, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub type PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS_EX = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR, schscmhandle: super::super::Security::SC_HANDLE, phservice: *mut isize, dwdesiredaccess: u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_SET_SZ_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, psznewvalue: super::super::Foundation::PWSTR, ppszoutstring: *mut super::super::Foundation::PWSTR) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PRESUTIL_SET_UNKNOWN_PROPERTIES = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_START_RESOURCE_SERVICE = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR, phservicehandle: *mut isize) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_STOP_RESOURCE_SERVICE = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Security")]
+pub type PRESUTIL_STOP_SERVICE = unsafe extern "system" fn(hservicehandle: super::super::Security::SC_HANDLE) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_TERMINATE_SERVICE_PROCESS_FROM_RES_DLL = unsafe extern "system" fn(dwservicepid: u32, boffline: super::super::Foundation::BOOL, pdwresourcestate: *mut u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32;
+pub type PRESUTIL_VERIFY_PRIVATE_PROPERTY_LIST = unsafe extern "system" fn(pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_VERIFY_PROPERTY_TABLE = unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PRESUTIL_VERIFY_RESOURCE_SERVICE = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Security")]
+pub type PRESUTIL_VERIFY_SERVICE = unsafe extern "system" fn(hservicehandle: super::super::Security::SC_HANDLE) -> u32;
+pub type PRES_UTIL_VERIFY_SHUTDOWN_SAFE = unsafe extern "system" fn(flags: u32, reason: u32, presult: *mut u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PSET_INTERNAL_STATE = unsafe extern "system" fn(param0: isize, statetype: CLUSTER_RESOURCE_APPLICATION_STATE, active: super::super::Foundation::BOOL) -> u32;
+pub type PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, propertylistbuffer: *const u8, propertylistbuffersize: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, lockedmodeenabled: super::super::Foundation::BOOL, lockedmodereason: u32, lockedmodeflags: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PSET_RESOURCE_LOCKED_MODE_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, lockedmodeenabled: super::super::Foundation::BOOL, lockedmodereason: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PSET_RESOURCE_STATUS_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, resourcestatus: *mut RESOURCE_STATUS) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PSET_RESOURCE_STATUS_ROUTINE_EX = unsafe extern "system" fn(resourcehandle: isize, resourcestatus: *mut RESOURCE_STATUS_EX) -> u32;
+pub type PSIGNAL_FAILURE_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, failuretype: FAILURE_TYPE, applicationspecificerrorcode: u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PSTARTUP_EX_ROUTINE = unsafe extern "system" fn(resourcetype: super::super::Foundation::PWSTR, minversionsupported: u32, maxversionsupported: u32, monitorcallbackfunctions: *mut CLRES_CALLBACK_FUNCTION_TABLE, resourcedllinterfacefunctions: *mut *mut CLRES_FUNCTION_TABLE) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub type PSTARTUP_ROUTINE = unsafe extern "system" fn(resourcetype: super::super::Foundation::PWSTR, minversionsupported: u32, maxversionsupported: u32, setresourcestatus: PSET_RESOURCE_STATUS_ROUTINE, logevent: PLOG_EVENT_ROUTINE, functiontable: *mut *mut CLRES_FUNCTION_TABLE) -> u32;
+pub type PTERMINATE_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void);
+#[cfg(feature = "Win32_Foundation")]
+pub type PWORKER_START_ROUTINE = unsafe extern "system" fn(pworker: *mut CLUS_WORKER, lpthreadparameter: *mut ::core::ffi::c_void) -> u32;
 #[repr(C)]
 pub struct PaxosTagCStruct(i32);
 #[repr(transparent)]
@@ -3230,8 +3110,8 @@ pub const RedirectedIOReasonUserRequest: u64 = 1u64;
 #[repr(C)]
 pub struct ResourceUtilizationInfoElement(i32);
 pub const SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
-#[repr(C)]
-pub struct SET_APP_INSTANCE_CSV_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type SET_APP_INSTANCE_CSV_FLAGS = unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, mask: u32, flags: u32) -> u32;
 #[repr(transparent)]
 pub struct SR_DISK_REPLICATION_ELIGIBLE(pub i32);
 pub const SrDiskReplicationEligibleNone: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(0i32);

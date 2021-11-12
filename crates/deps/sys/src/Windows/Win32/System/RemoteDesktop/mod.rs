@@ -516,10 +516,8 @@ pub const MaxNumOfExposed_IPs: u32 = 12u32;
 pub const MaxUserName_Len: u32 = 104u32;
 pub const NOTIFY_FOR_ALL_SESSIONS: u32 = 1u32;
 pub const NOTIFY_FOR_THIS_SESSION: u32 = 0u32;
-#[repr(C)]
-pub struct PCHANNEL_INIT_EVENT_FN(i32);
-#[repr(C)]
-pub struct PCHANNEL_OPEN_EVENT_FN(i32);
+pub type PCHANNEL_INIT_EVENT_FN = unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32);
+pub type PCHANNEL_OPEN_EVENT_FN = unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32);
 pub const PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION: u32 = 1u32;
 #[repr(transparent)]
 pub struct PLUGIN_TYPE(pub i32);
@@ -547,16 +545,14 @@ pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows_sys::c
 };
 pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1645401943, data2: 67, data3: 18530, data4: [153, 195, 159, 48, 89, 172, 42, 59] };
 pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 427573882, data2: 309, data3: 19309, data4: [156, 94, 230, 87, 154, 10, 182, 37] };
-#[repr(C)]
-pub struct PVIRTUALCHANNELCLOSE(i32);
-#[repr(C)]
-pub struct PVIRTUALCHANNELENTRY(i32);
-#[repr(C)]
-pub struct PVIRTUALCHANNELINIT(i32);
-#[repr(C)]
-pub struct PVIRTUALCHANNELOPEN(i32);
-#[repr(C)]
-pub struct PVIRTUALCHANNELWRITE(i32);
+pub type PVIRTUALCHANNELCLOSE = unsafe extern "system" fn(openhandle: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PVIRTUALCHANNELENTRY = unsafe extern "system" fn(pentrypoints: *mut CHANNEL_ENTRY_POINTS) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PVIRTUALCHANNELINIT = unsafe extern "system" fn(ppinithandle: *mut *mut ::core::ffi::c_void, pchannel: *mut CHANNEL_DEF, channelcount: i32, versionrequested: u32, pchanneliniteventproc: PCHANNEL_INIT_EVENT_FN) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PVIRTUALCHANNELOPEN = unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, popenhandle: *mut u32, pchannelname: super::super::Foundation::PSTR, pchannelopeneventproc: PCHANNEL_OPEN_EVENT_FN) -> u32;
+pub type PVIRTUALCHANNELWRITE = unsafe extern "system" fn(openhandle: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, puserdata: *mut ::core::ffi::c_void) -> u32;
 #[repr(transparent)]
 pub struct PasswordEncodingType(pub i32);
 pub const PasswordEncodingUTF8: PasswordEncodingType = PasswordEncodingType(0i32);

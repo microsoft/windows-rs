@@ -373,12 +373,12 @@ pub struct IDirectMusicSynthSink(pub *mut ::core::ffi::c_void);
 pub struct IDirectMusicThru(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct INSTHEADER(i32);
-#[repr(C)]
-pub struct LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1(i32);
-#[repr(C)]
-pub struct LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA(i32);
-#[repr(C)]
-pub struct LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA, param1: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
 #[repr(C)]
 pub struct MDEVICECAPSEX(i32);
 #[repr(C)]

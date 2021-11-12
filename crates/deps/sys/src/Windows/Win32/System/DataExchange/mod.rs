@@ -321,8 +321,7 @@ pub struct MONLINKSTRUCT(i32);
 #[repr(C)]
 pub struct MONMSGSTRUCT(i32);
 pub const MSGF_DDEMGR: u32 = 32769u32;
-#[repr(C)]
-pub struct PFNCALLBACK(i32);
+pub type PFNCALLBACK = unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA;
 pub const QID_SYNC: u32 = 4294967295u32;
 pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
 pub const WM_DDE_ACK: u32 = 996u32;

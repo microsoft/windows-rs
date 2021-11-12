@@ -109,10 +109,8 @@ extern "system" {
     pub fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
 }
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
-#[repr(C)]
-pub struct JsBackgroundWorkItemCallback(i32);
-#[repr(C)]
-pub struct JsBeforeCollectCallback(i32);
+pub type JsBackgroundWorkItemCallback = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void);
+pub type JsBeforeCollectCallback = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct JsErrorCode(pub u32);
 pub const JsNoError: JsErrorCode = JsErrorCode(0u32);
@@ -144,17 +142,14 @@ pub const JsErrorScriptTerminated: JsErrorCode = JsErrorCode(196611u32);
 pub const JsErrorScriptEvalDisabled: JsErrorCode = JsErrorCode(196612u32);
 pub const JsErrorCategoryFatal: JsErrorCode = JsErrorCode(262144u32);
 pub const JsErrorFatal: JsErrorCode = JsErrorCode(262145u32);
-#[repr(C)]
-pub struct JsFinalizeCallback(i32);
-#[repr(C)]
-pub struct JsMemoryAllocationCallback(i32);
+pub type JsFinalizeCallback = unsafe extern "system" fn(data: *const ::core::ffi::c_void);
+pub type JsMemoryAllocationCallback = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool;
 #[repr(transparent)]
 pub struct JsMemoryEventType(pub i32);
 pub const JsMemoryAllocate: JsMemoryEventType = JsMemoryEventType(0i32);
 pub const JsMemoryFree: JsMemoryEventType = JsMemoryEventType(1i32);
 pub const JsMemoryFailure: JsMemoryEventType = JsMemoryEventType(2i32);
-#[repr(C)]
-pub struct JsNativeFunction(i32);
+pub type JsNativeFunction = unsafe extern "system" fn(callee: *const ::core::ffi::c_void, isconstructcall: bool, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, callbackstate: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct JsRuntimeAttributes(pub i32);
 pub const JsRuntimeAttributeNone: JsRuntimeAttributes = JsRuntimeAttributes(0i32);
@@ -168,8 +163,7 @@ pub struct JsRuntimeVersion(pub i32);
 pub const JsRuntimeVersion10: JsRuntimeVersion = JsRuntimeVersion(0i32);
 pub const JsRuntimeVersion11: JsRuntimeVersion = JsRuntimeVersion(1i32);
 pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
-#[repr(C)]
-pub struct JsThreadServiceCallback(i32);
+pub type JsThreadServiceCallback = unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const ::core::ffi::c_void) -> bool;
 #[repr(transparent)]
 pub struct JsValueType(pub i32);
 pub const JsUndefined: JsValueType = JsValueType(0i32);

@@ -96,40 +96,31 @@ pub const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4u32;
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1u32;
 #[repr(C)]
 pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD(i32);
-#[repr(C)]
-pub struct VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT(i32);
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofbytes: usize, sourceaddress: *const ::core::ffi::c_void, pageprotection: u32) -> i32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32;
+#[cfg(any(target_arch = "x86",))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofbytes: usize) -> i32;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY = unsafe extern "system" fn(keyrequest: *mut ENCLAVE_VBS_BASIC_KEY_REQUEST, requestedkeysize: u32, returnedkey: *mut u8) -> i32;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA = unsafe extern "system" fn(buffer: *mut u8, numberofbytes: u32, generation: *mut u64) -> i32;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = unsafe extern "system" fn(enclavedata: *const u8, report: *mut ::core::ffi::c_void, buffersize: u32, outputsize: *mut u32) -> i32;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION = unsafe extern "system" fn(enclaveinfo: *mut ENCLAVE_INFORMATION) -> i32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32;
+#[cfg(any(target_arch = "x86",))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofytes: usize, pageprotection: u32) -> i32;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE = unsafe extern "system" fn(returnvalue: usize);
+#[cfg(any(target_arch = "x86_64",))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = unsafe extern "system" fn(exceptionrecord: *const VBS_BASIC_ENCLAVE_EXCEPTION_AMD64) -> i32;
+#[cfg(any(target_arch = "x86", target_arch = "aarch64",))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = unsafe extern "system" fn(exceptionrecord: *const ::core::ffi::c_void) -> i32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32;
+#[cfg(any(target_arch = "x86",))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = unsafe extern "system" fn(report: *const ::core::ffi::c_void, reportsize: u32) -> i32;
 #[repr(C)]
 pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64(i32);
 #[repr(C)]

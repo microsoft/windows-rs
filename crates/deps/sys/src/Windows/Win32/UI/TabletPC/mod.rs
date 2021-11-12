@@ -1483,8 +1483,7 @@ pub const PT_Keyboard: PanelType = PanelType(3i32);
 pub struct PenInputPanel(i32);
 #[repr(C)]
 pub struct PenInputPanel_Internal(i32);
-#[repr(C)]
-pub struct PfnRecoCallback(i32);
+pub type PfnRecoCallback = unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> ::windows_sys::core::HRESULT;
 pub const RECOCONF_HIGHCONFIDENCE: u32 = 1u32;
 pub const RECOCONF_LOWCONFIDENCE: i32 = -1i32;
 pub const RECOCONF_MEDIUMCONFIDENCE: u32 = 0u32;

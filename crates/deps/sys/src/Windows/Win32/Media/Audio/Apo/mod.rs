@@ -115,8 +115,7 @@ pub const eAudioConstriction48_16: EAudioConstriction = EAudioConstriction(1i32)
 pub const eAudioConstriction44_16: EAudioConstriction = EAudioConstriction(2i32);
 pub const eAudioConstriction14_14: EAudioConstriction = EAudioConstriction(3i32);
 pub const eAudioConstrictionMute: EAudioConstriction = EAudioConstriction(4i32);
-#[repr(C)]
-pub struct FNAPONOTIFICATIONCALLBACK(i32);
+pub type FNAPONOTIFICATIONCALLBACK = unsafe extern "system" fn(pproperties: *mut APO_REG_PROPERTIES, pvrefdata: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 #[repr(transparent)]
 pub struct IApoAcousticEchoCancellation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

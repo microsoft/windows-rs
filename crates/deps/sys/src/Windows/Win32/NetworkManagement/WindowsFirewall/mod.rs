@@ -315,22 +315,21 @@ pub struct NetFwProducts(i32);
 pub struct NetFwRule(i32);
 #[repr(C)]
 pub struct NetSharingManager(i32);
-#[repr(C)]
-pub struct PAC_CHANGES_CALLBACK_FN(i32);
-#[repr(C)]
-pub struct PFN_FWADDDYNAMICKEYWORDADDRESS0(i32);
-#[repr(C)]
-pub struct PFN_FWDELETEDYNAMICKEYWORDADDRESS0(i32);
-#[repr(C)]
-pub struct PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0(i32);
-#[repr(C)]
-pub struct PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0(i32);
-#[repr(C)]
-pub struct PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0(i32);
-#[repr(C)]
-pub struct PFN_FWUPDATEDYNAMICKEYWORDADDRESS0(i32);
-#[repr(C)]
-pub struct PNETISO_EDP_ID_CALLBACK_FN(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub type PAC_CHANGES_CALLBACK_FN = unsafe extern "system" fn(context: *const ::core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_FWADDDYNAMICKEYWORDADDRESS0 = unsafe extern "system" fn(dynamickeywordaddress: *const _tag_FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32;
+pub type PFN_FWDELETEDYNAMICKEYWORDADDRESS0 = unsafe extern "system" fn(dynamickeywordaddressid: ::windows_sys::core::GUID) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0 = unsafe extern "system" fn(dynamickeywordaddressid: ::windows_sys::core::GUID, dynamickeywordaddressdata: *mut *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0 = unsafe extern "system" fn(flags: u32, dynamickeywordaddressdata: *mut *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = unsafe extern "system" fn(dynamickeywordaddressdata: *const _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = unsafe extern "system" fn(dynamickeywordaddressid: ::windows_sys::core::GUID, updatedaddresses: super::super::Foundation::PWSTR, append: super::super::Foundation::BOOL) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PNETISO_EDP_ID_CALLBACK_FN = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, wszenterpriseid: super::super::Foundation::PWSTR, dwerr: u32);
 #[repr(transparent)]
 pub struct SHARINGCONNECTIONTYPE(pub i32);
 pub const ICSSHARINGTYPE_PUBLIC: SHARINGCONNECTIONTYPE = SHARINGCONNECTIONTYPE(0i32);

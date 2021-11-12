@@ -24,8 +24,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn PostQueuedCompletionStatus(completionport: super::super::Foundation::HANDLE, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: *const OVERLAPPED) -> super::super::Foundation::BOOL;
 }
-#[repr(C)]
-pub struct LPOVERLAPPED_COMPLETION_ROUTINE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPOVERLAPPED_COMPLETION_ROUTINE = unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct OVERLAPPED(i32);

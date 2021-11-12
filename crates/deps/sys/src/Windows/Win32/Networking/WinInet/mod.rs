@@ -706,8 +706,8 @@ pub const CACHE_NOTIFY_SET_ONLINE: u32 = 256u32;
 pub const CACHE_NOTIFY_UPDATE_URL: u32 = 4u32;
 pub const CACHE_NOTIFY_URL_SET_STICKY: u32 = 16u32;
 pub const CACHE_NOTIFY_URL_UNSET_STICKY: u32 = 32u32;
-#[repr(C)]
-pub struct CACHE_OPERATOR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type CACHE_OPERATOR = unsafe extern "system" fn(pcei: *mut INTERNET_CACHE_ENTRY_INFOA, pcbcei: *mut u32, popdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 pub const COOKIE_ACCEPTED_CACHE_ENTRY: u32 = 4096u32;
 pub const COOKIE_ALLOW: u32 = 2u32;
 pub const COOKIE_ALLOW_ALL: u32 = 4u32;
@@ -890,8 +890,8 @@ pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE(i32);
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE(i32);
 #[repr(C)]
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE(i32);
-#[repr(C)]
-pub struct GOPHER_ATTRIBUTE_ENUMERATOR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type GOPHER_ATTRIBUTE_ENUMERATOR = unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> super::super::Foundation::BOOL;
 pub const GOPHER_ATTRIBUTE_ID_ABSTRACT: u32 = 2882325526u32;
 pub const GOPHER_ATTRIBUTE_ID_ADMIN: u32 = 2882325514u32;
 pub const GOPHER_ATTRIBUTE_ID_ALL: u32 = 2882325513u32;
@@ -1011,10 +1011,8 @@ pub const HTTP_COOKIES_SAME_SITE_LEVEL_SAME_SITE: u32 = 1u32;
 pub const HTTP_COOKIES_SAME_SITE_LEVEL_UNKNOWN: u32 = 0u32;
 pub const HTTP_MAJOR_VERSION: u32 = 1u32;
 pub const HTTP_MINOR_VERSION: u32 = 0u32;
-#[repr(C)]
-pub struct HTTP_POLICY_EXTENSION_INIT(i32);
-#[repr(C)]
-pub struct HTTP_POLICY_EXTENSION_SHUTDOWN(i32);
+pub type HTTP_POLICY_EXTENSION_INIT = unsafe extern "system" fn(version: HTTP_POLICY_EXTENSION_VERSION, r#type: HTTP_POLICY_EXTENSION_TYPE, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> u32;
+pub type HTTP_POLICY_EXTENSION_SHUTDOWN = unsafe extern "system" fn(r#type: HTTP_POLICY_EXTENSION_TYPE) -> u32;
 #[repr(transparent)]
 pub struct HTTP_POLICY_EXTENSION_TYPE(pub i32);
 pub const POLICY_EXTENSION_TYPE_NONE: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(0i32);
@@ -1776,8 +1774,7 @@ pub const COOKIE_STATE_LEASH: InternetCookieState = InternetCookieState(3i32);
 pub const COOKIE_STATE_DOWNGRADE: InternetCookieState = InternetCookieState(4i32);
 pub const COOKIE_STATE_REJECT: InternetCookieState = InternetCookieState(5i32);
 pub const COOKIE_STATE_MAX: InternetCookieState = InternetCookieState(5i32);
-#[repr(C)]
-pub struct LPINTERNET_STATUS_CALLBACK(i32);
+pub type LPINTERNET_STATUS_CALLBACK = unsafe extern "system" fn(hinternet: *const ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *const ::core::ffi::c_void, dwstatusinformationlength: u32);
 pub const MAX_CACHE_ENTRY_INFO_SIZE: u32 = 4096u32;
 pub const MAX_GOPHER_ATTRIBUTE_NAME: u32 = 128u32;
 pub const MAX_GOPHER_CATEGORY_NAME: u32 = 128u32;
@@ -1793,10 +1790,9 @@ pub const OTHER_USER_CACHE_ENTRY: u32 = 8388608u32;
 #[repr(C)]
 pub struct OutgoingCookieState(i32);
 pub const PENDING_DELETE_CACHE_ENTRY: u32 = 4194304u32;
-#[repr(C)]
-pub struct PFN_AUTH_NOTIFY(i32);
-#[repr(C)]
-pub struct PFN_DIAL_HANDLER(i32);
+pub type PFN_AUTH_NOTIFY = unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut ::core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_DIAL_HANDLER = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: u32, param3: *mut u32) -> u32;
 pub const POST_CHECK_CACHE_ENTRY: u32 = 536870912u32;
 pub const POST_RESPONSE_CACHE_ENTRY: u32 = 67108864u32;
 pub const PRIVACY_IMPACTED_CACHE_ENTRY: u32 = 33554432u32;
@@ -1897,9 +1893,9 @@ pub struct WPAD_CACHE_DELETE(pub i32);
 pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(0i32);
 pub const WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(1i32);
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
-#[repr(C)]
-pub struct pfnInternetDeInitializeAutoProxyDll(i32);
-#[repr(C)]
-pub struct pfnInternetGetProxyInfo(i32);
-#[repr(C)]
-pub struct pfnInternetInitializeAutoProxyDll(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type pfnInternetDeInitializeAutoProxyDll = unsafe extern "system" fn(lpszmime: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type pfnInternetGetProxyInfo = unsafe extern "system" fn(lpszurl: super::super::Foundation::PSTR, dwurllength: u32, lpszurlhostname: super::super::Foundation::PSTR, dwurlhostnamelength: u32, lplpszproxyhostname: *mut super::super::Foundation::PSTR, lpdwproxyhostnamelength: *mut u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type pfnInternetInitializeAutoProxyDll = unsafe extern "system" fn(dwversion: u32, lpszdownloadedtempfile: super::super::Foundation::PSTR, lpszmime: super::super::Foundation::PSTR, lpautoproxycallbacks: *mut AutoProxyHelperFunctions, lpautoproxyscriptbuffer: *mut AUTO_PROXY_SCRIPT_BUFFER) -> super::super::Foundation::BOOL;

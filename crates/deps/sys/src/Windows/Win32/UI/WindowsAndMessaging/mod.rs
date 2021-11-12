@@ -1064,8 +1064,8 @@ pub const DLGC_WANTMESSAGE: u32 = 4u32;
 pub const DLGC_WANTTAB: u32 = 2u32;
 #[repr(C)]
 pub struct DLGITEMTEMPLATE(i32);
-#[repr(C)]
-pub struct DLGPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type DLGPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize;
 #[repr(C)]
 pub struct DLGTEMPLATE(i32);
 pub const DLGWINDOWEXTRA: u32 = 30u32;
@@ -1431,8 +1431,8 @@ pub const HKL_NEXT: u32 = 1u32;
 pub const HKL_PREV: u32 = 0u32;
 #[repr(C)]
 pub struct HMENU(i32);
-#[repr(C)]
-pub struct HOOKPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type HOOKPROC = unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 pub const HSHELL_ACCESSIBILITYSTATE: u32 = 11u32;
 pub const HSHELL_ACTIVATESHELLWINDOW: u32 = 3u32;
 pub const HSHELL_APPCOMMAND: u32 = 12u32;
@@ -1940,8 +1940,8 @@ pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct MSG(i32);
-#[repr(C)]
-pub struct MSGBOXCALLBACK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+pub type MSGBOXCALLBACK = unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[repr(C)]
 pub struct MSGBOXPARAMSA(i32);
@@ -2006,10 +2006,10 @@ pub const MrmResourceIndexerMessageSeverityVerbose: MrmResourceIndexerMessageSev
 pub const MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(1i32);
 pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(2i32);
 pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(3i32);
-#[repr(C)]
-pub struct NAMEENUMPROCA(i32);
-#[repr(C)]
-pub struct NAMEENUMPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type NAMEENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type NAMEENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct NCCALCSIZE_PARAMS(i32);
@@ -2186,22 +2186,22 @@ pub const POINTER_MESSAGE_FLAG_SECONDBUTTON: u32 = 32u32;
 pub const POINTER_MESSAGE_FLAG_THIRDBUTTON: u32 = 64u32;
 pub const POINTER_MOD_CTRL: u32 = 8u32;
 pub const POINTER_MOD_SHIFT: u32 = 4u32;
-#[repr(C)]
-pub struct PREGISTERCLASSNAMEW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PREGISTERCLASSNAMEW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOLEAN;
 pub const PRF_CHECKVISIBLE: i32 = 1i32;
 pub const PRF_CHILDREN: i32 = 16i32;
 pub const PRF_CLIENT: i32 = 4i32;
 pub const PRF_ERASEBKGND: i32 = 8i32;
 pub const PRF_NONCLIENT: i32 = 2i32;
 pub const PRF_OWNED: i32 = 32i32;
-#[repr(C)]
-pub struct PROPENUMPROCA(i32);
-#[repr(C)]
-pub struct PROPENUMPROCEXA(i32);
-#[repr(C)]
-pub struct PROPENUMPROCEXW(i32);
-#[repr(C)]
-pub struct PROPENUMPROCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PROPENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PROPENUMPROCEXA = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PROPENUMPROCEXW = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PROPENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 pub const PWR_CRITICALRESUME: u32 = 3u32;
 pub const PWR_FAIL: i32 = -1i32;
 pub const PWR_OK: u32 = 1u32;
@@ -2364,8 +2364,8 @@ pub const SC_SIZE: u32 = 61440u32;
 pub const SC_TASKLIST: u32 = 61744u32;
 pub const SC_VSCROLL: u32 = 61552u32;
 pub const SC_ZOOM: u32 = 61488u32;
-#[repr(C)]
-pub struct SENDASYNCPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type SENDASYNCPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT);
 #[repr(transparent)]
 pub struct SEND_MESSAGE_TIMEOUT_FLAGS(pub u32);
 pub const SMTO_ABORTIFHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(2u32);
@@ -2939,8 +2939,8 @@ pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8u32);
 pub struct TILE_WINDOWS_HOW(pub u32);
 pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(1u32);
 pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(0u32);
-#[repr(C)]
-pub struct TIMERPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type TIMERPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32);
 pub const TIMERV_COALESCING_MAX: u32 = 2147483637u32;
 pub const TIMERV_COALESCING_MIN: u32 = 1u32;
 pub const TIMERV_DEFAULT_COALESCING: u32 = 0u32;
@@ -3443,10 +3443,10 @@ pub const CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = WNDCLASS_STYLES(8192u32);
 pub const CS_GLOBALCLASS: WNDCLASS_STYLES = WNDCLASS_STYLES(16384u32);
 pub const CS_IME: WNDCLASS_STYLES = WNDCLASS_STYLES(65536u32);
 pub const CS_DROPSHADOW: WNDCLASS_STYLES = WNDCLASS_STYLES(131072u32);
-#[repr(C)]
-pub struct WNDENUMPROC(i32);
-#[repr(C)]
-pub struct WNDPROC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type WNDENUMPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type WNDPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 pub const WSF_VISIBLE: i32 = 1i32;
 pub const WTS_CONSOLE_CONNECT: u32 = 1u32;
 pub const WTS_CONSOLE_DISCONNECT: u32 = 2u32;

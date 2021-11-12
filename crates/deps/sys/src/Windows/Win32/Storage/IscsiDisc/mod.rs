@@ -192,8 +192,7 @@ pub struct ATA_PASS_THROUGH_EX(i32);
 pub struct ATA_PASS_THROUGH_EX32(i32);
 #[repr(C)]
 pub struct DSM_NOTIFICATION_REQUEST_BLOCK(i32);
-#[repr(C)]
-pub struct DUMP_DEVICE_POWERON_ROUTINE(i32);
+pub type DUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> i32;
 #[repr(C)]
 pub struct DUMP_DRIVER(i32);
 #[cfg(feature = "Win32_Foundation")]
@@ -499,8 +498,7 @@ pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CAC
 pub const NVSEPWriteCacheTypeNone: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(1i32);
 pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(2i32);
 pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(3i32);
-#[repr(C)]
-pub struct PDUMP_DEVICE_POWERON_ROUTINE(i32);
+pub type PDUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn() -> i32;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOA(i32);

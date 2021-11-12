@@ -25,14 +25,13 @@ pub const CLSID_MSDtcTransaction: ::windows_sys::core::GUID = ::windows_sys::GUI
 pub const CLSID_MSDtcTransactionManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1528343393, data2: 2333, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
 pub const DTCINSTALL_E_CLIENT_ALREADY_INSTALLED: i32 = 384i32;
 pub const DTCINSTALL_E_SERVER_ALREADY_INSTALLED: i32 = 385i32;
-#[repr(C)]
-pub struct DTC_GET_TRANSACTION_MANAGER(i32);
-#[repr(C)]
-pub struct DTC_GET_TRANSACTION_MANAGER_EX_A(i32);
-#[repr(C)]
-pub struct DTC_GET_TRANSACTION_MANAGER_EX_W(i32);
-#[repr(C)]
-pub struct DTC_INSTALL_CLIENT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type DTC_GET_TRANSACTION_MANAGER = unsafe extern "system" fn(pszhost: super::super::Foundation::PSTR, psztmname: super::super::Foundation::PSTR, rid: *const ::windows_sys::core::GUID, dwreserved1: u32, wcbreserved2: u16, pvreserved2: *mut ::core::ffi::c_void, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type DTC_GET_TRANSACTION_MANAGER_EX_A = unsafe extern "system" fn(i_pszhost: super::super::Foundation::PSTR, i_psztmname: super::super::Foundation::PSTR, i_riid: *const ::windows_sys::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_Foundation")]
+pub type DTC_GET_TRANSACTION_MANAGER_EX_W = unsafe extern "system" fn(i_pwszhost: super::super::Foundation::PWSTR, i_pwsztmname: super::super::Foundation::PWSTR, i_riid: *const ::windows_sys::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type DTC_INSTALL_CLIENT = unsafe extern "system" fn(i_pszremotetmhostname: *mut i8, i_dwprotocol: u32, i_dwoverwrite: u32) -> ::windows_sys::core::HRESULT;
 pub const DTC_INSTALL_OVERWRITE_CLIENT: u32 = 1u32;
 pub const DTC_INSTALL_OVERWRITE_SERVER: u32 = 2u32;
 #[repr(transparent)]
@@ -329,28 +328,27 @@ pub const XAER_OUTSIDE: i32 = -9i32;
 pub const XAER_PROTO: i32 = -6i32;
 pub const XAER_RMERR: i32 = -3i32;
 pub const XAER_RMFAIL: i32 = -7i32;
-#[repr(C)]
-pub struct XA_CLOSE_EPT(i32);
-#[repr(C)]
-pub struct XA_COMMIT_EPT(i32);
-#[repr(C)]
-pub struct XA_COMPLETE_EPT(i32);
-#[repr(C)]
-pub struct XA_END_EPT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type XA_CLOSE_EPT = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: i32, param2: i32) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type XA_COMMIT_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
+pub type XA_COMPLETE_EPT = unsafe extern "system" fn(param0: *mut i32, param1: *mut i32, param2: i32, param3: i32) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type XA_END_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
 pub const XA_FMTID_DTC: u32 = 4478019u32;
 pub const XA_FMTID_DTC_VER1: u32 = 21255235u32;
-#[repr(C)]
-pub struct XA_FORGET_EPT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type XA_FORGET_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
 pub const XA_HEURCOM: u32 = 7u32;
 pub const XA_HEURHAZ: u32 = 8u32;
 pub const XA_HEURMIX: u32 = 5u32;
 pub const XA_HEURRB: u32 = 6u32;
 pub const XA_NOMIGRATE: u32 = 9u32;
 pub const XA_OK: u32 = 0u32;
-#[repr(C)]
-pub struct XA_OPEN_EPT(i32);
-#[repr(C)]
-pub struct XA_PREPARE_EPT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type XA_OPEN_EPT = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: i32, param2: i32) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type XA_PREPARE_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
 pub const XA_RBBASE: u32 = 100u32;
 pub const XA_RBCOMMFAIL: u32 = 101u32;
 pub const XA_RBDEADLOCK: u32 = 102u32;
@@ -362,13 +360,13 @@ pub const XA_RBROLLBACK: u32 = 100u32;
 pub const XA_RBTIMEOUT: u32 = 106u32;
 pub const XA_RBTRANSIENT: u32 = 107u32;
 pub const XA_RDONLY: u32 = 3u32;
-#[repr(C)]
-pub struct XA_RECOVER_EPT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type XA_RECOVER_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32, param3: i32) -> i32;
 pub const XA_RETRY: u32 = 4u32;
-#[repr(C)]
-pub struct XA_ROLLBACK_EPT(i32);
-#[repr(C)]
-pub struct XA_START_EPT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type XA_ROLLBACK_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type XA_START_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
 pub const XA_SWITCH_F_DTC: u32 = 1u32;
 pub const XIDDATASIZE: u32 = 128u32;
 #[repr(transparent)]

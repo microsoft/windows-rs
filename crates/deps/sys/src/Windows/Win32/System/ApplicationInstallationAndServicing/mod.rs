@@ -1106,10 +1106,10 @@ pub const INSTALLUILEVEL_PROGRESSONLY: INSTALLUILEVEL = INSTALLUILEVEL(64i32);
 pub const INSTALLUILEVEL_HIDECANCEL: INSTALLUILEVEL = INSTALLUILEVEL(32i32);
 pub const INSTALLUILEVEL_SOURCERESONLY: INSTALLUILEVEL = INSTALLUILEVEL(256i32);
 pub const INSTALLUILEVEL_UACONLY: INSTALLUILEVEL = INSTALLUILEVEL(512i32);
-#[repr(C)]
-pub struct INSTALLUI_HANDLERA(i32);
-#[repr(C)]
-pub struct INSTALLUI_HANDLERW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type INSTALLUI_HANDLERA = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PSTR) -> i32;
+#[cfg(feature = "Win32_Foundation")]
+pub type INSTALLUI_HANDLERW = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PWSTR) -> i32;
 #[repr(transparent)]
 pub struct IPMApplicationInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1174,10 +1174,10 @@ pub const LOGTOKEN_SETUPAPI_DEVLOG: u32 = 3u32;
 pub const LOGTOKEN_TYPE_MASK: u32 = 3u32;
 pub const LOGTOKEN_UNSPECIFIED: u32 = 0u32;
 pub const LOGWARN: u32 = 2u32;
-#[repr(C)]
-pub struct LPDISPLAYVAL(i32);
-#[repr(C)]
-pub struct LPEVALCOMCALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDISPLAYVAL = unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, uitype: RESULTTYPES, szwval: super::super::Foundation::PWSTR, szwdescription: super::super::Foundation::PWSTR, szwlocation: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type LPEVALCOMCALLBACK = unsafe extern "system" fn(istatus: STATUSTYPES, szdata: super::super::Foundation::PWSTR, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 pub const MAX_FEATURE_CHARS: u32 = 38u32;
 pub const MAX_GUID_CHARS: u32 = 38u32;
 #[repr(transparent)]
@@ -1438,8 +1438,7 @@ pub const PID_TEMPLATE: u32 = 7u32;
 pub const PID_THUMBNAIL: u32 = 17u32;
 pub const PID_TITLE: u32 = 2u32;
 pub const PID_WORDCOUNT: u32 = 15u32;
-#[repr(C)]
-pub struct PINSTALLUI_HANDLER_RECORD(i32);
+pub type PINSTALLUI_HANDLER_RECORD = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, hrecord: MSIHANDLE) -> i32;
 #[repr(C)]
 pub struct PMSIHANDLE(i32);
 #[repr(C)]
@@ -1625,10 +1624,10 @@ pub struct PM_UPDATEINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct PM_UPDATEINFO_LEGACY(i32);
-#[repr(C)]
-pub struct PPATCH_PROGRESS_CALLBACK(i32);
-#[repr(C)]
-pub struct PPATCH_SYMLOAD_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PPATCH_PROGRESS_CALLBACK = unsafe extern "system" fn(callbackcontext: *mut ::core::ffi::c_void, currentposition: u32, maximumposition: u32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PPATCH_SYMLOAD_CALLBACK = unsafe extern "system" fn(whichfile: u32, symbolfilename: super::super::Foundation::PSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[repr(C)]
 pub struct PROTECTED_FILE_DATA(i32);
 #[repr(transparent)]

@@ -140,27 +140,24 @@ pub const MAXOBJIDSIZE: u32 = 128u32;
 pub const MAXOBJIDSTRSIZE: u32 = 1408u32;
 pub const MAXVENDORINFO: u32 = 32u32;
 pub const MGMCTL_SETAGENTPORT: u32 = 1u32;
-#[repr(C)]
-pub struct PFNSNMPCLEANUPEX(i32);
-#[repr(C)]
-pub struct PFNSNMPEXTENSIONCLOSE(i32);
-#[repr(C)]
-pub struct PFNSNMPEXTENSIONINIT(i32);
-#[repr(C)]
-pub struct PFNSNMPEXTENSIONINITEX(i32);
-#[repr(C)]
-pub struct PFNSNMPEXTENSIONMONITOR(i32);
-#[repr(C)]
-pub struct PFNSNMPEXTENSIONQUERY(i32);
-#[repr(C)]
-pub struct PFNSNMPEXTENSIONQUERYEX(i32);
-#[repr(C)]
-pub struct PFNSNMPEXTENSIONTRAP(i32);
-#[repr(C)]
-pub struct PFNSNMPSTARTUPEX(i32);
+pub type PFNSNMPCLEANUPEX = unsafe extern "system" fn() -> u32;
+pub type PFNSNMPEXTENSIONCLOSE = unsafe extern "system" fn();
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNSNMPEXTENSIONINIT = unsafe extern "system" fn(dwuptimereference: u32, phsubagenttrapevent: *mut super::super::Foundation::HANDLE, pfirstsupportedregion: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNSNMPEXTENSIONINITEX = unsafe extern "system" fn(pnextsupportedregion: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNSNMPEXTENSIONMONITOR = unsafe extern "system" fn(pagentmgmtdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNSNMPEXTENSIONQUERY = unsafe extern "system" fn(bpdutype: u8, pvarbindlist: *mut SnmpVarBindList, perrorstatus: *mut i32, perrorindex: *mut i32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNSNMPEXTENSIONQUERYEX = unsafe extern "system" fn(nrequesttype: u32, ntransactionid: u32, pvarbindlist: *mut SnmpVarBindList, pcontextinfo: *mut AsnOctetString, perrorstatus: *mut i32, perrorindex: *mut i32) -> super::super::Foundation::BOOL;
+#[cfg(feature = "Win32_Foundation")]
+pub type PFNSNMPEXTENSIONTRAP = unsafe extern "system" fn(penterpriseoid: *mut AsnObjectIdentifier, pgenerictrapid: *mut i32, pspecifictrapid: *mut i32, ptimestamp: *mut u32, pvarbindlist: *mut SnmpVarBindList) -> super::super::Foundation::BOOL;
+pub type PFNSNMPSTARTUPEX = unsafe extern "system" fn(param0: *mut u32, param1: *mut u32, param2: *mut u32, param3: *mut u32, param4: *mut u32) -> u32;
 pub const SNMPAPI_ALLOC_ERROR: u32 = 2u32;
-#[repr(C)]
-pub struct SNMPAPI_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type SNMPAPI_CALLBACK = unsafe extern "system" fn(hsession: isize, hwnd: super::super::Foundation::HWND, wmsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpclientdata: *mut ::core::ffi::c_void) -> u32;
 pub const SNMPAPI_CONTEXT_INVALID: u32 = 3u32;
 pub const SNMPAPI_CONTEXT_UNKNOWN: u32 = 4u32;
 pub const SNMPAPI_ENTITY_INVALID: u32 = 5u32;

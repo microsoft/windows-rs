@@ -85,26 +85,21 @@ pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);
 pub const NS_REQ_PRESENT: NS_REQS = NS_REQS(1i32);
 pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = NS_REQS(2i32);
 pub const NS_REQ_ONE_OR_MORE: NS_REQS = NS_REQS(3i32);
-#[repr(C)]
-pub struct PFN_HANDLE_CMD(i32);
-#[repr(C)]
-pub struct PGET_RESOURCE_STRING_FN(i32);
-#[repr(C)]
-pub struct PNS_CONTEXT_COMMIT_FN(i32);
-#[repr(C)]
-pub struct PNS_CONTEXT_CONNECT_FN(i32);
-#[repr(C)]
-pub struct PNS_CONTEXT_DUMP_FN(i32);
-#[repr(C)]
-pub struct PNS_DLL_INIT_FN(i32);
-#[repr(C)]
-pub struct PNS_DLL_STOP_FN(i32);
-#[repr(C)]
-pub struct PNS_HELPER_START_FN(i32);
-#[repr(C)]
-pub struct PNS_HELPER_STOP_FN(i32);
-#[repr(C)]
-pub struct PNS_OSVERSIONCHECK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_HANDLE_CMD = unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PGET_RESOURCE_STRING_FN = unsafe extern "system" fn(dwmsgid: u32, lpbuffer: super::super::Foundation::PWSTR, nbuffermax: u32) -> u32;
+pub type PNS_CONTEXT_COMMIT_FN = unsafe extern "system" fn(dwaction: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PNS_CONTEXT_CONNECT_FN = unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PNS_CONTEXT_DUMP_FN = unsafe extern "system" fn(pwszrouter: super::super::Foundation::PWSTR, ppwcarguments: *const super::super::Foundation::PWSTR, dwargcount: u32, pvdata: *const ::core::ffi::c_void) -> u32;
+pub type PNS_DLL_INIT_FN = unsafe extern "system" fn(dwnetshversion: u32, preserved: *mut ::core::ffi::c_void) -> u32;
+pub type PNS_DLL_STOP_FN = unsafe extern "system" fn(dwreserved: u32) -> u32;
+pub type PNS_HELPER_START_FN = unsafe extern "system" fn(pguidparent: *const ::windows_sys::core::GUID, dwversion: u32) -> u32;
+pub type PNS_HELPER_STOP_FN = unsafe extern "system" fn(dwreserved: u32) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type PNS_OSVERSIONCHECK = unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: super::super::Foundation::PWSTR, cimosbuildnumber: super::super::Foundation::PWSTR, cimservicepackmajorversion: super::super::Foundation::PWSTR, cimservicepackminorversion: super::super::Foundation::PWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
 pub struct TAG_TYPE(i32);
