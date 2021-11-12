@@ -1,12 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 pub const ComponentTypeEnforcementClientRp: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 pub const ComponentTypeEnforcementClientSoH: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`, `Win32_Foundation`*"]
 pub struct CorrelationId {
     pub connId: ::windows::core::GUID,
     pub timeStamp: super::super::Foundation::FILETIME,
@@ -40,7 +37,6 @@ unsafe impl ::windows::core::Abi for CorrelationId {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`, `Win32_Foundation`*"]
 pub struct CountedString {
     pub length: u16,
     pub string: super::super::Foundation::PWSTR,
@@ -71,7 +67,6 @@ impl ::core::cmp::Eq for CountedString {}
 unsafe impl ::windows::core::Abi for CountedString {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExtendedIsolationState(pub i32);
@@ -87,7 +82,6 @@ impl ::core::convert::From<i32> for ExtendedIsolationState {
 unsafe impl ::windows::core::Abi for ExtendedIsolationState {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FailureCategory(pub i32);
@@ -108,7 +102,6 @@ unsafe impl ::windows::core::Abi for FailureCategory {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`, `Win32_Foundation`*"]
 pub struct FailureCategoryMapping {
     pub mappingCompliance: [super::super::Foundation::BOOL; 5],
 }
@@ -140,7 +133,6 @@ unsafe impl ::windows::core::Abi for FailureCategoryMapping {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 pub struct FixupInfo {
     pub state: FixupState,
     pub percentage: u8,
@@ -167,7 +159,6 @@ impl ::core::cmp::Eq for FixupInfo {}
 unsafe impl ::windows::core::Abi for FixupInfo {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FixupState(pub i32);
@@ -184,7 +175,6 @@ unsafe impl ::windows::core::Abi for FixupState {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 pub struct Ipv4Address {
     pub addr: [u8; 4],
 }
@@ -210,7 +200,6 @@ unsafe impl ::windows::core::Abi for Ipv4Address {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 pub struct Ipv6Address {
     pub addr: [u8; 16],
 }
@@ -237,7 +226,6 @@ unsafe impl ::windows::core::Abi for Ipv6Address {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`, `Win32_Foundation`*"]
 pub struct IsolationInfo {
     pub isolationState: IsolationState,
     pub probEndTime: super::super::Foundation::FILETIME,
@@ -272,7 +260,6 @@ unsafe impl ::windows::core::Abi for IsolationInfo {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`, `Win32_Foundation`*"]
 pub struct IsolationInfoEx {
     pub isolationState: IsolationState,
     pub extendedIsolationState: ExtendedIsolationState,
@@ -305,7 +292,6 @@ impl ::core::cmp::Eq for IsolationInfoEx {}
 unsafe impl ::windows::core::Abi for IsolationInfoEx {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IsolationState(pub i32);
@@ -323,7 +309,6 @@ unsafe impl ::windows::core::Abi for IsolationState {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`, `Win32_Foundation`*"]
 pub struct NapComponentRegistrationInfo {
     pub id: u32,
     pub friendlyName: CountedString,
@@ -371,7 +356,6 @@ impl ::core::cmp::Eq for NapComponentRegistrationInfo {}
 unsafe impl ::windows::core::Abi for NapComponentRegistrationInfo {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NapNotifyType(pub i32);
@@ -386,7 +370,6 @@ impl ::core::convert::From<i32> for NapNotifyType {
 unsafe impl ::windows::core::Abi for NapNotifyType {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NapTracingLevel(pub i32);
@@ -404,7 +387,6 @@ unsafe impl ::windows::core::Abi for NapTracingLevel {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 pub struct NetworkSoH {
     pub size: u16,
     pub data: *mut u8,
@@ -431,7 +413,6 @@ unsafe impl ::windows::core::Abi for NetworkSoH {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 pub struct PrivateData {
     pub size: u16,
     pub data: *mut u8,
@@ -456,7 +437,6 @@ impl ::core::cmp::Eq for PrivateData {}
 unsafe impl ::windows::core::Abi for PrivateData {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RemoteConfigurationType(pub i32);
@@ -472,7 +452,6 @@ unsafe impl ::windows::core::Abi for RemoteConfigurationType {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 pub struct ResultCodes {
     pub count: u16,
     pub results: *mut ::windows::core::HRESULT,
@@ -499,7 +478,6 @@ unsafe impl ::windows::core::Abi for ResultCodes {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 pub struct SoH {
     pub count: u16,
     pub attributes: *mut SoHAttribute,
@@ -526,7 +504,6 @@ unsafe impl ::windows::core::Abi for SoH {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 pub struct SoHAttribute {
     pub r#type: u16,
     pub size: u16,
@@ -554,7 +531,6 @@ unsafe impl ::windows::core::Abi for SoHAttribute {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 pub struct SystemHealthAgentState {
     pub id: u32,
     pub shaResultCodes: ResultCodes,

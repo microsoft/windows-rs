@@ -1,8 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_CorrelationVector`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 pub type CF_CALLBACK = unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS);
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_CANCEL_FLAGS(pub u32);
@@ -45,7 +43,6 @@ impl ::core::ops::Not for CF_CALLBACK_CANCEL_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_CLOSE_COMPLETION_FLAGS(pub u32);
@@ -87,7 +84,6 @@ impl ::core::ops::Not for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(pub u32);
@@ -130,7 +126,6 @@ impl ::core::ops::Not for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_DEHYDRATE_FLAGS(pub u32);
@@ -172,7 +167,6 @@ impl ::core::ops::Not for CF_CALLBACK_DEHYDRATE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_DEHYDRATION_REASON(pub i32);
@@ -189,7 +183,6 @@ impl ::core::convert::From<i32> for CF_CALLBACK_DEHYDRATION_REASON {
 unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATION_REASON {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_DELETE_COMPLETION_FLAGS(pub u32);
@@ -230,7 +223,6 @@ impl ::core::ops::Not for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_DELETE_FLAGS(pub u32);
@@ -273,7 +265,6 @@ impl ::core::ops::Not for CF_CALLBACK_DELETE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_FETCH_DATA_FLAGS(pub u32);
@@ -316,7 +307,6 @@ impl ::core::ops::Not for CF_CALLBACK_FETCH_DATA_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS(pub u32);
@@ -360,7 +350,6 @@ impl ::core::ops::Not for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_CorrelationVector`*"]
 pub struct CF_CALLBACK_INFO {
     pub StructSize: u32,
     pub ConnectionKey: CF_CONNECTION_KEY,
@@ -446,7 +435,6 @@ impl ::core::cmp::Eq for CF_CALLBACK_INFO {}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_OPEN_COMPLETION_FLAGS(pub u32);
@@ -492,7 +480,6 @@ impl ::core::ops::Not for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 pub struct CF_CALLBACK_PARAMETERS {
     pub ParamSize: u32,
     pub Anonymous: CF_CALLBACK_PARAMETERS_0,
@@ -1016,7 +1003,6 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_11 {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_CorrelationVector`*"]
 pub struct CF_CALLBACK_REGISTRATION {
     pub Type: CF_CALLBACK_TYPE,
     pub Callback: ::core::option::Option<CF_CALLBACK>,
@@ -1047,7 +1033,6 @@ impl ::core::cmp::Eq for CF_CALLBACK_REGISTRATION {}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_REGISTRATION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_RENAME_COMPLETION_FLAGS(pub u32);
@@ -1088,7 +1073,6 @@ impl ::core::ops::Not for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_RENAME_FLAGS(pub u32);
@@ -1132,7 +1116,6 @@ impl ::core::ops::Not for CF_CALLBACK_RENAME_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_TYPE(pub i32);
@@ -1158,7 +1141,6 @@ impl ::core::convert::From<i32> for CF_CALLBACK_TYPE {
 unsafe impl ::windows::core::Abi for CF_CALLBACK_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_VALIDATE_DATA_FLAGS(pub u32);
@@ -1212,7 +1194,6 @@ unsafe impl ::windows::core::Handle for CF_CONNECTION_KEY {}
 unsafe impl ::windows::core::Abi for CF_CONNECTION_KEY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CONNECT_FLAGS(pub u32);
@@ -1256,7 +1237,6 @@ impl ::core::ops::Not for CF_CONNECT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CONVERT_FLAGS(pub u32);
@@ -1302,7 +1282,6 @@ impl ::core::ops::Not for CF_CONVERT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CREATE_FLAGS(pub u32);
@@ -1344,7 +1323,6 @@ impl ::core::ops::Not for CF_CREATE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_DEHYDRATE_FLAGS(pub u32);
@@ -1388,7 +1366,6 @@ impl ::core::ops::Not for CF_DEHYDRATE_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_FILE_RANGE {
     pub StartingOffset: i64,
     pub Length: i64,
@@ -1416,7 +1393,6 @@ unsafe impl ::windows::core::Abi for CF_FILE_RANGE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Storage_FileSystem`*"]
 pub struct CF_FS_METADATA {
     pub BasicInfo: super::FileSystem::FILE_BASIC_INFO,
     pub FileSize: i64,
@@ -1447,7 +1423,6 @@ impl ::core::cmp::Eq for CF_FS_METADATA {}
 unsafe impl ::windows::core::Abi for CF_FS_METADATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_HARDLINK_POLICY(pub u32);
@@ -1489,7 +1464,6 @@ impl ::core::ops::Not for CF_HARDLINK_POLICY {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_HYDRATE_FLAGS(pub u32);
@@ -1532,7 +1506,6 @@ impl ::core::ops::Not for CF_HYDRATE_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_HYDRATION_POLICY {
     pub Primary: CF_HYDRATION_POLICY_PRIMARY_USHORT,
     pub Modifier: CF_HYDRATION_POLICY_MODIFIER_USHORT,
@@ -1557,7 +1530,6 @@ impl ::core::cmp::Eq for CF_HYDRATION_POLICY {}
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_HYDRATION_POLICY_MODIFIER(pub u16);
@@ -1604,7 +1576,6 @@ impl ::core::ops::Not for CF_HYDRATION_POLICY_MODIFIER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_HYDRATION_POLICY_MODIFIER_USHORT {
     pub us: u16,
 }
@@ -1628,7 +1599,6 @@ impl ::core::cmp::Eq for CF_HYDRATION_POLICY_MODIFIER_USHORT {}
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_MODIFIER_USHORT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_HYDRATION_POLICY_PRIMARY(pub u16);
@@ -1646,7 +1616,6 @@ unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_PRIMARY {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_HYDRATION_POLICY_PRIMARY_USHORT {
     pub us: u16,
 }
@@ -1670,7 +1639,6 @@ impl ::core::cmp::Eq for CF_HYDRATION_POLICY_PRIMARY_USHORT {}
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_INSYNC_POLICY(pub u32);
@@ -1725,7 +1693,6 @@ impl ::core::ops::Not for CF_INSYNC_POLICY {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_IN_SYNC_STATE(pub i32);
@@ -1739,13 +1706,9 @@ impl ::core::convert::From<i32> for CF_IN_SYNC_STATE {
 unsafe impl ::windows::core::Abi for CF_IN_SYNC_STATE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub const CF_MAX_PRIORITY_HINT: u32 = 15u32;
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub const CF_MAX_PROVIDER_NAME_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub const CF_MAX_PROVIDER_VERSION_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPEN_FILE_FLAGS(pub u32);
@@ -1790,7 +1753,6 @@ impl ::core::ops::Not for CF_OPEN_FILE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_ACK_DATA_FLAGS(pub u32);
@@ -1831,7 +1793,6 @@ impl ::core::ops::Not for CF_OPERATION_ACK_DATA_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_ACK_DEHYDRATE_FLAGS(pub u32);
@@ -1872,7 +1833,6 @@ impl ::core::ops::Not for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_ACK_DELETE_FLAGS(pub u32);
@@ -1913,7 +1873,6 @@ impl ::core::ops::Not for CF_OPERATION_ACK_DELETE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_ACK_RENAME_FLAGS(pub u32);
@@ -1957,7 +1916,6 @@ impl ::core::ops::Not for CF_OPERATION_ACK_RENAME_FLAGS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_CorrelationVector`*"]
 pub struct CF_OPERATION_INFO {
     pub StructSize: u32,
     pub Type: CF_OPERATION_TYPE,
@@ -2004,7 +1962,6 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_INFO {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_Storage_FileSystem`*"]
 pub struct CF_OPERATION_PARAMETERS {
     pub ParamSize: u32,
     pub Anonymous: CF_OPERATION_PARAMETERS_0,
@@ -2349,7 +2306,6 @@ impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_7 {}
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_7 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_RESTART_HYDRATION_FLAGS(pub u32);
@@ -2391,7 +2347,6 @@ impl ::core::ops::Not for CF_OPERATION_RESTART_HYDRATION_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_RETRIEVE_DATA_FLAGS(pub u32);
@@ -2432,7 +2387,6 @@ impl ::core::ops::Not for CF_OPERATION_RETRIEVE_DATA_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_TRANSFER_DATA_FLAGS(pub u32);
@@ -2473,7 +2427,6 @@ impl ::core::ops::Not for CF_OPERATION_TRANSFER_DATA_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(pub u32);
@@ -2516,7 +2469,6 @@ impl ::core::ops::Not for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_TYPE(pub i32);
@@ -2536,7 +2488,6 @@ impl ::core::convert::From<i32> for CF_OPERATION_TYPE {
 unsafe impl ::windows::core::Abi for CF_OPERATION_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_PIN_STATE(pub i32);
@@ -2555,7 +2506,6 @@ unsafe impl ::windows::core::Abi for CF_PIN_STATE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_PLACEHOLDER_BASIC_INFO {
     pub PinState: CF_PIN_STATE,
     pub InSyncState: CF_IN_SYNC_STATE,
@@ -2584,7 +2534,6 @@ impl ::core::cmp::Eq for CF_PLACEHOLDER_BASIC_INFO {}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_BASIC_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_PLACEHOLDER_CREATE_FLAGS(pub u32);
@@ -2632,7 +2581,6 @@ impl ::core::ops::Not for CF_PLACEHOLDER_CREATE_FLAGS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_Storage_FileSystem`*"]
 pub struct CF_PLACEHOLDER_CREATE_INFO {
     pub RelativeFileName: super::super::Foundation::PWSTR,
     pub FsMetadata: CF_FS_METADATA,
@@ -2676,7 +2624,6 @@ impl ::core::cmp::Eq for CF_PLACEHOLDER_CREATE_INFO {}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_CREATE_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_PLACEHOLDER_INFO_CLASS(pub i32);
@@ -2690,7 +2637,6 @@ impl ::core::convert::From<i32> for CF_PLACEHOLDER_INFO_CLASS {
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_INFO_CLASS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_PLACEHOLDER_MANAGEMENT_POLICY(pub i32);
@@ -2706,9 +2652,7 @@ impl ::core::convert::From<i32> for CF_PLACEHOLDER_MANAGEMENT_POLICY {
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_MANAGEMENT_POLICY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub const CF_PLACEHOLDER_MAX_FILE_IDENTITY_LENGTH: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_PLACEHOLDER_RANGE_INFO_CLASS(pub i32);
@@ -2725,7 +2669,6 @@ unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_RANGE_INFO_CLASS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_PLACEHOLDER_STANDARD_INFO {
     pub OnDiskDataSize: i64,
     pub ValidatedDataSize: i64,
@@ -2769,7 +2712,6 @@ impl ::core::cmp::Eq for CF_PLACEHOLDER_STANDARD_INFO {}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_STANDARD_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_PLACEHOLDER_STATE(pub u32);
@@ -2819,7 +2761,6 @@ impl ::core::ops::Not for CF_PLACEHOLDER_STATE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_PLATFORM_INFO {
     pub BuildNumber: u32,
     pub RevisionNumber: u32,
@@ -2847,7 +2788,6 @@ unsafe impl ::windows::core::Abi for CF_PLATFORM_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_POPULATION_POLICY {
     pub Primary: CF_POPULATION_POLICY_PRIMARY_USHORT,
     pub Modifier: CF_POPULATION_POLICY_MODIFIER_USHORT,
@@ -2872,7 +2812,6 @@ impl ::core::cmp::Eq for CF_POPULATION_POLICY {}
 unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_POPULATION_POLICY_MODIFIER(pub u16);
@@ -2915,7 +2854,6 @@ impl ::core::ops::Not for CF_POPULATION_POLICY_MODIFIER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_POPULATION_POLICY_MODIFIER_USHORT {
     pub us: u16,
 }
@@ -2939,7 +2877,6 @@ impl ::core::cmp::Eq for CF_POPULATION_POLICY_MODIFIER_USHORT {}
 unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_MODIFIER_USHORT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_POPULATION_POLICY_PRIMARY(pub u16);
@@ -2956,7 +2893,6 @@ unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_PRIMARY {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_POPULATION_POLICY_PRIMARY_USHORT {
     pub us: u16,
 }
@@ -2983,7 +2919,6 @@ unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_PRIMARY_USHORT {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 pub struct CF_PROCESS_INFO {
     pub StructSize: u32,
     pub ProcessId: u32,
@@ -3027,7 +2962,6 @@ impl ::core::cmp::Eq for CF_PROCESS_INFO {}
 unsafe impl ::windows::core::Abi for CF_PROCESS_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_REGISTER_FLAGS(pub u32);
@@ -3071,9 +3005,7 @@ impl ::core::ops::Not for CF_REGISTER_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub const CF_REQUEST_KEY_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_REVERT_FLAGS(pub u32);
@@ -3114,7 +3046,6 @@ impl ::core::ops::Not for CF_REVERT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_SET_IN_SYNC_FLAGS(pub u32);
@@ -3155,7 +3086,6 @@ impl ::core::ops::Not for CF_SET_IN_SYNC_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_SET_PIN_FLAGS(pub u32);
@@ -3201,7 +3131,6 @@ impl ::core::ops::Not for CF_SET_PIN_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_SYNC_POLICIES {
     pub StructSize: u32,
     pub Hydration: CF_HYDRATION_POLICY,
@@ -3230,7 +3159,6 @@ impl ::core::cmp::Eq for CF_SYNC_POLICIES {}
 unsafe impl ::windows::core::Abi for CF_SYNC_POLICIES {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_SYNC_PROVIDER_STATUS(pub u32);
@@ -3284,7 +3212,6 @@ impl ::core::ops::Not for CF_SYNC_PROVIDER_STATUS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 pub struct CF_SYNC_REGISTRATION {
     pub StructSize: u32,
     pub ProviderName: super::super::Foundation::PWSTR,
@@ -3332,7 +3259,6 @@ unsafe impl ::windows::core::Abi for CF_SYNC_REGISTRATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_SYNC_ROOT_BASIC_INFO {
     pub SyncRootFileId: i64,
 }
@@ -3356,7 +3282,6 @@ impl ::core::cmp::Eq for CF_SYNC_ROOT_BASIC_INFO {}
 unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_BASIC_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_SYNC_ROOT_INFO_CLASS(pub i32);
@@ -3373,7 +3298,6 @@ unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_INFO_CLASS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_SYNC_ROOT_PROVIDER_INFO {
     pub ProviderStatus: CF_SYNC_PROVIDER_STATUS,
     pub ProviderName: [u16; 256],
@@ -3401,7 +3325,6 @@ unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_PROVIDER_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_SYNC_ROOT_STANDARD_INFO {
     pub SyncRootFileId: i64,
     pub HydrationPolicy: CF_HYDRATION_POLICY,
@@ -3447,7 +3370,6 @@ unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_STANDARD_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub struct CF_SYNC_STATUS {
     pub StructSize: u32,
     pub Code: u32,
@@ -3483,7 +3405,6 @@ impl ::core::cmp::Eq for CF_SYNC_STATUS {}
 unsafe impl ::windows::core::Abi for CF_SYNC_STATUS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_UPDATE_FLAGS(pub u32);
@@ -3535,7 +3456,6 @@ impl ::core::ops::Not for CF_UPDATE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) {
@@ -3550,7 +3470,6 @@ pub unsafe fn CfCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_CorrelationVector`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 #[inline]
 pub unsafe fn CfConnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS) -> ::windows::core::Result<CF_CONNECTION_KEY> {
@@ -3566,7 +3485,6 @@ pub unsafe fn CfConnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfConvertToPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
@@ -3581,7 +3499,6 @@ pub unsafe fn CfConvertToPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_Storage_FileSystem`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 #[inline]
 pub unsafe fn CfCreatePlaceholders<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(basedirectorypath: Param0, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::core::Result<()> {
@@ -3596,7 +3513,6 @@ pub unsafe fn CfCreatePlaceholders<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfDehydratePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
@@ -3611,7 +3527,6 @@ pub unsafe fn CfDehydratePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
 pub unsafe fn CfDisconnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -3625,7 +3540,6 @@ pub unsafe fn CfDisconnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, CF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_Storage_FileSystem`, `Win32_System_CorrelationVector`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_CorrelationVector"))]
 #[inline]
 pub unsafe fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> ::windows::core::Result<()> {
@@ -3640,7 +3554,6 @@ pub unsafe fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPER
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_CorrelationVector`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 #[inline]
 pub unsafe fn CfGetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) -> ::windows::core::Result<super::super::System::CorrelationVector::CORRELATION_VECTOR> {
@@ -3656,7 +3569,6 @@ pub unsafe fn CfGetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetPlaceholderInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
@@ -3671,7 +3583,6 @@ pub unsafe fn CfGetPlaceholderInfo<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetPlaceholderRangeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
@@ -3686,7 +3597,6 @@ pub unsafe fn CfGetPlaceholderRangeInfo<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE {
     #[cfg(windows)]
@@ -3700,7 +3610,6 @@ pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparse
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Storage_FileSystem`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::core::ffi::c_void, infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE {
@@ -3715,7 +3624,6 @@ pub unsafe fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::core::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_Storage_FileSystem`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSystem::WIN32_FIND_DATAA) -> CF_PLACEHOLDER_STATE {
@@ -3730,7 +3638,6 @@ pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSyst
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
 pub unsafe fn CfGetPlatformInfo() -> ::windows::core::Result<CF_PLATFORM_INFO> {
     #[cfg(windows)]
@@ -3745,7 +3652,6 @@ pub unsafe fn CfGetPlatformInfo() -> ::windows::core::Result<CF_PLATFORM_INFO> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetSyncRootInfoByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
@@ -3760,7 +3666,6 @@ pub unsafe fn CfGetSyncRootInfoByHandle<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetSyncRootInfoByPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
@@ -3775,7 +3680,6 @@ pub unsafe fn CfGetSyncRootInfoByPath<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetTransferKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) -> ::windows::core::Result<i64> {
@@ -3791,7 +3695,6 @@ pub unsafe fn CfGetTransferKey<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetWin32HandleFromProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) -> super::super::Foundation::HANDLE {
@@ -3806,7 +3709,6 @@ pub unsafe fn CfGetWin32HandleFromProtectedHandle<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfHydratePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
@@ -3821,7 +3723,6 @@ pub unsafe fn CfHydratePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfOpenFileWithOplock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, flags: CF_OPEN_FILE_FLAGS) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
@@ -3837,7 +3738,6 @@ pub unsafe fn CfOpenFileWithOplock<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
 pub unsafe fn CfQuerySyncProviderStatus<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0) -> ::windows::core::Result<CF_SYNC_PROVIDER_STATUS> {
     #[cfg(windows)]
@@ -3852,7 +3752,6 @@ pub unsafe fn CfQuerySyncProviderStatus<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfReferenceProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) -> super::super::Foundation::BOOLEAN {
@@ -3867,7 +3766,6 @@ pub unsafe fn CfReferenceProtectedHandle<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfRegisterSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::core::Result<()> {
@@ -3882,7 +3780,6 @@ pub unsafe fn CfRegisterSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfReleaseProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) {
@@ -3897,7 +3794,6 @@ pub unsafe fn CfReleaseProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfReleaseTransferKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, transferkey: *mut i64) {
@@ -3912,7 +3808,6 @@ pub unsafe fn CfReleaseTransferKey<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
 pub unsafe fn CfReportProviderProgress<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -3926,7 +3821,6 @@ pub unsafe fn CfReportProviderProgress<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
 pub unsafe fn CfReportProviderProgress2<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -3940,7 +3834,6 @@ pub unsafe fn CfReportProviderProgress2<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfReportSyncStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, syncstatus: *const CF_SYNC_STATUS) -> ::windows::core::Result<()> {
@@ -3955,7 +3848,6 @@ pub unsafe fn CfReportSyncStatus<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfRevertPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
@@ -3970,7 +3862,6 @@ pub unsafe fn CfRevertPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_CorrelationVector`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 #[inline]
 pub unsafe fn CfSetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::Result<()> {
@@ -3985,7 +3876,6 @@ pub unsafe fn CfSetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfSetInSyncState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::core::Result<()> {
@@ -4000,7 +3890,6 @@ pub unsafe fn CfSetInSyncState<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfSetPinState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
@@ -4015,7 +3904,6 @@ pub unsafe fn CfSetPinState<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfUnregisterSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0) -> ::windows::core::Result<()> {
@@ -4030,7 +3918,6 @@ pub unsafe fn CfUnregisterSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_Storage_FileSystem`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfUpdatePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
@@ -4056,7 +3943,6 @@ pub unsafe fn CfUpdatePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[inline]
 pub unsafe fn CfUpdateSyncProviderStatus<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::core::Result<()> {
     #[cfg(windows)]

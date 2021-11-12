@@ -5,7 +5,6 @@ pub struct ActivatedEventsContract(pub u8);
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct ActivationCameraSettingsContract(pub u8);
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ActivationKind(pub i32);
@@ -69,7 +68,6 @@ unsafe impl ::windows::core::RuntimeType for ActivationKind {
 impl ::windows::core::DefaultType for ActivationKind {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ApplicationExecutionState(pub i32);
@@ -94,13 +92,11 @@ unsafe impl ::windows::core::RuntimeType for ApplicationExecutionState {
 impl ::windows::core::DefaultType for ApplicationExecutionState {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppointmentsProviderAddAppointmentActivatedEventArgs(pub ::windows::core::IInspectable);
 impl AppointmentsProviderAddAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn AddAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::AddAppointmentOperation> {
         let this = self;
         unsafe {
@@ -108,7 +104,6 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::AddAppointmentOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -116,7 +111,6 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -124,7 +118,6 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -132,7 +125,6 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -141,7 +133,6 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -288,13 +279,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &Appoin
 }
 unsafe impl ::core::marker::Send for AppointmentsProviderAddAppointmentActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentsProviderAddAppointmentActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppointmentsProviderRemoveAppointmentActivatedEventArgs(pub ::windows::core::IInspectable);
 impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn RemoveAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation> {
         let this = self;
         unsafe {
@@ -302,7 +291,6 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -310,7 +298,6 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -318,7 +305,6 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -326,7 +312,6 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -335,7 +320,6 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -482,13 +466,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &Appoin
 }
 unsafe impl ::core::marker::Send for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppointmentsProviderReplaceAppointmentActivatedEventArgs(pub ::windows::core::IInspectable);
 impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ReplaceAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation> {
         let this = self;
         unsafe {
@@ -496,7 +478,6 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -504,7 +485,6 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -512,7 +492,6 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -520,7 +499,6 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -529,7 +507,6 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -676,13 +653,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &Appoin
 }
 unsafe impl ::core::marker::Send for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppointmentsProviderShowAppointmentDetailsActivatedEventArgs(pub ::windows::core::IInspectable);
 impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn InstanceStartDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -690,7 +665,6 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn LocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -698,7 +672,6 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn RoamingId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -706,7 +679,6 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -714,7 +686,6 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -722,7 +693,6 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -730,7 +700,6 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -739,7 +708,6 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -886,13 +854,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &Appoin
 }
 unsafe impl ::core::marker::Send for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppointmentsProviderShowTimeFrameActivatedEventArgs(pub ::windows::core::IInspectable);
 impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn TimeToShow(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -901,7 +867,6 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -909,7 +874,6 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -917,7 +881,6 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -925,7 +888,6 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -933,7 +895,6 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -942,7 +903,6 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1089,13 +1049,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &Appoin
 }
 unsafe impl ::core::marker::Send for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BackgroundActivatedEventArgs(pub ::windows::core::IInspectable);
 impl BackgroundActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Background")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Background`*"]
     pub fn TaskInstance(&self) -> ::windows::core::Result<super::Background::IBackgroundTaskInstance> {
         let this = self;
         unsafe {
@@ -1176,12 +1134,10 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundActivatedEventArgs> for &Back
 }
 unsafe impl ::core::marker::Send for BackgroundActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for BackgroundActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BarcodeScannerPreviewActivatedEventArgs(pub ::windows::core::IInspectable);
 impl BarcodeScannerPreviewActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1189,7 +1145,6 @@ impl BarcodeScannerPreviewActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1197,7 +1152,6 @@ impl BarcodeScannerPreviewActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1206,7 +1160,6 @@ impl BarcodeScannerPreviewActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1214,7 +1167,6 @@ impl BarcodeScannerPreviewActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ConnectionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1339,13 +1291,11 @@ impl<'a> ::windows::core::IntoParam<'a, IBarcodeScannerPreviewActivatedEventArgs
 }
 unsafe impl ::core::marker::Send for BarcodeScannerPreviewActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerPreviewActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CachedFileUpdaterActivatedEventArgs(pub ::windows::core::IInspectable);
 impl CachedFileUpdaterActivatedEventArgs {
     #[cfg(feature = "Storage_Provider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Storage_Provider`*"]
     pub fn CachedFileUpdaterUI(&self) -> ::windows::core::Result<super::super::Storage::Provider::CachedFileUpdaterUI> {
         let this = self;
         unsafe {
@@ -1353,7 +1303,6 @@ impl CachedFileUpdaterActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Provider::CachedFileUpdaterUI>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1361,7 +1310,6 @@ impl CachedFileUpdaterActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1369,7 +1317,6 @@ impl CachedFileUpdaterActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1378,7 +1325,6 @@ impl CachedFileUpdaterActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1503,12 +1449,10 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &Cached
 }
 unsafe impl ::core::marker::Send for CachedFileUpdaterActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for CachedFileUpdaterActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CameraSettingsActivatedEventArgs(pub ::windows::core::IInspectable);
 impl CameraSettingsActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn VideoDeviceController(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -1516,7 +1460,6 @@ impl CameraSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn VideoDeviceExtension(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -1524,7 +1467,6 @@ impl CameraSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1532,7 +1474,6 @@ impl CameraSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1540,7 +1481,6 @@ impl CameraSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1643,12 +1583,10 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &CameraSettings
 }
 unsafe impl ::core::marker::Send for CameraSettingsActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for CameraSettingsActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CommandLineActivatedEventArgs(pub ::windows::core::IInspectable);
 impl CommandLineActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1656,7 +1594,6 @@ impl CommandLineActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1664,7 +1601,6 @@ impl CommandLineActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1673,7 +1609,6 @@ impl CommandLineActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1681,7 +1616,6 @@ impl CommandLineActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Operation(&self) -> ::windows::core::Result<CommandLineActivationOperation> {
         let this = self;
         unsafe {
@@ -1806,12 +1740,10 @@ impl<'a> ::windows::core::IntoParam<'a, ICommandLineActivatedEventArgs> for &Com
 }
 unsafe impl ::core::marker::Send for CommandLineActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for CommandLineActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CommandLineActivationOperation(pub ::windows::core::IInspectable);
 impl CommandLineActivationOperation {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1819,7 +1751,6 @@ impl CommandLineActivationOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CurrentDirectoryPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1827,12 +1758,10 @@ impl CommandLineActivationOperation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SetExitCode(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ExitCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1841,7 +1770,6 @@ impl CommandLineActivationOperation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1905,12 +1833,10 @@ unsafe impl ::core::marker::Sync for CommandLineActivationOperation {}
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct ContactActivatedEventsContract(pub u8);
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactCallActivatedEventArgs(pub ::windows::core::IInspectable);
 impl ContactCallActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1918,7 +1844,6 @@ impl ContactCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1927,7 +1852,6 @@ impl ContactCallActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -1935,7 +1859,6 @@ impl ContactCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1943,7 +1866,6 @@ impl ContactCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1951,7 +1873,6 @@ impl ContactCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -1959,7 +1880,6 @@ impl ContactCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -2084,13 +2004,11 @@ impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &Contact
 }
 unsafe impl ::core::marker::Send for ContactCallActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactCallActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactMapActivatedEventArgs(pub ::windows::core::IInspectable);
 impl ContactMapActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Address(&self) -> ::windows::core::Result<super::Contacts::ContactAddress> {
         let this = self;
         unsafe {
@@ -2099,7 +2017,6 @@ impl ContactMapActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -2107,7 +2024,6 @@ impl ContactMapActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2115,7 +2031,6 @@ impl ContactMapActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2123,7 +2038,6 @@ impl ContactMapActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2131,7 +2045,6 @@ impl ContactMapActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -2256,12 +2169,10 @@ impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &Contact
 }
 unsafe impl ::core::marker::Send for ContactMapActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactMapActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactMessageActivatedEventArgs(pub ::windows::core::IInspectable);
 impl ContactMessageActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2269,7 +2180,6 @@ impl ContactMessageActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2278,7 +2188,6 @@ impl ContactMessageActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -2286,7 +2195,6 @@ impl ContactMessageActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2294,7 +2202,6 @@ impl ContactMessageActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2302,7 +2209,6 @@ impl ContactMessageActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2310,7 +2216,6 @@ impl ContactMessageActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -2435,12 +2340,10 @@ impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &Contact
 }
 unsafe impl ::core::marker::Send for ContactMessageActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactMessageActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactPanelActivatedEventArgs(pub ::windows::core::IInspectable);
 impl ContactPanelActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2448,7 +2351,6 @@ impl ContactPanelActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2456,7 +2358,6 @@ impl ContactPanelActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2465,7 +2366,6 @@ impl ContactPanelActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -2474,7 +2374,6 @@ impl ContactPanelActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn ContactPanel(&self) -> ::windows::core::Result<super::Contacts::ContactPanel> {
         let this = self;
         unsafe {
@@ -2483,7 +2382,6 @@ impl ContactPanelActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -2608,13 +2506,11 @@ impl<'a> ::windows::core::IntoParam<'a, IContactPanelActivatedEventArgs> for &Co
 }
 unsafe impl ::core::marker::Send for ContactPanelActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactPanelActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactPickerActivatedEventArgs(pub ::windows::core::IInspectable);
 impl ContactPickerActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Contacts_Provider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts_Provider`*"]
     pub fn ContactPickerUI(&self) -> ::windows::core::Result<super::Contacts::Provider::ContactPickerUI> {
         let this = self;
         unsafe {
@@ -2622,7 +2518,6 @@ impl ContactPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Provider::ContactPickerUI>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2630,7 +2525,6 @@ impl ContactPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2638,7 +2532,6 @@ impl ContactPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2741,12 +2634,10 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ContactPickerA
 }
 unsafe impl ::core::marker::Send for ContactPickerActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactPickerActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactPostActivatedEventArgs(pub ::windows::core::IInspectable);
 impl ContactPostActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2754,7 +2645,6 @@ impl ContactPostActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2763,7 +2653,6 @@ impl ContactPostActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -2771,7 +2660,6 @@ impl ContactPostActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2779,7 +2667,6 @@ impl ContactPostActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2787,7 +2674,6 @@ impl ContactPostActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2795,7 +2681,6 @@ impl ContactPostActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -2920,12 +2805,10 @@ impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &Contact
 }
 unsafe impl ::core::marker::Send for ContactPostActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactPostActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContactVideoCallActivatedEventArgs(pub ::windows::core::IInspectable);
 impl ContactVideoCallActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2933,7 +2816,6 @@ impl ContactVideoCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2942,7 +2824,6 @@ impl ContactVideoCallActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -2950,7 +2831,6 @@ impl ContactVideoCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2958,7 +2838,6 @@ impl ContactVideoCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2966,7 +2845,6 @@ impl ContactVideoCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -2974,7 +2852,6 @@ impl ContactVideoCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -3099,12 +2976,10 @@ impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &Contact
 }
 unsafe impl ::core::marker::Send for ContactVideoCallActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactVideoCallActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceActivatedEventArgs(pub ::windows::core::IInspectable);
 impl DeviceActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn DeviceInformationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3112,7 +2987,6 @@ impl DeviceActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3120,7 +2994,6 @@ impl DeviceActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -3128,7 +3001,6 @@ impl DeviceActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -3136,7 +3008,6 @@ impl DeviceActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -3144,7 +3015,6 @@ impl DeviceActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -3153,7 +3023,6 @@ impl DeviceActivatedEventArgs {
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `UI_ViewManagement`*"]
     pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
@@ -3162,7 +3031,6 @@ impl DeviceActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3331,12 +3199,10 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &Device
 }
 unsafe impl ::core::marker::Send for DeviceActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DevicePairingActivatedEventArgs(pub ::windows::core::IInspectable);
 impl DevicePairingActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -3344,7 +3210,6 @@ impl DevicePairingActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -3352,7 +3217,6 @@ impl DevicePairingActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -3361,7 +3225,6 @@ impl DevicePairingActivatedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Devices_Enumeration`*"]
     pub fn DeviceInformation(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
@@ -3370,7 +3233,6 @@ impl DevicePairingActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3495,12 +3357,10 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &Device
 }
 unsafe impl ::core::marker::Send for DevicePairingActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePairingActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DialReceiverActivatedEventArgs(pub ::windows::core::IInspectable);
 impl DialReceiverActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn AppName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3508,7 +3368,6 @@ impl DialReceiverActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -3516,7 +3375,6 @@ impl DialReceiverActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -3524,7 +3382,6 @@ impl DialReceiverActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -3532,7 +3389,6 @@ impl DialReceiverActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -3540,7 +3396,6 @@ impl DialReceiverActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -3548,7 +3403,6 @@ impl DialReceiverActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -3557,7 +3411,6 @@ impl DialReceiverActivatedEventArgs {
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `UI_ViewManagement`*"]
     pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
@@ -3566,7 +3419,6 @@ impl DialReceiverActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3757,13 +3609,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &DialRe
 }
 unsafe impl ::core::marker::Send for DialReceiverActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for DialReceiverActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FileActivatedEventArgs(pub ::windows::core::IInspectable);
 impl FileActivatedEventArgs {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`, `Storage`*"]
     pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = self;
         unsafe {
@@ -3771,7 +3621,6 @@ impl FileActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3779,7 +3628,6 @@ impl FileActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -3787,7 +3635,6 @@ impl FileActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -3795,7 +3642,6 @@ impl FileActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -3803,7 +3649,6 @@ impl FileActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -3811,7 +3656,6 @@ impl FileActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IFileActivatedEventArgsWithCallerPackageFamilyName>(self)?;
         unsafe {
@@ -3820,7 +3664,6 @@ impl FileActivatedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Search")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Storage_Search`*"]
     pub fn NeighboringFilesQuery(&self) -> ::windows::core::Result<super::super::Storage::Search::StorageFileQueryResult> {
         let this = &::windows::core::Interface::cast::<IFileActivatedEventArgsWithNeighboringFiles>(self)?;
         unsafe {
@@ -3829,7 +3672,6 @@ impl FileActivatedEventArgs {
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `UI_ViewManagement`*"]
     pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
@@ -3838,7 +3680,6 @@ impl FileActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -4051,13 +3892,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FileAc
 }
 unsafe impl ::core::marker::Send for FileActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for FileActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FileOpenPickerActivatedEventArgs(pub ::windows::core::IInspectable);
 impl FileOpenPickerActivatedEventArgs {
     #[cfg(feature = "Storage_Pickers_Provider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Storage_Pickers_Provider`*"]
     pub fn FileOpenPickerUI(&self) -> ::windows::core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI> {
         let this = self;
         unsafe {
@@ -4065,7 +3904,6 @@ impl FileOpenPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileOpenPickerUI>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4073,7 +3911,6 @@ impl FileOpenPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4081,7 +3918,6 @@ impl FileOpenPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4089,7 +3925,6 @@ impl FileOpenPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IFileOpenPickerActivatedEventArgs2>(self)?;
         unsafe {
@@ -4098,7 +3933,6 @@ impl FileOpenPickerActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -4245,14 +4079,12 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FileOp
 }
 unsafe impl ::core::marker::Send for FileOpenPickerActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for FileOpenPickerActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FileOpenPickerContinuationEventArgs(pub ::windows::core::IInspectable);
 impl FileOpenPickerContinuationEventArgs {
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`, `Storage`*"]
     pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -4260,7 +4092,6 @@ impl FileOpenPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4268,7 +4099,6 @@ impl FileOpenPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4276,7 +4106,6 @@ impl FileOpenPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4285,7 +4114,6 @@ impl FileOpenPickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -4294,7 +4122,6 @@ impl FileOpenPickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -4441,13 +4268,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FileOp
 }
 unsafe impl ::core::marker::Send for FileOpenPickerContinuationEventArgs {}
 unsafe impl ::core::marker::Sync for FileOpenPickerContinuationEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FileSavePickerActivatedEventArgs(pub ::windows::core::IInspectable);
 impl FileSavePickerActivatedEventArgs {
     #[cfg(feature = "Storage_Pickers_Provider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Storage_Pickers_Provider`*"]
     pub fn FileSavePickerUI(&self) -> ::windows::core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI> {
         let this = self;
         unsafe {
@@ -4455,7 +4280,6 @@ impl FileSavePickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileSavePickerUI>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4463,7 +4287,6 @@ impl FileSavePickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4471,7 +4294,6 @@ impl FileSavePickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4479,7 +4301,6 @@ impl FileSavePickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
@@ -4487,7 +4308,6 @@ impl FileSavePickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn EnterpriseId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
@@ -4496,7 +4316,6 @@ impl FileSavePickerActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -4643,14 +4462,12 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FileSa
 }
 unsafe impl ::core::marker::Send for FileSavePickerActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for FileSavePickerActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FileSavePickerContinuationEventArgs(pub ::windows::core::IInspectable);
 impl FileSavePickerContinuationEventArgs {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Storage")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Storage`*"]
     pub fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
@@ -4658,7 +4475,6 @@ impl FileSavePickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4666,7 +4482,6 @@ impl FileSavePickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4674,7 +4489,6 @@ impl FileSavePickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4683,7 +4497,6 @@ impl FileSavePickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -4692,7 +4505,6 @@ impl FileSavePickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -4839,14 +4651,12 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FileSa
 }
 unsafe impl ::core::marker::Send for FileSavePickerContinuationEventArgs {}
 unsafe impl ::core::marker::Sync for FileSavePickerContinuationEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FolderPickerContinuationEventArgs(pub ::windows::core::IInspectable);
 impl FolderPickerContinuationEventArgs {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Storage")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Storage`*"]
     pub fn Folder(&self) -> ::windows::core::Result<super::super::Storage::StorageFolder> {
         let this = self;
         unsafe {
@@ -4854,7 +4664,6 @@ impl FolderPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4862,7 +4671,6 @@ impl FolderPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4870,7 +4678,6 @@ impl FolderPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -4879,7 +4686,6 @@ impl FolderPickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -4888,7 +4694,6 @@ impl FolderPickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -5037,14 +4842,12 @@ unsafe impl ::core::marker::Send for FolderPickerContinuationEventArgs {}
 unsafe impl ::core::marker::Sync for FolderPickerContinuationEventArgs {}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IActivatedEventArgs {
     type Vtable = IActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf651713_cd08_4fd8_b697_a281b6544e2e);
 }
 impl IActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = self;
         unsafe {
@@ -5052,7 +4855,6 @@ impl IActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = self;
         unsafe {
@@ -5060,7 +4862,6 @@ impl IActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = self;
         unsafe {
@@ -5127,14 +4928,12 @@ pub struct IActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IActivatedEventArgsWithUser(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IActivatedEventArgsWithUser {
     type Vtable = IActivatedEventArgsWithUser_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cf09b9e_9962_4936_80ff_afc8e8ae5c8c);
 }
 impl IActivatedEventArgsWithUser {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5142,7 +4941,6 @@ impl IActivatedEventArgsWithUser {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5150,7 +4948,6 @@ impl IActivatedEventArgsWithUser {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5159,7 +4956,6 @@ impl IActivatedEventArgsWithUser {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -5247,14 +5043,12 @@ pub struct IActivatedEventArgsWithUser_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IApplicationViewActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IApplicationViewActivatedEventArgs {
     type Vtable = IApplicationViewActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x930cef4b_b829_40fc_88f4_8513e8a64738);
 }
 impl IApplicationViewActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -5262,7 +5056,6 @@ impl IApplicationViewActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5270,7 +5063,6 @@ impl IApplicationViewActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5278,7 +5070,6 @@ impl IApplicationViewActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5365,14 +5156,12 @@ pub struct IApplicationViewActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IAppointmentsProviderActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IAppointmentsProviderActivatedEventArgs {
     type Vtable = IAppointmentsProviderActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3364c405_933c_4e7d_a034_500fb8dcd9f3);
 }
 impl IAppointmentsProviderActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5380,7 +5169,6 @@ impl IAppointmentsProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5388,7 +5176,6 @@ impl IAppointmentsProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5396,7 +5183,6 @@ impl IAppointmentsProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5483,7 +5269,6 @@ pub struct IAppointmentsProviderActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IAppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgs_abi;
@@ -5491,7 +5276,6 @@ unsafe impl ::windows::core::Interface for IAppointmentsProviderAddAppointmentAc
 }
 impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn AddAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::AddAppointmentOperation> {
         let this = self;
         unsafe {
@@ -5499,7 +5283,6 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::AddAppointmentOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5507,7 +5290,6 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5515,7 +5297,6 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5523,7 +5304,6 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -5633,7 +5413,6 @@ pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgs_abi;
@@ -5641,7 +5420,6 @@ unsafe impl ::windows::core::Interface for IAppointmentsProviderRemoveAppointmen
 }
 impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn RemoveAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation> {
         let this = self;
         unsafe {
@@ -5649,7 +5427,6 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5657,7 +5434,6 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5665,7 +5441,6 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5673,7 +5448,6 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -5783,7 +5557,6 @@ pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgs_abi;
@@ -5791,7 +5564,6 @@ unsafe impl ::windows::core::Interface for IAppointmentsProviderReplaceAppointme
 }
 impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ReplaceAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation> {
         let this = self;
         unsafe {
@@ -5799,7 +5571,6 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5807,7 +5578,6 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5815,7 +5585,6 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5823,7 +5592,6 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -5933,7 +5701,6 @@ pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_abi;
@@ -5941,7 +5708,6 @@ unsafe impl ::windows::core::Interface for IAppointmentsProviderShowAppointmentD
 }
 impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn InstanceStartDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -5949,7 +5715,6 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn LocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5957,7 +5722,6 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn RoamingId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5965,7 +5729,6 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5973,7 +5736,6 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5981,7 +5743,6 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -5989,7 +5750,6 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -6101,7 +5861,6 @@ pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgs_abi;
@@ -6109,7 +5868,6 @@ unsafe impl ::windows::core::Interface for IAppointmentsProviderShowTimeFrameAct
 }
 impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn TimeToShow(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -6118,7 +5876,6 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -6126,7 +5883,6 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6134,7 +5890,6 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6142,7 +5897,6 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6150,7 +5904,6 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -6262,7 +6015,6 @@ pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IBackgroundActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IBackgroundActivatedEventArgs {
     type Vtable = IBackgroundActivatedEventArgs_abi;
@@ -6270,7 +6022,6 @@ unsafe impl ::windows::core::Interface for IBackgroundActivatedEventArgs {
 }
 impl IBackgroundActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Background")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Background`*"]
     pub fn TaskInstance(&self) -> ::windows::core::Result<super::Background::IBackgroundTaskInstance> {
         let this = self;
         unsafe {
@@ -6336,14 +6087,12 @@ pub struct IBackgroundActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IBarcodeScannerPreviewActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IBarcodeScannerPreviewActivatedEventArgs {
     type Vtable = IBarcodeScannerPreviewActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6772797c_99bf_4349_af22_e4123560371c);
 }
 impl IBarcodeScannerPreviewActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6351,7 +6100,6 @@ impl IBarcodeScannerPreviewActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6359,7 +6107,6 @@ impl IBarcodeScannerPreviewActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6367,7 +6114,6 @@ impl IBarcodeScannerPreviewActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ConnectionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6454,7 +6200,6 @@ pub struct IBarcodeScannerPreviewActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct ICachedFileUpdaterActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ICachedFileUpdaterActivatedEventArgs {
     type Vtable = ICachedFileUpdaterActivatedEventArgs_abi;
@@ -6462,7 +6207,6 @@ unsafe impl ::windows::core::Interface for ICachedFileUpdaterActivatedEventArgs 
 }
 impl ICachedFileUpdaterActivatedEventArgs {
     #[cfg(feature = "Storage_Provider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Storage_Provider`*"]
     pub fn CachedFileUpdaterUI(&self) -> ::windows::core::Result<super::super::Storage::Provider::CachedFileUpdaterUI> {
         let this = self;
         unsafe {
@@ -6470,7 +6214,6 @@ impl ICachedFileUpdaterActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Provider::CachedFileUpdaterUI>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6478,7 +6221,6 @@ impl ICachedFileUpdaterActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6486,7 +6228,6 @@ impl ICachedFileUpdaterActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6574,14 +6315,12 @@ pub struct ICachedFileUpdaterActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct ICameraSettingsActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ICameraSettingsActivatedEventArgs {
     type Vtable = ICameraSettingsActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb67a508_2dad_490a_9170_dca036eb114b);
 }
 impl ICameraSettingsActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn VideoDeviceController(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -6589,7 +6328,6 @@ impl ICameraSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn VideoDeviceExtension(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -6597,7 +6335,6 @@ impl ICameraSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6605,7 +6342,6 @@ impl ICameraSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6613,7 +6349,6 @@ impl ICameraSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6701,14 +6436,12 @@ pub struct ICameraSettingsActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct ICommandLineActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ICommandLineActivatedEventArgs {
     type Vtable = ICommandLineActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4506472c_006a_48eb_8afb_d07ab25e3366);
 }
 impl ICommandLineActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6716,7 +6449,6 @@ impl ICommandLineActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6724,7 +6456,6 @@ impl ICommandLineActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6732,7 +6463,6 @@ impl ICommandLineActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Operation(&self) -> ::windows::core::Result<CommandLineActivationOperation> {
         let this = self;
         unsafe {
@@ -6842,14 +6572,12 @@ pub struct ICommandLineActivationOperation_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IContactActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IContactActivatedEventArgs {
     type Vtable = IContactActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd627a1c4_c025_4c41_9def_f1eafad075e7);
 }
 impl IContactActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6857,7 +6585,6 @@ impl IContactActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6865,7 +6592,6 @@ impl IContactActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6873,7 +6599,6 @@ impl IContactActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -6960,14 +6685,12 @@ pub struct IContactActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IContactCallActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IContactCallActivatedEventArgs {
     type Vtable = IContactCallActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
 }
 impl IContactCallActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6975,7 +6698,6 @@ impl IContactCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6984,7 +6706,6 @@ impl IContactCallActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -6992,7 +6713,6 @@ impl IContactCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7000,7 +6720,6 @@ impl IContactCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7008,7 +6727,6 @@ impl IContactCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7016,7 +6734,6 @@ impl IContactCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -7128,7 +6845,6 @@ pub struct IContactCallActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IContactMapActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IContactMapActivatedEventArgs {
     type Vtable = IContactMapActivatedEventArgs_abi;
@@ -7136,7 +6852,6 @@ unsafe impl ::windows::core::Interface for IContactMapActivatedEventArgs {
 }
 impl IContactMapActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Address(&self) -> ::windows::core::Result<super::Contacts::ContactAddress> {
         let this = self;
         unsafe {
@@ -7145,7 +6860,6 @@ impl IContactMapActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -7153,7 +6867,6 @@ impl IContactMapActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7161,7 +6874,6 @@ impl IContactMapActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7169,7 +6881,6 @@ impl IContactMapActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7177,7 +6888,6 @@ impl IContactMapActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -7289,14 +6999,12 @@ pub struct IContactMapActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IContactMessageActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IContactMessageActivatedEventArgs {
     type Vtable = IContactMessageActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde598db2_0e03_43b0_bf56_bcc40b3162df);
 }
 impl IContactMessageActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -7304,7 +7012,6 @@ impl IContactMessageActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -7313,7 +7020,6 @@ impl IContactMessageActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -7321,7 +7027,6 @@ impl IContactMessageActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7329,7 +7034,6 @@ impl IContactMessageActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7337,7 +7041,6 @@ impl IContactMessageActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7345,7 +7048,6 @@ impl IContactMessageActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -7457,7 +7159,6 @@ pub struct IContactMessageActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IContactPanelActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IContactPanelActivatedEventArgs {
     type Vtable = IContactPanelActivatedEventArgs_abi;
@@ -7465,7 +7166,6 @@ unsafe impl ::windows::core::Interface for IContactPanelActivatedEventArgs {
 }
 impl IContactPanelActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn ContactPanel(&self) -> ::windows::core::Result<super::Contacts::ContactPanel> {
         let this = self;
         unsafe {
@@ -7474,7 +7174,6 @@ impl IContactPanelActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -7542,7 +7241,6 @@ pub struct IContactPanelActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IContactPickerActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IContactPickerActivatedEventArgs {
     type Vtable = IContactPickerActivatedEventArgs_abi;
@@ -7550,7 +7248,6 @@ unsafe impl ::windows::core::Interface for IContactPickerActivatedEventArgs {
 }
 impl IContactPickerActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Contacts_Provider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts_Provider`*"]
     pub fn ContactPickerUI(&self) -> ::windows::core::Result<super::Contacts::Provider::ContactPickerUI> {
         let this = self;
         unsafe {
@@ -7558,7 +7255,6 @@ impl IContactPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Provider::ContactPickerUI>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7566,7 +7262,6 @@ impl IContactPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7574,7 +7269,6 @@ impl IContactPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7662,14 +7356,12 @@ pub struct IContactPickerActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IContactPostActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IContactPostActivatedEventArgs {
     type Vtable = IContactPostActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
 }
 impl IContactPostActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -7677,7 +7369,6 @@ impl IContactPostActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -7686,7 +7377,6 @@ impl IContactPostActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -7694,7 +7384,6 @@ impl IContactPostActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7702,7 +7391,6 @@ impl IContactPostActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7710,7 +7398,6 @@ impl IContactPostActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7718,7 +7405,6 @@ impl IContactPostActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -7830,14 +7516,12 @@ pub struct IContactPostActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IContactVideoCallActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IContactVideoCallActivatedEventArgs {
     type Vtable = IContactVideoCallActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
 }
 impl IContactVideoCallActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -7845,7 +7529,6 @@ impl IContactVideoCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -7854,7 +7537,6 @@ impl IContactVideoCallActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -7862,7 +7544,6 @@ impl IContactVideoCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7870,7 +7551,6 @@ impl IContactVideoCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7878,7 +7558,6 @@ impl IContactVideoCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -7886,7 +7565,6 @@ impl IContactVideoCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -7998,14 +7676,12 @@ pub struct IContactVideoCallActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IContactsProviderActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IContactsProviderActivatedEventArgs {
     type Vtable = IContactsProviderActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4580dca8_5750_4916_aa52_c0829521eb94);
 }
 impl IContactsProviderActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8013,7 +7689,6 @@ impl IContactsProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8021,7 +7696,6 @@ impl IContactsProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8029,7 +7703,6 @@ impl IContactsProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8116,7 +7789,6 @@ pub struct IContactsProviderActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IContinuationActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IContinuationActivatedEventArgs {
     type Vtable = IContinuationActivatedEventArgs_abi;
@@ -8124,7 +7796,6 @@ unsafe impl ::windows::core::Interface for IContinuationActivatedEventArgs {
 }
 impl IContinuationActivatedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
@@ -8132,7 +7803,6 @@ impl IContinuationActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8140,7 +7810,6 @@ impl IContinuationActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8148,7 +7817,6 @@ impl IContinuationActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8236,14 +7904,12 @@ pub struct IContinuationActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IDeviceActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IDeviceActivatedEventArgs {
     type Vtable = IDeviceActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
 }
 impl IDeviceActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn DeviceInformationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8251,7 +7917,6 @@ impl IDeviceActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8259,7 +7924,6 @@ impl IDeviceActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8267,7 +7931,6 @@ impl IDeviceActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8275,7 +7938,6 @@ impl IDeviceActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8363,14 +8025,12 @@ pub struct IDeviceActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IDevicePairingActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IDevicePairingActivatedEventArgs {
     type Vtable = IDevicePairingActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
 }
 impl IDevicePairingActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8378,7 +8038,6 @@ impl IDevicePairingActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8386,7 +8045,6 @@ impl IDevicePairingActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8395,7 +8053,6 @@ impl IDevicePairingActivatedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Devices_Enumeration`*"]
     pub fn DeviceInformation(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
@@ -8483,14 +8140,12 @@ pub struct IDevicePairingActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IDialReceiverActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IDialReceiverActivatedEventArgs {
     type Vtable = IDialReceiverActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb777ed7_85ee_456e_a44d_85d730e70aed);
 }
 impl IDialReceiverActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn AppName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8498,7 +8153,6 @@ impl IDialReceiverActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8506,7 +8160,6 @@ impl IDialReceiverActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8514,7 +8167,6 @@ impl IDialReceiverActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8522,7 +8174,6 @@ impl IDialReceiverActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -8530,7 +8181,6 @@ impl IDialReceiverActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -8639,7 +8289,6 @@ pub struct IDialReceiverActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IFileActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IFileActivatedEventArgs {
     type Vtable = IFileActivatedEventArgs_abi;
@@ -8647,7 +8296,6 @@ unsafe impl ::windows::core::Interface for IFileActivatedEventArgs {
 }
 impl IFileActivatedEventArgs {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`, `Storage`*"]
     pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = self;
         unsafe {
@@ -8655,7 +8303,6 @@ impl IFileActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8663,7 +8310,6 @@ impl IFileActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8671,7 +8317,6 @@ impl IFileActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8679,7 +8324,6 @@ impl IFileActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8768,14 +8412,12 @@ pub struct IFileActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IFileActivatedEventArgsWithCallerPackageFamilyName(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IFileActivatedEventArgsWithCallerPackageFamilyName {
     type Vtable = IFileActivatedEventArgsWithCallerPackageFamilyName_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d60f06b_d25f_4d25_8653_e1c5e1108309);
 }
 impl IFileActivatedEventArgsWithCallerPackageFamilyName {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8783,7 +8425,6 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8791,7 +8432,6 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8799,7 +8439,6 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8886,7 +8525,6 @@ pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IFileActivatedEventArgsWithNeighboringFiles(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IFileActivatedEventArgsWithNeighboringFiles {
     type Vtable = IFileActivatedEventArgsWithNeighboringFiles_abi;
@@ -8894,7 +8532,6 @@ unsafe impl ::windows::core::Interface for IFileActivatedEventArgsWithNeighborin
 }
 impl IFileActivatedEventArgsWithNeighboringFiles {
     #[cfg(feature = "Storage_Search")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Storage_Search`*"]
     pub fn NeighboringFilesQuery(&self) -> ::windows::core::Result<super::super::Storage::Search::StorageFileQueryResult> {
         let this = self;
         unsafe {
@@ -8902,7 +8539,6 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Search::StorageFileQueryResult>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8910,7 +8546,6 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8918,7 +8553,6 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -8927,7 +8561,6 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`, `Storage`*"]
     pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = &::windows::core::Interface::cast::<IFileActivatedEventArgs>(self)?;
         unsafe {
@@ -8935,7 +8568,6 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IFileActivatedEventArgs>(self)?;
         unsafe {
@@ -9045,7 +8677,6 @@ pub struct IFileActivatedEventArgsWithNeighboringFiles_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IFileOpenPickerActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IFileOpenPickerActivatedEventArgs {
     type Vtable = IFileOpenPickerActivatedEventArgs_abi;
@@ -9053,7 +8684,6 @@ unsafe impl ::windows::core::Interface for IFileOpenPickerActivatedEventArgs {
 }
 impl IFileOpenPickerActivatedEventArgs {
     #[cfg(feature = "Storage_Pickers_Provider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Storage_Pickers_Provider`*"]
     pub fn FileOpenPickerUI(&self) -> ::windows::core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI> {
         let this = self;
         unsafe {
@@ -9061,7 +8691,6 @@ impl IFileOpenPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileOpenPickerUI>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9069,7 +8698,6 @@ impl IFileOpenPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9077,7 +8705,6 @@ impl IFileOpenPickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9165,14 +8792,12 @@ pub struct IFileOpenPickerActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IFileOpenPickerActivatedEventArgs2(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IFileOpenPickerActivatedEventArgs2 {
     type Vtable = IFileOpenPickerActivatedEventArgs2_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e731f66_8d1f_45fb_af1d_73205c8fc7a1);
 }
 impl IFileOpenPickerActivatedEventArgs2 {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -9237,7 +8862,6 @@ pub struct IFileOpenPickerActivatedEventArgs2_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IFileOpenPickerContinuationEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IFileOpenPickerContinuationEventArgs {
     type Vtable = IFileOpenPickerContinuationEventArgs_abi;
@@ -9246,7 +8870,6 @@ unsafe impl ::windows::core::Interface for IFileOpenPickerContinuationEventArgs 
 impl IFileOpenPickerContinuationEventArgs {
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`, `Storage`*"]
     pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -9254,7 +8877,6 @@ impl IFileOpenPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9262,7 +8884,6 @@ impl IFileOpenPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9270,7 +8891,6 @@ impl IFileOpenPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9279,7 +8899,6 @@ impl IFileOpenPickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -9389,7 +9008,6 @@ pub struct IFileOpenPickerContinuationEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IFileSavePickerActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IFileSavePickerActivatedEventArgs {
     type Vtable = IFileSavePickerActivatedEventArgs_abi;
@@ -9397,7 +9015,6 @@ unsafe impl ::windows::core::Interface for IFileSavePickerActivatedEventArgs {
 }
 impl IFileSavePickerActivatedEventArgs {
     #[cfg(feature = "Storage_Pickers_Provider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Storage_Pickers_Provider`*"]
     pub fn FileSavePickerUI(&self) -> ::windows::core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI> {
         let this = self;
         unsafe {
@@ -9405,7 +9022,6 @@ impl IFileSavePickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileSavePickerUI>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9413,7 +9029,6 @@ impl IFileSavePickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9421,7 +9036,6 @@ impl IFileSavePickerActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9509,14 +9123,12 @@ pub struct IFileSavePickerActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IFileSavePickerActivatedEventArgs2(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IFileSavePickerActivatedEventArgs2 {
     type Vtable = IFileSavePickerActivatedEventArgs2_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b73fe13_2cf2_4d48_8cbc_af67d23f1ce7);
 }
 impl IFileSavePickerActivatedEventArgs2 {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -9524,7 +9136,6 @@ impl IFileSavePickerActivatedEventArgs2 {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn EnterpriseId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -9590,7 +9201,6 @@ pub struct IFileSavePickerActivatedEventArgs2_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IFileSavePickerContinuationEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IFileSavePickerContinuationEventArgs {
     type Vtable = IFileSavePickerContinuationEventArgs_abi;
@@ -9599,7 +9209,6 @@ unsafe impl ::windows::core::Interface for IFileSavePickerContinuationEventArgs 
 impl IFileSavePickerContinuationEventArgs {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Storage")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Storage`*"]
     pub fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
@@ -9607,7 +9216,6 @@ impl IFileSavePickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9615,7 +9223,6 @@ impl IFileSavePickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9623,7 +9230,6 @@ impl IFileSavePickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9632,7 +9238,6 @@ impl IFileSavePickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -9742,7 +9347,6 @@ pub struct IFileSavePickerContinuationEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IFolderPickerContinuationEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IFolderPickerContinuationEventArgs {
     type Vtable = IFolderPickerContinuationEventArgs_abi;
@@ -9751,7 +9355,6 @@ unsafe impl ::windows::core::Interface for IFolderPickerContinuationEventArgs {
 impl IFolderPickerContinuationEventArgs {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Storage")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Storage`*"]
     pub fn Folder(&self) -> ::windows::core::Result<super::super::Storage::StorageFolder> {
         let this = self;
         unsafe {
@@ -9759,7 +9362,6 @@ impl IFolderPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9767,7 +9369,6 @@ impl IFolderPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9775,7 +9376,6 @@ impl IFolderPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9784,7 +9384,6 @@ impl IFolderPickerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -9894,14 +9493,12 @@ pub struct IFolderPickerContinuationEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct ILaunchActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ILaunchActivatedEventArgs {
     type Vtable = ILaunchActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
 }
 impl ILaunchActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -9909,7 +9506,6 @@ impl ILaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -9917,7 +9513,6 @@ impl ILaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9925,7 +9520,6 @@ impl ILaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -9933,7 +9527,6 @@ impl ILaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10021,14 +9614,12 @@ pub struct ILaunchActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct ILaunchActivatedEventArgs2(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ILaunchActivatedEventArgs2 {
     type Vtable = ILaunchActivatedEventArgs2_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fd37ebc_9dc9_46b5_9ace_bd95d4565345);
 }
 impl ILaunchActivatedEventArgs2 {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10036,7 +9627,6 @@ impl ILaunchActivatedEventArgs2 {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10044,7 +9634,6 @@ impl ILaunchActivatedEventArgs2 {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10052,7 +9641,6 @@ impl ILaunchActivatedEventArgs2 {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -10060,7 +9648,6 @@ impl ILaunchActivatedEventArgs2 {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -10068,7 +9655,6 @@ impl ILaunchActivatedEventArgs2 {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn TileActivatedInfo(&self) -> ::windows::core::Result<TileActivatedInfo> {
         let this = self;
         unsafe {
@@ -10177,14 +9763,12 @@ pub struct ILaunchActivatedEventArgs2_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct ILockScreenActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ILockScreenActivatedEventArgs {
     type Vtable = ILockScreenActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ca77966_6108_4a41_8220_ee7d133c8532);
 }
 impl ILockScreenActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Info(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -10192,7 +9776,6 @@ impl ILockScreenActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10200,7 +9783,6 @@ impl ILockScreenActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10208,7 +9790,6 @@ impl ILockScreenActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10295,7 +9876,6 @@ pub struct ILockScreenActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct ILockScreenCallActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ILockScreenCallActivatedEventArgs {
     type Vtable = ILockScreenCallActivatedEventArgs_abi;
@@ -10303,7 +9883,6 @@ unsafe impl ::windows::core::Interface for ILockScreenCallActivatedEventArgs {
 }
 impl ILockScreenCallActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Calls")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Calls`*"]
     pub fn CallUI(&self) -> ::windows::core::Result<super::Calls::LockScreenCallUI> {
         let this = self;
         unsafe {
@@ -10311,7 +9890,6 @@ impl ILockScreenCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Calls::LockScreenCallUI>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10319,7 +9897,6 @@ impl ILockScreenCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10327,7 +9904,6 @@ impl ILockScreenCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10335,7 +9911,6 @@ impl ILockScreenCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -10343,7 +9918,6 @@ impl ILockScreenCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -10453,14 +10027,12 @@ pub struct ILockScreenCallActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IPhoneCallActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IPhoneCallActivatedEventArgs {
     type Vtable = IPhoneCallActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54615221_a3c1_4ced_b62f_8c60523619ad);
 }
 impl IPhoneCallActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10468,7 +10040,6 @@ impl IPhoneCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10476,7 +10047,6 @@ impl IPhoneCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10484,7 +10054,6 @@ impl IPhoneCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -10571,14 +10140,12 @@ pub struct IPhoneCallActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IPickerReturnedActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IPickerReturnedActivatedEventArgs {
     type Vtable = IPickerReturnedActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x360defb9_a9d3_4984_a4ed_9ec734604921);
 }
 impl IPickerReturnedActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PickerOperationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10586,7 +10153,6 @@ impl IPickerReturnedActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10594,7 +10160,6 @@ impl IPickerReturnedActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10602,7 +10167,6 @@ impl IPickerReturnedActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10689,14 +10253,12 @@ pub struct IPickerReturnedActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IPrelaunchActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IPrelaunchActivatedEventArgs {
     type Vtable = IPrelaunchActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c44717b_19f7_48d6_b046_cf22826eaa74);
 }
 impl IPrelaunchActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PrelaunchActivated(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -10704,7 +10266,6 @@ impl IPrelaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10712,7 +10273,6 @@ impl IPrelaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10720,7 +10280,6 @@ impl IPrelaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10807,7 +10366,6 @@ pub struct IPrelaunchActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IPrint3DWorkflowActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IPrint3DWorkflowActivatedEventArgs {
     type Vtable = IPrint3DWorkflowActivatedEventArgs_abi;
@@ -10815,7 +10373,6 @@ unsafe impl ::windows::core::Interface for IPrint3DWorkflowActivatedEventArgs {
 }
 impl IPrint3DWorkflowActivatedEventArgs {
     #[cfg(feature = "Devices_Printers_Extensions")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Devices_Printers_Extensions`*"]
     pub fn Workflow(&self) -> ::windows::core::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow> {
         let this = self;
         unsafe {
@@ -10823,7 +10380,6 @@ impl IPrint3DWorkflowActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::Print3DWorkflow>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10831,7 +10387,6 @@ impl IPrint3DWorkflowActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10839,7 +10394,6 @@ impl IPrint3DWorkflowActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10927,7 +10481,6 @@ pub struct IPrint3DWorkflowActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IPrintTaskSettingsActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IPrintTaskSettingsActivatedEventArgs {
     type Vtable = IPrintTaskSettingsActivatedEventArgs_abi;
@@ -10935,7 +10488,6 @@ unsafe impl ::windows::core::Interface for IPrintTaskSettingsActivatedEventArgs 
 }
 impl IPrintTaskSettingsActivatedEventArgs {
     #[cfg(feature = "Devices_Printers_Extensions")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Devices_Printers_Extensions`*"]
     pub fn Configuration(&self) -> ::windows::core::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration> {
         let this = self;
         unsafe {
@@ -10943,7 +10495,6 @@ impl IPrintTaskSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10951,7 +10502,6 @@ impl IPrintTaskSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -10959,7 +10509,6 @@ impl IPrintTaskSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11047,7 +10596,6 @@ pub struct IPrintTaskSettingsActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IProtocolActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IProtocolActivatedEventArgs {
     type Vtable = IProtocolActivatedEventArgs_abi;
@@ -11055,7 +10603,6 @@ unsafe impl ::windows::core::Interface for IProtocolActivatedEventArgs {
 }
 impl IProtocolActivatedEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -11063,7 +10610,6 @@ impl IProtocolActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11071,7 +10617,6 @@ impl IProtocolActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11079,7 +10624,6 @@ impl IProtocolActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11167,14 +10711,12 @@ pub struct IProtocolActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     type Vtable = IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd84a0c12_5c8f_438c_83cb_c28fcc0b2fdb);
 }
 impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11183,7 +10725,6 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn Data(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
@@ -11191,7 +10732,6 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11199,7 +10739,6 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11207,7 +10746,6 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11296,7 +10834,6 @@ pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IProtocolForResultsActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IProtocolForResultsActivatedEventArgs {
     type Vtable = IProtocolForResultsActivatedEventArgs_abi;
@@ -11304,7 +10841,6 @@ unsafe impl ::windows::core::Interface for IProtocolForResultsActivatedEventArgs
 }
 impl IProtocolForResultsActivatedEventArgs {
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn ProtocolForResultsOperation(&self) -> ::windows::core::Result<super::super::System::ProtocolForResultsOperation> {
         let this = self;
         unsafe {
@@ -11312,7 +10848,6 @@ impl IProtocolForResultsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::ProtocolForResultsOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11320,7 +10855,6 @@ impl IProtocolForResultsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11328,7 +10862,6 @@ impl IProtocolForResultsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11416,14 +10949,12 @@ pub struct IProtocolForResultsActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IRestrictedLaunchActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IRestrictedLaunchActivatedEventArgs {
     type Vtable = IRestrictedLaunchActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
 }
 impl IRestrictedLaunchActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SharedContext(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -11431,7 +10962,6 @@ impl IRestrictedLaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11439,7 +10969,6 @@ impl IRestrictedLaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11447,7 +10976,6 @@ impl IRestrictedLaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11534,14 +11062,12 @@ pub struct IRestrictedLaunchActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct ISearchActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ISearchActivatedEventArgs {
     type Vtable = ISearchActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
 }
 impl ISearchActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn QueryText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11549,7 +11075,6 @@ impl ISearchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11557,7 +11082,6 @@ impl ISearchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11565,7 +11089,6 @@ impl ISearchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11573,7 +11096,6 @@ impl ISearchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11661,7 +11183,6 @@ pub struct ISearchActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct ISearchActivatedEventArgsWithLinguisticDetails(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ISearchActivatedEventArgsWithLinguisticDetails {
     type Vtable = ISearchActivatedEventArgsWithLinguisticDetails_abi;
@@ -11669,7 +11190,6 @@ unsafe impl ::windows::core::Interface for ISearchActivatedEventArgsWithLinguist
 }
 impl ISearchActivatedEventArgsWithLinguisticDetails {
     #[cfg(feature = "ApplicationModel_Search")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Search`*"]
     pub fn LinguisticDetails(&self) -> ::windows::core::Result<super::Search::SearchPaneQueryLinguisticDetails> {
         let this = self;
         unsafe {
@@ -11735,7 +11255,6 @@ pub struct ISearchActivatedEventArgsWithLinguisticDetails_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IShareTargetActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IShareTargetActivatedEventArgs {
     type Vtable = IShareTargetActivatedEventArgs_abi;
@@ -11743,7 +11262,6 @@ unsafe impl ::windows::core::Interface for IShareTargetActivatedEventArgs {
 }
 impl IShareTargetActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_DataTransfer_ShareTarget`*"]
     pub fn ShareOperation(&self) -> ::windows::core::Result<super::DataTransfer::ShareTarget::ShareOperation> {
         let this = self;
         unsafe {
@@ -11751,7 +11269,6 @@ impl IShareTargetActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DataTransfer::ShareTarget::ShareOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11759,7 +11276,6 @@ impl IShareTargetActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11767,7 +11283,6 @@ impl IShareTargetActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11878,14 +11393,12 @@ pub struct ISplashScreen_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IStartupTaskActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IStartupTaskActivatedEventArgs {
     type Vtable = IStartupTaskActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b11a58_5276_4d91_8621_54611864d5fa);
 }
 impl IStartupTaskActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11893,7 +11406,6 @@ impl IStartupTaskActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11901,7 +11413,6 @@ impl IStartupTaskActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -11909,7 +11420,6 @@ impl IStartupTaskActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -12015,14 +11525,12 @@ pub struct ITileActivatedInfo_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IToastNotificationActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IToastNotificationActivatedEventArgs {
     type Vtable = IToastNotificationActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92a86f82_5290_431d_be85_c4aaeeb8685f);
 }
 impl IToastNotificationActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Argument(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -12031,7 +11539,6 @@ impl IToastNotificationActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn UserInput(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
@@ -12039,7 +11546,6 @@ impl IToastNotificationActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12047,7 +11553,6 @@ impl IToastNotificationActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12055,7 +11560,6 @@ impl IToastNotificationActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12144,14 +11648,12 @@ pub struct IToastNotificationActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IUserDataAccountProviderActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IUserDataAccountProviderActivatedEventArgs {
     type Vtable = IUserDataAccountProviderActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
 }
 impl IUserDataAccountProviderActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12159,7 +11661,6 @@ impl IUserDataAccountProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12167,7 +11668,6 @@ impl IUserDataAccountProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12176,7 +11676,6 @@ impl IUserDataAccountProviderActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_UserDataAccounts_Provider`*"]
     pub fn Operation(&self) -> ::windows::core::Result<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation> {
         let this = self;
         unsafe {
@@ -12264,7 +11763,6 @@ pub struct IUserDataAccountProviderActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IViewSwitcherProvider(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IViewSwitcherProvider {
     type Vtable = IViewSwitcherProvider_abi;
@@ -12272,7 +11770,6 @@ unsafe impl ::windows::core::Interface for IViewSwitcherProvider {
 }
 impl IViewSwitcherProvider {
     #[cfg(feature = "UI_ViewManagement")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `UI_ViewManagement`*"]
     pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = self;
         unsafe {
@@ -12280,7 +11777,6 @@ impl IViewSwitcherProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12288,7 +11784,6 @@ impl IViewSwitcherProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12296,7 +11791,6 @@ impl IViewSwitcherProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12384,7 +11878,6 @@ pub struct IViewSwitcherProvider_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IVoiceCommandActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IVoiceCommandActivatedEventArgs {
     type Vtable = IVoiceCommandActivatedEventArgs_abi;
@@ -12392,7 +11885,6 @@ unsafe impl ::windows::core::Interface for IVoiceCommandActivatedEventArgs {
 }
 impl IVoiceCommandActivatedEventArgs {
     #[cfg(feature = "Media_SpeechRecognition")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Media_SpeechRecognition`*"]
     pub fn Result(&self) -> ::windows::core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult> {
         let this = self;
         unsafe {
@@ -12400,7 +11892,6 @@ impl IVoiceCommandActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::SpeechRecognition::SpeechRecognitionResult>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12408,7 +11899,6 @@ impl IVoiceCommandActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12416,7 +11906,6 @@ impl IVoiceCommandActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12504,14 +11993,12 @@ pub struct IVoiceCommandActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IWalletActionActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IWalletActionActivatedEventArgs {
     type Vtable = IWalletActionActivatedEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
 }
 impl IWalletActionActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ItemId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -12520,7 +12007,6 @@ impl IWalletActionActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Wallet")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Wallet`*"]
     pub fn ActionKind(&self) -> ::windows::core::Result<super::Wallet::WalletActionKind> {
         let this = self;
         unsafe {
@@ -12528,7 +12014,6 @@ impl IWalletActionActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Wallet::WalletActionKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ActionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -12536,7 +12021,6 @@ impl IWalletActionActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12544,7 +12028,6 @@ impl IWalletActionActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12552,7 +12035,6 @@ impl IWalletActionActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12642,7 +12124,6 @@ pub struct IWalletActionActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IWebAccountProviderActivatedEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IWebAccountProviderActivatedEventArgs {
     type Vtable = IWebAccountProviderActivatedEventArgs_abi;
@@ -12650,7 +12131,6 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderActivatedEventArgs
 }
 impl IWebAccountProviderActivatedEventArgs {
     #[cfg(feature = "Security_Authentication_Web_Provider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Security_Authentication_Web_Provider`*"]
     pub fn Operation(&self) -> ::windows::core::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation> {
         let this = self;
         unsafe {
@@ -12658,7 +12138,6 @@ impl IWebAccountProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12666,7 +12145,6 @@ impl IWebAccountProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12674,7 +12152,6 @@ impl IWebAccountProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12762,7 +12239,6 @@ pub struct IWebAccountProviderActivatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 pub struct IWebAuthenticationBrokerContinuationEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IWebAuthenticationBrokerContinuationEventArgs {
     type Vtable = IWebAuthenticationBrokerContinuationEventArgs_abi;
@@ -12770,7 +12246,6 @@ unsafe impl ::windows::core::Interface for IWebAuthenticationBrokerContinuationE
 }
 impl IWebAuthenticationBrokerContinuationEventArgs {
     #[cfg(feature = "Security_Authentication_Web")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Security_Authentication_Web`*"]
     pub fn WebAuthenticationResult(&self) -> ::windows::core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult> {
         let this = self;
         unsafe {
@@ -12778,7 +12253,6 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12786,7 +12260,6 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12794,7 +12267,6 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12803,7 +12275,6 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -12911,12 +12382,10 @@ pub struct IWebAuthenticationBrokerContinuationEventArgs_abi(
     #[cfg(feature = "Security_Authentication_Web")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Authentication_Web"))] usize,
 );
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LaunchActivatedEventArgs(pub ::windows::core::IInspectable);
 impl LaunchActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -12924,7 +12393,6 @@ impl LaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -12932,7 +12400,6 @@ impl LaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12940,7 +12407,6 @@ impl LaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12948,7 +12414,6 @@ impl LaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -12956,7 +12421,6 @@ impl LaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -12964,7 +12428,6 @@ impl LaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PrelaunchActivated(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPrelaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -12973,7 +12436,6 @@ impl LaunchActivatedEventArgs {
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `UI_ViewManagement`*"]
     pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
@@ -12982,7 +12444,6 @@ impl LaunchActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -12990,7 +12451,6 @@ impl LaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn TileActivatedInfo(&self) -> ::windows::core::Result<TileActivatedInfo> {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs2>(self)?;
         unsafe {
@@ -13203,12 +12663,10 @@ impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs2> for &LaunchA
 }
 unsafe impl ::core::marker::Send for LaunchActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for LaunchActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LockScreenActivatedEventArgs(pub ::windows::core::IInspectable);
 impl LockScreenActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Info(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -13216,7 +12674,6 @@ impl LockScreenActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -13224,7 +12681,6 @@ impl LockScreenActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -13232,7 +12688,6 @@ impl LockScreenActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -13241,7 +12696,6 @@ impl LockScreenActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -13366,13 +12820,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &LockSc
 }
 unsafe impl ::core::marker::Send for LockScreenActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LockScreenCallActivatedEventArgs(pub ::windows::core::IInspectable);
 impl LockScreenCallActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Calls")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Calls`*"]
     pub fn CallUI(&self) -> ::windows::core::Result<super::Calls::LockScreenCallUI> {
         let this = self;
         unsafe {
@@ -13380,7 +12832,6 @@ impl LockScreenCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Calls::LockScreenCallUI>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -13388,7 +12839,6 @@ impl LockScreenCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -13396,7 +12846,6 @@ impl LockScreenCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -13404,7 +12853,6 @@ impl LockScreenCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -13412,7 +12860,6 @@ impl LockScreenCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -13420,7 +12867,6 @@ impl LockScreenCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -13429,7 +12875,6 @@ impl LockScreenCallActivatedEventArgs {
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `UI_ViewManagement`*"]
     pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
@@ -13598,12 +13043,10 @@ impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &LockScreenCa
 }
 unsafe impl ::core::marker::Send for LockScreenCallActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenCallActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LockScreenComponentActivatedEventArgs(pub ::windows::core::IInspectable);
 impl LockScreenComponentActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = self;
         unsafe {
@@ -13611,7 +13054,6 @@ impl LockScreenComponentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = self;
         unsafe {
@@ -13619,7 +13061,6 @@ impl LockScreenComponentActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = self;
         unsafe {
@@ -13700,12 +13141,10 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &LockScreenComp
 }
 unsafe impl ::core::marker::Send for LockScreenComponentActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenComponentActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCallActivatedEventArgs(pub ::windows::core::IInspectable);
 impl PhoneCallActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -13713,7 +13152,6 @@ impl PhoneCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -13721,7 +13159,6 @@ impl PhoneCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -13730,7 +13167,6 @@ impl PhoneCallActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -13738,7 +13174,6 @@ impl PhoneCallActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -13863,12 +13298,10 @@ impl<'a> ::windows::core::IntoParam<'a, IPhoneCallActivatedEventArgs> for &Phone
 }
 unsafe impl ::core::marker::Send for PhoneCallActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PhoneCallActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PickerReturnedActivatedEventArgs(pub ::windows::core::IInspectable);
 impl PickerReturnedActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PickerOperationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -13876,7 +13309,6 @@ impl PickerReturnedActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -13884,7 +13316,6 @@ impl PickerReturnedActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -13892,7 +13323,6 @@ impl PickerReturnedActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -13995,13 +13425,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &PickerReturned
 }
 unsafe impl ::core::marker::Send for PickerReturnedActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PickerReturnedActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Print3DWorkflowActivatedEventArgs(pub ::windows::core::IInspectable);
 impl Print3DWorkflowActivatedEventArgs {
     #[cfg(feature = "Devices_Printers_Extensions")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Devices_Printers_Extensions`*"]
     pub fn Workflow(&self) -> ::windows::core::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow> {
         let this = self;
         unsafe {
@@ -14009,7 +13437,6 @@ impl Print3DWorkflowActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::Print3DWorkflow>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14017,7 +13444,6 @@ impl Print3DWorkflowActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14025,7 +13451,6 @@ impl Print3DWorkflowActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14128,13 +13553,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &Print3DWorkflo
 }
 unsafe impl ::core::marker::Send for Print3DWorkflowActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DWorkflowActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintTaskSettingsActivatedEventArgs(pub ::windows::core::IInspectable);
 impl PrintTaskSettingsActivatedEventArgs {
     #[cfg(feature = "Devices_Printers_Extensions")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Devices_Printers_Extensions`*"]
     pub fn Configuration(&self) -> ::windows::core::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration> {
         let this = self;
         unsafe {
@@ -14142,7 +13565,6 @@ impl PrintTaskSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14150,7 +13572,6 @@ impl PrintTaskSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14158,7 +13579,6 @@ impl PrintTaskSettingsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14261,13 +13681,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &PrintTaskSetti
 }
 unsafe impl ::core::marker::Send for PrintTaskSettingsActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskSettingsActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProtocolActivatedEventArgs(pub ::windows::core::IInspectable);
 impl ProtocolActivatedEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -14275,7 +13693,6 @@ impl ProtocolActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14283,7 +13700,6 @@ impl ProtocolActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14291,7 +13707,6 @@ impl ProtocolActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14299,7 +13714,6 @@ impl ProtocolActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -14307,7 +13721,6 @@ impl ProtocolActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
@@ -14316,7 +13729,6 @@ impl ProtocolActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn Data(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
@@ -14325,7 +13737,6 @@ impl ProtocolActivatedEventArgs {
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `UI_ViewManagement`*"]
     pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
@@ -14334,7 +13745,6 @@ impl ProtocolActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -14525,13 +13935,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &Protoc
 }
 unsafe impl ::core::marker::Send for ProtocolActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtocolActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProtocolForResultsActivatedEventArgs(pub ::windows::core::IInspectable);
 impl ProtocolForResultsActivatedEventArgs {
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn ProtocolForResultsOperation(&self) -> ::windows::core::Result<super::super::System::ProtocolForResultsOperation> {
         let this = self;
         unsafe {
@@ -14539,7 +13947,6 @@ impl ProtocolForResultsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::ProtocolForResultsOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14547,7 +13954,6 @@ impl ProtocolForResultsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14555,7 +13961,6 @@ impl ProtocolForResultsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14563,7 +13968,6 @@ impl ProtocolForResultsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -14572,7 +13976,6 @@ impl ProtocolForResultsActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<IProtocolActivatedEventArgs>(self)?;
         unsafe {
@@ -14580,7 +13983,6 @@ impl ProtocolForResultsActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
@@ -14589,7 +13991,6 @@ impl ProtocolForResultsActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn Data(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
@@ -14598,7 +13999,6 @@ impl ProtocolForResultsActivatedEventArgs {
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `UI_ViewManagement`*"]
     pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
@@ -14607,7 +14007,6 @@ impl ProtocolForResultsActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -14820,12 +14219,10 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &Protoc
 }
 unsafe impl ::core::marker::Send for ProtocolForResultsActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtocolForResultsActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RestrictedLaunchActivatedEventArgs(pub ::windows::core::IInspectable);
 impl RestrictedLaunchActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SharedContext(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -14833,7 +14230,6 @@ impl RestrictedLaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14841,7 +14237,6 @@ impl RestrictedLaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14849,7 +14244,6 @@ impl RestrictedLaunchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -14858,7 +14252,6 @@ impl RestrictedLaunchActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -14983,12 +14376,10 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &Restri
 }
 unsafe impl ::core::marker::Send for RestrictedLaunchActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for RestrictedLaunchActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SearchActivatedEventArgs(pub ::windows::core::IInspectable);
 impl SearchActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn QueryText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -14996,7 +14387,6 @@ impl SearchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -15004,7 +14394,6 @@ impl SearchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15012,7 +14401,6 @@ impl SearchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15020,7 +14408,6 @@ impl SearchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15028,7 +14415,6 @@ impl SearchActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -15037,7 +14423,6 @@ impl SearchActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Search")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Search`*"]
     pub fn LinguisticDetails(&self) -> ::windows::core::Result<super::Search::SearchPaneQueryLinguisticDetails> {
         let this = &::windows::core::Interface::cast::<ISearchActivatedEventArgsWithLinguisticDetails>(self)?;
         unsafe {
@@ -15046,7 +14431,6 @@ impl SearchActivatedEventArgs {
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `UI_ViewManagement`*"]
     pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
@@ -15055,7 +14439,6 @@ impl SearchActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -15246,13 +14629,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &Search
 }
 unsafe impl ::core::marker::Send for SearchActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for SearchActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ShareTargetActivatedEventArgs(pub ::windows::core::IInspectable);
 impl ShareTargetActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_DataTransfer_ShareTarget`*"]
     pub fn ShareOperation(&self) -> ::windows::core::Result<super::DataTransfer::ShareTarget::ShareOperation> {
         let this = self;
         unsafe {
@@ -15260,7 +14641,6 @@ impl ShareTargetActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DataTransfer::ShareTarget::ShareOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15268,7 +14648,6 @@ impl ShareTargetActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15276,7 +14655,6 @@ impl ShareTargetActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15285,7 +14663,6 @@ impl ShareTargetActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -15410,13 +14787,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &ShareT
 }
 unsafe impl ::core::marker::Send for ShareTargetActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ShareTargetActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SplashScreen(pub ::windows::core::IInspectable);
 impl SplashScreen {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn ImageLocation(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -15425,7 +14800,6 @@ impl SplashScreen {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn Dismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SplashScreen, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -15434,7 +14808,6 @@ impl SplashScreen {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation`*"]
     pub fn RemoveDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
@@ -15490,12 +14863,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StartupTaskActivatedEventArgs(pub ::windows::core::IInspectable);
 impl StartupTaskActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15503,7 +14874,6 @@ impl StartupTaskActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15511,7 +14881,6 @@ impl StartupTaskActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15520,7 +14889,6 @@ impl StartupTaskActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -15528,7 +14896,6 @@ impl StartupTaskActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -15653,13 +15020,11 @@ impl<'a> ::windows::core::IntoParam<'a, IStartupTaskActivatedEventArgs> for &Sta
 }
 unsafe impl ::core::marker::Send for StartupTaskActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for StartupTaskActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TileActivatedInfo(pub ::windows::core::IInspectable);
 impl TileActivatedInfo {
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications"))]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`, `UI_Notifications`*"]
     pub fn RecentlyShownNotifications(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::UI::Notifications::ShownTileNotification>> {
         let this = self;
         unsafe {
@@ -15720,12 +15085,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 }
 unsafe impl ::core::marker::Send for TileActivatedInfo {}
 unsafe impl ::core::marker::Sync for TileActivatedInfo {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ToastNotificationActivatedEventArgs(pub ::windows::core::IInspectable);
 impl ToastNotificationActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Argument(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -15734,7 +15097,6 @@ impl ToastNotificationActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn UserInput(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
@@ -15742,7 +15104,6 @@ impl ToastNotificationActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15750,7 +15111,6 @@ impl ToastNotificationActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15758,7 +15118,6 @@ impl ToastNotificationActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15766,7 +15125,6 @@ impl ToastNotificationActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -15775,7 +15133,6 @@ impl ToastNotificationActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -15922,12 +15279,10 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &ToastN
 }
 unsafe impl ::core::marker::Send for ToastNotificationActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastNotificationActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserDataAccountProviderActivatedEventArgs(pub ::windows::core::IInspectable);
 impl UserDataAccountProviderActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15935,7 +15290,6 @@ impl UserDataAccountProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15943,7 +15297,6 @@ impl UserDataAccountProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -15952,7 +15305,6 @@ impl UserDataAccountProviderActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_UserDataAccounts_Provider`*"]
     pub fn Operation(&self) -> ::windows::core::Result<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation> {
         let this = self;
         unsafe {
@@ -16055,13 +15407,11 @@ impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderActivatedEventAr
 }
 unsafe impl ::core::marker::Send for UserDataAccountProviderActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataAccountProviderActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VoiceCommandActivatedEventArgs(pub ::windows::core::IInspectable);
 impl VoiceCommandActivatedEventArgs {
     #[cfg(feature = "Media_SpeechRecognition")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Media_SpeechRecognition`*"]
     pub fn Result(&self) -> ::windows::core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult> {
         let this = self;
         unsafe {
@@ -16069,7 +15419,6 @@ impl VoiceCommandActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::SpeechRecognition::SpeechRecognitionResult>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -16077,7 +15426,6 @@ impl VoiceCommandActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -16085,7 +15433,6 @@ impl VoiceCommandActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -16094,7 +15441,6 @@ impl VoiceCommandActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -16219,12 +15565,10 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &VoiceC
 }
 unsafe impl ::core::marker::Send for VoiceCommandActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for VoiceCommandActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WalletActionActivatedEventArgs(pub ::windows::core::IInspectable);
 impl WalletActionActivatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ItemId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -16233,7 +15577,6 @@ impl WalletActionActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Wallet")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `ApplicationModel_Wallet`*"]
     pub fn ActionKind(&self) -> ::windows::core::Result<super::Wallet::WalletActionKind> {
         let this = self;
         unsafe {
@@ -16241,7 +15584,6 @@ impl WalletActionActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Wallet::WalletActionKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn ActionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -16249,7 +15591,6 @@ impl WalletActionActivatedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -16257,7 +15598,6 @@ impl WalletActionActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -16265,7 +15605,6 @@ impl WalletActionActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -16368,13 +15707,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &WalletActionAc
 }
 unsafe impl ::core::marker::Send for WalletActionActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for WalletActionActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebAccountProviderActivatedEventArgs(pub ::windows::core::IInspectable);
 impl WebAccountProviderActivatedEventArgs {
     #[cfg(feature = "Security_Authentication_Web_Provider")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Security_Authentication_Web_Provider`*"]
     pub fn Operation(&self) -> ::windows::core::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation> {
         let this = self;
         unsafe {
@@ -16382,7 +15719,6 @@ impl WebAccountProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -16390,7 +15726,6 @@ impl WebAccountProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -16398,7 +15733,6 @@ impl WebAccountProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -16407,7 +15741,6 @@ impl WebAccountProviderActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -16532,13 +15865,11 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &WebAcc
 }
 unsafe impl ::core::marker::Send for WebAccountProviderActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for WebAccountProviderActivatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct WebAuthenticationBrokerContinuationEventArgs(pub ::windows::core::IInspectable);
 impl WebAuthenticationBrokerContinuationEventArgs {
     #[cfg(feature = "Security_Authentication_Web")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Security_Authentication_Web`*"]
     pub fn WebAuthenticationResult(&self) -> ::windows::core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult> {
         let this = self;
         unsafe {
@@ -16546,7 +15877,6 @@ impl WebAuthenticationBrokerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -16554,7 +15884,6 @@ impl WebAuthenticationBrokerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -16562,7 +15891,6 @@ impl WebAuthenticationBrokerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
@@ -16571,7 +15899,6 @@ impl WebAuthenticationBrokerContinuationEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Activation`, `Foundation_Collections`*"]
     pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {

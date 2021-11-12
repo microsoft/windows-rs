@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateAppContainerProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszappcontainername: Param0, pszdisplayname: Param1, pszdescription: Param2, pcapabilities: *const super::SID_AND_ATTRIBUTES, dwcapabilitycount: u32) -> ::windows::core::Result<super::super::Foundation::PSID> {
@@ -15,7 +14,6 @@ pub unsafe fn CreateAppContainerProfile<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteAppContainerProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszappcontainername: Param0) -> ::windows::core::Result<()> {
@@ -30,7 +28,6 @@ pub unsafe fn DeleteAppContainerProfile<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeriveAppContainerSidFromAppContainerName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszappcontainername: Param0) -> ::windows::core::Result<super::super::Foundation::PSID> {
@@ -46,7 +43,6 @@ pub unsafe fn DeriveAppContainerSidFromAppContainerName<'a, Param0: ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(psidappcontainersid: Param0, pszrestrictedappcontainername: Param1) -> ::windows::core::Result<super::super::Foundation::PSID> {
@@ -62,7 +58,6 @@ pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedNam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppContainerFolderPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszappcontainersid: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
@@ -78,7 +73,6 @@ pub unsafe fn GetAppContainerFolderPath<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppContainerNamedObjectPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(token: Param0, appcontainersid: Param1, objectpathlength: u32, objectpath: super::super::Foundation::PWSTR, returnlength: *mut u32) -> super::super::Foundation::BOOL {
@@ -93,7 +87,6 @@ pub unsafe fn GetAppContainerNamedObjectPath<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_Isolation`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> ::windows::core::Result<super::super::System::Registry::HKEY> {
@@ -109,13 +102,11 @@ pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_Isolation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IIsolatedAppLauncher(pub ::windows::core::IUnknown);
 impl IIsolatedAppLauncher {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
     pub unsafe fn Launch<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, appusermodelid: Param0, arguments: Param1, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), appusermodelid.into_param().abi(), arguments.into_param().abi(), ::core::mem::transmute(telemetryparameters)).ok()
     }
@@ -153,7 +144,6 @@ pub struct IIsolatedAppLauncher_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, appusermodelid: super::super::Foundation::PWSTR, arguments: super::super::Foundation::PWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsProcessInIsolatedContainer() -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -169,7 +159,6 @@ pub unsafe fn IsProcessInIsolatedContainer() -> ::windows::core::Result<super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -185,7 +174,6 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::core::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -205,7 +193,6 @@ pub const IsolatedAppLauncher: ::windows::core::GUID = ::windows::core::GUID::fr
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
 pub struct IsolatedAppLauncherTelemetryParameters {
     pub EnableForLaunch: super::super::Foundation::BOOL,
     pub CorrelationGUID: ::windows::core::GUID,

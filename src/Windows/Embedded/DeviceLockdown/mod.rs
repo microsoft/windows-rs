@@ -2,18 +2,15 @@
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct DeviceLockdownContract(pub u8);
-#[doc = "*Required features: `Embedded_DeviceLockdown`*"]
 pub struct DeviceLockdownProfile {}
 impl DeviceLockdownProfile {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Embedded_DeviceLockdown`, `Foundation_Collections`*"]
     pub fn GetSupportedLockdownProfiles() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::GUID>> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::GUID>>(result__)
         })
     }
-    #[doc = "*Required features: `Embedded_DeviceLockdown`*"]
     pub fn GetCurrentLockdownProfile() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
@@ -21,14 +18,12 @@ impl DeviceLockdownProfile {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Embedded_DeviceLockdown`, `Foundation`*"]
     pub fn ApplyLockdownProfileAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(profileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), profileid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: `Embedded_DeviceLockdown`*"]
     pub fn GetLockdownProfileInformation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(profileid: Param0) -> ::windows::core::Result<DeviceLockdownProfileInformation> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -43,12 +38,10 @@ impl DeviceLockdownProfile {
 impl ::windows::core::RuntimeName for DeviceLockdownProfile {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.DeviceLockdownProfile";
 }
-#[doc = "*Required features: `Embedded_DeviceLockdown`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DeviceLockdownProfileInformation(pub ::windows::core::IInspectable);
 impl DeviceLockdownProfileInformation {
-    #[doc = "*Required features: `Embedded_DeviceLockdown`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {

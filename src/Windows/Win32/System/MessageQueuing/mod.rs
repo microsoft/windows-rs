@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FOREIGN_STATUS(pub i32);
@@ -14,13 +13,11 @@ impl ::core::convert::From<i32> for FOREIGN_STATUS {
 unsafe impl ::windows::core::Abi for FOREIGN_STATUS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQApplication(pub ::windows::core::IUnknown);
 impl IMSMQApplication {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn MachineIdOfMachineName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, machinename: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), machinename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -90,29 +87,24 @@ pub struct IMSMQApplication_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, machinename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrguid: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQApplication2(pub ::windows::core::IUnknown);
 impl IMSMQApplication2 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: <super::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -128,44 +120,36 @@ impl IMSMQApplication2 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn MachineIdOfMachineName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, machinename: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), machinename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn RegisterCertificate(&self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(externalcertificate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn MachineNameOfMachineId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), bstrguid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MSMQVersionMajor(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MSMQVersionMinor(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MSMQVersionBuild(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsDsEnabled(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -265,29 +249,24 @@ pub struct IMSMQApplication2_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQApplication3(pub ::windows::core::IUnknown);
 impl IMSMQApplication3 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: <super::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -303,97 +282,79 @@ impl IMSMQApplication3 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn MachineIdOfMachineName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, machinename: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), machinename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn RegisterCertificate(&self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(externalcertificate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn MachineNameOfMachineId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), bstrguid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MSMQVersionMajor(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MSMQVersionMinor(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MSMQVersionBuild(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsDsEnabled(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ActiveQueues(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PrivateQueues(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn DirectoryServiceServer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn BytesInAllQueues(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetMachine<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmachine: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), bstrmachine.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn Machine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Connect(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Tidy(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self)).ok()
     }
@@ -528,23 +489,19 @@ pub struct IMSMQApplication3_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQCollection(pub ::windows::core::IUnknown);
 impl IMSMQCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Item(&self, index: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
@@ -616,12 +573,10 @@ pub struct IMSMQCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcount: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppunk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQCoordinatedTransactionDispenser(pub ::windows::core::IUnknown);
 impl IMSMQCoordinatedTransactionDispenser {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction> {
         let mut result__: <IMSMQTransaction as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQTransaction>(result__)
@@ -690,18 +645,15 @@ pub struct IMSMQCoordinatedTransactionDispenser_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQCoordinatedTransactionDispenser2(pub ::windows::core::IUnknown);
 impl IMSMQCoordinatedTransactionDispenser2 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction2> {
         let mut result__: <IMSMQTransaction2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQTransaction2>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -772,18 +724,15 @@ pub struct IMSMQCoordinatedTransactionDispenser2_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQCoordinatedTransactionDispenser3(pub ::windows::core::IUnknown);
 impl IMSMQCoordinatedTransactionDispenser3 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction3> {
         let mut result__: <IMSMQTransaction3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQTransaction3>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -854,81 +803,66 @@ pub struct IMSMQCoordinatedTransactionDispenser3_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQDestination(pub ::windows::core::IUnknown);
 impl IMSMQDestination {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Open(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsOpen(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn IADs(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn putref_IADs<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, piads: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), piads.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetADsPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstradspath: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), bstradspath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetPathName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), bstrpathname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetFormatName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), bstrformatname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Destinations(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn putref_Destinations<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, pdestinations: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pdestinations.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -1021,7 +955,6 @@ pub struct IMSMQDestination_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQEvent(pub ::windows::core::IUnknown);
@@ -1088,29 +1021,24 @@ pub struct IMSMQEvent_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQEvent2(pub ::windows::core::IUnknown);
 impl IMSMQEvent2 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: <super::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -1126,7 +1054,6 @@ impl IMSMQEvent2 {
         .ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -1216,29 +1143,24 @@ pub struct IMSMQEvent2_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQEvent3(pub ::windows::core::IUnknown);
 impl IMSMQEvent3 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: <super::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -1254,7 +1176,6 @@ impl IMSMQEvent3 {
         .ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -1364,55 +1285,45 @@ pub struct IMSMQEvent3_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQManagement(pub ::windows::core::IUnknown);
 impl IMSMQManagement {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Init(&self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(machine), ::core::mem::transmute(pathname), ::core::mem::transmute(formatname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn Machine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MessageCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ForeignStatus(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn QueueType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsLocal(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn TransactionalStatus(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn BytesInQueue(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
@@ -1493,246 +1404,196 @@ pub struct IMSMQManagement_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvbytesinqueue: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQMessage(pub ::windows::core::IUnknown);
 impl IMSMQMessage {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Class(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprivlevel)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AuthLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(lauthlevel)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Delivery(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldelivery)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Trace(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(ltrace)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpriority)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(ljournal)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ResponseQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
         let mut result__: <IMSMQQueueInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_ResponseQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AppSpecific(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(lappspecific)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SourceMachineGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BodyLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), varbody.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AdminQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
         let mut result__: <IMSMQQueueInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_AdminQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), pqinfoadmin.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CorrelationId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetCorrelationId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varmsgid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), varmsgid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Ack(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAck(&self, lack: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(lack)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), bstrlabel.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmaxtimetoreachqueue)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmaxtimetoreceive)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(lhashalg)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(lencryptalg)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SentTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ArrivedTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn DestinationQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
         let mut result__: <IMSMQQueueInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SenderCertificate(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSenderCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsendercert: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), varsendercert.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SenderId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SenderIdType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsenderidtype)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Send<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueue>>(&self, destinationqueue: Param0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), destinationqueue.into_param().abi(), ::core::mem::transmute(transaction)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self)).ok()
     }
@@ -1862,378 +1723,302 @@ pub struct IMSMQMessage_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQMessage2(pub ::windows::core::IUnknown);
 impl IMSMQMessage2 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Class(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprivlevel)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AuthLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(lauthlevel)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Delivery(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldelivery)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Trace(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(ltrace)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpriority)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(ljournal)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ResponseQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
         let mut result__: <IMSMQQueueInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_ResponseQueueInfo_v1<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AppSpecific(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(lappspecific)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SourceMachineGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BodyLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), varbody.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AdminQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
         let mut result__: <IMSMQQueueInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_AdminQueueInfo_v1<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), pqinfoadmin.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CorrelationId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetCorrelationId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varmsgid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), varmsgid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Ack(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAck(&self, lack: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(lack)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), bstrlabel.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmaxtimetoreachqueue)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmaxtimetoreceive)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(lhashalg)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(lencryptalg)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SentTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ArrivedTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn DestinationQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
         let mut result__: <IMSMQQueueInfo2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo2>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SenderCertificate(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSenderCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsendercert: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), varsendercert.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SenderId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SenderIdType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsenderidtype)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Send<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueue2>>(&self, destinationqueue: Param0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), destinationqueue.into_param().abi(), ::core::mem::transmute(transaction)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SenderVersion(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Extension(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetExtension<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varextension: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), varextension.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn ConnectorTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetConnectorTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidconnectortype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), bstrguidconnectortype.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn TransactionStatusQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
         let mut result__: <IMSMQQueueInfo2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo2>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn DestinationSymmetricKey(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetDestinationSymmetricKey<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, vardestsymmkey: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), vardestsymmkey.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Signature(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSignature<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsignature: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), varsignature.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), ::core::mem::transmute(lauthprovtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn AuthenticationProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetAuthenticationProviderName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthprovname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self), bstrauthprovname.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSenderId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsenderid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), varsenderid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MsgClass(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmsgclass)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn TransactionId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsFirstInTransaction(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsLastInTransaction(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ResponseQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
         let mut result__: <IMSMQQueueInfo2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo2>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_ResponseQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo2>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AdminQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
         let mut result__: <IMSMQQueueInfo2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).79)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo2>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_AdminQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo2>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).80)(::core::mem::transmute_copy(self), pqinfoadmin.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).81)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
@@ -2403,461 +2188,369 @@ pub struct IMSMQMessage2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pqinfoadmin: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psreceivedauthenticationlevel: *mut i16) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQMessage3(pub ::windows::core::IUnknown);
 impl IMSMQMessage3 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Class(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprivlevel)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AuthLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(lauthlevel)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Delivery(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldelivery)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Trace(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(ltrace)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpriority)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(ljournal)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ResponseQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
         let mut result__: <IMSMQQueueInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_ResponseQueueInfo_v1<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AppSpecific(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(lappspecific)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SourceMachineGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BodyLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), varbody.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AdminQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
         let mut result__: <IMSMQQueueInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_AdminQueueInfo_v1<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), pqinfoadmin.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CorrelationId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetCorrelationId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varmsgid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), varmsgid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Ack(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAck(&self, lack: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(lack)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), bstrlabel.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmaxtimetoreachqueue)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmaxtimetoreceive)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(lhashalg)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(lencryptalg)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SentTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ArrivedTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn DestinationQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3> {
         let mut result__: <IMSMQQueueInfo3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SenderCertificate(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSenderCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsendercert: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), varsendercert.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SenderId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SenderIdType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsenderidtype)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Send<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, destinationqueue: Param0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), destinationqueue.into_param().abi(), ::core::mem::transmute(transaction)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SenderVersion(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Extension(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetExtension<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varextension: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), varextension.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn ConnectorTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetConnectorTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidconnectortype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), bstrguidconnectortype.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn TransactionStatusQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3> {
         let mut result__: <IMSMQQueueInfo3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn DestinationSymmetricKey(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetDestinationSymmetricKey<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, vardestsymmkey: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), vardestsymmkey.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Signature(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSignature<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsignature: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), varsignature.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), ::core::mem::transmute(lauthprovtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn AuthenticationProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetAuthenticationProviderName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthprovname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self), bstrauthprovname.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSenderId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsenderid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), varsenderid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MsgClass(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmsgclass)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn TransactionId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsFirstInTransaction(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsLastInTransaction(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ResponseQueueInfo_v2(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
         let mut result__: <IMSMQQueueInfo2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo2>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_ResponseQueueInfo_v2<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo2>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AdminQueueInfo_v2(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
         let mut result__: <IMSMQQueueInfo2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).79)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo2>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_AdminQueueInfo_v2<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo2>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).80)(::core::mem::transmute_copy(self), pqinfoadmin.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).81)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ResponseQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3> {
         let mut result__: <IMSMQQueueInfo3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).82)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo3>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_ResponseQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo3>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).83)(::core::mem::transmute_copy(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AdminQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3> {
         let mut result__: <IMSMQQueueInfo3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).84)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo3>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_AdminQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo3>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).85)(::core::mem::transmute_copy(self), pqinfoadmin.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn ResponseDestination(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).86)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn putref_ResponseDestination<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, pdestresponse: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).87)(::core::mem::transmute_copy(self), pdestresponse.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Destination(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).88)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn LookupId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).89)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsAuthenticated2(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).90)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsFirstInTransaction2(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).91)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsLastInTransaction2(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).92)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AttachCurrentSecurityContext2(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).93)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SoapEnvelope(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CompoundMessage(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).95)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetSoapHeader<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsoapheader: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).96)(::core::mem::transmute_copy(self), bstrsoapheader.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetSoapBody<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsoapbody: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).97)(::core::mem::transmute_copy(self), bstrsoapbody.into_param().abi()).ok()
     }
@@ -3050,461 +2743,369 @@ pub struct IMSMQMessage3_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrsoapbody: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQMessage4(pub ::windows::core::IUnknown);
 impl IMSMQMessage4 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Class(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprivlevel)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AuthLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(lauthlevel)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Delivery(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldelivery)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Trace(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(ltrace)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpriority)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(ljournal)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ResponseQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
         let mut result__: <IMSMQQueueInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_ResponseQueueInfo_v1<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AppSpecific(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(lappspecific)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SourceMachineGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BodyLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), varbody.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AdminQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
         let mut result__: <IMSMQQueueInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_AdminQueueInfo_v1<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), pqinfoadmin.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CorrelationId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetCorrelationId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varmsgid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), varmsgid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Ack(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAck(&self, lack: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(lack)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), bstrlabel.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmaxtimetoreachqueue)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmaxtimetoreceive)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(lhashalg)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), ::core::mem::transmute(lencryptalg)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SentTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ArrivedTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn DestinationQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4> {
         let mut result__: <IMSMQQueueInfo4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SenderCertificate(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSenderCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsendercert: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), varsendercert.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SenderId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SenderIdType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsenderidtype)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Send<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, destinationqueue: Param0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), destinationqueue.into_param().abi(), ::core::mem::transmute(transaction)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SenderVersion(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Extension(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetExtension<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varextension: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).58)(::core::mem::transmute_copy(self), varextension.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn ConnectorTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).59)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetConnectorTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidconnectortype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).60)(::core::mem::transmute_copy(self), bstrguidconnectortype.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn TransactionStatusQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4> {
         let mut result__: <IMSMQQueueInfo4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).61)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn DestinationSymmetricKey(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).62)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetDestinationSymmetricKey<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, vardestsymmkey: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).63)(::core::mem::transmute_copy(self), vardestsymmkey.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Signature(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).64)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSignature<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsignature: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).65)(::core::mem::transmute_copy(self), varsignature.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).67)(::core::mem::transmute_copy(self), ::core::mem::transmute(lauthprovtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn AuthenticationProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).68)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetAuthenticationProviderName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthprovname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).69)(::core::mem::transmute_copy(self), bstrauthprovname.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSenderId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsenderid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).70)(::core::mem::transmute_copy(self), varsenderid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MsgClass(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).71)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).72)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmsgclass)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).73)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn TransactionId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).74)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsFirstInTransaction(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).75)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsLastInTransaction(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).76)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ResponseQueueInfo_v2(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
         let mut result__: <IMSMQQueueInfo2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo2>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_ResponseQueueInfo_v2<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo2>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AdminQueueInfo_v2(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
         let mut result__: <IMSMQQueueInfo2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).79)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo2>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_AdminQueueInfo_v2<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo2>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).80)(::core::mem::transmute_copy(self), pqinfoadmin.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).81)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ResponseQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4> {
         let mut result__: <IMSMQQueueInfo4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).82)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo4>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_ResponseQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo4>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).83)(::core::mem::transmute_copy(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AdminQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4> {
         let mut result__: <IMSMQQueueInfo4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).84)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo4>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn putref_AdminQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo4>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).85)(::core::mem::transmute_copy(self), pqinfoadmin.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn ResponseDestination(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).86)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn putref_ResponseDestination<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, pdestresponse: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).87)(::core::mem::transmute_copy(self), pdestresponse.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Destination(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).88)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn LookupId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).89)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsAuthenticated2(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).90)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsFirstInTransaction2(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).91)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsLastInTransaction2(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).92)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn AttachCurrentSecurityContext2(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).93)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SoapEnvelope(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CompoundMessage(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).95)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetSoapHeader<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsoapheader: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).96)(::core::mem::transmute_copy(self), bstrsoapheader.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetSoapBody<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsoapbody: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).97)(::core::mem::transmute_copy(self), bstrsoapbody.into_param().abi()).ok()
     }
@@ -3697,29 +3298,24 @@ pub struct IMSMQMessage4_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrsoapbody: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQOutgoingQueueManagement(pub ::windows::core::IUnknown);
 impl IMSMQOutgoingQueueManagement {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: <super::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -3735,78 +3331,63 @@ impl IMSMQOutgoingQueueManagement {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Init(&self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(machine), ::core::mem::transmute(pathname), ::core::mem::transmute(formatname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn Machine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MessageCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ForeignStatus(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn QueueType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsLocal(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn TransactionalStatus(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn BytesInQueue(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn State(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn NextHops(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn EodGetSendInfo(&self) -> ::windows::core::Result<IMSMQCollection> {
         let mut result__: <IMSMQCollection as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQCollection>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn EodResend(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self)).ok()
     }
@@ -3913,19 +3494,16 @@ pub struct IMSMQOutgoingQueueManagement_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQPrivateDestination(pub ::windows::core::IUnknown);
 impl IMSMQPrivateDestination {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Handle(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetHandle<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varhandle: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), varhandle.into_param().abi()).ok()
     }
@@ -3996,21 +3574,17 @@ pub struct IMSMQPrivateDestination_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, varhandle: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQPrivateEvent(pub ::windows::core::IUnknown);
 impl IMSMQPrivateEvent {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Hwnd(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn FireArrivedEvent<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueue>>(&self, pq: Param0, msgcursor: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pq.into_param().abi(), ::core::mem::transmute(msgcursor)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn FireArrivedErrorEvent<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueue>>(&self, pq: Param0, hrstatus: ::windows::core::HRESULT, msgcursor: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pq.into_param().abi(), ::core::mem::transmute(hrstatus), ::core::mem::transmute(msgcursor)).ok()
     }
@@ -4080,13 +3654,11 @@ pub struct IMSMQPrivateEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pq: ::windows::core::RawPtr, msgcursor: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pq: ::windows::core::RawPtr, hrstatus: ::windows::core::HRESULT, msgcursor: i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQuery(pub ::windows::core::IUnknown);
 impl IMSMQQuery {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos> {
         let mut result__: <IMSMQQueueInfos as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(
@@ -4182,13 +3754,11 @@ pub struct IMSMQQuery_abi(
     ) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQuery2(pub ::windows::core::IUnknown);
 impl IMSMQQuery2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos2> {
         let mut result__: <IMSMQQueueInfos2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(
@@ -4207,7 +3777,6 @@ impl IMSMQQuery2 {
         .from_abi::<IMSMQQueueInfos2>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -4292,13 +3861,11 @@ pub struct IMSMQQuery2_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQuery3(pub ::windows::core::IUnknown);
 impl IMSMQQuery3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn LookupQueue_v2(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos3> {
         let mut result__: <IMSMQQueueInfos3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(
@@ -4317,13 +3884,11 @@ impl IMSMQQuery3 {
         .from_abi::<IMSMQQueueInfos3>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn LookupQueue(
         &self,
         queueguid: *const super::Com::VARIANT,
@@ -4453,13 +4018,11 @@ pub struct IMSMQQuery3_abi(
     ) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQuery4(pub ::windows::core::IUnknown);
 impl IMSMQQuery4 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn LookupQueue_v2(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos4> {
         let mut result__: <IMSMQQueueInfos4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(
@@ -4478,13 +4041,11 @@ impl IMSMQQuery4 {
         .from_abi::<IMSMQQueueInfos4>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn LookupQueue(
         &self,
         queueguid: *const super::Com::VARIANT,
@@ -4614,75 +4175,61 @@ pub struct IMSMQQuery4_abi(
     ) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueue(pub ::windows::core::IUnknown);
 impl IMSMQQueue {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Access(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ShareMode(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn QueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
         let mut result__: <IMSMQQueueInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Handle(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsOpen(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn EnableNotification<'a, Param0: ::windows::core::IntoParam<'a, IMSMQEvent>>(&self, event: Param0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), event.into_param().abi(), ::core::mem::transmute(cursor), ::core::mem::transmute(receivetimeout)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
@@ -4771,111 +4318,91 @@ pub struct IMSMQQueue_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, wantdestinationqueue: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, wantbody: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, receivetimeout: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppmsg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueue2(pub ::windows::core::IUnknown);
 impl IMSMQQueue2 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Access(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ShareMode(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn QueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
         let mut result__: <IMSMQQueueInfo2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo2>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Handle(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsOpen(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Receive_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Peek_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn EnableNotification<'a, Param0: ::windows::core::IntoParam<'a, IMSMQEvent2>>(&self, event: Param0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), event.into_param().abi(), ::core::mem::transmute(cursor), ::core::mem::transmute(receivetimeout)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveCurrent_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekNext_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2> {
         let mut result__: <IMSMQMessage2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage2>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2> {
         let mut result__: <IMSMQMessage2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage2>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2> {
         let mut result__: <IMSMQMessage2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage2>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2> {
         let mut result__: <IMSMQMessage2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage2>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2> {
         let mut result__: <IMSMQMessage2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage2>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -4981,186 +4508,153 @@ pub struct IMSMQQueue2_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueue3(pub ::windows::core::IUnknown);
 impl IMSMQQueue3 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Access(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ShareMode(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn QueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3> {
         let mut result__: <IMSMQQueueInfo3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo3>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Handle(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsOpen(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Receive_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Peek_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn EnableNotification<'a, Param0: ::windows::core::IntoParam<'a, IMSMQEvent3>>(&self, event: Param0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), event.into_param().abi(), ::core::mem::transmute(cursor), ::core::mem::transmute(receivetimeout)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveCurrent_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekNext_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Handle2(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveNextByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceivePreviousByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveFirstByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveLastByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekNextByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekPreviousByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekFirstByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekLastByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__: <IMSMQMessage3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage3>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Purge(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsOpen2(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
@@ -5298,192 +4792,158 @@ pub struct IMSMQQueue3_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pisopen: *mut i16) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueue4(pub ::windows::core::IUnknown);
 impl IMSMQQueue4 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Access(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ShareMode(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn QueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4> {
         let mut result__: <IMSMQQueueInfo4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo4>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Handle(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsOpen(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Receive_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Peek_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn EnableNotification<'a, Param0: ::windows::core::IntoParam<'a, IMSMQEvent3>>(&self, event: Param0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), event.into_param().abi(), ::core::mem::transmute(cursor), ::core::mem::transmute(receivetimeout)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveCurrent_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekNext_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
         let mut result__: <IMSMQMessage as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi::<IMSMQMessage>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Handle2(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveNextByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceivePreviousByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveFirstByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveLastByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekNextByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekPreviousByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekFirstByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn PeekLastByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Purge(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsOpen2(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ReceiveByLookupIdAllowPeek<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__: <IMSMQMessage4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi::<IMSMQMessage4>(result__)
@@ -5624,156 +5084,125 @@ pub struct IMSMQQueue4_abi(
     pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, lookupid: ::core::mem::ManuallyDrop<super::Com::VARIANT>, transaction: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, wantdestinationqueue: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, wantbody: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, wantconnectortype: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppmsg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueueInfo(pub ::windows::core::IUnknown);
 impl IMSMQQueueInfo {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn QueueGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn ServiceTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetServiceTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidservicetype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), bstrguidservicetype.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), bstrlabel.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetPathName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), bstrpathname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetFormatName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), bstrformatname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprivlevel)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(ljournal)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Quota(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(lquota)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BasePriority(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(lbasepriority)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CreateTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ModifyTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Authenticate(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(lauthenticate)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn JournalQuota(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(ljournalquota)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsWorldReadable(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(istransactional), ::core::mem::transmute(isworldreadable)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue> {
         let mut result__: <IMSMQQueue as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(access), ::core::mem::transmute(sharemode), &mut result__).from_abi::<IMSMQQueue>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Update(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self)).ok()
     }
@@ -5882,179 +5311,144 @@ pub struct IMSMQQueueInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueueInfo2(pub ::windows::core::IUnknown);
 impl IMSMQQueueInfo2 {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn QueueGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn ServiceTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetServiceTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidservicetype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), bstrguidservicetype.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), bstrlabel.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetPathName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), bstrpathname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetFormatName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), bstrformatname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprivlevel)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(ljournal)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Quota(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(lquota)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BasePriority(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(lbasepriority)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CreateTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ModifyTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Authenticate(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(lauthenticate)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn JournalQuota(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(ljournalquota)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsWorldReadable(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(istransactional), ::core::mem::transmute(isworldreadable)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue2> {
         let mut result__: <IMSMQQueue2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(access), ::core::mem::transmute(sharemode), &mut result__).from_abi::<IMSMQQueue2>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Update(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn PathNameDNS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsecurity: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), varsecurity.into_param().abi()).ok()
     }
@@ -6171,205 +5565,165 @@ pub struct IMSMQQueueInfo2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, varsecurity: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueueInfo3(pub ::windows::core::IUnknown);
 impl IMSMQQueueInfo3 {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn QueueGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn ServiceTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetServiceTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidservicetype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), bstrguidservicetype.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), bstrlabel.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetPathName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), bstrpathname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetFormatName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), bstrformatname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprivlevel)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(ljournal)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Quota(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(lquota)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BasePriority(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(lbasepriority)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CreateTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ModifyTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Authenticate(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(lauthenticate)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn JournalQuota(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(ljournalquota)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsWorldReadable(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(istransactional), ::core::mem::transmute(isworldreadable)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue3> {
         let mut result__: <IMSMQQueue3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(access), ::core::mem::transmute(sharemode), &mut result__).from_abi::<IMSMQQueue3>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Update(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn PathNameDNS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsecurity: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), varsecurity.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsTransactional2(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsWorldReadable2(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn MulticastAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetMulticastAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmulticastaddress: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), bstrmulticastaddress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -6495,205 +5849,165 @@ pub struct IMSMQQueueInfo3_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstradspath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueueInfo4(pub ::windows::core::IUnknown);
 impl IMSMQQueueInfo4 {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn QueueGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn ServiceTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetServiceTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidservicetype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), bstrguidservicetype.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), bstrlabel.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetPathName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), bstrpathname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetFormatName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), bstrformatname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprivlevel)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(ljournal)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Quota(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(lquota)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BasePriority(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(lbasepriority)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn CreateTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ModifyTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Authenticate(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(lauthenticate)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn JournalQuota(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(ljournalquota)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsWorldReadable(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(istransactional), ::core::mem::transmute(isworldreadable)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue4> {
         let mut result__: <IMSMQQueue4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(access), ::core::mem::transmute(sharemode), &mut result__).from_abi::<IMSMQQueue4>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Update(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn PathNameDNS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn SetSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsecurity: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), varsecurity.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsTransactional2(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsWorldReadable2(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn MulticastAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn SetMulticastAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmulticastaddress: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), bstrmulticastaddress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -6819,16 +6133,13 @@ pub struct IMSMQQueueInfo4_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstradspath: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueueInfos(pub ::windows::core::IUnknown);
 impl IMSMQQueueInfos {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
         let mut result__: <IMSMQQueueInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo>(result__)
@@ -6898,22 +6209,18 @@ pub struct IMSMQQueueInfos_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppqinfonext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueueInfos2(pub ::windows::core::IUnknown);
 impl IMSMQQueueInfos2 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
         let mut result__: <IMSMQQueueInfo2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo2>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -6985,22 +6292,18 @@ pub struct IMSMQQueueInfos2_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueueInfos3(pub ::windows::core::IUnknown);
 impl IMSMQQueueInfos3 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo3> {
         let mut result__: <IMSMQQueueInfo3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo3>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -7072,22 +6375,18 @@ pub struct IMSMQQueueInfos3_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueueInfos4(pub ::windows::core::IUnknown);
 impl IMSMQQueueInfos4 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo4> {
         let mut result__: <IMSMQQueueInfo4 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQQueueInfo4>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -7159,29 +6458,24 @@ pub struct IMSMQQueueInfos4_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQQueueManagement(pub ::windows::core::IUnknown);
 impl IMSMQQueueManagement {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: <super::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -7197,66 +6491,54 @@ impl IMSMQQueueManagement {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Init(&self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(machine), ::core::mem::transmute(pathname), ::core::mem::transmute(formatname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn Machine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn MessageCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn ForeignStatus(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn QueueType(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn IsLocal(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn TransactionalStatus(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn BytesInQueue(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn JournalMessageCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn BytesInJournal(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn EodGetReceiveInfo(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
@@ -7362,23 +6644,19 @@ pub struct IMSMQQueueManagement_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvcollection: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQTransaction(pub ::windows::core::IUnknown);
 impl IMSMQTransaction {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Transaction(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Commit(&self, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fretaining), ::core::mem::transmute(grftc), ::core::mem::transmute(grfrm)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Abort(&self, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(fretaining), ::core::mem::transmute(fasync)).ok()
     }
@@ -7450,29 +6728,24 @@ pub struct IMSMQTransaction_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fretaining: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, fasync: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQTransaction2(pub ::windows::core::IUnknown);
 impl IMSMQTransaction2 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: <super::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -7487,28 +6760,23 @@ impl IMSMQTransaction2 {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Transaction(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Commit(&self, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fretaining), ::core::mem::transmute(grftc), ::core::mem::transmute(grfrm)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Abort(&self, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(fretaining), ::core::mem::transmute(fasync)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn InitNew<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, vartransaction: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), vartransaction.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -7605,29 +6873,24 @@ pub struct IMSMQTransaction2_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQTransaction3(pub ::windows::core::IUnknown);
 impl IMSMQTransaction3 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__: <super::Com::ITypeInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), &mut result__).from_abi::<super::Com::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -7642,34 +6905,28 @@ impl IMSMQTransaction3 {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn Transaction(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Commit(&self, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(fretaining), ::core::mem::transmute(grftc), ::core::mem::transmute(grfrm)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn Abort(&self, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(fretaining), ::core::mem::transmute(fasync)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn InitNew<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, vartransaction: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), vartransaction.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn ITransaction(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
@@ -7788,12 +7045,10 @@ pub struct IMSMQTransaction3_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvaritransaction: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQTransactionDispenser(pub ::windows::core::IUnknown);
 impl IMSMQTransactionDispenser {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction> {
         let mut result__: <IMSMQTransaction as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQTransaction>(result__)
@@ -7862,18 +7117,15 @@ pub struct IMSMQTransactionDispenser_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQTransactionDispenser2(pub ::windows::core::IUnknown);
 impl IMSMQTransactionDispenser2 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction2> {
         let mut result__: <IMSMQTransaction2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQTransaction2>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -7944,18 +7196,15 @@ pub struct IMSMQTransactionDispenser2_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSMQTransactionDispenser3(pub ::windows::core::IUnknown);
 impl IMSMQTransactionDispenser3 {
-    #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
     pub unsafe fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction3> {
         let mut result__: <IMSMQTransaction3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSMQTransaction3>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_MessageQueuing`, `Win32_System_Com`*"]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: <super::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IDispatch>(result__)
@@ -8026,9 +7275,7 @@ pub struct IMSMQTransactionDispenser3_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const LONG_LIVED: u32 = 4294967294u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQACCESS(pub i32);
@@ -8044,7 +7291,6 @@ impl ::core::convert::From<i32> for MQACCESS {
 unsafe impl ::windows::core::Abi for MQACCESS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQAUTHENTICATE(pub i32);
@@ -8058,7 +7304,6 @@ impl ::core::convert::From<i32> for MQAUTHENTICATE {
 unsafe impl ::windows::core::Abi for MQAUTHENTICATE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQCALG(pub i32);
@@ -8083,7 +7328,6 @@ impl ::core::convert::From<i32> for MQCALG {
 unsafe impl ::windows::core::Abi for MQCALG {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQCERT_REGISTER(pub i32);
@@ -8097,7 +7341,6 @@ impl ::core::convert::From<i32> for MQCERT_REGISTER {
 unsafe impl ::windows::core::Abi for MQCERT_REGISTER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQDEFAULT(pub i32);
@@ -8125,7 +7368,6 @@ impl ::core::convert::From<i32> for MQDEFAULT {
 unsafe impl ::windows::core::Abi for MQDEFAULT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQERROR(pub i32);
@@ -8270,7 +7512,6 @@ impl ::core::convert::From<i32> for MQERROR {
 unsafe impl ::windows::core::Abi for MQERROR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQJOURNAL(pub i32);
@@ -8284,7 +7525,6 @@ impl ::core::convert::From<i32> for MQJOURNAL {
 unsafe impl ::windows::core::Abi for MQJOURNAL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMAX(pub i32);
@@ -8298,7 +7538,6 @@ impl ::core::convert::From<i32> for MQMAX {
 unsafe impl ::windows::core::Abi for MQMAX {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMSGACKNOWLEDGEMENT(pub i32);
@@ -8319,7 +7558,6 @@ impl ::core::convert::From<i32> for MQMSGACKNOWLEDGEMENT {
 unsafe impl ::windows::core::Abi for MQMSGACKNOWLEDGEMENT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMSGAUTHENTICATION(pub i32);
@@ -8338,7 +7576,6 @@ impl ::core::convert::From<i32> for MQMSGAUTHENTICATION {
 unsafe impl ::windows::core::Abi for MQMSGAUTHENTICATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMSGAUTHLEVEL(pub i32);
@@ -8357,7 +7594,6 @@ impl ::core::convert::From<i32> for MQMSGAUTHLEVEL {
 unsafe impl ::windows::core::Abi for MQMSGAUTHLEVEL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMSGCLASS(pub i32);
@@ -8390,7 +7626,6 @@ impl ::core::convert::From<i32> for MQMSGCLASS {
 unsafe impl ::windows::core::Abi for MQMSGCLASS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMSGCURSOR(pub i32);
@@ -8405,7 +7640,6 @@ impl ::core::convert::From<i32> for MQMSGCURSOR {
 unsafe impl ::windows::core::Abi for MQMSGCURSOR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMSGDELIVERY(pub i32);
@@ -8419,7 +7653,6 @@ impl ::core::convert::From<i32> for MQMSGDELIVERY {
 unsafe impl ::windows::core::Abi for MQMSGDELIVERY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMSGIDSIZE(pub i32);
@@ -8434,7 +7667,6 @@ impl ::core::convert::From<i32> for MQMSGIDSIZE {
 unsafe impl ::windows::core::Abi for MQMSGIDSIZE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMSGJOURNAL(pub i32);
@@ -8449,7 +7681,6 @@ impl ::core::convert::From<i32> for MQMSGJOURNAL {
 unsafe impl ::windows::core::Abi for MQMSGJOURNAL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMSGMAX(pub i32);
@@ -8462,7 +7693,6 @@ impl ::core::convert::From<i32> for MQMSGMAX {
 unsafe impl ::windows::core::Abi for MQMSGMAX {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMSGPRIVLEVEL(pub i32);
@@ -8477,7 +7707,6 @@ impl ::core::convert::From<i32> for MQMSGPRIVLEVEL {
 unsafe impl ::windows::core::Abi for MQMSGPRIVLEVEL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMSGSENDERIDTYPE(pub i32);
@@ -8491,7 +7720,6 @@ impl ::core::convert::From<i32> for MQMSGSENDERIDTYPE {
 unsafe impl ::windows::core::Abi for MQMSGSENDERIDTYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQMSGTRACE(pub i32);
@@ -8505,19 +7733,12 @@ impl ::core::convert::From<i32> for MQMSGTRACE {
 unsafe impl ::windows::core::Abi for MQMSGTRACE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQMSG_AUTHENTICATED_QM_MESSAGE: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQMSG_FIRST_IN_XACT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQMSG_LAST_IN_XACT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQMSG_NOT_FIRST_IN_XACT: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQMSG_NOT_LAST_IN_XACT: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQMSG_PRIV_LEVEL_BODY_AES: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQPRIORITY(pub i32);
@@ -8531,7 +7752,6 @@ impl ::core::convert::From<i32> for MQPRIORITY {
 unsafe impl ::windows::core::Abi for MQPRIORITY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQPRIVLEVEL(pub i32);
@@ -8546,27 +7766,16 @@ impl ::core::convert::From<i32> for MQPRIVLEVEL {
 unsafe impl ::windows::core::Abi for MQPRIVLEVEL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_CHANGE_QUEUE_PERMISSIONS: u32 = 262144u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_DELETE_JOURNAL_MESSAGE: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_DELETE_MESSAGE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_DELETE_QUEUE: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_GET_QUEUE_PROPERTIES: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_PEEK_MESSAGE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_QUEUE_GENERIC_EXECUTE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_SET_QUEUE_PROPERTIES: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_TAKE_QUEUE_OWNERSHIP: u32 = 524288u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_WRITE_MESSAGE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQSHARE(pub i32);
@@ -8580,7 +7789,6 @@ impl ::core::convert::From<i32> for MQSHARE {
 unsafe impl ::windows::core::Abi for MQSHARE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQTRANSACTION(pub i32);
@@ -8596,7 +7804,6 @@ impl ::core::convert::From<i32> for MQTRANSACTION {
 unsafe impl ::windows::core::Abi for MQTRANSACTION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQTRANSACTIONAL(pub i32);
@@ -8610,7 +7817,6 @@ impl ::core::convert::From<i32> for MQTRANSACTIONAL {
 unsafe impl ::windows::core::Abi for MQTRANSACTIONAL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MQWARNING(pub i32);
@@ -8631,45 +7837,25 @@ impl ::core::convert::From<i32> for MQWARNING {
 unsafe impl ::windows::core::Abi for MQWARNING {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_ACTION_PEEK_NEXT: u32 = 2147483649u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_ACTION_RECEIVE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_ERROR_MESSAGE_LOCKED_UNDER_TRANSACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824164i32 as _);
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_ERROR_MESSAGE_NOT_AUTHENTICATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824165i32 as _);
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_ERROR_RESOLVE_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824167i32 as _);
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_ERROR_TOO_MANY_PROPERTIES: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824166i32 as _);
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_LOOKUP_PEEK_CURRENT: u32 = 1073741840u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_LOOKUP_PEEK_FIRST: u32 = 1073741844u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_LOOKUP_PEEK_LAST: u32 = 1073741848u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_LOOKUP_PEEK_NEXT: u32 = 1073741841u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_LOOKUP_PEEK_PREV: u32 = 1073741842u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_LOOKUP_RECEIVE_ALLOW_PEEK: u32 = 1073742112u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_LOOKUP_RECEIVE_CURRENT: u32 = 1073741856u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_LOOKUP_RECEIVE_FIRST: u32 = 1073741860u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_LOOKUP_RECEIVE_LAST: u32 = 1073741864u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_LOOKUP_RECEIVE_NEXT: u32 = 1073741857u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_LOOKUP_RECEIVE_PREV: u32 = 1073741858u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_MOVE_ACCESS: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32 as _);
 pub const MSMQApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e086_dccd_11d0_aa4b_0060970debae);
 pub const MSMQCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72b9031_2f0c_43e8_924e_e6052cdc493f);
@@ -8686,303 +7872,154 @@ pub const MSMQQueueInfos: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const MSMQQueueManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33b6d07e_f27d_42fa_b2d7_bf82e11e9374);
 pub const MSMQTransaction: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e080_dccd_11d0_aa4b_0060970debae);
 pub const MSMQTransactionDispenser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e084_dccd_11d0_aa4b_0060970debae);
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PREQ: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PRGE: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PRGT: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PRLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PRLT: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PRNE: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_MSMQ_ACTIVEQUEUES: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_MSMQ_BASE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_MSMQ_BYTES_IN_ALL_QUEUES: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_MSMQ_CONNECTED: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_MSMQ_DSSERVER: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_MSMQ_PRIVATEQ: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_MSMQ_TYPE: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_BASE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_BYTES_IN_JOURNAL: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_BYTES_IN_QUEUE: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_CONNECTION_HISTORY: u32 = 25u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_EOD_FIRST_NON_ACK: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_EOD_LAST_ACK: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_EOD_LAST_ACK_COUNT: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_EOD_LAST_ACK_TIME: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_EOD_LAST_NON_ACK: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_EOD_NEXT_SEQ: u32 = 18u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_EOD_NO_ACK_COUNT: u32 = 20u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_EOD_NO_READ_COUNT: u32 = 19u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_EOD_RESEND_COUNT: u32 = 23u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_EOD_RESEND_INTERVAL: u32 = 22u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_EOD_RESEND_TIME: u32 = 21u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_EOD_SOURCE_INFO: u32 = 24u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_FOREIGN: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_FORMATNAME: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_JOURNAL_MESSAGE_COUNT: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_JOURNAL_USED_QUOTA: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_LOCATION: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_MESSAGE_COUNT: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_NEXTHOPS: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_PATHNAME: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_STATE: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_SUBQUEUE_COUNT: u32 = 26u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_SUBQUEUE_NAMES: u32 = 27u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_TYPE: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_USED_QUOTA: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_MGMT_QUEUE_XACT: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_ABORT_COUNT: u32 = 69u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_ACKNOWLEDGE: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_ADMIN_QUEUE: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_ADMIN_QUEUE_LEN: u32 = 18u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_APPSPECIFIC: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_ARRIVEDTIME: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_AUTHENTICATED: u32 = 25u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_AUTHENTICATED_EX: u32 = 53u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_AUTH_LEVEL: u32 = 24u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_BASE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_BODY: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_BODY_SIZE: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_BODY_TYPE: u32 = 42u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_CLASS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_COMPOUND_MESSAGE: u32 = 63u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_COMPOUND_MESSAGE_SIZE: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_CONNECTOR_TYPE: u32 = 38u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_CORRELATIONID: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_CORRELATIONID_SIZE: u32 = 20u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_DEADLETTER_QUEUE: u32 = 67u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_DEADLETTER_QUEUE_LEN: u32 = 68u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_DELIVERY: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_DEST_FORMAT_NAME: u32 = 58u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_DEST_FORMAT_NAME_LEN: u32 = 59u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_DEST_QUEUE: u32 = 33u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_DEST_QUEUE_LEN: u32 = 34u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_DEST_SYMM_KEY: u32 = 43u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_DEST_SYMM_KEY_LEN: u32 = 44u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_ENCRYPTION_ALG: u32 = 27u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_EXTENSION: u32 = 35u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_EXTENSION_LEN: u32 = 36u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_FIRST_IN_XACT: u32 = 50u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_HASH_ALG: u32 = 26u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_JOURNAL: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_LABEL: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_LABEL_LEN: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_LAST_IN_XACT: u32 = 51u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_LAST_MOVE_TIME: u32 = 75u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_LOOKUPID: u32 = 60u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_MOVE_COUNT: u32 = 70u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_MSGID: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_MSGID_SIZE: u32 = 20u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_PRIORITY: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_PRIV_LEVEL: u32 = 23u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_PROV_NAME: u32 = 48u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_PROV_NAME_LEN: u32 = 49u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_PROV_TYPE: u32 = 47u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_RESP_FORMAT_NAME: u32 = 54u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_RESP_FORMAT_NAME_LEN: u32 = 55u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_RESP_QUEUE: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_RESP_QUEUE_LEN: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SECURITY_CONTEXT: u32 = 37u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SENDERID: u32 = 20u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SENDERID_LEN: u32 = 21u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SENDERID_TYPE: u32 = 22u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SENDER_CERT: u32 = 28u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SENDER_CERT_LEN: u32 = 29u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SENTTIME: u32 = 31u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SIGNATURE: u32 = 45u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SIGNATURE_LEN: u32 = 46u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SOAP_BODY: u32 = 66u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SOAP_ENVELOPE: u32 = 61u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SOAP_ENVELOPE_LEN: u32 = 62u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SOAP_HEADER: u32 = 65u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_SRC_MACHINE_ID: u32 = 30u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_TIME_TO_BE_RECEIVED: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_TIME_TO_REACH_QUEUE: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_TRACE: u32 = 41u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_VERSION: u32 = 19u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_XACTID: u32 = 52u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_XACTID_SIZE: u32 = 20u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_XACT_STATUS_QUEUE: u32 = 39u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_M_XACT_STATUS_QUEUE_LEN: u32 = 40u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_PC_BASE: u32 = 5800u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_PC_DS_ENABLED: u32 = 5802u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_PC_VERSION: u32 = 5801u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_QM_BASE: u32 = 200u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_QM_CONNECTION: u32 = 204u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_QM_ENCRYPTION_PK: u32 = 205u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_QM_ENCRYPTION_PK_AES: u32 = 244u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_QM_ENCRYPTION_PK_BASE: u32 = 231u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_QM_ENCRYPTION_PK_ENHANCED: u32 = 232u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_QM_MACHINE_ID: u32 = 202u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_QM_PATHNAME: u32 = 203u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_QM_PATHNAME_DNS: u32 = 233u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_QM_SITE_ID: u32 = 201u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_ADS_PATH: u32 = 126u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_AUTHENTICATE: u32 = 111u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_BASE: u32 = 100u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_BASEPRIORITY: u32 = 106u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_CREATE_TIME: u32 = 109u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_INSTANCE: u32 = 101u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_JOURNAL: u32 = 104u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_JOURNAL_QUOTA: u32 = 107u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_LABEL: u32 = 108u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_MODIFY_TIME: u32 = 110u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_MULTICAST_ADDRESS: u32 = 125u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_PATHNAME: u32 = 103u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_PATHNAME_DNS: u32 = 124u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_PRIV_LEVEL: u32 = 112u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_QUOTA: u32 = 105u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_TRANSACTION: u32 = 113u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const PROPID_Q_TYPE: u32 = 102u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const QUERY_SORTASCEND: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const QUERY_SORTDESCEND: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QUEUE_STATE(pub i32);
@@ -9003,7 +8040,6 @@ impl ::core::convert::From<i32> for QUEUE_STATE {
 unsafe impl ::windows::core::Abi for QUEUE_STATE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QUEUE_TYPE(pub i32);
@@ -9020,7 +8056,6 @@ impl ::core::convert::From<i32> for QUEUE_TYPE {
 unsafe impl ::windows::core::Abi for QUEUE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RELOPS(pub i32);
@@ -9039,7 +8074,6 @@ impl ::core::convert::From<i32> for RELOPS {
 unsafe impl ::windows::core::Abi for RELOPS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XACT_STATUS(pub i32);
@@ -9054,7 +8088,6 @@ impl ::core::convert::From<i32> for XACT_STATUS {
 unsafe impl ::windows::core::Abi for XACT_STATUS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct _DMSMQEventEvents(pub ::windows::core::IUnknown);

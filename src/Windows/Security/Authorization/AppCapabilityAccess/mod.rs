@@ -1,10 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppCapability(pub ::windows::core::IInspectable);
 impl AppCapability {
-    #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`*"]
     pub fn CapabilityName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -13,7 +11,6 @@ impl AppCapability {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::super::System::User> {
         let this = self;
         unsafe {
@@ -22,7 +19,6 @@ impl AppCapability {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`, `Foundation`*"]
     pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<AppCapabilityAccessStatus>> {
         let this = self;
         unsafe {
@@ -30,7 +26,6 @@ impl AppCapability {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<AppCapabilityAccessStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`*"]
     pub fn CheckAccess(&self) -> ::windows::core::Result<AppCapabilityAccessStatus> {
         let this = self;
         unsafe {
@@ -39,7 +34,6 @@ impl AppCapability {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`, `Foundation`*"]
     pub fn AccessChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<AppCapability, AppCapabilityAccessChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -48,13 +42,11 @@ impl AppCapability {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`, `Foundation`*"]
     pub fn RemoveAccessChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`, `Foundation`, `Foundation_Collections`*"]
     pub fn RequestAccessForCapabilitiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(capabilitynames: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>> {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -62,14 +54,12 @@ impl AppCapability {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System"))]
-    #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`, `Foundation`, `Foundation_Collections`, `System`*"]
     pub fn RequestAccessForCapabilitiesForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(user: Param0, capabilitynames: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>> {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), user.into_param().abi(), capabilitynames.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>(result__)
         })
     }
-    #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(capabilityname: Param0) -> ::windows::core::Result<AppCapability> {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -77,7 +67,6 @@ impl AppCapability {
         })
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`, `System`*"]
     pub fn CreateWithProcessIdForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, capabilityname: Param1, pid: u32) -> ::windows::core::Result<AppCapability> {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -141,7 +130,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppCapability {}
 unsafe impl ::core::marker::Sync for AppCapability {}
-#[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppCapabilityAccessChangedEventArgs(pub ::windows::core::IInspectable);
@@ -198,7 +186,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppCapabilityAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCapabilityAccessChangedEventArgs {}
-#[doc = "*Required features: `Security_Authorization_AppCapabilityAccess`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppCapabilityAccessStatus(pub i32);

@@ -1,10 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextCompositionCompletedEventArgs(pub ::windows::core::IInspectable);
 impl CoreTextCompositionCompletedEventArgs {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -13,7 +11,6 @@ impl CoreTextCompositionCompletedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation_Collections`*"]
     pub fn CompositionSegments(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>> {
         let this = self;
         unsafe {
@@ -22,7 +19,6 @@ impl CoreTextCompositionCompletedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -83,12 +79,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextCompositionCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionCompletedEventArgs {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextCompositionSegment(pub ::windows::core::IInspectable);
 impl CoreTextCompositionSegment {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn PreconversionString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -96,7 +90,6 @@ impl CoreTextCompositionSegment {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::core::Result<CoreTextRange> {
         let this = self;
         unsafe {
@@ -157,12 +150,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextCompositionSegment {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionSegment {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextCompositionStartedEventArgs(pub ::windows::core::IInspectable);
 impl CoreTextCompositionStartedEventArgs {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -171,7 +162,6 @@ impl CoreTextCompositionStartedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -232,12 +222,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextCompositionStartedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionStartedEventArgs {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextEditContext(pub ::windows::core::IInspectable);
 impl CoreTextEditContext {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -245,12 +233,10 @@ impl CoreTextEditContext {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn InputScope(&self) -> ::windows::core::Result<CoreTextInputScope> {
         let this = self;
         unsafe {
@@ -258,12 +244,10 @@ impl CoreTextEditContext {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextInputScope>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetInputScope(&self, value: CoreTextInputScope) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -271,12 +255,10 @@ impl CoreTextEditContext {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetIsReadOnly(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn InputPaneDisplayPolicy(&self) -> ::windows::core::Result<CoreTextInputPaneDisplayPolicy> {
         let this = self;
         unsafe {
@@ -284,13 +266,11 @@ impl CoreTextEditContext {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextInputPaneDisplayPolicy>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetInputPaneDisplayPolicy(&self, value: CoreTextInputPaneDisplayPolicy) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn TextRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -299,13 +279,11 @@ impl CoreTextEditContext {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveTextRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn SelectionRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -314,13 +292,11 @@ impl CoreTextEditContext {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveSelectionRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn LayoutRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextLayoutRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -329,13 +305,11 @@ impl CoreTextEditContext {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveLayoutRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn TextUpdating<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextUpdatingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -344,13 +318,11 @@ impl CoreTextEditContext {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveTextUpdating<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn SelectionUpdating<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionUpdatingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -359,13 +331,11 @@ impl CoreTextEditContext {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveSelectionUpdating<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn FormatUpdating<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextFormatUpdatingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -374,13 +344,11 @@ impl CoreTextEditContext {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveFormatUpdating<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn CompositionStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionStartedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -389,13 +357,11 @@ impl CoreTextEditContext {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveCompositionStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn CompositionCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -404,13 +370,11 @@ impl CoreTextEditContext {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveCompositionCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn FocusRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -419,38 +383,31 @@ impl CoreTextEditContext {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveFocusRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn NotifyFocusEnter(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn NotifyFocusLeave(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn NotifyTextChanged<'a, Param0: ::windows::core::IntoParam<'a, CoreTextRange>, Param2: ::windows::core::IntoParam<'a, CoreTextRange>>(&self, modifiedrange: Param0, newlength: i32, newselection: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), modifiedrange.into_param().abi(), newlength, newselection.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn NotifySelectionChanged<'a, Param0: ::windows::core::IntoParam<'a, CoreTextRange>>(&self, selection: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), selection.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn NotifyLayoutChanged(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn NotifyFocusLeaveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICoreTextEditContext2>(self)?;
         unsafe {
@@ -459,7 +416,6 @@ impl CoreTextEditContext {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveNotifyFocusLeaveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreTextEditContext2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
@@ -517,12 +473,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextEditContext {}
 unsafe impl ::core::marker::Sync for CoreTextEditContext {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextFormatUpdatingEventArgs(pub ::windows::core::IInspectable);
 impl CoreTextFormatUpdatingEventArgs {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::core::Result<CoreTextRange> {
         let this = self;
         unsafe {
@@ -531,7 +485,6 @@ impl CoreTextFormatUpdatingEventArgs {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`, `UI_ViewManagement`*"]
     pub fn TextColor(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
@@ -540,7 +493,6 @@ impl CoreTextFormatUpdatingEventArgs {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`, `UI_ViewManagement`*"]
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
@@ -549,7 +501,6 @@ impl CoreTextFormatUpdatingEventArgs {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`, `UI_ViewManagement`*"]
     pub fn UnderlineColor(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
@@ -558,7 +509,6 @@ impl CoreTextFormatUpdatingEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn UnderlineType(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::UnderlineType>> {
         let this = self;
         unsafe {
@@ -566,7 +516,6 @@ impl CoreTextFormatUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::UnderlineType>>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Reason(&self) -> ::windows::core::Result<CoreTextFormatUpdatingReason> {
         let this = self;
         unsafe {
@@ -574,7 +523,6 @@ impl CoreTextFormatUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextFormatUpdatingReason>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Result(&self) -> ::windows::core::Result<CoreTextFormatUpdatingResult> {
         let this = self;
         unsafe {
@@ -582,12 +530,10 @@ impl CoreTextFormatUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextFormatUpdatingResult>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetResult(&self, value: CoreTextFormatUpdatingResult) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -596,7 +542,6 @@ impl CoreTextFormatUpdatingEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -657,7 +602,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextFormatUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextFormatUpdatingEventArgs {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreTextFormatUpdatingReason(pub i32);
@@ -682,7 +626,6 @@ unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingReason {
 impl ::windows::core::DefaultType for CoreTextFormatUpdatingReason {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreTextFormatUpdatingResult(pub i32);
@@ -704,7 +647,6 @@ unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingResult {
 impl ::windows::core::DefaultType for CoreTextFormatUpdatingResult {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreTextInputPaneDisplayPolicy(pub i32);
@@ -726,7 +668,6 @@ unsafe impl ::windows::core::RuntimeType for CoreTextInputPaneDisplayPolicy {
 impl ::windows::core::DefaultType for CoreTextInputPaneDisplayPolicy {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreTextInputScope(pub i32);
@@ -813,13 +754,11 @@ unsafe impl ::windows::core::RuntimeType for CoreTextInputScope {
 impl ::windows::core::DefaultType for CoreTextInputScope {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextLayoutBounds(pub ::windows::core::IInspectable);
 impl CoreTextLayoutBounds {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn TextBounds(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -828,13 +767,11 @@ impl CoreTextLayoutBounds {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn SetTextBounds<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn ControlBounds(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -843,7 +780,6 @@ impl CoreTextLayoutBounds {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn SetControlBounds<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -901,12 +837,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextLayoutBounds {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutBounds {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextLayoutRequest(pub ::windows::core::IInspectable);
 impl CoreTextLayoutRequest {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::core::Result<CoreTextRange> {
         let this = self;
         unsafe {
@@ -914,7 +848,6 @@ impl CoreTextLayoutRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn LayoutBounds(&self) -> ::windows::core::Result<CoreTextLayoutBounds> {
         let this = self;
         unsafe {
@@ -922,7 +855,6 @@ impl CoreTextLayoutRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextLayoutBounds>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -931,7 +863,6 @@ impl CoreTextLayoutRequest {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -939,7 +870,6 @@ impl CoreTextLayoutRequest {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn LayoutBoundsVisualPixels(&self) -> ::windows::core::Result<CoreTextLayoutBounds> {
         let this = &::windows::core::Interface::cast::<ICoreTextLayoutRequest2>(self)?;
         unsafe {
@@ -1000,12 +930,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextLayoutRequest {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutRequest {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextLayoutRequestedEventArgs(pub ::windows::core::IInspectable);
 impl CoreTextLayoutRequestedEventArgs {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Request(&self) -> ::windows::core::Result<CoreTextLayoutRequest> {
         let this = self;
         unsafe {
@@ -1068,7 +996,6 @@ unsafe impl ::core::marker::Send for CoreTextLayoutRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutRequestedEventArgs {}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `UI_Text_Core`*"]
 pub struct CoreTextRange {
     pub StartCaretPosition: i32,
     pub EndCaretPosition: i32,
@@ -1099,12 +1026,10 @@ unsafe impl ::windows::core::RuntimeType for CoreTextRange {
 impl ::windows::core::DefaultType for CoreTextRange {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextSelectionRequest(pub ::windows::core::IInspectable);
 impl CoreTextSelectionRequest {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Selection(&self) -> ::windows::core::Result<CoreTextRange> {
         let this = self;
         unsafe {
@@ -1112,12 +1037,10 @@ impl CoreTextSelectionRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetSelection<'a, Param0: ::windows::core::IntoParam<'a, CoreTextRange>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1126,7 +1049,6 @@ impl CoreTextSelectionRequest {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1187,12 +1109,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextSelectionRequest {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionRequest {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextSelectionRequestedEventArgs(pub ::windows::core::IInspectable);
 impl CoreTextSelectionRequestedEventArgs {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Request(&self) -> ::windows::core::Result<CoreTextSelectionRequest> {
         let this = self;
         unsafe {
@@ -1253,12 +1173,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextSelectionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionRequestedEventArgs {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextSelectionUpdatingEventArgs(pub ::windows::core::IInspectable);
 impl CoreTextSelectionUpdatingEventArgs {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Selection(&self) -> ::windows::core::Result<CoreTextRange> {
         let this = self;
         unsafe {
@@ -1266,7 +1184,6 @@ impl CoreTextSelectionUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Result(&self) -> ::windows::core::Result<CoreTextSelectionUpdatingResult> {
         let this = self;
         unsafe {
@@ -1274,12 +1191,10 @@ impl CoreTextSelectionUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextSelectionUpdatingResult>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetResult(&self, value: CoreTextSelectionUpdatingResult) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1288,7 +1203,6 @@ impl CoreTextSelectionUpdatingEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1349,7 +1263,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextSelectionUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionUpdatingEventArgs {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreTextSelectionUpdatingResult(pub i32);
@@ -1371,10 +1284,8 @@ unsafe impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingResult {
 impl ::windows::core::DefaultType for CoreTextSelectionUpdatingResult {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Text_Core`*"]
 pub struct CoreTextServicesConstants {}
 impl CoreTextServicesConstants {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn HiddenCharacter() -> ::windows::core::Result<u16> {
         Self::ICoreTextServicesStatics(|this| unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
@@ -1389,13 +1300,11 @@ impl CoreTextServicesConstants {
 impl ::windows::core::RuntimeName for CoreTextServicesConstants {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextServicesConstants";
 }
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextServicesManager(pub ::windows::core::IInspectable);
 impl CoreTextServicesManager {
     #[cfg(feature = "Globalization")]
-    #[doc = "*Required features: `UI_Text_Core`, `Globalization`*"]
     pub fn InputLanguage(&self) -> ::windows::core::Result<super::super::super::Globalization::Language> {
         let this = self;
         unsafe {
@@ -1404,7 +1313,6 @@ impl CoreTextServicesManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn InputLanguageChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreTextServicesManager, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1413,12 +1321,10 @@ impl CoreTextServicesManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn RemoveInputLanguageChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn CreateEditContext(&self) -> ::windows::core::Result<CoreTextEditContext> {
         let this = self;
         unsafe {
@@ -1426,7 +1332,6 @@ impl CoreTextServicesManager {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextEditContext>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<CoreTextServicesManager> {
         Self::ICoreTextServicesManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1490,12 +1395,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextServicesManager {}
 unsafe impl ::core::marker::Sync for CoreTextServicesManager {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextTextRequest(pub ::windows::core::IInspectable);
 impl CoreTextTextRequest {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::core::Result<CoreTextRange> {
         let this = self;
         unsafe {
@@ -1503,7 +1406,6 @@ impl CoreTextTextRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1511,12 +1413,10 @@ impl CoreTextTextRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1525,7 +1425,6 @@ impl CoreTextTextRequest {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1586,12 +1485,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextTextRequest {}
 unsafe impl ::core::marker::Sync for CoreTextTextRequest {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextTextRequestedEventArgs(pub ::windows::core::IInspectable);
 impl CoreTextTextRequestedEventArgs {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Request(&self) -> ::windows::core::Result<CoreTextTextRequest> {
         let this = self;
         unsafe {
@@ -1652,12 +1549,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextTextRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextRequestedEventArgs {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreTextTextUpdatingEventArgs(pub ::windows::core::IInspectable);
 impl CoreTextTextUpdatingEventArgs {
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Range(&self) -> ::windows::core::Result<CoreTextRange> {
         let this = self;
         unsafe {
@@ -1665,7 +1560,6 @@ impl CoreTextTextUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextRange>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1673,7 +1567,6 @@ impl CoreTextTextUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn NewSelection(&self) -> ::windows::core::Result<CoreTextRange> {
         let this = self;
         unsafe {
@@ -1682,7 +1575,6 @@ impl CoreTextTextUpdatingEventArgs {
         }
     }
     #[cfg(feature = "Globalization")]
-    #[doc = "*Required features: `UI_Text_Core`, `Globalization`*"]
     pub fn InputLanguage(&self) -> ::windows::core::Result<super::super::super::Globalization::Language> {
         let this = self;
         unsafe {
@@ -1690,7 +1582,6 @@ impl CoreTextTextUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Globalization::Language>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn Result(&self) -> ::windows::core::Result<CoreTextTextUpdatingResult> {
         let this = self;
         unsafe {
@@ -1698,12 +1589,10 @@ impl CoreTextTextUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextTextUpdatingResult>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn SetResult(&self, value: CoreTextTextUpdatingResult) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Text_Core`*"]
     pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1712,7 +1601,6 @@ impl CoreTextTextUpdatingEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Text_Core`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1773,7 +1661,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreTextTextUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextUpdatingEventArgs {}
-#[doc = "*Required features: `UI_Text_Core`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreTextTextUpdatingResult(pub i32);

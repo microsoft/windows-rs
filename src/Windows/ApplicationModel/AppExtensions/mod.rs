@@ -1,10 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppExtension(pub ::windows::core::IInspectable);
 impl AppExtension {
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -12,7 +10,6 @@ impl AppExtension {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -20,7 +17,6 @@ impl AppExtension {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -28,7 +24,6 @@ impl AppExtension {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn Package(&self) -> ::windows::core::Result<super::Package> {
         let this = self;
         unsafe {
@@ -36,7 +31,6 @@ impl AppExtension {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Package>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn AppInfo(&self) -> ::windows::core::Result<super::AppInfo> {
         let this = self;
         unsafe {
@@ -45,7 +39,6 @@ impl AppExtension {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetExtensionPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IPropertySet>> {
         let this = self;
         unsafe {
@@ -54,7 +47,6 @@ impl AppExtension {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`, `Storage`*"]
     pub fn GetPublicFolderAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFolder>> {
         let this = self;
         unsafe {
@@ -62,7 +54,6 @@ impl AppExtension {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFolder>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppExtension2>(self)?;
         unsafe {
@@ -123,13 +114,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppExtension {}
 unsafe impl ::core::marker::Sync for AppExtension {}
-#[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppExtensionCatalog(pub ::windows::core::IInspectable);
 impl AppExtensionCatalog {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppExtension>>> {
         let this = self;
         unsafe {
@@ -138,7 +127,6 @@ impl AppExtensionCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`*"]
     pub fn RequestRemovePackageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -147,7 +135,6 @@ impl AppExtensionCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`*"]
     pub fn PackageInstalled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageInstalledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -156,13 +143,11 @@ impl AppExtensionCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`*"]
     pub fn RemovePackageInstalled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`*"]
     pub fn PackageUpdating<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUpdatingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -171,13 +156,11 @@ impl AppExtensionCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`*"]
     pub fn RemovePackageUpdating<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`*"]
     pub fn PackageUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -186,13 +169,11 @@ impl AppExtensionCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`*"]
     pub fn RemovePackageUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`*"]
     pub fn PackageUninstalling<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUninstallingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -201,13 +182,11 @@ impl AppExtensionCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`*"]
     pub fn RemovePackageUninstalling<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`*"]
     pub fn PackageStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageStatusChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -216,12 +195,10 @@ impl AppExtensionCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation`*"]
     pub fn RemovePackageStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn Open<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appextensionname: Param0) -> ::windows::core::Result<AppExtensionCatalog> {
         Self::IAppExtensionCatalogStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -283,12 +260,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppExtensionPackageInstalledEventArgs(pub ::windows::core::IInspectable);
 impl AppExtensionPackageInstalledEventArgs {
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn AppExtensionName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -296,7 +271,6 @@ impl AppExtensionPackageInstalledEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn Package(&self) -> ::windows::core::Result<super::Package> {
         let this = self;
         unsafe {
@@ -305,7 +279,6 @@ impl AppExtensionPackageInstalledEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation_Collections`*"]
     pub fn Extensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppExtension>> {
         let this = self;
         unsafe {
@@ -366,12 +339,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppExtensionPackageInstalledEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageInstalledEventArgs {}
-#[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppExtensionPackageStatusChangedEventArgs(pub ::windows::core::IInspectable);
 impl AppExtensionPackageStatusChangedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn AppExtensionName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -379,7 +350,6 @@ impl AppExtensionPackageStatusChangedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn Package(&self) -> ::windows::core::Result<super::Package> {
         let this = self;
         unsafe {
@@ -440,12 +410,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppExtensionPackageStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageStatusChangedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppExtensionPackageUninstallingEventArgs(pub ::windows::core::IInspectable);
 impl AppExtensionPackageUninstallingEventArgs {
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn AppExtensionName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -453,7 +421,6 @@ impl AppExtensionPackageUninstallingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn Package(&self) -> ::windows::core::Result<super::Package> {
         let this = self;
         unsafe {
@@ -514,12 +481,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppExtensionPackageUninstallingEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageUninstallingEventArgs {}
-#[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppExtensionPackageUpdatedEventArgs(pub ::windows::core::IInspectable);
 impl AppExtensionPackageUpdatedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn AppExtensionName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -527,7 +492,6 @@ impl AppExtensionPackageUpdatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn Package(&self) -> ::windows::core::Result<super::Package> {
         let this = self;
         unsafe {
@@ -536,7 +500,6 @@ impl AppExtensionPackageUpdatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`, `Foundation_Collections`*"]
     pub fn Extensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppExtension>> {
         let this = self;
         unsafe {
@@ -597,12 +560,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppExtensionPackageUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageUpdatedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppExtensionPackageUpdatingEventArgs(pub ::windows::core::IInspectable);
 impl AppExtensionPackageUpdatingEventArgs {
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn AppExtensionName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -610,7 +571,6 @@ impl AppExtensionPackageUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_AppExtensions`*"]
     pub fn Package(&self) -> ::windows::core::Result<super::Package> {
         let this = self;
         unsafe {

@@ -234,14 +234,12 @@ pub struct ILampArrayCustomEffectFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Devices_Lights_Effects`*"]
 pub struct ILampArrayEffect(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ILampArrayEffect {
     type Vtable = ILampArrayEffect_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d45590_57fb_4546_b1ce_863107f740df);
 }
 impl ILampArrayEffect {
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -249,7 +247,6 @@ impl ILampArrayEffect {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
@@ -437,13 +434,11 @@ pub struct ILampArrayUpdateRequestedEventArgs_abi(
     #[cfg(feature = "UI")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, desiredColors_array_size: u32, desiredcolors: *const super::super::super::UI::Color, lampIndexes_array_size: u32, lampindexes: *const i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI"))] usize,
 );
-#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LampArrayBitmapEffect(pub ::windows::core::IInspectable);
 impl LampArrayBitmapEffect {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -452,13 +447,11 @@ impl LampArrayBitmapEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn StartDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -467,13 +460,11 @@ impl LampArrayBitmapEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetStartDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn UpdateInterval(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -482,13 +473,11 @@ impl LampArrayBitmapEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetUpdateInterval<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SuggestedBitmapSize(&self) -> ::windows::core::Result<super::super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -497,7 +486,6 @@ impl LampArrayBitmapEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn BitmapRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<LampArrayBitmapEffect, LampArrayBitmapRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -506,12 +494,10 @@ impl LampArrayBitmapEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn RemoveBitmapRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
@@ -519,12 +505,10 @@ impl LampArrayBitmapEffect {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::LampArray>>(lamparray: Param0, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArrayBitmapEffect> {
         Self::ILampArrayBitmapEffectFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -610,13 +594,11 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArrayBitmapEf
 }
 unsafe impl ::core::marker::Send for LampArrayBitmapEffect {}
 unsafe impl ::core::marker::Sync for LampArrayBitmapEffect {}
-#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LampArrayBitmapRequestedEventArgs(pub ::windows::core::IInspectable);
 impl LampArrayBitmapRequestedEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SinceStarted(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -625,7 +607,6 @@ impl LampArrayBitmapRequestedEventArgs {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Graphics_Imaging`*"]
     pub fn UpdateBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Imaging::SoftwareBitmap>>(&self, bitmap: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), bitmap.into_param().abi()).ok() }
@@ -683,13 +664,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LampArrayBitmapRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayBitmapRequestedEventArgs {}
-#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LampArrayBlinkEffect(pub ::windows::core::IInspectable);
 impl LampArrayBlinkEffect {
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn Color(&self) -> ::windows::core::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
@@ -698,13 +677,11 @@ impl LampArrayBlinkEffect {
         }
     }
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn AttackDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -713,13 +690,11 @@ impl LampArrayBlinkEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetAttackDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SustainDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -728,13 +703,11 @@ impl LampArrayBlinkEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetSustainDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn DecayDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -743,13 +716,11 @@ impl LampArrayBlinkEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetDecayDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn RepetitionDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -758,13 +729,11 @@ impl LampArrayBlinkEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetRepetitionDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn StartDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -773,12 +742,10 @@ impl LampArrayBlinkEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetStartDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn Occurrences(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -786,12 +753,10 @@ impl LampArrayBlinkEffect {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetOccurrences(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn RepetitionMode(&self) -> ::windows::core::Result<LampArrayRepetitionMode> {
         let this = self;
         unsafe {
@@ -799,12 +764,10 @@ impl LampArrayBlinkEffect {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LampArrayRepetitionMode>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetRepetitionMode(&self, value: LampArrayRepetitionMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
@@ -812,12 +775,10 @@ impl LampArrayBlinkEffect {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::LampArray>>(lamparray: Param0, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArrayBlinkEffect> {
         Self::ILampArrayBlinkEffectFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -903,13 +864,11 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArrayBlinkEff
 }
 unsafe impl ::core::marker::Send for LampArrayBlinkEffect {}
 unsafe impl ::core::marker::Sync for LampArrayBlinkEffect {}
-#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LampArrayColorRampEffect(pub ::windows::core::IInspectable);
 impl LampArrayColorRampEffect {
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn Color(&self) -> ::windows::core::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
@@ -918,13 +877,11 @@ impl LampArrayColorRampEffect {
         }
     }
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn RampDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -933,13 +890,11 @@ impl LampArrayColorRampEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetRampDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn StartDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -948,12 +903,10 @@ impl LampArrayColorRampEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetStartDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CompletionBehavior(&self) -> ::windows::core::Result<LampArrayEffectCompletionBehavior> {
         let this = self;
         unsafe {
@@ -961,12 +914,10 @@ impl LampArrayColorRampEffect {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LampArrayEffectCompletionBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetCompletionBehavior(&self, value: LampArrayEffectCompletionBehavior) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
@@ -974,12 +925,10 @@ impl LampArrayColorRampEffect {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::LampArray>>(lamparray: Param0, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArrayColorRampEffect> {
         Self::ILampArrayColorRampEffectFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1065,13 +1014,11 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArrayColorRam
 }
 unsafe impl ::core::marker::Send for LampArrayColorRampEffect {}
 unsafe impl ::core::marker::Sync for LampArrayColorRampEffect {}
-#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LampArrayCustomEffect(pub ::windows::core::IInspectable);
 impl LampArrayCustomEffect {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1080,13 +1027,11 @@ impl LampArrayCustomEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn UpdateInterval(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1095,13 +1040,11 @@ impl LampArrayCustomEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetUpdateInterval<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn UpdateRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<LampArrayCustomEffect, LampArrayUpdateRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1110,12 +1053,10 @@ impl LampArrayCustomEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn RemoveUpdateRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
@@ -1123,12 +1064,10 @@ impl LampArrayCustomEffect {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::LampArray>>(lamparray: Param0, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArrayCustomEffect> {
         Self::ILampArrayCustomEffectFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1214,7 +1153,6 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArrayCustomEf
 }
 unsafe impl ::core::marker::Send for LampArrayCustomEffect {}
 unsafe impl ::core::marker::Sync for LampArrayCustomEffect {}
-#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LampArrayEffectCompletionBehavior(pub i32);
@@ -1236,7 +1174,6 @@ unsafe impl ::windows::core::RuntimeType for LampArrayEffectCompletionBehavior {
 impl ::windows::core::DefaultType for LampArrayEffectCompletionBehavior {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LampArrayEffectPlaylist(pub ::windows::core::IInspectable);
@@ -1249,7 +1186,6 @@ impl LampArrayEffectPlaylist {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<ILampArrayEffect>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>>(self)?;
         unsafe {
@@ -1258,7 +1194,6 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<ILampArrayEffect> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
@@ -1267,7 +1202,6 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
@@ -1276,7 +1210,6 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, ILampArrayEffect>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
@@ -1285,7 +1218,6 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<ILampArrayEffect as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
@@ -1293,32 +1225,26 @@ impl LampArrayEffectPlaylist {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, ILampArrayEffect>>(&self, effect: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), effect.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn OverrideZIndex(&self, zindex: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), zindex).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn Pause(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn EffectStartMode(&self) -> ::windows::core::Result<LampArrayEffectStartMode> {
         let this = self;
         unsafe {
@@ -1326,12 +1252,10 @@ impl LampArrayEffectPlaylist {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LampArrayEffectStartMode>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetEffectStartMode(&self, value: LampArrayEffectStartMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn Occurrences(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1339,12 +1263,10 @@ impl LampArrayEffectPlaylist {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetOccurrences(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn RepetitionMode(&self) -> ::windows::core::Result<LampArrayRepetitionMode> {
         let this = self;
         unsafe {
@@ -1352,23 +1274,19 @@ impl LampArrayEffectPlaylist {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LampArrayRepetitionMode>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetRepetitionMode(&self, value: LampArrayRepetitionMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn StartAll<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>>(value: Param0) -> ::windows::core::Result<()> {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn StopAll<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>>(value: Param0) -> ::windows::core::Result<()> {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn PauseAll<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>>(value: Param0) -> ::windows::core::Result<()> {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
@@ -1497,7 +1415,6 @@ impl ::core::iter::IntoIterator for &LampArrayEffectPlaylist {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LampArrayEffectStartMode(pub i32);
@@ -1519,7 +1436,6 @@ unsafe impl ::windows::core::RuntimeType for LampArrayEffectStartMode {
 impl ::windows::core::DefaultType for LampArrayEffectStartMode {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LampArrayRepetitionMode(pub i32);
@@ -1541,13 +1457,11 @@ unsafe impl ::windows::core::RuntimeType for LampArrayRepetitionMode {
 impl ::windows::core::DefaultType for LampArrayRepetitionMode {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LampArraySolidEffect(pub ::windows::core::IInspectable);
 impl LampArraySolidEffect {
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn Color(&self) -> ::windows::core::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
@@ -1556,13 +1470,11 @@ impl LampArraySolidEffect {
         }
     }
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1571,13 +1483,11 @@ impl LampArraySolidEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn StartDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1586,12 +1496,10 @@ impl LampArraySolidEffect {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetStartDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CompletionBehavior(&self) -> ::windows::core::Result<LampArrayEffectCompletionBehavior> {
         let this = self;
         unsafe {
@@ -1599,12 +1507,10 @@ impl LampArraySolidEffect {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LampArrayEffectCompletionBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetCompletionBehavior(&self, value: LampArrayEffectCompletionBehavior) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
@@ -1612,12 +1518,10 @@ impl LampArraySolidEffect {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::LampArray>>(lamparray: Param0, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<LampArraySolidEffect> {
         Self::ILampArraySolidEffectFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1703,13 +1607,11 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArraySolidEff
 }
 unsafe impl ::core::marker::Send for LampArraySolidEffect {}
 unsafe impl ::core::marker::Sync for LampArraySolidEffect {}
-#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LampArrayUpdateRequestedEventArgs(pub ::windows::core::IInspectable);
 impl LampArrayUpdateRequestedEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SinceStarted(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1718,25 +1620,21 @@ impl LampArrayUpdateRequestedEventArgs {
         }
     }
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::UI::Color>>(&self, desiredcolor: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), desiredcolor.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetColorForIndex<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::UI::Color>>(&self, lampindex: i32, desiredcolor: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), lampindex, desiredcolor.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetSingleColorForIndices<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::UI::Color>>(&self, desiredcolor: Param0, lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), desiredcolor.into_param().abi(), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr())).ok() }
     }
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetColorsForIndices(&self, desiredcolors: &[<super::super::super::UI::Color as ::windows::core::DefaultType>::DefaultType], lampindexes: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), desiredcolors.len() as u32, ::core::mem::transmute(desiredcolors.as_ptr()), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr())).ok() }

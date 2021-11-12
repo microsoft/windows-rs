@@ -11,7 +11,6 @@ unsafe impl ::windows::core::Handle for COMPRESSOR_HANDLE {}
 unsafe impl ::windows::core::Abi for COMPRESSOR_HANDLE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMPRESS_ALGORITHM(pub u32);
@@ -55,15 +54,11 @@ impl ::core::ops::Not for COMPRESS_ALGORITHM {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
 pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
 pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
 pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
     pub Allocate: ::core::option::Option<PFN_COMPRESS_ALLOCATE>,
     pub Free: ::core::option::Option<PFN_COMPRESS_FREE>,
@@ -89,7 +84,6 @@ impl ::core::cmp::Eq for COMPRESS_ALLOCATION_ROUTINES {}
 unsafe impl ::windows::core::Abi for COMPRESS_ALLOCATION_ROUTINES {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMPRESS_INFORMATION_CLASS(pub i32);
@@ -104,9 +98,7 @@ impl ::core::convert::From<i32> for COMPRESS_INFORMATION_CLASS {
 unsafe impl ::windows::core::Abi for COMPRESS_INFORMATION_CLASS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
 pub const COMPRESS_RAW: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseCompressor<'a, Param0: ::windows::core::IntoParam<'a, COMPRESSOR_HANDLE>>(compressorhandle: Param0) -> super::super::Foundation::BOOL {
@@ -121,7 +113,6 @@ pub unsafe fn CloseCompressor<'a, Param0: ::windows::core::IntoParam<'a, COMPRES
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseDecompressor(decompressorhandle: isize) -> super::super::Foundation::BOOL {
@@ -136,7 +127,6 @@ pub unsafe fn CloseDecompressor(decompressorhandle: isize) -> super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Compress<'a, Param0: ::windows::core::IntoParam<'a, COMPRESSOR_HANDLE>>(compressorhandle: Param0, uncompresseddata: *const ::core::ffi::c_void, uncompresseddatasize: usize, compressedbuffer: *mut ::core::ffi::c_void, compressedbuffersize: usize, compresseddatasize: *mut usize) -> super::super::Foundation::BOOL {
@@ -151,7 +141,6 @@ pub unsafe fn Compress<'a, Param0: ::windows::core::IntoParam<'a, COMPRESSOR_HAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *const COMPRESS_ALLOCATION_ROUTINES, compressorhandle: *mut isize) -> super::super::Foundation::BOOL {
@@ -166,7 +155,6 @@ pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *const COMPRESS_ALLOCATION_ROUTINES, decompressorhandle: *mut isize) -> super::super::Foundation::BOOL {
@@ -181,7 +169,6 @@ pub unsafe fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutin
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Decompress(decompressorhandle: isize, compresseddata: *const ::core::ffi::c_void, compresseddatasize: usize, uncompressedbuffer: *mut ::core::ffi::c_void, uncompressedbuffersize: usize, uncompresseddatasize: *mut usize) -> super::super::Foundation::BOOL {
@@ -196,11 +183,8 @@ pub unsafe fn Decompress(decompressorhandle: isize, compresseddata: *const ::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
 pub type PFN_COMPRESS_ALLOCATE = unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void;
-#[doc = "*Required features: `Win32_Storage_Compression`*"]
 pub type PFN_COMPRESS_FREE = unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, memory: *const ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryCompressorInformation<'a, Param0: ::windows::core::IntoParam<'a, COMPRESSOR_HANDLE>>(compressorhandle: Param0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL {
@@ -215,7 +199,6 @@ pub unsafe fn QueryCompressorInformation<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL {
@@ -230,7 +213,6 @@ pub unsafe fn QueryDecompressorInformation(decompressorhandle: isize, compressin
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResetCompressor<'a, Param0: ::windows::core::IntoParam<'a, COMPRESSOR_HANDLE>>(compressorhandle: Param0) -> super::super::Foundation::BOOL {
@@ -245,7 +227,6 @@ pub unsafe fn ResetCompressor<'a, Param0: ::windows::core::IntoParam<'a, COMPRES
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResetDecompressor(decompressorhandle: isize) -> super::super::Foundation::BOOL {
@@ -260,7 +241,6 @@ pub unsafe fn ResetDecompressor(decompressorhandle: isize) -> super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCompressorInformation<'a, Param0: ::windows::core::IntoParam<'a, COMPRESSOR_HANDLE>>(compressorhandle: Param0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL {
@@ -275,7 +255,6 @@ pub unsafe fn SetCompressorInformation<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL {

@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AssignProcessToJobObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hjob: Param0, hprocess: Param1) -> super::super::Foundation::BOOL {
@@ -14,7 +13,6 @@ pub unsafe fn AssignProcessToJobObject<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateJobObjectA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpjobattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: Param1) -> super::super::Foundation::HANDLE {
@@ -29,7 +27,6 @@ pub unsafe fn CreateJobObjectA<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateJobObjectW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpjobattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: Param1) -> super::super::Foundation::HANDLE {
@@ -44,7 +41,6 @@ pub unsafe fn CreateJobObjectW<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateJobSet(numjob: u32, userjobset: *const JOB_SET_ARRAY, flags: u32) -> super::super::Foundation::BOOL {
@@ -59,7 +55,6 @@ pub unsafe fn CreateJobSet(numjob: u32, userjobset: *const JOB_SET_ARRAY, flags:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[inline]
 pub unsafe fn FreeMemoryJobObject(buffer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -73,7 +68,6 @@ pub unsafe fn FreeMemoryJobObject(buffer: *const ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsProcessInJob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(processhandle: Param0, jobhandle: Param1, result: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
@@ -88,7 +82,6 @@ pub unsafe fn IsProcessInJob<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOBOBJECTINFOCLASS(pub i32);
@@ -151,7 +144,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECTINFOCLASS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 pub struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     pub CompletionKey: *mut ::core::ffi::c_void,
     pub CompletionPort: super::super::Foundation::HANDLE,
@@ -184,7 +176,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     pub TotalUserTime: i64,
     pub TotalKernelTime: i64,
@@ -227,7 +218,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_System_Threading`*"]
 pub struct JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     pub BasicInfo: JOBOBJECT_BASIC_ACCOUNTING_INFORMATION,
     pub IoInfo: super::Threading::IO_COUNTERS,
@@ -260,7 +250,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATI
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_BASIC_LIMIT_INFORMATION {
     pub PerProcessUserTimeLimit: i64,
     pub PerJobUserTimeLimit: i64,
@@ -304,7 +293,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_BASIC_LIMIT_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_BASIC_PROCESS_ID_LIST {
     pub NumberOfAssignedProcesses: u32,
     pub NumberOfProcessIdsInList: u32,
@@ -332,7 +320,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_BASIC_PROCESS_ID_LIST {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_BASIC_UI_RESTRICTIONS {
     pub UIRestrictionsClass: JOB_OBJECT_UILIMIT,
 }
@@ -358,7 +345,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_BASIC_UI_RESTRICTIONS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
     pub ControlFlags: JOB_OBJECT_CPU_RATE_CONTROL,
     pub Anonymous: JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0,
@@ -380,7 +366,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub union JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
     pub CpuRate: u32,
     pub Weight: u32,
@@ -403,7 +388,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
     pub MinRate: u16,
     pub MaxRate: u16,
@@ -430,7 +414,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
     pub EndOfJobTimeAction: JOB_OBJECT_TERMINATE_AT_END_ACTION,
 }
@@ -457,7 +440,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_System_Threading`*"]
 pub struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     pub BasicLimitInformation: JOBOBJECT_BASIC_LIMIT_INFORMATION,
     pub IoInfo: super::Threading::IO_COUNTERS,
@@ -499,7 +481,6 @@ impl ::core::cmp::Eq for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {}
 unsafe impl ::windows::core::Abi for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(pub i32);
@@ -516,7 +497,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
     pub ControlFlags: u32,
     pub ReadStats: JOBOBJECT_IO_ATTRIBUTION_STATS,
@@ -544,7 +524,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_IO_ATTRIBUTION_STATS {
     pub IoCount: usize,
     pub TotalNonOverlappedQueueTime: u64,
@@ -574,7 +553,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_IO_ATTRIBUTION_STATS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -619,7 +597,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -666,7 +643,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIV
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -737,7 +713,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIV
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -825,7 +800,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIV
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_JOBSET_INFORMATION {
     pub MemberLevel: u32,
 }
@@ -851,7 +825,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_JOBSET_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     pub LimitFlags: JOB_OBJECT_LIMIT,
     pub ViolationLimitFlags: JOB_OBJECT_LIMIT,
@@ -912,7 +885,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     pub LimitFlags: JOB_OBJECT_LIMIT,
     pub ViolationLimitFlags: JOB_OBJECT_LIMIT,
@@ -949,7 +921,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
     pub JobHighMemoryLimit: u64,
     pub JobMemoryLimit: u64,
@@ -971,7 +942,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
@@ -993,7 +963,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     pub RateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
@@ -1015,7 +984,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     pub MaxBandwidth: u64,
     pub ControlFlags: JOB_OBJECT_NET_RATE_CONTROL_FLAGS,
@@ -1043,7 +1011,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     pub IoReadBytesLimit: u64,
     pub IoWriteBytesLimit: u64,
@@ -1083,7 +1050,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     pub IoReadBytesLimit: u64,
     pub IoWriteBytesLimit: u64,
@@ -1115,7 +1081,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
     pub JobHighMemoryLimit: u64,
     pub JobMemoryLimit: u64,
@@ -1137,7 +1102,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
@@ -1159,7 +1123,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     pub RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
     pub CpuRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
@@ -1179,7 +1142,6 @@ impl ::core::cmp::Eq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {}
 unsafe impl ::windows::core::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE(pub i32);
@@ -1194,7 +1156,6 @@ impl ::core::convert::From<i32> for JOBOBJECT_RATE_CONTROL_TOLERANCE {
 unsafe impl ::windows::core::Abi for JOBOBJECT_RATE_CONTROL_TOLERANCE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(pub i32);
@@ -1212,7 +1173,6 @@ unsafe impl ::windows::core::Abi for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     pub SecurityLimitFlags: JOB_OBJECT_SECURITY,
     pub JobToken: super::super::Foundation::HANDLE,
@@ -1246,7 +1206,6 @@ impl ::core::cmp::Eq for JOBOBJECT_SECURITY_LIMIT_INFORMATION {}
 unsafe impl ::windows::core::Abi for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_CPU_RATE_CONTROL(pub u32);
@@ -1291,7 +1250,6 @@ impl ::core::ops::Not for JOB_OBJECT_CPU_RATE_CONTROL {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_IO_RATE_CONTROL_FLAGS(pub i32);
@@ -1308,7 +1266,6 @@ impl ::core::convert::From<i32> for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
 unsafe impl ::windows::core::Abi for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_LIMIT(pub u32);
@@ -1375,7 +1332,6 @@ impl ::core::ops::Not for JOB_OBJECT_LIMIT {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_NET_RATE_CONTROL_FLAGS(pub i32);
@@ -1391,7 +1347,6 @@ impl ::core::convert::From<i32> for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
 unsafe impl ::windows::core::Abi for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_SECURITY(pub u32);
@@ -1436,7 +1391,6 @@ impl ::core::ops::Not for JOB_OBJECT_SECURITY {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_TERMINATE_AT_END_ACTION(pub u32);
@@ -1478,7 +1432,6 @@ impl ::core::ops::Not for JOB_OBJECT_TERMINATE_AT_END_ACTION {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_UILIMIT(pub u32);
@@ -1530,7 +1483,6 @@ impl ::core::ops::Not for JOB_OBJECT_UILIMIT {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 pub struct JOB_SET_ARRAY {
     pub JobHandle: super::super::Foundation::HANDLE,
     pub MemberLevel: u32,
@@ -1562,7 +1514,6 @@ impl ::core::cmp::Eq for JOB_SET_ARRAY {}
 unsafe impl ::windows::core::Abi for JOB_SET_ARRAY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenJobObjectA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdesiredaccess: u32, binherithandle: Param1, lpname: Param2) -> super::super::Foundation::HANDLE {
@@ -1577,7 +1528,6 @@ pub unsafe fn OpenJobObjectA<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenJobObjectW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdesiredaccess: u32, binherithandle: Param1, lpname: Param2) -> super::super::Foundation::HANDLE {
@@ -1592,7 +1542,6 @@ pub unsafe fn OpenJobObjectW<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryInformationJobObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hjob: Param0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut ::core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: *mut u32) -> super::super::Foundation::BOOL {
@@ -1607,7 +1556,6 @@ pub unsafe fn QueryInformationJobObject<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryIoRateControlInformationJobObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hjob: Param0, volumename: Param1, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32 {
@@ -1622,7 +1570,6 @@ pub unsafe fn QueryIoRateControlInformationJobObject<'a, Param0: ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetInformationJobObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hjob: Param0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const ::core::ffi::c_void, cbjobobjectinformationlength: u32) -> super::super::Foundation::BOOL {
@@ -1637,7 +1584,6 @@ pub unsafe fn SetInformationJobObject<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetIoRateControlInformationJobObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hjob: Param0, ioratecontrolinfo: *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32 {
@@ -1652,7 +1598,6 @@ pub unsafe fn SetIoRateControlInformationJobObject<'a, Param0: ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TerminateJobObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hjob: Param0, uexitcode: u32) -> super::super::Foundation::BOOL {
@@ -1667,7 +1612,6 @@ pub unsafe fn TerminateJobObject<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UserHandleGrantAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(huserhandle: Param0, hjob: Param1, bgrant: Param2) -> super::super::Foundation::BOOL {

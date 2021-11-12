@@ -1,9 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Gaming_UI`*"]
 pub struct GameBar {}
 impl GameBar {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn VisibilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
@@ -11,12 +9,10 @@ impl GameBar {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn RemoveVisibilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::IGameBarStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn IsInputRedirectedChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
@@ -24,18 +20,15 @@ impl GameBar {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn RemoveIsInputRedirectedChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::IGameBarStatics(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Gaming_UI`*"]
     pub fn Visible() -> ::windows::core::Result<bool> {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `Gaming_UI`*"]
     pub fn IsInputRedirected() -> ::windows::core::Result<bool> {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -50,7 +43,6 @@ impl GameBar {
 impl ::windows::core::RuntimeName for GameBar {
     const NAME: &'static str = "Windows.Gaming.UI.GameBar";
 }
-#[doc = "*Required features: `Gaming_UI`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GameChatMessageOrigin(pub i32);
@@ -72,12 +64,10 @@ unsafe impl ::windows::core::RuntimeType for GameChatMessageOrigin {
 impl ::windows::core::DefaultType for GameChatMessageOrigin {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameChatMessageReceivedEventArgs(pub ::windows::core::IInspectable);
 impl GameChatMessageReceivedEventArgs {
-    #[doc = "*Required features: `Gaming_UI`*"]
     pub fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -85,7 +75,6 @@ impl GameChatMessageReceivedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Gaming_UI`*"]
     pub fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -93,7 +82,6 @@ impl GameChatMessageReceivedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Gaming_UI`*"]
     pub fn SenderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -101,7 +89,6 @@ impl GameChatMessageReceivedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Gaming_UI`*"]
     pub fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -109,7 +96,6 @@ impl GameChatMessageReceivedEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Gaming_UI`*"]
     pub fn Origin(&self) -> ::windows::core::Result<GameChatMessageOrigin> {
         let this = self;
         unsafe {
@@ -170,12 +156,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameChatMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for GameChatMessageReceivedEventArgs {}
-#[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameChatOverlay(pub ::windows::core::IInspectable);
 impl GameChatOverlay {
-    #[doc = "*Required features: `Gaming_UI`*"]
     pub fn DesiredPosition(&self) -> ::windows::core::Result<GameChatOverlayPosition> {
         let this = self;
         unsafe {
@@ -183,17 +167,14 @@ impl GameChatOverlay {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameChatOverlayPosition>(result__)
         }
     }
-    #[doc = "*Required features: `Gaming_UI`*"]
     pub fn SetDesiredPosition(&self, value: GameChatOverlayPosition) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Gaming_UI`*"]
     pub fn AddMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, sender: Param0, message: Param1, origin: GameChatMessageOrigin) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), sender.into_param().abi(), message.into_param().abi(), origin).ok() }
     }
-    #[doc = "*Required features: `Gaming_UI`*"]
     pub fn GetDefault() -> ::windows::core::Result<GameChatOverlay> {
         Self::IGameChatOverlayStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -260,7 +241,6 @@ unsafe impl ::core::marker::Sync for GameChatOverlay {}
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct GameChatOverlayContract(pub u8);
-#[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameChatOverlayMessageSource(pub ::windows::core::IInspectable);
@@ -273,7 +253,6 @@ impl GameChatOverlayMessageSource {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn MessageReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -282,13 +261,11 @@ impl GameChatOverlayMessageSource {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn RemoveMessageReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Gaming_UI`, `Foundation`*"]
     pub fn SetDelayBeforeClosingAfterMessageReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -346,7 +323,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GameChatOverlayMessageSource {}
 unsafe impl ::core::marker::Sync for GameChatOverlayMessageSource {}
-#[doc = "*Required features: `Gaming_UI`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GameChatOverlayPosition(pub i32);
@@ -374,13 +350,11 @@ unsafe impl ::windows::core::RuntimeType for GameChatOverlayPosition {
 impl ::windows::core::DefaultType for GameChatOverlayPosition {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GameUIProviderActivatedEventArgs(pub ::windows::core::IInspectable);
 impl GameUIProviderActivatedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Gaming_UI`, `Foundation_Collections`*"]
     pub fn GameUIArgs(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
@@ -389,13 +363,11 @@ impl GameUIProviderActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Gaming_UI`, `Foundation_Collections`*"]
     pub fn ReportCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(&self, results: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), results.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
-    #[doc = "*Required features: `Gaming_UI`, `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -404,7 +376,6 @@ impl GameUIProviderActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
-    #[doc = "*Required features: `Gaming_UI`, `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -413,7 +384,6 @@ impl GameUIProviderActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
-    #[doc = "*Required features: `Gaming_UI`, `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {

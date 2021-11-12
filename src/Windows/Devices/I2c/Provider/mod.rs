@@ -1,14 +1,12 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Devices_I2c_Provider`*"]
 pub struct II2cControllerProvider(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for II2cControllerProvider {
     type Vtable = II2cControllerProvider_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61c2bb82_4510_4163_a87c_4e15a9558980);
 }
 impl II2cControllerProvider {
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn GetDeviceProvider<'a, Param0: ::windows::core::IntoParam<'a, ProviderI2cConnectionSettings>>(&self, settings: Param0) -> ::windows::core::Result<II2cDeviceProvider> {
         let this = self;
         unsafe {
@@ -73,7 +71,6 @@ pub struct II2cControllerProvider_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Devices_I2c_Provider`*"]
 pub struct II2cDeviceProvider(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for II2cDeviceProvider {
     type Vtable = II2cDeviceProvider_abi;
@@ -81,12 +78,10 @@ unsafe impl ::windows::core::Interface for II2cDeviceProvider {
 }
 impl II2cDeviceProvider {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_I2c_Provider`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -94,12 +89,10 @@ impl II2cDeviceProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn Write(&self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), buffer.len() as u32, ::core::mem::transmute(buffer.as_ptr())).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn WritePartial(&self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
@@ -107,12 +100,10 @@ impl II2cDeviceProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), buffer.len() as u32, ::core::mem::transmute(buffer.as_ptr()), &mut result__).from_abi::<ProviderI2cTransferResult>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn Read(&self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), buffer.len() as u32, ::core::mem::transmute_copy(&buffer)).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn ReadPartial(&self, buffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
@@ -120,12 +111,10 @@ impl II2cDeviceProvider {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), buffer.len() as u32, ::core::mem::transmute_copy(&buffer), &mut result__).from_abi::<ProviderI2cTransferResult>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn WriteRead(&self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), writebuffer.len() as u32, ::core::mem::transmute(writebuffer.as_ptr()), readbuffer.len() as u32, ::core::mem::transmute_copy(&readbuffer)).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn WriteReadPartial(&self, writebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
@@ -222,7 +211,6 @@ pub struct II2cDeviceProvider_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Devices_I2c_Provider`*"]
 pub struct II2cProvider(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for II2cProvider {
     type Vtable = II2cProvider_abi;
@@ -230,7 +218,6 @@ unsafe impl ::windows::core::Interface for II2cProvider {
 }
 impl II2cProvider {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Devices_I2c_Provider`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>> {
         let this = self;
         unsafe {
@@ -317,7 +304,6 @@ pub struct IProviderI2cConnectionSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ProviderI2cSharingMode) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ProviderI2cSharingMode) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Devices_I2c_Provider`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProviderI2cBusSpeed(pub i32);
@@ -339,12 +325,10 @@ unsafe impl ::windows::core::RuntimeType for ProviderI2cBusSpeed {
 impl ::windows::core::DefaultType for ProviderI2cBusSpeed {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Devices_I2c_Provider`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProviderI2cConnectionSettings(pub ::windows::core::IInspectable);
 impl ProviderI2cConnectionSettings {
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn SlaveAddress(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -352,12 +336,10 @@ impl ProviderI2cConnectionSettings {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn SetSlaveAddress(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn BusSpeed(&self) -> ::windows::core::Result<ProviderI2cBusSpeed> {
         let this = self;
         unsafe {
@@ -365,12 +347,10 @@ impl ProviderI2cConnectionSettings {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProviderI2cBusSpeed>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn SetBusSpeed(&self, value: ProviderI2cBusSpeed) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn SharingMode(&self) -> ::windows::core::Result<ProviderI2cSharingMode> {
         let this = self;
         unsafe {
@@ -378,7 +358,6 @@ impl ProviderI2cConnectionSettings {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProviderI2cSharingMode>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_I2c_Provider`*"]
     pub fn SetSharingMode(&self, value: ProviderI2cSharingMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
@@ -436,7 +415,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for ProviderI2cConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderI2cConnectionSettings {}
-#[doc = "*Required features: `Devices_I2c_Provider`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProviderI2cSharingMode(pub i32);
@@ -460,7 +438,6 @@ impl ::windows::core::DefaultType for ProviderI2cSharingMode {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Devices_I2c_Provider`*"]
 pub struct ProviderI2cTransferResult {
     pub Status: ProviderI2cTransferStatus,
     pub BytesTransferred: u32,
@@ -491,7 +468,6 @@ unsafe impl ::windows::core::RuntimeType for ProviderI2cTransferResult {
 impl ::windows::core::DefaultType for ProviderI2cTransferResult {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Devices_I2c_Provider`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProviderI2cTransferStatus(pub i32);

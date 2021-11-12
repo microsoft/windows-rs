@@ -104,7 +104,6 @@ pub struct IPhoneNumberInfoStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phonenumber: *mut ::windows::core::RawPtr, result__: *mut PhoneNumberParseResult) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, regioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phonenumber: *mut ::windows::core::RawPtr, result__: *mut PhoneNumberParseResult) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneNumberFormat(pub i32);
@@ -128,7 +127,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneNumberFormat {
 impl ::windows::core::DefaultType for PhoneNumberFormat {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneNumberFormatter(pub ::windows::core::IInspectable);
@@ -140,7 +138,6 @@ impl PhoneNumberFormatter {
         static mut SHARED: ::windows::core::FactoryCache<PhoneNumberFormatter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn Format<'a, Param0: ::windows::core::IntoParam<'a, PhoneNumberInfo>>(&self, number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -148,7 +145,6 @@ impl PhoneNumberFormatter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), number.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn FormatWithOutputFormat<'a, Param0: ::windows::core::IntoParam<'a, PhoneNumberInfo>>(&self, number: Param0, numberformat: PhoneNumberFormat) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -156,7 +152,6 @@ impl PhoneNumberFormatter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), number.into_param().abi(), numberformat, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn FormatPartialString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -164,7 +159,6 @@ impl PhoneNumberFormatter {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), number.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn FormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -172,7 +166,6 @@ impl PhoneNumberFormatter {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), number.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn FormatStringWithLeftToRightMarkers<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -180,25 +173,21 @@ impl PhoneNumberFormatter {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), number.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn TryCreate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(regioncode: Param0, phonenumber: &mut ::core::option::Option<PhoneNumberFormatter>) -> ::windows::core::Result<()> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), regioncode.into_param().abi(), phonenumber as *mut _ as _).ok() })
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn GetCountryCodeForRegion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(regioncode: Param0) -> ::windows::core::Result<i32> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), regioncode.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn GetNationalDirectDialingPrefixForRegion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(regioncode: Param0, stripnondigit: bool) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), regioncode.into_param().abi(), stripnondigit, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn WrapWithLeftToRightMarkers<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -262,13 +251,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneNumberFormatter {}
 unsafe impl ::core::marker::Sync for PhoneNumberFormatter {}
-#[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneNumberInfo(pub ::windows::core::IInspectable);
 impl PhoneNumberInfo {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -276,7 +263,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn CountryCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -284,7 +270,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -292,7 +277,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn GetLengthOfGeographicalAreaCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -300,7 +284,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn GetNationalSignificantNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -308,7 +291,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn GetLengthOfNationalDestinationCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -316,7 +298,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn PredictNumberKind(&self) -> ::windows::core::Result<PredictedPhoneNumberKind> {
         let this = self;
         unsafe {
@@ -324,7 +305,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PredictedPhoneNumberKind>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn GetGeographicRegionCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -332,7 +312,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn CheckNumberMatch<'a, Param0: ::windows::core::IntoParam<'a, PhoneNumberInfo>>(&self, othernumber: Param0) -> ::windows::core::Result<PhoneNumberMatchResult> {
         let this = self;
         unsafe {
@@ -340,21 +319,18 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), othernumber.into_param().abi(), &mut result__).from_abi::<PhoneNumberMatchResult>(result__)
         }
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(number: Param0) -> ::windows::core::Result<PhoneNumberInfo> {
         Self::IPhoneNumberInfoFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), number.into_param().abi(), &mut result__).from_abi::<PhoneNumberInfo>(result__)
         })
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn TryParse<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0, phonenumber: &mut ::core::option::Option<PhoneNumberInfo>) -> ::windows::core::Result<PhoneNumberParseResult> {
         Self::IPhoneNumberInfoStatics(|this| unsafe {
             let mut result__: PhoneNumberParseResult = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), input.into_param().abi(), phonenumber as *mut _ as _, &mut result__).from_abi::<PhoneNumberParseResult>(result__)
         })
     }
-    #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
     pub fn TryParseWithRegion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0, regioncode: Param1, phonenumber: &mut ::core::option::Option<PhoneNumberInfo>) -> ::windows::core::Result<PhoneNumberParseResult> {
         Self::IPhoneNumberInfoStatics(|this| unsafe {
             let mut result__: PhoneNumberParseResult = ::core::mem::zeroed();
@@ -448,7 +424,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for PhoneNumberInfo {}
 unsafe impl ::core::marker::Sync for PhoneNumberInfo {}
-#[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneNumberMatchResult(pub i32);
@@ -472,7 +447,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneNumberMatchResult {
 impl ::windows::core::DefaultType for PhoneNumberMatchResult {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneNumberParseResult(pub i32);
@@ -497,7 +471,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneNumberParseResult {
 impl ::windows::core::DefaultType for PhoneNumberParseResult {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PredictedPhoneNumberKind(pub i32);

@@ -1,121 +1,63 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSREC_ADDITIONAL: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSREC_ANSWER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSREC_AUTHORITY: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSREC_DELETE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSREC_NOEXIST: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSREC_PREREQ: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSREC_QUESTION: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSREC_SECTION: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSREC_UPDATE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSREC_ZONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_ALGORITHM_ECDSAP256_SHA256: u32 = 13u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_ALGORITHM_ECDSAP384_SHA384: u32 = 14u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_ALGORITHM_NULL: u32 = 253u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_ALGORITHM_PRIVATE: u32 = 254u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_ALGORITHM_RSAMD5: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_ALGORITHM_RSASHA1: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_ALGORITHM_RSASHA1_NSEC3: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_ALGORITHM_RSASHA256: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_ALGORITHM_RSASHA512: u32 = 10u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_DIGEST_ALGORITHM_SHA1: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_DIGEST_ALGORITHM_SHA256: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_DIGEST_ALGORITHM_SHA384: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_EXTEND: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_FLAG10: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_FLAG11: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_FLAG2: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_FLAG4: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_FLAG5: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_FLAG8: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_FLAG9: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_HOST: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_NOAUTH: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_NOCONF: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_NTPE3: u32 = 192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG0: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG1: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG10: u32 = 40960u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG11: u32 = 45056u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG12: u32 = 49152u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG13: u32 = 53248u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG14: u32 = 57344u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG15: u32 = 61440u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG2: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG3: u32 = 12288u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG4: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG5: u32 = 20480u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG6: u32 = 24576u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG7: u32 = 28672u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG8: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_SIG9: u32 = 36864u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_USER: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_KEY_FLAG_ZONE: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_PROTOCOL_DNSSEC: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_PROTOCOL_EMAIL: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_PROTOCOL_IPSEC: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_PROTOCOL_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNSSEC_PROTOCOL_TLS: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_AAAA_DATA {
     pub Ip6Address: IP6_ADDRESS,
 }
@@ -137,7 +79,6 @@ unsafe impl ::windows::core::Abi for DNS_AAAA_DATA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_ADDR {
     pub MaxSa: [super::super::Foundation::CHAR; 32],
     pub Data: DNS_ADDR_0,
@@ -188,12 +129,10 @@ impl ::core::cmp::Eq for DNS_ADDR_0 {}
 unsafe impl ::windows::core::Abi for DNS_ADDR_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_ADDRESS_STRING_LENGTH: u32 = 65u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_ADDR_ARRAY {
     pub MaxCount: u32,
     pub AddrCount: u32,
@@ -226,11 +165,9 @@ impl ::core::cmp::Eq for DNS_ADDR_ARRAY {}
 unsafe impl ::windows::core::Abi for DNS_ADDR_ARRAY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_ADDR_MAX_SOCKADDR_LENGTH: u32 = 32u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_APPLICATION_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -255,15 +192,11 @@ impl ::core::cmp::Eq for DNS_APPLICATION_SETTINGS {}
 unsafe impl ::windows::core::Abi for DNS_APPLICATION_SETTINGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_APP_SETTINGS_EXCLUSIVE_SERVERS: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_APP_SETTINGS_VERSION1: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_ATMA_AESA_ADDR_LENGTH: u32 = 20u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_ATMA_DATA {
     pub AddressType: u8,
     pub Address: [u8; 20],
@@ -288,17 +221,12 @@ impl ::core::cmp::Eq for DNS_ATMA_DATA {}
 unsafe impl ::windows::core::Abi for DNS_ATMA_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_ATMA_FORMAT_AESA: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_ATMA_FORMAT_E164: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_ATMA_MAX_ADDR_LENGTH: u32 = 20u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_ATMA_MAX_RECORD_LENGTH: u32 = 21u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_A_DATA {
     pub IpAddress: u32,
 }
@@ -322,7 +250,6 @@ impl ::core::cmp::Eq for DNS_A_DATA {}
 unsafe impl ::windows::core::Abi for DNS_A_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_CHARSET(pub i32);
@@ -338,27 +265,16 @@ impl ::core::convert::From<i32> for DNS_CHARSET {
 unsafe impl ::windows::core::Abi for DNS_CHARSET {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CLASS_ALL: u32 = 255u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CLASS_ANY: u32 = 255u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CLASS_CHAOS: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CLASS_CSNET: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CLASS_HESIOD: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CLASS_INTERNET: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CLASS_NONE: u32 = 254u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CLASS_UNICAST_RESPONSE: u32 = 32768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_COMPRESSED_QUESTION_NAME: u32 = 49164u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONFIG_FLAG_ALLOC: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_CONFIG_TYPE(pub i32);
@@ -392,7 +308,6 @@ unsafe impl ::windows::core::Abi for DNS_CONFIG_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_CONNECTION_IFINDEX_ENTRY {
     pub pwszConnectionName: super::super::Foundation::PWSTR,
     pub dwIfIndex: u32,
@@ -426,7 +341,6 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_IFINDEX_ENTRY {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_CONNECTION_IFINDEX_LIST {
     pub pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_ENTRY,
     pub nEntries: u32,
@@ -459,7 +373,6 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_IFINDEX_LIST {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_CONNECTION_NAME {
     pub wszName: [u16; 65],
 }
@@ -485,7 +398,6 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_NAME {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_CONNECTION_NAME_LIST {
     pub cNames: u32,
     pub pNames: *mut DNS_CONNECTION_NAME,
@@ -510,12 +422,10 @@ impl ::core::cmp::Eq for DNS_CONNECTION_NAME_LIST {}
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_NAME_LIST {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_NAME_MAX_LENGTH: u32 = 64u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub pwszHost: super::super::Foundation::PWSTR,
     pub pwszAppId: super::super::Foundation::PWSTR,
@@ -562,7 +472,6 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_POLICY_ENTRY {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_CONNECTION_POLICY_ENTRY_LIST {
     pub pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
     pub nEntries: u32,
@@ -593,9 +502,7 @@ impl ::core::cmp::Eq for DNS_CONNECTION_POLICY_ENTRY_LIST {}
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_POLICY_ENTRY_LIST {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_CONNECTION_POLICY_TAG(pub i32);
@@ -613,7 +520,6 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_POLICY_TAG {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_CONNECTION_PROXY_ELEMENT {
     pub Type: DNS_CONNECTION_PROXY_TYPE,
     pub Info: DNS_CONNECTION_PROXY_INFO,
@@ -641,7 +547,6 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_ELEMENT {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_CONNECTION_PROXY_INFO {
     pub Version: u32,
     pub pwszFriendlyName: super::super::Foundation::PWSTR,
@@ -767,12 +672,10 @@ impl ::core::cmp::Eq for DNS_CONNECTION_PROXY_INFO_0_1 {}
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_0_1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_CONNECTION_PROXY_INFO_EX {
     pub ProxyInfo: DNS_CONNECTION_PROXY_INFO,
     pub dwInterfaceIndex: u32,
@@ -800,21 +703,13 @@ impl ::core::cmp::Eq for DNS_CONNECTION_PROXY_INFO_EX {}
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_EX {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_FLAG_BYPASSLOCAL: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_FLAG_DISABLED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_CONNECTION_PROXY_INFO_SWITCH(pub i32);
@@ -829,12 +724,10 @@ impl ::core::convert::From<i32> for DNS_CONNECTION_PROXY_INFO_SWITCH {
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_SWITCH {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_CONNECTION_PROXY_LIST {
     pub cProxies: u32,
     pub pProxies: *mut DNS_CONNECTION_PROXY_ELEMENT,
@@ -865,7 +758,6 @@ impl ::core::cmp::Eq for DNS_CONNECTION_PROXY_LIST {}
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_LIST {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_CONNECTION_PROXY_TYPE(pub i32);
@@ -885,7 +777,6 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_CUSTOM_SERVER {
     pub dwServerType: u32,
     pub ullFlags: u64,
@@ -964,15 +855,11 @@ impl ::core::cmp::Eq for DNS_CUSTOM_SERVER_1 {}
 unsafe impl ::windows::core::Abi for DNS_CUSTOM_SERVER_1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CUSTOM_SERVER_TYPE_DOH: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CUSTOM_SERVER_TYPE_UDP: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CUSTOM_SERVER_UDP_FALLBACK: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_DHCID_DATA {
     pub dwByteCount: u32,
     pub DHCID: [u8; 1],
@@ -999,7 +886,6 @@ unsafe impl ::windows::core::Abi for DNS_DHCID_DATA {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_DS_DATA {
     pub wKeyTag: u16,
     pub chAlgorithm: u8,
@@ -1028,7 +914,6 @@ impl ::core::cmp::Eq for DNS_DS_DATA {}
 unsafe impl ::windows::core::Abi for DNS_DS_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_FREE_TYPE(pub i32);
@@ -1045,7 +930,6 @@ unsafe impl ::windows::core::Abi for DNS_FREE_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_HEADER {
     pub Xid: u16,
     pub _bitfield1: u8,
@@ -1072,7 +956,6 @@ unsafe impl ::windows::core::Abi for DNS_HEADER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_HEADER_EXT {
     pub _bitfield: u16,
     pub chRcode: u8,
@@ -1095,7 +978,6 @@ unsafe impl ::windows::core::Abi for DNS_HEADER_EXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_KEY_DATA {
     pub wFlags: u16,
     pub chProtocol: u8,
@@ -1126,7 +1008,6 @@ unsafe impl ::windows::core::Abi for DNS_KEY_DATA {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_LOC_DATA {
     pub wVersion: u16,
     pub wSize: u16,
@@ -1156,32 +1037,20 @@ impl ::core::cmp::Eq for DNS_LOC_DATA {}
 unsafe impl ::windows::core::Abi for DNS_LOC_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_IP4_REVERSE_NAME_BUFFER_LENGTH: u32 = 31u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_IP4_REVERSE_NAME_LENGTH: u32 = 31u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_IP6_REVERSE_NAME_BUFFER_LENGTH: u32 = 75u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_IP6_REVERSE_NAME_LENGTH: u32 = 75u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_LABEL_BUFFER_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_LABEL_LENGTH: u32 = 63u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_NAME_BUFFER_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_NAME_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_REVERSE_NAME_BUFFER_LENGTH: u32 = 75u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_REVERSE_NAME_LENGTH: u32 = 75u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_TEXT_STRING_LENGTH: u32 = 255u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_MESSAGE_BUFFER {
     pub MessageHead: DNS_HEADER,
     pub MessageBody: [super::super::Foundation::CHAR; 1],
@@ -1209,7 +1078,6 @@ unsafe impl ::windows::core::Abi for DNS_MESSAGE_BUFFER {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_MINFO_DATAA {
     pub pNameMailbox: super::super::Foundation::PSTR,
     pub pNameErrorsMailbox: super::super::Foundation::PSTR,
@@ -1243,7 +1111,6 @@ unsafe impl ::windows::core::Abi for DNS_MINFO_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_MINFO_DATAW {
     pub pNameMailbox: super::super::Foundation::PWSTR,
     pub pNameErrorsMailbox: super::super::Foundation::PWSTR,
@@ -1277,7 +1144,6 @@ unsafe impl ::windows::core::Abi for DNS_MINFO_DATAW {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_MX_DATAA {
     pub pNameExchange: super::super::Foundation::PSTR,
     pub wPreference: u16,
@@ -1312,7 +1178,6 @@ unsafe impl ::windows::core::Abi for DNS_MX_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_MX_DATAW {
     pub pNameExchange: super::super::Foundation::PWSTR,
     pub wPreference: u16,
@@ -1344,7 +1209,6 @@ impl ::core::cmp::Eq for DNS_MX_DATAW {}
 unsafe impl ::windows::core::Abi for DNS_MX_DATAW {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_NAME_FORMAT(pub i32);
@@ -1366,7 +1230,6 @@ unsafe impl ::windows::core::Abi for DNS_NAME_FORMAT {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_NAPTR_DATAA {
     pub wOrder: u16,
     pub wPreference: u16,
@@ -1404,7 +1267,6 @@ unsafe impl ::windows::core::Abi for DNS_NAPTR_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_NAPTR_DATAW {
     pub wOrder: u16,
     pub wPreference: u16,
@@ -1441,7 +1303,6 @@ unsafe impl ::windows::core::Abi for DNS_NAPTR_DATAW {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_NSEC3PARAM_DATA {
     pub chAlgorithm: u8,
     pub bFlags: u8,
@@ -1472,7 +1333,6 @@ unsafe impl ::windows::core::Abi for DNS_NSEC3PARAM_DATA {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_NSEC3_DATA {
     pub chAlgorithm: u8,
     pub bFlags: u8,
@@ -1513,7 +1373,6 @@ unsafe impl ::windows::core::Abi for DNS_NSEC3_DATA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_NSEC_DATAA {
     pub pNextDomainName: super::super::Foundation::PSTR,
     pub wTypeBitMapsLength: u16,
@@ -1549,7 +1408,6 @@ unsafe impl ::windows::core::Abi for DNS_NSEC_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_NSEC_DATAW {
     pub pNextDomainName: super::super::Foundation::PWSTR,
     pub wTypeBitMapsLength: u16,
@@ -1584,7 +1442,6 @@ unsafe impl ::windows::core::Abi for DNS_NSEC_DATAW {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_NULL_DATA {
     pub dwByteCount: u32,
     pub Data: [u8; 1],
@@ -1612,7 +1469,6 @@ unsafe impl ::windows::core::Abi for DNS_NULL_DATA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_NXT_DATAA {
     pub pNameNext: super::super::Foundation::PSTR,
     pub wNumTypes: u16,
@@ -1647,7 +1503,6 @@ unsafe impl ::windows::core::Abi for DNS_NXT_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_NXT_DATAW {
     pub pNameNext: super::super::Foundation::PWSTR,
     pub wNumTypes: u16,
@@ -1679,21 +1534,14 @@ impl ::core::cmp::Eq for DNS_NXT_DATAW {}
 unsafe impl ::windows::core::Abi for DNS_NXT_DATAW {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_OPCODE_IQUERY: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_OPCODE_NOTIFY: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_OPCODE_QUERY: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_OPCODE_SERVER_STATUS: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_OPCODE_UNKNOWN: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_OPCODE_UPDATE: u32 = 5u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_OPT_DATA {
     pub wDataLength: u16,
     pub wPad: u16,
@@ -1719,16 +1567,12 @@ impl ::core::cmp::Eq for DNS_OPT_DATA {}
 unsafe impl ::windows::core::Abi for DNS_OPT_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_PORT_NET_ORDER: u32 = 13568u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub type DNS_PROXY_COMPLETION_ROUTINE = unsafe extern "system" fn(completioncontext: *const ::core::ffi::c_void, status: i32);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_PROXY_INFORMATION {
     pub version: u32,
     pub proxyInformationType: DNS_PROXY_INFORMATION_TYPE,
@@ -1760,7 +1604,6 @@ impl ::core::cmp::Eq for DNS_PROXY_INFORMATION {}
 unsafe impl ::windows::core::Abi for DNS_PROXY_INFORMATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_PROXY_INFORMATION_TYPE(pub i32);
@@ -1779,7 +1622,6 @@ unsafe impl ::windows::core::Abi for DNS_PROXY_INFORMATION_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_PTR_DATAA {
     pub pNameHost: super::super::Foundation::PSTR,
 }
@@ -1812,7 +1654,6 @@ unsafe impl ::windows::core::Abi for DNS_PTR_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_PTR_DATAW {
     pub pNameHost: super::super::Foundation::PWSTR,
 }
@@ -1842,20 +1683,14 @@ impl ::core::cmp::Eq for DNS_PTR_DATAW {}
 unsafe impl ::windows::core::Abi for DNS_PTR_DATAW {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_ADDRCONFIG: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_APPEND_MULTILABEL: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_BYPASS_CACHE: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_CACHE_ONLY: u32 = 16u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_QUERY_CANCEL {
     pub Reserved: [super::super::Foundation::CHAR; 32],
 }
@@ -1885,34 +1720,21 @@ impl ::core::cmp::Eq for DNS_QUERY_CANCEL {}
 unsafe impl ::windows::core::Abi for DNS_QUERY_CANCEL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_DISABLE_IDN_ENCODING: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_DNSSEC_CHECKING_DISABLED: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_DNSSEC_OK: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_DONT_RESET_TTL_VALUES: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_DUAL_ADDR: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_MULTICAST_ONLY: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_NO_HOSTS_FILE: u32 = 64u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_NO_LOCAL_NAME: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_NO_MULTICAST: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_NO_NETBT: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_NO_RECURSION: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_NO_WIRE_QUERY: u32 = 16u32;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_QUERY_REQUEST {
     pub Version: u32,
     pub QueryName: super::super::Foundation::PWSTR,
@@ -1960,7 +1782,6 @@ unsafe impl ::windows::core::Abi for DNS_QUERY_REQUEST {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_QUERY_REQUEST3 {
     pub Version: u32,
     pub QueryName: super::super::Foundation::PWSTR,
@@ -2024,18 +1845,13 @@ impl ::core::cmp::Eq for DNS_QUERY_REQUEST3 {}
 unsafe impl ::windows::core::Abi for DNS_QUERY_REQUEST3 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_REQUEST_VERSION1: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_REQUEST_VERSION2: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_REQUEST_VERSION3: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_RESERVED: u32 = 4026531840u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_QUERY_RESULT {
     pub Version: u32,
     pub QueryStatus: i32,
@@ -2069,80 +1885,44 @@ impl ::core::cmp::Eq for DNS_QUERY_RESULT {}
 unsafe impl ::windows::core::Abi for DNS_QUERY_RESULT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_RESULTS_VERSION1: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_RETURN_MESSAGE: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_STANDARD: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_TREAT_AS_FQDN: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_USE_TCP_ONLY: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_WIRE_ONLY: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCLASS_ALL: u32 = 65280u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCLASS_ANY: u32 = 65280u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCLASS_CHAOS: u32 = 768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCLASS_CSNET: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCLASS_HESIOD: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCLASS_INTERNET: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCLASS_NONE: u32 = 65024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCLASS_UNICAST_RESPONSE: u32 = 128u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_BADKEY: u32 = 17u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_BADSIG: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_BADTIME: u32 = 18u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_BADVERS: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_FORMAT_ERROR: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_FORMERR: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_MAX: u32 = 15u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_NAME_ERROR: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_NOERROR: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_NOTAUTH: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_NOTIMPL: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_NOTZONE: u32 = 10u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_NOT_IMPLEMENTED: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_NO_ERROR: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_NXDOMAIN: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_NXRRSET: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_REFUSED: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_SERVER_FAILURE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_SERVFAIL: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_YXDOMAIN: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RCODE_YXRRSET: u32 = 7u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_RECORDA {
     pub pNext: *mut DNS_RECORDA,
     pub pName: super::super::Foundation::PSTR,
@@ -2312,7 +2092,6 @@ unsafe impl ::windows::core::Abi for DNS_RECORDA_1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_RECORDW {
     pub pNext: *mut DNS_RECORDW,
     pub pName: super::super::Foundation::PWSTR,
@@ -2481,7 +2260,6 @@ unsafe impl ::windows::core::Abi for DNS_RECORDW_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_RECORD_FLAGS {
     pub _bitfield: u32,
 }
@@ -2505,12 +2283,10 @@ impl ::core::cmp::Eq for DNS_RECORD_FLAGS {}
 unsafe impl ::windows::core::Abi for DNS_RECORD_FLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RFC_MAX_UDP_PACKET_LENGTH: u32 = 512u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_RRSET {
     pub pFirstRR: *mut DNS_RECORDA,
     pub pLastRR: *mut DNS_RECORDA,
@@ -2541,133 +2317,69 @@ impl ::core::cmp::Eq for DNS_RRSET {}
 unsafe impl ::windows::core::Abi for DNS_RRSET {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_A: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_A6: u32 = 9728u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_AAAA: u32 = 7168u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_AFSDB: u32 = 4608u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_ALL: u32 = 65280u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_ANY: u32 = 65280u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_ATMA: u32 = 8704u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_AXFR: u32 = 64512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_CERT: u32 = 9472u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_CNAME: u32 = 1280u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_DHCID: u32 = 12544u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_DNAME: u32 = 9984u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_DNSKEY: u32 = 12288u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_DS: u32 = 11008u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_EID: u32 = 7936u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_GID: u32 = 26112u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_GPOS: u32 = 6912u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_HINFO: u32 = 3328u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_ISDN: u32 = 5120u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_IXFR: u32 = 64256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_KEY: u32 = 6400u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_KX: u32 = 9216u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_LOC: u32 = 7424u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_MAILA: u32 = 65024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_MAILB: u32 = 64768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_MB: u32 = 1792u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_MD: u32 = 768u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_MF: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_MG: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_MINFO: u32 = 3584u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_MR: u32 = 2304u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_MX: u32 = 3840u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_NAPTR: u32 = 8960u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_NIMLOC: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_NS: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_NSAP: u32 = 5632u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_NSAPPTR: u32 = 5888u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_NSEC: u32 = 12032u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_NSEC3: u32 = 12800u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_NSEC3PARAM: u32 = 13056u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_NULL: u32 = 2560u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_NXT: u32 = 7680u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_OPT: u32 = 10496u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_PTR: u32 = 3072u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_PX: u32 = 6656u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_RP: u32 = 4352u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_RRSIG: u32 = 11776u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_RT: u32 = 5376u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_SIG: u32 = 6144u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_SINK: u32 = 10240u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_SOA: u32 = 1536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_SRV: u32 = 8448u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_TEXT: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_TKEY: u32 = 63744u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_TLSA: u32 = 13312u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_TSIG: u32 = 64000u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_UID: u32 = 25856u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_UINFO: u32 = 25600u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_UNSPEC: u32 = 26368u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_WINS: u32 = 511u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_WINSR: u32 = 767u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_WKS: u32 = 2816u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_X25: u32 = 4864u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_SECTION(pub i32);
@@ -2691,7 +2403,6 @@ impl ::core::clone::Clone for DNS_SERVICE_BROWSE_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_SERVICE_BROWSE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -2753,7 +2464,6 @@ unsafe impl ::windows::core::Abi for DNS_SERVICE_BROWSE_REQUEST_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_SERVICE_CANCEL {
     pub reserved: *mut ::core::ffi::c_void,
 }
@@ -2780,7 +2490,6 @@ unsafe impl ::windows::core::Abi for DNS_SERVICE_CANCEL {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_SERVICE_INSTANCE {
     pub pszInstanceName: super::super::Foundation::PWSTR,
     pub pszHostName: super::super::Foundation::PWSTR,
@@ -2835,7 +2544,6 @@ unsafe impl ::windows::core::Abi for DNS_SERVICE_INSTANCE {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -2881,7 +2589,6 @@ unsafe impl ::windows::core::Abi for DNS_SERVICE_REGISTER_REQUEST {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -2918,7 +2625,6 @@ unsafe impl ::windows::core::Abi for DNS_SERVICE_RESOLVE_REQUEST {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_SIG_DATAA {
     pub wTypeCovered: u16,
     pub chAlgorithm: u8,
@@ -2971,7 +2677,6 @@ unsafe impl ::windows::core::Abi for DNS_SIG_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_SIG_DATAW {
     pub wTypeCovered: u16,
     pub chAlgorithm: u8,
@@ -3024,7 +2729,6 @@ unsafe impl ::windows::core::Abi for DNS_SIG_DATAW {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_SOA_DATAA {
     pub pNamePrimaryServer: super::super::Foundation::PSTR,
     pub pNameAdministrator: super::super::Foundation::PSTR,
@@ -3071,7 +2775,6 @@ unsafe impl ::windows::core::Abi for DNS_SOA_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_SOA_DATAW {
     pub pNamePrimaryServer: super::super::Foundation::PWSTR,
     pub pNameAdministrator: super::super::Foundation::PWSTR,
@@ -3118,7 +2821,6 @@ unsafe impl ::windows::core::Abi for DNS_SOA_DATAW {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_SRV_DATAA {
     pub pNameTarget: super::super::Foundation::PSTR,
     pub wPriority: u16,
@@ -3155,7 +2857,6 @@ unsafe impl ::windows::core::Abi for DNS_SRV_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_SRV_DATAW {
     pub pNameTarget: super::super::Foundation::PWSTR,
     pub wPriority: u16,
@@ -3192,7 +2893,6 @@ unsafe impl ::windows::core::Abi for DNS_SRV_DATAW {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_TKEY_DATAA {
     pub pNameAlgorithm: super::super::Foundation::PSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -3249,7 +2949,6 @@ unsafe impl ::windows::core::Abi for DNS_TKEY_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_TKEY_DATAW {
     pub pNameAlgorithm: super::super::Foundation::PWSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -3303,17 +3002,12 @@ impl ::core::cmp::Eq for DNS_TKEY_DATAW {}
 unsafe impl ::windows::core::Abi for DNS_TKEY_DATAW {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TKEY_MODE_DIFFIE_HELLMAN: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TKEY_MODE_GSS: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TKEY_MODE_RESOLVER_ASSIGN: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TKEY_MODE_SERVER_ASSIGN: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_TLSA_DATA {
     pub bCertUsage: u8,
     pub bSelector: u8,
@@ -3352,7 +3046,6 @@ unsafe impl ::windows::core::Abi for DNS_TLSA_DATA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_TSIG_DATAA {
     pub pNameAlgorithm: super::super::Foundation::PSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -3420,7 +3113,6 @@ unsafe impl ::windows::core::Abi for DNS_TSIG_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_TSIG_DATAW {
     pub pNameAlgorithm: super::super::Foundation::PWSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -3488,7 +3180,6 @@ unsafe impl ::windows::core::Abi for DNS_TSIG_DATAW {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_TXT_DATAA {
     pub dwStringCount: u32,
     pub pStringArray: [super::super::Foundation::PSTR; 1],
@@ -3522,7 +3213,6 @@ unsafe impl ::windows::core::Abi for DNS_TXT_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_TXT_DATAW {
     pub dwStringCount: u32,
     pub pStringArray: [super::super::Foundation::PWSTR; 1],
@@ -3553,141 +3243,74 @@ impl ::core::cmp::Eq for DNS_TXT_DATAW {}
 unsafe impl ::windows::core::Abi for DNS_TXT_DATAW {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_A: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_A6: u32 = 38u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_AAAA: u32 = 28u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_ADDRS: u32 = 248u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_AFSDB: u32 = 18u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_ALL: u32 = 255u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_ANY: u32 = 255u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_ATMA: u32 = 34u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_AXFR: u32 = 252u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_CERT: u32 = 37u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_CNAME: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_DHCID: u32 = 49u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_DNAME: u32 = 39u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_DNSKEY: u32 = 48u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_DS: u32 = 43u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_EID: u32 = 31u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_GID: u32 = 102u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_GPOS: u32 = 27u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_HINFO: u32 = 13u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_ISDN: u32 = 20u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_IXFR: u32 = 251u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_KEY: u32 = 25u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_KX: u32 = 36u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_LOC: u32 = 29u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_MAILA: u32 = 254u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_MAILB: u32 = 253u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_MB: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_MD: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_MF: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_MG: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_MINFO: u32 = 14u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_MR: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_MX: u32 = 15u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_NAPTR: u32 = 35u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_NBSTAT: u32 = 65282u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_NIMLOC: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_NS: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_NSAP: u32 = 22u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_NSAPPTR: u32 = 23u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_NSEC: u32 = 47u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_NSEC3: u32 = 50u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_NSEC3PARAM: u32 = 51u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_NULL: u32 = 10u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_NXT: u32 = 30u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_OPT: u32 = 41u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_PTR: u32 = 12u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_PX: u32 = 26u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_RP: u32 = 17u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_RRSIG: u32 = 46u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_RT: u32 = 21u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_SIG: u32 = 24u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_SINK: u32 = 40u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_SOA: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_SRV: u32 = 33u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_TEXT: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_TKEY: u32 = 249u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_TLSA: u32 = 52u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_TSIG: u32 = 250u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_UID: u32 = 101u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_UINFO: u32 = 100u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_UNSPEC: u32 = 103u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_WINS: u32 = 65281u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_WINSR: u32 = 65282u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_WKS: u32 = 11u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_X25: u32 = 19u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_ZERO: u32 = 0u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_UNKNOWN_DATA {
     pub dwByteCount: u32,
     pub bData: [u8; 1],
@@ -3712,48 +3335,28 @@ impl ::core::cmp::Eq for DNS_UNKNOWN_DATA {}
 unsafe impl ::windows::core::Abi for DNS_UNKNOWN_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_UPDATE_CACHE_SECURITY_CONTEXT: u32 = 512u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_UPDATE_FORCE_SECURITY_NEGO: u32 = 2048u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_UPDATE_REMOTE_SERVER: u32 = 16384u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_UPDATE_RESERVED: u32 = 4294901760u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_UPDATE_SECURITY_OFF: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_UPDATE_SECURITY_ON: u32 = 32u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_UPDATE_SECURITY_ONLY: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_UPDATE_SECURITY_USE_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_UPDATE_SKIP_NO_UPDATE_ADAPTERS: u32 = 8192u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_UPDATE_TEST_USE_LOCAL_SYS_ACCT: u32 = 1024u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_UPDATE_TRY_ALL_MASTER_SERVERS: u32 = 4096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_VALSVR_ERROR_INVALID_ADDR: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_VALSVR_ERROR_INVALID_NAME: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_VALSVR_ERROR_NO_AUTH: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_VALSVR_ERROR_NO_RESPONSE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_VALSVR_ERROR_NO_TCP: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_VALSVR_ERROR_REFUSED: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_VALSVR_ERROR_UNKNOWN: u32 = 255u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_VALSVR_ERROR_UNREACHABLE: u32 = 3u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_WINSR_DATAA {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
@@ -3789,7 +3392,6 @@ unsafe impl ::windows::core::Abi for DNS_WINSR_DATAA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_WINSR_DATAW {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
@@ -3824,7 +3426,6 @@ unsafe impl ::windows::core::Abi for DNS_WINSR_DATAW {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_WINS_DATA {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
@@ -3852,13 +3453,10 @@ impl ::core::cmp::Eq for DNS_WINS_DATA {}
 unsafe impl ::windows::core::Abi for DNS_WINS_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_WINS_FLAG_LOCAL: u32 = 65536u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_WINS_FLAG_SCOPE: u32 = 2147483648u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_WIRE_QUESTION {
     pub QuestionType: u16,
     pub QuestionClass: u16,
@@ -3880,7 +3478,6 @@ unsafe impl ::windows::core::Abi for DNS_WIRE_QUESTION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_WIRE_RECORD {
     pub RecordType: u16,
     pub RecordClass: u16,
@@ -3904,7 +3501,6 @@ unsafe impl ::windows::core::Abi for DNS_WIRE_RECORD {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct DNS_WKS_DATA {
     pub IpAddress: u32,
     pub chProtocol: u8,
@@ -3930,7 +3526,6 @@ impl ::core::cmp::Eq for DNS_WKS_DATA {}
 unsafe impl ::windows::core::Abi for DNS_WKS_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[inline]
 pub unsafe fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: *const ::core::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32 {
     #[cfg(windows)]
@@ -3944,7 +3539,6 @@ pub unsafe fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[inline]
 pub unsafe fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: *const ::core::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32 {
     #[cfg(windows)]
@@ -3958,7 +3552,6 @@ pub unsafe fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32 {
@@ -3973,7 +3566,6 @@ pub unsafe fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[inline]
 pub unsafe fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG) -> u32 {
     #[cfg(windows)]
@@ -3987,7 +3579,6 @@ pub unsafe fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_PO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsConnectionDeleteProxyInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszconnectionname: Param0, r#type: DNS_CONNECTION_PROXY_TYPE) -> u32 {
@@ -4002,7 +3593,6 @@ pub unsafe fn DnsConnectionDeleteProxyInfo<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[inline]
 pub unsafe fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) {
     #[cfg(windows)]
@@ -4016,7 +3606,6 @@ pub unsafe fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) {
@@ -4031,7 +3620,6 @@ pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) {
@@ -4046,7 +3634,6 @@ pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PRO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_LIST) {
@@ -4061,7 +3648,6 @@ pub unsafe fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_L
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[inline]
 pub unsafe fn DnsConnectionGetNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) -> u32 {
     #[cfg(windows)]
@@ -4075,7 +3661,6 @@ pub unsafe fn DnsConnectionGetNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsConnectionGetProxyInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszconnectionname: Param0, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) -> u32 {
@@ -4090,7 +3675,6 @@ pub unsafe fn DnsConnectionGetProxyInfo<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszhosturl: Param0, pselectioncontext: *const u8, dwselectioncontextlength: u32, dwexplicitinterfaceindex: u32, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32 {
@@ -4105,7 +3689,6 @@ pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsConnectionGetProxyList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszconnectionname: Param0, pproxylist: *mut DNS_CONNECTION_PROXY_LIST) -> u32 {
@@ -4120,7 +3703,6 @@ pub unsafe fn DnsConnectionGetProxyList<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32 {
@@ -4135,7 +3717,6 @@ pub unsafe fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLIC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsConnectionSetProxyInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszconnectionname: Param0, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *const DNS_CONNECTION_PROXY_INFO) -> u32 {
@@ -4150,7 +3731,6 @@ pub unsafe fn DnsConnectionSetProxyInfo<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST) -> u32 {
@@ -4177,7 +3757,6 @@ unsafe impl ::windows::core::Handle for DnsContextHandle {}
 unsafe impl ::windows::core::Abi for DnsContextHandle {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32 {
@@ -4192,7 +3771,6 @@ pub unsafe fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: *const DNS_MESSAGE_B
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsExtractRecordsFromMessage_W(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32 {
@@ -4207,7 +3785,6 @@ pub unsafe fn DnsExtractRecordsFromMessage_W(pdnsbuffer: *const DNS_MESSAGE_BUFF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[inline]
 pub unsafe fn DnsFree(pdata: *const ::core::ffi::c_void, freetype: DNS_FREE_TYPE) {
     #[cfg(windows)]
@@ -4221,7 +3798,6 @@ pub unsafe fn DnsFree(pdata: *const ::core::ffi::c_void, freetype: DNS_FREE_TYPE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS_CUSTOM_SERVER) {
@@ -4236,7 +3812,6 @@ pub unsafe fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsFreeProxyName(proxyname: super::super::Foundation::PWSTR) {
@@ -4251,7 +3826,6 @@ pub unsafe fn DnsFreeProxyName(proxyname: super::super::Foundation::PWSTR) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsGetApplicationSettings(pcservers: *mut u32, ppdefaultservers: *mut *mut DNS_CUSTOM_SERVER, psettings: *mut DNS_APPLICATION_SETTINGS) -> u32 {
@@ -4266,7 +3840,6 @@ pub unsafe fn DnsGetApplicationSettings(pcservers: *mut u32, ppdefaultservers: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsGetProxyInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: *mut DNS_PROXY_INFORMATION, completionroutine: ::core::option::Option<DNS_PROXY_COMPLETION_ROUTINE>, completioncontext: *const ::core::ffi::c_void) -> u32 {
@@ -4281,7 +3854,6 @@ pub unsafe fn DnsGetProxyInformation<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsModifyRecordsInSet_A<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: Param3, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32 {
@@ -4296,7 +3868,6 @@ pub unsafe fn DnsModifyRecordsInSet_A<'a, Param3: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsModifyRecordsInSet_UTF8<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: Param3, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32 {
@@ -4311,7 +3882,6 @@ pub unsafe fn DnsModifyRecordsInSet_UTF8<'a, Param3: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsModifyRecordsInSet_W<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: Param3, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32 {
@@ -4326,7 +3896,6 @@ pub unsafe fn DnsModifyRecordsInSet_W<'a, Param3: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsNameCompare_A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname1: Param0, pname2: Param1) -> super::super::Foundation::BOOL {
@@ -4341,7 +3910,6 @@ pub unsafe fn DnsNameCompare_A<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsNameCompare_W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname1: Param0, pname2: Param1) -> super::super::Foundation::BOOL {
@@ -4356,7 +3924,6 @@ pub unsafe fn DnsNameCompare_W<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsQueryConfig<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(config: DNS_CONFIG_TYPE, flag: u32, pwsadaptername: Param2, preserved: *const ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void, pbuflen: *mut u32) -> i32 {
@@ -4371,7 +3938,6 @@ pub unsafe fn DnsQueryConfig<'a, Param2: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults: *mut DNS_QUERY_RESULT, pcancelhandle: *mut DNS_QUERY_CANCEL) -> i32 {
@@ -4386,7 +3952,6 @@ pub unsafe fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsQuery_A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszname: Param0, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::core::ffi::c_void) -> i32 {
@@ -4401,7 +3966,6 @@ pub unsafe fn DnsQuery_A<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsQuery_UTF8<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszname: Param0, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::core::ffi::c_void) -> i32 {
@@ -4416,7 +3980,6 @@ pub unsafe fn DnsQuery_UTF8<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsQuery_W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszname: Param0, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::core::ffi::c_void) -> i32 {
@@ -4431,7 +3994,6 @@ pub unsafe fn DnsQuery_W<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsRecordCompare(precord1: *const DNS_RECORDA, precord2: *const DNS_RECORDA) -> super::super::Foundation::BOOL {
@@ -4446,7 +4008,6 @@ pub unsafe fn DnsRecordCompare(precord1: *const DNS_RECORDA, precord2: *const DN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsRecordCopyEx(precord: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA {
@@ -4461,7 +4022,6 @@ pub unsafe fn DnsRecordCopyEx(precord: *const DNS_RECORDA, charsetin: DNS_CHARSE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsRecordSetCompare(prr1: *mut DNS_RECORDA, prr2: *mut DNS_RECORDA, ppdiff1: *mut *mut DNS_RECORDA, ppdiff2: *mut *mut DNS_RECORDA) -> super::super::Foundation::BOOL {
@@ -4476,7 +4036,6 @@ pub unsafe fn DnsRecordSetCompare(prr1: *mut DNS_RECORDA, prr2: *mut DNS_RECORDA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsRecordSetCopyEx(precordset: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA {
@@ -4491,7 +4050,6 @@ pub unsafe fn DnsRecordSetCopyEx(precordset: *const DNS_RECORDA, charsetin: DNS_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> *mut DNS_RECORDA {
@@ -4506,7 +4064,6 @@ pub unsafe fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> *mut DNS_RECO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsReleaseContextHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hcontext: Param0) {
@@ -4521,7 +4078,6 @@ pub unsafe fn DnsReleaseContextHandle<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsReplaceRecordSetA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(preplaceset: *const DNS_RECORDA, options: u32, hcontext: Param2, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32 {
@@ -4536,7 +4092,6 @@ pub unsafe fn DnsReplaceRecordSetA<'a, Param2: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsReplaceRecordSetUTF8<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(preplaceset: *const DNS_RECORDA, options: u32, hcontext: Param2, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32 {
@@ -4551,7 +4106,6 @@ pub unsafe fn DnsReplaceRecordSetUTF8<'a, Param2: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsReplaceRecordSetW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(preplaceset: *const DNS_RECORDA, options: u32, hcontext: Param2, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32 {
@@ -4566,7 +4120,6 @@ pub unsafe fn DnsReplaceRecordSetW<'a, Param2: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsServiceBrowse(prequest: *const DNS_SERVICE_BROWSE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32 {
@@ -4581,7 +4134,6 @@ pub unsafe fn DnsServiceBrowse(prequest: *const DNS_SERVICE_BROWSE_REQUEST, pcan
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[inline]
 pub unsafe fn DnsServiceBrowseCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32 {
     #[cfg(windows)]
@@ -4595,7 +4147,6 @@ pub unsafe fn DnsServiceBrowseCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsServiceConstructInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pservicename: Param0, phostname: Param1, pip4: *const u32, pip6: *const IP6_ADDRESS, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const super::super::Foundation::PWSTR, values: *const super::super::Foundation::PWSTR) -> *mut DNS_SERVICE_INSTANCE {
@@ -4621,7 +4172,6 @@ pub unsafe fn DnsServiceConstructInstance<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsServiceCopyInstance(porig: *const DNS_SERVICE_INSTANCE) -> *mut DNS_SERVICE_INSTANCE {
@@ -4636,7 +4186,6 @@ pub unsafe fn DnsServiceCopyInstance(porig: *const DNS_SERVICE_INSTANCE) -> *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsServiceDeRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32 {
@@ -4651,7 +4200,6 @@ pub unsafe fn DnsServiceDeRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE) {
@@ -4666,7 +4214,6 @@ pub unsafe fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsServiceRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32 {
@@ -4681,7 +4228,6 @@ pub unsafe fn DnsServiceRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[inline]
 pub unsafe fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> u32 {
     #[cfg(windows)]
@@ -4695,7 +4241,6 @@ pub unsafe fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsServiceResolve(prequest: *const DNS_SERVICE_RESOLVE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32 {
@@ -4710,7 +4255,6 @@ pub unsafe fn DnsServiceResolve(prequest: *const DNS_SERVICE_RESOLVE_REQUEST, pc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[inline]
 pub unsafe fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32 {
     #[cfg(windows)]
@@ -4724,7 +4268,6 @@ pub unsafe fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsSetApplicationSettings(cservers: u32, pservers: *const DNS_CUSTOM_SERVER, psettings: *const DNS_APPLICATION_SETTINGS) -> u32 {
@@ -4739,7 +4282,6 @@ pub unsafe fn DnsSetApplicationSettings(cservers: u32, pservers: *const DNS_CUST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsStartMulticastQuery(pqueryrequest: *const MDNS_QUERY_REQUEST, phandle: *mut MDNS_QUERY_HANDLE) -> i32 {
@@ -4754,7 +4296,6 @@ pub unsafe fn DnsStartMulticastQuery(pqueryrequest: *const MDNS_QUERY_REQUEST, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[inline]
 pub unsafe fn DnsStopMulticastQuery(phandle: *mut MDNS_QUERY_HANDLE) -> i32 {
     #[cfg(windows)]
@@ -4768,7 +4309,6 @@ pub unsafe fn DnsStopMulticastQuery(phandle: *mut MDNS_QUERY_HANDLE) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsValidateName_A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszname: Param0, format: DNS_NAME_FORMAT) -> i32 {
@@ -4783,7 +4323,6 @@ pub unsafe fn DnsValidateName_A<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsValidateName_UTF8<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszname: Param0, format: DNS_NAME_FORMAT) -> i32 {
@@ -4798,7 +4337,6 @@ pub unsafe fn DnsValidateName_UTF8<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsValidateName_W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszname: Param0, format: DNS_NAME_FORMAT) -> i32 {
@@ -4813,7 +4351,6 @@ pub unsafe fn DnsValidateName_W<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsWriteQuestionToBuffer_UTF8<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: Param2, wtype: u16, xid: u16, frecursiondesired: Param5) -> super::super::Foundation::BOOL {
@@ -4828,7 +4365,6 @@ pub unsafe fn DnsWriteQuestionToBuffer_UTF8<'a, Param2: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsWriteQuestionToBuffer_W<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: Param2, wtype: u16, xid: u16, frecursiondesired: Param5) -> super::super::Foundation::BOOL {
@@ -4843,13 +4379,10 @@ pub unsafe fn DnsWriteQuestionToBuffer_W<'a, Param2: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const IP4_ADDRESS_STRING_BUFFER_LENGTH: u32 = 16u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const IP4_ADDRESS_STRING_LENGTH: u32 = 16u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct IP4_ARRAY {
     pub AddrCount: u32,
     pub AddrArray: [u32; 1],
@@ -4877,7 +4410,6 @@ unsafe impl ::windows::core::Abi for IP4_ARRAY {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub union IP6_ADDRESS {
     pub IP6Qword: [u64; 2],
     pub IP6Dword: [u32; 4],
@@ -4907,7 +4439,6 @@ unsafe impl ::windows::core::Abi for IP6_ADDRESS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86",))]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub union IP6_ADDRESS {
     pub IP6Dword: [u32; 4],
     pub IP6Word: [u16; 8],
@@ -4933,13 +4464,10 @@ impl ::core::cmp::Eq for IP6_ADDRESS {}
 unsafe impl ::windows::core::Abi for IP6_ADDRESS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65u32;
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const IP6_ADDRESS_STRING_LENGTH: u32 = 65u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub struct MDNS_QUERY_HANDLE {
     pub nameBuf: [u16; 256],
     pub wType: u16,
@@ -4970,7 +4498,6 @@ unsafe impl ::windows::core::Abi for MDNS_QUERY_HANDLE {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct MDNS_QUERY_REQUEST {
     pub Version: u32,
     pub ulRefCount: u32,
@@ -5019,27 +4546,20 @@ impl ::core::cmp::Eq for MDNS_QUERY_REQUEST {}
 unsafe impl ::windows::core::Abi for MDNS_QUERY_REQUEST {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDNS_QUERY_COMPLETION_ROUTINE = unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT);
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDNS_SERVICE_BROWSE_CALLBACK = unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pdnsrecord: *const DNS_RECORDA);
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDNS_SERVICE_REGISTER_COMPLETE = unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE);
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDNS_SERVICE_RESOLVE_COMPLETE = unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE);
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMDNS_QUERY_CALLBACK = unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT);
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const SIZEOF_IP4_ADDRESS: u32 = 4u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct _DnsRecordOptA {
     pub pNext: *mut DNS_RECORDA,
     pub pName: super::super::Foundation::PSTR,
@@ -5128,7 +4648,6 @@ unsafe impl ::windows::core::Abi for _DnsRecordOptA_1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct _DnsRecordOptW {
     pub pNext: *mut DNS_RECORDW,
     pub pName: super::super::Foundation::PWSTR,

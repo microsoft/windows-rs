@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXGI_ALPHA_MODE(pub u32);
@@ -44,9 +43,7 @@ impl ::core::ops::Not for DXGI_ALPHA_MODE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub const DXGI_CENTER_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967294u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXGI_COLOR_SPACE_TYPE(pub i32);
@@ -84,17 +81,11 @@ impl ::core::convert::From<i32> for DXGI_COLOR_SPACE_TYPE {
 unsafe impl ::windows::core::Abi for DXGI_COLOR_SPACE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub const DXGI_CPU_ACCESS_DYNAMIC: u32 = 1u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub const DXGI_CPU_ACCESS_FIELD: u32 = 15u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub const DXGI_CPU_ACCESS_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub const DXGI_CPU_ACCESS_READ_WRITE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub const DXGI_CPU_ACCESS_SCRATCH: u32 = 3u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXGI_FORMAT(pub u32);
@@ -256,11 +247,9 @@ impl ::core::ops::Not for DXGI_FORMAT {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub const DXGI_FORMAT_DEFINED: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_GAMMA_CONTROL {
     pub Scale: DXGI_RGB,
     pub Offset: DXGI_RGB,
@@ -289,7 +278,6 @@ unsafe impl ::windows::core::Abi for DXGI_GAMMA_CONTROL {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`, `Win32_Foundation`*"]
 pub struct DXGI_GAMMA_CONTROL_CAPABILITIES {
     pub ScaleAndOffsetSupported: super::super::super::Foundation::BOOL,
     pub MaxConvertedValue: f32,
@@ -331,7 +319,6 @@ unsafe impl ::windows::core::Abi for DXGI_GAMMA_CONTROL_CAPABILITIES {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_JPEG_AC_HUFFMAN_TABLE {
     pub CodeCounts: [u8; 16],
     pub CodeValues: [u8; 162],
@@ -358,7 +345,6 @@ unsafe impl ::windows::core::Abi for DXGI_JPEG_AC_HUFFMAN_TABLE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_JPEG_DC_HUFFMAN_TABLE {
     pub CodeCounts: [u8; 12],
     pub CodeValues: [u8; 12],
@@ -385,7 +371,6 @@ unsafe impl ::windows::core::Abi for DXGI_JPEG_DC_HUFFMAN_TABLE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_JPEG_QUANTIZATION_TABLE {
     pub Elements: [u8; 64],
 }
@@ -411,7 +396,6 @@ unsafe impl ::windows::core::Abi for DXGI_JPEG_QUANTIZATION_TABLE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_MODE_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -440,7 +424,6 @@ impl ::core::cmp::Eq for DXGI_MODE_DESC {}
 unsafe impl ::windows::core::Abi for DXGI_MODE_DESC {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXGI_MODE_ROTATION(pub i32);
@@ -457,7 +440,6 @@ impl ::core::convert::From<i32> for DXGI_MODE_ROTATION {
 unsafe impl ::windows::core::Abi for DXGI_MODE_ROTATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXGI_MODE_SCALING(pub i32);
@@ -472,7 +454,6 @@ impl ::core::convert::From<i32> for DXGI_MODE_SCALING {
 unsafe impl ::windows::core::Abi for DXGI_MODE_SCALING {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXGI_MODE_SCANLINE_ORDER(pub i32);
@@ -490,7 +471,6 @@ unsafe impl ::windows::core::Abi for DXGI_MODE_SCANLINE_ORDER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -517,7 +497,6 @@ unsafe impl ::windows::core::Abi for DXGI_RATIONAL {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_RGB {
     pub Red: f32,
     pub Green: f32,
@@ -545,7 +524,6 @@ unsafe impl ::windows::core::Abi for DXGI_RGB {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub struct DXGI_SAMPLE_DESC {
     pub Count: u32,
     pub Quality: u32,
@@ -570,7 +548,5 @@ impl ::core::cmp::Eq for DXGI_SAMPLE_DESC {}
 unsafe impl ::windows::core::Abi for DXGI_SAMPLE_DESC {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub const DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_Graphics_Dxgi_Common`*"]
 pub const _FACDXGI: u32 = 2170u32;

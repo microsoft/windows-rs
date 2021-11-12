@@ -1,36 +1,23 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const ADMINDATA_MAX_NAME_LEN: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const APPCTR_MD_ID_BEGIN_RESERVED: u32 = 57344u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const APPCTR_MD_ID_END_RESERVED: u32 = 61439u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const APPSTATUS_NOTDEFINED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const APPSTATUS_RUNNING: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const APPSTATUS_STOPPED: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const ASP_MD_ID_BEGIN_RESERVED: u32 = 28672u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const ASP_MD_ID_END_RESERVED: u32 = 29951u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const ASP_MD_SERVER_BASE: u32 = 7000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const ASP_MD_UT_APP: u32 = 101u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpAuthenticationProvider(pub ::windows::core::IUnknown);
 impl AsyncIFtpAuthenticationProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_AuthenticateUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszusername: Param2, pszpassword: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Finish_AuthenticateUser(&self, ppszcanonicalusername: *mut super::super::Foundation::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppszcanonicalusername), ::core::mem::transmute(pfauthenticated)).ok()
     }
@@ -70,17 +57,14 @@ pub struct AsyncIFtpAuthenticationProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszcanonicalusername: *mut super::super::Foundation::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpAuthorizationProvider(pub ::windows::core::IUnknown);
 impl AsyncIFtpAuthorizationProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_GetUserAccessPermission<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszvirtualpath: Param2, pszusername: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszvirtualpath.into_param().abi(), pszusername.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Finish_GetUserAccessPermission(&self) -> ::windows::core::Result<FTP_ACCESS> {
         let mut result__: <FTP_ACCESS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FTP_ACCESS>(result__)
@@ -120,18 +104,15 @@ pub struct AsyncIFtpAuthorizationProvider_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pftpaccess: *mut FTP_ACCESS) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpHomeDirectoryProvider(pub ::windows::core::IUnknown);
 impl AsyncIFtpHomeDirectoryProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_GetUserHomeDirectoryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszusername: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Finish_GetUserHomeDirectoryData(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
@@ -172,17 +153,14 @@ pub struct AsyncIFtpHomeDirectoryProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppszhomedirectorydata: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpLogProvider(pub ::windows::core::IUnknown);
 impl AsyncIFtpLogProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ploggingparameters)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Finish_Log(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
@@ -221,17 +199,14 @@ pub struct AsyncIFtpLogProvider_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpPostprocessProvider(pub ::windows::core::IUnknown);
 impl AsyncIFtpPostprocessProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppostprocessparameters)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Finish_HandlePostprocess(&self) -> ::windows::core::Result<FTP_PROCESS_STATUS> {
         let mut result__: <FTP_PROCESS_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FTP_PROCESS_STATUS>(result__)
@@ -271,17 +246,14 @@ pub struct AsyncIFtpPostprocessProvider_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpPreprocessProvider(pub ::windows::core::IUnknown);
 impl AsyncIFtpPreprocessProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppreprocessparameters)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Finish_HandlePreprocess(&self) -> ::windows::core::Result<FTP_PROCESS_STATUS> {
         let mut result__: <FTP_PROCESS_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FTP_PROCESS_STATUS>(result__)
@@ -321,18 +293,15 @@ pub struct AsyncIFtpPreprocessProvider_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIFtpRoleProvider(pub ::windows::core::IUnknown);
 impl AsyncIFtpRoleProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_IsUserInRole<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszusername: Param2, pszrole: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszrole.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Finish_IsUserInRole(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -373,25 +342,20 @@ pub struct AsyncIFtpRoleProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pfisinrole: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AsyncIMSAdminBaseSinkW(pub ::windows::core::IUnknown);
 impl AsyncIMSAdminBaseSinkW {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Begin_SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmdnumelements), ::core::mem::transmute(pcochangelist)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Finish_SinkNotify(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Begin_ShutdownNotify(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Finish_ShutdownNotify(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
@@ -435,7 +399,6 @@ pub struct AsyncIMSAdminBaseSinkW_abi(
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct CERT_CONTEXT_EX {
     pub CertContext: super::super::Security::Cryptography::CERT_CONTEXT,
     pub cbAllocated: u32,
@@ -479,7 +442,6 @@ pub const CLSID_WamAdmin: ::windows::core::GUID = ::windows::core::GUID::from_u1
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct CONFIGURATION_ENTRY {
     pub bstrKey: super::super::Foundation::BSTR,
     pub bstrValue: super::super::Foundation::BSTR,
@@ -510,58 +472,33 @@ impl ::core::cmp::Eq for CONFIGURATION_ENTRY {}
 unsafe impl ::windows::core::Abi for CONFIGURATION_ENTRY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_ABORT: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_BASE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_GETALLRESPONSEHEADERS: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_GETRESPONSEHEADER: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_OPEN: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_OPTION: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_RESPONSEBODY: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_RESPONSESTREAM: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_RESPONSETEXT: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_SEND: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_SETAUTOLOGONPOLICY: u32 = 18u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_SETCLIENTCERTIFICATE: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_SETCREDENTIALS: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_SETPROXY: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_SETREQUESTHEADER: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_SETTIMEOUTS: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_STATUS: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_STATUSTEXT: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_WAITFORRESPONSE: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DWN_COLORMODE: u32 = 63u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DWN_DOWNLOADONLY: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DWN_FORCEDITHER: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DWN_MIRRORIMAGE: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DWN_RAWIMAGE: u32 = 256u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -641,11 +578,8 @@ impl ::core::cmp::Eq for EXTENSION_CONTROL_BLOCK {}
 unsafe impl ::windows::core::Abi for EXTENSION_CONTROL_BLOCK {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const FP_MD_ID_END_RESERVED: u32 = 36863u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FTP_ACCESS(pub i32);
@@ -661,7 +595,6 @@ impl ::core::convert::From<i32> for FTP_ACCESS {
 unsafe impl ::windows::core::Abi for FTP_ACCESS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FTP_PROCESS_STATUS(pub i32);
@@ -685,7 +618,6 @@ pub const GUID_IIS_ISAPI_TRACE_PROVIDER: ::windows::core::GUID = ::windows::core
 pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd55d3bc9_cba9_44df_827e_132d3a4596c2);
 pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a2a4e84_4c21_4981_ae10_3fda0d9b0f83);
 pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde4649c9_15e8_4fea_9d85_1cdda520c334);
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL {
@@ -700,7 +632,6 @@ pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL {
@@ -715,18 +646,13 @@ pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_APPEND_LOG_PARAMETER: u32 = 1003u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_APP_FLAG_IN_PROCESS: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_APP_FLAG_ISOLATED_OOP: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_APP_FLAG_POOLED_OOP: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HSE_CUSTOM_ERROR_INFO {
     pub pszStatus: super::super::Foundation::PSTR,
     pub uHttpSubError: u16,
@@ -761,7 +687,6 @@ unsafe impl ::windows::core::Abi for HSE_CUSTOM_ERROR_INFO {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pszUrl: super::super::Foundation::PWSTR,
     pub pszMethod: super::super::Foundation::PSTR,
@@ -799,7 +724,6 @@ unsafe impl ::windows::core::Abi for HSE_EXEC_UNICODE_URL_INFO {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
     pub pszCustomUserName: super::super::Foundation::PWSTR,
@@ -831,11 +755,9 @@ impl ::core::cmp::Eq for HSE_EXEC_UNICODE_URL_USER_INFO {}
 unsafe impl ::windows::core::Abi for HSE_EXEC_UNICODE_URL_USER_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: u32 = 32u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct HSE_EXEC_URL_ENTITY_INFO {
     pub cbAvailable: u32,
     pub lpbData: *mut ::core::ffi::c_void,
@@ -860,16 +782,12 @@ impl ::core::cmp::Eq for HSE_EXEC_URL_ENTITY_INFO {}
 unsafe impl ::windows::core::Abi for HSE_EXEC_URL_ENTITY_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_IGNORE_VALIDATION_AND_RANGE: u32 = 16u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HSE_EXEC_URL_INFO {
     pub pszUrl: super::super::Foundation::PSTR,
     pub pszMethod: super::super::Foundation::PSTR,
@@ -904,13 +822,10 @@ impl ::core::cmp::Eq for HSE_EXEC_URL_INFO {}
 unsafe impl ::windows::core::Abi for HSE_EXEC_URL_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_NO_HEADERS: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_SSI_CMD: u32 = 64u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct HSE_EXEC_URL_STATUS {
     pub uHttpStatusCode: u16,
     pub uHttpSubStatus: u16,
@@ -939,7 +854,6 @@ unsafe impl ::windows::core::Abi for HSE_EXEC_URL_STATUS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HSE_EXEC_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
     pub pszCustomUserName: super::super::Foundation::PSTR,
@@ -971,98 +885,53 @@ impl ::core::cmp::Eq for HSE_EXEC_URL_USER_INFO {}
 unsafe impl ::windows::core::Abi for HSE_EXEC_URL_USER_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_LOG_BUFFER_LEN: u32 = 80u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_MAX_EXT_DLL_NAME_LEN: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_ABORTIVE_CLOSE: u32 = 1014u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_ASYNC_READ_CLIENT: u32 = 1010u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_BASE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_CANCEL_IO: u32 = 1049u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_CLOSE_CONNECTION: u32 = 1017u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_DONE_WITH_SESSION: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_END_RESERVED: u32 = 1000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_EXEC_UNICODE_URL: u32 = 1025u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_EXEC_URL: u32 = 1026u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_ANONYMOUS_TOKEN: u32 = 1038u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_CACHE_INVALIDATION_CALLBACK: u32 = 1040u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_CERT_INFO_EX: u32 = 1015u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_CHANNEL_BINDING_TOKEN: u32 = 1050u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_CONFIG_OBJECT: u32 = 1046u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_EXEC_URL_STATUS: u32 = 1027u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_IMPERSONATION_TOKEN: u32 = 1011u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK: u32 = 1048u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_SSPI_INFO: u32 = 1002u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_TRACE_INFO: u32 = 1042u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_TRACE_INFO_EX: u32 = 1044u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_UNICODE_ANONYMOUS_TOKEN: u32 = 1041u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_GET_WORKER_PROCESS_SETTINGS: u32 = 1047u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_IO_COMPLETION: u32 = 1005u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_IS_CONNECTED: u32 = 1018u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_IS_IN_PROCESS: u32 = 1030u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_IS_KEEP_CONN: u32 = 1008u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_MAP_UNICODE_URL_TO_PATH: u32 = 1023u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_MAP_UNICODE_URL_TO_PATH_EX: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_MAP_URL_TO_PATH: u32 = 1001u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_MAP_URL_TO_PATH_EX: u32 = 1012u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_NORMALIZE_URL: u32 = 1033u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_RAISE_TRACE_EVENT: u32 = 1045u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_REFRESH_ISAPI_ACL: u32 = 1007u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_REPORT_UNHEALTHY: u32 = 1032u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_SEND_CUSTOM_ERROR: u32 = 1028u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_SEND_RESPONSE_HEADER: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_SEND_RESPONSE_HEADER_EX: u32 = 1016u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_SEND_URL: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_SEND_URL_REDIRECT_RESP: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_SET_FLUSH_FLAG: u32 = 1043u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_TRANSMIT_FILE: u32 = 1006u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_REQ_VECTOR_SEND: u32 = 1037u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HSE_RESPONSE_VECTOR {
     pub dwFlags: u32,
     pub pszStatus: super::super::Foundation::PSTR,
@@ -1099,7 +968,6 @@ unsafe impl ::windows::core::Abi for HSE_RESPONSE_VECTOR {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HSE_SEND_HEADER_EX_INFO {
     pub pszStatus: super::super::Foundation::PSTR,
     pub pszHeader: super::super::Foundation::PSTR,
@@ -1133,22 +1001,15 @@ impl ::core::cmp::Eq for HSE_SEND_HEADER_EX_INFO {}
 unsafe impl ::windows::core::Abi for HSE_SEND_HEADER_EX_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_STATUS_ERROR: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_STATUS_PENDING: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_STATUS_SUCCESS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_STATUS_SUCCESS_AND_KEEP_CONN: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_TERM_ADVISORY_UNLOAD: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_TERM_MUST_UNLOAD: u32 = 2u32;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HSE_TF_INFO {
     pub pfnHseIO: ::core::option::Option<PFN_HSE_IO_COMPLETION>,
     pub pContext: *mut ::core::ffi::c_void,
@@ -1202,7 +1063,6 @@ unsafe impl ::windows::core::Abi for HSE_TF_INFO {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HSE_TRACE_INFO {
     pub fTraceRequest: super::super::Foundation::BOOL,
     pub TraceContextId: [u8; 16],
@@ -1237,7 +1097,6 @@ unsafe impl ::windows::core::Abi for HSE_TRACE_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct HSE_UNICODE_URL_MAPEX_INFO {
     pub lpszPath: [u16; 260],
     pub dwFlags: u32,
@@ -1264,32 +1123,20 @@ impl ::core::cmp::Eq for HSE_UNICODE_URL_MAPEX_INFO {}
 unsafe impl ::windows::core::Abi for HSE_UNICODE_URL_MAPEX_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_DONT_CACHE: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_EXECUTE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_MAP_CERT: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_MASK: u32 = 1023u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_NEGO_CERT: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_READ: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_REQUIRE_CERT: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_SCRIPT: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_SSL: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_SSL128: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_WRITE: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HSE_URL_MAPEX_INFO {
     pub lpszPath: [super::super::Foundation::CHAR; 260],
     pub dwFlags: u32,
@@ -1326,7 +1173,6 @@ unsafe impl ::windows::core::Abi for HSE_URL_MAPEX_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct HSE_VECTOR_ELEMENT {
     pub ElementType: u32,
     pub pvContext: *mut ::core::ffi::c_void,
@@ -1353,14 +1199,11 @@ impl ::core::cmp::Eq for HSE_VECTOR_ELEMENT {}
 unsafe impl ::windows::core::Abi for HSE_VECTOR_ELEMENT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: u32 = 0u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HSE_VERSION_INFO {
     pub dwExtensionVersion: u32,
     pub lpszExtensionDesc: [super::super::Foundation::CHAR; 256],
@@ -1391,14 +1234,11 @@ impl ::core::cmp::Eq for HSE_VERSION_INFO {}
 unsafe impl ::windows::core::Abi for HSE_VERSION_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_VERSION_MAJOR: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_VERSION_MINOR: u32 = 0u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HTTP_FILTER_ACCESS_DENIED {
     pub pszURL: super::super::Foundation::PSTR,
     pub pszPhysicalPath: super::super::Foundation::PSTR,
@@ -1433,7 +1273,6 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_ACCESS_DENIED {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HTTP_FILTER_AUTHENT {
     pub pszUser: super::super::Foundation::PSTR,
     pub cbUserBuff: u32,
@@ -1469,7 +1308,6 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_AUTHENT {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub GetHeader: isize,
     pub SetHeader: isize,
@@ -1516,7 +1354,6 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_AUTH_COMPLETE_INFO {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HTTP_FILTER_CONTEXT {
     pub cbSize: u32,
     pub Revision: u32,
@@ -1571,7 +1408,6 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_CONTEXT {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HTTP_FILTER_LOG {
     pub pszClientHostName: super::super::Foundation::PSTR,
     pub pszClientUserName: super::super::Foundation::PSTR,
@@ -1635,7 +1471,6 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_LOG {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct HTTP_FILTER_PREPROC_HEADERS {
     pub GetHeader: isize,
     pub SetHeader: isize,
@@ -1665,7 +1500,6 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_PREPROC_HEADERS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct HTTP_FILTER_RAW_DATA {
     pub pvInData: *mut ::core::ffi::c_void,
     pub cbInData: u32,
@@ -1695,7 +1529,6 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_RAW_DATA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HTTP_FILTER_URL_MAP {
     pub pszURL: super::super::Foundation::PSTR,
     pub pszPhysicalPath: super::super::Foundation::PSTR,
@@ -1730,7 +1563,6 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_URL_MAP {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HTTP_FILTER_URL_MAP_EX {
     pub pszURL: super::super::Foundation::PSTR,
     pub pszPhysicalPath: super::super::Foundation::PSTR,
@@ -1777,7 +1609,6 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_URL_MAP_EX {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HTTP_FILTER_VERSION {
     pub dwServerFilterVersion: u32,
     pub dwFilterVersion: u32,
@@ -1813,7 +1644,6 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_VERSION {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HTTP_TRACE_CONFIGURATION {
     pub pProviderGuid: *mut ::windows::core::GUID,
     pub dwAreas: u32,
@@ -1849,7 +1679,6 @@ unsafe impl ::windows::core::Abi for HTTP_TRACE_CONFIGURATION {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HTTP_TRACE_EVENT {
     pub pProviderGuid: *mut ::windows::core::GUID,
     pub dwArea: u32,
@@ -1917,12 +1746,10 @@ impl ::core::cmp::Eq for HTTP_TRACE_EVENT {}
 unsafe impl ::windows::core::Abi for HTTP_TRACE_EVENT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HTTP_TRACE_EVENT_FLAG_STATIC_DESCRIPTIVE_FIELDS: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct HTTP_TRACE_EVENT_ITEM {
     pub pszName: super::super::Foundation::PWSTR,
     pub dwDataType: HTTP_TRACE_TYPE,
@@ -1956,11 +1783,8 @@ impl ::core::cmp::Eq for HTTP_TRACE_EVENT_ITEM {}
 unsafe impl ::windows::core::Abi for HTTP_TRACE_EVENT_ITEM {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_TRACE_TYPE(pub i32);
@@ -1984,7 +1808,6 @@ impl ::core::convert::From<i32> for HTTP_TRACE_TYPE {
 unsafe impl ::windows::core::Abi for HTTP_TRACE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
@@ -1999,7 +1822,6 @@ pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::core::ffi::c_void) -> u32 {
@@ -2014,20 +1836,16 @@ pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IADMEXT(pub ::windows::core::IUnknown);
 impl IADMEXT {
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Initialize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn EnumDcomCLSIDs(&self, pclsiddcom: *mut ::windows::core::GUID, dwenumindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pclsiddcom), ::core::mem::transmute(dwenumindex)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn Terminate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
@@ -2066,13 +1884,11 @@ pub struct IADMEXT_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pclsiddcom: *mut ::windows::core::GUID, dwenumindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpAuthenticationProvider(pub ::windows::core::IUnknown);
 impl IFtpAuthenticationProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn AuthenticateUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
         &self,
         pszsessionid: Param0,
@@ -2118,13 +1934,11 @@ pub struct IFtpAuthenticationProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, ppszcanonicalusername: *mut super::super::Foundation::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpAuthorizationProvider(pub ::windows::core::IUnknown);
 impl IFtpAuthorizationProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetUserAccessPermission<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszvirtualpath: Param2, pszusername: Param3) -> ::windows::core::Result<FTP_ACCESS> {
         let mut result__: <FTP_ACCESS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszvirtualpath.into_param().abi(), pszusername.into_param().abi(), &mut result__).from_abi::<FTP_ACCESS>(result__)
@@ -2163,13 +1977,11 @@ pub struct IFtpAuthorizationProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszvirtualpath: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pftpaccess: *mut FTP_ACCESS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpHomeDirectoryProvider(pub ::windows::core::IUnknown);
 impl IFtpHomeDirectoryProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetUserHomeDirectoryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszusername: Param2) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
@@ -2208,13 +2020,11 @@ pub struct IFtpHomeDirectoryProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, ppszhomedirectorydata: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpLogProvider(pub ::windows::core::IUnknown);
 impl IFtpLogProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ploggingparameters)).ok()
     }
@@ -2252,13 +2062,11 @@ pub struct IFtpLogProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpPostprocessProvider(pub ::windows::core::IUnknown);
 impl IFtpPostprocessProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::core::Result<FTP_PROCESS_STATUS> {
         let mut result__: <FTP_PROCESS_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppostprocessparameters), &mut result__).from_abi::<FTP_PROCESS_STATUS>(result__)
@@ -2297,13 +2105,11 @@ pub struct IFtpPostprocessProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppostprocessparameters: *const POST_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpPreprocessProvider(pub ::windows::core::IUnknown);
 impl IFtpPreprocessProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::core::Result<FTP_PROCESS_STATUS> {
         let mut result__: <FTP_PROCESS_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppreprocessparameters), &mut result__).from_abi::<FTP_PROCESS_STATUS>(result__)
@@ -2342,13 +2148,11 @@ pub struct IFtpPreprocessProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpProviderConstruct(pub ::windows::core::IUnknown);
 impl IFtpProviderConstruct {
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_System_Com`*"]
     pub unsafe fn Construct(&self, configurationentries: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(configurationentries)).ok()
     }
@@ -2386,13 +2190,11 @@ pub struct IFtpProviderConstruct_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, configurationentries: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFtpRoleProvider(pub ::windows::core::IUnknown);
 impl IFtpRoleProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn IsUserInRole<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszusername: Param2, pszrole: Param3) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszrole.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -2431,145 +2233,92 @@ pub struct IFtpRoleProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszrole: super::super::Foundation::PWSTR, pfisinrole: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_ADSI_METAID_BEGIN: u32 = 130000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_APPPOOL_BASE: u32 = 9000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_APP_BASE: u32 = 9100u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_FILE_PROP_BASE: u32 = 6000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_FTP_BASE: u32 = 5000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_GLOBAL_BASE: u32 = 9200u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_HTTP_BASE: u32 = 2000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_ID_BEGIN_RESERVED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_ID_END_RESERVED: u32 = 32767u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_LOGCUSTOM_BASE: u32 = 4500u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_LOGCUSTOM_LAST: u32 = 4508u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_LOG_BASE: u32 = 4000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_LOG_LAST: u32 = 4015u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_SERVER_BASE: u32 = 1000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_SSL_BASE: u32 = 5500u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_UT_END_RESERVED: u32 = 2000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_UT_FILE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_UT_SERVER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_UT_WAM: u32 = 100u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IIS_MD_VR_BASE: u32 = 3000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMAP_MD_ID_BEGIN_RESERVED: u32 = 49152u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMAP_MD_ID_END_RESERVED: u32 = 53247u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGANIM_ANIMATED: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGANIM_MASK: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGBITS_MASK: u32 = 234881024u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGBITS_NONE: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGBITS_PARTIAL: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGBITS_TOTAL: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGCHG_ANIMATE: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGCHG_COMPLETE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGCHG_MASK: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGCHG_SIZE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGCHG_VIEW: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGLOAD_COMPLETE: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGLOAD_ERROR: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGLOAD_LOADING: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGLOAD_MASK: u32 = 32505856u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGLOAD_NOTLOADED: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGLOAD_STOPPED: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGTRANS_MASK: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const IMGTRANS_OPAQUE: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSAdminBase2W(pub ::windows::core::IUnknown);
 impl IMSAdminBase2W {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn AddKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteChildKeys<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumKeys<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdname: super::super::Foundation::PWSTR, dwmdenumobjectindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pszmdname), ::core::mem::transmute(dwmdenumobjectindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn CopyKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdsourcehandle: u32, pszmdsourcepath: Param1, hmddesthandle: u32, pszmddestpath: Param3, bmdoverwriteflag: Param4, bmdcopyflag: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdsourcehandle), pszmdsourcepath.into_param().abi(), ::core::mem::transmute(hmddesthandle), pszmddestpath.into_param().abi(), bmdoverwriteflag.into_param().abi(), bmdcopyflag.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RenameKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdnewname: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), pszmdnewname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SetData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD, pdwmdrequireddatalen: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata), ::core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdidentifier), ::core::mem::transmute(dwmddatatype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD, dwmdenumdataindex: u32, pdwmdrequireddatalen: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata), ::core::mem::transmute(dwmdenumdataindex), ::core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetAllData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(
             ::core::mem::transmute_copy(self),
@@ -2587,12 +2336,10 @@ impl IMSAdminBase2W {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteAllData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdusertype: u32, dwmddatatype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdusertype), ::core::mem::transmute(dwmddatatype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn CopyData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdsourcehandle: u32, pszmdsourcepath: Param1, hmddesthandle: u32, pszmddestpath: Param3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: Param7) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(
             ::core::mem::transmute_copy(self),
@@ -2608,118 +2355,94 @@ impl IMSAdminBase2W {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetDataPaths<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdidentifier), ::core::mem::transmute(dwmddatatype), ::core::mem::transmute(dwmdbuffersize), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn OpenKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdaccessrequested: u32, dwmdtimeout: u32) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdaccessrequested), ::core::mem::transmute(dwmdtimeout), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn ChangePermissions(&self, hmdhandle: u32, dwmdtimeout: u32, dwmdaccessrequested: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), ::core::mem::transmute(dwmdtimeout), ::core::mem::transmute(dwmdaccessrequested)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn SaveData(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows::core::Result<METADATA_HANDLE_INFO> {
         let mut result__: <METADATA_HANDLE_INFO as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), &mut result__).from_abi::<METADATA_HANDLE_INFO>(result__)
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetSystemChangeNumber(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetDataSetNumber<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SetLastChangeTime<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdhandle: u32, pszmdpath: Param1, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetLastChangeTime<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdhandle: u32, pszmdpath: Param1, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn KeyExchangePhase1(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn KeyExchangePhase2(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Backup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Restore<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumBackups<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(pdwmdversion), ::core::mem::transmute(pftmdbackuptime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteBackup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn UnmarshalInterface(&self) -> ::windows::core::Result<IMSAdminBaseW> {
         let mut result__: <IMSAdminBaseW as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSAdminBaseW>(result__)
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetServerGuid(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn BackupWithPasswd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32, pszpasswd: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags), pszpasswd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RestoreWithPasswd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32, pszpasswd: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags), pszpasswd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Export<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpasswd: Param0, pszfilename: Param1, pszsourcepath: Param2, dwmdflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), pszpasswd.into_param().abi(), pszfilename.into_param().abi(), pszsourcepath.into_param().abi(), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Import<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpasswd: Param0, pszfilename: Param1, pszsourcepath: Param2, pszdestpath: Param3, dwmdflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), pszpasswd.into_param().abi(), pszfilename.into_param().abi(), pszsourcepath.into_param().abi(), pszdestpath.into_param().abi(), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RestoreHistory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdhistorylocation: Param0, dwmdmajorversion: u32, dwmdminorversion: u32, dwmdflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), pszmdhistorylocation.into_param().abi(), ::core::mem::transmute(dwmdmajorversion), ::core::mem::transmute(dwmdminorversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumHistory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdhistorylocation: Param0, pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), pszmdhistorylocation.into_param().abi(), ::core::mem::transmute(pdwmdmajorversion), ::core::mem::transmute(pdwmdminorversion), ::core::mem::transmute(pftmdhistorytime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
@@ -2840,63 +2563,51 @@ pub struct IMSAdminBase2W_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszmdhistorylocation: super::super::Foundation::PWSTR, pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSAdminBase3W(pub ::windows::core::IUnknown);
 impl IMSAdminBase3W {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn AddKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteChildKeys<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumKeys<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdname: super::super::Foundation::PWSTR, dwmdenumobjectindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pszmdname), ::core::mem::transmute(dwmdenumobjectindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn CopyKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdsourcehandle: u32, pszmdsourcepath: Param1, hmddesthandle: u32, pszmddestpath: Param3, bmdoverwriteflag: Param4, bmdcopyflag: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdsourcehandle), pszmdsourcepath.into_param().abi(), ::core::mem::transmute(hmddesthandle), pszmddestpath.into_param().abi(), bmdoverwriteflag.into_param().abi(), bmdcopyflag.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RenameKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdnewname: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), pszmdnewname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SetData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD, pdwmdrequireddatalen: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata), ::core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdidentifier), ::core::mem::transmute(dwmddatatype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD, dwmdenumdataindex: u32, pdwmdrequireddatalen: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata), ::core::mem::transmute(dwmdenumdataindex), ::core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetAllData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(
             ::core::mem::transmute_copy(self),
@@ -2914,12 +2625,10 @@ impl IMSAdminBase3W {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteAllData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdusertype: u32, dwmddatatype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdusertype), ::core::mem::transmute(dwmddatatype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn CopyData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdsourcehandle: u32, pszmdsourcepath: Param1, hmddesthandle: u32, pszmddestpath: Param3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: Param7) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(
             ::core::mem::transmute_copy(self),
@@ -2935,123 +2644,98 @@ impl IMSAdminBase3W {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetDataPaths<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdidentifier), ::core::mem::transmute(dwmddatatype), ::core::mem::transmute(dwmdbuffersize), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn OpenKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdaccessrequested: u32, dwmdtimeout: u32) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdaccessrequested), ::core::mem::transmute(dwmdtimeout), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn ChangePermissions(&self, hmdhandle: u32, dwmdtimeout: u32, dwmdaccessrequested: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), ::core::mem::transmute(dwmdtimeout), ::core::mem::transmute(dwmdaccessrequested)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn SaveData(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows::core::Result<METADATA_HANDLE_INFO> {
         let mut result__: <METADATA_HANDLE_INFO as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), &mut result__).from_abi::<METADATA_HANDLE_INFO>(result__)
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetSystemChangeNumber(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetDataSetNumber<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SetLastChangeTime<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdhandle: u32, pszmdpath: Param1, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetLastChangeTime<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdhandle: u32, pszmdpath: Param1, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn KeyExchangePhase1(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn KeyExchangePhase2(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Backup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Restore<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumBackups<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(pdwmdversion), ::core::mem::transmute(pftmdbackuptime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteBackup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn UnmarshalInterface(&self) -> ::windows::core::Result<IMSAdminBaseW> {
         let mut result__: <IMSAdminBaseW as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSAdminBaseW>(result__)
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetServerGuid(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn BackupWithPasswd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32, pszpasswd: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags), pszpasswd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RestoreWithPasswd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32, pszpasswd: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags), pszpasswd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Export<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpasswd: Param0, pszfilename: Param1, pszsourcepath: Param2, dwmdflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), pszpasswd.into_param().abi(), pszfilename.into_param().abi(), pszsourcepath.into_param().abi(), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Import<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpasswd: Param0, pszfilename: Param1, pszsourcepath: Param2, pszdestpath: Param3, dwmdflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), pszpasswd.into_param().abi(), pszfilename.into_param().abi(), pszsourcepath.into_param().abi(), pszdestpath.into_param().abi(), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RestoreHistory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdhistorylocation: Param0, dwmdmajorversion: u32, dwmdminorversion: u32, dwmdflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), pszmdhistorylocation.into_param().abi(), ::core::mem::transmute(dwmdmajorversion), ::core::mem::transmute(dwmdminorversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumHistory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdhistorylocation: Param0, pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), pszmdhistorylocation.into_param().abi(), ::core::mem::transmute(pdwmdmajorversion), ::core::mem::transmute(pdwmdminorversion), ::core::mem::transmute(pftmdhistorytime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetChildPaths<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, cchmdbuffersize: u32, pszbuffer: Param3, pcchmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(cchmdbuffersize), pszbuffer.into_param().abi(), ::core::mem::transmute(pcchmdrequiredbuffersize)).ok()
     }
@@ -3194,17 +2878,14 @@ pub struct IMSAdminBase3W_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, cchmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pcchmdrequiredbuffersize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSAdminBaseSinkW(pub ::windows::core::IUnknown);
 impl IMSAdminBaseSinkW {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmdnumelements), ::core::mem::transmute(pcochangelist)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn ShutdownNotify(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
@@ -3243,63 +2924,51 @@ pub struct IMSAdminBaseSinkW_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSAdminBaseW(pub ::windows::core::IUnknown);
 impl IMSAdminBaseW {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn AddKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteChildKeys<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumKeys<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdname: super::super::Foundation::PWSTR, dwmdenumobjectindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pszmdname), ::core::mem::transmute(dwmdenumobjectindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn CopyKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdsourcehandle: u32, pszmdsourcepath: Param1, hmddesthandle: u32, pszmddestpath: Param3, bmdoverwriteflag: Param4, bmdcopyflag: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdsourcehandle), pszmdsourcepath.into_param().abi(), ::core::mem::transmute(hmddesthandle), pszmddestpath.into_param().abi(), bmdoverwriteflag.into_param().abi(), bmdcopyflag.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn RenameKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdnewname: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), pszmdnewname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SetData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD, pdwmdrequireddatalen: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata), ::core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdidentifier), ::core::mem::transmute(dwmddatatype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pmdrmddata: *mut METADATA_RECORD, dwmdenumdataindex: u32, pdwmdrequireddatalen: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pmdrmddata), ::core::mem::transmute(dwmdenumdataindex), ::core::mem::transmute(pdwmdrequireddatalen)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetAllData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(
             ::core::mem::transmute_copy(self),
@@ -3317,12 +2986,10 @@ impl IMSAdminBaseW {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteAllData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdusertype: u32, dwmddatatype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdusertype), ::core::mem::transmute(dwmddatatype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn CopyData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdsourcehandle: u32, pszmdsourcepath: Param1, hmddesthandle: u32, pszmddestpath: Param3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: Param7) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(
             ::core::mem::transmute_copy(self),
@@ -3338,88 +3005,70 @@ impl IMSAdminBaseW {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetDataPaths<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdidentifier), ::core::mem::transmute(dwmddatatype), ::core::mem::transmute(dwmdbuffersize), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn OpenKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdaccessrequested: u32, dwmdtimeout: u32) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdaccessrequested), ::core::mem::transmute(dwmdtimeout), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn ChangePermissions(&self, hmdhandle: u32, dwmdtimeout: u32, dwmdaccessrequested: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), ::core::mem::transmute(dwmdtimeout), ::core::mem::transmute(dwmdaccessrequested)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn SaveData(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows::core::Result<METADATA_HANDLE_INFO> {
         let mut result__: <METADATA_HANDLE_INFO as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), &mut result__).from_abi::<METADATA_HANDLE_INFO>(result__)
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetSystemChangeNumber(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetDataSetNumber<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn SetLastChangeTime<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdhandle: u32, pszmdpath: Param1, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn GetLastChangeTime<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdhandle: u32, pszmdpath: Param1, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pftmdlastchangetime), blocaltime.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn KeyExchangePhase1(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn KeyExchangePhase2(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Backup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn Restore<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32, dwmdflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion), ::core::mem::transmute(dwmdflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumBackups<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(pdwmdversion), ::core::mem::transmute(pftmdbackuptime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn DeleteBackup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmdbackuplocation: Param0, dwmdversion: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), pszmdbackuplocation.into_param().abi(), ::core::mem::transmute(dwmdversion)).ok()
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn UnmarshalInterface(&self) -> ::windows::core::Result<IMSAdminBaseW> {
         let mut result__: <IMSAdminBaseW as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMSAdminBaseW>(result__)
     }
-    #[doc = "*Required features: `Win32_System_Iis`*"]
     pub unsafe fn GetServerGuid(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self)).ok()
     }
@@ -3508,13 +3157,11 @@ pub struct IMSAdminBaseW_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, piadmbwinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMSImpExpHelpW(pub ::windows::core::IUnknown);
 impl IMSImpExpHelpW {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
     pub unsafe fn EnumeratePathsInFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszfilename: Param0, pszkeytype: Param1, dwmdbuffersize: u32, pszbuffer: Param3, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszfilename.into_param().abi(), pszkeytype.into_param().abi(), ::core::mem::transmute(dwmdbuffersize), pszbuffer.into_param().abi(), ::core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
@@ -3558,7 +3205,6 @@ pub const LIBID_WAMREGLib: ::windows::core::GUID = ::windows::core::GUID::from_u
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct LOGGING_PARAMETERS {
     pub pszSessionId: super::super::Foundation::PWSTR,
     pub pszSiteName: super::super::Foundation::PWSTR,
@@ -3641,420 +3287,214 @@ impl ::core::cmp::Eq for LOGGING_PARAMETERS {}
 unsafe impl ::windows::core::Abi for LOGGING_PARAMETERS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MB_DONT_IMPERSONATE: u32 = 9033u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_EXECUTE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_MAP_CERT: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_MASK: u32 = 65535u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_NEGO_CERT: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_NO_PHYSICAL_DIR: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_NO_REMOTE_EXECUTE: u32 = 8192u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_NO_REMOTE_READ: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_NO_REMOTE_SCRIPT: u32 = 16384u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_NO_REMOTE_WRITE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_PERM: u32 = 6016u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_READ: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_REQUIRE_CERT: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_SCRIPT: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_SOURCE: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_SSL: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_SSL128: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACCESS_WRITE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACR_ENUM_KEYS: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACR_READ: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACR_RESTRICTED_WRITE: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACR_UNSECURE_PROPS_READ: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACR_WRITE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ACR_WRITE_DAC: u32 = 262144u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ADMIN_ACL: u32 = 6027u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ADMIN_INSTANCE: u32 = 2115u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ADV_CACHE_TTL: u32 = 2064u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ADV_NOTIFY_PWD_EXP_IN_DAYS: u32 = 2063u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AD_CONNECTIONS_PASSWORD: u32 = 5015u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AD_CONNECTIONS_USERNAME: u32 = 5014u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ALLOW_ANONYMOUS: u32 = 5005u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ALLOW_KEEPALIVES: u32 = 6038u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ALLOW_PATH_INFO_FOR_SCRIPT_MAPPINGS: u32 = 2095u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ALLOW_REPLACE_ON_RENAME: u32 = 5009u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ANONYMOUS_ONLY: u32 = 5006u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ANONYMOUS_PWD: u32 = 6021u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ANONYMOUS_USER_NAME: u32 = 6020u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ANONYMOUS_USE_SUBAUTH: u32 = 6022u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_32_BIT_APP_ON_WIN64: u32 = 9040u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_ALLOW_TRANSIENT_REGISTRATION: u32 = 9202u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_APPPOOL_ID: u32 = 9201u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_AUTO_SHUTDOWN_EXE: u32 = 9035u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_AUTO_SHUTDOWN_PARAMS: u32 = 9036u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_AUTO_START: u32 = 9028u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_COMMAND: u32 = 9026u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_COMMAND_START: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_COMMAND_STOP: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_DISALLOW_OVERLAPPING_ROTATION: u32 = 9015u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_DISALLOW_ROTATION_ON_CONFIG_CHANGE: u32 = 9018u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_IDENTITY_TYPE: u32 = 9021u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_IDENTITY_TYPE_LOCALSERVICE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_IDENTITY_TYPE_LOCALSYSTEM: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_IDENTITY_TYPE_NETWORKSERVICE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_IDENTITY_TYPE_SPECIFICUSER: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_IDLE_TIMEOUT: u32 = 9005u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_MANAGED_PIPELINE_MODE: u32 = 9041u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_MANAGED_RUNTIME_VERSION: u32 = 9039u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_MAX_PROCESS_COUNT: u32 = 9003u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_ORPHAN_ACTION_EXE: u32 = 9031u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_ORPHAN_ACTION_PARAMS: u32 = 9032u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_ORPHAN_PROCESSES_FOR_DEBUGGING: u32 = 9009u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_PERIODIC_RESTART_CONNECTIONS: u32 = 9104u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_PERIODIC_RESTART_MEMORY: u32 = 9024u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_PERIODIC_RESTART_PRIVATE_MEMORY: u32 = 9038u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_PERIODIC_RESTART_REQUEST_COUNT: u32 = 9002u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_PERIODIC_RESTART_SCHEDULE: u32 = 9020u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_PERIODIC_RESTART_TIME: u32 = 9001u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_PINGING_ENABLED: u32 = 9004u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_PING_INTERVAL: u32 = 9013u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_PING_RESPONSE_TIMELIMIT: u32 = 9014u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_RAPID_FAIL_PROTECTION_ENABLED: u32 = 9006u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_SHUTDOWN_TIMELIMIT: u32 = 9012u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_SMP_AFFINITIZED: u32 = 9007u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_SMP_AFFINITIZED_PROCESSOR_MASK: u32 = 9008u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_STARTUP_TIMELIMIT: u32 = 9011u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_STATE: u32 = 9027u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_STATE_STARTED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_STATE_STARTING: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_STATE_STOPPED: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_STATE_STOPPING: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APPPOOL_UL_APPPOOL_QUEUE_LENGTH: u32 = 9017u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_ALLOW_TRANSIENT_REGISTRATION: u32 = 9102u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_APPPOOL_ID: u32 = 9101u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_AUTO_START: u32 = 9103u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_DEPENDENCIES: u32 = 2167u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_FRIENDLY_NAME: u32 = 2102u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_ISOLATED: u32 = 2104u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_OOP_RECOVER_LIMIT: u32 = 2110u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_PACKAGE_ID: u32 = 2106u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_PACKAGE_NAME: u32 = 2107u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_PERIODIC_RESTART_REQUESTS: u32 = 2112u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_PERIODIC_RESTART_SCHEDULE: u32 = 2113u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_PERIODIC_RESTART_TIME: u32 = 2111u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_POOL_LOG_EVENT_ON_PROCESSMODEL: u32 = 9042u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_POOL_LOG_EVENT_ON_RECYCLE: u32 = 9037u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_POOL_PROCESSMODEL_IDLE_TIMEOUT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_POOL_RECYCLE_CONFIG_CHANGE: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_POOL_RECYCLE_ISAPI_UNHEALTHY: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_POOL_RECYCLE_MEMORY: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_POOL_RECYCLE_ON_DEMAND: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_POOL_RECYCLE_PRIVATE_MEMORY: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_POOL_RECYCLE_REQUESTS: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_POOL_RECYCLE_SCHEDULE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_POOL_RECYCLE_TIME: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_ROOT: u32 = 2103u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_SHUTDOWN_TIME_LIMIT: u32 = 2114u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_TRACE_URL_LIST: u32 = 2118u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_APP_WAM_CLSID: u32 = 2105u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_ALLOWOUTOFPROCCMPNTS: u32 = 7014u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_ALLOWOUTOFPROCCOMPONENTS: u32 = 7014u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_ALLOWSESSIONSTATE: u32 = 7011u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_BUFFERINGON: u32 = 7000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_BUFFER_LIMIT: u32 = 7052u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_CALCLINENUMBER: u32 = 7050u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_CODEPAGE: u32 = 7016u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_DISKTEMPLATECACHEDIRECTORY: u32 = 7036u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_ENABLEAPPLICATIONRESTART: u32 = 7027u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_ENABLEASPHTMLFALLBACK: u32 = 7021u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_ENABLECHUNKEDENCODING: u32 = 7022u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_ENABLECLIENTDEBUG: u32 = 7019u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_ENABLEPARENTPATHS: u32 = 7008u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_ENABLESERVERDEBUG: u32 = 7018u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_ENABLETYPELIBCACHE: u32 = 7023u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_ERRORSTONTLOG: u32 = 7024u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_EXCEPTIONCATCHENABLE: u32 = 7015u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_EXECUTEINMTA: u32 = 7041u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_ID_LAST: u32 = 7053u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_KEEPSESSIONIDSECURE: u32 = 7043u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_LCID: u32 = 7042u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_LOGERRORREQUESTS: u32 = 7001u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_MAXDISKTEMPLATECACHEFILES: u32 = 7040u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_MAXREQUESTENTITY: u32 = 7053u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_MAX_REQUEST_ENTITY_ALLOWED: u32 = 7053u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_MEMFREEFACTOR: u32 = 7009u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_MINUSEDBLOCKS: u32 = 7010u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_PROCESSORTHREADMAX: u32 = 7025u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_QUEUECONNECTIONTESTTIME: u32 = 7028u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_QUEUETIMEOUT: u32 = 7013u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_REQEUSTQUEUEMAX: u32 = 7026u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_RUN_ONEND_ANON: u32 = 7051u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SCRIPTENGINECACHEMAX: u32 = 7005u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SCRIPTERRORMESSAGE: u32 = 7003u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SCRIPTERRORSSENTTOBROWSER: u32 = 7002u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SCRIPTFILECACHESIZE: u32 = 7004u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SCRIPTLANGUAGE: u32 = 7012u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SCRIPTLANGUAGELIST: u32 = 7017u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SCRIPTTIMEOUT: u32 = 7006u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SERVICE_ENABLE_SXS: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SERVICE_ENABLE_TRACKER: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SERVICE_FLAGS: u32 = 7044u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SERVICE_FLAG_FUSION: u32 = 7046u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SERVICE_FLAG_PARTITIONS: u32 = 7047u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SERVICE_FLAG_TRACKER: u32 = 7045u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SERVICE_PARTITION_ID: u32 = 7048u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SERVICE_SXS_NAME: u32 = 7049u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SERVICE_USE_PARTITION: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SESSIONMAX: u32 = 7029u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_SESSIONTIMEOUT: u32 = 7007u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_THREADGATEENABLED: u32 = 7030u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_THREADGATELOADHIGH: u32 = 7035u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_THREADGATELOADLOW: u32 = 7034u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_THREADGATESLEEPDELAY: u32 = 7032u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_THREADGATESLEEPMAX: u32 = 7033u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_THREADGATETIMESLICE: u32 = 7031u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ASP_TRACKTHREADINGMODEL: u32 = 7020u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTHORIZATION: u32 = 6000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTHORIZATION_PERSISTENCE: u32 = 6031u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_ADVNOTIFY_DISABLE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_ANONYMOUS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_BASIC: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_CHANGE_DISABLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_CHANGE_FLAGS: u32 = 2068u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_CHANGE_UNSECURE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_CHANGE_URL: u32 = 2060u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_EXPIRED_UNSECUREURL: u32 = 2067u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_EXPIRED_URL: u32 = 2061u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_MD5: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_NT: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_PASSPORT: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_SINGLEREQUEST: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_SINGLEREQUESTALWAYSIFPROXY: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_AUTH_SINGLEREQUESTIFPROXY: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_BACKUP_FORCE_BACKUP: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_BACKUP_HIGHEST_VERSION: u32 = 4294967294u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_BACKUP_MAX_LEN: u32 = 100u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_BACKUP_MAX_VERSION: u32 = 9999u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_BACKUP_NEXT_VERSION: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_BACKUP_OVERWRITE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_BACKUP_SAVE_FIRST: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_BANNER_MESSAGE: u32 = 5011u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_BINDINGS: u32 = 2022u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CACHE_EXTENSIONS: u32 = 6034u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CAL_AUTH_RESERVE_TIMEOUT: u32 = 2131u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CAL_SSL_RESERVE_TIMEOUT: u32 = 2132u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CAL_VC_PER_CONNECT: u32 = 2130u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CAL_W3_ERROR: u32 = 2133u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CC_MAX_AGE: u32 = 6042u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CC_NO_CACHE: u32 = 6041u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CC_OTHER: u32 = 6043u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CENTRAL_W3C_LOGGING_ENABLED: u32 = 2119u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CERT_CACHE_RETRIEVAL_ONLY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CERT_CHECK_REVOCATION_FRESHNESS_TIME: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CERT_NO_REVOC_CHECK: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CERT_NO_USAGE_CHECK: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CGI_RESTRICTION_LIST: u32 = 2164u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct MD_CHANGE_OBJECT_W {
     pub pszMDPath: super::super::Foundation::PWSTR,
     pub dwMDChangeType: u32,
@@ -4087,865 +3527,435 @@ impl ::core::cmp::Eq for MD_CHANGE_OBJECT_W {}
 unsafe impl ::windows::core::Abi for MD_CHANGE_OBJECT_W {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CHANGE_TYPE_ADD_OBJECT: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CHANGE_TYPE_DELETE_DATA: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CHANGE_TYPE_DELETE_OBJECT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CHANGE_TYPE_RENAME_OBJECT: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CHANGE_TYPE_RESTORE: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CHANGE_TYPE_SET_DATA: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_COMMENTS: u32 = 9990u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CONNECTION_TIMEOUT: u32 = 1013u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ACTION: u32 = 9022u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_APP_ENABLED: u32 = 2141u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_CGI_ENABLED: u32 = 2140u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_CGI_LIMIT: u32 = 2148u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_DISABLE_ALL_LOGGING: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ENABLE_ACTIVE_PROCS: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ENABLE_ALL_PROC_LOGGING: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ENABLE_APP_LOGGING: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ENABLE_CGI_LOGGING: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ENABLE_EVENT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ENABLE_KERNEL_TIME: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ENABLE_LOGGING: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ENABLE_PAGE_FAULTS: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ENABLE_PROC_TYPE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ENABLE_TERMINATED_PROCS: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ENABLE_TOTAL_PROCS: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_ENABLE_USER_TIME: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_KILL_W3WP: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_LIMIT: u32 = 9023u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_LIMITS_ENABLED: u32 = 2143u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_LIMIT_LOGEVENT: u32 = 2149u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_LIMIT_PAUSE: u32 = 2152u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_LIMIT_PRIORITY: u32 = 2150u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_LIMIT_PROCSTOP: u32 = 2151u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_LOGGING_INTERVAL: u32 = 2145u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_LOGGING_MASK: u32 = 4507u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_LOGGING_OPTIONS: u32 = 2146u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_NO_ACTION: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_RESET_INTERVAL: u32 = 2144u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_THROTTLE: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CPU_TRACE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CREATE_PROCESS_AS_USER: u32 = 6035u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CREATE_PROC_NEW_CONSOLE: u32 = 6036u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CUSTOM_DEPLOYMENT_DATA: u32 = 6055u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CUSTOM_ERROR: u32 = 6008u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CUSTOM_ERROR_DESC: u32 = 2120u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DEFAULT_LOAD_FILE: u32 = 6006u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DEFAULT_LOGON_DOMAIN: u32 = 6012u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DEMAND_START_THRESHOLD: u32 = 9207u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DIRBROW_ENABLED: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DIRBROW_LOADDEFAULT: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DIRBROW_LONG_DATE: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DIRBROW_SHOW_DATE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DIRBROW_SHOW_EXTENSION: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DIRBROW_SHOW_SIZE: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DIRBROW_SHOW_TIME: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DIRECTORY_BROWSING: u32 = 6005u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DISABLE_SOCKET_POOLING: u32 = 1029u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DONT_LOG: u32 = 6023u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DOWNLEVEL_ADMIN_INSTANCE: u32 = 1021u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_DO_REVERSE_DNS: u32 = 6029u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ENABLEDPROTOCOLS: u32 = 2023u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ENABLE_URL_AUTHORIZATION: u32 = 6048u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_CANNOT_REMOVE_SECURE_ATTRIBUTE: i32 = -2146646008i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_DATA_NOT_FOUND: i32 = -2146646015i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_IISAO_INVALID_SCHEMA: i32 = -2146646000i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_INVALID_VERSION: i32 = -2146646014i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_NOT_INITIALIZED: i32 = -2146646016i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_NO_SESSION_KEY: i32 = -2146645987i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_READ_METABASE_FILE: i32 = -2146645991i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SECURE_CHANNEL_FAILURE: i32 = -2146646010i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB400_INVALID_CONTENT_LENGTH: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB400_INVALID_DEPTH: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB400_INVALID_DESTINATION: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB400_INVALID_IF: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB400_INVALID_LOCK_TOKEN: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB400_INVALID_OVERWRITE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB400_INVALID_REQUEST_BODY: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB400_INVALID_TIMEOUT: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB400_INVALID_TRANSLATE: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB400_INVALID_WEBSOCKET_REQUEST: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB400_INVALID_XFF_HEADER: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB401_APPLICATION: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB401_FILTER: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB401_LOGON: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB401_LOGON_ACL: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB401_LOGON_CONFIG: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB401_URLAUTH_POLICY: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_ADDR_REJECT: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_APPPOOL_DENIED: u32 = 18u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_CAL_EXCEEDED: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_CERT_BAD: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_CERT_REQUIRED: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_CERT_REVOKED: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_CERT_TIME_INVALID: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_DIR_LIST_DENIED: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_EXECUTE_ACCESS_DENIED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_INFINITE_DEPTH_DENIED: u32 = 22u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_INSUFFICIENT_PRIVILEGE_FOR_CGI: u32 = 19u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_INVALID_CNFG: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_LOCK_TOKEN_REQUIRED: u32 = 23u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_MAPPER_DENY_ACCESS: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_PASSPORT_LOGIN_FAILURE: u32 = 20u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_PWD_CHANGE: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_READ_ACCESS_DENIED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_SITE_ACCESS_DENIED: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_SOURCE_ACCESS_DENIED: u32 = 21u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_SSL128_REQUIRED: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_SSL_REQUIRED: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_TOO_MANY_USERS: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_VALIDATION_FAILURE: u32 = 24u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB403_WRITE_ACCESS_DENIED: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_DENIED_BY_FILTERING_RULE: u32 = 19u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_DENIED_BY_MIMEMAP: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_DENIED_BY_POLICY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_FILE_ATTRIBUTE_HIDDEN: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_FILE_EXTENSION_DENIED: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_HIDDEN_SEGMENT: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_NO_HANDLER: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_PRECONDITIONED_HANDLER: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_QUERY_STRING_SEQUENCE_DENIED: u32 = 18u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_QUERY_STRING_TOO_LONG: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_SITE_NOT_FOUND: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_STATICFILE_DAV: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_TOO_MANY_URL_SEGMENTS: u32 = 20u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_URL_DOUBLE_ESCAPED: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_URL_HAS_HIGH_BIT_CHARS: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_URL_SEQUENCE_DENIED: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_URL_TOO_LONG: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB404_VERB_DENIED: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB413_CONTENT_LENGTH_TOO_LARGE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB423_LOCK_TOKEN_SUBMITTED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB423_NO_CONFLICTING_LOCK: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB500_ASPNET_HANDLERS: u32 = 23u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB500_ASPNET_IMPERSONATION: u32 = 24u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB500_ASPNET_MODULES: u32 = 22u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB500_BAD_METADATA: u32 = 19u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB500_HANDLERS_MODULE: u32 = 21u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB500_UNC_ACCESS: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB500_URLAUTH_NO_SCOPE: u32 = 20u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB500_URLAUTH_NO_STORE: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB500_URLAUTH_STORE_ERROR: u32 = 18u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB502_ARR_CONNECTION_ERROR: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB502_ARR_NO_SERVER: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB502_PREMATURE_EXIT: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB502_TIMEOUT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB503_APP_CONCURRENT: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB503_ASPNET_QUEUE_FULL: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB503_CONNECTION_LIMIT: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB503_CPU_LIMIT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ERROR_SUB503_FASTCGI_QUEUE_FULL: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXIT_MESSAGE: u32 = 5001u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXPORT_INHERITED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXPORT_NODE_ONLY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_BYTES_RECV: u32 = 8192u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_BYTES_SENT: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_CLIENT_IP: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_COMPUTER_NAME: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_COOKIE: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_DATE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_HOST: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_HTTP_STATUS: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_HTTP_SUB_STATUS: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_METHOD: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_PROTOCOL_VERSION: u32 = 524288u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_REFERER: u32 = 262144u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_SERVER_IP: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_SERVER_PORT: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_SITE_NAME: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_TIME: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_TIME_TAKEN: u32 = 16384u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_URI_QUERY: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_URI_STEM: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_USERNAME: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_USER_AGENT: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_EXTLOG_WIN32_STATUS: u32 = 2048u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FILTER_DESCRIPTION: u32 = 2045u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FILTER_ENABLED: u32 = 2043u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FILTER_ENABLE_CACHE: u32 = 2046u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FILTER_FLAGS: u32 = 2044u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FILTER_IMAGE_PATH: u32 = 2041u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FILTER_LOAD_ORDER: u32 = 2040u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FILTER_STATE: u32 = 2042u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FILTER_STATE_LOADED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FILTER_STATE_UNLOADED: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FOOTER_DOCUMENT: u32 = 6009u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FOOTER_ENABLED: u32 = 6010u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FRONTPAGE_WEB: u32 = 2072u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FTPS_128_BITS: u32 = 5053u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FTPS_ALLOW_CCC: u32 = 5054u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FTPS_SECURE_ANONYMOUS: u32 = 5052u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FTPS_SECURE_CONTROL_CHANNEL: u32 = 5050u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FTPS_SECURE_DATA_CHANNEL: u32 = 5051u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FTP_KEEP_PARTIAL_UPLOADS: u32 = 5019u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FTP_LOG_IN_UTF_8: u32 = 5013u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FTP_PASV_RESPONSE_IP: u32 = 5018u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_FTP_UTF8_FILE_NAMES: u32 = 5020u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_GLOBAL_BINARY_LOGGING_ENABLED: u32 = 4016u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_GLOBAL_BINSCHEMATIMESTAMP: u32 = 9991u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_GLOBAL_CHANGE_NUMBER: u32 = 9997u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_GLOBAL_EDIT_WHILE_RUNNING_MAJOR_VERSION_NUMBER: u32 = 9994u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_GLOBAL_EDIT_WHILE_RUNNING_MINOR_VERSION_NUMBER: u32 = 9993u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_GLOBAL_LOG_IN_UTF_8: u32 = 9206u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_GLOBAL_SESSIONKEY: u32 = 9999u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_GLOBAL_STANDARD_APP_MODE_ENABLED: u32 = 9203u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_GLOBAL_XMLSCHEMATIMESTAMP: u32 = 9992u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_GREETING_MESSAGE: u32 = 5002u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_CACHE_CONTROL_HEADER: u32 = 2211u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_COMPRESSION_BUFFER_SIZE: u32 = 2223u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_COMPRESSION_DIRECTORY: u32 = 2210u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_COMPRESSION_DLL: u32 = 2237u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_CREATE_FLAGS: u32 = 2243u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_DO_DISK_SPACE_LIMITING: u32 = 2216u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_DO_DYNAMIC_COMPRESSION: u32 = 2213u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_DO_NAMESPACE_DYNAMIC_COMPRESSION: u32 = 2255u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_DO_NAMESPACE_STATIC_COMPRESSION: u32 = 2256u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_DO_ON_DEMAND_COMPRESSION: u32 = 2215u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_DO_STATIC_COMPRESSION: u32 = 2214u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_DYNAMIC_COMPRESSION_LEVEL: u32 = 2241u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_EXPIRES_HEADER: u32 = 2212u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_FILES_DELETED_PER_DISK_FREE: u32 = 2225u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_FILE_EXTENSIONS: u32 = 2238u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_IO_BUFFER_SIZE: u32 = 2222u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_MAX_DISK_SPACE_USAGE: u32 = 2221u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_MAX_QUEUE_LENGTH: u32 = 2224u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_MIME_TYPE: u32 = 2239u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_MIN_FILE_SIZE_FOR_COMP: u32 = 2226u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_NO_COMPRESSION_FOR_HTTP_10: u32 = 2217u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_NO_COMPRESSION_FOR_PROXIES: u32 = 2218u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_NO_COMPRESSION_FOR_RANGE: u32 = 2219u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_ON_DEMAND_COMP_LEVEL: u32 = 2242u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_PRIORITY: u32 = 2240u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_SCRIPT_FILE_EXTENSIONS: u32 = 2244u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HC_SEND_CACHE_HEADERS: u32 = 2220u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HEADER_WAIT_TIMEOUT: u32 = 9204u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HISTORY_LATEST: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HTTPERRORS_EXISTING_RESPONSE: u32 = 6056u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HTTP_CUSTOM: u32 = 6004u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HTTP_EXPIRES: u32 = 6002u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HTTP_FORWARDER_CUSTOM: u32 = 6054u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HTTP_PICS: u32 = 6003u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_HTTP_REDIRECT: u32 = 6011u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_IISADMIN_EXTENSIONS: u32 = 1028u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_IMPORT_INHERITED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_IMPORT_MERGE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_IMPORT_NODE_ONLY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_IN_PROCESS_ISAPI_APPS: u32 = 2073u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_IP_SEC: u32 = 6019u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ISAPI_RESTRICTION_LIST: u32 = 2163u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_IS_CONTENT_INDEXED: u32 = 6039u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_KEY_TYPE: u32 = 1002u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LEVELS_TO_SCAN: u32 = 1022u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOAD_BALANCER_CAPABILITIES: u32 = 9034u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOAD_BALANCER_CAPABILITIES_BASIC: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOAD_BALANCER_CAPABILITIES_SOPHISTICATED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOCATION: u32 = 9989u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_DATATYPE_DOUBLE: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_DATATYPE_FLOAT: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_DATATYPE_INT: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_DATATYPE_LONG: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_DATATYPE_LPSTR: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_DATATYPE_LPWSTR: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_DATATYPE_UINT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_DATATYPE_ULONG: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_PROPERTY_DATATYPE: u32 = 4505u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_PROPERTY_HEADER: u32 = 4502u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_PROPERTY_ID: u32 = 4503u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_PROPERTY_MASK: u32 = 4504u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_PROPERTY_NAME: u32 = 4501u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_PROPERTY_NODE_ID: u32 = 4508u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGCUSTOM_SERVICES_STRING: u32 = 4506u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGEXT_FIELD_MASK: u32 = 4013u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGEXT_FIELD_MASK2: u32 = 4014u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGFILE_DIRECTORY: u32 = 4001u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGFILE_LOCALTIME_ROLLOVER: u32 = 4015u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGFILE_PERIOD: u32 = 4003u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGFILE_PERIOD_DAILY: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGFILE_PERIOD_HOURLY: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGFILE_PERIOD_MAXSIZE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGFILE_PERIOD_MONTHLY: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGFILE_PERIOD_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGFILE_PERIOD_WEEKLY: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGFILE_TRUNCATE_SIZE: u32 = 4004u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGON_BATCH: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGON_INTERACTIVE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGON_METHOD: u32 = 6013u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGON_NETWORK: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGON_NETWORK_CLEARTEXT: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGSQL_DATA_SOURCES: u32 = 4007u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGSQL_PASSWORD: u32 = 4010u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGSQL_TABLE_NAME: u32 = 4008u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOGSQL_USER_NAME: u32 = 4009u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOG_ANONYMOUS: u32 = 5007u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOG_NONANONYMOUS: u32 = 5008u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOG_PLUGINS_AVAILABLE: u32 = 4012u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOG_PLUGIN_MOD_ID: u32 = 4005u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOG_PLUGIN_ORDER: u32 = 4011u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOG_PLUGIN_UI_ID: u32 = 4006u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOG_TYPE: u32 = 4000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOG_TYPE_DISABLED: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOG_TYPE_ENABLED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_LOG_UNUSED1: u32 = 4002u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MAX_BANDWIDTH: u32 = 1000u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MAX_BANDWIDTH_BLOCKED: u32 = 1003u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MAX_CHANGE_ENTRIES: u32 = 100u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MAX_CLIENTS_MESSAGE: u32 = 5003u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MAX_CONNECTIONS: u32 = 1014u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MAX_ENDPOINT_CONNECTIONS: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MAX_ERROR_FILES: u32 = 9988u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MAX_GLOBAL_BANDWIDTH: u32 = 9201u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MAX_GLOBAL_CONNECTIONS: u32 = 9202u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MAX_REQUEST_ENTITY_ALLOWED: u32 = 6051u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MD_SERVER_SS_AUTH_MAPPING: u32 = 2200u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_METADATA_ID_REGISTRATION: u32 = 1030u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MIME_MAP: u32 = 6015u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MIN_FILE_BYTES_PER_SEC: u32 = 9205u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_MSDOS_DIR_OUTPUT: u32 = 5004u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NETLOGON_WKS_DNS: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NETLOGON_WKS_IP: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NETLOGON_WKS_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NET_LOGON_WKS: u32 = 2065u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFEXAUTH_NTLMSSL: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_ACCESS_DENIED: u32 = 2048u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_AUTHENTICATION: u32 = 8192u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_AUTH_COMPLETE: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_END_OF_NET_SESSION: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_END_OF_REQUEST: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_LOG: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_NONSECURE_PORT: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_ORDER_DEFAULT: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_ORDER_HIGH: u32 = 524288u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_ORDER_LOW: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_ORDER_MEDIUM: u32 = 262144u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_PREPROC_HEADERS: u32 = 16384u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_READ_RAW_DATA: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_SECURE_PORT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_SEND_RAW_DATA: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_SEND_RESPONSE: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOTIFY_URL_MAP: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NOT_DELETABLE: u32 = 2116u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_NTAUTHENTICATION_PROVIDERS: u32 = 6032u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_PASSIVE_PORT_RANGE: u32 = 5016u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_PASSPORT_NEED_MAPPING: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_PASSPORT_NO_MAPPING: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_PASSPORT_REQUIRE_AD_MAPPING: u32 = 6052u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_PASSPORT_TRY_MAPPING: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_POOL_IDC_TIMEOUT: u32 = 6037u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_PROCESS_NTCR_IF_LOGGED_ON: u32 = 2070u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_PUT_READ_SIZE: u32 = 6046u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_RAPID_FAIL_PROTECTION_INTERVAL: u32 = 9029u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_RAPID_FAIL_PROTECTION_MAX_CRASHES: u32 = 9030u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_REALM: u32 = 6001u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_REDIRECT_HEADERS: u32 = 6044u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_RESTRICTION_LIST_CUSTOM_DESC: u32 = 2165u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ROOT_ENABLE_EDIT_WHILE_RUNNING: u32 = 9998u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ROOT_ENABLE_HISTORY: u32 = 9996u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_ROOT_MAX_HISTORY_FILES: u32 = 9995u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SCHEMA_METAID: u32 = 1004u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SCRIPTMAPFLAG_ALLOWED_ON_READ_DIR: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SCRIPTMAPFLAG_CHECK_PATH_INFO: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SCRIPTMAPFLAG_SCRIPT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SCRIPT_MAPS: u32 = 6014u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SCRIPT_TIMEOUT: u32 = 6033u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SECURE_BINDINGS: u32 = 2021u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SECURITY_SETUP_REQUIRED: u32 = 2166u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_AUTOSTART: u32 = 1017u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_BINDINGS: u32 = 1023u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_COMMAND: u32 = 1012u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_COMMAND_CONTINUE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_COMMAND_PAUSE: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_COMMAND_START: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_COMMAND_STOP: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_COMMENT: u32 = 1015u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_CONFIGURATION_INFO: u32 = 1027u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_CONFIG_ALLOW_ENCRYPT: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_CONFIG_AUTO_PW_SYNC: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_CONFIG_SSL_128: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_CONFIG_SSL_40: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_LISTEN_BACKLOG: u32 = 1019u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_LISTEN_TIMEOUT: u32 = 1020u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_SIZE: u32 = 1018u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_SIZE_LARGE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_SIZE_MEDIUM: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_SIZE_SMALL: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_STATE: u32 = 1016u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_STATE_CONTINUING: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_STATE_PAUSED: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_STATE_PAUSING: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_STATE_STARTED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_STATE_STARTING: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_STATE_STOPPED: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SERVER_STATE_STOPPING: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SET_HOST_NAME: u32 = 2154u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SHOW_4_DIGIT_YEAR: u32 = 5010u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SSI_EXEC_DISABLED: u32 = 6028u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SSL_ACCESS_PERM: u32 = 6030u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SSL_ALWAYS_NEGO_CLIENT_CERT: u32 = 5521u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SSL_KEY_PASSWORD: u32 = 5502u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SSL_KEY_REQUEST: u32 = 5503u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SSL_PRIVATE_KEY: u32 = 5501u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SSL_PUBLIC_KEY: u32 = 5500u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SSL_USE_DS_MAPPER: u32 = 5519u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_STOP_LISTENING: u32 = 9987u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_SUPPRESS_DEFAULT_BANNER: u32 = 5017u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_UPLOAD_READAHEAD_SIZE: u32 = 6045u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_URL_AUTHORIZATION_IMPERSONATION_LEVEL: u32 = 6053u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_URL_AUTHORIZATION_SCOPE_NAME: u32 = 6050u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_URL_AUTHORIZATION_STORE_NAME: u32 = 6049u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_USER_ISOLATION: u32 = 5012u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_USER_ISOLATION_AD: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_USER_ISOLATION_BASIC: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_USER_ISOLATION_LAST: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_USER_ISOLATION_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_USE_DIGEST_SSP: u32 = 6047u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_USE_HOST_NAME: u32 = 2066u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_VR_IGNORE_TRANSLATE: u32 = 3008u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_VR_NO_CACHE: u32 = 3007u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_VR_PASSTHROUGH: u32 = 3006u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_VR_PASSWORD: u32 = 3003u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_VR_PATH: u32 = 3001u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_VR_USERNAME: u32 = 3002u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_WAM_PWD: u32 = 7502u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_WAM_USER_NAME: u32 = 7501u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_WARNING_DUP_NAME: i32 = 837636i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_WARNING_INVALID_DATA: i32 = 837637i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_WARNING_PATH_NOT_FOUND: i32 = 837635i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_WARNING_PATH_NOT_INSERTED: i32 = 837639i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_WARNING_SAVE_FAILED: i32 = 837641i32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_WEBDAV_MAX_ATTRIBUTES_PER_ELEMENT: u32 = 8501u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_WEB_SVC_EXT_RESTRICTION_LIST: u32 = 2168u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_WIN32_ERROR: u32 = 1099u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct METADATATYPES(pub i32);
@@ -4964,11 +3974,9 @@ impl ::core::convert::From<i32> for METADATATYPES {
 unsafe impl ::windows::core::Abi for METADATATYPES {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_DONT_EXPAND: u32 = 512u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct METADATA_GETALL_INTERNAL_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -4995,7 +4003,6 @@ unsafe impl ::windows::core::Abi for METADATA_GETALL_INTERNAL_RECORD {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub union METADATA_GETALL_INTERNAL_RECORD_0 {
     pub dwMDDataOffset: usize,
     pub pbMDData: *mut u8,
@@ -5017,7 +4024,6 @@ unsafe impl ::windows::core::Abi for METADATA_GETALL_INTERNAL_RECORD_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct METADATA_GETALL_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -5057,7 +4063,6 @@ unsafe impl ::windows::core::Abi for METADATA_GETALL_RECORD {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct METADATA_HANDLE_INFO {
     pub dwMDPermissions: u32,
     pub dwMDSystemChangeNumber: u32,
@@ -5082,31 +4087,19 @@ impl ::core::cmp::Eq for METADATA_HANDLE_INFO {}
 unsafe impl ::windows::core::Abi for METADATA_HANDLE_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_INHERIT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_INSERT_PATH: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_ISINHERITED: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_LOCAL_MACHINE_ONLY: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_MASTER_ROOT_HANDLE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_MAX_NAME_LEN: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_NON_SECURE_ONLY: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_NO_ATTRIBUTES: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_PARTIAL_PATH: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_PERMISSION_READ: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_PERMISSION_WRITE: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub struct METADATA_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -5144,54 +4137,35 @@ impl ::core::cmp::Eq for METADATA_RECORD {}
 unsafe impl ::windows::core::Abi for METADATA_RECORD {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_REFERENCE: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_SECURE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_VOLATILE: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MSCS_MD_ID_BEGIN_RESERVED: u32 = 53248u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MSCS_MD_ID_END_RESERVED: u32 = 57343u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const NNTP_MD_ID_BEGIN_RESERVED: u32 = 45056u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const NNTP_MD_ID_END_RESERVED: u32 = 49151u32;
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_GETEXTENSIONVERSION = unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = unsafe extern "system" fn(pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = unsafe extern "system" fn(pszprotocolmanagerdll: super::super::Foundation::PWSTR, pszprotocolmanagerdllinitfunction: super::super::Foundation::PWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HSE_IO_COMPLETION = unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut ::core::ffi::c_void, cbio: u32, dwerror: u32);
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HTTPEXTENSIONPROC = unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32;
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_TERMINATEEXTENSION = unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WEB_CORE_ACTIVATE = unsafe extern "system" fn(pszapphostconfigfile: super::super::Foundation::PWSTR, pszrootwebconfigfile: super::super::Foundation::PWSTR, pszinstancename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WEB_CORE_SET_METADATA_DLL_ENTRY = unsafe extern "system" fn(pszmetadatatype: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub type PFN_WEB_CORE_SHUTDOWN = unsafe extern "system" fn(fimmediate: u32) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const POP3_MD_ID_BEGIN_RESERVED: u32 = 40960u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const POP3_MD_ID_END_RESERVED: u32 = 45055u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct POST_PROCESS_PARAMETERS {
     pub pszSessionId: super::super::Foundation::PWSTR,
     pub pszSiteName: super::super::Foundation::PWSTR,
@@ -5283,7 +4257,6 @@ unsafe impl ::windows::core::Abi for POST_PROCESS_PARAMETERS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
 pub struct PRE_PROCESS_PARAMETERS {
     pub pszSessionId: super::super::Foundation::PWSTR,
     pub pszSiteName: super::super::Foundation::PWSTR,
@@ -5351,59 +4324,32 @@ impl ::core::cmp::Eq for PRE_PROCESS_PARAMETERS {}
 unsafe impl ::windows::core::Abi for PRE_PROCESS_PARAMETERS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_DENIED_APPLICATION: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_DENIED_BY_CONFIG: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_DENIED_FILTER: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_DENIED_LOGON: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_DENIED_RESOURCE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_MAX_AUTH_TYPE: u32 = 33u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_MAX_FILTER_DESC_LEN: u32 = 257u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_MAX_PASSWORD: u32 = 257u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_MAX_USERNAME: u32 = 257u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_ACCESS_DENIED: u32 = 2048u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_AUTHENTICATION: u32 = 8192u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_AUTH_COMPLETE: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_END_OF_NET_SESSION: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_END_OF_REQUEST: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_LOG: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_NONSECURE_PORT: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_ORDER_DEFAULT: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_ORDER_HIGH: u32 = 524288u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_ORDER_LOW: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_ORDER_MEDIUM: u32 = 262144u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_PREPROC_HEADERS: u32 = 16384u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_READ_RAW_DATA: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_SECURE_PORT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_SEND_RAW_DATA: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_SEND_RESPONSE: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_NOTIFY_URL_MAP: u32 = 4096u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SF_PROPERTY_IIS(pub i32);
@@ -5417,7 +4363,6 @@ impl ::core::convert::From<i32> for SF_PROPERTY_IIS {
 unsafe impl ::windows::core::Abi for SF_PROPERTY_IIS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SF_REQ_TYPE(pub i32);
@@ -5438,7 +4383,6 @@ impl ::core::convert::From<i32> for SF_REQ_TYPE {
 unsafe impl ::windows::core::Abi for SF_REQ_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SF_STATUS_TYPE(pub i32);
@@ -5456,19 +4400,12 @@ impl ::core::convert::From<i32> for SF_STATUS_TYPE {
 unsafe impl ::windows::core::Abi for SF_STATUS_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SMTP_MD_ID_BEGIN_RESERVED: u32 = 36864u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SMTP_MD_ID_END_RESERVED: u32 = 40959u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const USER_MD_ID_BASE_RESERVED: u32 = 65535u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const WAM_MD_ID_BEGIN_RESERVED: u32 = 29952u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const WAM_MD_ID_END_RESERVED: u32 = 32767u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const WAM_MD_SERVER_BASE: u32 = 7500u32;
-#[doc = "*Required features: `Win32_System_Iis`*"]
 pub const WEBDAV_MD_SERVER_BASE: u32 = 8500u32;
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]

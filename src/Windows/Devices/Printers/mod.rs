@@ -375,12 +375,10 @@ pub struct IPrintSchema_abi(
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, deltaticket: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
-#[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IppAttributeError(pub ::windows::core::IInspectable);
 impl IppAttributeError {
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Reason(&self) -> ::windows::core::Result<IppAttributeErrorReason> {
         let this = self;
         unsafe {
@@ -388,7 +386,6 @@ impl IppAttributeError {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IppAttributeErrorReason>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -397,7 +394,6 @@ impl IppAttributeError {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetUnsupportedValues(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IppAttributeValue>> {
         let this = self;
         unsafe {
@@ -458,7 +454,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for IppAttributeError {}
 unsafe impl ::core::marker::Sync for IppAttributeError {}
-#[doc = "*Required features: `Devices_Printers`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IppAttributeErrorReason(pub i32);
@@ -483,12 +478,10 @@ unsafe impl ::windows::core::RuntimeType for IppAttributeErrorReason {
 impl ::windows::core::DefaultType for IppAttributeErrorReason {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IppAttributeValue(pub ::windows::core::IInspectable);
 impl IppAttributeValue {
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Kind(&self) -> ::windows::core::Result<IppAttributeValueKind> {
         let this = self;
         unsafe {
@@ -497,7 +490,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetIntegerArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>> {
         let this = self;
         unsafe {
@@ -506,7 +498,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetBooleanArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<bool>> {
         let this = self;
         unsafe {
@@ -515,7 +506,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetEnumArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<i32>> {
         let this = self;
         unsafe {
@@ -524,7 +514,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`, `Storage_Streams`*"]
     pub fn GetOctetStringArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
@@ -533,7 +522,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetDateTimeArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -542,7 +530,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetResolutionArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IppResolution>> {
         let this = self;
         unsafe {
@@ -551,7 +538,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetRangeOfIntegerArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IppIntegerRange>> {
         let this = self;
         unsafe {
@@ -560,7 +546,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetCollectionArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IppAttributeValue>>> {
         let this = self;
         unsafe {
@@ -569,7 +554,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetTextWithLanguageArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IppTextWithLanguage>> {
         let this = self;
         unsafe {
@@ -578,7 +562,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetNameWithLanguageArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IppTextWithLanguage>> {
         let this = self;
         unsafe {
@@ -587,7 +570,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetTextWithoutLanguageArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -596,7 +578,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetNameWithoutLanguageArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -605,7 +586,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetKeywordArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -614,7 +594,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetUriArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
@@ -623,7 +602,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetUriSchemaArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -632,7 +610,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetCharsetArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -641,7 +618,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetNaturalLanguageArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -650,7 +626,6 @@ impl IppAttributeValue {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetMimeMediaTypeArray(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -658,28 +633,24 @@ impl IppAttributeValue {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateUnsupported() -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateUnknown() -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateNoValue() -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateInteger(value: i32) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -687,14 +658,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateIntegerArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i32>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateBoolean(value: bool) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -702,14 +671,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateBooleanArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<bool>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateEnum(value: i32) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -717,7 +684,6 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateEnumArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i32>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -725,7 +691,6 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Devices_Printers`, `Storage_Streams`*"]
     pub fn CreateOctetString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -733,7 +698,6 @@ impl IppAttributeValue {
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`, `Storage_Streams`*"]
     pub fn CreateOctetStringArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::Streams::IBuffer>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -741,7 +705,6 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation`*"]
     pub fn CreateDateTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -749,14 +712,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation`, `Foundation_Collections`*"]
     pub fn CreateDateTimeArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::DateTime>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateResolution<'a, Param0: ::windows::core::IntoParam<'a, IppResolution>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -764,14 +725,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateResolutionArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<IppResolution>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateRangeOfInteger<'a, Param0: ::windows::core::IntoParam<'a, IppIntegerRange>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -779,7 +738,6 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateRangeOfIntegerArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<IppIntegerRange>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -787,7 +745,6 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateCollection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>>(memberattributes: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -795,14 +752,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateCollectionArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>>>(memberattributesarray: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), memberattributesarray.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateTextWithLanguage<'a, Param0: ::windows::core::IntoParam<'a, IppTextWithLanguage>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -810,14 +765,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateTextWithLanguageArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<IppTextWithLanguage>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateNameWithLanguage<'a, Param0: ::windows::core::IntoParam<'a, IppTextWithLanguage>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -825,14 +778,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateNameWithLanguageArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<IppTextWithLanguage>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateTextWithoutLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -840,14 +791,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateTextWithoutLanguageArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateNameWithoutLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -855,14 +804,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateNameWithoutLanguageArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateKeyword<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -870,7 +817,6 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateKeywordArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -878,7 +824,6 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation`*"]
     pub fn CreateUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -886,14 +831,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation`, `Foundation_Collections`*"]
     pub fn CreateUriArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateUriSchema<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -901,14 +844,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateUriSchemaArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateCharset<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -916,14 +857,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateCharsetArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).40)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateNaturalLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -931,14 +870,12 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateNaturalLanguageArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).42)(::core::mem::transmute_copy(this), values.into_param().abi(), &mut result__).from_abi::<IppAttributeValue>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateMimeMedia<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -946,7 +883,6 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateMimeMediaArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(values: Param0) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1010,7 +946,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for IppAttributeValue {}
 unsafe impl ::core::marker::Sync for IppAttributeValue {}
-#[doc = "*Required features: `Devices_Printers`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IppAttributeValueKind(pub i32);
@@ -1051,12 +986,10 @@ unsafe impl ::windows::core::RuntimeType for IppAttributeValueKind {
 impl ::windows::core::DefaultType for IppAttributeValueKind {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IppIntegerRange(pub ::windows::core::IInspectable);
 impl IppIntegerRange {
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Start(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1064,7 +997,6 @@ impl IppIntegerRange {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn End(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1072,7 +1004,6 @@ impl IppIntegerRange {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateInstance(start: i32, end: i32) -> ::windows::core::Result<IppIntegerRange> {
         Self::IIppIntegerRangeFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1136,12 +1067,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for IppIntegerRange {}
 unsafe impl ::core::marker::Sync for IppIntegerRange {}
-#[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IppPrintDevice(pub ::windows::core::IInspectable);
 impl IppPrintDevice {
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn PrinterName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1150,7 +1079,6 @@ impl IppPrintDevice {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation`*"]
     pub fn PrinterUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -1159,7 +1087,6 @@ impl IppPrintDevice {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`, `Storage_Streams`*"]
     pub fn GetPrinterAttributesAsBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, attributenames: Param0) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -1168,7 +1095,6 @@ impl IppPrintDevice {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetPrinterAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, attributenames: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IppAttributeValue>> {
         let this = self;
         unsafe {
@@ -1177,7 +1103,6 @@ impl IppPrintDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Devices_Printers`, `Storage_Streams`*"]
     pub fn SetPrinterAttributesFromBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, printerattributesbuffer: Param0) -> ::windows::core::Result<IppSetAttributesResult> {
         let this = self;
         unsafe {
@@ -1186,7 +1111,6 @@ impl IppPrintDevice {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn SetPrinterAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IppAttributeValue>>>>(&self, printerattributes: Param0) -> ::windows::core::Result<IppSetAttributesResult> {
         let this = self;
         unsafe {
@@ -1247,12 +1171,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for IppPrintDevice {}
 unsafe impl ::core::marker::Sync for IppPrintDevice {}
-#[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IppResolution(pub ::windows::core::IInspectable);
 impl IppResolution {
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Width(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1260,7 +1182,6 @@ impl IppResolution {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Height(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1268,7 +1189,6 @@ impl IppResolution {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Unit(&self) -> ::windows::core::Result<IppResolutionUnit> {
         let this = self;
         unsafe {
@@ -1276,7 +1196,6 @@ impl IppResolution {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IppResolutionUnit>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateInstance(width: i32, height: i32, unit: IppResolutionUnit) -> ::windows::core::Result<IppResolution> {
         Self::IIppResolutionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1340,7 +1259,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for IppResolution {}
 unsafe impl ::core::marker::Sync for IppResolution {}
-#[doc = "*Required features: `Devices_Printers`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IppResolutionUnit(pub i32);
@@ -1362,12 +1280,10 @@ unsafe impl ::windows::core::RuntimeType for IppResolutionUnit {
 impl ::windows::core::DefaultType for IppResolutionUnit {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IppSetAttributesResult(pub ::windows::core::IInspectable);
 impl IppSetAttributesResult {
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1376,7 +1292,6 @@ impl IppSetAttributesResult {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation_Collections`*"]
     pub fn AttributeErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IppAttributeError>> {
         let this = self;
         unsafe {
@@ -1437,12 +1352,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for IppSetAttributesResult {}
 unsafe impl ::core::marker::Sync for IppSetAttributesResult {}
-#[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IppTextWithLanguage(pub ::windows::core::IInspectable);
 impl IppTextWithLanguage {
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1450,7 +1363,6 @@ impl IppTextWithLanguage {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1458,7 +1370,6 @@ impl IppTextWithLanguage {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(language: Param0, text: Param1) -> ::windows::core::Result<IppTextWithLanguage> {
         Self::IIppTextWithLanguageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1522,12 +1433,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 unsafe impl ::core::marker::Send for IppTextWithLanguage {}
 unsafe impl ::core::marker::Sync for IppTextWithLanguage {}
-#[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Print3DDevice(pub ::windows::core::IInspectable);
 impl Print3DDevice {
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn PrintSchema(&self) -> ::windows::core::Result<PrintSchema> {
         let this = self;
         unsafe {
@@ -1536,14 +1445,12 @@ impl Print3DDevice {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Print3DDevice>> {
         Self::IPrint3DDeviceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Print3DDevice>>(result__)
         })
     }
-    #[doc = "*Required features: `Devices_Printers`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPrint3DDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -1607,13 +1514,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for Print3DDevice {}
 unsafe impl ::core::marker::Sync for Print3DDevice {}
-#[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintSchema(pub ::windows::core::IInspectable);
 impl PrintSchema {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation`, `Storage_Streams`*"]
     pub fn GetDefaultPrintTicketAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
         unsafe {
@@ -1622,7 +1527,6 @@ impl PrintSchema {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation`, `Storage_Streams`*"]
     pub fn GetCapabilitiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(&self, constrainticket: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
         unsafe {
@@ -1631,7 +1535,6 @@ impl PrintSchema {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `Devices_Printers`, `Foundation`, `Storage_Streams`*"]
     pub fn MergeAndValidateWithDefaultPrintTicketAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(&self, deltaticket: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
         unsafe {

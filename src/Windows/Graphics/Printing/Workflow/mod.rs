@@ -662,13 +662,11 @@ pub struct IPrintWorkflowXpsDataAvailableEventArgs_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowBackgroundSession(pub ::windows::core::IInspectable);
 impl PrintWorkflowBackgroundSession {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn SetupRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs>>>(&self, setupeventhandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -677,13 +675,11 @@ impl PrintWorkflowBackgroundSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn RemoveSetupRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn Submitted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowSubmittedEventArgs>>>(&self, submittedeventhandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -692,12 +688,10 @@ impl PrintWorkflowBackgroundSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn RemoveSubmitted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Status(&self) -> ::windows::core::Result<PrintWorkflowSessionStatus> {
         let this = self;
         unsafe {
@@ -705,7 +699,6 @@ impl PrintWorkflowBackgroundSession {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowSessionStatus>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
@@ -763,13 +756,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowBackgroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSession {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowBackgroundSetupRequestedEventArgs(pub ::windows::core::IInspectable);
 impl PrintWorkflowBackgroundSetupRequestedEventArgs {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`, `Graphics_Printing_PrintTicket`*"]
     pub fn GetUserPrintTicketAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
         unsafe {
@@ -777,7 +768,6 @@ impl PrintWorkflowBackgroundSetupRequestedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
@@ -785,13 +775,11 @@ impl PrintWorkflowBackgroundSetupRequestedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn SetRequiresUI(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -852,12 +840,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSetupRequestedEventArgs {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowConfiguration(pub ::windows::core::IInspectable);
 impl PrintWorkflowConfiguration {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn SourceAppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -865,7 +851,6 @@ impl PrintWorkflowConfiguration {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn JobTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -873,7 +858,6 @@ impl PrintWorkflowConfiguration {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn SessionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -881,7 +865,6 @@ impl PrintWorkflowConfiguration {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn AbortPrintFlow(&self, reason: PrintWorkflowJobAbortReason) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintWorkflowConfiguration2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason).ok() }
@@ -939,13 +922,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowConfiguration {}
 unsafe impl ::core::marker::Sync for PrintWorkflowConfiguration {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowForegroundSession(pub ::windows::core::IInspectable);
 impl PrintWorkflowForegroundSession {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn SetupRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs>>>(&self, setupeventhandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -954,13 +935,11 @@ impl PrintWorkflowForegroundSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn RemoveSetupRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn XpsDataAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowXpsDataAvailableEventArgs>>>(&self, xpsdataavailableeventhandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -969,12 +948,10 @@ impl PrintWorkflowForegroundSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn RemoveXpsDataAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Status(&self) -> ::windows::core::Result<PrintWorkflowSessionStatus> {
         let this = self;
         unsafe {
@@ -982,7 +959,6 @@ impl PrintWorkflowForegroundSession {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowSessionStatus>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
@@ -1040,13 +1016,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowForegroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSession {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowForegroundSetupRequestedEventArgs(pub ::windows::core::IInspectable);
 impl PrintWorkflowForegroundSetupRequestedEventArgs {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`, `Graphics_Printing_PrintTicket`*"]
     pub fn GetUserPrintTicketAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
         unsafe {
@@ -1054,7 +1028,6 @@ impl PrintWorkflowForegroundSetupRequestedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
@@ -1063,7 +1036,6 @@ impl PrintWorkflowForegroundSetupRequestedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1124,7 +1096,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowForegroundSetupRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintWorkflowJobAbortReason(pub i32);
@@ -1146,13 +1117,11 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobAbortReason {
 impl ::windows::core::DefaultType for PrintWorkflowJobAbortReason {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowJobActivatedEventArgs(pub ::windows::core::IInspectable);
 impl PrintWorkflowJobActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -1161,7 +1130,6 @@ impl PrintWorkflowJobActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -1170,7 +1138,6 @@ impl PrintWorkflowJobActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -1179,7 +1146,6 @@ impl PrintWorkflowJobActivatedEventArgs {
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::super::System::User> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1187,7 +1153,6 @@ impl PrintWorkflowJobActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Session(&self) -> ::windows::core::Result<PrintWorkflowJobUISession> {
         let this = self;
         unsafe {
@@ -1300,12 +1265,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::A
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobActivatedEventArgs {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowJobBackgroundSession(pub ::windows::core::IInspectable);
 impl PrintWorkflowJobBackgroundSession {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Status(&self) -> ::windows::core::Result<PrintWorkflowSessionStatus> {
         let this = self;
         unsafe {
@@ -1314,7 +1277,6 @@ impl PrintWorkflowJobBackgroundSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn JobStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobStartingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1323,13 +1285,11 @@ impl PrintWorkflowJobBackgroundSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn RemoveJobStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn PdlModificationRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowPdlModificationRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1338,12 +1298,10 @@ impl PrintWorkflowJobBackgroundSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn RemovePdlModificationRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
@@ -1401,12 +1359,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobBackgroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobBackgroundSession {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowJobNotificationEventArgs(pub ::windows::core::IInspectable);
 impl PrintWorkflowJobNotificationEventArgs {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
@@ -1414,7 +1370,6 @@ impl PrintWorkflowJobNotificationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn PrinterJob(&self) -> ::windows::core::Result<PrintWorkflowPrinterJob> {
         let this = self;
         unsafe {
@@ -1423,7 +1378,6 @@ impl PrintWorkflowJobNotificationEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1484,12 +1438,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobNotificationEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobNotificationEventArgs {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowJobStartingEventArgs(pub ::windows::core::IInspectable);
 impl PrintWorkflowJobStartingEventArgs {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
@@ -1498,7 +1450,6 @@ impl PrintWorkflowJobStartingEventArgs {
         }
     }
     #[cfg(feature = "Devices_Printers")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Devices_Printers`*"]
     pub fn Printer(&self) -> ::windows::core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
         unsafe {
@@ -1506,13 +1457,11 @@ impl PrintWorkflowJobStartingEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Devices::Printers::IppPrintDevice>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn SetSkipSystemRendering(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1573,12 +1522,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobStartingEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobStartingEventArgs {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowJobTriggerDetails(pub ::windows::core::IInspectable);
 impl PrintWorkflowJobTriggerDetails {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn PrintWorkflowJobSession(&self) -> ::windows::core::Result<PrintWorkflowJobBackgroundSession> {
         let this = self;
         unsafe {
@@ -1639,12 +1586,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobTriggerDetails {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobTriggerDetails {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowJobUISession(pub ::windows::core::IInspectable);
 impl PrintWorkflowJobUISession {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Status(&self) -> ::windows::core::Result<PrintWorkflowSessionStatus> {
         let this = self;
         unsafe {
@@ -1653,7 +1598,6 @@ impl PrintWorkflowJobUISession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn PdlDataAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowPdlDataAvailableEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1662,13 +1606,11 @@ impl PrintWorkflowJobUISession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn RemovePdlDataAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn JobNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowJobNotificationEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1677,12 +1619,10 @@ impl PrintWorkflowJobUISession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn RemoveJobNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
@@ -1740,13 +1680,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobUISession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobUISession {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowObjectModelSourceFileContent(pub ::windows::core::IInspectable);
 impl PrintWorkflowObjectModelSourceFileContent {
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Storage_Streams`*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>>(xpsstream: Param0) -> ::windows::core::Result<PrintWorkflowObjectModelSourceFileContent> {
         Self::IPrintWorkflowObjectModelSourceFileContentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1810,7 +1748,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowObjectModelSourceFileContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelSourceFileContent {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowObjectModelTargetPackage(pub ::windows::core::IInspectable);
@@ -1867,7 +1804,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowObjectModelTargetPackage {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelTargetPackage {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlConversionType(pub i32);
@@ -1890,13 +1826,11 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlConversionType {
 impl ::windows::core::DefaultType for PrintWorkflowPdlConversionType {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowPdlConverter(pub ::windows::core::IInspectable);
 impl PrintWorkflowPdlConverter {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`, `Graphics_Printing_PrintTicket`, `Storage_Streams`*"]
     pub fn ConvertPdlAsync<'a, Param0: ::windows::core::IntoParam<'a, super::PrintTicket::WorkflowPrintTicket>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IOutputStream>>(&self, printticket: Param0, inputstream: Param1, outputstream: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1957,12 +1891,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlConverter {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlConverter {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowPdlDataAvailableEventArgs(pub ::windows::core::IInspectable);
 impl PrintWorkflowPdlDataAvailableEventArgs {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
@@ -1970,7 +1902,6 @@ impl PrintWorkflowPdlDataAvailableEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn PrinterJob(&self) -> ::windows::core::Result<PrintWorkflowPrinterJob> {
         let this = self;
         unsafe {
@@ -1978,7 +1909,6 @@ impl PrintWorkflowPdlDataAvailableEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowPrinterJob>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn SourceContent(&self) -> ::windows::core::Result<PrintWorkflowPdlSourceContent> {
         let this = self;
         unsafe {
@@ -1987,7 +1917,6 @@ impl PrintWorkflowPdlDataAvailableEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -2048,12 +1977,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlDataAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlDataAvailableEventArgs {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowPdlModificationRequestedEventArgs(pub ::windows::core::IInspectable);
 impl PrintWorkflowPdlModificationRequestedEventArgs {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
@@ -2061,7 +1988,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn PrinterJob(&self) -> ::windows::core::Result<PrintWorkflowPrinterJob> {
         let this = self;
         unsafe {
@@ -2069,7 +1995,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowPrinterJob>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn SourceContent(&self) -> ::windows::core::Result<PrintWorkflowPdlSourceContent> {
         let this = self;
         unsafe {
@@ -2077,7 +2002,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowPdlSourceContent>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn UILauncher(&self) -> ::windows::core::Result<PrintWorkflowUILauncher> {
         let this = self;
         unsafe {
@@ -2085,7 +2009,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowUILauncher>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn CreateJobOnPrinter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, targetcontenttype: Param0) -> ::windows::core::Result<PrintWorkflowPdlTargetStream> {
         let this = self;
         unsafe {
@@ -2094,7 +2017,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Devices_Printers`, `Foundation_Collections`*"]
     pub fn CreateJobOnPrinterWithAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, jobattributes: Param0, targetcontenttype: Param1) -> ::windows::core::Result<PrintWorkflowPdlTargetStream> {
         let this = self;
         unsafe {
@@ -2103,7 +2025,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Storage_Streams`*"]
     pub fn CreateJobOnPrinterWithAttributesBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, jobattributesbuffer: Param0, targetcontenttype: Param1) -> ::windows::core::Result<PrintWorkflowPdlTargetStream> {
         let this = self;
         unsafe {
@@ -2111,7 +2032,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), jobattributesbuffer.into_param().abi(), targetcontenttype.into_param().abi(), &mut result__).from_abi::<PrintWorkflowPdlTargetStream>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn GetPdlConverter(&self, conversiontype: PrintWorkflowPdlConversionType) -> ::windows::core::Result<PrintWorkflowPdlConverter> {
         let this = self;
         unsafe {
@@ -2120,7 +2040,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -2181,12 +2100,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlModificationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlModificationRequestedEventArgs {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowPdlSourceContent(pub ::windows::core::IInspectable);
 impl PrintWorkflowPdlSourceContent {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2195,7 +2112,6 @@ impl PrintWorkflowPdlSourceContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Storage_Streams`*"]
     pub fn GetInputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
@@ -2204,7 +2120,6 @@ impl PrintWorkflowPdlSourceContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`, `Storage`*"]
     pub fn GetContentFileAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -2265,13 +2180,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlSourceContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlSourceContent {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowPdlTargetStream(pub ::windows::core::IInspectable);
 impl PrintWorkflowPdlTargetStream {
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Storage_Streams`*"]
     pub fn GetOutputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
@@ -2279,7 +2192,6 @@ impl PrintWorkflowPdlTargetStream {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn CompleteStreamSubmission(&self, status: PrintWorkflowSubmittedStatus) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), status).ok() }
@@ -2337,12 +2249,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlTargetStream {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlTargetStream {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowPrinterJob(pub ::windows::core::IInspectable);
 impl PrintWorkflowPrinterJob {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn JobId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -2351,7 +2261,6 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(feature = "Devices_Printers")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Devices_Printers`*"]
     pub fn Printer(&self) -> ::windows::core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
         unsafe {
@@ -2359,7 +2268,6 @@ impl PrintWorkflowPrinterJob {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Devices::Printers::IppPrintDevice>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn GetJobStatus(&self) -> ::windows::core::Result<PrintWorkflowPrinterJobStatus> {
         let this = self;
         unsafe {
@@ -2368,7 +2276,6 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Graphics_Printing_PrintTicket`*"]
     pub fn GetJobPrintTicket(&self) -> ::windows::core::Result<super::PrintTicket::WorkflowPrintTicket> {
         let this = self;
         unsafe {
@@ -2377,7 +2284,6 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation_Collections`, `Storage_Streams`*"]
     pub fn GetJobAttributesAsBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, attributenames: Param0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -2386,7 +2292,6 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Devices_Printers`, `Foundation_Collections`*"]
     pub fn GetJobAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, attributenames: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>> {
         let this = self;
         unsafe {
@@ -2395,7 +2300,6 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Devices_Printers`, `Storage_Streams`*"]
     pub fn SetJobAttributesFromBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, jobattributesbuffer: Param0) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult> {
         let this = self;
         unsafe {
@@ -2404,7 +2308,6 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Devices_Printers`, `Foundation_Collections`*"]
     pub fn SetJobAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>>(&self, jobattributes: Param0) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult> {
         let this = self;
         unsafe {
@@ -2465,7 +2368,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPrinterJob {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPrinterJob {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintWorkflowPrinterJobStatus(pub i32);
@@ -2489,7 +2391,6 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPrinterJobStatus {
 impl ::windows::core::DefaultType for PrintWorkflowPrinterJobStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintWorkflowSessionStatus(pub i32);
@@ -2514,13 +2415,11 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowSessionStatus {
 impl ::windows::core::DefaultType for PrintWorkflowSessionStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowSourceContent(pub ::windows::core::IInspectable);
 impl PrintWorkflowSourceContent {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`, `Graphics_Printing_PrintTicket`*"]
     pub fn GetJobPrintTicketAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
         unsafe {
@@ -2528,7 +2427,6 @@ impl PrintWorkflowSourceContent {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn GetSourceSpoolDataAsStreamContent(&self) -> ::windows::core::Result<PrintWorkflowSpoolStreamContent> {
         let this = self;
         unsafe {
@@ -2536,7 +2434,6 @@ impl PrintWorkflowSourceContent {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowSpoolStreamContent>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn GetSourceSpoolDataAsXpsObjectModel(&self) -> ::windows::core::Result<PrintWorkflowObjectModelSourceFileContent> {
         let this = self;
         unsafe {
@@ -2597,13 +2494,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowSourceContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSourceContent {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowSpoolStreamContent(pub ::windows::core::IInspectable);
 impl PrintWorkflowSpoolStreamContent {
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Storage_Streams`*"]
     pub fn GetInputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
@@ -2664,13 +2559,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowSpoolStreamContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSpoolStreamContent {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowStreamTarget(pub ::windows::core::IInspectable);
 impl PrintWorkflowStreamTarget {
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Storage_Streams`*"]
     pub fn GetOutputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
@@ -2731,12 +2624,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowStreamTarget {}
 unsafe impl ::core::marker::Sync for PrintWorkflowStreamTarget {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowSubmittedEventArgs(pub ::windows::core::IInspectable);
 impl PrintWorkflowSubmittedEventArgs {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Operation(&self) -> ::windows::core::Result<PrintWorkflowSubmittedOperation> {
         let this = self;
         unsafe {
@@ -2745,7 +2636,6 @@ impl PrintWorkflowSubmittedEventArgs {
         }
     }
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Graphics_Printing_PrintTicket`*"]
     pub fn GetTarget<'a, Param0: ::windows::core::IntoParam<'a, super::PrintTicket::WorkflowPrintTicket>>(&self, jobprintticket: Param0) -> ::windows::core::Result<PrintWorkflowTarget> {
         let this = self;
         unsafe {
@@ -2754,7 +2644,6 @@ impl PrintWorkflowSubmittedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -2815,17 +2704,14 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowSubmittedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedEventArgs {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowSubmittedOperation(pub ::windows::core::IInspectable);
 impl PrintWorkflowSubmittedOperation {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Complete(&self, status: PrintWorkflowSubmittedStatus) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), status).ok() }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
@@ -2833,7 +2719,6 @@ impl PrintWorkflowSubmittedOperation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn XpsContent(&self) -> ::windows::core::Result<PrintWorkflowSourceContent> {
         let this = self;
         unsafe {
@@ -2894,7 +2779,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowSubmittedOperation {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedOperation {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedStatus(pub i32);
@@ -2917,12 +2801,10 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedStatus {
 impl ::windows::core::DefaultType for PrintWorkflowSubmittedStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowTarget(pub ::windows::core::IInspectable);
 impl PrintWorkflowTarget {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn TargetAsStream(&self) -> ::windows::core::Result<PrintWorkflowStreamTarget> {
         let this = self;
         unsafe {
@@ -2930,7 +2812,6 @@ impl PrintWorkflowTarget {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PrintWorkflowStreamTarget>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn TargetAsXpsObjectModelPackage(&self) -> ::windows::core::Result<PrintWorkflowObjectModelTargetPackage> {
         let this = self;
         unsafe {
@@ -2991,12 +2872,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowTarget {}
 unsafe impl ::core::marker::Sync for PrintWorkflowTarget {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowTriggerDetails(pub ::windows::core::IInspectable);
 impl PrintWorkflowTriggerDetails {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn PrintWorkflowSession(&self) -> ::windows::core::Result<PrintWorkflowBackgroundSession> {
         let this = self;
         unsafe {
@@ -3057,13 +2936,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowTriggerDetails {}
 unsafe impl ::core::marker::Sync for PrintWorkflowTriggerDetails {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowUIActivatedEventArgs(pub ::windows::core::IInspectable);
 impl PrintWorkflowUIActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `ApplicationModel_Activation`*"]
     pub fn Kind(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3072,7 +2949,6 @@ impl PrintWorkflowUIActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `ApplicationModel_Activation`*"]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3081,7 +2957,6 @@ impl PrintWorkflowUIActivatedEventArgs {
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `ApplicationModel_Activation`*"]
     pub fn SplashScreen(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3090,7 +2965,6 @@ impl PrintWorkflowUIActivatedEventArgs {
         }
     }
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `ApplicationModel_Activation`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::super::System::User> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3098,7 +2972,6 @@ impl PrintWorkflowUIActivatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn PrintWorkflowSession(&self) -> ::windows::core::Result<PrintWorkflowForegroundSession> {
         let this = self;
         unsafe {
@@ -3211,7 +3084,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::A
 }
 unsafe impl ::core::marker::Send for PrintWorkflowUIActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowUIActivatedEventArgs {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintWorkflowUICompletionStatus(pub i32);
@@ -3235,12 +3107,10 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowUICompletionStatus {
 impl ::windows::core::DefaultType for PrintWorkflowUICompletionStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowUILauncher(pub ::windows::core::IInspectable);
 impl PrintWorkflowUILauncher {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn IsUILaunchEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3249,7 +3119,6 @@ impl PrintWorkflowUILauncher {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn LaunchAndCompleteUIAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PrintWorkflowUICompletionStatus>> {
         let this = self;
         unsafe {
@@ -3310,12 +3179,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PrintWorkflowUILauncher {}
 unsafe impl ::core::marker::Sync for PrintWorkflowUILauncher {}
-#[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PrintWorkflowXpsDataAvailableEventArgs(pub ::windows::core::IInspectable);
 impl PrintWorkflowXpsDataAvailableEventArgs {
-    #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
     pub fn Operation(&self) -> ::windows::core::Result<PrintWorkflowSubmittedOperation> {
         let this = self;
         unsafe {
@@ -3324,7 +3191,6 @@ impl PrintWorkflowXpsDataAvailableEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Printing_Workflow`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {

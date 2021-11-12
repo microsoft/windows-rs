@@ -1,21 +1,17 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HttpDiagnosticProvider(pub ::windows::core::IInspectable);
 impl HttpDiagnosticProvider {
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn RequestSent<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestSentEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -24,13 +20,11 @@ impl HttpDiagnosticProvider {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn RemoveRequestSent<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn ResponseReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderResponseReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -39,13 +33,11 @@ impl HttpDiagnosticProvider {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn RemoveResponseReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn RequestResponseCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestResponseCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -54,13 +46,11 @@ impl HttpDiagnosticProvider {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn RemoveRequestResponseCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "System_Diagnostics")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `System_Diagnostics`*"]
     pub fn CreateFromProcessDiagnosticInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Diagnostics::ProcessDiagnosticInfo>>(processdiagnosticinfo: Param0) -> ::windows::core::Result<HttpDiagnosticProvider> {
         Self::IHttpDiagnosticProviderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -124,12 +114,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HttpDiagnosticProvider {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProvider {}
-#[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HttpDiagnosticProviderRequestResponseCompletedEventArgs(pub ::windows::core::IInspectable);
 impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -137,7 +125,6 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn Timestamps(&self) -> ::windows::core::Result<HttpDiagnosticProviderRequestResponseTimestamps> {
         let this = self;
         unsafe {
@@ -146,7 +133,6 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn RequestedUri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -154,7 +140,6 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn ProcessId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -162,7 +147,6 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn ThreadId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -170,7 +154,6 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn Initiator(&self) -> ::windows::core::Result<HttpDiagnosticRequestInitiator> {
         let this = self;
         unsafe {
@@ -179,7 +162,6 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation_Collections`*"]
     pub fn SourceLocations(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpDiagnosticSourceLocation>> {
         let this = self;
         unsafe {
@@ -240,13 +222,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
-#[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HttpDiagnosticProviderRequestResponseTimestamps(pub ::windows::core::IInspectable);
 impl HttpDiagnosticProviderRequestResponseTimestamps {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn CacheCheckedTimestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -255,7 +235,6 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn ConnectionInitiatedTimestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -264,7 +243,6 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn NameResolvedTimestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -273,7 +251,6 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn SslNegotiatedTimestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -282,7 +259,6 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn ConnectionCompletedTimestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -291,7 +267,6 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn RequestSentTimestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -300,7 +275,6 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn RequestCompletedTimestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -309,7 +283,6 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn ResponseReceivedTimestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -318,7 +291,6 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn ResponseCompletedTimestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -379,13 +351,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseTimestamps {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseTimestamps {}
-#[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HttpDiagnosticProviderRequestSentEventArgs(pub ::windows::core::IInspectable);
 impl HttpDiagnosticProviderRequestSentEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -393,7 +363,6 @@ impl HttpDiagnosticProviderRequestSentEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -401,7 +370,6 @@ impl HttpDiagnosticProviderRequestSentEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn Message(&self) -> ::windows::core::Result<super::HttpRequestMessage> {
         let this = self;
         unsafe {
@@ -409,7 +377,6 @@ impl HttpDiagnosticProviderRequestSentEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HttpRequestMessage>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn ProcessId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -417,7 +384,6 @@ impl HttpDiagnosticProviderRequestSentEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn ThreadId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -425,7 +391,6 @@ impl HttpDiagnosticProviderRequestSentEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn Initiator(&self) -> ::windows::core::Result<HttpDiagnosticRequestInitiator> {
         let this = self;
         unsafe {
@@ -434,7 +399,6 @@ impl HttpDiagnosticProviderRequestSentEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation_Collections`*"]
     pub fn SourceLocations(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpDiagnosticSourceLocation>> {
         let this = self;
         unsafe {
@@ -495,13 +459,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestSentEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestSentEventArgs {}
-#[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HttpDiagnosticProviderResponseReceivedEventArgs(pub ::windows::core::IInspectable);
 impl HttpDiagnosticProviderResponseReceivedEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -509,7 +471,6 @@ impl HttpDiagnosticProviderResponseReceivedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -517,7 +478,6 @@ impl HttpDiagnosticProviderResponseReceivedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn Message(&self) -> ::windows::core::Result<super::HttpResponseMessage> {
         let this = self;
         unsafe {
@@ -578,7 +538,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderResponseReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
-#[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HttpDiagnosticRequestInitiator(pub i32);
@@ -611,13 +570,11 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticRequestInitiator {
 impl ::windows::core::DefaultType for HttpDiagnosticRequestInitiator {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HttpDiagnosticSourceLocation(pub ::windows::core::IInspectable);
 impl HttpDiagnosticSourceLocation {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Web_Http_Diagnostics`, `Foundation`*"]
     pub fn SourceUri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -625,7 +582,6 @@ impl HttpDiagnosticSourceLocation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn LineNumber(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -633,7 +589,6 @@ impl HttpDiagnosticSourceLocation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `Web_Http_Diagnostics`*"]
     pub fn ColumnNumber(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {

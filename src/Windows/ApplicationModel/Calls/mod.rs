@@ -3,12 +3,10 @@
 pub mod Background;
 #[cfg(feature = "ApplicationModel_Calls_Provider")]
 pub mod Provider;
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CallAnswerEventArgs(pub ::windows::core::IInspectable);
 impl CallAnswerEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn AcceptedMedia(&self) -> ::windows::core::Result<VoipPhoneCallMedia> {
         let this = self;
         unsafe {
@@ -69,12 +67,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CallAnswerEventArgs {}
 unsafe impl ::core::marker::Sync for CallAnswerEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CallRejectEventArgs(pub ::windows::core::IInspectable);
 impl CallRejectEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RejectReason(&self) -> ::windows::core::Result<VoipPhoneCallRejectReason> {
         let this = self;
         unsafe {
@@ -135,12 +131,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CallRejectEventArgs {}
 unsafe impl ::core::marker::Sync for CallRejectEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CallStateChangeEventArgs(pub ::windows::core::IInspectable);
 impl CallStateChangeEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn State(&self) -> ::windows::core::Result<VoipPhoneCallState> {
         let this = self;
         unsafe {
@@ -207,7 +201,6 @@ pub struct CallsPhoneContract(pub u8);
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct CallsVoipContract(pub u8);
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CellularDtmfMode(pub i32);
@@ -229,7 +222,6 @@ unsafe impl ::windows::core::RuntimeType for CellularDtmfMode {
 impl ::windows::core::DefaultType for CellularDtmfMode {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DtmfKey(pub i32);
@@ -261,7 +253,6 @@ unsafe impl ::windows::core::RuntimeType for DtmfKey {
 impl ::windows::core::DefaultType for DtmfKey {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DtmfToneAudioPlayback(pub i32);
@@ -1497,12 +1488,10 @@ pub struct IVoipPhoneCall3_abi(
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct LockScreenCallContract(pub u8);
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LockScreenCallEndCallDeferral(pub ::windows::core::IInspectable);
 impl LockScreenCallEndCallDeferral {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
@@ -1560,12 +1549,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LockScreenCallEndCallDeferral {}
 unsafe impl ::core::marker::Sync for LockScreenCallEndCallDeferral {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LockScreenCallEndRequestedEventArgs(pub ::windows::core::IInspectable);
 impl LockScreenCallEndRequestedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<LockScreenCallEndCallDeferral> {
         let this = self;
         unsafe {
@@ -1574,7 +1561,6 @@ impl LockScreenCallEndRequestedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1635,18 +1621,15 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LockScreenCallEndRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenCallEndRequestedEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LockScreenCallUI(pub ::windows::core::IInspectable);
 impl LockScreenCallUI {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Dismiss(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn EndRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<LockScreenCallUI, LockScreenCallEndRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1655,13 +1638,11 @@ impl LockScreenCallUI {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveEndRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<LockScreenCallUI, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1670,12 +1651,10 @@ impl LockScreenCallUI {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CallTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1683,7 +1662,6 @@ impl LockScreenCallUI {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetCallTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1741,12 +1719,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LockScreenCallUI {}
 unsafe impl ::core::marker::Sync for LockScreenCallUI {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MuteChangeEventArgs(pub ::windows::core::IInspectable);
 impl MuteChangeEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Muted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1807,7 +1783,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MuteChangeEventArgs {}
 unsafe impl ::core::marker::Sync for MuteChangeEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneAudioRoutingEndpoint(pub i32);
@@ -1830,13 +1805,11 @@ unsafe impl ::windows::core::RuntimeType for PhoneAudioRoutingEndpoint {
 impl ::windows::core::DefaultType for PhoneAudioRoutingEndpoint {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCall(pub ::windows::core::IInspectable);
 impl PhoneCall {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn StatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1845,13 +1818,11 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn AudioDeviceChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1860,13 +1831,11 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveAudioDeviceChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn IsMutedChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1875,12 +1844,10 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveIsMutedChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CallId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1888,7 +1855,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsMuted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1896,7 +1862,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Status(&self) -> ::windows::core::Result<PhoneCallStatus> {
         let this = self;
         unsafe {
@@ -1904,7 +1869,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallStatus>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn AudioDevice(&self) -> ::windows::core::Result<PhoneCallAudioDevice> {
         let this = self;
         unsafe {
@@ -1912,7 +1876,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallAudioDevice>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetPhoneCallInfo(&self) -> ::windows::core::Result<PhoneCallInfo> {
         let this = self;
         unsafe {
@@ -1921,7 +1884,6 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn GetPhoneCallInfoAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallInfo>> {
         let this = self;
         unsafe {
@@ -1929,7 +1891,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallInfo>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn End(&self) -> ::windows::core::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -1938,7 +1899,6 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn EndAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -1946,7 +1906,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SendDtmfKey(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> ::windows::core::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -1955,7 +1914,6 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn SendDtmfKeyAsync(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -1963,7 +1921,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), key, dtmftoneaudioplayback, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn AcceptIncoming(&self) -> ::windows::core::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -1972,7 +1929,6 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn AcceptIncomingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -1980,7 +1936,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Hold(&self) -> ::windows::core::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -1989,7 +1944,6 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn HoldAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -1997,7 +1951,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn ResumeFromHold(&self) -> ::windows::core::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -2006,7 +1959,6 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn ResumeFromHoldAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -2014,7 +1966,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Mute(&self) -> ::windows::core::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -2023,7 +1974,6 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn MuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -2031,7 +1981,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Unmute(&self) -> ::windows::core::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -2040,7 +1989,6 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn UnmuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -2048,7 +1996,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RejectIncoming(&self) -> ::windows::core::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -2057,7 +2004,6 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RejectIncomingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -2065,7 +2011,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn ChangeAudioDevice(&self, endpoint: PhoneCallAudioDevice) -> ::windows::core::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -2074,7 +2019,6 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn ChangeAudioDeviceAsync(&self, endpoint: PhoneCallAudioDevice) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -2082,7 +2026,6 @@ impl PhoneCall {
             (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), endpoint, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetFromId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(callid: Param0) -> ::windows::core::Result<PhoneCall> {
         Self::IPhoneCallStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2146,7 +2089,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneCall {}
 unsafe impl ::core::marker::Sync for PhoneCall {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallAudioDevice(pub i32);
@@ -2169,33 +2111,27 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallAudioDevice {
 impl ::windows::core::DefaultType for PhoneCallAudioDevice {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 pub struct PhoneCallBlocking {}
 impl PhoneCallBlocking {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn BlockUnknownNumbers() -> ::windows::core::Result<bool> {
         Self::IPhoneCallBlockingStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetBlockUnknownNumbers(value: bool) -> ::windows::core::Result<()> {
         Self::IPhoneCallBlockingStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() })
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn BlockPrivateNumbers() -> ::windows::core::Result<bool> {
         Self::IPhoneCallBlockingStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetBlockPrivateNumbers(value: bool) -> ::windows::core::Result<()> {
         Self::IPhoneCallBlockingStatics(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`, `Foundation_Collections`*"]
     pub fn SetCallBlockingListAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(phonenumberlist: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPhoneCallBlockingStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2210,7 +2146,6 @@ impl PhoneCallBlocking {
 impl ::windows::core::RuntimeName for PhoneCallBlocking {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallBlocking";
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallDirection(pub i32);
@@ -2233,7 +2168,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallDirection {
 impl ::windows::core::DefaultType for PhoneCallDirection {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCallHistoryEntry(pub ::windows::core::IInspectable);
@@ -2245,7 +2179,6 @@ impl PhoneCallHistoryEntry {
         static mut SHARED: ::windows::core::FactoryCache<PhoneCallHistoryEntry, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2253,7 +2186,6 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Address(&self) -> ::windows::core::Result<PhoneCallHistoryEntryAddress> {
         let this = self;
         unsafe {
@@ -2261,13 +2193,11 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistoryEntryAddress>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetAddress<'a, Param0: ::windows::core::IntoParam<'a, PhoneCallHistoryEntryAddress>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -2276,12 +2206,10 @@ impl PhoneCallHistoryEntry {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsCallerIdBlocked(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2289,12 +2217,10 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsCallerIdBlocked(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsEmergency(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2302,12 +2228,10 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsEmergency(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsIncoming(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2315,12 +2239,10 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsIncoming(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsMissed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2328,12 +2250,10 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsMissed(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsRinging(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2341,12 +2261,10 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsRinging(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsSeen(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2354,12 +2272,10 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsSeen(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsSuppressed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2367,12 +2283,10 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsSuppressed(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsVoicemail(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2380,12 +2294,10 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsVoicemail(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Media(&self) -> ::windows::core::Result<PhoneCallHistoryEntryMedia> {
         let this = self;
         unsafe {
@@ -2393,12 +2305,10 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistoryEntryMedia>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetMedia(&self, value: PhoneCallHistoryEntryMedia) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn OtherAppReadAccess(&self) -> ::windows::core::Result<PhoneCallHistoryEntryOtherAppReadAccess> {
         let this = self;
         unsafe {
@@ -2406,12 +2316,10 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistoryEntryOtherAppReadAccess>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetOtherAppReadAccess(&self, value: PhoneCallHistoryEntryOtherAppReadAccess) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2419,12 +2327,10 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetRemoteId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SourceDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2432,7 +2338,6 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SourceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2440,12 +2345,10 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetSourceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SourceIdKind(&self) -> ::windows::core::Result<PhoneCallHistorySourceIdKind> {
         let this = self;
         unsafe {
@@ -2453,13 +2356,11 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistorySourceIdKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetSourceIdKind(&self, value: PhoneCallHistorySourceIdKind) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2468,7 +2369,6 @@ impl PhoneCallHistoryEntry {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).39)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2526,7 +2426,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntry {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntry {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCallHistoryEntryAddress(pub ::windows::core::IInspectable);
@@ -2538,7 +2437,6 @@ impl PhoneCallHistoryEntryAddress {
         static mut SHARED: ::windows::core::FactoryCache<PhoneCallHistoryEntryAddress, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn ContactId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2546,12 +2444,10 @@ impl PhoneCallHistoryEntryAddress {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetContactId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2559,12 +2455,10 @@ impl PhoneCallHistoryEntryAddress {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RawAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2572,12 +2466,10 @@ impl PhoneCallHistoryEntryAddress {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetRawAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RawAddressKind(&self) -> ::windows::core::Result<PhoneCallHistoryEntryRawAddressKind> {
         let this = self;
         unsafe {
@@ -2585,12 +2477,10 @@ impl PhoneCallHistoryEntryAddress {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistoryEntryRawAddressKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetRawAddressKind(&self, value: PhoneCallHistoryEntryRawAddressKind) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(rawaddress: Param0, rawaddresskind: PhoneCallHistoryEntryRawAddressKind) -> ::windows::core::Result<PhoneCallHistoryEntryAddress> {
         Self::IPhoneCallHistoryEntryAddressFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2654,7 +2544,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntryAddress {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryAddress {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryMedia(pub i32);
@@ -2676,7 +2565,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryMedia {
 impl ::windows::core::DefaultType for PhoneCallHistoryEntryMedia {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryOtherAppReadAccess(pub i32);
@@ -2698,7 +2586,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryOtherAppReadAc
 impl ::windows::core::DefaultType for PhoneCallHistoryEntryOtherAppReadAccess {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryQueryDesiredMedia(pub u32);
@@ -2750,7 +2637,6 @@ impl ::core::ops::Not for PhoneCallHistoryEntryQueryDesiredMedia {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCallHistoryEntryQueryOptions(pub ::windows::core::IInspectable);
@@ -2762,7 +2648,6 @@ impl PhoneCallHistoryEntryQueryOptions {
         static mut SHARED: ::windows::core::FactoryCache<PhoneCallHistoryEntryQueryOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DesiredMedia(&self) -> ::windows::core::Result<PhoneCallHistoryEntryQueryDesiredMedia> {
         let this = self;
         unsafe {
@@ -2770,13 +2655,11 @@ impl PhoneCallHistoryEntryQueryOptions {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistoryEntryQueryDesiredMedia>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetDesiredMedia(&self, value: PhoneCallHistoryEntryQueryDesiredMedia) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation_Collections`*"]
     pub fn SourceIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -2837,7 +2720,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntryQueryOptions {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryQueryOptions {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
@@ -2859,13 +2741,11 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryRawAddressKind
 impl ::windows::core::DefaultType for PhoneCallHistoryEntryRawAddressKind {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCallHistoryEntryReader(pub ::windows::core::IInspectable);
 impl PhoneCallHistoryEntryReader {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`, `Foundation_Collections`*"]
     pub fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhoneCallHistoryEntry>>> {
         let this = self;
         unsafe {
@@ -2926,11 +2806,9 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntryReader {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryReader {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 pub struct PhoneCallHistoryManager {}
 impl PhoneCallHistoryManager {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RequestStoreAsync(accesstype: PhoneCallHistoryStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
         Self::IPhoneCallHistoryManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2938,7 +2816,6 @@ impl PhoneCallHistoryManager {
         })
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<PhoneCallHistoryManagerForUser> {
         Self::IPhoneCallHistoryManagerStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2957,13 +2834,11 @@ impl PhoneCallHistoryManager {
 impl ::windows::core::RuntimeName for PhoneCallHistoryManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManager";
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCallHistoryManagerForUser(pub ::windows::core::IInspectable);
 impl PhoneCallHistoryManagerForUser {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RequestStoreAsync(&self, accesstype: PhoneCallHistoryStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
         let this = self;
         unsafe {
@@ -2972,7 +2847,6 @@ impl PhoneCallHistoryManagerForUser {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `System`*"]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -3033,7 +2907,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryManagerForUser {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryManagerForUser {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallHistorySourceIdKind(pub i32);
@@ -3055,13 +2928,11 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistorySourceIdKind {
 impl ::windows::core::DefaultType for PhoneCallHistorySourceIdKind {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCallHistoryStore(pub ::windows::core::IInspectable);
 impl PhoneCallHistoryStore {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn GetEntryAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, callhistoryentryid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryEntry>> {
         let this = self;
         unsafe {
@@ -3069,7 +2940,6 @@ impl PhoneCallHistoryStore {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), callhistoryentryid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallHistoryEntry>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetEntryReader(&self) -> ::windows::core::Result<PhoneCallHistoryEntryReader> {
         let this = self;
         unsafe {
@@ -3077,7 +2947,6 @@ impl PhoneCallHistoryStore {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistoryEntryReader>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetEntryReaderWithOptions<'a, Param0: ::windows::core::IntoParam<'a, PhoneCallHistoryEntryQueryOptions>>(&self, queryoptions: Param0) -> ::windows::core::Result<PhoneCallHistoryEntryReader> {
         let this = self;
         unsafe {
@@ -3086,7 +2955,6 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn SaveEntryAsync<'a, Param0: ::windows::core::IntoParam<'a, PhoneCallHistoryEntry>>(&self, callhistoryentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3095,7 +2963,6 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn DeleteEntryAsync<'a, Param0: ::windows::core::IntoParam<'a, PhoneCallHistoryEntry>>(&self, callhistoryentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3104,7 +2971,6 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`, `Foundation_Collections`*"]
     pub fn DeleteEntriesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>>(&self, callhistoryentries: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3113,7 +2979,6 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn MarkEntryAsSeenAsync<'a, Param0: ::windows::core::IntoParam<'a, PhoneCallHistoryEntry>>(&self, callhistoryentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3122,7 +2987,6 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`, `Foundation_Collections`*"]
     pub fn MarkEntriesAsSeenAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>>(&self, callhistoryentries: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3131,7 +2995,6 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn GetUnseenCountAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
@@ -3140,7 +3003,6 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn MarkAllAsSeenAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3149,7 +3011,6 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetSourcesUnseenCountAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, sourceids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
@@ -3158,7 +3019,6 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`, `Foundation_Collections`*"]
     pub fn MarkSourcesAsSeenAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, sourceids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3219,7 +3079,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryStore {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryStore {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallHistoryStoreAccessType(pub i32);
@@ -3242,12 +3101,10 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryStoreAccessType {
 impl ::windows::core::DefaultType for PhoneCallHistoryStoreAccessType {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCallInfo(pub ::windows::core::IInspectable);
 impl PhoneCallInfo {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -3255,7 +3112,6 @@ impl PhoneCallInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsHoldSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3264,7 +3120,6 @@ impl PhoneCallInfo {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -3272,7 +3127,6 @@ impl PhoneCallInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3280,7 +3134,6 @@ impl PhoneCallInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3288,7 +3141,6 @@ impl PhoneCallInfo {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CallDirection(&self) -> ::windows::core::Result<PhoneCallDirection> {
         let this = self;
         unsafe {
@@ -3349,15 +3201,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneCallInfo {}
 unsafe impl ::core::marker::Sync for PhoneCallInfo {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 pub struct PhoneCallManager {}
 impl PhoneCallManager {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn ShowPhoneCallUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(phonenumber: Param0, displayname: Param1) -> ::windows::core::Result<()> {
         Self::IPhoneCallManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), phonenumber.into_param().abi(), displayname.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn CallStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPhoneCallManagerStatics2(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
@@ -3365,30 +3214,25 @@ impl PhoneCallManager {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveCallStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::IPhoneCallManagerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsCallActive() -> ::windows::core::Result<bool> {
         Self::IPhoneCallManagerStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsCallIncoming() -> ::windows::core::Result<bool> {
         Self::IPhoneCallManagerStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn ShowPhoneCallSettingsUI() -> ::windows::core::Result<()> {
         Self::IPhoneCallManagerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RequestStoreAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallStore>> {
         Self::IPhoneCallManagerStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3407,7 +3251,6 @@ impl PhoneCallManager {
 impl ::windows::core::RuntimeName for PhoneCallManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallManager";
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallMedia(pub i32);
@@ -3430,7 +3273,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallMedia {
 impl ::windows::core::DefaultType for PhoneCallMedia {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallOperationStatus(pub i32);
@@ -3455,7 +3297,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallOperationStatus {
 impl ::windows::core::DefaultType for PhoneCallOperationStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallStatus(pub i32);
@@ -3481,13 +3322,11 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallStatus {
 impl ::windows::core::DefaultType for PhoneCallStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCallStore(pub ::windows::core::IInspectable);
 impl PhoneCallStore {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn IsEmergencyPhoneNumberAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, number: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -3496,7 +3335,6 @@ impl PhoneCallStore {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn GetDefaultLineAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::GUID>> {
         let this = self;
         unsafe {
@@ -3504,7 +3342,6 @@ impl PhoneCallStore {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::GUID>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RequestLineWatcher(&self) -> ::windows::core::Result<PhoneLineWatcher> {
         let this = self;
         unsafe {
@@ -3565,12 +3402,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneCallStore {}
 unsafe impl ::core::marker::Sync for PhoneCallStore {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCallVideoCapabilities(pub ::windows::core::IInspectable);
 impl PhoneCallVideoCapabilities {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsVideoCallingCapable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3631,11 +3466,9 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneCallVideoCapabilities {}
 unsafe impl ::core::marker::Sync for PhoneCallVideoCapabilities {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 pub struct PhoneCallVideoCapabilitiesManager {}
 impl PhoneCallVideoCapabilitiesManager {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn GetCapabilitiesAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(phonenumber: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallVideoCapabilities>> {
         Self::IPhoneCallVideoCapabilitiesManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3650,12 +3483,10 @@ impl PhoneCallVideoCapabilitiesManager {
 impl ::windows::core::RuntimeName for PhoneCallVideoCapabilitiesManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilitiesManager";
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneCallsResult(pub ::windows::core::IInspectable);
 impl PhoneCallsResult {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn OperationStatus(&self) -> ::windows::core::Result<PhoneLineOperationStatus> {
         let this = self;
         unsafe {
@@ -3664,7 +3495,6 @@ impl PhoneCallsResult {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation_Collections`*"]
     pub fn AllActivePhoneCalls(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhoneCall>> {
         let this = self;
         unsafe {
@@ -3725,7 +3555,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneCallsResult {}
 unsafe impl ::core::marker::Sync for PhoneCallsResult {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneDialOptions(pub ::windows::core::IInspectable);
@@ -3737,7 +3566,6 @@ impl PhoneDialOptions {
         static mut SHARED: ::windows::core::FactoryCache<PhoneDialOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Number(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3745,12 +3573,10 @@ impl PhoneDialOptions {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetNumber<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3758,13 +3584,11 @@ impl PhoneDialOptions {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -3773,13 +3597,11 @@ impl PhoneDialOptions {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `ApplicationModel_Contacts`*"]
     pub fn SetContact<'a, Param0: ::windows::core::IntoParam<'a, super::Contacts::Contact>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `ApplicationModel_Contacts`*"]
     pub fn ContactPhone(&self) -> ::windows::core::Result<super::Contacts::ContactPhone> {
         let this = self;
         unsafe {
@@ -3788,12 +3610,10 @@ impl PhoneDialOptions {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `ApplicationModel_Contacts`*"]
     pub fn SetContactPhone<'a, Param0: ::windows::core::IntoParam<'a, super::Contacts::ContactPhone>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Media(&self) -> ::windows::core::Result<PhoneCallMedia> {
         let this = self;
         unsafe {
@@ -3801,12 +3621,10 @@ impl PhoneDialOptions {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallMedia>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetMedia(&self, value: PhoneCallMedia) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn AudioEndpoint(&self) -> ::windows::core::Result<PhoneAudioRoutingEndpoint> {
         let this = self;
         unsafe {
@@ -3814,7 +3632,6 @@ impl PhoneDialOptions {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneAudioRoutingEndpoint>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetAudioEndpoint(&self, value: PhoneAudioRoutingEndpoint) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
@@ -3872,13 +3689,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneDialOptions {}
 unsafe impl ::core::marker::Sync for PhoneDialOptions {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneLine(pub ::windows::core::IInspectable);
 impl PhoneLine {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn LineChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLine, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3887,12 +3702,10 @@ impl PhoneLine {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveLineChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -3901,7 +3714,6 @@ impl PhoneLine {
         }
     }
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `UI`*"]
     pub fn DisplayColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
@@ -3909,7 +3721,6 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NetworkState(&self) -> ::windows::core::Result<PhoneNetworkState> {
         let this = self;
         unsafe {
@@ -3917,7 +3728,6 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneNetworkState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3925,7 +3735,6 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Voicemail(&self) -> ::windows::core::Result<PhoneVoicemail> {
         let this = self;
         unsafe {
@@ -3933,7 +3742,6 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneVoicemail>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NetworkName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3941,7 +3749,6 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CellularDetails(&self) -> ::windows::core::Result<PhoneLineCellularDetails> {
         let this = self;
         unsafe {
@@ -3949,7 +3756,6 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneLineCellularDetails>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Transport(&self) -> ::windows::core::Result<PhoneLineTransport> {
         let this = self;
         unsafe {
@@ -3957,7 +3763,6 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneLineTransport>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CanDial(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3965,7 +3770,6 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SupportsTile(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3973,7 +3777,6 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn VideoCallingCapabilities(&self) -> ::windows::core::Result<PhoneCallVideoCapabilities> {
         let this = self;
         unsafe {
@@ -3981,7 +3784,6 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallVideoCapabilities>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn LineConfiguration(&self) -> ::windows::core::Result<PhoneLineConfiguration> {
         let this = self;
         unsafe {
@@ -3990,7 +3792,6 @@ impl PhoneLine {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn IsImmediateDialNumberAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, number: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -3998,30 +3799,25 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), number.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Dial<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, number: Param0, displayname: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), number.into_param().abi(), displayname.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DialWithOptions<'a, Param0: ::windows::core::IntoParam<'a, PhoneDialOptions>>(&self, options: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), options.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(lineid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneLine>> {
         Self::IPhoneLineStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), lineid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneLine>>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn EnableTextReply(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPhoneLine2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn TransportDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPhoneLine2>(self)?;
         unsafe {
@@ -4029,7 +3825,6 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DialWithResult<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, number: Param0, displayname: Param1) -> ::windows::core::Result<PhoneLineDialResult> {
         let this = &::windows::core::Interface::cast::<IPhoneLine3>(self)?;
         unsafe {
@@ -4038,7 +3833,6 @@ impl PhoneLine {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn DialWithResultAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, number: Param0, displayname: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneLineDialResult>> {
         let this = &::windows::core::Interface::cast::<IPhoneLine3>(self)?;
         unsafe {
@@ -4046,7 +3840,6 @@ impl PhoneLine {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), number.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneLineDialResult>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetAllActivePhoneCalls(&self) -> ::windows::core::Result<PhoneCallsResult> {
         let this = &::windows::core::Interface::cast::<IPhoneLine3>(self)?;
         unsafe {
@@ -4055,7 +3848,6 @@ impl PhoneLine {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn GetAllActivePhoneCallsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallsResult>> {
         let this = &::windows::core::Interface::cast::<IPhoneLine3>(self)?;
         unsafe {
@@ -4120,12 +3912,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneLine {}
 unsafe impl ::core::marker::Sync for PhoneLine {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneLineCellularDetails(pub ::windows::core::IInspectable);
 impl PhoneLineCellularDetails {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SimState(&self) -> ::windows::core::Result<PhoneSimState> {
         let this = self;
         unsafe {
@@ -4133,7 +3923,6 @@ impl PhoneLineCellularDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneSimState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SimSlotIndex(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -4141,7 +3930,6 @@ impl PhoneLineCellularDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsModemOn(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4149,7 +3937,6 @@ impl PhoneLineCellularDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RegistrationRejectCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -4157,7 +3944,6 @@ impl PhoneLineCellularDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetNetworkOperatorDisplayText(&self, location: PhoneLineNetworkOperatorDisplayTextLocation) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4218,12 +4004,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneLineCellularDetails {}
 unsafe impl ::core::marker::Sync for PhoneLineCellularDetails {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneLineConfiguration(pub ::windows::core::IInspectable);
 impl PhoneLineConfiguration {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsVideoCallingEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4232,7 +4016,6 @@ impl PhoneLineConfiguration {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation_Collections`*"]
     pub fn ExtendedProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = self;
         unsafe {
@@ -4293,12 +4076,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneLineConfiguration {}
 unsafe impl ::core::marker::Sync for PhoneLineConfiguration {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneLineDialResult(pub ::windows::core::IInspectable);
 impl PhoneLineDialResult {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DialCallStatus(&self) -> ::windows::core::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -4306,7 +4087,6 @@ impl PhoneLineDialResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallOperationStatus>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DialedCall(&self) -> ::windows::core::Result<PhoneCall> {
         let this = self;
         unsafe {
@@ -4367,7 +4147,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneLineDialResult {}
 unsafe impl ::core::marker::Sync for PhoneLineDialResult {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
@@ -4391,7 +4170,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineNetworkOperatorDisplayText
 impl ::windows::core::DefaultType for PhoneLineNetworkOperatorDisplayTextLocation {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneLineOperationStatus(pub i32);
@@ -4416,7 +4194,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineOperationStatus {
 impl ::windows::core::DefaultType for PhoneLineOperationStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneLineTransport(pub i32);
@@ -4439,12 +4216,10 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineTransport {
 impl ::windows::core::DefaultType for PhoneLineTransport {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneLineTransportDevice(pub ::windows::core::IInspectable);
 impl PhoneLineTransportDevice {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4452,7 +4227,6 @@ impl PhoneLineTransportDevice {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Transport(&self) -> ::windows::core::Result<PhoneLineTransport> {
         let this = self;
         unsafe {
@@ -4461,7 +4235,6 @@ impl PhoneLineTransportDevice {
         }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Devices_Enumeration`, `Foundation`*"]
     pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Enumeration::DeviceAccessStatus>> {
         let this = self;
         unsafe {
@@ -4469,29 +4242,24 @@ impl PhoneLineTransportDevice {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Devices::Enumeration::DeviceAccessStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RegisterApp(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `System`*"]
     pub fn RegisterAppForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(&self, user: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), user.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn UnregisterApp(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `System`*"]
     pub fn UnregisterAppForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(&self, user: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), user.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsRegistered(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4499,7 +4267,6 @@ impl PhoneLineTransportDevice {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Connect(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4508,7 +4275,6 @@ impl PhoneLineTransportDevice {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn ConnectAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -4516,28 +4282,24 @@ impl PhoneLineTransportDevice {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn FromId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0) -> ::windows::core::Result<PhoneLineTransportDevice> {
         Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<PhoneLineTransportDevice>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetDeviceSelectorForPhoneLineTransport(transport: PhoneLineTransport) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), transport, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn AudioRoutingStatus(&self) -> ::windows::core::Result<TransportDeviceAudioRoutingStatus> {
         let this = &::windows::core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe {
@@ -4546,7 +4308,6 @@ impl PhoneLineTransportDevice {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn AudioRoutingStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe {
@@ -4555,12 +4316,10 @@ impl PhoneLineTransportDevice {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveAudioRoutingStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn InBandRingingEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe {
@@ -4569,7 +4328,6 @@ impl PhoneLineTransportDevice {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn InBandRingingEnabledChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe {
@@ -4578,7 +4336,6 @@ impl PhoneLineTransportDevice {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveInBandRingingEnabledChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -4640,23 +4397,19 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneLineTransportDevice {}
 unsafe impl ::core::marker::Sync for PhoneLineTransportDevice {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneLineWatcher(pub ::windows::core::IInspectable);
 impl PhoneLineWatcher {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn LineAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4665,13 +4418,11 @@ impl PhoneLineWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveLineAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn LineRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4680,13 +4431,11 @@ impl PhoneLineWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveLineRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn LineUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4695,13 +4444,11 @@ impl PhoneLineWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveLineUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn EnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4710,13 +4457,11 @@ impl PhoneLineWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn Stopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4725,12 +4470,10 @@ impl PhoneLineWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveStopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Status(&self) -> ::windows::core::Result<PhoneLineWatcherStatus> {
         let this = self;
         unsafe {
@@ -4791,12 +4534,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneLineWatcher {}
 unsafe impl ::core::marker::Sync for PhoneLineWatcher {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneLineWatcherEventArgs(pub ::windows::core::IInspectable);
 impl PhoneLineWatcherEventArgs {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -4857,7 +4598,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneLineWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for PhoneLineWatcherEventArgs {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneLineWatcherStatus(pub i32);
@@ -4881,7 +4621,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineWatcherStatus {
 impl ::windows::core::DefaultType for PhoneLineWatcherStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneNetworkState(pub i32);
@@ -4909,7 +4648,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneNetworkState {
 impl ::windows::core::DefaultType for PhoneNetworkState {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneSimState(pub i32);
@@ -4937,12 +4675,10 @@ unsafe impl ::windows::core::RuntimeType for PhoneSimState {
 impl ::windows::core::DefaultType for PhoneSimState {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PhoneVoicemail(pub ::windows::core::IInspectable);
 impl PhoneVoicemail {
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Number(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4950,7 +4686,6 @@ impl PhoneVoicemail {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn MessageCount(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -4958,7 +4693,6 @@ impl PhoneVoicemail {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Type(&self) -> ::windows::core::Result<PhoneVoicemailType> {
         let this = self;
         unsafe {
@@ -4967,7 +4701,6 @@ impl PhoneVoicemail {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn DialVoicemailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -5028,7 +4761,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PhoneVoicemail {}
 unsafe impl ::core::marker::Sync for PhoneVoicemail {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneVoicemailType(pub i32);
@@ -5051,7 +4783,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneVoicemailType {
 impl ::windows::core::DefaultType for PhoneVoicemailType {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TransportDeviceAudioRoutingStatus(pub i32);
@@ -5074,13 +4805,11 @@ unsafe impl ::windows::core::RuntimeType for TransportDeviceAudioRoutingStatus {
 impl ::windows::core::DefaultType for TransportDeviceAudioRoutingStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VoipCallCoordinator(pub ::windows::core::IInspectable);
 impl VoipCallCoordinator {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn ReserveCallResourcesAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, taskentrypoint: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>> {
         let this = self;
         unsafe {
@@ -5089,7 +4818,6 @@ impl VoipCallCoordinator {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn MuteStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoipCallCoordinator, MuteChangeEventArgs>>>(&self, mutechangehandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -5098,13 +4826,11 @@ impl VoipCallCoordinator {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveMuteStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RequestNewIncomingCall<
         'a,
         Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
@@ -5149,7 +4875,6 @@ impl VoipCallCoordinator {
             .from_abi::<VoipPhoneCall>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RequestNewOutgoingCall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, context: Param0, contactname: Param1, servicename: Param2, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall> {
         let this = self;
         unsafe {
@@ -5157,17 +4882,14 @@ impl VoipCallCoordinator {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), context.into_param().abi(), contactname.into_param().abi(), servicename.into_param().abi(), media, &mut result__).from_abi::<VoipPhoneCall>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyMuted(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyUnmuted(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RequestOutgoingUpgradeToVideoCall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, callupgradeguid: Param0, context: Param1, contactname: Param2, servicename: Param3) -> ::windows::core::Result<VoipPhoneCall> {
         let this = self;
         unsafe {
@@ -5176,7 +4898,6 @@ impl VoipCallCoordinator {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RequestIncomingUpgradeToVideoCall<
         'a,
         Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
@@ -5219,24 +4940,20 @@ impl VoipCallCoordinator {
             .from_abi::<VoipPhoneCall>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn TerminateCellularCall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, callupgradeguid: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), callupgradeguid.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CancelUpgrade<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, callupgradeguid: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), callupgradeguid.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetDefault() -> ::windows::core::Result<VoipCallCoordinator> {
         Self::IVoipCallCoordinatorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VoipCallCoordinator>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetupNewAcceptedCall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, context: Param0, contactname: Param1, contactnumber: Param2, servicename: Param3, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall> {
         let this = &::windows::core::Interface::cast::<IVoipCallCoordinator2>(self)?;
         unsafe {
@@ -5244,7 +4961,6 @@ impl VoipCallCoordinator {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), context.into_param().abi(), contactname.into_param().abi(), contactnumber.into_param().abi(), servicename.into_param().abi(), media, &mut result__).from_abi::<VoipPhoneCall>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RequestNewAppInitiatedCall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, context: Param0, contactname: Param1, contactnumber: Param2, servicename: Param3, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall> {
         let this = &::windows::core::Interface::cast::<IVoipCallCoordinator3>(self)?;
         unsafe {
@@ -5253,7 +4969,6 @@ impl VoipCallCoordinator {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RequestNewIncomingCallWithContactRemoteId<
         'a,
         Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
@@ -5302,7 +5017,6 @@ impl VoipCallCoordinator {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn ReserveOneProcessCallResourcesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>> {
         let this = &::windows::core::Interface::cast::<IVoipCallCoordinator4>(self)?;
         unsafe {
@@ -5367,13 +5081,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a V
 }
 unsafe impl ::core::marker::Send for VoipCallCoordinator {}
 unsafe impl ::core::marker::Sync for VoipCallCoordinator {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VoipPhoneCall(pub ::windows::core::IInspectable);
 impl VoipPhoneCall {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn EndRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -5382,13 +5094,11 @@ impl VoipPhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveEndRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn HoldRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -5397,13 +5107,11 @@ impl VoipPhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveHoldRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn ResumeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -5412,13 +5120,11 @@ impl VoipPhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveResumeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn AnswerRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallAnswerEventArgs>>>(&self, accepthandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -5427,13 +5133,11 @@ impl VoipPhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveAnswerRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RejectRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallRejectEventArgs>>>(&self, rejecthandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -5442,27 +5146,22 @@ impl VoipPhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveRejectRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyCallHeld(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyCallActive(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyCallEnded(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn ContactName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5470,13 +5169,11 @@ impl VoipPhoneCall {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetContactName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -5485,12 +5182,10 @@ impl VoipPhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CallMedia(&self) -> ::windows::core::Result<VoipPhoneCallMedia> {
         let this = self;
         unsafe {
@@ -5498,22 +5193,18 @@ impl VoipPhoneCall {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VoipPhoneCallMedia>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetCallMedia(&self, value: VoipPhoneCallMedia) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyCallReady(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn TryShowAppUI(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVoipPhoneCall2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyCallAccepted(&self, media: VoipPhoneCallMedia) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVoipPhoneCall3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), media).ok() }
@@ -5571,7 +5262,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a V
 }
 unsafe impl ::core::marker::Send for VoipPhoneCall {}
 unsafe impl ::core::marker::Sync for VoipPhoneCall {}
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VoipPhoneCallMedia(pub u32);
@@ -5622,7 +5312,6 @@ impl ::core::ops::Not for VoipPhoneCallMedia {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VoipPhoneCallRejectReason(pub i32);
@@ -5647,7 +5336,6 @@ unsafe impl ::windows::core::RuntimeType for VoipPhoneCallRejectReason {
 impl ::windows::core::DefaultType for VoipPhoneCallRejectReason {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VoipPhoneCallResourceReservationStatus(pub i32);
@@ -5669,7 +5357,6 @@ unsafe impl ::windows::core::RuntimeType for VoipPhoneCallResourceReservationSta
 impl ::windows::core::DefaultType for VoipPhoneCallResourceReservationStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VoipPhoneCallState(pub i32);

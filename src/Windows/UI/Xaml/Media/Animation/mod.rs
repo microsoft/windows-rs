@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AddDeleteThemeTransition(pub ::windows::core::IInspectable);
@@ -11,7 +10,6 @@ impl AddDeleteThemeTransition {
         static mut SHARED: ::windows::core::FactoryCache<AddDeleteThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19,17 +17,14 @@ impl AddDeleteThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -37,7 +32,6 @@ impl AddDeleteThemeTransition {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -46,7 +40,6 @@ impl AddDeleteThemeTransition {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -54,7 +47,6 @@ impl AddDeleteThemeTransition {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -62,7 +54,6 @@ impl AddDeleteThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -160,7 +151,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Add
 }
 unsafe impl ::core::marker::Send for AddDeleteThemeTransition {}
 unsafe impl ::core::marker::Sync for AddDeleteThemeTransition {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BackEase(pub ::windows::core::IInspectable);
@@ -172,7 +162,6 @@ impl BackEase {
         static mut SHARED: ::windows::core::FactoryCache<BackEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Amplitude(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -180,19 +169,16 @@ impl BackEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAmplitude(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AmplitudeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBackEaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -200,17 +186,14 @@ impl BackEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -218,7 +201,6 @@ impl BackEase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -227,7 +209,6 @@ impl BackEase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -235,7 +216,6 @@ impl BackEase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -243,12 +223,10 @@ impl BackEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingMode(&self) -> ::windows::core::Result<EasingMode> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -256,12 +234,10 @@ impl BackEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -366,12 +342,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Bac
 }
 unsafe impl ::core::marker::Send for BackEase {}
 unsafe impl ::core::marker::Sync for BackEase {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BasicConnectedAnimationConfiguration(pub ::windows::core::IInspectable);
 impl BasicConnectedAnimationConfiguration {
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn new() -> ::windows::core::Result<BasicConnectedAnimationConfiguration> {
         Self::IBasicConnectedAnimationConfigurationFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -455,7 +429,6 @@ impl<'a> ::windows::core::IntoParam<'a, ConnectedAnimationConfiguration> for &Ba
 }
 unsafe impl ::core::marker::Send for BasicConnectedAnimationConfiguration {}
 unsafe impl ::core::marker::Sync for BasicConnectedAnimationConfiguration {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BeginStoryboard(pub ::windows::core::IInspectable);
@@ -467,7 +440,6 @@ impl BeginStoryboard {
         static mut SHARED: ::windows::core::FactoryCache<BeginStoryboard, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Storyboard(&self) -> ::windows::core::Result<Storyboard> {
         let this = self;
         unsafe {
@@ -475,19 +447,16 @@ impl BeginStoryboard {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Storyboard>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetStoryboard<'a, Param0: ::windows::core::IntoParam<'a, Storyboard>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn StoryboardProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBeginStoryboardStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -495,17 +464,14 @@ impl BeginStoryboard {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -513,7 +479,6 @@ impl BeginStoryboard {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -522,7 +487,6 @@ impl BeginStoryboard {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -530,7 +494,6 @@ impl BeginStoryboard {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -538,7 +501,6 @@ impl BeginStoryboard {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -640,7 +602,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Beg
 }
 unsafe impl ::core::marker::Send for BeginStoryboard {}
 unsafe impl ::core::marker::Sync for BeginStoryboard {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BounceEase(pub ::windows::core::IInspectable);
@@ -652,7 +613,6 @@ impl BounceEase {
         static mut SHARED: ::windows::core::FactoryCache<BounceEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Bounces(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -660,12 +620,10 @@ impl BounceEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetBounces(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Bounciness(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -673,26 +631,22 @@ impl BounceEase {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetBounciness(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn BouncesProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBounceEaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn BouncinessProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBounceEaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -700,17 +654,14 @@ impl BounceEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -718,7 +669,6 @@ impl BounceEase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -727,7 +677,6 @@ impl BounceEase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -735,7 +684,6 @@ impl BounceEase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -743,12 +691,10 @@ impl BounceEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingMode(&self) -> ::windows::core::Result<EasingMode> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -756,12 +702,10 @@ impl BounceEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -866,7 +810,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Bou
 }
 unsafe impl ::core::marker::Send for BounceEase {}
 unsafe impl ::core::marker::Sync for BounceEase {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CircleEase(pub ::windows::core::IInspectable);
@@ -878,7 +821,6 @@ impl CircleEase {
         static mut SHARED: ::windows::core::FactoryCache<CircleEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -886,17 +828,14 @@ impl CircleEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -904,7 +843,6 @@ impl CircleEase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -913,7 +851,6 @@ impl CircleEase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -921,7 +858,6 @@ impl CircleEase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -929,12 +865,10 @@ impl CircleEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingMode(&self) -> ::windows::core::Result<EasingMode> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -942,12 +876,10 @@ impl CircleEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -1048,7 +980,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cir
 }
 unsafe impl ::core::marker::Send for CircleEase {}
 unsafe impl ::core::marker::Sync for CircleEase {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ClockState(pub i32);
@@ -1071,7 +1002,6 @@ unsafe impl ::windows::core::RuntimeType for ClockState {
 impl ::windows::core::DefaultType for ClockState {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ColorAnimation(pub ::windows::core::IInspectable);
@@ -1084,7 +1014,6 @@ impl ColorAnimation {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn From(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::Color>> {
         let this = self;
         unsafe {
@@ -1093,13 +1022,11 @@ impl ColorAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn To(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::Color>> {
         let this = self;
         unsafe {
@@ -1108,13 +1035,11 @@ impl ColorAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn By(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::Color>> {
         let this = self;
         unsafe {
@@ -1123,12 +1048,10 @@ impl ColorAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingFunction(&self) -> ::windows::core::Result<EasingFunctionBase> {
         let this = self;
         unsafe {
@@ -1136,12 +1059,10 @@ impl ColorAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingFunctionBase>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, EasingFunctionBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1149,47 +1070,40 @@ impl ColorAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ToProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ByProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingFunctionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1197,17 +1111,14 @@ impl ColorAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1215,7 +1126,6 @@ impl ColorAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1224,7 +1134,6 @@ impl ColorAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1232,7 +1141,6 @@ impl ColorAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -1240,12 +1148,10 @@ impl ColorAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1253,13 +1159,11 @@ impl ColorAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1268,13 +1172,11 @@ impl ColorAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1283,12 +1185,10 @@ impl ColorAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1296,12 +1196,10 @@ impl ColorAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1309,13 +1207,11 @@ impl ColorAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1324,13 +1220,11 @@ impl ColorAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1339,7 +1233,6 @@ impl ColorAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -1441,7 +1334,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
 }
 unsafe impl ::core::marker::Send for ColorAnimation {}
 unsafe impl ::core::marker::Sync for ColorAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ColorAnimationUsingKeyFrames(pub ::windows::core::IInspectable);
@@ -1454,7 +1346,6 @@ impl ColorAnimationUsingKeyFrames {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn KeyFrames(&self) -> ::windows::core::Result<ColorKeyFrameCollection> {
         let this = self;
         unsafe {
@@ -1462,7 +1353,6 @@ impl ColorAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ColorKeyFrameCollection>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1470,19 +1360,16 @@ impl ColorAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorAnimationUsingKeyFramesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1490,17 +1377,14 @@ impl ColorAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1508,7 +1392,6 @@ impl ColorAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1517,7 +1400,6 @@ impl ColorAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1525,7 +1407,6 @@ impl ColorAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -1533,12 +1414,10 @@ impl ColorAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1546,13 +1425,11 @@ impl ColorAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1561,13 +1438,11 @@ impl ColorAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1576,12 +1451,10 @@ impl ColorAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1589,12 +1462,10 @@ impl ColorAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1602,13 +1473,11 @@ impl ColorAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1617,13 +1486,11 @@ impl ColorAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -1632,7 +1499,6 @@ impl ColorAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -1734,12 +1600,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
 }
 unsafe impl ::core::marker::Send for ColorAnimationUsingKeyFrames {}
 unsafe impl ::core::marker::Sync for ColorAnimationUsingKeyFrames {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ColorKeyFrame(pub ::windows::core::IInspectable);
 impl ColorKeyFrame {
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::Color> {
         let this = self;
         unsafe {
@@ -1747,13 +1611,11 @@ impl ColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = self;
         unsafe {
@@ -1762,26 +1624,22 @@ impl ColorKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ValueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn KeyTimeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1789,17 +1647,14 @@ impl ColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1807,7 +1662,6 @@ impl ColorKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1816,7 +1670,6 @@ impl ColorKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1824,7 +1677,6 @@ impl ColorKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -1832,7 +1684,6 @@ impl ColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -1915,7 +1766,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
 unsafe impl ::core::marker::Send for ColorKeyFrame {}
 unsafe impl ::core::marker::Sync for ColorKeyFrame {}
 #[cfg(feature = "Foundation_Collections")]
-#[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ColorKeyFrameCollection(pub ::windows::core::IInspectable);
@@ -1929,7 +1779,6 @@ impl ColorKeyFrameCollection {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<ColorKeyFrame> {
         let this = self;
         unsafe {
@@ -1938,7 +1787,6 @@ impl ColorKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1947,7 +1795,6 @@ impl ColorKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<ColorKeyFrame>> {
         let this = self;
         unsafe {
@@ -1956,7 +1803,6 @@ impl ColorKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, ColorKeyFrame>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1965,43 +1811,36 @@ impl ColorKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, ColorKeyFrame>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, ColorKeyFrame>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), index).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, ColorKeyFrame>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<ColorKeyFrame as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2010,13 +1849,11 @@ impl ColorKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<ColorKeyFrame as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterator<ColorKeyFrame>> {
         let this = &::windows::core::Interface::cast::<super::super::super::super::Foundation::Collections::IIterable<ColorKeyFrame>>(self)?;
         unsafe {
@@ -2156,7 +1993,6 @@ impl ::core::iter::IntoIterator for &ColorKeyFrameCollection {
         super::super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CommonNavigationTransitionInfo(pub ::windows::core::IInspectable);
@@ -2168,7 +2004,6 @@ impl CommonNavigationTransitionInfo {
         static mut SHARED: ::windows::core::FactoryCache<CommonNavigationTransitionInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn IsStaggeringEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2176,37 +2011,31 @@ impl CommonNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetIsStaggeringEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn IsStaggeringEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ICommonNavigationTransitionInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn IsStaggerElementProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ICommonNavigationTransitionInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetIsStaggerElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(element: Param0) -> ::windows::core::Result<bool> {
         Self::ICommonNavigationTransitionInfoStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetIsStaggerElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(element: Param0, value: bool) -> ::windows::core::Result<()> {
         Self::ICommonNavigationTransitionInfoStatics(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2214,17 +2043,14 @@ impl CommonNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2232,7 +2058,6 @@ impl CommonNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2241,7 +2066,6 @@ impl CommonNavigationTransitionInfo {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2249,7 +2073,6 @@ impl CommonNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -2257,7 +2080,6 @@ impl CommonNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -2359,13 +2181,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
 }
 unsafe impl ::core::marker::Send for CommonNavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for CommonNavigationTransitionInfo {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ConnectedAnimation(pub ::windows::core::IInspectable);
 impl ConnectedAnimation {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<ConnectedAnimation, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2374,12 +2194,10 @@ impl ConnectedAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TryStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(&self, destination: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2387,12 +2205,10 @@ impl ConnectedAnimation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), destination.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn IsScaleAnimationEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IConnectedAnimation2>(self)?;
         unsafe {
@@ -2400,13 +2216,11 @@ impl ConnectedAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetIsScaleAnimationEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConnectedAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn TryStartWithCoordinatedElements<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::super::UIElement>>>(&self, destination: Param0, coordinatedelements: Param1) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IConnectedAnimation2>(self)?;
         unsafe {
@@ -2415,12 +2229,10 @@ impl ConnectedAnimation {
         }
     }
     #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Composition`*"]
     pub fn SetAnimationComponent<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Composition::ICompositionAnimationBase>>(&self, component: ConnectedAnimationComponent, animation: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConnectedAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), component, animation.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Configuration(&self) -> ::windows::core::Result<ConnectedAnimationConfiguration> {
         let this = &::windows::core::Interface::cast::<IConnectedAnimation3>(self)?;
         unsafe {
@@ -2428,7 +2240,6 @@ impl ConnectedAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConnectedAnimationConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, ConnectedAnimationConfiguration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConnectedAnimation3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2486,7 +2297,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for ConnectedAnimation {}
 unsafe impl ::core::marker::Sync for ConnectedAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ConnectedAnimationComponent(pub i32);
@@ -2510,7 +2320,6 @@ unsafe impl ::windows::core::RuntimeType for ConnectedAnimationComponent {
 impl ::windows::core::DefaultType for ConnectedAnimationComponent {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ConnectedAnimationConfiguration(pub ::windows::core::IInspectable);
@@ -2567,13 +2376,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for ConnectedAnimationConfiguration {}
 unsafe impl ::core::marker::Sync for ConnectedAnimationConfiguration {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ConnectedAnimationService(pub ::windows::core::IInspectable);
 impl ConnectedAnimationService {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn DefaultDuration(&self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2582,13 +2389,11 @@ impl ConnectedAnimationService {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDefaultDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Composition`*"]
     pub fn DefaultEasingFunction(&self) -> ::windows::core::Result<super::super::super::Composition::CompositionEasingFunction> {
         let this = self;
         unsafe {
@@ -2597,12 +2402,10 @@ impl ConnectedAnimationService {
         }
     }
     #[cfg(feature = "UI_Composition")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Composition`*"]
     pub fn SetDefaultEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Composition::CompositionEasingFunction>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn PrepareToAnimate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::UIElement>>(&self, key: Param0, source: Param1) -> ::windows::core::Result<ConnectedAnimation> {
         let this = self;
         unsafe {
@@ -2610,7 +2413,6 @@ impl ConnectedAnimationService {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), key.into_param().abi(), source.into_param().abi(), &mut result__).from_abi::<ConnectedAnimation>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<ConnectedAnimation> {
         let this = self;
         unsafe {
@@ -2618,7 +2420,6 @@ impl ConnectedAnimationService {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<ConnectedAnimation>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<ConnectedAnimationService> {
         Self::IConnectedAnimationServiceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2682,7 +2483,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for ConnectedAnimationService {}
 unsafe impl ::core::marker::Sync for ConnectedAnimationService {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContentThemeTransition(pub ::windows::core::IInspectable);
@@ -2694,7 +2494,6 @@ impl ContentThemeTransition {
         static mut SHARED: ::windows::core::FactoryCache<ContentThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn HorizontalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2702,12 +2501,10 @@ impl ContentThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn VerticalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2715,26 +2512,22 @@ impl ContentThemeTransition {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn HorizontalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IContentThemeTransitionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn VerticalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IContentThemeTransitionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2742,17 +2535,14 @@ impl ContentThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2760,7 +2550,6 @@ impl ContentThemeTransition {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2769,7 +2558,6 @@ impl ContentThemeTransition {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2777,7 +2565,6 @@ impl ContentThemeTransition {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -2785,7 +2572,6 @@ impl ContentThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -2887,7 +2673,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Con
 }
 unsafe impl ::core::marker::Send for ContentThemeTransition {}
 unsafe impl ::core::marker::Sync for ContentThemeTransition {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ContinuumNavigationTransitionInfo(pub ::windows::core::IInspectable);
@@ -2899,7 +2684,6 @@ impl ContinuumNavigationTransitionInfo {
         static mut SHARED: ::windows::core::FactoryCache<ContinuumNavigationTransitionInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ExitElement(&self) -> ::windows::core::Result<super::super::UIElement> {
         let this = self;
         unsafe {
@@ -2907,55 +2691,46 @@ impl ContinuumNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UIElement>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetExitElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ExitElementProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IContinuumNavigationTransitionInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn IsEntranceElementProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IContinuumNavigationTransitionInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetIsEntranceElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(element: Param0) -> ::windows::core::Result<bool> {
         Self::IContinuumNavigationTransitionInfoStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetIsEntranceElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(element: Param0, value: bool) -> ::windows::core::Result<()> {
         Self::IContinuumNavigationTransitionInfoStatics(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn IsExitElementProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IContinuumNavigationTransitionInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetIsExitElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(element: Param0) -> ::windows::core::Result<bool> {
         Self::IContinuumNavigationTransitionInfoStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetIsExitElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(element: Param0, value: bool) -> ::windows::core::Result<()> {
         Self::IContinuumNavigationTransitionInfoStatics(|this| unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ExitElementContainerProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IContinuumNavigationTransitionInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2963,7 +2738,6 @@ impl ContinuumNavigationTransitionInfo {
         })
     }
     #[cfg(feature = "UI_Xaml_Controls")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Xaml_Controls`*"]
     pub fn GetExitElementContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewBase>>(element: Param0) -> ::windows::core::Result<bool> {
         Self::IContinuumNavigationTransitionInfoStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -2971,11 +2745,9 @@ impl ContinuumNavigationTransitionInfo {
         })
     }
     #[cfg(feature = "UI_Xaml_Controls")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Xaml_Controls`*"]
     pub fn SetExitElementContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewBase>>(element: Param0, value: bool) -> ::windows::core::Result<()> {
         Self::IContinuumNavigationTransitionInfoStatics(|this| unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2983,17 +2755,14 @@ impl ContinuumNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3001,7 +2770,6 @@ impl ContinuumNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3010,7 +2778,6 @@ impl ContinuumNavigationTransitionInfo {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3018,7 +2785,6 @@ impl ContinuumNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -3026,7 +2792,6 @@ impl ContinuumNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -3128,7 +2893,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Con
 }
 unsafe impl ::core::marker::Send for ContinuumNavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for ContinuumNavigationTransitionInfo {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CubicEase(pub ::windows::core::IInspectable);
@@ -3140,7 +2904,6 @@ impl CubicEase {
         static mut SHARED: ::windows::core::FactoryCache<CubicEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3148,17 +2911,14 @@ impl CubicEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3166,7 +2926,6 @@ impl CubicEase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3175,7 +2934,6 @@ impl CubicEase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3183,7 +2941,6 @@ impl CubicEase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -3191,12 +2948,10 @@ impl CubicEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingMode(&self) -> ::windows::core::Result<EasingMode> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -3204,12 +2959,10 @@ impl CubicEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -3310,12 +3063,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cub
 }
 unsafe impl ::core::marker::Send for CubicEase {}
 unsafe impl ::core::marker::Sync for CubicEase {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DirectConnectedAnimationConfiguration(pub ::windows::core::IInspectable);
 impl DirectConnectedAnimationConfiguration {
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn new() -> ::windows::core::Result<DirectConnectedAnimationConfiguration> {
         Self::IDirectConnectedAnimationConfigurationFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3399,7 +3150,6 @@ impl<'a> ::windows::core::IntoParam<'a, ConnectedAnimationConfiguration> for &Di
 }
 unsafe impl ::core::marker::Send for DirectConnectedAnimationConfiguration {}
 unsafe impl ::core::marker::Sync for DirectConnectedAnimationConfiguration {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DiscreteColorKeyFrame(pub ::windows::core::IInspectable);
@@ -3411,7 +3161,6 @@ impl DiscreteColorKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<DiscreteColorKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3419,17 +3168,14 @@ impl DiscreteColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3437,7 +3183,6 @@ impl DiscreteColorKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3446,7 +3191,6 @@ impl DiscreteColorKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3454,7 +3198,6 @@ impl DiscreteColorKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -3462,12 +3205,10 @@ impl DiscreteColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::Color> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe {
@@ -3475,13 +3216,11 @@ impl DiscreteColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe {
@@ -3490,7 +3229,6 @@ impl DiscreteColorKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3588,7 +3326,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dis
 }
 unsafe impl ::core::marker::Send for DiscreteColorKeyFrame {}
 unsafe impl ::core::marker::Sync for DiscreteColorKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DiscreteDoubleKeyFrame(pub ::windows::core::IInspectable);
@@ -3600,7 +3337,6 @@ impl DiscreteDoubleKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<DiscreteDoubleKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3608,17 +3344,14 @@ impl DiscreteDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3626,7 +3359,6 @@ impl DiscreteDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3635,7 +3367,6 @@ impl DiscreteDoubleKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3643,7 +3374,6 @@ impl DiscreteDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -3651,12 +3381,10 @@ impl DiscreteDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Value(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe {
@@ -3664,13 +3392,11 @@ impl DiscreteDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe {
@@ -3679,7 +3405,6 @@ impl DiscreteDoubleKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3777,7 +3502,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dis
 }
 unsafe impl ::core::marker::Send for DiscreteDoubleKeyFrame {}
 unsafe impl ::core::marker::Sync for DiscreteDoubleKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DiscreteObjectKeyFrame(pub ::windows::core::IInspectable);
@@ -3789,7 +3513,6 @@ impl DiscreteObjectKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<DiscreteObjectKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3797,17 +3520,14 @@ impl DiscreteObjectKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3815,7 +3535,6 @@ impl DiscreteObjectKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3824,7 +3543,6 @@ impl DiscreteObjectKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3832,7 +3550,6 @@ impl DiscreteObjectKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -3840,12 +3557,10 @@ impl DiscreteObjectKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IObjectKeyFrame>(self)?;
         unsafe {
@@ -3853,13 +3568,11 @@ impl DiscreteObjectKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IObjectKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IObjectKeyFrame>(self)?;
         unsafe {
@@ -3868,7 +3581,6 @@ impl DiscreteObjectKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IObjectKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3966,7 +3678,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dis
 }
 unsafe impl ::core::marker::Send for DiscreteObjectKeyFrame {}
 unsafe impl ::core::marker::Sync for DiscreteObjectKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DiscretePointKeyFrame(pub ::windows::core::IInspectable);
@@ -3978,7 +3689,6 @@ impl DiscretePointKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<DiscretePointKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -3986,17 +3696,14 @@ impl DiscretePointKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4004,7 +3711,6 @@ impl DiscretePointKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4013,7 +3719,6 @@ impl DiscretePointKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4021,7 +3726,6 @@ impl DiscretePointKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -4029,13 +3733,11 @@ impl DiscretePointKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe {
@@ -4044,13 +3746,11 @@ impl DiscretePointKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe {
@@ -4059,7 +3759,6 @@ impl DiscretePointKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -4157,7 +3856,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dis
 }
 unsafe impl ::core::marker::Send for DiscretePointKeyFrame {}
 unsafe impl ::core::marker::Sync for DiscretePointKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DoubleAnimation(pub ::windows::core::IInspectable);
@@ -4170,7 +3868,6 @@ impl DoubleAnimation {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn From(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -4179,13 +3876,11 @@ impl DoubleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<f64>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn To(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -4194,13 +3889,11 @@ impl DoubleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<f64>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn By(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -4209,12 +3902,10 @@ impl DoubleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<f64>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingFunction(&self) -> ::windows::core::Result<EasingFunctionBase> {
         let this = self;
         unsafe {
@@ -4222,12 +3913,10 @@ impl DoubleAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingFunctionBase>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, EasingFunctionBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4235,47 +3924,40 @@ impl DoubleAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDoubleAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ToProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDoubleAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ByProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDoubleAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingFunctionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDoubleAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDoubleAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4283,17 +3965,14 @@ impl DoubleAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4301,7 +3980,6 @@ impl DoubleAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4310,7 +3988,6 @@ impl DoubleAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4318,7 +3995,6 @@ impl DoubleAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -4326,12 +4002,10 @@ impl DoubleAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4339,13 +4013,11 @@ impl DoubleAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4354,13 +4026,11 @@ impl DoubleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4369,12 +4039,10 @@ impl DoubleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4382,12 +4050,10 @@ impl DoubleAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4395,13 +4061,11 @@ impl DoubleAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4410,13 +4074,11 @@ impl DoubleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4425,7 +4087,6 @@ impl DoubleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -4527,7 +4188,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dou
 }
 unsafe impl ::core::marker::Send for DoubleAnimation {}
 unsafe impl ::core::marker::Sync for DoubleAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DoubleAnimationUsingKeyFrames(pub ::windows::core::IInspectable);
@@ -4540,7 +4200,6 @@ impl DoubleAnimationUsingKeyFrames {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn KeyFrames(&self) -> ::windows::core::Result<DoubleKeyFrameCollection> {
         let this = self;
         unsafe {
@@ -4548,7 +4207,6 @@ impl DoubleAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DoubleKeyFrameCollection>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4556,19 +4214,16 @@ impl DoubleAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDoubleAnimationUsingKeyFramesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4576,17 +4231,14 @@ impl DoubleAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4594,7 +4246,6 @@ impl DoubleAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4603,7 +4254,6 @@ impl DoubleAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4611,7 +4261,6 @@ impl DoubleAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -4619,12 +4268,10 @@ impl DoubleAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4632,13 +4279,11 @@ impl DoubleAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4647,13 +4292,11 @@ impl DoubleAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4662,12 +4305,10 @@ impl DoubleAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4675,12 +4316,10 @@ impl DoubleAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4688,13 +4327,11 @@ impl DoubleAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4703,13 +4340,11 @@ impl DoubleAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -4718,7 +4353,6 @@ impl DoubleAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -4820,12 +4454,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dou
 }
 unsafe impl ::core::marker::Send for DoubleAnimationUsingKeyFrames {}
 unsafe impl ::core::marker::Sync for DoubleAnimationUsingKeyFrames {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DoubleKeyFrame(pub ::windows::core::IInspectable);
 impl DoubleKeyFrame {
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Value(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -4833,13 +4465,11 @@ impl DoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = self;
         unsafe {
@@ -4848,26 +4478,22 @@ impl DoubleKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ValueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDoubleKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn KeyTimeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDoubleKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4875,17 +4501,14 @@ impl DoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4893,7 +4516,6 @@ impl DoubleKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4902,7 +4524,6 @@ impl DoubleKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -4910,7 +4531,6 @@ impl DoubleKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -4918,7 +4538,6 @@ impl DoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -5001,7 +4620,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dou
 unsafe impl ::core::marker::Send for DoubleKeyFrame {}
 unsafe impl ::core::marker::Sync for DoubleKeyFrame {}
 #[cfg(feature = "Foundation_Collections")]
-#[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DoubleKeyFrameCollection(pub ::windows::core::IInspectable);
@@ -5015,7 +4633,6 @@ impl DoubleKeyFrameCollection {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<DoubleKeyFrame> {
         let this = self;
         unsafe {
@@ -5024,7 +4641,6 @@ impl DoubleKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -5033,7 +4649,6 @@ impl DoubleKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<DoubleKeyFrame>> {
         let this = self;
         unsafe {
@@ -5042,7 +4657,6 @@ impl DoubleKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, DoubleKeyFrame>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -5051,43 +4665,36 @@ impl DoubleKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, DoubleKeyFrame>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, DoubleKeyFrame>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), index).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, DoubleKeyFrame>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<DoubleKeyFrame as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -5096,13 +4703,11 @@ impl DoubleKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<DoubleKeyFrame as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterator<DoubleKeyFrame>> {
         let this = &::windows::core::Interface::cast::<super::super::super::super::Foundation::Collections::IIterable<DoubleKeyFrame>>(self)?;
         unsafe {
@@ -5242,7 +4847,6 @@ impl ::core::iter::IntoIterator for &DoubleKeyFrameCollection {
         super::super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DragItemThemeAnimation(pub ::windows::core::IInspectable);
@@ -5254,7 +4858,6 @@ impl DragItemThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<DragItemThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5262,19 +4865,16 @@ impl DragItemThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDragItemThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -5282,17 +4882,14 @@ impl DragItemThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -5300,7 +4897,6 @@ impl DragItemThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -5309,7 +4905,6 @@ impl DragItemThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -5317,7 +4912,6 @@ impl DragItemThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -5325,12 +4919,10 @@ impl DragItemThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5338,13 +4930,11 @@ impl DragItemThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5353,13 +4943,11 @@ impl DragItemThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5368,12 +4956,10 @@ impl DragItemThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5381,12 +4967,10 @@ impl DragItemThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5394,13 +4978,11 @@ impl DragItemThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5409,13 +4991,11 @@ impl DragItemThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5424,7 +5004,6 @@ impl DragItemThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -5526,7 +5105,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dra
 }
 unsafe impl ::core::marker::Send for DragItemThemeAnimation {}
 unsafe impl ::core::marker::Sync for DragItemThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DragOverThemeAnimation(pub ::windows::core::IInspectable);
@@ -5538,7 +5116,6 @@ impl DragOverThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<DragOverThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5546,12 +5123,10 @@ impl DragOverThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ToOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -5559,13 +5134,11 @@ impl DragOverThemeAnimation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetToOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Xaml_Controls_Primitives`*"]
     pub fn Direction(&self) -> ::windows::core::Result<super::super::Controls::Primitives::AnimationDirection> {
         let this = self;
         unsafe {
@@ -5574,33 +5147,28 @@ impl DragOverThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Xaml_Controls_Primitives`*"]
     pub fn SetDirection(&self, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDragOverThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ToOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDragOverThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn DirectionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDragOverThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -5608,17 +5176,14 @@ impl DragOverThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -5626,7 +5191,6 @@ impl DragOverThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -5635,7 +5199,6 @@ impl DragOverThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -5643,7 +5206,6 @@ impl DragOverThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -5651,12 +5213,10 @@ impl DragOverThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5664,13 +5224,11 @@ impl DragOverThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5679,13 +5237,11 @@ impl DragOverThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5694,12 +5250,10 @@ impl DragOverThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5707,12 +5261,10 @@ impl DragOverThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5720,13 +5272,11 @@ impl DragOverThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5735,13 +5285,11 @@ impl DragOverThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -5750,7 +5298,6 @@ impl DragOverThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -5852,7 +5399,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dra
 }
 unsafe impl ::core::marker::Send for DragOverThemeAnimation {}
 unsafe impl ::core::marker::Sync for DragOverThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DrillInNavigationTransitionInfo(pub ::windows::core::IInspectable);
@@ -5864,7 +5410,6 @@ impl DrillInNavigationTransitionInfo {
         static mut SHARED: ::windows::core::FactoryCache<DrillInNavigationTransitionInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -5872,17 +5417,14 @@ impl DrillInNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -5890,7 +5432,6 @@ impl DrillInNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -5899,7 +5440,6 @@ impl DrillInNavigationTransitionInfo {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -5907,7 +5447,6 @@ impl DrillInNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -5915,7 +5454,6 @@ impl DrillInNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -6013,7 +5551,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dri
 }
 unsafe impl ::core::marker::Send for DrillInNavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for DrillInNavigationTransitionInfo {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DrillInThemeAnimation(pub ::windows::core::IInspectable);
@@ -6025,7 +5562,6 @@ impl DrillInThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<DrillInThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EntranceTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6033,12 +5569,10 @@ impl DrillInThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEntranceTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EntranceTarget(&self) -> ::windows::core::Result<super::super::DependencyObject> {
         let this = self;
         unsafe {
@@ -6046,12 +5580,10 @@ impl DrillInThemeAnimation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyObject>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEntranceTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ExitTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6059,12 +5591,10 @@ impl DrillInThemeAnimation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetExitTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ExitTarget(&self) -> ::windows::core::Result<super::super::DependencyObject> {
         let this = self;
         unsafe {
@@ -6072,40 +5602,34 @@ impl DrillInThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyObject>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetExitTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EntranceTargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDrillInThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EntranceTargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDrillInThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ExitTargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDrillInThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ExitTargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDrillInThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -6113,17 +5637,14 @@ impl DrillInThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -6131,7 +5652,6 @@ impl DrillInThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -6140,7 +5660,6 @@ impl DrillInThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -6148,7 +5667,6 @@ impl DrillInThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -6156,12 +5674,10 @@ impl DrillInThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6169,13 +5685,11 @@ impl DrillInThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6184,13 +5698,11 @@ impl DrillInThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6199,12 +5711,10 @@ impl DrillInThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6212,12 +5722,10 @@ impl DrillInThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6225,13 +5733,11 @@ impl DrillInThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6240,13 +5746,11 @@ impl DrillInThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6255,7 +5759,6 @@ impl DrillInThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -6357,7 +5860,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dri
 }
 unsafe impl ::core::marker::Send for DrillInThemeAnimation {}
 unsafe impl ::core::marker::Sync for DrillInThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DrillOutThemeAnimation(pub ::windows::core::IInspectable);
@@ -6369,7 +5871,6 @@ impl DrillOutThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<DrillOutThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EntranceTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6377,12 +5878,10 @@ impl DrillOutThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEntranceTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EntranceTarget(&self) -> ::windows::core::Result<super::super::DependencyObject> {
         let this = self;
         unsafe {
@@ -6390,12 +5889,10 @@ impl DrillOutThemeAnimation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyObject>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEntranceTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ExitTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6403,12 +5900,10 @@ impl DrillOutThemeAnimation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetExitTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ExitTarget(&self) -> ::windows::core::Result<super::super::DependencyObject> {
         let this = self;
         unsafe {
@@ -6416,40 +5911,34 @@ impl DrillOutThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyObject>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetExitTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EntranceTargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDrillOutThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EntranceTargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDrillOutThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ExitTargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDrillOutThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ExitTargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDrillOutThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -6457,17 +5946,14 @@ impl DrillOutThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -6475,7 +5961,6 @@ impl DrillOutThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -6484,7 +5969,6 @@ impl DrillOutThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -6492,7 +5976,6 @@ impl DrillOutThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -6500,12 +5983,10 @@ impl DrillOutThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6513,13 +5994,11 @@ impl DrillOutThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6528,13 +6007,11 @@ impl DrillOutThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6543,12 +6020,10 @@ impl DrillOutThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6556,12 +6031,10 @@ impl DrillOutThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6569,13 +6042,11 @@ impl DrillOutThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6584,13 +6055,11 @@ impl DrillOutThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6599,7 +6068,6 @@ impl DrillOutThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -6701,7 +6169,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dri
 }
 unsafe impl ::core::marker::Send for DrillOutThemeAnimation {}
 unsafe impl ::core::marker::Sync for DrillOutThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct DropTargetItemThemeAnimation(pub ::windows::core::IInspectable);
@@ -6713,7 +6180,6 @@ impl DropTargetItemThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<DropTargetItemThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6721,19 +6187,16 @@ impl DropTargetItemThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IDropTargetItemThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -6741,17 +6204,14 @@ impl DropTargetItemThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -6759,7 +6219,6 @@ impl DropTargetItemThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -6768,7 +6227,6 @@ impl DropTargetItemThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -6776,7 +6234,6 @@ impl DropTargetItemThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -6784,12 +6241,10 @@ impl DropTargetItemThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6797,13 +6252,11 @@ impl DropTargetItemThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6812,13 +6265,11 @@ impl DropTargetItemThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6827,12 +6278,10 @@ impl DropTargetItemThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6840,12 +6289,10 @@ impl DropTargetItemThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6853,13 +6300,11 @@ impl DropTargetItemThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6868,13 +6313,11 @@ impl DropTargetItemThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -6883,7 +6326,6 @@ impl DropTargetItemThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -6985,7 +6427,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dro
 }
 unsafe impl ::core::marker::Send for DropTargetItemThemeAnimation {}
 unsafe impl ::core::marker::Sync for DropTargetItemThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EasingColorKeyFrame(pub ::windows::core::IInspectable);
@@ -6997,7 +6438,6 @@ impl EasingColorKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<EasingColorKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingFunction(&self) -> ::windows::core::Result<EasingFunctionBase> {
         let this = self;
         unsafe {
@@ -7005,19 +6445,16 @@ impl EasingColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingFunctionBase>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, EasingFunctionBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingFunctionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IEasingColorKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7025,17 +6462,14 @@ impl EasingColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7043,7 +6477,6 @@ impl EasingColorKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7052,7 +6485,6 @@ impl EasingColorKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7060,7 +6492,6 @@ impl EasingColorKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -7068,12 +6499,10 @@ impl EasingColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::Color> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe {
@@ -7081,13 +6510,11 @@ impl EasingColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe {
@@ -7096,7 +6523,6 @@ impl EasingColorKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -7198,7 +6624,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Eas
 }
 unsafe impl ::core::marker::Send for EasingColorKeyFrame {}
 unsafe impl ::core::marker::Sync for EasingColorKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EasingDoubleKeyFrame(pub ::windows::core::IInspectable);
@@ -7210,7 +6635,6 @@ impl EasingDoubleKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<EasingDoubleKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingFunction(&self) -> ::windows::core::Result<EasingFunctionBase> {
         let this = self;
         unsafe {
@@ -7218,19 +6642,16 @@ impl EasingDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingFunctionBase>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, EasingFunctionBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingFunctionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IEasingDoubleKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7238,17 +6659,14 @@ impl EasingDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7256,7 +6674,6 @@ impl EasingDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7265,7 +6682,6 @@ impl EasingDoubleKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7273,7 +6689,6 @@ impl EasingDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -7281,12 +6696,10 @@ impl EasingDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Value(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe {
@@ -7294,13 +6707,11 @@ impl EasingDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe {
@@ -7309,7 +6720,6 @@ impl EasingDoubleKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -7411,12 +6821,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Eas
 }
 unsafe impl ::core::marker::Send for EasingDoubleKeyFrame {}
 unsafe impl ::core::marker::Sync for EasingDoubleKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EasingFunctionBase(pub ::windows::core::IInspectable);
 impl EasingFunctionBase {
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingMode(&self) -> ::windows::core::Result<EasingMode> {
         let this = self;
         unsafe {
@@ -7424,12 +6832,10 @@ impl EasingFunctionBase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -7437,14 +6843,12 @@ impl EasingFunctionBase {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), normalizedtime, &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IEasingFunctionBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7452,17 +6856,14 @@ impl EasingFunctionBase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7470,7 +6871,6 @@ impl EasingFunctionBase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7479,7 +6879,6 @@ impl EasingFunctionBase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7487,7 +6886,6 @@ impl EasingFunctionBase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -7495,7 +6893,6 @@ impl EasingFunctionBase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -7577,7 +6974,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Eas
 }
 unsafe impl ::core::marker::Send for EasingFunctionBase {}
 unsafe impl ::core::marker::Sync for EasingFunctionBase {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EasingMode(pub i32);
@@ -7600,7 +6996,6 @@ unsafe impl ::windows::core::RuntimeType for EasingMode {
 impl ::windows::core::DefaultType for EasingMode {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EasingPointKeyFrame(pub ::windows::core::IInspectable);
@@ -7612,7 +7007,6 @@ impl EasingPointKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<EasingPointKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingFunction(&self) -> ::windows::core::Result<EasingFunctionBase> {
         let this = self;
         unsafe {
@@ -7620,19 +7014,16 @@ impl EasingPointKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingFunctionBase>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, EasingFunctionBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingFunctionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IEasingPointKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7640,17 +7031,14 @@ impl EasingPointKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7658,7 +7046,6 @@ impl EasingPointKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7667,7 +7054,6 @@ impl EasingPointKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7675,7 +7061,6 @@ impl EasingPointKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -7683,13 +7068,11 @@ impl EasingPointKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe {
@@ -7698,13 +7081,11 @@ impl EasingPointKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe {
@@ -7713,7 +7094,6 @@ impl EasingPointKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -7815,7 +7195,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Eas
 }
 unsafe impl ::core::marker::Send for EasingPointKeyFrame {}
 unsafe impl ::core::marker::Sync for EasingPointKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EdgeUIThemeTransition(pub ::windows::core::IInspectable);
@@ -7828,7 +7207,6 @@ impl EdgeUIThemeTransition {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Xaml_Controls_Primitives`*"]
     pub fn Edge(&self) -> ::windows::core::Result<super::super::Controls::Primitives::EdgeTransitionLocation> {
         let this = self;
         unsafe {
@@ -7837,19 +7215,16 @@ impl EdgeUIThemeTransition {
         }
     }
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Xaml_Controls_Primitives`*"]
     pub fn SetEdge(&self, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EdgeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IEdgeUIThemeTransitionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7857,17 +7232,14 @@ impl EdgeUIThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7875,7 +7247,6 @@ impl EdgeUIThemeTransition {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7884,7 +7255,6 @@ impl EdgeUIThemeTransition {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -7892,7 +7262,6 @@ impl EdgeUIThemeTransition {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -7900,7 +7269,6 @@ impl EdgeUIThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -8002,7 +7370,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Edg
 }
 unsafe impl ::core::marker::Send for EdgeUIThemeTransition {}
 unsafe impl ::core::marker::Sync for EdgeUIThemeTransition {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ElasticEase(pub ::windows::core::IInspectable);
@@ -8014,7 +7381,6 @@ impl ElasticEase {
         static mut SHARED: ::windows::core::FactoryCache<ElasticEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Oscillations(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -8022,12 +7388,10 @@ impl ElasticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetOscillations(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Springiness(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -8035,26 +7399,22 @@ impl ElasticEase {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpringiness(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OscillationsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IElasticEaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpringinessProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IElasticEaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8062,17 +7422,14 @@ impl ElasticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8080,7 +7437,6 @@ impl ElasticEase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8089,7 +7445,6 @@ impl ElasticEase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8097,7 +7452,6 @@ impl ElasticEase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -8105,12 +7459,10 @@ impl ElasticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingMode(&self) -> ::windows::core::Result<EasingMode> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -8118,12 +7470,10 @@ impl ElasticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -8228,7 +7578,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ela
 }
 unsafe impl ::core::marker::Send for ElasticEase {}
 unsafe impl ::core::marker::Sync for ElasticEase {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EntranceNavigationTransitionInfo(pub ::windows::core::IInspectable);
@@ -8240,25 +7589,21 @@ impl EntranceNavigationTransitionInfo {
         static mut SHARED: ::windows::core::FactoryCache<EntranceNavigationTransitionInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn IsTargetElementProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IEntranceNavigationTransitionInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetIsTargetElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(element: Param0) -> ::windows::core::Result<bool> {
         Self::IEntranceNavigationTransitionInfoStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetIsTargetElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(element: Param0, value: bool) -> ::windows::core::Result<()> {
         Self::IEntranceNavigationTransitionInfoStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8266,17 +7611,14 @@ impl EntranceNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8284,7 +7626,6 @@ impl EntranceNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8293,7 +7634,6 @@ impl EntranceNavigationTransitionInfo {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8301,7 +7641,6 @@ impl EntranceNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -8309,7 +7648,6 @@ impl EntranceNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -8411,7 +7749,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ent
 }
 unsafe impl ::core::marker::Send for EntranceNavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for EntranceNavigationTransitionInfo {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EntranceThemeTransition(pub ::windows::core::IInspectable);
@@ -8423,7 +7760,6 @@ impl EntranceThemeTransition {
         static mut SHARED: ::windows::core::FactoryCache<EntranceThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromHorizontalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -8431,12 +7767,10 @@ impl EntranceThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFromHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromVerticalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -8444,12 +7778,10 @@ impl EntranceThemeTransition {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFromVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn IsStaggeringEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -8457,33 +7789,28 @@ impl EntranceThemeTransition {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetIsStaggeringEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromHorizontalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IEntranceThemeTransitionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromVerticalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IEntranceThemeTransitionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn IsStaggeringEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IEntranceThemeTransitionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8491,17 +7818,14 @@ impl EntranceThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8509,7 +7833,6 @@ impl EntranceThemeTransition {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8518,7 +7841,6 @@ impl EntranceThemeTransition {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8526,7 +7848,6 @@ impl EntranceThemeTransition {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -8534,7 +7855,6 @@ impl EntranceThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -8636,7 +7956,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ent
 }
 unsafe impl ::core::marker::Send for EntranceThemeTransition {}
 unsafe impl ::core::marker::Sync for EntranceThemeTransition {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ExponentialEase(pub ::windows::core::IInspectable);
@@ -8648,7 +7967,6 @@ impl ExponentialEase {
         static mut SHARED: ::windows::core::FactoryCache<ExponentialEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Exponent(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -8656,19 +7974,16 @@ impl ExponentialEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetExponent(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ExponentProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IExponentialEaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8676,17 +7991,14 @@ impl ExponentialEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8694,7 +8006,6 @@ impl ExponentialEase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8703,7 +8014,6 @@ impl ExponentialEase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8711,7 +8021,6 @@ impl ExponentialEase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -8719,12 +8028,10 @@ impl ExponentialEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingMode(&self) -> ::windows::core::Result<EasingMode> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -8732,12 +8039,10 @@ impl ExponentialEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -8842,7 +8147,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Exp
 }
 unsafe impl ::core::marker::Send for ExponentialEase {}
 unsafe impl ::core::marker::Sync for ExponentialEase {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FadeInThemeAnimation(pub ::windows::core::IInspectable);
@@ -8854,7 +8158,6 @@ impl FadeInThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<FadeInThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8862,19 +8165,16 @@ impl FadeInThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFadeInThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8882,17 +8182,14 @@ impl FadeInThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8900,7 +8197,6 @@ impl FadeInThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8909,7 +8205,6 @@ impl FadeInThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -8917,7 +8212,6 @@ impl FadeInThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -8925,12 +8219,10 @@ impl FadeInThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -8938,13 +8230,11 @@ impl FadeInThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -8953,13 +8243,11 @@ impl FadeInThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -8968,12 +8256,10 @@ impl FadeInThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -8981,12 +8267,10 @@ impl FadeInThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -8994,13 +8278,11 @@ impl FadeInThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -9009,13 +8291,11 @@ impl FadeInThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -9024,7 +8304,6 @@ impl FadeInThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -9126,7 +8405,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fad
 }
 unsafe impl ::core::marker::Send for FadeInThemeAnimation {}
 unsafe impl ::core::marker::Sync for FadeInThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FadeOutThemeAnimation(pub ::windows::core::IInspectable);
@@ -9138,7 +8416,6 @@ impl FadeOutThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<FadeOutThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -9146,19 +8423,16 @@ impl FadeOutThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFadeOutThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -9166,17 +8440,14 @@ impl FadeOutThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -9184,7 +8455,6 @@ impl FadeOutThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -9193,7 +8463,6 @@ impl FadeOutThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -9201,7 +8470,6 @@ impl FadeOutThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -9209,12 +8477,10 @@ impl FadeOutThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -9222,13 +8488,11 @@ impl FadeOutThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -9237,13 +8501,11 @@ impl FadeOutThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -9252,12 +8514,10 @@ impl FadeOutThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -9265,12 +8525,10 @@ impl FadeOutThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -9278,13 +8536,11 @@ impl FadeOutThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -9293,13 +8549,11 @@ impl FadeOutThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -9308,7 +8562,6 @@ impl FadeOutThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -9410,7 +8663,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fad
 }
 unsafe impl ::core::marker::Send for FadeOutThemeAnimation {}
 unsafe impl ::core::marker::Sync for FadeOutThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FillBehavior(pub i32);
@@ -9432,19 +8684,16 @@ unsafe impl ::windows::core::RuntimeType for FillBehavior {
 impl ::windows::core::DefaultType for FillBehavior {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GravityConnectedAnimationConfiguration(pub ::windows::core::IInspectable);
 impl GravityConnectedAnimationConfiguration {
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn new() -> ::windows::core::Result<GravityConnectedAnimationConfiguration> {
         Self::IGravityConnectedAnimationConfigurationFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GravityConnectedAnimationConfiguration>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn IsShadowEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IGravityConnectedAnimationConfiguration2>(self)?;
         unsafe {
@@ -9452,7 +8701,6 @@ impl GravityConnectedAnimationConfiguration {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetIsShadowEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IGravityConnectedAnimationConfiguration2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
@@ -12668,7 +11916,6 @@ pub struct ITransitionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct KeySpline(pub ::windows::core::IInspectable);
@@ -12681,7 +11928,6 @@ impl KeySpline {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn ControlPoint1(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -12690,13 +11936,11 @@ impl KeySpline {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetControlPoint1<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn ControlPoint2(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -12705,12 +11949,10 @@ impl KeySpline {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetControlPoint2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -12718,17 +11960,14 @@ impl KeySpline {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -12736,7 +11975,6 @@ impl KeySpline {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -12745,7 +11983,6 @@ impl KeySpline {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -12753,7 +11990,6 @@ impl KeySpline {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -12761,7 +11997,6 @@ impl KeySpline {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -12842,7 +12077,6 @@ unsafe impl ::core::marker::Sync for KeySpline {}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Foundation")]
-#[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
 pub struct KeyTime {
     pub TimeSpan: super::super::super::super::Foundation::TimeSpan,
 }
@@ -12880,13 +12114,11 @@ unsafe impl ::windows::core::RuntimeType for KeyTime {
 impl ::windows::core::DefaultType for KeyTime {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct KeyTimeHelper(pub ::windows::core::IInspectable);
 impl KeyTimeHelper {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn FromTimeSpan<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TimeSpan>>(timespan: Param0) -> ::windows::core::Result<KeyTime> {
         Self::IKeyTimeHelperStatics(|this| unsafe {
             let mut result__: KeyTime = ::core::mem::zeroed();
@@ -12950,7 +12182,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a K
 }
 unsafe impl ::core::marker::Send for KeyTimeHelper {}
 unsafe impl ::core::marker::Sync for KeyTimeHelper {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LinearColorKeyFrame(pub ::windows::core::IInspectable);
@@ -12962,7 +12193,6 @@ impl LinearColorKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<LinearColorKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -12970,17 +12200,14 @@ impl LinearColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -12988,7 +12215,6 @@ impl LinearColorKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -12997,7 +12223,6 @@ impl LinearColorKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13005,7 +12230,6 @@ impl LinearColorKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -13013,12 +12237,10 @@ impl LinearColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::Color> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe {
@@ -13026,13 +12248,11 @@ impl LinearColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe {
@@ -13041,7 +12261,6 @@ impl LinearColorKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -13139,7 +12358,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lin
 }
 unsafe impl ::core::marker::Send for LinearColorKeyFrame {}
 unsafe impl ::core::marker::Sync for LinearColorKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LinearDoubleKeyFrame(pub ::windows::core::IInspectable);
@@ -13151,7 +12369,6 @@ impl LinearDoubleKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<LinearDoubleKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13159,17 +12376,14 @@ impl LinearDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13177,7 +12391,6 @@ impl LinearDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13186,7 +12399,6 @@ impl LinearDoubleKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13194,7 +12406,6 @@ impl LinearDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -13202,12 +12413,10 @@ impl LinearDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Value(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe {
@@ -13215,13 +12424,11 @@ impl LinearDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe {
@@ -13230,7 +12437,6 @@ impl LinearDoubleKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -13328,7 +12534,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lin
 }
 unsafe impl ::core::marker::Send for LinearDoubleKeyFrame {}
 unsafe impl ::core::marker::Sync for LinearDoubleKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LinearPointKeyFrame(pub ::windows::core::IInspectable);
@@ -13340,7 +12545,6 @@ impl LinearPointKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<LinearPointKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13348,17 +12552,14 @@ impl LinearPointKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13366,7 +12567,6 @@ impl LinearPointKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13375,7 +12575,6 @@ impl LinearPointKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13383,7 +12582,6 @@ impl LinearPointKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -13391,13 +12589,11 @@ impl LinearPointKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe {
@@ -13406,13 +12602,11 @@ impl LinearPointKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe {
@@ -13421,7 +12615,6 @@ impl LinearPointKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -13519,7 +12712,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lin
 }
 unsafe impl ::core::marker::Send for LinearPointKeyFrame {}
 unsafe impl ::core::marker::Sync for LinearPointKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct NavigationThemeTransition(pub ::windows::core::IInspectable);
@@ -13531,7 +12723,6 @@ impl NavigationThemeTransition {
         static mut SHARED: ::windows::core::FactoryCache<NavigationThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn DefaultNavigationTransitionInfo(&self) -> ::windows::core::Result<NavigationTransitionInfo> {
         let this = self;
         unsafe {
@@ -13539,19 +12730,16 @@ impl NavigationThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NavigationTransitionInfo>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetDefaultNavigationTransitionInfo<'a, Param0: ::windows::core::IntoParam<'a, NavigationTransitionInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn DefaultNavigationTransitionInfoProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::INavigationThemeTransitionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13559,17 +12747,14 @@ impl NavigationThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13577,7 +12762,6 @@ impl NavigationThemeTransition {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13586,7 +12770,6 @@ impl NavigationThemeTransition {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13594,7 +12777,6 @@ impl NavigationThemeTransition {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -13602,7 +12784,6 @@ impl NavigationThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -13704,12 +12885,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Nav
 }
 unsafe impl ::core::marker::Send for NavigationThemeTransition {}
 unsafe impl ::core::marker::Sync for NavigationThemeTransition {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct NavigationTransitionInfo(pub ::windows::core::IInspectable);
 impl NavigationTransitionInfo {
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13717,17 +12896,14 @@ impl NavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13735,7 +12911,6 @@ impl NavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13744,7 +12919,6 @@ impl NavigationTransitionInfo {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13752,7 +12926,6 @@ impl NavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -13760,7 +12933,6 @@ impl NavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -13838,7 +13010,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Nav
 }
 unsafe impl ::core::marker::Send for NavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for NavigationTransitionInfo {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ObjectAnimationUsingKeyFrames(pub ::windows::core::IInspectable);
@@ -13851,7 +13022,6 @@ impl ObjectAnimationUsingKeyFrames {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn KeyFrames(&self) -> ::windows::core::Result<ObjectKeyFrameCollection> {
         let this = self;
         unsafe {
@@ -13859,7 +13029,6 @@ impl ObjectAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ObjectKeyFrameCollection>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -13867,19 +13036,16 @@ impl ObjectAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IObjectAnimationUsingKeyFramesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13887,17 +13053,14 @@ impl ObjectAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13905,7 +13068,6 @@ impl ObjectAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13914,7 +13076,6 @@ impl ObjectAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -13922,7 +13083,6 @@ impl ObjectAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -13930,12 +13090,10 @@ impl ObjectAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -13943,13 +13101,11 @@ impl ObjectAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -13958,13 +13114,11 @@ impl ObjectAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -13973,12 +13127,10 @@ impl ObjectAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -13986,12 +13138,10 @@ impl ObjectAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -13999,13 +13149,11 @@ impl ObjectAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -14014,13 +13162,11 @@ impl ObjectAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -14029,7 +13175,6 @@ impl ObjectAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -14131,12 +13276,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Obj
 }
 unsafe impl ::core::marker::Send for ObjectAnimationUsingKeyFrames {}
 unsafe impl ::core::marker::Sync for ObjectAnimationUsingKeyFrames {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ObjectKeyFrame(pub ::windows::core::IInspectable);
 impl ObjectKeyFrame {
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -14144,13 +13287,11 @@ impl ObjectKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = self;
         unsafe {
@@ -14159,26 +13300,22 @@ impl ObjectKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ValueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IObjectKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn KeyTimeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IObjectKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -14186,17 +13323,14 @@ impl ObjectKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -14204,7 +13338,6 @@ impl ObjectKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -14213,7 +13346,6 @@ impl ObjectKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -14221,7 +13353,6 @@ impl ObjectKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -14229,7 +13360,6 @@ impl ObjectKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -14312,7 +13442,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Obj
 unsafe impl ::core::marker::Send for ObjectKeyFrame {}
 unsafe impl ::core::marker::Sync for ObjectKeyFrame {}
 #[cfg(feature = "Foundation_Collections")]
-#[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ObjectKeyFrameCollection(pub ::windows::core::IInspectable);
@@ -14326,7 +13455,6 @@ impl ObjectKeyFrameCollection {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<ObjectKeyFrame> {
         let this = self;
         unsafe {
@@ -14335,7 +13463,6 @@ impl ObjectKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -14344,7 +13471,6 @@ impl ObjectKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<ObjectKeyFrame>> {
         let this = self;
         unsafe {
@@ -14353,7 +13479,6 @@ impl ObjectKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, ObjectKeyFrame>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -14362,43 +13487,36 @@ impl ObjectKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, ObjectKeyFrame>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, ObjectKeyFrame>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), index).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, ObjectKeyFrame>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<ObjectKeyFrame as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -14407,13 +13525,11 @@ impl ObjectKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<ObjectKeyFrame as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterator<ObjectKeyFrame>> {
         let this = &::windows::core::Interface::cast::<super::super::super::super::Foundation::Collections::IIterable<ObjectKeyFrame>>(self)?;
         unsafe {
@@ -14553,7 +13669,6 @@ impl ::core::iter::IntoIterator for &ObjectKeyFrameCollection {
         super::super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PaneThemeTransition(pub ::windows::core::IInspectable);
@@ -14566,7 +13681,6 @@ impl PaneThemeTransition {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Xaml_Controls_Primitives`*"]
     pub fn Edge(&self) -> ::windows::core::Result<super::super::Controls::Primitives::EdgeTransitionLocation> {
         let this = self;
         unsafe {
@@ -14575,19 +13689,16 @@ impl PaneThemeTransition {
         }
     }
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Xaml_Controls_Primitives`*"]
     pub fn SetEdge(&self, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EdgeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPaneThemeTransitionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -14595,17 +13706,14 @@ impl PaneThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -14613,7 +13721,6 @@ impl PaneThemeTransition {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -14622,7 +13729,6 @@ impl PaneThemeTransition {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -14630,7 +13736,6 @@ impl PaneThemeTransition {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -14638,7 +13743,6 @@ impl PaneThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -14740,7 +13844,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pan
 }
 unsafe impl ::core::marker::Send for PaneThemeTransition {}
 unsafe impl ::core::marker::Sync for PaneThemeTransition {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PointAnimation(pub ::windows::core::IInspectable);
@@ -14753,7 +13856,6 @@ impl PointAnimation {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn From(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>> {
         let this = self;
         unsafe {
@@ -14762,13 +13864,11 @@ impl PointAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn To(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>> {
         let this = self;
         unsafe {
@@ -14777,13 +13877,11 @@ impl PointAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn By(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>> {
         let this = self;
         unsafe {
@@ -14792,12 +13890,10 @@ impl PointAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingFunction(&self) -> ::windows::core::Result<EasingFunctionBase> {
         let this = self;
         unsafe {
@@ -14805,12 +13901,10 @@ impl PointAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingFunctionBase>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, EasingFunctionBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -14818,47 +13912,40 @@ impl PointAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPointAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ToProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPointAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ByProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPointAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingFunctionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPointAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPointAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -14866,17 +13953,14 @@ impl PointAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -14884,7 +13968,6 @@ impl PointAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -14893,7 +13976,6 @@ impl PointAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -14901,7 +13983,6 @@ impl PointAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -14909,12 +13990,10 @@ impl PointAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -14922,13 +14001,11 @@ impl PointAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -14937,13 +14014,11 @@ impl PointAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -14952,12 +14027,10 @@ impl PointAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -14965,12 +14038,10 @@ impl PointAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -14978,13 +14049,11 @@ impl PointAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -14993,13 +14062,11 @@ impl PointAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15008,7 +14075,6 @@ impl PointAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -15110,7 +14176,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
 }
 unsafe impl ::core::marker::Send for PointAnimation {}
 unsafe impl ::core::marker::Sync for PointAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PointAnimationUsingKeyFrames(pub ::windows::core::IInspectable);
@@ -15123,7 +14188,6 @@ impl PointAnimationUsingKeyFrames {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn KeyFrames(&self) -> ::windows::core::Result<PointKeyFrameCollection> {
         let this = self;
         unsafe {
@@ -15131,7 +14195,6 @@ impl PointAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PointKeyFrameCollection>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimation(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -15139,19 +14202,16 @@ impl PointAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEnableDependentAnimation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EnableDependentAnimationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPointAnimationUsingKeyFramesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -15159,17 +14219,14 @@ impl PointAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -15177,7 +14234,6 @@ impl PointAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -15186,7 +14242,6 @@ impl PointAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -15194,7 +14249,6 @@ impl PointAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -15202,12 +14256,10 @@ impl PointAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15215,13 +14267,11 @@ impl PointAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15230,13 +14280,11 @@ impl PointAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15245,12 +14293,10 @@ impl PointAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15258,12 +14304,10 @@ impl PointAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15271,13 +14315,11 @@ impl PointAnimationUsingKeyFrames {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15286,13 +14328,11 @@ impl PointAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15301,7 +14341,6 @@ impl PointAnimationUsingKeyFrames {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -15403,13 +14442,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
 }
 unsafe impl ::core::marker::Send for PointAnimationUsingKeyFrames {}
 unsafe impl ::core::marker::Sync for PointAnimationUsingKeyFrames {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PointKeyFrame(pub ::windows::core::IInspectable);
 impl PointKeyFrame {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -15418,13 +14455,11 @@ impl PointKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = self;
         unsafe {
@@ -15433,26 +14468,22 @@ impl PointKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ValueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPointKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn KeyTimeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPointKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -15460,17 +14491,14 @@ impl PointKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -15478,7 +14506,6 @@ impl PointKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -15487,7 +14514,6 @@ impl PointKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -15495,7 +14521,6 @@ impl PointKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -15503,7 +14528,6 @@ impl PointKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -15586,7 +14610,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
 unsafe impl ::core::marker::Send for PointKeyFrame {}
 unsafe impl ::core::marker::Sync for PointKeyFrame {}
 #[cfg(feature = "Foundation_Collections")]
-#[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PointKeyFrameCollection(pub ::windows::core::IInspectable);
@@ -15600,7 +14623,6 @@ impl PointKeyFrameCollection {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<PointKeyFrame> {
         let this = self;
         unsafe {
@@ -15609,7 +14631,6 @@ impl PointKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -15618,7 +14639,6 @@ impl PointKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<PointKeyFrame>> {
         let this = self;
         unsafe {
@@ -15627,7 +14647,6 @@ impl PointKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, PointKeyFrame>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -15636,43 +14655,36 @@ impl PointKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, PointKeyFrame>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, PointKeyFrame>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), index).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, PointKeyFrame>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<PointKeyFrame as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -15681,13 +14693,11 @@ impl PointKeyFrameCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<PointKeyFrame as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterator<PointKeyFrame>> {
         let this = &::windows::core::Interface::cast::<super::super::super::super::Foundation::Collections::IIterable<PointKeyFrame>>(self)?;
         unsafe {
@@ -15827,7 +14837,6 @@ impl ::core::iter::IntoIterator for &PointKeyFrameCollection {
         super::super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PointerDownThemeAnimation(pub ::windows::core::IInspectable);
@@ -15839,7 +14848,6 @@ impl PointerDownThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<PointerDownThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -15847,19 +14855,16 @@ impl PointerDownThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPointerDownThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -15867,17 +14872,14 @@ impl PointerDownThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -15885,7 +14887,6 @@ impl PointerDownThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -15894,7 +14895,6 @@ impl PointerDownThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -15902,7 +14902,6 @@ impl PointerDownThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -15910,12 +14909,10 @@ impl PointerDownThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15923,13 +14920,11 @@ impl PointerDownThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15938,13 +14933,11 @@ impl PointerDownThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15953,12 +14946,10 @@ impl PointerDownThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15966,12 +14957,10 @@ impl PointerDownThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15979,13 +14968,11 @@ impl PointerDownThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -15994,13 +14981,11 @@ impl PointerDownThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16009,7 +14994,6 @@ impl PointerDownThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -16111,7 +15095,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
 }
 unsafe impl ::core::marker::Send for PointerDownThemeAnimation {}
 unsafe impl ::core::marker::Sync for PointerDownThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PointerUpThemeAnimation(pub ::windows::core::IInspectable);
@@ -16123,7 +15106,6 @@ impl PointerUpThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<PointerUpThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -16131,19 +15113,16 @@ impl PointerUpThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPointerUpThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16151,17 +15130,14 @@ impl PointerUpThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16169,7 +15145,6 @@ impl PointerUpThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16178,7 +15153,6 @@ impl PointerUpThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16186,7 +15160,6 @@ impl PointerUpThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -16194,12 +15167,10 @@ impl PointerUpThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16207,13 +15178,11 @@ impl PointerUpThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16222,13 +15191,11 @@ impl PointerUpThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16237,12 +15204,10 @@ impl PointerUpThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16250,12 +15215,10 @@ impl PointerUpThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16263,13 +15226,11 @@ impl PointerUpThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16278,13 +15239,11 @@ impl PointerUpThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16293,7 +15252,6 @@ impl PointerUpThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -16395,7 +15353,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
 }
 unsafe impl ::core::marker::Send for PointerUpThemeAnimation {}
 unsafe impl ::core::marker::Sync for PointerUpThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PopInThemeAnimation(pub ::windows::core::IInspectable);
@@ -16407,7 +15364,6 @@ impl PopInThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<PopInThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -16415,12 +15371,10 @@ impl PopInThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromHorizontalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -16428,12 +15382,10 @@ impl PopInThemeAnimation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFromHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromVerticalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -16441,33 +15393,28 @@ impl PopInThemeAnimation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFromVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopInThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromHorizontalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopInThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromVerticalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopInThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16475,17 +15422,14 @@ impl PopInThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16493,7 +15437,6 @@ impl PopInThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16502,7 +15445,6 @@ impl PopInThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16510,7 +15452,6 @@ impl PopInThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -16518,12 +15459,10 @@ impl PopInThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16531,13 +15470,11 @@ impl PopInThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16546,13 +15483,11 @@ impl PopInThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16561,12 +15496,10 @@ impl PopInThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16574,12 +15507,10 @@ impl PopInThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16587,13 +15518,11 @@ impl PopInThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16602,13 +15531,11 @@ impl PopInThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16617,7 +15544,6 @@ impl PopInThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -16719,7 +15645,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pop
 }
 unsafe impl ::core::marker::Send for PopInThemeAnimation {}
 unsafe impl ::core::marker::Sync for PopInThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PopOutThemeAnimation(pub ::windows::core::IInspectable);
@@ -16731,7 +15656,6 @@ impl PopOutThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<PopOutThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -16739,19 +15663,16 @@ impl PopOutThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopOutThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16759,17 +15680,14 @@ impl PopOutThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16777,7 +15695,6 @@ impl PopOutThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16786,7 +15703,6 @@ impl PopOutThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -16794,7 +15710,6 @@ impl PopOutThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -16802,12 +15717,10 @@ impl PopOutThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16815,13 +15728,11 @@ impl PopOutThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16830,13 +15741,11 @@ impl PopOutThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16845,12 +15754,10 @@ impl PopOutThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16858,12 +15765,10 @@ impl PopOutThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16871,13 +15776,11 @@ impl PopOutThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16886,13 +15789,11 @@ impl PopOutThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -16901,7 +15802,6 @@ impl PopOutThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -17003,7 +15903,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pop
 }
 unsafe impl ::core::marker::Send for PopOutThemeAnimation {}
 unsafe impl ::core::marker::Sync for PopOutThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PopupThemeTransition(pub ::windows::core::IInspectable);
@@ -17015,7 +15914,6 @@ impl PopupThemeTransition {
         static mut SHARED: ::windows::core::FactoryCache<PopupThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromHorizontalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -17023,12 +15921,10 @@ impl PopupThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFromHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromVerticalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -17036,26 +15932,22 @@ impl PopupThemeTransition {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFromVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromHorizontalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupThemeTransitionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromVerticalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupThemeTransitionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17063,17 +15955,14 @@ impl PopupThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17081,7 +15970,6 @@ impl PopupThemeTransition {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17090,7 +15978,6 @@ impl PopupThemeTransition {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17098,7 +15985,6 @@ impl PopupThemeTransition {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -17106,7 +15992,6 @@ impl PopupThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -17208,7 +16093,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pop
 }
 unsafe impl ::core::marker::Send for PopupThemeTransition {}
 unsafe impl ::core::marker::Sync for PopupThemeTransition {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PowerEase(pub ::windows::core::IInspectable);
@@ -17220,7 +16104,6 @@ impl PowerEase {
         static mut SHARED: ::windows::core::FactoryCache<PowerEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Power(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -17228,19 +16111,16 @@ impl PowerEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetPower(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn PowerProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPowerEaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17248,17 +16128,14 @@ impl PowerEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17266,7 +16143,6 @@ impl PowerEase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17275,7 +16151,6 @@ impl PowerEase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17283,7 +16158,6 @@ impl PowerEase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -17291,12 +16165,10 @@ impl PowerEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingMode(&self) -> ::windows::core::Result<EasingMode> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -17304,12 +16176,10 @@ impl PowerEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -17414,7 +16284,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pow
 }
 unsafe impl ::core::marker::Send for PowerEase {}
 unsafe impl ::core::marker::Sync for PowerEase {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct QuadraticEase(pub ::windows::core::IInspectable);
@@ -17426,7 +16295,6 @@ impl QuadraticEase {
         static mut SHARED: ::windows::core::FactoryCache<QuadraticEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17434,17 +16302,14 @@ impl QuadraticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17452,7 +16317,6 @@ impl QuadraticEase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17461,7 +16325,6 @@ impl QuadraticEase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17469,7 +16332,6 @@ impl QuadraticEase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -17477,12 +16339,10 @@ impl QuadraticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingMode(&self) -> ::windows::core::Result<EasingMode> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -17490,12 +16350,10 @@ impl QuadraticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -17596,7 +16454,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Qua
 }
 unsafe impl ::core::marker::Send for QuadraticEase {}
 unsafe impl ::core::marker::Sync for QuadraticEase {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct QuarticEase(pub ::windows::core::IInspectable);
@@ -17608,7 +16465,6 @@ impl QuarticEase {
         static mut SHARED: ::windows::core::FactoryCache<QuarticEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17616,17 +16472,14 @@ impl QuarticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17634,7 +16487,6 @@ impl QuarticEase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17643,7 +16495,6 @@ impl QuarticEase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17651,7 +16502,6 @@ impl QuarticEase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -17659,12 +16509,10 @@ impl QuarticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingMode(&self) -> ::windows::core::Result<EasingMode> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -17672,12 +16520,10 @@ impl QuarticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -17778,7 +16624,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Qua
 }
 unsafe impl ::core::marker::Send for QuarticEase {}
 unsafe impl ::core::marker::Sync for QuarticEase {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct QuinticEase(pub ::windows::core::IInspectable);
@@ -17790,7 +16635,6 @@ impl QuinticEase {
         static mut SHARED: ::windows::core::FactoryCache<QuinticEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17798,17 +16642,14 @@ impl QuinticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17816,7 +16657,6 @@ impl QuinticEase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17825,7 +16665,6 @@ impl QuinticEase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17833,7 +16672,6 @@ impl QuinticEase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -17841,12 +16679,10 @@ impl QuinticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingMode(&self) -> ::windows::core::Result<EasingMode> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -17854,12 +16690,10 @@ impl QuinticEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -17960,7 +16794,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Qui
 }
 unsafe impl ::core::marker::Send for QuinticEase {}
 unsafe impl ::core::marker::Sync for QuinticEase {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ReorderThemeTransition(pub ::windows::core::IInspectable);
@@ -17972,7 +16805,6 @@ impl ReorderThemeTransition {
         static mut SHARED: ::windows::core::FactoryCache<ReorderThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17980,17 +16812,14 @@ impl ReorderThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -17998,7 +16827,6 @@ impl ReorderThemeTransition {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18007,7 +16835,6 @@ impl ReorderThemeTransition {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18015,7 +16842,6 @@ impl ReorderThemeTransition {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -18023,7 +16849,6 @@ impl ReorderThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -18124,7 +16949,6 @@ unsafe impl ::core::marker::Sync for ReorderThemeTransition {}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Foundation")]
-#[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
 pub struct RepeatBehavior {
     pub Count: f64,
     pub Duration: super::super::super::super::Foundation::TimeSpan,
@@ -18164,13 +16988,11 @@ unsafe impl ::windows::core::RuntimeType for RepeatBehavior {
 impl ::windows::core::DefaultType for RepeatBehavior {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RepeatBehaviorHelper(pub ::windows::core::IInspectable);
 impl RepeatBehaviorHelper {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Forever() -> ::windows::core::Result<RepeatBehavior> {
         Self::IRepeatBehaviorHelperStatics(|this| unsafe {
             let mut result__: RepeatBehavior = ::core::mem::zeroed();
@@ -18178,7 +17000,6 @@ impl RepeatBehaviorHelper {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn FromCount(count: f64) -> ::windows::core::Result<RepeatBehavior> {
         Self::IRepeatBehaviorHelperStatics(|this| unsafe {
             let mut result__: RepeatBehavior = ::core::mem::zeroed();
@@ -18186,7 +17007,6 @@ impl RepeatBehaviorHelper {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn FromDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TimeSpan>>(duration: Param0) -> ::windows::core::Result<RepeatBehavior> {
         Self::IRepeatBehaviorHelperStatics(|this| unsafe {
             let mut result__: RepeatBehavior = ::core::mem::zeroed();
@@ -18194,7 +17014,6 @@ impl RepeatBehaviorHelper {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn GetHasCount<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(target: Param0) -> ::windows::core::Result<bool> {
         Self::IRepeatBehaviorHelperStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -18202,7 +17021,6 @@ impl RepeatBehaviorHelper {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn GetHasDuration<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(target: Param0) -> ::windows::core::Result<bool> {
         Self::IRepeatBehaviorHelperStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -18210,7 +17028,6 @@ impl RepeatBehaviorHelper {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Equals<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>, Param1: ::windows::core::IntoParam<'a, RepeatBehavior>>(target: Param0, value: Param1) -> ::windows::core::Result<bool> {
         Self::IRepeatBehaviorHelperStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -18274,7 +17091,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a R
 }
 unsafe impl ::core::marker::Send for RepeatBehaviorHelper {}
 unsafe impl ::core::marker::Sync for RepeatBehaviorHelper {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RepeatBehaviorType(pub i32);
@@ -18297,7 +17113,6 @@ unsafe impl ::windows::core::RuntimeType for RepeatBehaviorType {
 impl ::windows::core::DefaultType for RepeatBehaviorType {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RepositionThemeAnimation(pub ::windows::core::IInspectable);
@@ -18309,7 +17124,6 @@ impl RepositionThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<RepositionThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -18317,12 +17131,10 @@ impl RepositionThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromHorizontalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -18330,12 +17142,10 @@ impl RepositionThemeAnimation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFromHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromVerticalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -18343,33 +17153,28 @@ impl RepositionThemeAnimation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFromVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRepositionThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromHorizontalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRepositionThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromVerticalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRepositionThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18377,17 +17182,14 @@ impl RepositionThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18395,7 +17197,6 @@ impl RepositionThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18404,7 +17205,6 @@ impl RepositionThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18412,7 +17212,6 @@ impl RepositionThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -18420,12 +17219,10 @@ impl RepositionThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -18433,13 +17230,11 @@ impl RepositionThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -18448,13 +17243,11 @@ impl RepositionThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -18463,12 +17256,10 @@ impl RepositionThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -18476,12 +17267,10 @@ impl RepositionThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -18489,13 +17278,11 @@ impl RepositionThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -18504,13 +17291,11 @@ impl RepositionThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -18519,7 +17304,6 @@ impl RepositionThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -18621,7 +17405,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rep
 }
 unsafe impl ::core::marker::Send for RepositionThemeAnimation {}
 unsafe impl ::core::marker::Sync for RepositionThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RepositionThemeTransition(pub ::windows::core::IInspectable);
@@ -18633,7 +17416,6 @@ impl RepositionThemeTransition {
         static mut SHARED: ::windows::core::FactoryCache<RepositionThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn IsStaggeringEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IRepositionThemeTransition2>(self)?;
         unsafe {
@@ -18641,19 +17423,16 @@ impl RepositionThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetIsStaggeringEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRepositionThemeTransition2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn IsStaggeringEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRepositionThemeTransitionStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18661,17 +17440,14 @@ impl RepositionThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18679,7 +17455,6 @@ impl RepositionThemeTransition {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18688,7 +17463,6 @@ impl RepositionThemeTransition {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18696,7 +17470,6 @@ impl RepositionThemeTransition {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -18704,7 +17477,6 @@ impl RepositionThemeTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -18806,7 +17578,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rep
 }
 unsafe impl ::core::marker::Send for RepositionThemeTransition {}
 unsafe impl ::core::marker::Sync for RepositionThemeTransition {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SineEase(pub ::windows::core::IInspectable);
@@ -18818,7 +17589,6 @@ impl SineEase {
         static mut SHARED: ::windows::core::FactoryCache<SineEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18826,17 +17596,14 @@ impl SineEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18844,7 +17611,6 @@ impl SineEase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18853,7 +17619,6 @@ impl SineEase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -18861,7 +17626,6 @@ impl SineEase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -18869,12 +17633,10 @@ impl SineEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EasingMode(&self) -> ::windows::core::Result<EasingMode> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -18882,12 +17644,10 @@ impl SineEase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EasingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEasingMode(&self, value: EasingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Ease(&self, normalizedtime: f64) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IEasingFunctionBase>(self)?;
         unsafe {
@@ -18988,7 +17748,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sin
 }
 unsafe impl ::core::marker::Send for SineEase {}
 unsafe impl ::core::marker::Sync for SineEase {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SlideNavigationTransitionEffect(pub i32);
@@ -19011,7 +17770,6 @@ unsafe impl ::windows::core::RuntimeType for SlideNavigationTransitionEffect {
 impl ::windows::core::DefaultType for SlideNavigationTransitionEffect {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SlideNavigationTransitionInfo(pub ::windows::core::IInspectable);
@@ -19023,7 +17781,6 @@ impl SlideNavigationTransitionInfo {
         static mut SHARED: ::windows::core::FactoryCache<SlideNavigationTransitionInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Effect(&self) -> ::windows::core::Result<SlideNavigationTransitionEffect> {
         let this = &::windows::core::Interface::cast::<ISlideNavigationTransitionInfo2>(self)?;
         unsafe {
@@ -19031,19 +17788,16 @@ impl SlideNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SlideNavigationTransitionEffect>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetEffect(&self, value: SlideNavigationTransitionEffect) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISlideNavigationTransitionInfo2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn EffectProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISlideNavigationTransitionInfoStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19051,17 +17805,14 @@ impl SlideNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19069,7 +17820,6 @@ impl SlideNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19078,7 +17828,6 @@ impl SlideNavigationTransitionInfo {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19086,7 +17835,6 @@ impl SlideNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -19094,7 +17842,6 @@ impl SlideNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -19196,7 +17943,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sli
 }
 unsafe impl ::core::marker::Send for SlideNavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for SlideNavigationTransitionInfo {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SplineColorKeyFrame(pub ::windows::core::IInspectable);
@@ -19208,7 +17954,6 @@ impl SplineColorKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<SplineColorKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn KeySpline(&self) -> ::windows::core::Result<KeySpline> {
         let this = self;
         unsafe {
@@ -19216,19 +17961,16 @@ impl SplineColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeySpline>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetKeySpline<'a, Param0: ::windows::core::IntoParam<'a, KeySpline>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn KeySplineProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplineColorKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19236,17 +17978,14 @@ impl SplineColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19254,7 +17993,6 @@ impl SplineColorKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19263,7 +18001,6 @@ impl SplineColorKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19271,7 +18008,6 @@ impl SplineColorKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -19279,12 +18015,10 @@ impl SplineColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::Color> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe {
@@ -19292,13 +18026,11 @@ impl SplineColorKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe {
@@ -19307,7 +18039,6 @@ impl SplineColorKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IColorKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -19409,7 +18140,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
 }
 unsafe impl ::core::marker::Send for SplineColorKeyFrame {}
 unsafe impl ::core::marker::Sync for SplineColorKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SplineDoubleKeyFrame(pub ::windows::core::IInspectable);
@@ -19421,7 +18151,6 @@ impl SplineDoubleKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<SplineDoubleKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn KeySpline(&self) -> ::windows::core::Result<KeySpline> {
         let this = self;
         unsafe {
@@ -19429,19 +18158,16 @@ impl SplineDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeySpline>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetKeySpline<'a, Param0: ::windows::core::IntoParam<'a, KeySpline>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn KeySplineProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplineDoubleKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19449,17 +18175,14 @@ impl SplineDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19467,7 +18190,6 @@ impl SplineDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19476,7 +18198,6 @@ impl SplineDoubleKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19484,7 +18205,6 @@ impl SplineDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -19492,12 +18212,10 @@ impl SplineDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Value(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe {
@@ -19505,13 +18223,11 @@ impl SplineDoubleKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue2(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe {
@@ -19520,7 +18236,6 @@ impl SplineDoubleKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDoubleKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -19622,7 +18337,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
 }
 unsafe impl ::core::marker::Send for SplineDoubleKeyFrame {}
 unsafe impl ::core::marker::Sync for SplineDoubleKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SplinePointKeyFrame(pub ::windows::core::IInspectable);
@@ -19634,7 +18348,6 @@ impl SplinePointKeyFrame {
         static mut SHARED: ::windows::core::FactoryCache<SplinePointKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn KeySpline(&self) -> ::windows::core::Result<KeySpline> {
         let this = self;
         unsafe {
@@ -19642,19 +18355,16 @@ impl SplinePointKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeySpline>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetKeySpline<'a, Param0: ::windows::core::IntoParam<'a, KeySpline>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn KeySplineProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplinePointKeyFrameStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19662,17 +18372,14 @@ impl SplinePointKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19680,7 +18387,6 @@ impl SplinePointKeyFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19689,7 +18395,6 @@ impl SplinePointKeyFrame {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -19697,7 +18402,6 @@ impl SplinePointKeyFrame {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -19705,13 +18409,11 @@ impl SplinePointKeyFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe {
@@ -19720,13 +18422,11 @@ impl SplinePointKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetValue2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn KeyTime(&self) -> ::windows::core::Result<KeyTime> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe {
@@ -19735,7 +18435,6 @@ impl SplinePointKeyFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetKeyTime<'a, Param0: ::windows::core::IntoParam<'a, KeyTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPointKeyFrame>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -19837,7 +18536,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
 }
 unsafe impl ::core::marker::Send for SplinePointKeyFrame {}
 unsafe impl ::core::marker::Sync for SplinePointKeyFrame {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SplitCloseThemeAnimation(pub ::windows::core::IInspectable);
@@ -19849,7 +18547,6 @@ impl SplitCloseThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<SplitCloseThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OpenedTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -19857,12 +18554,10 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetOpenedTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OpenedTarget(&self) -> ::windows::core::Result<super::super::DependencyObject> {
         let this = self;
         unsafe {
@@ -19870,12 +18565,10 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyObject>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetOpenedTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClosedTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -19883,12 +18576,10 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetClosedTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClosedTarget(&self) -> ::windows::core::Result<super::super::DependencyObject> {
         let this = self;
         unsafe {
@@ -19896,12 +18587,10 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyObject>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetClosedTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -19909,12 +18598,10 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetContentTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTarget(&self) -> ::windows::core::Result<super::super::DependencyObject> {
         let this = self;
         unsafe {
@@ -19922,12 +18609,10 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyObject>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetContentTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OpenedLength(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -19935,12 +18620,10 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetOpenedLength(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClosedLength(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -19948,12 +18631,10 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetClosedLength(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OffsetFromCenter(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -19961,13 +18642,11 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetOffsetFromCenter(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Xaml_Controls_Primitives`*"]
     pub fn ContentTranslationDirection(&self) -> ::windows::core::Result<super::super::Controls::Primitives::AnimationDirection> {
         let this = self;
         unsafe {
@@ -19976,12 +18655,10 @@ impl SplitCloseThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Xaml_Controls_Primitives`*"]
     pub fn SetContentTranslationDirection(&self, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTranslationOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -19989,89 +18666,76 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetContentTranslationOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OpenedTargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitCloseThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OpenedTargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitCloseThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClosedTargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitCloseThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClosedTargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitCloseThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitCloseThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitCloseThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OpenedLengthProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitCloseThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClosedLengthProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitCloseThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OffsetFromCenterProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitCloseThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTranslationDirectionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitCloseThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTranslationOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitCloseThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -20079,17 +18743,14 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -20097,7 +18758,6 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -20106,7 +18766,6 @@ impl SplitCloseThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -20114,7 +18773,6 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -20122,12 +18780,10 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20135,13 +18791,11 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20150,13 +18804,11 @@ impl SplitCloseThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20165,12 +18817,10 @@ impl SplitCloseThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20178,12 +18828,10 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20191,13 +18839,11 @@ impl SplitCloseThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20206,13 +18852,11 @@ impl SplitCloseThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20221,7 +18865,6 @@ impl SplitCloseThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -20323,7 +18966,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
 }
 unsafe impl ::core::marker::Send for SplitCloseThemeAnimation {}
 unsafe impl ::core::marker::Sync for SplitCloseThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SplitOpenThemeAnimation(pub ::windows::core::IInspectable);
@@ -20335,7 +18977,6 @@ impl SplitOpenThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<SplitOpenThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OpenedTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -20343,12 +18984,10 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetOpenedTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OpenedTarget(&self) -> ::windows::core::Result<super::super::DependencyObject> {
         let this = self;
         unsafe {
@@ -20356,12 +18995,10 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyObject>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetOpenedTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClosedTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -20369,12 +19006,10 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetClosedTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClosedTarget(&self) -> ::windows::core::Result<super::super::DependencyObject> {
         let this = self;
         unsafe {
@@ -20382,12 +19017,10 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyObject>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetClosedTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -20395,12 +19028,10 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetContentTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTarget(&self) -> ::windows::core::Result<super::super::DependencyObject> {
         let this = self;
         unsafe {
@@ -20408,12 +19039,10 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyObject>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetContentTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OpenedLength(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -20421,12 +19050,10 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetOpenedLength(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClosedLength(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -20434,12 +19061,10 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetClosedLength(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OffsetFromCenter(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -20447,13 +19072,11 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetOffsetFromCenter(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Xaml_Controls_Primitives`*"]
     pub fn ContentTranslationDirection(&self) -> ::windows::core::Result<super::super::Controls::Primitives::AnimationDirection> {
         let this = self;
         unsafe {
@@ -20462,12 +19085,10 @@ impl SplitOpenThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Xaml_Controls_Primitives`*"]
     pub fn SetContentTranslationDirection(&self, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTranslationOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -20475,89 +19096,76 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetContentTranslationOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OpenedTargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitOpenThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OpenedTargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitOpenThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClosedTargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitOpenThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClosedTargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitOpenThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitOpenThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitOpenThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OpenedLengthProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitOpenThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClosedLengthProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitOpenThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn OffsetFromCenterProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitOpenThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTranslationDirectionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitOpenThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ContentTranslationOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISplitOpenThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -20565,17 +19173,14 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -20583,7 +19188,6 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -20592,7 +19196,6 @@ impl SplitOpenThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -20600,7 +19203,6 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -20608,12 +19210,10 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20621,13 +19221,11 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20636,13 +19234,11 @@ impl SplitOpenThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20651,12 +19247,10 @@ impl SplitOpenThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20664,12 +19258,10 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20677,13 +19269,11 @@ impl SplitOpenThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20692,13 +19282,11 @@ impl SplitOpenThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20707,7 +19295,6 @@ impl SplitOpenThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -20809,7 +19396,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
 }
 unsafe impl ::core::marker::Send for SplitOpenThemeAnimation {}
 unsafe impl ::core::marker::Sync for SplitOpenThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Storyboard(pub ::windows::core::IInspectable);
@@ -20822,7 +19408,6 @@ impl Storyboard {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Children(&self) -> ::windows::core::Result<TimelineCollection> {
         let this = self;
         unsafe {
@@ -20831,32 +19416,26 @@ impl Storyboard {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Seek<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TimeSpan>>(&self, offset: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), offset.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Begin(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Pause(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn Resume(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetCurrentState(&self) -> ::windows::core::Result<ClockState> {
         let this = self;
         unsafe {
@@ -20865,7 +19444,6 @@ impl Storyboard {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn GetCurrentTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -20874,57 +19452,47 @@ impl Storyboard {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SeekAlignedToLastTick<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TimeSpan>>(&self, offset: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), offset.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SkipToFill(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetPropertyProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IStoryboardStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetTargetProperty<'a, Param0: ::windows::core::IntoParam<'a, Timeline>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStoryboardStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetProperty<'a, Param0: ::windows::core::IntoParam<'a, Timeline>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, path: Param1) -> ::windows::core::Result<()> {
         Self::IStoryboardStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), path.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IStoryboardStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetTargetName<'a, Param0: ::windows::core::IntoParam<'a, Timeline>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStoryboardStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, Timeline>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, name: Param1) -> ::windows::core::Result<()> {
         Self::IStoryboardStatics(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), element.into_param().abi(), name.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTarget<'a, Param0: ::windows::core::IntoParam<'a, Timeline>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(timeline: Param0, target: Param1) -> ::windows::core::Result<()> {
         Self::IStoryboardStatics(|this| unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), timeline.into_param().abi(), target.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -20932,17 +19500,14 @@ impl Storyboard {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -20950,7 +19515,6 @@ impl Storyboard {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -20959,7 +19523,6 @@ impl Storyboard {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -20967,7 +19530,6 @@ impl Storyboard {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -20975,12 +19537,10 @@ impl Storyboard {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -20988,13 +19548,11 @@ impl Storyboard {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21003,13 +19561,11 @@ impl Storyboard {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21018,12 +19574,10 @@ impl Storyboard {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21031,12 +19585,10 @@ impl Storyboard {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21044,13 +19596,11 @@ impl Storyboard {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21059,13 +19609,11 @@ impl Storyboard {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21074,7 +19622,6 @@ impl Storyboard {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -21176,7 +19723,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sto
 }
 unsafe impl ::core::marker::Send for Storyboard {}
 unsafe impl ::core::marker::Sync for Storyboard {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SuppressNavigationTransitionInfo(pub ::windows::core::IInspectable);
@@ -21188,7 +19734,6 @@ impl SuppressNavigationTransitionInfo {
         static mut SHARED: ::windows::core::FactoryCache<SuppressNavigationTransitionInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -21196,17 +19741,14 @@ impl SuppressNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -21214,7 +19756,6 @@ impl SuppressNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -21223,7 +19764,6 @@ impl SuppressNavigationTransitionInfo {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -21231,7 +19771,6 @@ impl SuppressNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -21239,7 +19778,6 @@ impl SuppressNavigationTransitionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -21337,7 +19875,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sup
 }
 unsafe impl ::core::marker::Send for SuppressNavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for SuppressNavigationTransitionInfo {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SwipeBackThemeAnimation(pub ::windows::core::IInspectable);
@@ -21349,7 +19886,6 @@ impl SwipeBackThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<SwipeBackThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -21357,12 +19893,10 @@ impl SwipeBackThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromHorizontalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -21370,12 +19904,10 @@ impl SwipeBackThemeAnimation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFromHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromVerticalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -21383,33 +19915,28 @@ impl SwipeBackThemeAnimation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFromVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISwipeBackThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromHorizontalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISwipeBackThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FromVerticalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISwipeBackThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -21417,17 +19944,14 @@ impl SwipeBackThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -21435,7 +19959,6 @@ impl SwipeBackThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -21444,7 +19967,6 @@ impl SwipeBackThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -21452,7 +19974,6 @@ impl SwipeBackThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -21460,12 +19981,10 @@ impl SwipeBackThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21473,13 +19992,11 @@ impl SwipeBackThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21488,13 +20005,11 @@ impl SwipeBackThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21503,12 +20018,10 @@ impl SwipeBackThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21516,12 +20029,10 @@ impl SwipeBackThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21529,13 +20040,11 @@ impl SwipeBackThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21544,13 +20053,11 @@ impl SwipeBackThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21559,7 +20066,6 @@ impl SwipeBackThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -21661,7 +20167,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Swi
 }
 unsafe impl ::core::marker::Send for SwipeBackThemeAnimation {}
 unsafe impl ::core::marker::Sync for SwipeBackThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SwipeHintThemeAnimation(pub ::windows::core::IInspectable);
@@ -21673,7 +20178,6 @@ impl SwipeHintThemeAnimation {
         static mut SHARED: ::windows::core::FactoryCache<SwipeHintThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -21681,12 +20185,10 @@ impl SwipeHintThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ToHorizontalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -21694,12 +20196,10 @@ impl SwipeHintThemeAnimation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetToHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ToVerticalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -21707,33 +20207,28 @@ impl SwipeHintThemeAnimation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetToVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn TargetNameProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISwipeHintThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ToHorizontalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISwipeHintThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ToVerticalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISwipeHintThemeAnimationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -21741,17 +20236,14 @@ impl SwipeHintThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -21759,7 +20251,6 @@ impl SwipeHintThemeAnimation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -21768,7 +20259,6 @@ impl SwipeHintThemeAnimation {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -21776,7 +20266,6 @@ impl SwipeHintThemeAnimation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -21784,12 +20273,10 @@ impl SwipeHintThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21797,13 +20284,11 @@ impl SwipeHintThemeAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21812,13 +20297,11 @@ impl SwipeHintThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21827,12 +20310,10 @@ impl SwipeHintThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21840,12 +20321,10 @@ impl SwipeHintThemeAnimation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21853,13 +20332,11 @@ impl SwipeHintThemeAnimation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21868,13 +20345,11 @@ impl SwipeHintThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe {
@@ -21883,7 +20358,6 @@ impl SwipeHintThemeAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimeline>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -21985,12 +20459,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Swi
 }
 unsafe impl ::core::marker::Send for SwipeHintThemeAnimation {}
 unsafe impl ::core::marker::Sync for SwipeHintThemeAnimation {}
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Timeline(pub ::windows::core::IInspectable);
 impl Timeline {
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverse(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -21998,13 +20470,11 @@ impl Timeline {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAutoReverse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn BeginTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -22013,13 +20483,11 @@ impl Timeline {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetBeginTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Duration> {
         let this = self;
         unsafe {
@@ -22028,12 +20496,10 @@ impl Timeline {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatio(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -22041,12 +20507,10 @@ impl Timeline {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetSpeedRatio(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehavior(&self) -> ::windows::core::Result<FillBehavior> {
         let this = self;
         unsafe {
@@ -22054,13 +20518,11 @@ impl Timeline {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FillBehavior>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetFillBehavior(&self, value: FillBehavior) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RepeatBehavior(&self) -> ::windows::core::Result<RepeatBehavior> {
         let this = self;
         unsafe {
@@ -22069,13 +20531,11 @@ impl Timeline {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn SetRepeatBehavior<'a, Param0: ::windows::core::IntoParam<'a, RepeatBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -22084,65 +20544,55 @@ impl Timeline {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AllowDependentAnimations() -> ::windows::core::Result<bool> {
         Self::ITimelineStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetAllowDependentAnimations(value: bool) -> ::windows::core::Result<()> {
         Self::ITimelineStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn AutoReverseProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ITimelineStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn BeginTimeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ITimelineStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn DurationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ITimelineStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SpeedRatioProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ITimelineStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn FillBehaviorProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ITimelineStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RepeatBehaviorProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ITimelineStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -22150,17 +20600,14 @@ impl Timeline {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -22168,7 +20615,6 @@ impl Timeline {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -22177,7 +20623,6 @@ impl Timeline {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -22185,7 +20630,6 @@ impl Timeline {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -22193,7 +20637,6 @@ impl Timeline {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -22276,7 +20719,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tim
 unsafe impl ::core::marker::Send for Timeline {}
 unsafe impl ::core::marker::Sync for Timeline {}
 #[cfg(feature = "Foundation_Collections")]
-#[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimelineCollection(pub ::windows::core::IInspectable);
@@ -22290,7 +20732,6 @@ impl TimelineCollection {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<Timeline> {
         let this = self;
         unsafe {
@@ -22299,7 +20740,6 @@ impl TimelineCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -22308,7 +20748,6 @@ impl TimelineCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<Timeline>> {
         let this = self;
         unsafe {
@@ -22317,7 +20756,6 @@ impl TimelineCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, Timeline>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -22326,43 +20764,36 @@ impl TimelineCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, Timeline>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, Timeline>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), index).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, Timeline>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<Timeline as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -22371,13 +20802,11 @@ impl TimelineCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<Timeline as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterator<Timeline>> {
         let this = &::windows::core::Interface::cast::<super::super::super::super::Foundation::Collections::IIterable<Timeline>>(self)?;
         unsafe {
@@ -22517,12 +20946,10 @@ impl ::core::iter::IntoIterator for &TimelineCollection {
         super::super::super::super::Foundation::Collections::VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-#[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Transition(pub ::windows::core::IInspectable);
 impl Transition {
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -22530,17 +20957,14 @@ impl Transition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -22548,7 +20972,6 @@ impl Transition {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -22557,7 +20980,6 @@ impl Transition {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -22565,7 +20987,6 @@ impl Transition {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -22573,7 +20994,6 @@ impl Transition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -22652,7 +21072,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tra
 unsafe impl ::core::marker::Send for Transition {}
 unsafe impl ::core::marker::Sync for Transition {}
 #[cfg(feature = "Foundation_Collections")]
-#[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TransitionCollection(pub ::windows::core::IInspectable);
@@ -22666,7 +21085,6 @@ impl TransitionCollection {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<Transition> {
         let this = self;
         unsafe {
@@ -22675,7 +21093,6 @@ impl TransitionCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -22684,7 +21101,6 @@ impl TransitionCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<Transition>> {
         let this = self;
         unsafe {
@@ -22693,7 +21109,6 @@ impl TransitionCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, Transition>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -22702,43 +21117,36 @@ impl TransitionCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, Transition>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, Transition>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), index).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, Transition>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<Transition as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -22747,13 +21155,11 @@ impl TransitionCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<Transition as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterator<Transition>> {
         let this = &::windows::core::Interface::cast::<super::super::super::super::Foundation::Collections::IIterable<Transition>>(self)?;
         unsafe {

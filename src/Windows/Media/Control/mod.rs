@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CurrentSessionChangedEventArgs(pub ::windows::core::IInspectable);
@@ -56,12 +55,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CurrentSessionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CurrentSessionChangedEventArgs {}
-#[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GlobalSystemMediaTransportControlsSession(pub ::windows::core::IInspectable);
 impl GlobalSystemMediaTransportControlsSession {
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn SourceAppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -70,7 +67,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryGetMediaPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GlobalSystemMediaTransportControlsSessionMediaProperties>> {
         let this = self;
         unsafe {
@@ -78,7 +74,6 @@ impl GlobalSystemMediaTransportControlsSession {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<GlobalSystemMediaTransportControlsSessionMediaProperties>>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn GetTimelineProperties(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionTimelineProperties> {
         let this = self;
         unsafe {
@@ -86,7 +81,6 @@ impl GlobalSystemMediaTransportControlsSession {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GlobalSystemMediaTransportControlsSessionTimelineProperties>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn GetPlaybackInfo(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackInfo> {
         let this = self;
         unsafe {
@@ -95,7 +89,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryPlayAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -104,7 +97,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryPauseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -113,7 +105,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryStopAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -122,7 +113,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryRecordAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -131,7 +121,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryFastForwardAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -140,7 +129,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryRewindAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -149,7 +137,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TrySkipNextAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -158,7 +145,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TrySkipPreviousAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -167,7 +153,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryChangeChannelUpAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -176,7 +161,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryChangeChannelDownAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -185,7 +169,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryTogglePlayPauseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -194,7 +177,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryChangeAutoRepeatModeAsync(&self, requestedautorepeatmode: super::MediaPlaybackAutoRepeatMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -203,7 +185,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryChangePlaybackRateAsync(&self, requestedplaybackrate: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -212,7 +193,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryChangeShuffleActiveAsync(&self, requestedshufflestate: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -221,7 +201,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TryChangePlaybackPositionAsync(&self, requestedplaybackposition: i64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -230,7 +209,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn TimelinePropertiesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, TimelinePropertiesChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -239,13 +217,11 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn RemoveTimelinePropertiesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn PlaybackInfoChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, PlaybackInfoChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -254,13 +230,11 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn RemovePlaybackInfoChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn MediaPropertiesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, MediaPropertiesChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -269,7 +243,6 @@ impl GlobalSystemMediaTransportControlsSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn RemoveMediaPropertiesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -327,12 +300,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSession {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSession {}
-#[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GlobalSystemMediaTransportControlsSessionManager(pub ::windows::core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionManager {
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn GetCurrentSession(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSession> {
         let this = self;
         unsafe {
@@ -341,7 +312,6 @@ impl GlobalSystemMediaTransportControlsSessionManager {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Control`, `Foundation_Collections`*"]
     pub fn GetSessions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<GlobalSystemMediaTransportControlsSession>> {
         let this = self;
         unsafe {
@@ -350,7 +320,6 @@ impl GlobalSystemMediaTransportControlsSessionManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn CurrentSessionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, CurrentSessionChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -359,13 +328,11 @@ impl GlobalSystemMediaTransportControlsSessionManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn RemoveCurrentSessionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn SessionsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -374,13 +341,11 @@ impl GlobalSystemMediaTransportControlsSessionManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn RemoveSessionsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn RequestAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GlobalSystemMediaTransportControlsSessionManager>> {
         Self::IGlobalSystemMediaTransportControlsSessionManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -444,12 +409,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionManager {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionManager {}
-#[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GlobalSystemMediaTransportControlsSessionMediaProperties(pub ::windows::core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionMediaProperties {
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -457,7 +420,6 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -465,7 +427,6 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn AlbumArtist(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -473,7 +434,6 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn Artist(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -481,7 +441,6 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn AlbumTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -489,7 +448,6 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn TrackNumber(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -498,7 +456,6 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Control`, `Foundation_Collections`*"]
     pub fn Genres(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -506,7 +463,6 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn AlbumTrackCount(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -515,7 +471,6 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn PlaybackType(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::MediaPlaybackType>> {
         let this = self;
         unsafe {
@@ -524,7 +479,6 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Media_Control`, `Storage_Streams`*"]
     pub fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
@@ -585,12 +539,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionMediaProperties {}
-#[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackControls(pub ::windows::core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsPlayEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -598,7 +550,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsPauseEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -606,7 +557,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsStopEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -614,7 +564,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsRecordEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -622,7 +571,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsFastForwardEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -630,7 +578,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsRewindEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -638,7 +585,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsNextEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -646,7 +592,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsPreviousEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -654,7 +599,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsChannelUpEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -662,7 +606,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsChannelDownEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -670,7 +613,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsPlayPauseToggleEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -678,7 +620,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsShuffleEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -686,7 +627,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsRepeatEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -694,7 +634,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsPlaybackRateEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -702,7 +641,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn IsPlaybackPositionEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -763,12 +701,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
-#[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(pub ::windows::core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn Controls(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackControls> {
         let this = self;
         unsafe {
@@ -776,7 +712,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GlobalSystemMediaTransportControlsSessionPlaybackControls>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Control`*"]
     pub fn PlaybackStatus(&self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackStatus> {
         let this = self;
         unsafe {
@@ -785,7 +720,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn PlaybackType(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::MediaPlaybackType>> {
         let this = self;
         unsafe {
@@ -794,7 +728,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn AutoRepeatMode(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::MediaPlaybackAutoRepeatMode>> {
         let this = self;
         unsafe {
@@ -803,7 +736,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn PlaybackRate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -812,7 +744,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn IsShuffleActive(&self) -> ::windows::core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
@@ -873,7 +804,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
-#[doc = "*Required features: `Media_Control`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
@@ -899,13 +829,11 @@ unsafe impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsS
 impl ::windows::core::DefaultType for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(pub ::windows::core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -914,7 +842,6 @@ impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn EndTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -923,7 +850,6 @@ impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn MinSeekTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -932,7 +858,6 @@ impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn MaxSeekTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -941,7 +866,6 @@ impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -950,7 +874,6 @@ impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Control`, `Foundation`*"]
     pub fn LastUpdatedTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1325,7 +1248,6 @@ pub struct ITimelinePropertiesChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MediaPropertiesChangedEventArgs(pub ::windows::core::IInspectable);
@@ -1382,7 +1304,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 unsafe impl ::core::marker::Send for MediaPropertiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPropertiesChangedEventArgs {}
-#[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlaybackInfoChangedEventArgs(pub ::windows::core::IInspectable);
@@ -1439,7 +1360,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PlaybackInfoChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackInfoChangedEventArgs {}
-#[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SessionsChangedEventArgs(pub ::windows::core::IInspectable);
@@ -1496,7 +1416,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 unsafe impl ::core::marker::Send for SessionsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SessionsChangedEventArgs {}
-#[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TimelinePropertiesChangedEventArgs(pub ::windows::core::IInspectable);

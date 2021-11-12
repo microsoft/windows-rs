@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_System_Search_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CONDITION_OPERATION(pub i32);
@@ -26,7 +25,6 @@ impl ::core::convert::From<i32> for CONDITION_OPERATION {
 unsafe impl ::windows::core::Abi for CONDITION_OPERATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Search_Common`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CONDITION_TYPE(pub i32);

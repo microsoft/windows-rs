@@ -2,12 +2,10 @@
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct AppRecordingContract(pub u8);
-#[doc = "*Required features: `Media_AppRecording`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppRecordingManager(pub ::windows::core::IInspectable);
 impl AppRecordingManager {
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn GetStatus(&self) -> ::windows::core::Result<AppRecordingStatus> {
         let this = self;
         unsafe {
@@ -16,7 +14,6 @@ impl AppRecordingManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `Media_AppRecording`, `Foundation`, `Storage`*"]
     pub fn StartRecordingToFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>> {
         let this = self;
         unsafe {
@@ -25,7 +22,6 @@ impl AppRecordingManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `Media_AppRecording`, `Foundation`, `Storage`*"]
     pub fn RecordTimeSpanToFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>, Param2: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, starttime: Param0, duration: Param1, file: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>> {
         let this = self;
         unsafe {
@@ -34,7 +30,6 @@ impl AppRecordingManager {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_AppRecording`, `Foundation_Collections`*"]
     pub fn SupportedScreenshotMediaEncodingSubtypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -43,7 +38,6 @@ impl AppRecordingManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
-    #[doc = "*Required features: `Media_AppRecording`, `Foundation`, `Foundation_Collections`, `Storage`*"]
     pub fn SaveScreenshotToFilesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFolder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(
         &self,
         folder: Param0,
@@ -57,7 +51,6 @@ impl AppRecordingManager {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), folder.into_param().abi(), filenameprefix.into_param().abi(), option, requestedformats.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn GetDefault() -> ::windows::core::Result<AppRecordingManager> {
         Self::IAppRecordingManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -121,12 +114,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppRecordingManager {}
 unsafe impl ::core::marker::Sync for AppRecordingManager {}
-#[doc = "*Required features: `Media_AppRecording`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppRecordingResult(pub ::windows::core::IInspectable);
 impl AppRecordingResult {
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -134,7 +125,6 @@ impl AppRecordingResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -143,7 +133,6 @@ impl AppRecordingResult {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_AppRecording`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -151,7 +140,6 @@ impl AppRecordingResult {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn IsFileTruncated(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -212,7 +200,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppRecordingResult {}
 unsafe impl ::core::marker::Sync for AppRecordingResult {}
-#[doc = "*Required features: `Media_AppRecording`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppRecordingSaveScreenshotOption(pub i32);
@@ -234,12 +221,10 @@ unsafe impl ::windows::core::RuntimeType for AppRecordingSaveScreenshotOption {
 impl ::windows::core::DefaultType for AppRecordingSaveScreenshotOption {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Media_AppRecording`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppRecordingSaveScreenshotResult(pub ::windows::core::IInspectable);
 impl AppRecordingSaveScreenshotResult {
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -247,7 +232,6 @@ impl AppRecordingSaveScreenshotResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -256,7 +240,6 @@ impl AppRecordingSaveScreenshotResult {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_AppRecording`, `Foundation_Collections`*"]
     pub fn SavedScreenshotInfos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppRecordingSavedScreenshotInfo>> {
         let this = self;
         unsafe {
@@ -317,13 +300,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppRecordingSaveScreenshotResult {}
 unsafe impl ::core::marker::Sync for AppRecordingSaveScreenshotResult {}
-#[doc = "*Required features: `Media_AppRecording`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppRecordingSavedScreenshotInfo(pub ::windows::core::IInspectable);
 impl AppRecordingSavedScreenshotInfo {
     #[cfg(feature = "Storage")]
-    #[doc = "*Required features: `Media_AppRecording`, `Storage`*"]
     pub fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
@@ -331,7 +312,6 @@ impl AppRecordingSavedScreenshotInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn MediaEncodingSubtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -392,12 +372,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppRecordingSavedScreenshotInfo {}
 unsafe impl ::core::marker::Sync for AppRecordingSavedScreenshotInfo {}
-#[doc = "*Required features: `Media_AppRecording`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppRecordingStatus(pub ::windows::core::IInspectable);
 impl AppRecordingStatus {
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn CanRecord(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -405,7 +383,6 @@ impl AppRecordingStatus {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn CanRecordTimeSpan(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -414,7 +391,6 @@ impl AppRecordingStatus {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_AppRecording`, `Foundation`*"]
     pub fn HistoricalBufferDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -422,7 +398,6 @@ impl AppRecordingStatus {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn Details(&self) -> ::windows::core::Result<AppRecordingStatusDetails> {
         let this = self;
         unsafe {
@@ -483,12 +458,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppRecordingStatus {}
 unsafe impl ::core::marker::Sync for AppRecordingStatus {}
-#[doc = "*Required features: `Media_AppRecording`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppRecordingStatusDetails(pub ::windows::core::IInspectable);
 impl AppRecordingStatusDetails {
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn IsAnyAppBroadcasting(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -496,7 +469,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn IsCaptureResourceUnavailable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -504,7 +476,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn IsGameStreamInProgress(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -512,7 +483,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn IsTimeSpanRecordingDisabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -520,7 +490,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn IsGpuConstrained(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -528,7 +497,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn IsAppInactive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -536,7 +504,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn IsBlockedForApp(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -544,7 +511,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn IsDisabledByUser(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -552,7 +518,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_AppRecording`*"]
     pub fn IsDisabledBySystem(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {

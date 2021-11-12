@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddERExcludedApplicationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szapplication: Param0) -> super::super::Foundation::BOOL {
@@ -14,7 +13,6 @@ pub unsafe fn AddERExcludedApplicationA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddERExcludedApplicationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszapplication: Param0) -> super::super::Foundation::BOOL {
@@ -29,7 +27,6 @@ pub unsafe fn AddERExcludedApplicationW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EFaultRepRetVal(pub i32);
@@ -76,16 +73,12 @@ unsafe impl ::windows::core::Handle for HREPORTSTORE {}
 unsafe impl ::windows::core::Abi for HREPORTSTORE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: super::super::Foundation::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut super::super::Foundation::BOOL, pwszeventname: super::super::Foundation::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: super::super::Foundation::PWSTR, pchname: *mut u32, pwszvalue: super::super::Foundation::PWSTR, pchvalue: *mut u32) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REPORT_STORE_TYPES(pub i32);
@@ -102,7 +95,6 @@ impl ::core::convert::From<i32> for REPORT_STORE_TYPES {
 unsafe impl ::windows::core::Abi for REPORT_STORE_TYPES {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal {
@@ -117,7 +109,6 @@ pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WER_CONSENT(pub i32);
@@ -134,12 +125,10 @@ impl ::core::convert::From<i32> for WER_CONSENT {
 unsafe impl ::windows::core::Abi for WER_CONSENT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_DUMP_AUXILIARY: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 pub struct WER_DUMP_CUSTOM_OPTIONS {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -204,7 +193,6 @@ unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V2 {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -275,7 +263,6 @@ unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS_V2 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 pub struct WER_DUMP_CUSTOM_OPTIONS_V3 {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -352,11 +339,8 @@ impl ::core::cmp::Eq for WER_DUMP_CUSTOM_OPTIONS_V3 {}
 unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS_V3 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_DUMP_MASK_START: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WER_DUMP_TYPE(pub i32);
@@ -377,7 +361,6 @@ unsafe impl ::windows::core::Abi for WER_DUMP_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
     pub bClientPointers: super::super::Foundation::BOOL,
@@ -408,7 +391,6 @@ impl ::core::cmp::Eq for WER_EXCEPTION_INFORMATION {}
 unsafe impl ::windows::core::Abi for WER_EXCEPTION_INFORMATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WER_FAULT_REPORTING(pub u32);
@@ -453,19 +435,12 @@ impl ::core::ops::Not for WER_FAULT_REPORTING {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_FAULT_REPORTING_CRITICAL: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_HANG: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_FAULT_REPORTING_DURABLE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_FAULT_REPORTING_NO_UI: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WER_FILE(pub u32);
@@ -507,9 +482,7 @@ impl ::core::ops::Not for WER_FILE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_FILE_COMPRESSED: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WER_FILE_TYPE(pub i32);
@@ -531,63 +504,34 @@ impl ::core::convert::From<i32> for WER_FILE_TYPE {
 unsafe impl ::windows::core::Abi for WER_FILE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_BUCKET_ID_STRING_LENGTH: u32 = 260u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_DESCRIPTION_LENGTH: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_EVENT_NAME_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_FRIENDLY_EVENT_NAME_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_LOCAL_DUMP_SUBPATH_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_PARAM_COUNT: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_PARAM_LENGTH: u32 = 260u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_PREFERRED_MODULES: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_PREFERRED_MODULES_BUFFER: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_REGISTERED_DUMPCOLLECTION: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_REGISTERED_ENTRIES: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_REGISTERED_METADATA: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_REGISTERED_RUNTIME_EXCEPTION_MODULES: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_SIGNATURE_NAME_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_TOTAL_PARAM_LENGTH: u32 = 1720u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_METADATA_KEY_MAX_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_METADATA_VALUE_MAX_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_P0: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_P1: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_P2: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_P3: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_P4: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_P5: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_P6: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_P7: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_P8: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_P9: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WER_REGISTER_FILE_TYPE(pub i32);
@@ -605,7 +549,6 @@ unsafe impl ::windows::core::Abi for WER_REGISTER_FILE_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 pub struct WER_REPORT_INFORMATION {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -654,7 +597,6 @@ unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 pub struct WER_REPORT_INFORMATION_V3 {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -707,7 +649,6 @@ unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V3 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 pub struct WER_REPORT_INFORMATION_V4 {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -778,7 +719,6 @@ unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V4 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 pub struct WER_REPORT_INFORMATION_V5 {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -852,7 +792,6 @@ unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V5 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 pub struct WER_REPORT_METADATA_V1 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: ::windows::core::GUID,
@@ -889,7 +828,6 @@ unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 pub struct WER_REPORT_METADATA_V2 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: ::windows::core::GUID,
@@ -944,7 +882,6 @@ unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V2 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 pub struct WER_REPORT_METADATA_V3 {
     pub Signature: WER_REPORT_SIGNATURE,
     pub BucketId: ::windows::core::GUID,
@@ -1026,7 +963,6 @@ unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V3 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub struct WER_REPORT_PARAMETER {
     pub Name: [u16; 129],
     pub Value: [u16; 260],
@@ -1053,7 +989,6 @@ unsafe impl ::windows::core::Abi for WER_REPORT_PARAMETER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub struct WER_REPORT_SIGNATURE {
     pub EventName: [u16; 65],
     pub Parameters: [WER_REPORT_PARAMETER; 10],
@@ -1078,7 +1013,6 @@ impl ::core::cmp::Eq for WER_REPORT_SIGNATURE {}
 unsafe impl ::windows::core::Abi for WER_REPORT_SIGNATURE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WER_REPORT_TYPE(pub i32);
@@ -1096,7 +1030,6 @@ impl ::core::convert::From<i32> for WER_REPORT_TYPE {
 unsafe impl ::windows::core::Abi for WER_REPORT_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WER_REPORT_UI(pub i32);
@@ -1122,7 +1055,6 @@ unsafe impl ::windows::core::Abi for WER_REPORT_UI {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub dwSize: u32,
     pub hProcess: super::super::Foundation::HANDLE,
@@ -1153,11 +1085,8 @@ impl ::core::cmp::Eq for WER_RUNTIME_EXCEPTION_INFORMATION {}
 unsafe impl ::windows::core::Abi for WER_RUNTIME_EXCEPTION_INFORMATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_SUBMIT_BYPASS_POWER_THROTTLING: u32 = 16384u32;
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WER_SUBMIT_FLAGS(pub u32);
@@ -1211,7 +1140,6 @@ impl ::core::ops::Not for WER_SUBMIT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WER_SUBMIT_RESULT(pub i32);
@@ -1236,7 +1164,6 @@ impl ::core::convert::From<i32> for WER_SUBMIT_RESULT {
 unsafe impl ::windows::core::Abi for WER_SUBMIT_RESULT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerAddExcludedApplication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pwzexename: Param0, ballusers: Param1) -> ::windows::core::Result<()> {
@@ -1251,7 +1178,6 @@ pub unsafe fn WerAddExcludedApplication<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerFreeString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszstr: Param0) {
@@ -1266,7 +1192,6 @@ pub unsafe fn WerFreeString<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerGetFlags<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> ::windows::core::Result<WER_FAULT_REPORTING> {
@@ -1282,7 +1207,6 @@ pub unsafe fn WerGetFlags<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerRegisterAdditionalProcess(processid: u32, captureextrainfoforthreadid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1296,7 +1220,6 @@ pub unsafe fn WerRegisterAdditionalProcess(processid: u32, captureextrainfoforth
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerRegisterAppLocalDump<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(localappdatarelativepath: Param0) -> ::windows::core::Result<()> {
@@ -1311,7 +1234,6 @@ pub unsafe fn WerRegisterAppLocalDump<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerRegisterCustomMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(key: Param0, value: Param1) -> ::windows::core::Result<()> {
@@ -1326,7 +1248,6 @@ pub unsafe fn WerRegisterCustomMetadata<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerRegisterExcludedMemoryBlock(address: *const ::core::ffi::c_void, size: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1340,7 +1261,6 @@ pub unsafe fn WerRegisterExcludedMemoryBlock(address: *const ::core::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerRegisterFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzfile: Param0, regfiletype: WER_REGISTER_FILE_TYPE, dwflags: WER_FILE) -> ::windows::core::Result<()> {
@@ -1355,7 +1275,6 @@ pub unsafe fn WerRegisterFile<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerRegisterMemoryBlock(pvaddress: *const ::core::ffi::c_void, dwsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1369,7 +1288,6 @@ pub unsafe fn WerRegisterMemoryBlock(pvaddress: *const ::core::ffi::c_void, dwsi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerRegisterRuntimeExceptionModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszoutofprocesscallbackdll: Param0, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -1384,7 +1302,6 @@ pub unsafe fn WerRegisterRuntimeExceptionModule<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerRemoveExcludedApplication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pwzexename: Param0, ballusers: Param1) -> ::windows::core::Result<()> {
@@ -1399,7 +1316,6 @@ pub unsafe fn WerRemoveExcludedApplication<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn WerReportAddDump<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hreporthandle: Param0, hprocess: Param1, hthread: Param2, dumptype: WER_DUMP_TYPE, pexceptionparam: *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions: *const WER_DUMP_CUSTOM_OPTIONS, dwflags: u32) -> ::windows::core::Result<()> {
@@ -1414,7 +1330,6 @@ pub unsafe fn WerReportAddDump<'a, Param0: ::windows::core::IntoParam<'a, HREPOR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerReportAddFile<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreporthandle: Param0, pwzpath: Param1, repfiletype: WER_FILE_TYPE, dwfileflags: WER_FILE) -> ::windows::core::Result<()> {
@@ -1429,7 +1344,6 @@ pub unsafe fn WerReportAddFile<'a, Param0: ::windows::core::IntoParam<'a, HREPOR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerReportCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>>(hreporthandle: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1443,7 +1357,6 @@ pub unsafe fn WerReportCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerReportCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzeventtype: Param0, reptype: WER_REPORT_TYPE, preportinformation: *const WER_REPORT_INFORMATION) -> ::windows::core::Result<HREPORT> {
@@ -1459,7 +1372,6 @@ pub unsafe fn WerReportCreate<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerReportHang<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndhungapp: Param0, pwzhungapplicationname: Param1) -> ::windows::core::Result<()> {
@@ -1474,7 +1386,6 @@ pub unsafe fn WerReportHang<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerReportSetParameter<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreporthandle: Param0, dwparamid: u32, pwzname: Param2, pwzvalue: Param3) -> ::windows::core::Result<()> {
@@ -1489,7 +1400,6 @@ pub unsafe fn WerReportSetParameter<'a, Param0: ::windows::core::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerReportSetUIOption<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreporthandle: Param0, repuitypeid: WER_REPORT_UI, pwzvalue: Param2) -> ::windows::core::Result<()> {
@@ -1504,7 +1414,6 @@ pub unsafe fn WerReportSetUIOption<'a, Param0: ::windows::core::IntoParam<'a, HR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerReportSubmit<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>>(hreporthandle: Param0, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS) -> ::windows::core::Result<WER_SUBMIT_RESULT> {
     #[cfg(windows)]
@@ -1519,7 +1428,6 @@ pub unsafe fn WerReportSubmit<'a, Param0: ::windows::core::IntoParam<'a, HREPORT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1533,7 +1441,6 @@ pub unsafe fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::core::Resu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerStoreClose<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) {
     #[cfg(windows)]
@@ -1547,7 +1454,6 @@ pub unsafe fn WerStoreClose<'a, Param0: ::windows::core::IntoParam<'a, HREPORTST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerStoreGetFirstReportKey<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
@@ -1563,7 +1469,6 @@ pub unsafe fn WerStoreGetFirstReportKey<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerStoreGetNextReportKey<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
@@ -1579,7 +1484,6 @@ pub unsafe fn WerStoreGetNextReportKey<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerStoreGetReportCount<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -1594,7 +1498,6 @@ pub unsafe fn WerStoreGetReportCount<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerStoreGetSizeOnDisk<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
@@ -1609,7 +1512,6 @@ pub unsafe fn WerStoreGetSizeOnDisk<'a, Param0: ::windows::core::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows::core::Result<HREPORTSTORE> {
     #[cfg(windows)]
@@ -1624,7 +1526,6 @@ pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerStorePurge() -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1638,7 +1539,6 @@ pub unsafe fn WerStorePurge() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV1<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreportstore: Param0, pszreportkey: Param1) -> ::windows::core::Result<WER_REPORT_METADATA_V1> {
@@ -1654,7 +1554,6 @@ pub unsafe fn WerStoreQueryReportMetadataV1<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV2<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreportstore: Param0, pszreportkey: Param1) -> ::windows::core::Result<WER_REPORT_METADATA_V2> {
@@ -1670,7 +1569,6 @@ pub unsafe fn WerStoreQueryReportMetadataV2<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV3<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreportstore: Param0, pszreportkey: Param1) -> ::windows::core::Result<WER_REPORT_METADATA_V3> {
@@ -1686,7 +1584,6 @@ pub unsafe fn WerStoreQueryReportMetadataV3<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerStoreUploadReport<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreportstore: Param0, pszreportkey: Param1, dwflags: u32) -> ::windows::core::Result<WER_SUBMIT_RESULT> {
@@ -1702,7 +1599,6 @@ pub unsafe fn WerStoreUploadReport<'a, Param0: ::windows::core::IntoParam<'a, HR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1716,7 +1612,6 @@ pub unsafe fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerUnregisterAppLocalDump() -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1730,7 +1625,6 @@ pub unsafe fn WerUnregisterAppLocalDump() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerUnregisterCustomMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(key: Param0) -> ::windows::core::Result<()> {
@@ -1745,7 +1639,6 @@ pub unsafe fn WerUnregisterCustomMetadata<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerUnregisterExcludedMemoryBlock(address: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1759,7 +1652,6 @@ pub unsafe fn WerUnregisterExcludedMemoryBlock(address: *const ::core::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerUnregisterFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzfilepath: Param0) -> ::windows::core::Result<()> {
@@ -1774,7 +1666,6 @@ pub unsafe fn WerUnregisterFile<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[inline]
 pub unsafe fn WerUnregisterMemoryBlock(pvaddress: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1788,7 +1679,6 @@ pub unsafe fn WerUnregisterMemoryBlock(pvaddress: *const ::core::ffi::c_void) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerUnregisterRuntimeExceptionModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszoutofprocesscallbackdll: Param0, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -1803,12 +1693,9 @@ pub unsafe fn WerUnregisterRuntimeExceptionModule<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pfn_ADDEREXCLUDEDAPPLICATIONA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR) -> EFaultRepRetVal;
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pfn_ADDEREXCLUDEDAPPLICATIONW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR) -> EFaultRepRetVal;
-#[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type pfn_REPORTFAULT = unsafe extern "system" fn(param0: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, param1: u32) -> EFaultRepRetVal;

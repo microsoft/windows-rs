@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE) {
@@ -14,7 +13,6 @@ pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetInterfaceContextTableForHostName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, proxyname: Param1, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32) -> ::windows::core::Result<*mut NET_INTERFACE_CONTEXT_TABLE> {
@@ -33,7 +31,6 @@ pub unsafe fn GetInterfaceContextTableForHostName<'a, Param0: ::windows::core::I
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 pub struct NET_INTERFACE_CONTEXT {
     pub InterfaceIndex: u32,
     pub ConfigurationName: super::super::Foundation::PWSTR,
@@ -67,7 +64,6 @@ unsafe impl ::windows::core::Abi for NET_INTERFACE_CONTEXT {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 pub struct NET_INTERFACE_CONTEXT_TABLE {
     pub InterfaceContextHandle: super::super::Foundation::HANDLE,
     pub NumberOfEntries: u32,
@@ -99,13 +95,9 @@ impl ::core::cmp::Eq for NET_INTERFACE_CONTEXT_TABLE {}
 unsafe impl ::windows::core::Abi for NET_INTERFACE_CONTEXT_TABLE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub type ONDEMAND_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *const ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(destinationhostname: Param0) -> ::windows::core::Result<u32> {
@@ -121,7 +113,6 @@ pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OnDemandRegisterNotification(callback: ::core::option::Option<ONDEMAND_NOTIFICATION_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
@@ -137,7 +128,6 @@ pub unsafe fn OnDemandRegisterNotification(callback: ::core::option::Option<ONDE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OnDemandUnRegisterNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(registrationhandle: Param0) -> ::windows::core::Result<()> {
@@ -152,14 +142,11 @@ pub unsafe fn OnDemandUnRegisterNotification<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub const WCM_API_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub const WCM_API_VERSION_1_0: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 pub struct WCM_BILLING_CYCLE_INFO {
     pub StartDate: super::super::Foundation::FILETIME,
     pub Duration: WCM_TIME_INTERVAL,
@@ -191,7 +178,6 @@ impl ::core::cmp::Eq for WCM_BILLING_CYCLE_INFO {}
 unsafe impl ::windows::core::Abi for WCM_BILLING_CYCLE_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCM_CONNECTION_COST(pub i32);
@@ -213,7 +199,6 @@ unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub struct WCM_CONNECTION_COST_DATA {
     pub ConnectionCost: u32,
     pub CostSource: WCM_CONNECTION_COST_SOURCE,
@@ -238,7 +223,6 @@ impl ::core::cmp::Eq for WCM_CONNECTION_COST_DATA {}
 unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCM_CONNECTION_COST_SOURCE(pub i32);
@@ -257,7 +241,6 @@ unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST_SOURCE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 pub struct WCM_DATAPLAN_STATUS {
     pub UsageData: WCM_USAGE_DATA,
     pub DataLimitInMegabytes: u32,
@@ -301,9 +284,7 @@ impl ::core::cmp::Eq for WCM_DATAPLAN_STATUS {}
 unsafe impl ::windows::core::Abi for WCM_DATAPLAN_STATUS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub const WCM_MAX_PROFILE_NAME: u32 = 256u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCM_MEDIA_TYPE(pub i32);
@@ -324,7 +305,6 @@ unsafe impl ::windows::core::Abi for WCM_MEDIA_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 pub struct WCM_POLICY_VALUE {
     pub fValue: super::super::Foundation::BOOL,
     pub fIsGroupPolicy: super::super::Foundation::BOOL,
@@ -357,7 +337,6 @@ unsafe impl ::windows::core::Abi for WCM_POLICY_VALUE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub struct WCM_PROFILE_INFO {
     pub strProfileName: [u16; 256],
     pub AdapterGUID: ::windows::core::GUID,
@@ -385,7 +364,6 @@ unsafe impl ::windows::core::Abi for WCM_PROFILE_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub struct WCM_PROFILE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub ProfileInfo: [WCM_PROFILE_INFO; 1],
@@ -410,7 +388,6 @@ impl ::core::cmp::Eq for WCM_PROFILE_INFO_LIST {}
 unsafe impl ::windows::core::Abi for WCM_PROFILE_INFO_LIST {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCM_PROPERTY(pub i32);
@@ -431,7 +408,6 @@ unsafe impl ::windows::core::Abi for WCM_PROPERTY {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub struct WCM_TIME_INTERVAL {
     pub wYear: u16,
     pub wMonth: u16,
@@ -461,12 +437,10 @@ impl ::core::cmp::Eq for WCM_TIME_INTERVAL {}
 unsafe impl ::windows::core::Abi for WCM_TIME_INTERVAL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 pub struct WCM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::FILETIME,
@@ -497,7 +471,6 @@ impl ::core::cmp::Eq for WCM_USAGE_DATA {}
 unsafe impl ::windows::core::Abi for WCM_USAGE_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 #[inline]
 pub unsafe fn WcmFreeMemory(pmemory: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -511,7 +484,6 @@ pub unsafe fn WcmFreeMemory(pmemory: *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 #[inline]
 pub unsafe fn WcmGetProfileList(preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST) -> u32 {
     #[cfg(windows)]
@@ -525,7 +497,6 @@ pub unsafe fn WcmGetProfileList(preserved: *mut ::core::ffi::c_void, ppprofileli
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcmQueryProperty<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pinterface: *const ::windows::core::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32 {
@@ -540,7 +511,6 @@ pub unsafe fn WcmQueryProperty<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcmSetProfileList<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: Param2, preserved: *mut ::core::ffi::c_void) -> u32 {
@@ -555,7 +525,6 @@ pub unsafe fn WcmSetProfileList<'a, Param2: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcmSetProperty<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pinterface: *const ::windows::core::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32 {

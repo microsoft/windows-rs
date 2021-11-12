@@ -1,18 +1,12 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub const CB_MAX_CABINET_NAME: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub const CB_MAX_CAB_PATH: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub const CB_MAX_DISK: i32 = 2147483647i32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub const CB_MAX_DISK_NAME: u32 = 256u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub const CB_MAX_FILENAME: u32 = 256u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 pub struct CCAB {
     pub cb: u32,
     pub cbFolderThresh: u32,
@@ -69,7 +63,6 @@ unsafe impl ::windows::core::Abi for CCAB {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 pub struct ERF {
     pub erfOper: i32,
     pub erfType: i32,
@@ -101,7 +94,6 @@ impl ::core::cmp::Eq for ERF {}
 unsafe impl ::windows::core::Abi for ERF {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIAddFile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
@@ -125,7 +117,6 @@ pub unsafe fn FCIAddFile<'a, Param1: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCICreate(
@@ -168,7 +159,6 @@ pub unsafe fn FCICreate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIDestroy(hfci: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -183,7 +173,6 @@ pub unsafe fn FCIDestroy(hfci: *const ::core::ffi::c_void) -> super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FCIERROR(pub i32);
@@ -205,7 +194,6 @@ impl ::core::convert::From<i32> for FCIERROR {
 unsafe impl ::windows::core::Abi for FCIERROR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfci: *const ::core::ffi::c_void, fgetnextcab: Param1, pfnfcignc: ::core::option::Option<PFNFCIGETNEXTCABINET>, pfnfcis: ::core::option::Option<PFNFCISTATUS>) -> super::super::Foundation::BOOL {
@@ -220,7 +208,6 @@ pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: ::core::option::Option<PFNFCIGETNEXTCABINET>, pfnfcis: ::core::option::Option<PFNFCISTATUS>) -> super::super::Foundation::BOOL {
@@ -238,7 +225,6 @@ pub unsafe fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: ::core
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 pub struct FDICABINETINFO {
     pub cbCabinet: i32,
     pub cFolders: u16,
@@ -284,7 +270,6 @@ impl ::core::cmp::Eq for FDICABINETINFO {}
 unsafe impl ::windows::core::Abi for FDICABINETINFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FDICREATE_CPU_TYPE(pub u32);
@@ -326,7 +311,6 @@ impl ::core::ops::Not for FDICREATE_CPU_TYPE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDICopy<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::core::ffi::c_void, pszcabinet: Param1, pszcabpath: Param2, flags: i32, pfnfdin: ::core::option::Option<PFNFDINOTIFY>, pfnfdid: ::core::option::Option<PFNFDIDECRYPT>, pvuser: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -341,7 +325,6 @@ pub unsafe fn FDICopy<'a, Param1: ::windows::core::IntoParam<'a, super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDICreate(pfnalloc: ::core::option::Option<PFNALLOC>, pfnfree: ::core::option::Option<PFNFREE>, pfnopen: ::core::option::Option<PFNOPEN>, pfnread: ::core::option::Option<PFNREAD>, pfnwrite: ::core::option::Option<PFNWRITE>, pfnclose: ::core::option::Option<PFNCLOSE>, pfnseek: ::core::option::Option<PFNSEEK>, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void {
@@ -369,7 +352,6 @@ pub unsafe fn FDICreate(pfnalloc: ::core::option::Option<PFNALLOC>, pfnfree: ::c
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 pub struct FDIDECRYPT {
     pub fdidt: FDIDECRYPTTYPE,
     pub pvUser: *mut ::core::ffi::c_void,
@@ -529,7 +511,6 @@ impl ::core::cmp::Eq for FDIDECRYPT_0_2 {}
 unsafe impl ::windows::core::Abi for FDIDECRYPT_0_2 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FDIDECRYPTTYPE(pub i32);
@@ -544,7 +525,6 @@ impl ::core::convert::From<i32> for FDIDECRYPTTYPE {
 unsafe impl ::windows::core::Abi for FDIDECRYPTTYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDIDestroy(hfdi: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -559,7 +539,6 @@ pub unsafe fn FDIDestroy(hfdi: *const ::core::ffi::c_void) -> super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FDIERROR(pub i32);
@@ -584,7 +563,6 @@ impl ::core::convert::From<i32> for FDIERROR {
 unsafe impl ::windows::core::Abi for FDIERROR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDIIsCabinet(hfdi: *const ::core::ffi::c_void, hf: isize, pfdici: *mut FDICABINETINFO) -> super::super::Foundation::BOOL {
@@ -602,7 +580,6 @@ pub unsafe fn FDIIsCabinet(hfdi: *const ::core::ffi::c_void, hf: isize, pfdici: 
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 pub struct FDINOTIFICATION {
     pub cb: i32,
     pub psz1: super::super::Foundation::PSTR,
@@ -658,7 +635,6 @@ impl ::core::cmp::Eq for FDINOTIFICATION {}
 unsafe impl ::windows::core::Abi for FDINOTIFICATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FDINOTIFICATIONTYPE(pub i32);
@@ -680,7 +656,6 @@ unsafe impl ::windows::core::Abi for FDINOTIFICATIONTYPE {
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 pub struct FDISPILLFILE {
     pub ach: [super::super::Foundation::CHAR; 2],
     pub cbFile: i32,
@@ -721,7 +696,6 @@ unsafe impl ::windows::core::Abi for FDISPILLFILE {
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 pub struct FDISPILLFILE {
     pub ach: [super::super::Foundation::CHAR; 2],
     pub cbFile: i32,
@@ -751,7 +725,6 @@ impl ::core::cmp::Eq for FDISPILLFILE {}
 unsafe impl ::windows::core::Abi for FDISPILLFILE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDITruncateCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::core::ffi::c_void, pszcabinetname: Param1, ifoldertodelete: u16) -> super::super::Foundation::BOOL {
@@ -766,66 +739,39 @@ pub unsafe fn FDITruncateCabinet<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub const INCLUDED_FCI: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub const INCLUDED_FDI: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub const INCLUDED_TYPES_FCI_FDI: u32 = 1u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNALLOC = unsafe extern "system" fn(cb: u32) -> *mut ::core::ffi::c_void;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNCLOSE = unsafe extern "system" fn(hf: isize) -> i32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNFCIALLOC = unsafe extern "system" fn(cb: u32) -> *mut ::core::ffi::c_void;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNFCICLOSE = unsafe extern "system" fn(hf: isize, err: *mut i32, pv: *mut ::core::ffi::c_void) -> i32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNFCIDELETE = unsafe extern "system" fn(pszfile: super::super::Foundation::PSTR, err: *mut i32, pv: *mut ::core::ffi::c_void) -> i32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNFCIFILEPLACED = unsafe extern "system" fn(pccab: *mut CCAB, pszfile: super::super::Foundation::PSTR, cbfile: i32, fcontinuation: super::super::Foundation::BOOL, pv: *mut ::core::ffi::c_void) -> i32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNFCIFREE = unsafe extern "system" fn(memory: *mut ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNFCIGETNEXTCABINET = unsafe extern "system" fn(pccab: *mut CCAB, cbprevcab: u32, pv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNFCIGETOPENINFO = unsafe extern "system" fn(pszname: super::super::Foundation::PSTR, pdate: *mut u16, ptime: *mut u16, pattribs: *mut u16, err: *mut i32, pv: *mut ::core::ffi::c_void) -> isize;
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNFCIGETTEMPFILE = unsafe extern "system" fn(psztempname: super::super::Foundation::PSTR, cbtempname: i32, pv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNFCIOPEN = unsafe extern "system" fn(pszfile: super::super::Foundation::PSTR, oflag: i32, pmode: i32, err: *mut i32, pv: *mut ::core::ffi::c_void) -> isize;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNFCIREAD = unsafe extern "system" fn(hf: isize, memory: *mut ::core::ffi::c_void, cb: u32, err: *mut i32, pv: *mut ::core::ffi::c_void) -> u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNFCISEEK = unsafe extern "system" fn(hf: isize, dist: i32, seektype: i32, err: *mut i32, pv: *mut ::core::ffi::c_void) -> i32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNFCISTATUS = unsafe extern "system" fn(typestatus: u32, cb1: u32, cb2: u32, pv: *mut ::core::ffi::c_void) -> i32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNFCIWRITE = unsafe extern "system" fn(hf: isize, memory: *mut ::core::ffi::c_void, cb: u32, err: *mut i32, pv: *mut ::core::ffi::c_void) -> u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNFDIDECRYPT = unsafe extern "system" fn(pfdid: *mut FDIDECRYPT) -> i32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNFDINOTIFY = unsafe extern "system" fn(fdint: FDINOTIFICATIONTYPE, pfdin: *mut FDINOTIFICATION) -> isize;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNFREE = unsafe extern "system" fn(pv: *const ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNOPEN = unsafe extern "system" fn(pszfile: super::super::Foundation::PSTR, oflag: i32, pmode: i32) -> isize;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNREAD = unsafe extern "system" fn(hf: isize, pv: *mut ::core::ffi::c_void, cb: u32) -> u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNSEEK = unsafe extern "system" fn(hf: isize, dist: i32, seektype: i32) -> i32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub type PFNWRITE = unsafe extern "system" fn(hf: isize, pv: *const ::core::ffi::c_void, cb: u32) -> u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub const _A_EXEC: u32 = 64u32;
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 pub const _A_NAME_IS_UTF: u32 = 128u32;

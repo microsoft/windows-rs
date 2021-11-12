@@ -1,7 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Graphics_DirectX_Direct3D11")]
 pub mod Direct3D11;
-#[doc = "*Required features: `Graphics_DirectX`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DirectXAlphaMode(pub i32);
@@ -25,7 +24,6 @@ unsafe impl ::windows::core::RuntimeType for DirectXAlphaMode {
 impl ::windows::core::DefaultType for DirectXAlphaMode {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_DirectX`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DirectXColorSpace(pub i32);
@@ -70,7 +68,6 @@ unsafe impl ::windows::core::RuntimeType for DirectXColorSpace {
 impl ::windows::core::DefaultType for DirectXColorSpace {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_DirectX`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DirectXPixelFormat(pub i32);
@@ -211,7 +208,6 @@ unsafe impl ::windows::core::RuntimeType for DirectXPixelFormat {
 impl ::windows::core::DefaultType for DirectXPixelFormat {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_DirectX`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DirectXPrimitiveTopology(pub i32);

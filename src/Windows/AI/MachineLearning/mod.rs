@@ -229,14 +229,12 @@ pub struct ILearningModelEvaluationResult_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `AI_MachineLearning`*"]
 pub struct ILearningModelFeatureDescriptor(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ILearningModelFeatureDescriptor {
     type Vtable = ILearningModelFeatureDescriptor_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc08cf7c_6ed0_4004_97ba_b9a2eecd2b4f);
 }
 impl ILearningModelFeatureDescriptor {
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -244,7 +242,6 @@ impl ILearningModelFeatureDescriptor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -252,7 +249,6 @@ impl ILearningModelFeatureDescriptor {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = self;
         unsafe {
@@ -260,7 +256,6 @@ impl ILearningModelFeatureDescriptor {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -328,14 +323,12 @@ pub struct ILearningModelFeatureDescriptor_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `AI_MachineLearning`*"]
 pub struct ILearningModelFeatureValue(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ILearningModelFeatureValue {
     type Vtable = ILearningModelFeatureValue_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf51005db_4085_4dfe_9fed_95eb0c0cf75c);
 }
 impl ILearningModelFeatureValue {
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = self;
         unsafe {
@@ -400,7 +393,6 @@ pub struct ILearningModelFeatureValue_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `AI_MachineLearning`*"]
 pub struct ILearningModelOperatorProvider(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ILearningModelOperatorProvider {
     type Vtable = ILearningModelOperatorProvider_abi;
@@ -651,14 +643,12 @@ pub struct ISequenceFeatureDescriptor_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `AI_MachineLearning`*"]
 pub struct ITensor(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ITensor {
     type Vtable = ITensor_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05489593_a305_4a25_ad09_440119b4b7f6);
 }
 impl ITensor {
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = self;
         unsafe {
@@ -667,7 +657,6 @@ impl ITensor {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = self;
         unsafe {
@@ -675,7 +664,6 @@ impl ITensor {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<i64>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -1599,13 +1587,11 @@ pub struct ITensorUInt8BitStatics2_abi(
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, shape_array_size: u32, shape: *const i64, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ImageFeatureDescriptor(pub ::windows::core::IInspectable);
 impl ImageFeatureDescriptor {
     #[cfg(feature = "Graphics_Imaging")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Graphics_Imaging`*"]
     pub fn BitmapPixelFormat(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapPixelFormat> {
         let this = self;
         unsafe {
@@ -1614,7 +1600,6 @@ impl ImageFeatureDescriptor {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Graphics_Imaging`*"]
     pub fn BitmapAlphaMode(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapAlphaMode> {
         let this = self;
         unsafe {
@@ -1622,7 +1607,6 @@ impl ImageFeatureDescriptor {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapAlphaMode>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Width(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1630,7 +1614,6 @@ impl ImageFeatureDescriptor {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Height(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1638,7 +1621,6 @@ impl ImageFeatureDescriptor {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -1646,7 +1628,6 @@ impl ImageFeatureDescriptor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -1654,7 +1635,6 @@ impl ImageFeatureDescriptor {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -1662,7 +1642,6 @@ impl ImageFeatureDescriptor {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -1670,7 +1649,6 @@ impl ImageFeatureDescriptor {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn PixelRange(&self) -> ::windows::core::Result<LearningModelPixelRange> {
         let this = &::windows::core::Interface::cast::<IImageFeatureDescriptor2>(self)?;
         unsafe {
@@ -1753,13 +1731,11 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &Im
 }
 unsafe impl ::core::marker::Send for ImageFeatureDescriptor {}
 unsafe impl ::core::marker::Sync for ImageFeatureDescriptor {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ImageFeatureValue(pub ::windows::core::IInspectable);
 impl ImageFeatureValue {
     #[cfg(feature = "Media")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Media`*"]
     pub fn VideoFrame(&self) -> ::windows::core::Result<super::super::Media::VideoFrame> {
         let this = self;
         unsafe {
@@ -1767,7 +1743,6 @@ impl ImageFeatureValue {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::VideoFrame>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -1776,7 +1751,6 @@ impl ImageFeatureValue {
         }
     }
     #[cfg(feature = "Media")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Media`*"]
     pub fn CreateFromVideoFrame<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::VideoFrame>>(image: Param0) -> ::windows::core::Result<ImageFeatureValue> {
         Self::IImageFeatureValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1862,12 +1836,10 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &ImageFe
 }
 unsafe impl ::core::marker::Send for ImageFeatureValue {}
 unsafe impl ::core::marker::Sync for ImageFeatureValue {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LearningModel(pub ::windows::core::IInspectable);
 impl LearningModel {
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Author(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1875,7 +1847,6 @@ impl LearningModel {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1883,7 +1854,6 @@ impl LearningModel {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Domain(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1891,7 +1861,6 @@ impl LearningModel {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1899,7 +1868,6 @@ impl LearningModel {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Version(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
@@ -1908,7 +1876,6 @@ impl LearningModel {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Metadata(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -1917,7 +1884,6 @@ impl LearningModel {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn InputFeatures(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ILearningModelFeatureDescriptor>> {
         let this = self;
         unsafe {
@@ -1926,7 +1892,6 @@ impl LearningModel {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn OutputFeatures(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ILearningModelFeatureDescriptor>> {
         let this = self;
         unsafe {
@@ -1935,13 +1900,11 @@ impl LearningModel {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`, `Storage`*"]
     pub fn LoadFromStorageFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(modelfile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1949,14 +1912,12 @@ impl LearningModel {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`, `Storage_Streams`*"]
     pub fn LoadFromStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(modelstream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), modelstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn LoadFromFilePath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(filepath: Param0) -> ::windows::core::Result<LearningModel> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1964,7 +1925,6 @@ impl LearningModel {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn LoadFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(modelstream: Param0) -> ::windows::core::Result<LearningModel> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1972,7 +1932,6 @@ impl LearningModel {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`, `Storage`*"]
     pub fn LoadFromStorageFileWithOperatorProviderAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, ILearningModelOperatorProvider>>(modelfile: Param0, operatorprovider: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1980,14 +1939,12 @@ impl LearningModel {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`, `Storage_Streams`*"]
     pub fn LoadFromStreamWithOperatorProviderAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Param1: ::windows::core::IntoParam<'a, ILearningModelOperatorProvider>>(modelstream: Param0, operatorprovider: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), modelstream.into_param().abi(), operatorprovider.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn LoadFromFilePathWithOperatorProvider<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ILearningModelOperatorProvider>>(filepath: Param0, operatorprovider: Param1) -> ::windows::core::Result<LearningModel> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1995,7 +1952,6 @@ impl LearningModel {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn LoadFromStreamWithOperatorProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Param1: ::windows::core::IntoParam<'a, ILearningModelOperatorProvider>>(modelstream: Param0, operatorprovider: Param1) -> ::windows::core::Result<LearningModel> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2085,29 +2041,24 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for LearningModel {}
 unsafe impl ::core::marker::Sync for LearningModel {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LearningModelBinding(pub ::windows::core::IInspectable);
 impl LearningModelBinding {
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Bind<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn BindWithProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, name: Param0, value: Param1, props: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), name.into_param().abi(), value.into_param().abi(), props.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
         unsafe {
@@ -2116,7 +2067,6 @@ impl LearningModelBinding {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -2125,7 +2075,6 @@ impl LearningModelBinding {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -2134,7 +2083,6 @@ impl LearningModelBinding {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -2143,12 +2091,10 @@ impl LearningModelBinding {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Split(&self, first: &mut ::core::option::Option<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>, second: &mut ::core::option::Option<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromSession<'a, Param0: ::windows::core::IntoParam<'a, LearningModelSession>>(session: Param0) -> ::windows::core::Result<LearningModelBinding> {
         Self::ILearningModelBindingFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2280,13 +2226,11 @@ impl ::core::iter::IntoIterator for &LearningModelBinding {
         self.First().unwrap()
     }
 }
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LearningModelDevice(pub ::windows::core::IInspectable);
 impl LearningModelDevice {
     #[cfg(feature = "Graphics")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Graphics`*"]
     pub fn AdapterId(&self) -> ::windows::core::Result<super::super::Graphics::DisplayAdapterId> {
         let this = self;
         unsafe {
@@ -2295,7 +2239,6 @@ impl LearningModelDevice {
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Graphics_DirectX_Direct3D11`*"]
     pub fn Direct3D11Device(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice> {
         let this = self;
         unsafe {
@@ -2303,7 +2246,6 @@ impl LearningModelDevice {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create(devicekind: LearningModelDeviceKind) -> ::windows::core::Result<LearningModelDevice> {
         Self::ILearningModelDeviceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2311,7 +2253,6 @@ impl LearningModelDevice {
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Graphics_DirectX_Direct3D11`*"]
     pub fn CreateFromDirect3D11Device<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>>(device: Param0) -> ::windows::core::Result<LearningModelDevice> {
         Self::ILearningModelDeviceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2379,7 +2320,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LearningModelDevice {}
 unsafe impl ::core::marker::Sync for LearningModelDevice {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LearningModelDeviceKind(pub i32);
@@ -2404,12 +2344,10 @@ unsafe impl ::windows::core::RuntimeType for LearningModelDeviceKind {
 impl ::windows::core::DefaultType for LearningModelDeviceKind {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LearningModelEvaluationResult(pub ::windows::core::IInspectable);
 impl LearningModelEvaluationResult {
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2417,7 +2355,6 @@ impl LearningModelEvaluationResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn ErrorStatus(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -2425,7 +2362,6 @@ impl LearningModelEvaluationResult {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2434,7 +2370,6 @@ impl LearningModelEvaluationResult {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Outputs(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = self;
         unsafe {
@@ -2495,7 +2430,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LearningModelEvaluationResult {}
 unsafe impl ::core::marker::Sync for LearningModelEvaluationResult {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LearningModelFeatureKind(pub i32);
@@ -2519,7 +2453,6 @@ unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKind {
 impl ::windows::core::DefaultType for LearningModelFeatureKind {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LearningModelPixelRange(pub i32);
@@ -2542,12 +2475,10 @@ unsafe impl ::windows::core::RuntimeType for LearningModelPixelRange {
 impl ::windows::core::DefaultType for LearningModelPixelRange {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LearningModelSession(pub ::windows::core::IInspectable);
 impl LearningModelSession {
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Model(&self) -> ::windows::core::Result<LearningModel> {
         let this = self;
         unsafe {
@@ -2555,7 +2486,6 @@ impl LearningModelSession {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModel>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Device(&self) -> ::windows::core::Result<LearningModelDevice> {
         let this = self;
         unsafe {
@@ -2564,7 +2494,6 @@ impl LearningModelSession {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn EvaluationProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
@@ -2573,7 +2502,6 @@ impl LearningModelSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn EvaluateAsync<'a, Param0: ::windows::core::IntoParam<'a, LearningModelBinding>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, bindings: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>> {
         let this = self;
         unsafe {
@@ -2582,7 +2510,6 @@ impl LearningModelSession {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`, `Foundation_Collections`*"]
     pub fn EvaluateFeaturesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, features: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>> {
         let this = self;
         unsafe {
@@ -2590,7 +2517,6 @@ impl LearningModelSession {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), features.into_param().abi(), correlationid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Evaluate<'a, Param0: ::windows::core::IntoParam<'a, LearningModelBinding>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, bindings: Param0, correlationid: Param1) -> ::windows::core::Result<LearningModelEvaluationResult> {
         let this = self;
         unsafe {
@@ -2599,7 +2525,6 @@ impl LearningModelSession {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn EvaluateFeatures<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, features: Param0, correlationid: Param1) -> ::windows::core::Result<LearningModelEvaluationResult> {
         let this = self;
         unsafe {
@@ -2608,26 +2533,22 @@ impl LearningModelSession {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromModel<'a, Param0: ::windows::core::IntoParam<'a, LearningModel>>(model: Param0) -> ::windows::core::Result<LearningModelSession> {
         Self::ILearningModelSessionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), model.into_param().abi(), &mut result__).from_abi::<LearningModelSession>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromModelOnDevice<'a, Param0: ::windows::core::IntoParam<'a, LearningModel>, Param1: ::windows::core::IntoParam<'a, LearningModelDevice>>(model: Param0, devicetorunon: Param1) -> ::windows::core::Result<LearningModelSession> {
         Self::ILearningModelSessionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), model.into_param().abi(), devicetorunon.into_param().abi(), &mut result__).from_abi::<LearningModelSession>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromModelOnDeviceWithSessionOptions<'a, Param0: ::windows::core::IntoParam<'a, LearningModel>, Param1: ::windows::core::IntoParam<'a, LearningModelDevice>, Param2: ::windows::core::IntoParam<'a, LearningModelSessionOptions>>(model: Param0, devicetorunon: Param1, learningmodelsessionoptions: Param2) -> ::windows::core::Result<LearningModelSession> {
         Self::ILearningModelSessionFactory2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2721,7 +2642,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for LearningModelSession {}
 unsafe impl ::core::marker::Sync for LearningModelSession {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LearningModelSessionOptions(pub ::windows::core::IInspectable);
@@ -2733,7 +2653,6 @@ impl LearningModelSessionOptions {
         static mut SHARED: ::windows::core::FactoryCache<LearningModelSessionOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn BatchSizeOverride(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2741,12 +2660,10 @@ impl LearningModelSessionOptions {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn SetBatchSizeOverride(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CloseModelOnSessionCreation(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelSessionOptions2>(self)?;
         unsafe {
@@ -2754,12 +2671,10 @@ impl LearningModelSessionOptions {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn SetCloseModelOnSessionCreation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILearningModelSessionOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn OverrideNamedDimension<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, dimension: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILearningModelSessionOptions3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), dimension).ok() }
@@ -2820,12 +2735,10 @@ unsafe impl ::core::marker::Sync for LearningModelSessionOptions {}
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct MachineLearningContract(pub u8);
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct MapFeatureDescriptor(pub ::windows::core::IInspectable);
 impl MapFeatureDescriptor {
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn KeyKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = self;
         unsafe {
@@ -2833,7 +2746,6 @@ impl MapFeatureDescriptor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TensorKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn ValueDescriptor(&self) -> ::windows::core::Result<ILearningModelFeatureDescriptor> {
         let this = self;
         unsafe {
@@ -2841,7 +2753,6 @@ impl MapFeatureDescriptor {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ILearningModelFeatureDescriptor>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -2849,7 +2760,6 @@ impl MapFeatureDescriptor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -2857,7 +2767,6 @@ impl MapFeatureDescriptor {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -2865,7 +2774,6 @@ impl MapFeatureDescriptor {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -2948,12 +2856,10 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &Ma
 }
 unsafe impl ::core::marker::Send for MapFeatureDescriptor {}
 unsafe impl ::core::marker::Sync for MapFeatureDescriptor {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SequenceFeatureDescriptor(pub ::windows::core::IInspectable);
 impl SequenceFeatureDescriptor {
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn ElementDescriptor(&self) -> ::windows::core::Result<ILearningModelFeatureDescriptor> {
         let this = self;
         unsafe {
@@ -2961,7 +2867,6 @@ impl SequenceFeatureDescriptor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ILearningModelFeatureDescriptor>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -2969,7 +2874,6 @@ impl SequenceFeatureDescriptor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -2977,7 +2881,6 @@ impl SequenceFeatureDescriptor {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -2985,7 +2888,6 @@ impl SequenceFeatureDescriptor {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -3068,13 +2970,11 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &Se
 }
 unsafe impl ::core::marker::Send for SequenceFeatureDescriptor {}
 unsafe impl ::core::marker::Sync for SequenceFeatureDescriptor {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorBoolean(pub ::windows::core::IInspectable);
 impl TensorBoolean {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<bool>> {
         let this = self;
         unsafe {
@@ -3082,7 +2982,6 @@ impl TensorBoolean {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -3090,7 +2989,6 @@ impl TensorBoolean {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -3099,7 +2997,6 @@ impl TensorBoolean {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -3108,13 +3005,11 @@ impl TensorBoolean {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -3122,7 +3017,6 @@ impl TensorBoolean {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3130,7 +3024,6 @@ impl TensorBoolean {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3138,7 +3031,6 @@ impl TensorBoolean {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<bool as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3146,14 +3038,12 @@ impl TensorBoolean {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<bool>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorBoolean>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<bool as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3161,7 +3051,6 @@ impl TensorBoolean {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], buffer: Param1) -> ::windows::core::Result<TensorBoolean> {
         Self::ITensorBooleanStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3325,13 +3214,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for TensorBoolean {}
 unsafe impl ::core::marker::Sync for TensorBoolean {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorDouble(pub ::windows::core::IInspectable);
 impl TensorDouble {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<f64>> {
         let this = self;
         unsafe {
@@ -3339,7 +3226,6 @@ impl TensorDouble {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<f64>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -3347,7 +3233,6 @@ impl TensorDouble {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -3356,7 +3241,6 @@ impl TensorDouble {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -3365,13 +3249,11 @@ impl TensorDouble {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -3379,7 +3261,6 @@ impl TensorDouble {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorDouble> {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3387,7 +3268,6 @@ impl TensorDouble {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorDouble> {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3395,7 +3275,6 @@ impl TensorDouble {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<f64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorDouble> {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3403,14 +3282,12 @@ impl TensorDouble {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<f64>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorDouble> {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorDouble>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<f64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorDouble> {
         Self::ITensorDoubleStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3418,7 +3295,6 @@ impl TensorDouble {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], buffer: Param1) -> ::windows::core::Result<TensorDouble> {
         Self::ITensorDoubleStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3582,12 +3458,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for TensorDouble {}
 unsafe impl ::core::marker::Sync for TensorDouble {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorFeatureDescriptor(pub ::windows::core::IInspectable);
 impl TensorFeatureDescriptor {
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = self;
         unsafe {
@@ -3596,7 +3470,6 @@ impl TensorFeatureDescriptor {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = self;
         unsafe {
@@ -3604,7 +3477,6 @@ impl TensorFeatureDescriptor {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<i64>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -3612,7 +3484,6 @@ impl TensorFeatureDescriptor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -3620,7 +3491,6 @@ impl TensorFeatureDescriptor {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -3628,7 +3498,6 @@ impl TensorFeatureDescriptor {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
@@ -3711,13 +3580,11 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &Te
 }
 unsafe impl ::core::marker::Send for TensorFeatureDescriptor {}
 unsafe impl ::core::marker::Sync for TensorFeatureDescriptor {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorFloat(pub ::windows::core::IInspectable);
 impl TensorFloat {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
         let this = self;
         unsafe {
@@ -3725,7 +3592,6 @@ impl TensorFloat {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -3733,7 +3599,6 @@ impl TensorFloat {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -3742,7 +3607,6 @@ impl TensorFloat {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -3751,13 +3615,11 @@ impl TensorFloat {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -3765,7 +3627,6 @@ impl TensorFloat {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorFloat> {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3773,7 +3634,6 @@ impl TensorFloat {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorFloat> {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3781,7 +3641,6 @@ impl TensorFloat {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<f32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorFloat> {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3789,14 +3648,12 @@ impl TensorFloat {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<f32>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorFloat> {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorFloat>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<f32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorFloat> {
         Self::ITensorFloatStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3804,7 +3661,6 @@ impl TensorFloat {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], buffer: Param1) -> ::windows::core::Result<TensorFloat> {
         Self::ITensorFloatStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3968,13 +3824,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for TensorFloat {}
 unsafe impl ::core::marker::Sync for TensorFloat {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorFloat16Bit(pub ::windows::core::IInspectable);
 impl TensorFloat16Bit {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
         let this = self;
         unsafe {
@@ -3982,7 +3836,6 @@ impl TensorFloat16Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -3990,7 +3843,6 @@ impl TensorFloat16Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -3999,7 +3851,6 @@ impl TensorFloat16Bit {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -4008,13 +3859,11 @@ impl TensorFloat16Bit {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -4022,7 +3871,6 @@ impl TensorFloat16Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4030,7 +3878,6 @@ impl TensorFloat16Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4038,7 +3885,6 @@ impl TensorFloat16Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<f32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4046,14 +3892,12 @@ impl TensorFloat16Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<f32>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorFloat16Bit>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<f32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4061,7 +3905,6 @@ impl TensorFloat16Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], buffer: Param1) -> ::windows::core::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4225,13 +4068,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for TensorFloat16Bit {}
 unsafe impl ::core::marker::Sync for TensorFloat16Bit {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorInt16Bit(pub ::windows::core::IInspectable);
 impl TensorInt16Bit {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i16>> {
         let this = self;
         unsafe {
@@ -4239,7 +4080,6 @@ impl TensorInt16Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<i16>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -4247,7 +4087,6 @@ impl TensorInt16Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -4256,7 +4095,6 @@ impl TensorInt16Bit {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -4265,13 +4103,11 @@ impl TensorInt16Bit {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -4279,7 +4115,6 @@ impl TensorInt16Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4287,7 +4122,6 @@ impl TensorInt16Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4295,7 +4129,6 @@ impl TensorInt16Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<i16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4303,14 +4136,12 @@ impl TensorInt16Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i16>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorInt16Bit>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<i16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4318,7 +4149,6 @@ impl TensorInt16Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], buffer: Param1) -> ::windows::core::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4482,13 +4312,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for TensorInt16Bit {}
 unsafe impl ::core::marker::Sync for TensorInt16Bit {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorInt32Bit(pub ::windows::core::IInspectable);
 impl TensorInt32Bit {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i32>> {
         let this = self;
         unsafe {
@@ -4496,7 +4324,6 @@ impl TensorInt32Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -4504,7 +4331,6 @@ impl TensorInt32Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -4513,7 +4339,6 @@ impl TensorInt32Bit {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -4522,13 +4347,11 @@ impl TensorInt32Bit {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -4536,7 +4359,6 @@ impl TensorInt32Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4544,7 +4366,6 @@ impl TensorInt32Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4552,7 +4373,6 @@ impl TensorInt32Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4560,14 +4380,12 @@ impl TensorInt32Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i32>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorInt32Bit>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4575,7 +4393,6 @@ impl TensorInt32Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], buffer: Param1) -> ::windows::core::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4739,13 +4556,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for TensorInt32Bit {}
 unsafe impl ::core::marker::Sync for TensorInt32Bit {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorInt64Bit(pub ::windows::core::IInspectable);
 impl TensorInt64Bit {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = self;
         unsafe {
@@ -4753,7 +4568,6 @@ impl TensorInt64Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<i64>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -4761,7 +4575,6 @@ impl TensorInt64Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -4770,7 +4583,6 @@ impl TensorInt64Bit {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -4779,13 +4591,11 @@ impl TensorInt64Bit {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -4793,7 +4603,6 @@ impl TensorInt64Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4801,7 +4610,6 @@ impl TensorInt64Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4809,7 +4617,6 @@ impl TensorInt64Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<i64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4817,14 +4624,12 @@ impl TensorInt64Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorInt64Bit>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<i64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4832,7 +4637,6 @@ impl TensorInt64Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], buffer: Param1) -> ::windows::core::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4996,13 +4800,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for TensorInt64Bit {}
 unsafe impl ::core::marker::Sync for TensorInt64Bit {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorInt8Bit(pub ::windows::core::IInspectable);
 impl TensorInt8Bit {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
         let this = self;
         unsafe {
@@ -5010,7 +4812,6 @@ impl TensorInt8Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u8>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -5018,7 +4819,6 @@ impl TensorInt8Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -5027,7 +4827,6 @@ impl TensorInt8Bit {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -5036,13 +4835,11 @@ impl TensorInt8Bit {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -5050,7 +4847,6 @@ impl TensorInt8Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5058,7 +4854,6 @@ impl TensorInt8Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5066,7 +4861,6 @@ impl TensorInt8Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5074,14 +4868,12 @@ impl TensorInt8Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<u8>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorInt8Bit>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5089,7 +4881,6 @@ impl TensorInt8Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], buffer: Param1) -> ::windows::core::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5253,7 +5044,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for TensorInt8Bit {}
 unsafe impl ::core::marker::Sync for TensorInt8Bit {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TensorKind(pub i32);
@@ -5289,13 +5079,11 @@ unsafe impl ::windows::core::RuntimeType for TensorKind {
 impl ::windows::core::DefaultType for TensorKind {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorString(pub ::windows::core::IInspectable);
 impl TensorString {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -5303,7 +5091,6 @@ impl TensorString {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -5311,7 +5098,6 @@ impl TensorString {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -5320,7 +5106,6 @@ impl TensorString {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -5329,13 +5114,11 @@ impl TensorString {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -5343,7 +5126,6 @@ impl TensorString {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorString> {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5351,7 +5133,6 @@ impl TensorString {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorString> {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5359,7 +5140,6 @@ impl TensorString {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorString> {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5367,14 +5147,12 @@ impl TensorString {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorString> {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorString>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorString> {
         Self::ITensorStringStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5538,13 +5316,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for TensorString {}
 unsafe impl ::core::marker::Sync for TensorString {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorUInt16Bit(pub ::windows::core::IInspectable);
 impl TensorUInt16Bit {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u16>> {
         let this = self;
         unsafe {
@@ -5552,7 +5328,6 @@ impl TensorUInt16Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u16>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -5560,7 +5335,6 @@ impl TensorUInt16Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -5569,7 +5343,6 @@ impl TensorUInt16Bit {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -5578,13 +5351,11 @@ impl TensorUInt16Bit {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -5592,7 +5363,6 @@ impl TensorUInt16Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5600,7 +5370,6 @@ impl TensorUInt16Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5608,7 +5377,6 @@ impl TensorUInt16Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5616,14 +5384,12 @@ impl TensorUInt16Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<u16>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorUInt16Bit>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<u16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5631,7 +5397,6 @@ impl TensorUInt16Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], buffer: Param1) -> ::windows::core::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5795,13 +5560,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for TensorUInt16Bit {}
 unsafe impl ::core::marker::Sync for TensorUInt16Bit {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorUInt32Bit(pub ::windows::core::IInspectable);
 impl TensorUInt32Bit {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
         unsafe {
@@ -5809,7 +5572,6 @@ impl TensorUInt32Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -5817,7 +5579,6 @@ impl TensorUInt32Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -5826,7 +5587,6 @@ impl TensorUInt32Bit {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -5835,13 +5595,11 @@ impl TensorUInt32Bit {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -5849,7 +5607,6 @@ impl TensorUInt32Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5857,7 +5614,6 @@ impl TensorUInt32Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5865,7 +5621,6 @@ impl TensorUInt32Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5873,14 +5628,12 @@ impl TensorUInt32Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<u32>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorUInt32Bit>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<u32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5888,7 +5641,6 @@ impl TensorUInt32Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], buffer: Param1) -> ::windows::core::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6052,13 +5804,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for TensorUInt32Bit {}
 unsafe impl ::core::marker::Sync for TensorUInt32Bit {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorUInt64Bit(pub ::windows::core::IInspectable);
 impl TensorUInt64Bit {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u64>> {
         let this = self;
         unsafe {
@@ -6066,7 +5816,6 @@ impl TensorUInt64Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u64>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -6074,7 +5823,6 @@ impl TensorUInt64Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -6083,7 +5831,6 @@ impl TensorUInt64Bit {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -6092,13 +5839,11 @@ impl TensorUInt64Bit {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -6106,7 +5851,6 @@ impl TensorUInt64Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6114,7 +5858,6 @@ impl TensorUInt64Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6122,7 +5865,6 @@ impl TensorUInt64Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6130,14 +5872,12 @@ impl TensorUInt64Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<u64>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorUInt64Bit>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<u64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6145,7 +5885,6 @@ impl TensorUInt64Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], buffer: Param1) -> ::windows::core::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6309,13 +6048,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for TensorUInt64Bit {}
 unsafe impl ::core::marker::Sync for TensorUInt64Bit {}
-#[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TensorUInt8Bit(pub ::windows::core::IInspectable);
 impl TensorUInt8Bit {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn GetAsVectorView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
         let this = self;
         unsafe {
@@ -6323,7 +6060,6 @@ impl TensorUInt8Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u8>>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
         let this = &::windows::core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
@@ -6331,7 +6067,6 @@ impl TensorUInt8Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn TensorKind(&self) -> ::windows::core::Result<TensorKind> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -6340,7 +6075,6 @@ impl TensorUInt8Bit {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows::core::Interface::cast::<ITensor>(self)?;
         unsafe {
@@ -6349,13 +6083,11 @@ impl TensorUInt8Bit {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -6363,7 +6095,6 @@ impl TensorUInt8Bit {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn Create() -> ::windows::core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6371,7 +6102,6 @@ impl TensorUInt8Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0) -> ::windows::core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6379,7 +6109,6 @@ impl TensorUInt8Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6387,14 +6116,12 @@ impl TensorUInt8Bit {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
     pub fn CreateFromIterable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<u8>>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), shape.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<TensorUInt8Bit>(result__)
         })
     }
-    #[doc = "*Required features: `AI_MachineLearning`*"]
     pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], data: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6402,7 +6129,6 @@ impl TensorUInt8Bit {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::core::DefaultType>::DefaultType], buffer: Param1) -> ::windows::core::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

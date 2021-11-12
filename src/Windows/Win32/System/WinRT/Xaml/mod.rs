@@ -1,18 +1,14 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 pub const E_SURFACE_CONTENTS_LOST: u32 = 2150301728u32;
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDesktopWindowXamlSourceNative(pub ::windows::core::IUnknown);
 impl IDesktopWindowXamlSourceNative {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Foundation`*"]
     pub unsafe fn AttachToWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, parentwnd: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), parentwnd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Foundation`*"]
     pub unsafe fn WindowHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__: <super::super::super::Foundation::HWND as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::HWND>(result__)
@@ -53,24 +49,20 @@ pub struct IDesktopWindowXamlSourceNative_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDesktopWindowXamlSourceNative2(pub ::windows::core::IUnknown);
 impl IDesktopWindowXamlSourceNative2 {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Foundation`*"]
     pub unsafe fn AttachToWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, parentwnd: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), parentwnd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Foundation`*"]
     pub unsafe fn WindowHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__: <super::super::super::Foundation::HWND as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn PreTranslateMessage(&self, message: *const super::super::super::UI::WindowsAndMessaging::MSG, result: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(message), ::core::mem::transmute(result)).ok()
     }
@@ -132,12 +124,10 @@ pub struct IDesktopWindowXamlSourceNative2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, message: *const super::super::super::UI::WindowsAndMessaging::MSG, result: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IFindReferenceTargetsCallback(pub ::windows::core::IUnknown);
 impl IFindReferenceTargetsCallback {
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn FoundTrackerTarget<'a, Param0: ::windows::core::IntoParam<'a, IReferenceTrackerTarget>>(&self, target: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), target.into_param().abi()).ok()
     }
@@ -174,37 +164,29 @@ pub struct IFindReferenceTargetsCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, target: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IReferenceTracker(pub ::windows::core::IUnknown);
 impl IReferenceTracker {
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn ConnectFromTrackerSource(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn DisconnectFromTrackerSource(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn FindTrackerTargets<'a, Param0: ::windows::core::IntoParam<'a, IFindReferenceTargetsCallback>>(&self, callback: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), callback.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn GetReferenceTrackerManager(&self) -> ::windows::core::Result<IReferenceTrackerManager> {
         let mut result__: <IReferenceTrackerManager as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IReferenceTrackerManager>(result__)
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn AddRefFromTrackerSource(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn ReleaseFromTrackerSource(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn PegFromTrackerSource(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()
     }
@@ -247,7 +229,6 @@ pub struct IReferenceTracker_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IReferenceTrackerExtension(pub ::windows::core::IUnknown);
@@ -279,33 +260,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRefe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceTrackerExtension_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32);
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IReferenceTrackerHost(pub ::windows::core::IUnknown);
 impl IReferenceTrackerHost {
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn DisconnectUnusedReferenceSources(&self, options: XAML_REFERENCETRACKER_DISCONNECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(options)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn ReleaseDisconnectedReferenceSources(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn NotifyEndOfReferenceTrackingOnThread(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn GetTrackerTarget<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, unknown: Param0) -> ::windows::core::Result<IReferenceTrackerTarget> {
         let mut result__: <IReferenceTrackerTarget as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), unknown.into_param().abi(), &mut result__).from_abi::<IReferenceTrackerTarget>(result__)
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn AddMemoryPressure(&self, bytesallocated: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(bytesallocated)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn RemoveMemoryPressure(&self, bytesallocated: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(bytesallocated)).ok()
     }
@@ -347,24 +321,19 @@ pub struct IReferenceTrackerHost_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bytesallocated: u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bytesallocated: u64) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IReferenceTrackerManager(pub ::windows::core::IUnknown);
 impl IReferenceTrackerManager {
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn ReferenceTrackingStarted(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn FindTrackerTargetsCompleted(&self, findfailed: u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(findfailed)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn ReferenceTrackingCompleted(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn SetReferenceTrackerHost<'a, Param0: ::windows::core::IntoParam<'a, IReferenceTrackerHost>>(&self, value: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
@@ -404,24 +373,19 @@ pub struct IReferenceTrackerManager_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IReferenceTrackerTarget(pub ::windows::core::IUnknown);
 impl IReferenceTrackerTarget {
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn AddRefFromReferenceTracker(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn ReleaseFromReferenceTracker(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn Peg(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn Unpeg(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
@@ -461,12 +425,10 @@ pub struct IReferenceTrackerTarget_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ISurfaceImageSourceManagerNative(pub ::windows::core::IUnknown);
 impl ISurfaceImageSourceManagerNative {
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn FlushAllSurfacesWithDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, device: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), device.into_param().abi()).ok()
     }
@@ -503,22 +465,18 @@ pub struct ISurfaceImageSourceManagerNative_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, device: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ISurfaceImageSourceNative(pub ::windows::core::IUnknown);
 impl ISurfaceImageSourceNative {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>(&self, device: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), device.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn BeginDraw<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::RECT>>(&self, updaterect: Param0, surface: *mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), updaterect.into_param().abi(), ::core::mem::transmute(surface), ::core::mem::transmute(offset)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
@@ -559,29 +517,23 @@ pub struct ISurfaceImageSourceNative_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ISurfaceImageSourceNativeWithD2D(pub ::windows::core::IUnknown);
 impl ISurfaceImageSourceNativeWithD2D {
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn SetDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, device: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), device.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Foundation`*"]
     pub unsafe fn BeginDraw(&self, updaterect: *const super::super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(updaterect), ::core::mem::transmute(iid), ::core::mem::transmute(updateobject), ::core::mem::transmute(offset)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn SuspendDraw(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn ResumeDraw(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)).ok()
     }
@@ -623,13 +575,11 @@ pub struct ISurfaceImageSourceNativeWithD2D_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ISwapChainBackgroundPanelNative(pub ::windows::core::IUnknown);
 impl ISwapChainBackgroundPanelNative {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetSwapChain<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGISwapChain>>(&self, swapchain: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), swapchain.into_param().abi()).ok()
     }
@@ -667,13 +617,11 @@ pub struct ISwapChainBackgroundPanelNative_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, swapchain: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ISwapChainPanelNative(pub ::windows::core::IUnknown);
 impl ISwapChainPanelNative {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetSwapChain<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGISwapChain>>(&self, swapchain: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), swapchain.into_param().abi()).ok()
     }
@@ -711,18 +659,15 @@ pub struct ISwapChainPanelNative_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, swapchain: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ISwapChainPanelNative2(pub ::windows::core::IUnknown);
 impl ISwapChainPanelNative2 {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetSwapChain<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGISwapChain>>(&self, swapchain: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), swapchain.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Foundation`*"]
     pub unsafe fn SetSwapChainHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, swapchainhandle: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), swapchainhandle.into_param().abi()).ok()
     }
@@ -782,25 +727,20 @@ pub struct ISwapChainPanelNative2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, swapchainhandle: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITrackerOwner(pub ::windows::core::IUnknown);
 impl ITrackerOwner {
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn CreateTrackerHandle(&self) -> ::windows::core::Result<*mut TrackerHandle__> {
         let mut result__: <*mut TrackerHandle__ as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<*mut TrackerHandle__>(result__)
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn DeleteTrackerHandle(&self, handle: *const TrackerHandle__) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn SetTrackerValue<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, handle: *const TrackerHandle__, value: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn TryGetSafeTrackerValue(&self, handle: *const TrackerHandle__, returnvalue: *mut ::core::option::Option<::windows::core::IUnknown>) -> u8 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), ::core::mem::transmute(returnvalue)))
     }
@@ -840,51 +780,41 @@ pub struct ITrackerOwner_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: *const TrackerHandle__, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: *const TrackerHandle__, returnvalue: *mut ::windows::core::RawPtr) -> u8,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IVirtualSurfaceImageSourceNative(pub ::windows::core::IUnknown);
 impl IVirtualSurfaceImageSourceNative {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>(&self, device: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), device.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn BeginDraw<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::RECT>>(&self, updaterect: Param0, surface: *mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), updaterect.into_param().abi(), ::core::mem::transmute(surface), ::core::mem::transmute(offset)).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Foundation`*"]
     pub unsafe fn Invalidate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::RECT>>(&self, updaterect: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), updaterect.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn GetUpdateRectCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Foundation`*"]
     pub unsafe fn GetUpdateRects(&self, updates: *mut super::super::super::Foundation::RECT, count: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(updates), ::core::mem::transmute(count)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`, `Win32_Foundation`*"]
     pub unsafe fn GetVisibleBounds(&self) -> ::windows::core::Result<super::super::super::Foundation::RECT> {
         let mut result__: <super::super::super::Foundation::RECT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::RECT>(result__)
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn RegisterForUpdatesNeeded<'a, Param0: ::windows::core::IntoParam<'a, IVirtualSurfaceUpdatesCallbackNative>>(&self, callback: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), callback.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn Resize(&self, newwidth: i32, newheight: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(newwidth), ::core::mem::transmute(newheight)).ok()
     }
@@ -954,12 +884,10 @@ pub struct IVirtualSurfaceImageSourceNative_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, callback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, newwidth: i32, newheight: i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IVirtualSurfaceUpdatesCallbackNative(pub ::windows::core::IUnknown);
 impl IVirtualSurfaceUpdatesCallbackNative {
-    #[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
     pub unsafe fn UpdatesNeeded(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
@@ -998,7 +926,6 @@ pub struct IVirtualSurfaceUpdatesCallbackNative_abi(
 );
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 pub struct TrackerHandle__ {
     pub unused: i32,
 }
@@ -1022,7 +949,6 @@ impl ::core::cmp::Eq for TrackerHandle__ {}
 unsafe impl ::windows::core::Abi for TrackerHandle__ {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_WinRT_Xaml`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XAML_REFERENCETRACKER_DISCONNECT(pub i32);

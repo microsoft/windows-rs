@@ -1,25 +1,20 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `UI_Composition_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CompositionDebugHeatMaps(pub ::windows::core::IInspectable);
 impl CompositionDebugHeatMaps {
-    #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn Hide<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), subtree.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn ShowMemoryUsage<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), subtree.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn ShowOverdraw<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(&self, subtree: Param0, contentkinds: CompositionDebugOverdrawContentKinds) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), subtree.into_param().abi(), contentkinds).ok() }
     }
-    #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn ShowRedraw<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), subtree.into_param().abi()).ok() }
@@ -77,7 +72,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CompositionDebugHeatMaps {}
 unsafe impl ::core::marker::Sync for CompositionDebugHeatMaps {}
-#[doc = "*Required features: `UI_Composition_Diagnostics`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
@@ -134,12 +128,10 @@ impl ::core::ops::Not for CompositionDebugOverdrawContentKinds {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `UI_Composition_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CompositionDebugSettings(pub ::windows::core::IInspectable);
 impl CompositionDebugSettings {
-    #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn HeatMaps(&self) -> ::windows::core::Result<CompositionDebugHeatMaps> {
         let this = self;
         unsafe {
@@ -147,7 +139,6 @@ impl CompositionDebugSettings {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CompositionDebugHeatMaps>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn TryGetSettings<'a, Param0: ::windows::core::IntoParam<'a, super::Compositor>>(compositor: Param0) -> ::windows::core::Result<CompositionDebugSettings> {
         Self::ICompositionDebugSettingsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

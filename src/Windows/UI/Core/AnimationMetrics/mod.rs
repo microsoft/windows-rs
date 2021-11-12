@@ -1,11 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AnimationDescription(pub ::windows::core::IInspectable);
 impl AnimationDescription {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation_Collections`*"]
     pub fn Animations(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>> {
         let this = self;
         unsafe {
@@ -14,7 +12,6 @@ impl AnimationDescription {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn StaggerDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -22,7 +19,6 @@ impl AnimationDescription {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn StaggerDelayFactor(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -31,7 +27,6 @@ impl AnimationDescription {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn DelayLimit(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -39,7 +34,6 @@ impl AnimationDescription {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn ZOrder(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -47,7 +41,6 @@ impl AnimationDescription {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> ::windows::core::Result<AnimationDescription> {
         Self::IAnimationDescriptionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -111,7 +104,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AnimationDescription {}
 unsafe impl ::core::marker::Sync for AnimationDescription {}
-#[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AnimationEffect(pub i32);
@@ -167,7 +159,6 @@ unsafe impl ::windows::core::RuntimeType for AnimationEffect {
 impl ::windows::core::DefaultType for AnimationEffect {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AnimationEffectTarget(pub i32);
@@ -275,14 +266,12 @@ pub struct IOpacityAnimation_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 pub struct IPropertyAnimation(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IPropertyAnimation {
     type Vtable = IPropertyAnimation_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 }
 impl IPropertyAnimation {
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn Type(&self) -> ::windows::core::Result<PropertyAnimationType> {
         let this = self;
         unsafe {
@@ -291,7 +280,6 @@ impl IPropertyAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -300,7 +288,6 @@ impl IPropertyAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -309,7 +296,6 @@ impl IPropertyAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -318,7 +304,6 @@ impl IPropertyAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -414,13 +399,11 @@ pub struct IScaleAnimation_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
-#[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct OpacityAnimation(pub ::windows::core::IInspectable);
 impl OpacityAnimation {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn InitialOpacity(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
@@ -428,7 +411,6 @@ impl OpacityAnimation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn FinalOpacity(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -436,7 +418,6 @@ impl OpacityAnimation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn Type(&self) -> ::windows::core::Result<PropertyAnimationType> {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
@@ -445,7 +426,6 @@ impl OpacityAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
@@ -454,7 +434,6 @@ impl OpacityAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
@@ -463,7 +442,6 @@ impl OpacityAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
@@ -472,7 +450,6 @@ impl OpacityAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
@@ -555,12 +532,10 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &OpacityAnimatio
 }
 unsafe impl ::core::marker::Send for OpacityAnimation {}
 unsafe impl ::core::marker::Sync for OpacityAnimation {}
-#[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PropertyAnimation(pub ::windows::core::IInspectable);
 impl PropertyAnimation {
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn Type(&self) -> ::windows::core::Result<PropertyAnimationType> {
         let this = self;
         unsafe {
@@ -569,7 +544,6 @@ impl PropertyAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -578,7 +552,6 @@ impl PropertyAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -587,7 +560,6 @@ impl PropertyAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -596,7 +568,6 @@ impl PropertyAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -677,7 +648,6 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &PropertyAnimati
 }
 unsafe impl ::core::marker::Send for PropertyAnimation {}
 unsafe impl ::core::marker::Sync for PropertyAnimation {}
-#[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PropertyAnimationType(pub i32);
@@ -700,13 +670,11 @@ unsafe impl ::windows::core::RuntimeType for PropertyAnimationType {
 impl ::windows::core::DefaultType for PropertyAnimationType {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ScaleAnimation(pub ::windows::core::IInspectable);
 impl ScaleAnimation {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn InitialScaleX(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
@@ -715,7 +683,6 @@ impl ScaleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn InitialScaleY(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
@@ -723,7 +690,6 @@ impl ScaleAnimation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn FinalScaleX(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -731,7 +697,6 @@ impl ScaleAnimation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn FinalScaleY(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -740,7 +705,6 @@ impl ScaleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn NormalizedOrigin(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -748,7 +712,6 @@ impl ScaleAnimation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn Type(&self) -> ::windows::core::Result<PropertyAnimationType> {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
@@ -757,7 +720,6 @@ impl ScaleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
@@ -766,7 +728,6 @@ impl ScaleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
@@ -775,7 +736,6 @@ impl ScaleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
@@ -784,7 +744,6 @@ impl ScaleAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
@@ -867,12 +826,10 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &ScaleAnimation 
 }
 unsafe impl ::core::marker::Send for ScaleAnimation {}
 unsafe impl ::core::marker::Sync for ScaleAnimation {}
-#[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct TranslationAnimation(pub ::windows::core::IInspectable);
 impl TranslationAnimation {
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`*"]
     pub fn Type(&self) -> ::windows::core::Result<PropertyAnimationType> {
         let this = self;
         unsafe {
@@ -881,7 +838,6 @@ impl TranslationAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -890,7 +846,6 @@ impl TranslationAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -899,7 +854,6 @@ impl TranslationAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -908,7 +862,6 @@ impl TranslationAnimation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Core_AnimationMetrics`, `Foundation`*"]
     pub fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {

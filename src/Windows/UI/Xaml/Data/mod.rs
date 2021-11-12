@@ -1,10 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Binding(pub ::windows::core::IInspectable);
 impl Binding {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn Path(&self) -> ::windows::core::Result<super::PropertyPath> {
         let this = self;
         unsafe {
@@ -12,12 +10,10 @@ impl Binding {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::PropertyPath>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::PropertyPath>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn Mode(&self) -> ::windows::core::Result<BindingMode> {
         let this = self;
         unsafe {
@@ -25,12 +21,10 @@ impl Binding {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BindingMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetMode(&self, value: BindingMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn Source(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -38,12 +32,10 @@ impl Binding {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetSource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn RelativeSource(&self) -> ::windows::core::Result<RelativeSource> {
         let this = self;
         unsafe {
@@ -51,12 +43,10 @@ impl Binding {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RelativeSource>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetRelativeSource<'a, Param0: ::windows::core::IntoParam<'a, RelativeSource>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ElementName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -64,12 +54,10 @@ impl Binding {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetElementName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn Converter(&self) -> ::windows::core::Result<IValueConverter> {
         let this = self;
         unsafe {
@@ -77,12 +65,10 @@ impl Binding {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IValueConverter>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetConverter<'a, Param0: ::windows::core::IntoParam<'a, IValueConverter>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ConverterParameter(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -90,12 +76,10 @@ impl Binding {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetConverterParameter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ConverterLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -103,12 +87,10 @@ impl Binding {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetConverterLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn FallbackValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IBinding2>(self)?;
         unsafe {
@@ -116,12 +98,10 @@ impl Binding {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetFallbackValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBinding2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn TargetNullValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IBinding2>(self)?;
         unsafe {
@@ -129,12 +109,10 @@ impl Binding {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetTargetNullValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBinding2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn UpdateSourceTrigger(&self) -> ::windows::core::Result<UpdateSourceTrigger> {
         let this = &::windows::core::Interface::cast::<IBinding2>(self)?;
         unsafe {
@@ -142,19 +120,16 @@ impl Binding {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UpdateSourceTrigger>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetUpdateSourceTrigger(&self, value: UpdateSourceTrigger) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBinding2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn new() -> ::windows::core::Result<Binding> {
         Self::IBindingFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<Binding>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -162,17 +137,14 @@ impl Binding {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -180,7 +152,6 @@ impl Binding {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -189,7 +160,6 @@ impl Binding {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -197,7 +167,6 @@ impl Binding {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -205,7 +174,6 @@ impl Binding {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -307,19 +275,16 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Binding {
 }
 unsafe impl ::core::marker::Send for Binding {}
 unsafe impl ::core::marker::Sync for Binding {}
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BindingBase(pub ::windows::core::IInspectable);
 impl BindingBase {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn new() -> ::windows::core::Result<BindingBase> {
         Self::IBindingBaseFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<BindingBase>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -327,17 +292,14 @@ impl BindingBase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -345,7 +307,6 @@ impl BindingBase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -354,7 +315,6 @@ impl BindingBase {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -362,7 +322,6 @@ impl BindingBase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -370,7 +329,6 @@ impl BindingBase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -452,12 +410,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &BindingBas
 }
 unsafe impl ::core::marker::Send for BindingBase {}
 unsafe impl ::core::marker::Sync for BindingBase {}
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BindingExpression(pub ::windows::core::IInspectable);
 impl BindingExpression {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn DataItem(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -465,7 +421,6 @@ impl BindingExpression {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ParentBinding(&self) -> ::windows::core::Result<Binding> {
         let this = self;
         unsafe {
@@ -473,7 +428,6 @@ impl BindingExpression {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Binding>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn UpdateSource(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
@@ -551,7 +505,6 @@ impl<'a> ::windows::core::IntoParam<'a, BindingExpressionBase> for &BindingExpre
 }
 unsafe impl ::core::marker::Send for BindingExpression {}
 unsafe impl ::core::marker::Sync for BindingExpression {}
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BindingExpressionBase(pub ::windows::core::IInspectable);
@@ -608,7 +561,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a B
 }
 unsafe impl ::core::marker::Send for BindingExpressionBase {}
 unsafe impl ::core::marker::Sync for BindingExpressionBase {}
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BindingMode(pub i32);
@@ -631,12 +583,10 @@ unsafe impl ::windows::core::RuntimeType for BindingMode {
 impl ::windows::core::DefaultType for BindingMode {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct BindingOperations(pub ::windows::core::IInspectable);
 impl BindingOperations {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetBinding<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param2: ::windows::core::IntoParam<'a, BindingBase>>(target: Param0, dp: Param1, binding: Param2) -> ::windows::core::Result<()> {
         Self::IBindingOperationsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), target.into_param().abi(), dp.into_param().abi(), binding.into_param().abi()).ok() })
     }
@@ -697,7 +647,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a B
 }
 unsafe impl ::core::marker::Send for BindingOperations {}
 unsafe impl ::core::marker::Sync for BindingOperations {}
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CollectionViewSource(pub ::windows::core::IInspectable);
@@ -709,7 +658,6 @@ impl CollectionViewSource {
         static mut SHARED: ::windows::core::FactoryCache<CollectionViewSource, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn Source(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -717,12 +665,10 @@ impl CollectionViewSource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetSource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn View(&self) -> ::windows::core::Result<ICollectionView> {
         let this = self;
         unsafe {
@@ -730,7 +676,6 @@ impl CollectionViewSource {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ICollectionView>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn IsSourceGrouped(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -738,12 +683,10 @@ impl CollectionViewSource {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetIsSourceGrouped(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ItemsPath(&self) -> ::windows::core::Result<super::PropertyPath> {
         let this = self;
         unsafe {
@@ -751,40 +694,34 @@ impl CollectionViewSource {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::PropertyPath>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetItemsPath<'a, Param0: ::windows::core::IntoParam<'a, super::PropertyPath>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SourceProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICollectionViewSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ViewProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICollectionViewSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn IsSourceGroupedProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICollectionViewSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ItemsPathProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::ICollectionViewSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -792,17 +729,14 @@ impl CollectionViewSource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -810,7 +744,6 @@ impl CollectionViewSource {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -819,7 +752,6 @@ impl CollectionViewSource {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -827,7 +759,6 @@ impl CollectionViewSource {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -835,7 +766,6 @@ impl CollectionViewSource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -917,12 +847,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Collection
 }
 unsafe impl ::core::marker::Send for CollectionViewSource {}
 unsafe impl ::core::marker::Sync for CollectionViewSource {}
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CurrentChangingEventArgs(pub ::windows::core::IInspectable);
 impl CurrentChangingEventArgs {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -930,12 +858,10 @@ impl CurrentChangingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetCancel(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn IsCancelable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -943,14 +869,12 @@ impl CurrentChangingEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn new() -> ::windows::core::Result<CurrentChangingEventArgs> {
         Self::ICurrentChangingEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CurrentChangingEventArgs>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn CreateWithCancelableParameter(iscancelable: bool) -> ::windows::core::Result<CurrentChangingEventArgs> {
         Self::ICurrentChangingEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1014,7 +938,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CurrentChangingEventArgs {}
 unsafe impl ::core::marker::Sync for CurrentChangingEventArgs {}
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CurrentChangingEventHandler(::windows::core::IUnknown);
@@ -1027,7 +950,6 @@ impl CurrentChangingEventHandler {
         };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, CurrentChangingEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -1308,14 +1230,12 @@ pub struct IBindingOperationsStatics_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 pub struct ICollectionView(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ICollectionView {
     type Vtable = ICollectionView_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8be8bfe4_dbef_44df_8126_a31a89121ddc);
 }
 impl ICollectionView {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn CurrentItem(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -1323,7 +1243,6 @@ impl ICollectionView {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn CurrentPosition(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1331,7 +1250,6 @@ impl ICollectionView {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn IsCurrentAfterLast(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1339,7 +1257,6 @@ impl ICollectionView {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn IsCurrentBeforeFirst(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1348,7 +1265,6 @@ impl ICollectionView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn CollectionGroups(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>> {
         let this = self;
         unsafe {
@@ -1356,7 +1272,6 @@ impl ICollectionView {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn HasMoreItems(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1365,7 +1280,6 @@ impl ICollectionView {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation`*"]
     pub fn CurrentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1374,13 +1288,11 @@ impl ICollectionView {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation`*"]
     pub fn RemoveCurrentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation`*"]
     pub fn CurrentChanging<'a, Param0: ::windows::core::IntoParam<'a, CurrentChangingEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1389,12 +1301,10 @@ impl ICollectionView {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation`*"]
     pub fn RemoveCurrentChanging<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn MoveCurrentTo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, item: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1402,7 +1312,6 @@ impl ICollectionView {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn MoveCurrentToPosition(&self, index: i32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1410,7 +1319,6 @@ impl ICollectionView {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn MoveCurrentToFirst(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1418,7 +1326,6 @@ impl ICollectionView {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn MoveCurrentToLast(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1426,7 +1333,6 @@ impl ICollectionView {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn MoveCurrentToNext(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1434,7 +1340,6 @@ impl ICollectionView {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn MoveCurrentToPrevious(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1443,7 +1348,6 @@ impl ICollectionView {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation`*"]
     pub fn LoadMoreItemsAsync(&self, count: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>> {
         let this = self;
         unsafe {
@@ -1452,7 +1356,6 @@ impl ICollectionView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -1461,7 +1364,6 @@ impl ICollectionView {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation`, `Foundation_Collections`*"]
     pub fn VectorChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::VectorChangedEventHandler<::windows::core::IInspectable>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -1470,13 +1372,11 @@ impl ICollectionView {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation`, `Foundation_Collections`*"]
     pub fn RemoveVectorChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -1485,7 +1385,6 @@ impl ICollectionView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -1494,7 +1393,6 @@ impl ICollectionView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -1503,7 +1401,6 @@ impl ICollectionView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -1512,43 +1409,36 @@ impl ICollectionView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), index).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -1557,7 +1447,6 @@ impl ICollectionView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
@@ -1735,14 +1624,12 @@ pub struct ICollectionView_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 pub struct ICollectionViewFactory(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ICollectionViewFactory {
     type Vtable = ICollectionViewFactory_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34d4aaf4_8e72_4950_9192_ecd07d399d0a);
 }
 impl ICollectionViewFactory {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn CreateView(&self) -> ::windows::core::Result<ICollectionView> {
         let this = self;
         unsafe {
@@ -1807,14 +1694,12 @@ pub struct ICollectionViewFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 pub struct ICollectionViewGroup(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ICollectionViewGroup {
     type Vtable = ICollectionViewGroup_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e01b9d8_d7b5_48b6_b31c_5bb5bdf5f09b);
 }
 impl ICollectionViewGroup {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -1823,7 +1708,6 @@ impl ICollectionViewGroup {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn GroupItems(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>> {
         let this = self;
         unsafe {
@@ -1974,7 +1858,6 @@ pub struct ICurrentChangingEventArgsFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 pub struct ICustomProperty(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ICustomProperty {
     type Vtable = ICustomProperty_abi;
@@ -1982,7 +1865,6 @@ unsafe impl ::windows::core::Interface for ICustomProperty {
 }
 impl ICustomProperty {
     #[cfg(feature = "UI_Xaml_Interop")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `UI_Xaml_Interop`*"]
     pub fn Type(&self) -> ::windows::core::Result<super::Interop::TypeName> {
         let this = self;
         unsafe {
@@ -1990,7 +1872,6 @@ impl ICustomProperty {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Interop::TypeName>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1998,7 +1879,6 @@ impl ICustomProperty {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, target: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -2006,12 +1886,10 @@ impl ICustomProperty {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, target: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), target.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn GetIndexedValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, target: Param0, index: Param1) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -2019,12 +1897,10 @@ impl ICustomProperty {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), target.into_param().abi(), index.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetIndexedValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, target: Param0, value: Param1, index: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), target.into_param().abi(), value.into_param().abi(), index.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn CanWrite(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2032,7 +1908,6 @@ impl ICustomProperty {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn CanRead(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2105,14 +1980,12 @@ pub struct ICustomProperty_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 pub struct ICustomPropertyProvider(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ICustomPropertyProvider {
     type Vtable = ICustomPropertyProvider_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c925755_3e48_42b4_8677_76372267033f);
 }
 impl ICustomPropertyProvider {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn GetCustomProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<ICustomProperty> {
         let this = self;
         unsafe {
@@ -2121,7 +1994,6 @@ impl ICustomPropertyProvider {
         }
     }
     #[cfg(feature = "UI_Xaml_Interop")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `UI_Xaml_Interop`*"]
     pub fn GetIndexedProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::Interop::TypeName>>(&self, name: Param0, r#type: Param1) -> ::windows::core::Result<ICustomProperty> {
         let this = self;
         unsafe {
@@ -2129,7 +2001,6 @@ impl ICustomPropertyProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), name.into_param().abi(), r#type.into_param().abi(), &mut result__).from_abi::<ICustomProperty>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn GetStringRepresentation(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2138,7 +2009,6 @@ impl ICustomPropertyProvider {
         }
     }
     #[cfg(feature = "UI_Xaml_Interop")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `UI_Xaml_Interop`*"]
     pub fn Type(&self) -> ::windows::core::Result<super::Interop::TypeName> {
         let this = self;
         unsafe {
@@ -2246,7 +2116,6 @@ pub struct IItemIndexRangeFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 pub struct IItemsRangeInfo(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IItemsRangeInfo {
     type Vtable = IItemsRangeInfo_abi;
@@ -2254,13 +2123,11 @@ unsafe impl ::windows::core::Interface for IItemsRangeInfo {
 }
 impl IItemsRangeInfo {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn RangesChanged<'a, Param0: ::windows::core::IntoParam<'a, ItemIndexRange>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>>>(&self, visiblerange: Param0, trackeditems: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), visiblerange.into_param().abi(), trackeditems.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
@@ -2349,7 +2216,6 @@ pub struct IItemsRangeInfo_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 pub struct INotifyPropertyChanged(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for INotifyPropertyChanged {
     type Vtable = INotifyPropertyChanged_abi;
@@ -2357,7 +2223,6 @@ unsafe impl ::windows::core::Interface for INotifyPropertyChanged {
 }
 impl INotifyPropertyChanged {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation`*"]
     pub fn PropertyChanged<'a, Param0: ::windows::core::IntoParam<'a, PropertyChangedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2366,7 +2231,6 @@ impl INotifyPropertyChanged {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation`*"]
     pub fn RemovePropertyChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -2504,24 +2368,20 @@ pub struct IRelativeSourceFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 pub struct ISelectionInfo(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ISelectionInfo {
     type Vtable = ISelectionInfo_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e12ca86_e1ed_4245_be49_207e42aec524);
 }
 impl ISelectionInfo {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SelectRange<'a, Param0: ::windows::core::IntoParam<'a, ItemIndexRange>>(&self, itemindexrange: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), itemindexrange.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn DeselectRange<'a, Param0: ::windows::core::IntoParam<'a, ItemIndexRange>>(&self, itemindexrange: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), itemindexrange.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn IsSelected(&self, index: i32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2530,7 +2390,6 @@ impl ISelectionInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
     pub fn GetSelectedRanges(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>> {
         let this = self;
         unsafe {
@@ -2599,7 +2458,6 @@ pub struct ISelectionInfo_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 pub struct ISupportIncrementalLoading(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ISupportIncrementalLoading {
     type Vtable = ISupportIncrementalLoading_abi;
@@ -2607,7 +2465,6 @@ unsafe impl ::windows::core::Interface for ISupportIncrementalLoading {
 }
 impl ISupportIncrementalLoading {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `Foundation`*"]
     pub fn LoadMoreItemsAsync(&self, count: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>> {
         let this = self;
         unsafe {
@@ -2615,7 +2472,6 @@ impl ISupportIncrementalLoading {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), count, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn HasMoreItems(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2682,7 +2538,6 @@ pub struct ISupportIncrementalLoading_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 pub struct IValueConverter(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IValueConverter {
     type Vtable = IValueConverter_abi;
@@ -2690,7 +2545,6 @@ unsafe impl ::windows::core::Interface for IValueConverter {
 }
 impl IValueConverter {
     #[cfg(feature = "UI_Xaml_Interop")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `UI_Xaml_Interop`*"]
     pub fn Convert<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, super::Interop::TypeName>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0, targettype: Param1, parameter: Param2, language: Param3) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -2699,7 +2553,6 @@ impl IValueConverter {
         }
     }
     #[cfg(feature = "UI_Xaml_Interop")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `UI_Xaml_Interop`*"]
     pub fn ConvertBack<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, super::Interop::TypeName>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0, targettype: Param1, parameter: Param2, language: Param3) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -2765,12 +2618,10 @@ pub struct IValueConverter_abi(
     #[cfg(feature = "UI_Xaml_Interop")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr, targettype: ::core::mem::ManuallyDrop<super::Interop::TypeName>, parameter: ::windows::core::RawPtr, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Interop"))] usize,
 );
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ItemIndexRange(pub ::windows::core::IInspectable);
 impl ItemIndexRange {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn FirstIndex(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -2778,7 +2629,6 @@ impl ItemIndexRange {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2786,7 +2636,6 @@ impl ItemIndexRange {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn LastIndex(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -2794,7 +2643,6 @@ impl ItemIndexRange {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn CreateInstance(firstindex: i32, length: u32) -> ::windows::core::Result<ItemIndexRange> {
         Self::IItemIndexRangeFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2860,7 +2708,6 @@ unsafe impl ::core::marker::Send for ItemIndexRange {}
 unsafe impl ::core::marker::Sync for ItemIndexRange {}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 pub struct LoadMoreItemsResult {
     pub Count: u32,
 }
@@ -2890,12 +2737,10 @@ unsafe impl ::windows::core::RuntimeType for LoadMoreItemsResult {
 impl ::windows::core::DefaultType for LoadMoreItemsResult {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PropertyChangedEventArgs(pub ::windows::core::IInspectable);
 impl PropertyChangedEventArgs {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn PropertyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2903,7 +2748,6 @@ impl PropertyChangedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<PropertyChangedEventArgs> {
         Self::IPropertyChangedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2967,7 +2811,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PropertyChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PropertyChangedEventArgs {}
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PropertyChangedEventHandler(::windows::core::IUnknown);
@@ -2980,7 +2823,6 @@ impl PropertyChangedEventHandler {
         };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, PropertyChangedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -3044,12 +2886,10 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
         .into()
     }
 }
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct RelativeSource(pub ::windows::core::IInspectable);
 impl RelativeSource {
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn Mode(&self) -> ::windows::core::Result<RelativeSourceMode> {
         let this = self;
         unsafe {
@@ -3057,19 +2897,16 @@ impl RelativeSource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RelativeSourceMode>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetMode(&self, value: RelativeSourceMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn new() -> ::windows::core::Result<RelativeSource> {
         Self::IRelativeSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RelativeSource>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -3077,17 +2914,14 @@ impl RelativeSource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ClearValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -3095,7 +2929,6 @@ impl RelativeSource {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -3104,7 +2937,6 @@ impl RelativeSource {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `UI_Xaml_Data`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -3112,7 +2944,6 @@ impl RelativeSource {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::core::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -3120,7 +2951,6 @@ impl RelativeSource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `UI_Xaml_Data`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -3202,7 +3032,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RelativeSo
 }
 unsafe impl ::core::marker::Send for RelativeSource {}
 unsafe impl ::core::marker::Sync for RelativeSource {}
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RelativeSourceMode(pub i32);
@@ -3225,7 +3054,6 @@ unsafe impl ::windows::core::RuntimeType for RelativeSourceMode {
 impl ::windows::core::DefaultType for RelativeSourceMode {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `UI_Xaml_Data`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UpdateSourceTrigger(pub i32);

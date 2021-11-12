@@ -43,7 +43,6 @@ pub struct IPlaylistStatics_abi(
     #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
-#[doc = "*Required features: `Media_Playlists`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Playlist(pub ::windows::core::IInspectable);
@@ -56,7 +55,6 @@ impl Playlist {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    #[doc = "*Required features: `Media_Playlists`, `Foundation_Collections`, `Storage`*"]
     pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -65,7 +63,6 @@ impl Playlist {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Playlists`, `Foundation`*"]
     pub fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -74,7 +71,6 @@ impl Playlist {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `Media_Playlists`, `Foundation`, `Storage`*"]
     pub fn SaveAsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFolder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, savelocation: Param0, desiredname: Param1, option: super::super::Storage::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -83,7 +79,6 @@ impl Playlist {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `Media_Playlists`, `Foundation`, `Storage`*"]
     pub fn SaveAsWithFormatAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFolder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, savelocation: Param0, desiredname: Param1, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -92,7 +87,6 @@ impl Playlist {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    #[doc = "*Required features: `Media_Playlists`, `Foundation`, `Storage`*"]
     pub fn LoadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Playlist>> {
         Self::IPlaylistStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -154,7 +148,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `Media_Playlists`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PlaylistFormat(pub i32);

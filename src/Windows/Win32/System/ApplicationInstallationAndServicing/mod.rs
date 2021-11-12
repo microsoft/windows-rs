@@ -2,7 +2,6 @@
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct ACTCTXA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -53,7 +52,6 @@ unsafe impl ::windows::core::Abi for ACTCTXA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct ACTCTXW {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -101,7 +99,6 @@ impl ::core::cmp::Eq for ACTCTXW {}
 unsafe impl ::windows::core::Abi for ACTCTXW {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACTCTX_COMPATIBILITY_ELEMENT_TYPE(pub i32);
@@ -117,7 +114,6 @@ impl ::core::convert::From<i32> for ACTCTX_COMPATIBILITY_ELEMENT_TYPE {
 unsafe impl ::windows::core::Abi for ACTCTX_COMPATIBILITY_ELEMENT_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACTCTX_REQUESTED_RUN_LEVEL(pub i32);
@@ -137,7 +133,6 @@ unsafe impl ::windows::core::Abi for ACTCTX_REQUESTED_RUN_LEVEL {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 pub struct ACTCTX_SECTION_KEYED_DATA {
     pub cbSize: u32,
     pub ulDataFormatVersion: u32,
@@ -205,7 +200,6 @@ unsafe impl ::windows::core::Abi for ACTCTX_SECTION_KEYED_DATA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     pub ulFlags: u32,
     pub ulEncodedAssemblyIdentityLength: u32,
@@ -293,7 +287,6 @@ unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORM
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     pub ElementCount: u32,
     pub Elements: [COMPATIBILITY_CONTEXT_ELEMENT; 1],
@@ -321,7 +314,6 @@ unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATIO
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     pub dwFlags: u32,
     pub ulFormatVersion: u32,
@@ -388,7 +380,6 @@ unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct ACTIVATION_CONTEXT_QUERY_INDEX {
     pub ulAssemblyIndex: u32,
     pub ulFileIndexInAssembly: u32,
@@ -415,7 +406,6 @@ unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_QUERY_INDEX {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     pub ulFlags: u32,
     pub RunLevel: ACTCTX_REQUESTED_RUN_LEVEL,
@@ -441,7 +431,6 @@ impl ::core::cmp::Eq for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {}
 unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ADVERTISEFLAGS(pub i32);
@@ -455,15 +444,10 @@ impl ::core::convert::From<i32> for ADVERTISEFLAGS {
 unsafe impl ::windows::core::Abi for ADVERTISEFLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const APPLY_OPTION_FAIL_IF_CLOSE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const APPLY_OPTION_FAIL_IF_EXACT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const APPLY_OPTION_TEST_ONLY: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const APPLY_OPTION_VALID_FLAGS: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ASM_BIND_FLAGS(pub u32);
@@ -509,7 +493,6 @@ impl ::core::ops::Not for ASM_BIND_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ASM_CMP_FLAGS(pub i32);
@@ -531,7 +514,6 @@ impl ::core::convert::From<i32> for ASM_CMP_FLAGS {
 unsafe impl ::windows::core::Abi for ASM_CMP_FLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ASM_DISPLAY_FLAGS(pub i32);
@@ -550,7 +532,6 @@ impl ::core::convert::From<i32> for ASM_DISPLAY_FLAGS {
 unsafe impl ::windows::core::Abi for ASM_DISPLAY_FLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ASM_NAME(pub i32);
@@ -583,14 +564,11 @@ impl ::core::convert::From<i32> for ASM_NAME {
 unsafe impl ::windows::core::Abi for ASM_NAME {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ASSEMBLYINFO_FLAG_INSTALLED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ASSEMBLYINFO_FLAG_PAYLOADRESIDENT: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
     pub ulFlags: u32,
     pub ulFilenameLength: u32,
@@ -627,7 +605,6 @@ unsafe impl ::windows::core::Abi for ASSEMBLY_FILE_DETAILED_INFORMATION {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct ASSEMBLY_INFO {
     pub cbAssemblyInfo: u32,
     pub dwAssemblyFlags: u32,
@@ -661,7 +638,6 @@ impl ::core::cmp::Eq for ASSEMBLY_INFO {}
 unsafe impl ::windows::core::Abi for ASSEMBLY_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ActivateActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hactctx: Param0, lpcookie: *mut usize) -> super::super::Foundation::BOOL {
@@ -676,7 +652,6 @@ pub unsafe fn ActivateActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddRefActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hactctx: Param0) {
@@ -691,7 +666,6 @@ pub unsafe fn AddRefActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyDeltaA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(applyflags: i64, lpsourcename: Param1, lpdeltaname: Param2, lptargetname: Param3) -> super::super::Foundation::BOOL {
@@ -706,7 +680,6 @@ pub unsafe fn ApplyDeltaA<'a, Param1: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyDeltaB<'a, Param1: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param2: ::windows::core::IntoParam<'a, DELTA_INPUT>>(applyflags: i64, source: Param1, delta: Param2, lptarget: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL {
@@ -721,7 +694,6 @@ pub unsafe fn ApplyDeltaB<'a, Param1: ::windows::core::IntoParam<'a, DELTA_INPUT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyDeltaGetReverseB<'a, Param1: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param2: ::windows::core::IntoParam<'a, DELTA_INPUT>>(applyflags: i64, source: Param1, delta: Param2, lpreversefiletime: *const super::super::Foundation::FILETIME, lptarget: *mut DELTA_OUTPUT, lptargetreverse: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL {
@@ -736,7 +708,6 @@ pub unsafe fn ApplyDeltaGetReverseB<'a, Param1: ::windows::core::IntoParam<'a, D
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyDeltaProvidedB<'a, Param1: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param2: ::windows::core::IntoParam<'a, DELTA_INPUT>>(applyflags: i64, source: Param1, delta: Param2, lptarget: *mut ::core::ffi::c_void, utargetsize: usize) -> super::super::Foundation::BOOL {
@@ -751,7 +722,6 @@ pub unsafe fn ApplyDeltaProvidedB<'a, Param1: ::windows::core::IntoParam<'a, DEL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyDeltaW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(applyflags: i64, lpsourcename: Param1, lpdeltaname: Param2, lptargetname: Param3) -> super::super::Foundation::BOOL {
@@ -766,7 +736,6 @@ pub unsafe fn ApplyDeltaW<'a, Param1: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyPatchToFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32) -> super::super::Foundation::BOOL {
@@ -781,7 +750,6 @@ pub unsafe fn ApplyPatchToFileA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: *const u8, patchfilesize: u32, oldfilemapped: *const u8, oldfilesize: u32, newfilebuffer: *mut *mut u8, newfilebuffersize: u32, newfileactualsize: *mut u32, newfiletime: *mut super::super::Foundation::FILETIME, applyoptionflags: u32, progresscallback: ::core::option::Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -808,7 +776,6 @@ pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: *const u8, patchfilesiz
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyPatchToFileByHandles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(patchfilehandle: Param0, oldfilehandle: Param1, newfilehandle: Param2, applyoptionflags: u32) -> super::super::Foundation::BOOL {
@@ -823,7 +790,6 @@ pub unsafe fn ApplyPatchToFileByHandles<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyPatchToFileByHandlesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
@@ -845,7 +811,6 @@ pub unsafe fn ApplyPatchToFileByHandlesEx<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyPatchToFileExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32, progresscallback: ::core::option::Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -860,7 +825,6 @@ pub unsafe fn ApplyPatchToFileExA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyPatchToFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32, progresscallback: ::core::option::Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -875,7 +839,6 @@ pub unsafe fn ApplyPatchToFileExW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyPatchToFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32) -> super::super::Foundation::BOOL {
@@ -894,7 +857,6 @@ pub const CLSID_EvalCom2: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const CLSID_MsmMerge2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf94985d5_29f9_4743_9805_99bc3f35b678);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct COMPATIBILITY_CONTEXT_ELEMENT {
     pub Id: ::windows::core::GUID,
     pub Type: ACTCTX_COMPATIBILITY_ELEMENT_TYPE,
@@ -920,7 +882,6 @@ impl ::core::cmp::Eq for COMPATIBILITY_CONTEXT_ELEMENT {}
 unsafe impl ::windows::core::Abi for COMPATIBILITY_CONTEXT_ELEMENT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREATE_ASM_NAME_OBJ_FLAGS(pub i32);
@@ -934,7 +895,6 @@ impl ::core::convert::From<i32> for CREATE_ASM_NAME_OBJ_FLAGS {
 unsafe impl ::windows::core::Abi for CREATE_ASM_NAME_OBJ_FLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation::HANDLE {
@@ -949,7 +909,6 @@ pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation::HANDLE {
@@ -964,7 +923,6 @@ pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDeltaA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
@@ -1003,7 +961,6 @@ pub unsafe fn CreateDeltaA<'a, Param3: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDeltaB<'a, Param3: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param4: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param5: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param6: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param7: ::windows::core::IntoParam<'a, DELTA_INPUT>>(
@@ -1042,7 +999,6 @@ pub unsafe fn CreateDeltaB<'a, Param3: ::windows::core::IntoParam<'a, DELTA_INPU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDeltaW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
@@ -1081,7 +1037,6 @@ pub unsafe fn CreateDeltaW<'a, Param3: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePatchFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(oldfilename: Param0, newfilename: Param1, patchfilename: Param2, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL {
@@ -1096,7 +1051,6 @@ pub unsafe fn CreatePatchFileA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePatchFileByHandles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(oldfilehandle: Param0, newfilehandle: Param1, patchfilehandle: Param2, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL {
@@ -1111,7 +1065,6 @@ pub unsafe fn CreatePatchFileByHandles<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePatchFileByHandlesEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
@@ -1144,7 +1097,6 @@ pub unsafe fn CreatePatchFileByHandlesEx<'a, Param2: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePatchFileExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_A, newfilename: Param2, patchfilename: Param3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::core::option::Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -1168,7 +1120,6 @@ pub unsafe fn CreatePatchFileExA<'a, Param2: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePatchFileExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_W, newfilename: Param2, patchfilename: Param3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::core::option::Option<PPATCH_PROGRESS_CALLBACK>, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -1192,7 +1143,6 @@ pub unsafe fn CreatePatchFileExW<'a, Param2: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePatchFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(oldfilename: Param0, newfilename: Param1, patchfilename: Param2, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL {
@@ -1207,15 +1157,11 @@ pub unsafe fn CreatePatchFileW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const DEFAULT_DISK_ID: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const DEFAULT_FILE_SEQUENCE_START: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const DEFAULT_MINIMUM_REQUIRED_MSI_VERSION: u32 = 100u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct DELTA_HASH {
     pub HashSize: u32,
     pub HashValue: [u8; 32],
@@ -1243,7 +1189,6 @@ unsafe impl ::windows::core::Abi for DELTA_HASH {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct DELTA_HEADER_INFO {
     pub FileTypeSet: i64,
     pub FileType: i64,
@@ -1290,7 +1235,6 @@ unsafe impl ::windows::core::Abi for DELTA_HEADER_INFO {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct DELTA_INPUT {
     pub Anonymous: DELTA_INPUT_0,
     pub uSize: usize,
@@ -1343,11 +1287,9 @@ impl ::core::cmp::Eq for DELTA_INPUT_0 {}
 unsafe impl ::windows::core::Abi for DELTA_INPUT_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const DELTA_MAX_HASH_SIZE: u32 = 32u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct DELTA_OUTPUT {
     pub lpStart: *mut ::core::ffi::c_void,
     pub uSize: usize,
@@ -1372,7 +1314,6 @@ impl ::core::cmp::Eq for DELTA_OUTPUT {}
 unsafe impl ::windows::core::Abi for DELTA_OUTPUT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> super::super::Foundation::BOOL {
@@ -1387,7 +1328,6 @@ pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeltaFree(lpmemory: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -1402,7 +1342,6 @@ pub unsafe fn DeltaFree(lpmemory: *const ::core::ffi::c_void) -> super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeltaNormalizeProvidedB<'a, Param2: ::windows::core::IntoParam<'a, DELTA_INPUT>>(filetypeset: i64, normalizeflags: i64, normalizeoptions: Param2, lpsource: *mut ::core::ffi::c_void, usourcesize: usize) -> super::super::Foundation::BOOL {
@@ -1417,369 +1356,187 @@ pub unsafe fn DeltaNormalizeProvidedB<'a, Param2: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PATCH_BIGGER_THAN_COMPRESSED: u32 = 3222155525u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PATCH_CORRUPT: u32 = 3222159618u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PATCH_DECODE_FAILURE: u32 = 3222159617u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PATCH_ENCODE_FAILURE: u32 = 3222155521u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PATCH_IMAGEHLP_FAILURE: u32 = 3222155526u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PATCH_INVALID_OPTIONS: u32 = 3222155522u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PATCH_NEWER_FORMAT: u32 = 3222159619u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PATCH_NOT_AVAILABLE: u32 = 3222159622u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PATCH_NOT_NECESSARY: u32 = 3222159621u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PATCH_RETAIN_RANGES_DIFFER: u32 = 3222155524u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PATCH_SAME_FILE: u32 = 3222155523u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PATCH_WRONG_FILE: u32 = 3222159620u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_API_PATCHING_SYMBOL_FLAGS: u32 = 3222163725u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_FAMILY_RANGE_NAME: u32 = 3222163801u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_FILE_SEQUENCE_START: u32 = 3222163770u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_GUIDS_TO_REPLACE: u32 = 3222163721u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_IMAGE_FAMILY_DISKID: u32 = 3222163773u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_IMAGE_FAMILY_FILESEQSTART: u32 = 3222163774u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_IMAGE_FAMILY_NAME: u32 = 3222163748u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_IMAGE_FAMILY_SRC_PROP: u32 = 3222163750u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_MAJOR_VERSION: u32 = 3222163853u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_PATCH_GUID: u32 = 3222163720u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_PRODUCTVERSION_VALIDATION: u32 = 3222163844u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_SEQUENCE: u32 = 3222163848u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_SUPERCEDENCE: u32 = 3222163847u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_TARGET: u32 = 3222163849u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_TARGET_IMAGE_NAME: u32 = 3222163736u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_TARGET_IMAGE_PRODUCT_CODE: u32 = 3222163834u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_TARGET_IMAGE_PRODUCT_VERSION: u32 = 3222163835u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_TARGET_IMAGE_UPGRADED: u32 = 3222163776u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_TARGET_IMAGE_UPGRADE_CODE: u32 = 3222163836u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_TARGET_PRODUCT_CODE_LIST: u32 = 3222163722u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_TGT_UPD_IMAGES: u32 = 3222163846u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_TRANSFORMSET: u32 = 3222163845u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_UPGRADED_IMAGE_FAMILY: u32 = 3222163775u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_UPGRADED_IMAGE_NAME: u32 = 3222163728u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_UPGRADED_IMAGE_PRODUCT_CODE: u32 = 3222163831u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_UPGRADED_IMAGE_PRODUCT_VERSION: u32 = 3222163832u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_UPGRADED_IMAGE_UPGRADE_CODE: u32 = 3222163833u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BAD_VERSION_STRING: u32 = 3222163852u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_BASE: u32 = 3222163713u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANNOT_CREATE_TABLE: u32 = 3222163841u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANNOT_RUN_MAKECAB: u32 = 3222163782u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANNOT_WRITE_DDF: u32 = 3222163781u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANT_COPY_FILE_TO_TEMP_FOLDER: u32 = 3222163771u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANT_CREATE_ONE_PATCH_FILE: u32 = 3222163772u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANT_CREATE_PATCH_FILE: u32 = 3222163718u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANT_CREATE_SUMMARY_INFO: u32 = 3222163828u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANT_CREATE_SUMMARY_INFO_POUND: u32 = 3222163830u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANT_CREATE_TEMP_FOLDER: u32 = 3222163715u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANT_DELETE_TEMP_FOLDER: u32 = 3222163974u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANT_GENERATE_SEQUENCEINFO_MAJORUPGD: u32 = 3222163842u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANT_GENERATE_TRANSFORM: u32 = 3222163827u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANT_GENERATE_TRANSFORM_POUND: u32 = 3222163829u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANT_OVERWRITE_PATCH: u32 = 3222163717u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CANT_READ_FILE: u32 = 3222163978u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_CREATEFILE_LOG_FAILED: u32 = 3222163861u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_DUPLICATE_SEQUENCE_RECORD: u32 = 3222163858u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_DUP_IMAGE_FAMILY_NAME: u32 = 3222163749u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_DUP_TARGET_IMAGE_NAME: u32 = 3222163737u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_DUP_TARGET_IMAGE_PACKCODE: u32 = 3222163777u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_DUP_UPGRADED_IMAGE_NAME: u32 = 3222163729u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_DUP_UPGRADED_IMAGE_PACKCODE: u32 = 3222163795u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_ERROR_WRITING_TO_LOG: u32 = 3222163864u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXECUTE_VIEW: u32 = 3222163870u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_BAD_FAMILY_FIELD: u32 = 3222163756u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_BAD_IGNORE_LENGTHS: u32 = 3222163814u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_BAD_IGNORE_OFFSETS: u32 = 3222163812u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_BAD_RETAIN_OFFSETS: u32 = 3222163817u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_BLANK_FILE_TABLE_KEY: u32 = 3222163755u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_BLANK_PATH_TO_FILE: u32 = 3222163758u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_IGNORE_COUNT_MISMATCH: u32 = 3222163815u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_LONG_FILE_TABLE_KEY: u32 = 3222163754u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_LONG_IGNORE_LENGTHS: u32 = 3222163813u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_LONG_IGNORE_OFFSETS: u32 = 3222163811u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_LONG_PATH_TO_FILE: u32 = 3222163757u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_LONG_RETAIN_OFFSETS: u32 = 3222163816u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_EXTFILE_MISSING_FILE: u32 = 3222163759u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_FAILED_CREATE_TRANSFORM: u32 = 3222163973u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_FAILED_EXPAND_PATH: u32 = 3222163872u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_FAMILY_RANGE_BAD_RETAIN_LENGTHS: u32 = 3222163809u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_FAMILY_RANGE_BAD_RETAIN_OFFSETS: u32 = 3222163806u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_FAMILY_RANGE_BLANK_FILE_TABLE_KEY: u32 = 3222163803u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_FAMILY_RANGE_BLANK_RETAIN_LENGTHS: u32 = 3222163808u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_FAMILY_RANGE_BLANK_RETAIN_OFFSETS: u32 = 3222163805u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_FAMILY_RANGE_COUNT_MISMATCH: u32 = 3222163810u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_FAMILY_RANGE_LONG_FILE_TABLE_KEY: u32 = 3222163802u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_FAMILY_RANGE_LONG_RETAIN_LENGTHS: u32 = 3222163807u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_FAMILY_RANGE_LONG_RETAIN_OFFSETS: u32 = 3222163804u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_FAMILY_RANGE_NAME_TOO_LONG: u32 = 3222163800u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_IMAGE_FAMILY_NAME_TOO_LONG: u32 = 3222163747u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_IMAGE_PATH_NOT_EXIST: u32 = 3222163988u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INTERNAL_ERROR: u32 = 3222163969u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_LOG_LEVEL: u32 = 3222163862u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_MAJOR_VERSION: u32 = 3222163990u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PARAMETER: u32 = 3222163860u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PATCHMETADATA_PROP: u32 = 3222163856u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PATCH_TYPE_SEQUENCING: u32 = 3222163977u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PCP_EXTERNALFILES: u32 = 3222163982u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PCP_FAMILYFILERANGES: u32 = 3222163992u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PCP_IMAGEFAMILIES: u32 = 3222163983u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PCP_PATCHSEQUENCE: u32 = 3222163984u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PCP_PROPERTIES: u32 = 3222163991u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PCP_PROPERTY: u32 = 3222163970u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PCP_TARGETFILES_OPTIONALDATA: u32 = 3222163985u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PCP_TARGETIMAGES: u32 = 3222163971u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PCP_UPGRADEDFILESTOIGNORE: u32 = 3222163980u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PCP_UPGRADEDFILES_OPTIONALDATA: u32 = 3222163986u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_PCP_UPGRADEDIMAGES: u32 = 3222163981u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_RANGE_ELEMENT: u32 = 3222163989u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_SUPERCEDENCE: u32 = 3222163857u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_SUPERSEDENCE_VALUE: u32 = 3222163976u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_INVALID_UI_LEVEL: u32 = 3222163863u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_LAX_VALIDATION_FLAGS: u32 = 3222163972u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_MAJOR_UPGD_WITHOUT_SEQUENCING: u32 = 3222163843u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_MATCHED_PRODUCT_VERSIONS: u32 = 3222163837u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_MISMATCHED_PRODUCT_CODES: u32 = 3222163779u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_MISMATCHED_PRODUCT_VERSIONS: u32 = 3222163780u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_MISSING_DIRECTORY_TABLE: u32 = 3222163975u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_MISSING_PATCHMETADATA: u32 = 3222163987u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_MISSING_PATCH_GUID: u32 = 3222163719u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_MISSING_PATCH_PATH: u32 = 3222163716u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_NO_UPGRADED_IMAGES_TO_PATCH: u32 = 3222163723u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_NULL_PATCHFAMILY: u32 = 3222163850u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_NULL_SEQUENCE_NUMBER: u32 = 3222163851u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_OBSOLETION_WITH_MSI30: u32 = 3222163839u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_OBSOLETION_WITH_PATCHSEQUENCE: u32 = 3222163840u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_OBSOLETION_WITH_SEQUENCE_DATA: u32 = 3222163838u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_OODS_COPYING_MSI: u32 = 3222163726u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_OPEN_VIEW: u32 = 3222163869u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_OUT_OF_MEMORY: u32 = 3222163865u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_PATCHMETADATA_PROP_NOT_SET: u32 = 3222163855u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_PCP_BAD_FORMAT: u32 = 3222163714u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_PCP_DOESNT_EXIST: u32 = 3222163713u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_SEQUENCING_BAD_TARGET: u32 = 3222163854u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TARGET_BAD_PROD_CODE_VAL: u32 = 3222163744u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TARGET_BAD_PROD_VALIDATE: u32 = 3222163743u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TARGET_IMAGE_COMPRESSED: u32 = 3222163742u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TARGET_IMAGE_NAME_TOO_LONG: u32 = 3222163735u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TARGET_IMAGE_PATH_EMPTY: u32 = 3222163739u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TARGET_IMAGE_PATH_NOT_EXIST: u32 = 3222163740u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TARGET_IMAGE_PATH_NOT_MSI: u32 = 3222163741u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TARGET_IMAGE_PATH_TOO_LONG: u32 = 3222163738u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TARGET_MISSING_SRC_FILES: u32 = 3222163746u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TARGET_WRONG_PRODUCT_VERSION_COMP: u32 = 3222163979u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TFILEDATA_BAD_IGNORE_LENGTHS: u32 = 3222163822u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TFILEDATA_BAD_IGNORE_OFFSETS: u32 = 3222163820u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TFILEDATA_BAD_RETAIN_OFFSETS: u32 = 3222163825u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TFILEDATA_BAD_TARGET_FIELD: u32 = 3222163791u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TFILEDATA_BLANK_FILE_TABLE_KEY: u32 = 3222163789u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TFILEDATA_IGNORE_COUNT_MISMATCH: u32 = 3222163823u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TFILEDATA_LONG_FILE_TABLE_KEY: u32 = 3222163788u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TFILEDATA_LONG_IGNORE_LENGTHS: u32 = 3222163821u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TFILEDATA_LONG_IGNORE_OFFSETS: u32 = 3222163819u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TFILEDATA_LONG_RETAIN_OFFSETS: u32 = 3222163824u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_TFILEDATA_MISSING_FILE_TABLE_KEY: u32 = 3222163790u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UFILEDATA_BAD_UPGRADED_FIELD: u32 = 3222163778u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UFILEDATA_BLANK_FILE_TABLE_KEY: u32 = 3222163752u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UFILEDATA_LONG_FILE_TABLE_KEY: u32 = 3222163751u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UFILEDATA_MISSING_FILE_TABLE_KEY: u32 = 3222163753u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UFILEIGNORE_BAD_FILE_TABLE_KEY: u32 = 3222163799u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UFILEIGNORE_BAD_UPGRADED_FIELD: u32 = 3222163796u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UFILEIGNORE_BLANK_FILE_TABLE_KEY: u32 = 3222163798u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UFILEIGNORE_LONG_FILE_TABLE_KEY: u32 = 3222163797u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UNKNOWN_ERROR: u32 = 3222163866u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UNKNOWN_INFO: u32 = 3222163867u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UNKNOWN_WARN: u32 = 3222163868u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UPGRADED_IMAGE_COMPRESSED: u32 = 3222163734u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UPGRADED_IMAGE_NAME_TOO_LONG: u32 = 3222163727u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_NOT_EXIST: u32 = 3222163793u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_NOT_MSI: u32 = 3222163794u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_TOO_LONG: u32 = 3222163792u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UPGRADED_IMAGE_PATH_EMPTY: u32 = 3222163731u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UPGRADED_IMAGE_PATH_NOT_EXIST: u32 = 3222163732u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UPGRADED_IMAGE_PATH_NOT_MSI: u32 = 3222163733u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UPGRADED_IMAGE_PATH_TOO_LONG: u32 = 3222163730u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_UPGRADED_MISSING_SRC_FILES: u32 = 3222163745u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_VIEW_FETCH: u32 = 3222163871u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_WRITE_SUMMARY_PROPERTIES: u32 = 3222163787u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_PCW_WRONG_PATCHMETADATA_STRD_PROP: u32 = 3222163859u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ERROR_ROLLBACK_DISABLED: u32 = 1653u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtractPatchHeaderToFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(patchfilename: Param0, patchheaderfilename: Param1) -> super::super::Foundation::BOOL {
@@ -1794,7 +1551,6 @@ pub unsafe fn ExtractPatchHeaderToFileA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtractPatchHeaderToFileByHandles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(patchfilehandle: Param0, patchheaderfilehandle: Param1) -> super::super::Foundation::BOOL {
@@ -1809,7 +1565,6 @@ pub unsafe fn ExtractPatchHeaderToFileByHandles<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtractPatchHeaderToFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(patchfilename: Param0, patchheaderfilename: Param1) -> super::super::Foundation::BOOL {
@@ -1827,7 +1582,6 @@ pub unsafe fn ExtractPatchHeaderToFileW<'a, Param0: ::windows::core::IntoParam<'
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct FUSION_INSTALL_REFERENCE {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1864,7 +1618,6 @@ unsafe impl ::windows::core::Abi for FUSION_INSTALL_REFERENCE {
 pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb02f9d65_fb77_4f7a_afa5_b391309f11c9);
 pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec93463_b0c3_45e1_8364_327e96aea856);
 pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cedc215_ac4b_488b_93c0_a50a49cb2fb8);
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FindActCtxSectionGuid(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpguidtofind: *const ::windows::core::GUID, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL {
@@ -1879,7 +1632,6 @@ pub unsafe fn FindActCtxSectionGuid(dwflags: u32, lpextensionguid: *const ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FindActCtxSectionStringA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpstringtofind: Param3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL {
@@ -1894,7 +1646,6 @@ pub unsafe fn FindActCtxSectionStringA<'a, Param3: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FindActCtxSectionStringW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpstringtofind: Param3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL {
@@ -1909,7 +1660,6 @@ pub unsafe fn FindActCtxSectionStringW<'a, Param3: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
@@ -1924,7 +1674,6 @@ pub unsafe fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeltaInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpdeltaname: Param0, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
@@ -1939,7 +1688,6 @@ pub unsafe fn GetDeltaInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeltaInfoB<'a, Param0: ::windows::core::IntoParam<'a, DELTA_INPUT>>(delta: Param0, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
@@ -1954,7 +1702,6 @@ pub unsafe fn GetDeltaInfoB<'a, Param0: ::windows::core::IntoParam<'a, DELTA_INP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeltaInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdeltaname: Param0, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
@@ -1969,7 +1716,6 @@ pub unsafe fn GetDeltaInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeltaSignatureA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filetypeset: i64, hashalgid: u32, lpsourcename: Param2, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
@@ -1984,7 +1730,6 @@ pub unsafe fn GetDeltaSignatureA<'a, Param2: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeltaSignatureB<'a, Param2: ::windows::core::IntoParam<'a, DELTA_INPUT>>(filetypeset: i64, hashalgid: u32, source: Param2, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
@@ -1999,7 +1744,6 @@ pub unsafe fn GetDeltaSignatureB<'a, Param2: ::windows::core::IntoParam<'a, DELT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeltaSignatureW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filetypeset: i64, hashalgid: u32, lpsourcename: Param2, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
@@ -2014,7 +1758,6 @@ pub unsafe fn GetDeltaSignatureW<'a, Param2: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFilePatchSignatureA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
@@ -2039,7 +1782,6 @@ pub unsafe fn GetFilePatchSignatureA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesize: u32, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
@@ -2065,7 +1807,6 @@ pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesiz
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFilePatchSignatureByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
@@ -2090,7 +1831,6 @@ pub unsafe fn GetFilePatchSignatureByHandle<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFilePatchSignatureW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
@@ -2115,15 +1855,10 @@ pub unsafe fn GetFilePatchSignatureW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_ALREADY_INSTALLED: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_INSTALLED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_REFRESHED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const IASSEMBLYCACHEITEM_COMMIT_FLAG_REFRESH: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IASSEMBLYCACHE_UNINSTALL_DISPOSITION(pub u32);
@@ -2167,33 +1902,27 @@ impl ::core::ops::Not for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAssemblyCache(pub ::windows::core::IUnknown);
 impl IAssemblyCache {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn UninstallAssembly<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, pszassemblyname: Param1, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszassemblyname.into_param().abi(), ::core::mem::transmute(prefdata), ::core::mem::transmute(puldisposition)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn QueryAssemblyInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: Param1, pasminfo: *mut ASSEMBLY_INFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszassemblyname.into_param().abi(), ::core::mem::transmute(pasminfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn CreateAssemblyCacheItem<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, ppasmitem: *mut ::core::option::Option<IAssemblyCacheItem>, pszassemblyname: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvreserved), ::core::mem::transmute(ppasmitem), pszassemblyname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Reserved(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn InstallAssembly<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, pszmanifestfilepath: Param1, prefdata: *mut FUSION_INSTALL_REFERENCE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszmanifestfilepath.into_param().abi(), ::core::mem::transmute(prefdata)).ok()
     }
@@ -2238,21 +1967,17 @@ pub struct IAssemblyCache_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, pszmanifestfilepath: super::super::Foundation::PWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAssemblyCacheItem(pub ::windows::core::IUnknown);
 impl IAssemblyCacheItem {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn CreateStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, pszstreamname: Param1, dwformat: u32, dwformatflags: u32, ppistream: *mut ::core::option::Option<super::Com::IStream>, pulimaxsize: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszstreamname.into_param().abi(), ::core::mem::transmute(dwformat), ::core::mem::transmute(dwformatflags), ::core::mem::transmute(ppistream), ::core::mem::transmute(pulimaxsize)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Commit(&self, dwflags: u32, puldisposition: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(puldisposition)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn AbortItem(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
@@ -2292,30 +2017,24 @@ pub struct IAssemblyCacheItem_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, puldisposition: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAssemblyName(pub ::windows::core::IUnknown);
 impl IAssemblyName {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn SetProperty(&self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, cbproperty: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(propertyid), ::core::mem::transmute(pvproperty), ::core::mem::transmute(cbproperty)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn GetProperty(&self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, pcbproperty: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(propertyid), ::core::mem::transmute(pvproperty), ::core::mem::transmute(pcbproperty)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Finalize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self, szdisplayname: super::super::Foundation::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(szdisplayname), ::core::mem::transmute(pccdisplayname), ::core::mem::transmute(dwdisplayflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Reserved<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, refiid: *const ::windows::core::GUID, punkreserved1: Param1, punkreserved2: Param2, szreserved: Param3, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(
             ::core::mem::transmute_copy(self),
@@ -2331,19 +2050,15 @@ impl IAssemblyName {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self, lpcwbuffer: *mut u32, pwzname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpcwbuffer), ::core::mem::transmute(pwzname)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwversionhi), ::core::mem::transmute(pdwversionlow)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, IAssemblyName>>(&self, pname: Param0, dwcmpflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pname.into_param().abi(), ::core::mem::transmute(dwcmpflags)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IAssemblyName> {
         let mut result__: <IAssemblyName as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IAssemblyName>(result__)
@@ -2392,24 +2107,19 @@ pub struct IAssemblyName_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pname: ::windows::core::RawPtr, dwcmpflags: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEnumMsmDependency(pub ::windows::core::IUnknown);
 impl IEnumMsmDependency {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self, cfetch: u32, rgmsmdependencies: *mut ::core::option::Option<IMsmDependency>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cfetch), ::core::mem::transmute(rgmsmdependencies), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Skip(&self, cskip: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(cskip)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumMsmDependency> {
         let mut result__: <IEnumMsmDependency as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumMsmDependency>(result__)
@@ -2450,24 +2160,19 @@ pub struct IEnumMsmDependency_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pemsmdependencies: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEnumMsmError(pub ::windows::core::IUnknown);
 impl IEnumMsmError {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self, cfetch: u32, rgmsmerrors: *mut ::core::option::Option<IMsmError>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cfetch), ::core::mem::transmute(rgmsmerrors), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Skip(&self, cskip: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(cskip)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumMsmError> {
         let mut result__: <IEnumMsmError as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumMsmError>(result__)
@@ -2508,25 +2213,20 @@ pub struct IEnumMsmError_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pemsmerrors: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEnumMsmString(pub ::windows::core::IUnknown);
 impl IEnumMsmString {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Next(&self, cfetch: u32, rgbstrstrings: *mut super::super::Foundation::BSTR, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cfetch), ::core::mem::transmute(rgbstrstrings), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Skip(&self, cskip: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(cskip)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumMsmString> {
         let mut result__: <IEnumMsmString as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IEnumMsmString>(result__)
@@ -2568,21 +2268,17 @@ pub struct IEnumMsmString_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pemsmstrings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMsmDependencies(pub ::windows::core::IUnknown);
 impl IMsmDependencies {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Item(&self, item: i32) -> ::windows::core::Result<IMsmDependency> {
         let mut result__: <IMsmDependency as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(item), &mut result__).from_abi::<IMsmDependency>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Count(&self, count: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(count)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
@@ -2653,22 +2349,18 @@ pub struct IMsmDependencies_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, newenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMsmDependency(pub ::windows::core::IUnknown);
 impl IMsmDependency {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Module(&self, module: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(module)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Language(&self, language: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(language)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Version(&self, version: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(version)).ok()
     }
@@ -2740,40 +2432,32 @@ pub struct IMsmDependency_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, version: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMsmError(pub ::windows::core::IUnknown);
 impl IMsmError {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Type(&self, errortype: *mut msmErrorType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(errortype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Path(&self, errorpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(errorpath)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Language(&self, errorlanguage: *mut i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(errorlanguage)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn DatabaseTable(&self, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(errortable)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn DatabaseKeys(&self) -> ::windows::core::Result<IMsmStrings> {
         let mut result__: <IMsmStrings as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMsmStrings>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn ModuleTable(&self, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(errortable)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ModuleKeys(&self) -> ::windows::core::Result<IMsmStrings> {
         let mut result__: <IMsmStrings as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMsmStrings>(result__)
@@ -2851,21 +2535,17 @@ pub struct IMsmError_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, errorkeys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMsmErrors(pub ::windows::core::IUnknown);
 impl IMsmErrors {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Item(&self, item: i32) -> ::windows::core::Result<IMsmError> {
         let mut result__: <IMsmError as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(item), &mut result__).from_abi::<IMsmError>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Count(&self, count: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(count)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
@@ -2936,12 +2616,10 @@ pub struct IMsmErrors_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, newenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMsmGetFiles(pub ::windows::core::IUnknown);
 impl IMsmGetFiles {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ModuleFiles(&self) -> ::windows::core::Result<IMsmStrings> {
         let mut result__: <IMsmStrings as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMsmStrings>(result__)
@@ -3010,70 +2688,56 @@ pub struct IMsmGetFiles_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, files: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMsmMerge(pub ::windows::core::IUnknown);
 impl IMsmMerge {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn OpenDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn OpenModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, language: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), path.into_param().abi(), ::core::mem::transmute(language)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn CloseDatabase(&self, commit: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(commit)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn CloseModule(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn OpenLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn CloseLog(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Log<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, message: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), message.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Errors(&self) -> ::windows::core::Result<IMsmErrors> {
         let mut result__: <IMsmErrors as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMsmErrors>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Dependencies(&self) -> ::windows::core::Result<IMsmDependencies> {
         let mut result__: <IMsmDependencies as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMsmDependencies>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Merge<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feature: Param0, redirectdir: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), feature.into_param().abi(), redirectdir.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Connect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feature: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), feature.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn ExtractCAB<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), filename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn ExtractFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
     }
@@ -3161,21 +2825,17 @@ pub struct IMsmMerge_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMsmStrings(pub ::windows::core::IUnknown);
 impl IMsmStrings {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Item(&self, item: i32, r#return: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(item), ::core::mem::transmute(r#return)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Count(&self, count: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(count)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
@@ -3247,45 +2907,25 @@ pub struct IMsmStrings_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, newenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_BASE: u32 = 3222229249u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_ENTERING_PHASE_I: u32 = 3222229251u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_ENTERING_PHASE_II: u32 = 3222229256u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_ENTERING_PHASE_III: u32 = 3222229257u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_ENTERING_PHASE_IV: u32 = 3222229258u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_ENTERING_PHASE_I_VALIDATION: u32 = 3222229250u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_ENTERING_PHASE_V: u32 = 3222229259u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_GENERATING_METADATA: u32 = 3222229265u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_PASSED_MAIN_CONTROL: u32 = 3222229249u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_PATCHCACHE_FILEINFO_FAILURE: u32 = 3222229267u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_PATCHCACHE_PCI_READFAILURE: u32 = 3222229268u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_PATCHCACHE_PCI_WRITEFAILURE: u32 = 3222229269u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_PCP_PATH: u32 = 3222229252u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_PROPERTY: u32 = 3222229255u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_SET_OPTIONS: u32 = 3222229254u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_SUCCESSFUL_PATCH_CREATION: u32 = 3222229271u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_TEMP_DIR: u32 = 3222229253u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_TEMP_DIR_CLEANUP: u32 = 3222229266u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INFO_USING_USER_MSI_FOR_PATCH_TABLES: u32 = 3222229270u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INSTALLFEATUREATTRIBUTE(pub i32);
@@ -3303,7 +2943,6 @@ impl ::core::convert::From<i32> for INSTALLFEATUREATTRIBUTE {
 unsafe impl ::windows::core::Abi for INSTALLFEATUREATTRIBUTE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INSTALLLEVEL(pub i32);
@@ -3318,7 +2957,6 @@ impl ::core::convert::From<i32> for INSTALLLEVEL {
 unsafe impl ::windows::core::Abi for INSTALLLEVEL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INSTALLLOGATTRIBUTES(pub i32);
@@ -3332,7 +2970,6 @@ impl ::core::convert::From<i32> for INSTALLLOGATTRIBUTES {
 unsafe impl ::windows::core::Abi for INSTALLLOGATTRIBUTES {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INSTALLMESSAGE(pub i32);
@@ -3363,9 +3000,7 @@ impl ::core::convert::From<i32> for INSTALLMESSAGE {
 unsafe impl ::windows::core::Abi for INSTALLMESSAGE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INSTALLMESSAGE_TYPEMASK: i32 = -16777216i32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INSTALLMODE(pub i32);
@@ -3382,7 +3017,6 @@ impl ::core::convert::From<i32> for INSTALLMODE {
 unsafe impl ::windows::core::Abi for INSTALLMODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INSTALLOGMODE(pub i32);
@@ -3417,7 +3051,6 @@ impl ::core::convert::From<i32> for INSTALLOGMODE {
 unsafe impl ::windows::core::Abi for INSTALLOGMODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INSTALLSTATE(pub i32);
@@ -3443,7 +3076,6 @@ impl ::core::convert::From<i32> for INSTALLSTATE {
 unsafe impl ::windows::core::Abi for INSTALLSTATE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INSTALLTYPE(pub i32);
@@ -3458,7 +3090,6 @@ impl ::core::convert::From<i32> for INSTALLTYPE {
 unsafe impl ::windows::core::Abi for INSTALLTYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INSTALLUILEVEL(pub i32);
@@ -3481,311 +3112,253 @@ impl ::core::convert::From<i32> for INSTALLUILEVEL {
 unsafe impl ::windows::core::Abi for INSTALLUILEVEL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type INSTALLUI_HANDLERA = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PSTR) -> i32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type INSTALLUI_HANDLERW = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PWSTR) -> i32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMApplicationInfo(pub ::windows::core::IUnknown);
 impl IPMApplicationInfo {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn InstanceID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn OfferID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn DefaultTask(&self, pdefaulttask: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdefaulttask)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn AppTitle(&self, papptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(papptitle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IconPath(&self, pappiconpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pappiconpath)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn NotificationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn AppInstallType(&self) -> ::windows::core::Result<PM_APPLICATION_INSTALL_TYPE> {
         let mut result__: <PM_APPLICATION_INSTALL_TYPE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PM_APPLICATION_INSTALL_TYPE>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn State(&self) -> ::windows::core::Result<PM_APPLICATION_STATE> {
         let mut result__: <PM_APPLICATION_STATE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PM_APPLICATION_STATE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsRevoked(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn UpdateAvailable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn InstallDate(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__: <super::super::Foundation::FILETIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsUninstallable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsThemable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsTrial(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn InstallPath(&self, pinstallpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinstallpath)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn DataRoot(&self, pdataroot: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdataroot)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Genre(&self) -> ::windows::core::Result<PM_APP_GENRE> {
         let mut result__: <PM_APP_GENRE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PM_APP_GENRE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Publisher(&self, ppublisher: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppublisher)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Author(&self, pauthor: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pauthor)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdescription)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Version(&self, pversion: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(pversion)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn AppPlatMajorVersion(&self) -> ::windows::core::Result<u8> {
         let mut result__: <u8 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u8>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn AppPlatMinorVersion(&self) -> ::windows::core::Result<u8> {
         let mut result__: <u8 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u8>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn PublisherID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsMultiCore(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn SID(&self, psid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(psid)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn AppPlatMajorVersionLightUp(&self) -> ::windows::core::Result<u8> {
         let mut result__: <u8 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u8>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn AppPlatMinorVersionLightUp(&self) -> ::windows::core::Result<u8> {
         let mut result__: <u8 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_UpdateAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isupdateavailable: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), isupdateavailable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_NotificationState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isnotified: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), isnotified.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_IconPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, appiconpath: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), appiconpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_UninstallableState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isuninstallable: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), isuninstallable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsPinableOnKidZone(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsOriginallyPreInstalled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).38)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsInstallOnSD(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsOptoutOnSD(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsOptoutBackupRestore(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).41)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_EnterpriseDisabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isdisabled: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).42)(::core::mem::transmute_copy(self), isdisabled.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_EnterpriseUninstallable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isuninstallable: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), isuninstallable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn EnterpriseDisabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn EnterpriseUninstallable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsVisibleOnAppList(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).46)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsInboxApp(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).47)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn StorageID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).48)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn StartAppBlob(&self, pblob: *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).49)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblob)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsMovable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).50)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn DeploymentAppEnumerationHubFilter(&self) -> ::windows::core::Result<PM_TILE_HUBTYPE> {
         let mut result__: <PM_TILE_HUBTYPE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).51)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PM_TILE_HUBTYPE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn ModifiedDate(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__: <super::super::Foundation::FILETIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).52)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsOriginallyRestored(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).53)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn ShouldDeferMdilBind(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).54)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsFullyPreInstall(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).55)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_IsMdilMaintenanceNeeded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fismdilmaintenanceneeded: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).56)(::core::mem::transmute_copy(self), fismdilmaintenanceneeded.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_Title<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, apptitle: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).57)(::core::mem::transmute_copy(self), apptitle.into_param().abi()).ok()
     }
@@ -3918,12 +3491,10 @@ pub struct IPMApplicationInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, apptitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMApplicationInfoEnumerator(pub ::windows::core::IUnknown);
 impl IPMApplicationInfoEnumerator {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMApplicationInfo> {
         let mut result__: <IPMApplicationInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IPMApplicationInfo>(result__)
@@ -3961,82 +3532,67 @@ pub struct IPMApplicationInfoEnumerator_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppappinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMBackgroundServiceAgentInfo(pub ::windows::core::IUnknown);
 impl IPMBackgroundServiceAgentInfo {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptaskid)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn BSAID(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BGSpecifier(&self, pbgspecifier: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbgspecifier)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BGName(&self, pbgname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbgname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BGSource(&self, pbgsource: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbgsource)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BGType(&self, pbgtype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbgtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsPeriodic(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsScheduled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsScheduleAllowed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdescription)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsLaunchOnBoot(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_IsScheduled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isscheduled: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), isscheduled.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_IsScheduleAllowed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isscheduleallowed: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), isscheduleallowed.into_param().abi()).ok()
     }
@@ -4098,12 +3654,10 @@ pub struct IPMBackgroundServiceAgentInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, isscheduleallowed: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMBackgroundServiceAgentInfoEnumerator(pub ::windows::core::IUnknown);
 impl IPMBackgroundServiceAgentInfoEnumerator {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMBackgroundServiceAgentInfo> {
         let mut result__: <IPMBackgroundServiceAgentInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IPMBackgroundServiceAgentInfo>(result__)
@@ -4141,38 +3695,31 @@ pub struct IPMBackgroundServiceAgentInfoEnumerator_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppbsainfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMBackgroundWorkerInfo(pub ::windows::core::IUnknown);
 impl IPMBackgroundWorkerInfo {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptaskid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BGName(&self, pbgname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbgname)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn MaxStartupLatency(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ExpectedRuntime(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsBootWorker(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -4218,12 +3765,10 @@ pub struct IPMBackgroundWorkerInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pisbootworker: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMBackgroundWorkerInfoEnumerator(pub ::windows::core::IUnknown);
 impl IPMBackgroundWorkerInfoEnumerator {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMBackgroundWorkerInfo> {
         let mut result__: <IPMBackgroundWorkerInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IPMBackgroundWorkerInfo>(result__)
@@ -4261,63 +3806,50 @@ pub struct IPMBackgroundWorkerInfoEnumerator_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppbwinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMDeploymentManager(pub ::windows::core::IUnknown);
 impl IPMDeploymentManager {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ReportDownloadBegin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ReportDownloadProgress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, usprogress: u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(usprogress)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ReportDownloadComplete<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(hrresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BeginInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinstallinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BeginUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pupdateinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BeginDeployPackage(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinstallinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BeginUpdateDeployedPackageLegacy(&self, pupdateinfo: *const PM_UPDATEINFO_LEGACY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pupdateinfo)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn BeginUninstall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BeginEnterpriseAppInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinstallinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BeginEnterpriseAppUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(pupdateinfo)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn BeginUpdateLicense<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, offerid: Param1, pblicense: *const u8, cblicense: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), productid.into_param().abi(), offerid.into_param().abi(), ::core::mem::transmute(pblicense), ::core::mem::transmute(cblicense)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn GetLicenseChallenge<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, packagepath: Param0, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(
             ::core::mem::transmute_copy(self),
@@ -4335,11 +3867,9 @@ impl IPMDeploymentManager {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn GetLicenseChallengeByProductID<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcblicense)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn GetLicenseChallengeByProductID2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, ppbchallenge: *mut *mut u8, pcblicense: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(
             ::core::mem::transmute_copy(self),
@@ -4357,96 +3887,75 @@ impl IPMDeploymentManager {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn RevokeLicense<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_System_Com`*"]
     pub unsafe fn RebindMdilBinaries<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, filenames: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(filenames)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn RebindAllMdilBinaries<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, instanceid: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), productid.into_param().abi(), instanceid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_System_Com`*"]
     pub unsafe fn RegenerateXbf<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, assemblypaths: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(assemblypaths)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn GenerateXbfForCurrentLocale<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BeginProvision<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, productid: Param0, xmlpath: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), productid.into_param().abi(), xmlpath.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn BeginDeprovision<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ReindexSQLCEDatabases<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn SetApplicationsNeedMaintenance(&self, requiredmaintenanceoperations: u32) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(requiredmaintenanceoperations), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn UpdateChamberProfile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn EnterprisePolicyIsApplicationAllowed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, productid: Param0, publishername: Param1) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).27)(::core::mem::transmute_copy(self), productid.into_param().abi(), publishername.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BeginUpdateDeployedPackage(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(pupdateinfo)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ReportRestoreCancelled<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn ResolveResourceString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, resourcestring: Param0, presolvedresourcestring: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), resourcestring.into_param().abi(), ::core::mem::transmute(presolvedresourcestring)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn UpdateCapabilitiesForModernApps(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ReportDownloadStatusUpdate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn BeginUninstallWithOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, removaloptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(removaloptions)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn BindDeferredMdilBinaries(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn GenerateXamlLightupXbfForCurrentLocale<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), packagefamilyname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn AddLicenseForAppx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, pblicense: *const u8, cblicense: u32, pbplayreadyheader: *const u8, cbplayreadyheader: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(pblicense), ::core::mem::transmute(cblicense), ::core::mem::transmute(pbplayreadyheader), ::core::mem::transmute(cbplayreadyheader)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn FixJunctionsForAppsOnSDCard(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self)).ok()
     }
@@ -4531,103 +4040,84 @@ pub struct IPMDeploymentManager_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, productid: ::windows::core::GUID, pblicense: *const u8, cblicense: u32, pbplayreadyheader: *const u8, cbplayreadyheader: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMEnumerationManager(pub ::windows::core::IUnknown);
 impl IPMEnumerationManager {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn AllApplications<'a, Param1: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, ppappenum: *mut ::core::option::Option<IPMApplicationInfoEnumerator>, filter: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppappenum), filter.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn AllTiles<'a, Param1: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, pptileenum: *mut ::core::option::Option<IPMTileInfoEnumerator>, filter: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pptileenum), filter.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn AllTasks<'a, Param1: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, pptaskenum: *mut ::core::option::Option<IPMTaskInfoEnumerator>, filter: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pptaskenum), filter.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn AllExtensions<'a, Param1: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, ppextensionenum: *mut ::core::option::Option<IPMExtensionInfoEnumerator>, filter: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppextensionenum), filter.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn AllBackgroundServiceAgents<'a, Param1: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, ppbsaenum: *mut ::core::option::Option<IPMBackgroundServiceAgentInfoEnumerator>, filter: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppbsaenum), filter.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn AllBackgroundWorkers<'a, Param1: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, ppbswenum: *mut ::core::option::Option<IPMBackgroundWorkerInfoEnumerator>, filter: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppbswenum), filter.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ApplicationInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<IPMApplicationInfo> {
         let mut result__: <IPMApplicationInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), productid.into_param().abi(), &mut result__).from_abi::<IPMApplicationInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn TileInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, productid: Param0, tileid: Param1) -> ::windows::core::Result<IPMTileInfo> {
         let mut result__: <IPMTileInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), productid.into_param().abi(), tileid.into_param().abi(), &mut result__).from_abi::<IPMTileInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn TaskInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, productid: Param0, taskid: Param1) -> ::windows::core::Result<IPMTaskInfo> {
         let mut result__: <IPMTaskInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), productid.into_param().abi(), taskid.into_param().abi(), &mut result__).from_abi::<IPMTaskInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn TaskInfoEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, productid: Param0, taskid: Param1) -> ::windows::core::Result<IPMTaskInfo> {
         let mut result__: <IPMTaskInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), productid.into_param().abi(), taskid.into_param().abi(), &mut result__).from_abi::<IPMTaskInfo>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn BackgroundServiceAgentInfo(&self, bsaid: u32) -> ::windows::core::Result<IPMBackgroundServiceAgentInfo> {
         let mut result__: <IPMBackgroundServiceAgentInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(bsaid), &mut result__).from_abi::<IPMBackgroundServiceAgentInfo>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn AllLiveTileJobs(&self) -> ::windows::core::Result<IPMLiveTileJobInfoEnumerator> {
         let mut result__: <IPMLiveTileJobInfoEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IPMLiveTileJobInfoEnumerator>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn LiveTileJob<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, productid: Param0, tileid: Param1, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> ::windows::core::Result<IPMLiveTileJobInfo> {
         let mut result__: <IPMLiveTileJobInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), productid.into_param().abi(), tileid.into_param().abi(), ::core::mem::transmute(recurrencetype), &mut result__).from_abi::<IPMLiveTileJobInfo>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ApplicationInfoExternal<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<IPMApplicationInfo> {
         let mut result__: <IPMApplicationInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), productid.into_param().abi(), &mut result__).from_abi::<IPMApplicationInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn FileHandlerGenericLogo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filetype: Param0, logosize: PM_LOGO_SIZE, plogo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), filetype.into_param().abi(), ::core::mem::transmute(logosize), ::core::mem::transmute(plogo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn ApplicationInfoFromAccessClaims<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sysappid0: Param0, sysappid1: Param1) -> ::windows::core::Result<IPMApplicationInfo> {
         let mut result__: <IPMApplicationInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), sysappid0.into_param().abi(), sysappid1.into_param().abi(), &mut result__).from_abi::<IPMApplicationInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn StartTileEnumeratorBlob<'a, Param0: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, filter: Param0, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), filter.into_param().abi(), ::core::mem::transmute(pctiles), ::core::mem::transmute(pptileblobs)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn StartAppEnumeratorBlob<'a, Param0: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, filter: Param0, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), filter.into_param().abi(), ::core::mem::transmute(pcapps), ::core::mem::transmute(ppappblobs)).ok()
     }
@@ -4695,13 +4185,11 @@ pub struct IPMEnumerationManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMExtensionCachedFileUpdaterInfo(pub ::windows::core::IUnknown);
 impl IPMExtensionCachedFileUpdaterInfo {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn SupportsUpdates(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -4740,13 +4228,11 @@ pub struct IPMExtensionCachedFileUpdaterInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psupportsupdates: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMExtensionContractInfo(pub ::windows::core::IUnknown);
 impl IPMExtensionContractInfo {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn InvocationInfo(&self, paumid: *mut super::super::Foundation::BSTR, pargs: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(paumid), ::core::mem::transmute(pargs)).ok()
     }
@@ -4784,43 +4270,35 @@ pub struct IPMExtensionContractInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, paumid: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pargs: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMExtensionFileExtensionInfo(pub ::windows::core::IUnknown);
 impl IPMExtensionFileExtensionInfo {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn DisplayName(&self, pdisplayname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdisplayname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Logo(&self, logosize: PM_LOGO_SIZE, plogo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(logosize), ::core::mem::transmute(plogo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn ContentType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filetype: Param0, pcontenttype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), filetype.into_param().abi(), ::core::mem::transmute(pcontenttype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn FileType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, contenttype: Param0, pfiletype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), contenttype.into_param().abi(), ::core::mem::transmute(pfiletype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn AllFileTypes(&self, pcbtypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcbtypes), ::core::mem::transmute(pptypes)).ok()
     }
@@ -4870,18 +4348,15 @@ pub struct IPMExtensionFileExtensionInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcbtypes: *mut u32, pptypes: *mut *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMExtensionFileOpenPickerInfo(pub ::windows::core::IUnknown);
 impl IPMExtensionFileOpenPickerInfo {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -4922,18 +4397,15 @@ pub struct IPMExtensionFileOpenPickerInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psupportsalltypes: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMExtensionFileSavePickerInfo(pub ::windows::core::IUnknown);
 impl IPMExtensionFileSavePickerInfo {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -4974,38 +4446,31 @@ pub struct IPMExtensionFileSavePickerInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psupportsalltypes: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMExtensionInfo(pub ::windows::core::IUnknown);
 impl IPMExtensionInfo {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn SupplierPID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn SupplierTaskID(&self, psuppliertid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(psuppliertid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Title(&self, ptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptitle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IconPath(&self, piconpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(piconpath)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn ExtraFile(&self, pfilepath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilepath)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
@@ -5052,12 +4517,10 @@ pub struct IPMExtensionInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pimageurn: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMExtensionInfoEnumerator(pub ::windows::core::IUnknown);
 impl IPMExtensionInfoEnumerator {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMExtensionInfo> {
         let mut result__: <IPMExtensionInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IPMExtensionInfo>(result__)
@@ -5095,18 +4558,15 @@ pub struct IPMExtensionInfoEnumerator_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppextensioninfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMExtensionProtocolInfo(pub ::windows::core::IUnknown);
 impl IPMExtensionProtocolInfo {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Protocol(&self, pprotocol: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocol)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
@@ -5146,23 +4606,19 @@ pub struct IPMExtensionProtocolInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pimageurn: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMExtensionShareTargetInfo(pub ::windows::core::IUnknown);
 impl IPMExtensionShareTargetInfo {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn AllDataFormats(&self, pcdataformats: *mut u32, ppdataformats: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcdataformats), ::core::mem::transmute(ppdataformats)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -5205,121 +4661,96 @@ pub struct IPMExtensionShareTargetInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psupportsalltypes: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMLiveTileJobInfo(pub ::windows::core::IUnknown);
 impl IPMLiveTileJobInfo {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn TileID(&self, ptileid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptileid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn NextSchedule(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__: <super::super::Foundation::FILETIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_NextSchedule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(&self, ftnextschedule: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ftnextschedule.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn StartSchedule(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__: <super::super::Foundation::FILETIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_StartSchedule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(&self, ftstartschedule: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ftstartschedule.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn IntervalDuration(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn set_IntervalDuration(&self, ulintervalduration: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulintervalduration)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn RunForever(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_RunForever<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, frunforever: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), frunforever.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn MaxRunCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn set_MaxRunCount(&self, ulmaxruncount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulmaxruncount)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn RunCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn set_RunCount(&self, ulruncount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulruncount)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn RecurrenceType(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn set_RecurrenceType(&self, ulrecurrencetype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulrecurrencetype)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn TileXML(&self, ptilexml: *mut *mut u8, pcbtilexml: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptilexml), ::core::mem::transmute(pcbtilexml)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn set_TileXML(&self, ptilexml: *const u8, cbtilexml: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptilexml), ::core::mem::transmute(cbtilexml)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn UrlXML(&self, purlxml: *mut *mut u8, pcburlxml: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(purlxml), ::core::mem::transmute(pcburlxml)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn set_UrlXML(&self, purlxml: *const u8, cburlxml: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(purlxml), ::core::mem::transmute(cburlxml)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn AttemptCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn set_AttemptCount(&self, ulattemptcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulattemptcount)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn DownloadState(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn set_DownloadState(&self, uldownloadstate: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), ::core::mem::transmute(uldownloadstate)).ok()
     }
@@ -5386,12 +4817,10 @@ pub struct IPMLiveTileJobInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdownloadstate: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, uldownloadstate: u32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMLiveTileJobInfoEnumerator(pub ::windows::core::IUnknown);
 impl IPMLiveTileJobInfoEnumerator {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMLiveTileJobInfo> {
         let mut result__: <IPMLiveTileJobInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IPMLiveTileJobInfo>(result__)
@@ -5429,115 +4858,93 @@ pub struct IPMLiveTileJobInfoEnumerator_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pplivetilejobinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMTaskInfo(pub ::windows::core::IUnknown);
 impl IPMTaskInfo {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptaskid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn NavigationPage(&self, pnavigationpage: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnavigationpage)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn TaskTransition(&self) -> ::windows::core::Result<PM_TASK_TRANSITION> {
         let mut result__: <PM_TASK_TRANSITION as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PM_TASK_TRANSITION>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn RuntimeType(&self) -> ::windows::core::Result<PACKMAN_RUNTIME> {
         let mut result__: <PACKMAN_RUNTIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PACKMAN_RUNTIME>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ActivationPolicy(&self) -> ::windows::core::Result<PM_ACTIVATION_POLICY> {
         let mut result__: <PM_ACTIVATION_POLICY as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PM_ACTIVATION_POLICY>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn TaskType(&self) -> ::windows::core::Result<PM_TASK_TYPE> {
         let mut result__: <PM_TASK_TYPE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PM_TASK_TYPE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn ImagePath(&self, pimagepath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimagepath)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn ImageParams(&self, pimageparams: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageparams)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn InstallRootFolder(&self, pinstallrootfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinstallrootfolder)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn DataRootFolder(&self, pdatarootfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdatarootfolder)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsSingleInstanceHost(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsInteropEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ApplicationState(&self) -> ::windows::core::Result<PM_APPLICATION_STATE> {
         let mut result__: <PM_APPLICATION_STATE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PM_APPLICATION_STATE>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn InstallType(&self) -> ::windows::core::Result<PM_APPLICATION_INSTALL_TYPE> {
         let mut result__: <PM_APPLICATION_INSTALL_TYPE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PM_APPLICATION_INSTALL_TYPE>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Version(&self, ptargetmajorversion: *mut u8, ptargetminorversion: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptargetmajorversion), ::core::mem::transmute(ptargetminorversion)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn BitsPerPixel(&self) -> ::windows::core::Result<u16> {
         let mut result__: <u16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn SuppressesDehydration(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn BackgroundExecutionAbilities(&self, pbackgroundexecutionabilities: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbackgroundexecutionabilities)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsOptedForExtendedMem(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -5607,12 +5014,10 @@ pub struct IPMTaskInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pisoptedin: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMTaskInfoEnumerator(pub ::windows::core::IUnknown);
 impl IPMTaskInfoEnumerator {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMTaskInfo> {
         let mut result__: <IPMTaskInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IPMTaskInfo>(result__)
@@ -5650,132 +5055,107 @@ pub struct IPMTaskInfoEnumerator_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pptaskinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMTileInfo(pub ::windows::core::IUnknown);
 impl IPMTileInfo {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn TileID(&self, ptileid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptileid)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn TemplateType(&self) -> ::windows::core::Result<TILE_TEMPLATE_TYPE> {
         let mut result__: <TILE_TEMPLATE_TYPE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<TILE_TEMPLATE_TYPE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(hubtype), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn HubPosition(&self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(hubtype), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsNotified(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsDefault(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptaskid)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn TileType(&self) -> ::windows::core::Result<PM_STARTTILE_TYPE> {
         let mut result__: <PM_STARTTILE_TYPE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<PM_STARTTILE_TYPE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsThemable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn PropertyById(&self, propid: u32) -> ::windows::core::Result<IPMTilePropertyInfo> {
         let mut result__: <IPMTilePropertyInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(propid), &mut result__).from_abi::<IPMTilePropertyInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn PropertyEnum(&self) -> ::windows::core::Result<IPMTilePropertyEnumerator> {
         let mut result__: <IPMTilePropertyEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IPMTilePropertyEnumerator>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn HubTileSize(&self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<PM_TILE_SIZE> {
         let mut result__: <PM_TILE_SIZE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(hubtype), &mut result__).from_abi::<PM_TILE_SIZE>(result__)
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn set_HubPosition(&self, hubtype: PM_TILE_HUBTYPE, position: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(hubtype), ::core::mem::transmute(position)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_NotifiedState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, notified: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), notified.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_HubPinnedState<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hubtype: PM_TILE_HUBTYPE, pinned: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(hubtype), pinned.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn set_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(hubtype), ::core::mem::transmute(size)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_InvocationInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0, taskparameters: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), taskname.into_param().abi(), taskparameters.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn StartTileBlob(&self, pblob: *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblob)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsRestoring(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn IsAutoRestoreDisabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_IsRestoring<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, restoring: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), restoring.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_IsAutoRestoreDisabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, autorestoredisabled: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), autorestoredisabled.into_param().abi()).ok()
     }
@@ -5850,12 +5230,10 @@ pub struct IPMTileInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, autorestoredisabled: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMTileInfoEnumerator(pub ::windows::core::IUnknown);
 impl IPMTileInfoEnumerator {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMTileInfo> {
         let mut result__: <IPMTileInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IPMTileInfo>(result__)
@@ -5893,12 +5271,10 @@ pub struct IPMTileInfoEnumerator_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pptileinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMTilePropertyEnumerator(pub ::windows::core::IUnknown);
 impl IPMTilePropertyEnumerator {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMTilePropertyInfo> {
         let mut result__: <IPMTilePropertyInfo as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IPMTilePropertyInfo>(result__)
@@ -5936,23 +5312,19 @@ pub struct IPMTilePropertyEnumerator_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pppropinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPMTilePropertyInfo(pub ::windows::core::IUnknown);
 impl IPMTilePropertyInfo {
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn PropertyID(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn PropertyValue(&self, ppropvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppropvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn set_Property<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propvalue: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), propvalue.into_param().abi()).ok()
     }
@@ -5993,41 +5365,33 @@ pub struct IPMTilePropertyInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, propvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IValidate(pub ::windows::core::IUnknown);
 impl IValidate {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn OpenDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szdatabase: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szdatabase.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn OpenCUB<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szcubfile: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), szcubfile.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn CloseDatabase(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
     pub unsafe fn CloseCUB(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn SetDisplay(&self, pdisplayfunction: ::core::option::Option<LPDISPLAYVAL>, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdisplayfunction), ::core::mem::transmute(pcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn SetStatus(&self, pstatusfunction: ::core::option::Option<LPEVALCOMCALLBACK>, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatusfunction), ::core::mem::transmute(pcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
     pub unsafe fn Validate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wzices: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), wzices.into_param().abi()).ok()
     }
@@ -6076,39 +5440,23 @@ pub struct IValidate_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 pub const LIBID_MsmMergeTypeLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82f_2c26_11d2_ad65_00a0c9af11a6);
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGALL: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGERR: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGINFO: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGNONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGPERFMESSAGES: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGTOKEN_NO_LOG: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGTOKEN_SETUPAPI_APPLOG: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGTOKEN_SETUPAPI_DEVLOG: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGTOKEN_TYPE_MASK: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGTOKEN_UNSPECIFIED: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGWARN: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDISPLAYVAL = unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, uitype: RESULTTYPES, szwval: super::super::Foundation::PWSTR, szwdescription: super::super::Foundation::PWSTR, szwlocation: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPEVALCOMCALLBACK = unsafe extern "system" fn(istatus: STATUSTYPES, szdata: super::super::Foundation::PWSTR, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const MAX_FEATURE_CHARS: u32 = 38u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const MAX_GUID_CHARS: u32 = 38u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSIADVERTISEOPTIONFLAGS(pub i32);
@@ -6121,7 +5469,6 @@ impl ::core::convert::From<i32> for MSIADVERTISEOPTIONFLAGS {
 unsafe impl ::windows::core::Abi for MSIADVERTISEOPTIONFLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSIARCHITECTUREFLAGS(pub i32);
@@ -6137,7 +5484,6 @@ impl ::core::convert::From<i32> for MSIARCHITECTUREFLAGS {
 unsafe impl ::windows::core::Abi for MSIARCHITECTUREFLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSIASSEMBLYINFO(pub u32);
@@ -6179,7 +5525,6 @@ impl ::core::ops::Not for MSIASSEMBLYINFO {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSICODE(pub i32);
@@ -6193,7 +5538,6 @@ impl ::core::convert::From<i32> for MSICODE {
 unsafe impl ::windows::core::Abi for MSICODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSICOLINFO(pub i32);
@@ -6207,7 +5551,6 @@ impl ::core::convert::From<i32> for MSICOLINFO {
 unsafe impl ::windows::core::Abi for MSICOLINFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSICONDITION(pub i32);
@@ -6223,7 +5566,6 @@ impl ::core::convert::From<i32> for MSICONDITION {
 unsafe impl ::windows::core::Abi for MSICONDITION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSICOSTTREE(pub i32);
@@ -6239,7 +5581,6 @@ impl ::core::convert::From<i32> for MSICOSTTREE {
 unsafe impl ::windows::core::Abi for MSICOSTTREE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSIDBERROR(pub i32);
@@ -6284,7 +5625,6 @@ impl ::core::convert::From<i32> for MSIDBERROR {
 unsafe impl ::windows::core::Abi for MSIDBERROR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSIDBSTATE(pub i32);
@@ -6301,7 +5641,6 @@ unsafe impl ::windows::core::Abi for MSIDBSTATE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct MSIFILEHASHINFO {
     pub dwFileHashInfoSize: u32,
     pub dwData: [u32; 4],
@@ -6338,7 +5677,6 @@ unsafe impl ::windows::core::Handle for MSIHANDLE {}
 unsafe impl ::windows::core::Abi for MSIHANDLE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSIINSTALLCONTEXT(pub i32);
@@ -6357,7 +5695,6 @@ impl ::core::convert::From<i32> for MSIINSTALLCONTEXT {
 unsafe impl ::windows::core::Abi for MSIINSTALLCONTEXT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSIMODIFY(pub i32);
@@ -6382,7 +5719,6 @@ impl ::core::convert::From<i32> for MSIMODIFY {
 unsafe impl ::windows::core::Abi for MSIMODIFY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSIOPENPACKAGEFLAGS(pub i32);
@@ -6395,7 +5731,6 @@ impl ::core::convert::From<i32> for MSIOPENPACKAGEFLAGS {
 unsafe impl ::windows::core::Abi for MSIOPENPACKAGEFLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSIPATCHDATATYPE(pub i32);
@@ -6413,7 +5748,6 @@ unsafe impl ::windows::core::Abi for MSIPATCHDATATYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct MSIPATCHSEQUENCEINFOA {
     pub szPatchData: super::super::Foundation::PSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
@@ -6449,7 +5783,6 @@ unsafe impl ::windows::core::Abi for MSIPATCHSEQUENCEINFOA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct MSIPATCHSEQUENCEINFOW {
     pub szPatchData: super::super::Foundation::PWSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
@@ -6482,7 +5815,6 @@ impl ::core::cmp::Eq for MSIPATCHSEQUENCEINFOW {}
 unsafe impl ::windows::core::Abi for MSIPATCHSEQUENCEINFOW {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSIPATCHSTATE(pub i32);
@@ -6500,7 +5832,6 @@ impl ::core::convert::From<i32> for MSIPATCHSTATE {
 unsafe impl ::windows::core::Abi for MSIPATCHSTATE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSIRUNMODE(pub i32);
@@ -6531,7 +5862,6 @@ impl ::core::convert::From<i32> for MSIRUNMODE {
 unsafe impl ::windows::core::Abi for MSIRUNMODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSISOURCETYPE(pub i32);
@@ -6547,7 +5877,6 @@ impl ::core::convert::From<i32> for MSISOURCETYPE {
 unsafe impl ::windows::core::Abi for MSISOURCETYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSITRANSACTION(pub i32);
@@ -6561,7 +5890,6 @@ impl ::core::convert::From<i32> for MSITRANSACTION {
 unsafe impl ::windows::core::Abi for MSITRANSACTION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSITRANSACTIONSTATE(pub u32);
@@ -6603,7 +5931,6 @@ impl ::core::ops::Not for MSITRANSACTIONSTATE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSITRANSFORM_ERROR(pub i32);
@@ -6623,7 +5950,6 @@ impl ::core::convert::From<i32> for MSITRANSFORM_ERROR {
 unsafe impl ::windows::core::Abi for MSITRANSFORM_ERROR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSITRANSFORM_VALIDATE(pub i32);
@@ -6647,11 +5973,8 @@ impl ::core::convert::From<i32> for MSITRANSFORM_VALIDATE {
 unsafe impl ::windows::core::Abi for MSITRANSFORM_VALIDATE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiAdvertiseProductA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpackagepath: Param0, szscriptfilepath: Param1, sztransforms: Param2, lgidlanguage: u16) -> u32 {
@@ -6666,7 +5989,6 @@ pub unsafe fn MsiAdvertiseProductA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiAdvertiseProductExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpackagepath: Param0, szscriptfilepath: Param1, sztransforms: Param2, lgidlanguage: u16, dwplatform: u32, dwoptions: u32) -> u32 {
@@ -6681,7 +6003,6 @@ pub unsafe fn MsiAdvertiseProductExA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiAdvertiseProductExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpackagepath: Param0, szscriptfilepath: Param1, sztransforms: Param2, lgidlanguage: u16, dwplatform: u32, dwoptions: u32) -> u32 {
@@ -6696,7 +6017,6 @@ pub unsafe fn MsiAdvertiseProductExW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiAdvertiseProductW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpackagepath: Param0, szscriptfilepath: Param1, sztransforms: Param2, lgidlanguage: u16) -> u32 {
@@ -6711,7 +6031,6 @@ pub unsafe fn MsiAdvertiseProductW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn MsiAdvertiseScriptA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(szscriptfile: Param0, dwflags: u32, phregdata: *const super::Registry::HKEY, fremoveitems: Param3) -> u32 {
@@ -6726,7 +6045,6 @@ pub unsafe fn MsiAdvertiseScriptA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn MsiAdvertiseScriptW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(szscriptfile: Param0, dwflags: u32, phregdata: *const super::Registry::HKEY, fremoveitems: Param3) -> u32 {
@@ -6741,7 +6059,6 @@ pub unsafe fn MsiAdvertiseScriptW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiApplyMultiplePatchesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpatchpackages: Param0, szproductcode: Param1, szpropertieslist: Param2) -> u32 {
@@ -6756,7 +6073,6 @@ pub unsafe fn MsiApplyMultiplePatchesA<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiApplyMultiplePatchesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpatchpackages: Param0, szproductcode: Param1, szpropertieslist: Param2) -> u32 {
@@ -6771,7 +6087,6 @@ pub unsafe fn MsiApplyMultiplePatchesW<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiApplyPatchA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpatchpackage: Param0, szinstallpackage: Param1, einstalltype: INSTALLTYPE, szcommandline: Param3) -> u32 {
@@ -6786,7 +6101,6 @@ pub unsafe fn MsiApplyPatchA<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiApplyPatchW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpatchpackage: Param0, szinstallpackage: Param1, einstalltype: INSTALLTYPE, szcommandline: Param3) -> u32 {
@@ -6801,7 +6115,6 @@ pub unsafe fn MsiApplyPatchW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiBeginTransactionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szname: Param0, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6816,7 +6129,6 @@ pub unsafe fn MsiBeginTransactionA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiBeginTransactionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szname: Param0, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6831,7 +6143,6 @@ pub unsafe fn MsiBeginTransactionW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiCloseAllHandles() -> u32 {
     #[cfg(windows)]
@@ -6845,7 +6156,6 @@ pub unsafe fn MsiCloseAllHandles() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hany: Param0) -> u32 {
     #[cfg(windows)]
@@ -6859,7 +6169,6 @@ pub unsafe fn MsiCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiCollectUserInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0) -> u32 {
@@ -6874,7 +6183,6 @@ pub unsafe fn MsiCollectUserInfoA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiCollectUserInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0) -> u32 {
@@ -6889,7 +6197,6 @@ pub unsafe fn MsiCollectUserInfoW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiConfigureFeatureA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1, einstallstate: INSTALLSTATE) -> u32 {
@@ -6904,7 +6211,6 @@ pub unsafe fn MsiConfigureFeatureA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiConfigureFeatureW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1, einstallstate: INSTALLSTATE) -> u32 {
@@ -6919,7 +6225,6 @@ pub unsafe fn MsiConfigureFeatureW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiConfigureProductA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE) -> u32 {
@@ -6934,7 +6239,6 @@ pub unsafe fn MsiConfigureProductA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiConfigureProductExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE, szcommandline: Param3) -> u32 {
@@ -6949,7 +6253,6 @@ pub unsafe fn MsiConfigureProductExA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiConfigureProductExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE, szcommandline: Param3) -> u32 {
@@ -6964,7 +6267,6 @@ pub unsafe fn MsiConfigureProductExW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiConfigureProductW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE) -> u32 {
@@ -6979,7 +6281,6 @@ pub unsafe fn MsiConfigureProductW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiCreateRecord(cparams: u32) -> MSIHANDLE {
     #[cfg(windows)]
@@ -6993,7 +6294,6 @@ pub unsafe fn MsiCreateRecord(cparams: u32) -> MSIHANDLE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiCreateTransformSummaryInfoA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: Param2, ierrorconditions: MSITRANSFORM_ERROR, ivalidation: MSITRANSFORM_VALIDATE) -> u32 {
@@ -7008,7 +6308,6 @@ pub unsafe fn MsiCreateTransformSummaryInfoA<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiCreateTransformSummaryInfoW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: Param2, ierrorconditions: MSITRANSFORM_ERROR, ivalidation: MSITRANSFORM_VALIDATE) -> u32 {
@@ -7023,7 +6322,6 @@ pub unsafe fn MsiCreateTransformSummaryInfoW<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseApplyTransformA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, sztransformfile: Param1, ierrorconditions: MSITRANSFORM_ERROR) -> u32 {
@@ -7038,7 +6336,6 @@ pub unsafe fn MsiDatabaseApplyTransformA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseApplyTransformW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, sztransformfile: Param1, ierrorconditions: MSITRANSFORM_ERROR) -> u32 {
@@ -7053,7 +6350,6 @@ pub unsafe fn MsiDatabaseApplyTransformW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiDatabaseCommit<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hdatabase: Param0) -> u32 {
     #[cfg(windows)]
@@ -7067,7 +6363,6 @@ pub unsafe fn MsiDatabaseCommit<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseExportA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, sztablename: Param1, szfolderpath: Param2, szfilename: Param3) -> u32 {
@@ -7082,7 +6377,6 @@ pub unsafe fn MsiDatabaseExportA<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseExportW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, sztablename: Param1, szfolderpath: Param2, szfilename: Param3) -> u32 {
@@ -7097,7 +6391,6 @@ pub unsafe fn MsiDatabaseExportW<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseGenerateTransformA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: Param2, ireserved1: i32, ireserved2: i32) -> u32 {
@@ -7112,7 +6405,6 @@ pub unsafe fn MsiDatabaseGenerateTransformA<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseGenerateTransformW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: Param2, ireserved1: i32, ireserved2: i32) -> u32 {
@@ -7127,7 +6419,6 @@ pub unsafe fn MsiDatabaseGenerateTransformW<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseGetPrimaryKeysA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, sztablename: Param1, phrecord: *mut MSIHANDLE) -> u32 {
@@ -7142,7 +6433,6 @@ pub unsafe fn MsiDatabaseGetPrimaryKeysA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseGetPrimaryKeysW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, sztablename: Param1, phrecord: *mut MSIHANDLE) -> u32 {
@@ -7157,7 +6447,6 @@ pub unsafe fn MsiDatabaseGetPrimaryKeysW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseImportA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, szfolderpath: Param1, szfilename: Param2) -> u32 {
@@ -7172,7 +6461,6 @@ pub unsafe fn MsiDatabaseImportA<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseImportW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, szfolderpath: Param1, szfilename: Param2) -> u32 {
@@ -7187,7 +6475,6 @@ pub unsafe fn MsiDatabaseImportW<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseIsTablePersistentA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, sztablename: Param1) -> MSICONDITION {
@@ -7202,7 +6489,6 @@ pub unsafe fn MsiDatabaseIsTablePersistentA<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseIsTablePersistentW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, sztablename: Param1) -> MSICONDITION {
@@ -7217,7 +6503,6 @@ pub unsafe fn MsiDatabaseIsTablePersistentW<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseMergeA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, hdatabasemerge: Param1, sztablename: Param2) -> u32 {
@@ -7232,7 +6517,6 @@ pub unsafe fn MsiDatabaseMergeA<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseMergeW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, hdatabasemerge: Param1, sztablename: Param2) -> u32 {
@@ -7247,7 +6531,6 @@ pub unsafe fn MsiDatabaseMergeW<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseOpenViewA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, szquery: Param1, phview: *mut MSIHANDLE) -> u32 {
@@ -7262,7 +6545,6 @@ pub unsafe fn MsiDatabaseOpenViewA<'a, Param0: ::windows::core::IntoParam<'a, MS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDatabaseOpenViewW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, szquery: Param1, phview: *mut MSIHANDLE) -> u32 {
@@ -7277,7 +6559,6 @@ pub unsafe fn MsiDatabaseOpenViewW<'a, Param0: ::windows::core::IntoParam<'a, MS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDetermineApplicablePatchesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductpackagepath: Param0, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOA) -> u32 {
@@ -7292,7 +6573,6 @@ pub unsafe fn MsiDetermineApplicablePatchesA<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDetermineApplicablePatchesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductpackagepath: Param0, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOW) -> u32 {
@@ -7307,7 +6587,6 @@ pub unsafe fn MsiDetermineApplicablePatchesW<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDeterminePatchSequenceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOA) -> u32 {
@@ -7322,7 +6601,6 @@ pub unsafe fn MsiDeterminePatchSequenceA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDeterminePatchSequenceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOW) -> u32 {
@@ -7337,7 +6615,6 @@ pub unsafe fn MsiDeterminePatchSequenceW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDoActionA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szaction: Param1) -> u32 {
@@ -7352,7 +6629,6 @@ pub unsafe fn MsiDoActionA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiDoActionW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szaction: Param1) -> u32 {
@@ -7367,7 +6643,6 @@ pub unsafe fn MsiDoActionW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnableLogA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwlogmode: INSTALLOGMODE, szlogfile: Param1, dwlogattributes: u32) -> u32 {
@@ -7382,7 +6657,6 @@ pub unsafe fn MsiEnableLogA<'a, Param1: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnableLogW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwlogmode: INSTALLOGMODE, szlogfile: Param1, dwlogattributes: u32) -> u32 {
@@ -7397,7 +6671,6 @@ pub unsafe fn MsiEnableLogW<'a, Param1: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiEnableUIPreview<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hdatabase: Param0, phpreview: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
@@ -7411,7 +6684,6 @@ pub unsafe fn MsiEnableUIPreview<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiEndTransaction(dwtransactionstate: MSITRANSACTIONSTATE) -> u32 {
     #[cfg(windows)]
@@ -7425,7 +6697,6 @@ pub unsafe fn MsiEndTransaction(dwtransactionstate: MSITRANSACTIONSTATE) -> u32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumClientsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcomponent: Param0, iproductindex: u32, lpproductbuf: super::super::Foundation::PSTR) -> u32 {
@@ -7440,7 +6711,6 @@ pub unsafe fn MsiEnumClientsA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumClientsExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcomponent: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: super::super::Foundation::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PSTR, pcchsid: *mut u32) -> u32 {
@@ -7464,7 +6734,6 @@ pub unsafe fn MsiEnumClientsExA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumClientsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcomponent: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: super::super::Foundation::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PWSTR, pcchsid: *mut u32) -> u32 {
@@ -7488,7 +6757,6 @@ pub unsafe fn MsiEnumClientsExW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumClientsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcomponent: Param0, iproductindex: u32, lpproductbuf: super::super::Foundation::PWSTR) -> u32 {
@@ -7503,7 +6771,6 @@ pub unsafe fn MsiEnumClientsW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumComponentCostsA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szcomponent: Param1, dwindex: u32, istate: INSTALLSTATE, szdrivebuf: super::super::Foundation::PSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32 {
@@ -7518,7 +6785,6 @@ pub unsafe fn MsiEnumComponentCostsA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumComponentCostsW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szcomponent: Param1, dwindex: u32, istate: INSTALLSTATE, szdrivebuf: super::super::Foundation::PWSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32 {
@@ -7533,7 +6799,6 @@ pub unsafe fn MsiEnumComponentCostsW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumComponentQualifiersA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcomponent: Param0, iindex: u32, lpqualifierbuf: super::super::Foundation::PSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: super::super::Foundation::PSTR, pcchapplicationdatabuf: *mut u32) -> u32 {
@@ -7548,7 +6813,6 @@ pub unsafe fn MsiEnumComponentQualifiersA<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumComponentQualifiersW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcomponent: Param0, iindex: u32, lpqualifierbuf: super::super::Foundation::PWSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: super::super::Foundation::PWSTR, pcchapplicationdatabuf: *mut u32) -> u32 {
@@ -7563,7 +6827,6 @@ pub unsafe fn MsiEnumComponentQualifiersW<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumComponentsA(icomponentindex: u32, lpcomponentbuf: super::super::Foundation::PSTR) -> u32 {
@@ -7578,7 +6841,6 @@ pub unsafe fn MsiEnumComponentsA(icomponentindex: u32, lpcomponentbuf: super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumComponentsExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szusersid: Param0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: super::super::Foundation::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PSTR, pcchsid: *mut u32) -> u32 {
@@ -7593,7 +6855,6 @@ pub unsafe fn MsiEnumComponentsExA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumComponentsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szusersid: Param0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: super::super::Foundation::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PWSTR, pcchsid: *mut u32) -> u32 {
@@ -7608,7 +6869,6 @@ pub unsafe fn MsiEnumComponentsExW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumComponentsW(icomponentindex: u32, lpcomponentbuf: super::super::Foundation::PWSTR) -> u32 {
@@ -7623,7 +6883,6 @@ pub unsafe fn MsiEnumComponentsW(icomponentindex: u32, lpcomponentbuf: super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumFeaturesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, ifeatureindex: u32, lpfeaturebuf: super::super::Foundation::PSTR, lpparentbuf: super::super::Foundation::PSTR) -> u32 {
@@ -7638,7 +6897,6 @@ pub unsafe fn MsiEnumFeaturesA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumFeaturesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, ifeatureindex: u32, lpfeaturebuf: super::super::Foundation::PWSTR, lpparentbuf: super::super::Foundation::PWSTR) -> u32 {
@@ -7653,7 +6911,6 @@ pub unsafe fn MsiEnumFeaturesW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumPatchesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, ipatchindex: u32, lppatchbuf: super::super::Foundation::PSTR, lptransformsbuf: super::super::Foundation::PSTR, pcchtransformsbuf: *mut u32) -> u32 {
@@ -7668,7 +6925,6 @@ pub unsafe fn MsiEnumPatchesA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumPatchesExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: super::super::Foundation::PSTR, sztargetproductcode: super::super::Foundation::PSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: super::super::Foundation::PSTR, pcchtargetusersid: *mut u32) -> u32 {
@@ -7694,7 +6950,6 @@ pub unsafe fn MsiEnumPatchesExA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumPatchesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
@@ -7731,7 +6986,6 @@ pub unsafe fn MsiEnumPatchesExW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumPatchesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, ipatchindex: u32, lppatchbuf: super::super::Foundation::PWSTR, lptransformsbuf: super::super::Foundation::PWSTR, pcchtransformsbuf: *mut u32) -> u32 {
@@ -7746,7 +7000,6 @@ pub unsafe fn MsiEnumPatchesW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumProductsA(iproductindex: u32, lpproductbuf: super::super::Foundation::PSTR) -> u32 {
@@ -7761,7 +7014,6 @@ pub unsafe fn MsiEnumProductsA(iproductindex: u32, lpproductbuf: super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumProductsExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: u32, dwindex: u32, szinstalledproductcode: super::super::Foundation::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PSTR, pcchsid: *mut u32) -> u32 {
@@ -7785,7 +7037,6 @@ pub unsafe fn MsiEnumProductsExA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumProductsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: u32, dwindex: u32, szinstalledproductcode: super::super::Foundation::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PWSTR, pcchsid: *mut u32) -> u32 {
@@ -7809,7 +7060,6 @@ pub unsafe fn MsiEnumProductsExW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumProductsW(iproductindex: u32, lpproductbuf: super::super::Foundation::PWSTR) -> u32 {
@@ -7824,7 +7074,6 @@ pub unsafe fn MsiEnumProductsW(iproductindex: u32, lpproductbuf: super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumRelatedProductsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpupgradecode: Param0, dwreserved: u32, iproductindex: u32, lpproductbuf: super::super::Foundation::PSTR) -> u32 {
@@ -7839,7 +7088,6 @@ pub unsafe fn MsiEnumRelatedProductsA<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEnumRelatedProductsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpupgradecode: Param0, dwreserved: u32, iproductindex: u32, lpproductbuf: super::super::Foundation::PWSTR) -> u32 {
@@ -7854,7 +7102,6 @@ pub unsafe fn MsiEnumRelatedProductsW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEvaluateConditionA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szcondition: Param1) -> MSICONDITION {
@@ -7869,7 +7116,6 @@ pub unsafe fn MsiEvaluateConditionA<'a, Param0: ::windows::core::IntoParam<'a, M
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiEvaluateConditionW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szcondition: Param1) -> MSICONDITION {
@@ -7884,7 +7130,6 @@ pub unsafe fn MsiEvaluateConditionW<'a, Param0: ::windows::core::IntoParam<'a, M
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiExtractPatchXMLDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpatchpath: Param0, dwreserved: u32, szxmldata: super::super::Foundation::PSTR, pcchxmldata: *mut u32) -> u32 {
@@ -7899,7 +7144,6 @@ pub unsafe fn MsiExtractPatchXMLDataA<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiExtractPatchXMLDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpatchpath: Param0, dwreserved: u32, szxmldata: super::super::Foundation::PWSTR, pcchxmldata: *mut u32) -> u32 {
@@ -7914,7 +7158,6 @@ pub unsafe fn MsiExtractPatchXMLDataW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiFormatRecordA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0, hrecord: Param1, szresultbuf: super::super::Foundation::PSTR, pcchresultbuf: *mut u32) -> u32 {
@@ -7929,7 +7172,6 @@ pub unsafe fn MsiFormatRecordA<'a, Param0: ::windows::core::IntoParam<'a, MSIHAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiFormatRecordW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0, hrecord: Param1, szresultbuf: super::super::Foundation::PWSTR, pcchresultbuf: *mut u32) -> u32 {
@@ -7944,7 +7186,6 @@ pub unsafe fn MsiFormatRecordW<'a, Param0: ::windows::core::IntoParam<'a, MSIHAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiGetActiveDatabase<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0) -> MSIHANDLE {
     #[cfg(windows)]
@@ -7958,7 +7199,6 @@ pub unsafe fn MsiGetActiveDatabase<'a, Param0: ::windows::core::IntoParam<'a, MS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetComponentPathA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szcomponent: Param1, lppathbuf: super::super::Foundation::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
@@ -7973,7 +7213,6 @@ pub unsafe fn MsiGetComponentPathA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetComponentPathExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szcomponentcode: Param1, szusersid: Param2, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: super::super::Foundation::PSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE {
@@ -7988,7 +7227,6 @@ pub unsafe fn MsiGetComponentPathExA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetComponentPathExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szcomponentcode: Param1, szusersid: Param2, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: super::super::Foundation::PWSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE {
@@ -8003,7 +7241,6 @@ pub unsafe fn MsiGetComponentPathExW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetComponentPathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szcomponent: Param1, lppathbuf: super::super::Foundation::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
@@ -8018,7 +7255,6 @@ pub unsafe fn MsiGetComponentPathW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetComponentStateA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szcomponent: Param1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
@@ -8033,7 +7269,6 @@ pub unsafe fn MsiGetComponentStateA<'a, Param0: ::windows::core::IntoParam<'a, M
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetComponentStateW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szcomponent: Param1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
@@ -8048,7 +7283,6 @@ pub unsafe fn MsiGetComponentStateW<'a, Param0: ::windows::core::IntoParam<'a, M
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiGetDatabaseState<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hdatabase: Param0) -> MSIDBSTATE {
     #[cfg(windows)]
@@ -8062,7 +7296,6 @@ pub unsafe fn MsiGetDatabaseState<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFeatureCostA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfeature: Param1, icosttree: MSICOSTTREE, istate: INSTALLSTATE, picost: *mut i32) -> u32 {
@@ -8077,7 +7310,6 @@ pub unsafe fn MsiGetFeatureCostA<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFeatureCostW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfeature: Param1, icosttree: MSICOSTTREE, istate: INSTALLSTATE, picost: *mut i32) -> u32 {
@@ -8092,7 +7324,6 @@ pub unsafe fn MsiGetFeatureCostW<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFeatureInfoA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hproduct: Param0, szfeature: Param1, lpattributes: *mut u32, lptitlebuf: super::super::Foundation::PSTR, pcchtitlebuf: *mut u32, lphelpbuf: super::super::Foundation::PSTR, pcchhelpbuf: *mut u32) -> u32 {
@@ -8107,7 +7338,6 @@ pub unsafe fn MsiGetFeatureInfoA<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFeatureInfoW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hproduct: Param0, szfeature: Param1, lpattributes: *mut u32, lptitlebuf: super::super::Foundation::PWSTR, pcchtitlebuf: *mut u32, lphelpbuf: super::super::Foundation::PWSTR, pcchhelpbuf: *mut u32) -> u32 {
@@ -8122,7 +7352,6 @@ pub unsafe fn MsiGetFeatureInfoW<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFeatureStateA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfeature: Param1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
@@ -8137,7 +7366,6 @@ pub unsafe fn MsiGetFeatureStateA<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFeatureStateW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfeature: Param1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
@@ -8152,7 +7380,6 @@ pub unsafe fn MsiGetFeatureStateW<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFeatureUsageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1, pdwusecount: *mut u32, pwdateused: *mut u16) -> u32 {
@@ -8167,7 +7394,6 @@ pub unsafe fn MsiGetFeatureUsageA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFeatureUsageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1, pdwusecount: *mut u32, pwdateused: *mut u16) -> u32 {
@@ -8182,7 +7408,6 @@ pub unsafe fn MsiGetFeatureUsageW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFeatureValidStatesA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfeature: Param1, lpinstallstates: *mut u32) -> u32 {
@@ -8197,7 +7422,6 @@ pub unsafe fn MsiGetFeatureValidStatesA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFeatureValidStatesW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfeature: Param1, lpinstallstates: *mut u32) -> u32 {
@@ -8212,7 +7436,6 @@ pub unsafe fn MsiGetFeatureValidStatesW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFileHashA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfilepath: Param0, dwoptions: u32, phash: *mut MSIFILEHASHINFO) -> u32 {
@@ -8227,7 +7450,6 @@ pub unsafe fn MsiGetFileHashA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFileHashW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfilepath: Param0, dwoptions: u32, phash: *mut MSIFILEHASHINFO) -> u32 {
@@ -8242,7 +7464,6 @@ pub unsafe fn MsiGetFileHashW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MsiGetFileSignatureInformationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szsignedobjectpath: Param0, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: *mut u32) -> ::windows::core::Result<()> {
@@ -8257,7 +7478,6 @@ pub unsafe fn MsiGetFileSignatureInformationA<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MsiGetFileSignatureInformationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szsignedobjectpath: Param0, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: *mut u32) -> ::windows::core::Result<()> {
@@ -8272,7 +7492,6 @@ pub unsafe fn MsiGetFileSignatureInformationW<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFileVersionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfilepath: Param0, lpversionbuf: super::super::Foundation::PSTR, pcchversionbuf: *mut u32, lplangbuf: super::super::Foundation::PSTR, pcchlangbuf: *mut u32) -> u32 {
@@ -8287,7 +7506,6 @@ pub unsafe fn MsiGetFileVersionA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetFileVersionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfilepath: Param0, lpversionbuf: super::super::Foundation::PWSTR, pcchversionbuf: *mut u32, lplangbuf: super::super::Foundation::PWSTR, pcchlangbuf: *mut u32) -> u32 {
@@ -8302,7 +7520,6 @@ pub unsafe fn MsiGetFileVersionW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiGetLanguage<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0) -> u16 {
     #[cfg(windows)]
@@ -8316,7 +7533,6 @@ pub unsafe fn MsiGetLanguage<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiGetLastErrorRecord() -> MSIHANDLE {
     #[cfg(windows)]
@@ -8330,7 +7546,6 @@ pub unsafe fn MsiGetLastErrorRecord() -> MSIHANDLE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetMode<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0, erunmode: MSIRUNMODE) -> super::super::Foundation::BOOL {
@@ -8345,7 +7560,6 @@ pub unsafe fn MsiGetMode<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetPatchFileListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szpatchpackages: Param1, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32 {
@@ -8360,7 +7574,6 @@ pub unsafe fn MsiGetPatchFileListA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetPatchFileListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szpatchpackages: Param1, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32 {
@@ -8375,7 +7588,6 @@ pub unsafe fn MsiGetPatchFileListW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetPatchInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpatch: Param0, szattribute: Param1, lpvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -8390,7 +7602,6 @@ pub unsafe fn MsiGetPatchInfoA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetPatchInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
@@ -8413,7 +7624,6 @@ pub unsafe fn MsiGetPatchInfoExA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetPatchInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
@@ -8436,7 +7646,6 @@ pub unsafe fn MsiGetPatchInfoExW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetPatchInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpatch: Param0, szattribute: Param1, lpvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -8451,7 +7660,6 @@ pub unsafe fn MsiGetPatchInfoW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetProductCodeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcomponent: Param0, lpbuf39: super::super::Foundation::PSTR) -> u32 {
@@ -8466,7 +7674,6 @@ pub unsafe fn MsiGetProductCodeA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetProductCodeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcomponent: Param0, lpbuf39: super::super::Foundation::PWSTR) -> u32 {
@@ -8481,7 +7688,6 @@ pub unsafe fn MsiGetProductCodeW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetProductInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szattribute: Param1, lpvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -8496,7 +7702,6 @@ pub unsafe fn MsiGetProductInfoA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetProductInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, szproperty: Param3, szvalue: super::super::Foundation::PSTR, pcchvalue: *mut u32) -> u32 {
@@ -8511,7 +7716,6 @@ pub unsafe fn MsiGetProductInfoExA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetProductInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, szproperty: Param3, szvalue: super::super::Foundation::PWSTR, pcchvalue: *mut u32) -> u32 {
@@ -8526,7 +7730,6 @@ pub unsafe fn MsiGetProductInfoExW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetProductInfoFromScriptA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szscriptfile: Param0, lpproductbuf39: super::super::Foundation::PSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: super::super::Foundation::PSTR, pcchnamebuf: *mut u32, lppackagebuf: super::super::Foundation::PSTR, pcchpackagebuf: *mut u32) -> u32 {
@@ -8550,7 +7753,6 @@ pub unsafe fn MsiGetProductInfoFromScriptA<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetProductInfoFromScriptW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szscriptfile: Param0, lpproductbuf39: super::super::Foundation::PWSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: super::super::Foundation::PWSTR, pcchnamebuf: *mut u32, lppackagebuf: super::super::Foundation::PWSTR, pcchpackagebuf: *mut u32) -> u32 {
@@ -8574,7 +7776,6 @@ pub unsafe fn MsiGetProductInfoFromScriptW<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetProductInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szattribute: Param1, lpvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -8589,7 +7790,6 @@ pub unsafe fn MsiGetProductInfoW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetProductPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hproduct: Param0, szproperty: Param1, lpvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -8604,7 +7804,6 @@ pub unsafe fn MsiGetProductPropertyA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetProductPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hproduct: Param0, szproperty: Param1, lpvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -8619,7 +7818,6 @@ pub unsafe fn MsiGetProductPropertyW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szname: Param1, szvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -8634,7 +7832,6 @@ pub unsafe fn MsiGetPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHAND
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szname: Param1, szvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -8649,7 +7846,6 @@ pub unsafe fn MsiGetPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHAND
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetShortcutTargetA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szshortcutpath: Param0, szproductcode: super::super::Foundation::PSTR, szfeatureid: super::super::Foundation::PSTR, szcomponentcode: super::super::Foundation::PSTR) -> u32 {
@@ -8664,7 +7860,6 @@ pub unsafe fn MsiGetShortcutTargetA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetShortcutTargetW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szshortcutpath: Param0, szproductcode: super::super::Foundation::PWSTR, szfeatureid: super::super::Foundation::PWSTR, szcomponentcode: super::super::Foundation::PWSTR) -> u32 {
@@ -8679,7 +7874,6 @@ pub unsafe fn MsiGetShortcutTargetW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetSourcePathA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfolder: Param1, szpathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32 {
@@ -8694,7 +7888,6 @@ pub unsafe fn MsiGetSourcePathA<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetSourcePathW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfolder: Param1, szpathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32 {
@@ -8709,7 +7902,6 @@ pub unsafe fn MsiGetSourcePathW<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetSummaryInformationA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, szdatabasepath: Param1, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32 {
@@ -8724,7 +7916,6 @@ pub unsafe fn MsiGetSummaryInformationA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetSummaryInformationW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, szdatabasepath: Param1, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32 {
@@ -8739,7 +7930,6 @@ pub unsafe fn MsiGetSummaryInformationW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetTargetPathA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfolder: Param1, szpathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32 {
@@ -8754,7 +7944,6 @@ pub unsafe fn MsiGetTargetPathA<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetTargetPathW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfolder: Param1, szpathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32 {
@@ -8769,7 +7958,6 @@ pub unsafe fn MsiGetTargetPathW<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetUserInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, lpusernamebuf: super::super::Foundation::PSTR, pcchusernamebuf: *mut u32, lporgnamebuf: super::super::Foundation::PSTR, pcchorgnamebuf: *mut u32, lpserialbuf: super::super::Foundation::PSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE {
@@ -8784,7 +7972,6 @@ pub unsafe fn MsiGetUserInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiGetUserInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, lpusernamebuf: super::super::Foundation::PWSTR, pcchusernamebuf: *mut u32, lporgnamebuf: super::super::Foundation::PWSTR, pcchorgnamebuf: *mut u32, lpserialbuf: super::super::Foundation::PWSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE {
@@ -8799,7 +7986,6 @@ pub unsafe fn MsiGetUserInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiInstallMissingComponentA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szcomponent: Param1, einstallstate: INSTALLSTATE) -> u32 {
@@ -8814,7 +8000,6 @@ pub unsafe fn MsiInstallMissingComponentA<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiInstallMissingComponentW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szcomponent: Param1, einstallstate: INSTALLSTATE) -> u32 {
@@ -8829,7 +8014,6 @@ pub unsafe fn MsiInstallMissingComponentW<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiInstallMissingFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfile: Param1) -> u32 {
@@ -8844,7 +8028,6 @@ pub unsafe fn MsiInstallMissingFileA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiInstallMissingFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfile: Param1) -> u32 {
@@ -8859,7 +8042,6 @@ pub unsafe fn MsiInstallMissingFileW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiInstallProductA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpackagepath: Param0, szcommandline: Param1) -> u32 {
@@ -8874,7 +8056,6 @@ pub unsafe fn MsiInstallProductA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiInstallProductW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpackagepath: Param0, szcommandline: Param1) -> u32 {
@@ -8889,7 +8070,6 @@ pub unsafe fn MsiInstallProductW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiIsProductElevatedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, pfelevated: *mut super::super::Foundation::BOOL) -> u32 {
@@ -8904,7 +8084,6 @@ pub unsafe fn MsiIsProductElevatedA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiIsProductElevatedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, pfelevated: *mut super::super::Foundation::BOOL) -> u32 {
@@ -8919,7 +8098,6 @@ pub unsafe fn MsiIsProductElevatedW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiJoinTransaction<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(htransactionhandle: Param0, dwtransactionattributes: u32, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -8934,7 +8112,6 @@ pub unsafe fn MsiJoinTransaction<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiLocateComponentA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcomponent: Param0, lppathbuf: super::super::Foundation::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
@@ -8949,7 +8126,6 @@ pub unsafe fn MsiLocateComponentA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiLocateComponentW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcomponent: Param0, lppathbuf: super::super::Foundation::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
@@ -8964,7 +8140,6 @@ pub unsafe fn MsiLocateComponentW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiNotifySidChangeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(poldsid: Param0, pnewsid: Param1) -> u32 {
@@ -8979,7 +8154,6 @@ pub unsafe fn MsiNotifySidChangeA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiNotifySidChangeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(poldsid: Param0, pnewsid: Param1) -> u32 {
@@ -8994,7 +8168,6 @@ pub unsafe fn MsiNotifySidChangeW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiOpenDatabaseA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatabasepath: Param0, szpersist: Param1, phdatabase: *mut MSIHANDLE) -> u32 {
@@ -9009,7 +8182,6 @@ pub unsafe fn MsiOpenDatabaseA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiOpenDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatabasepath: Param0, szpersist: Param1, phdatabase: *mut MSIHANDLE) -> u32 {
@@ -9024,7 +8196,6 @@ pub unsafe fn MsiOpenDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiOpenPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpackagepath: Param0, hproduct: *mut MSIHANDLE) -> u32 {
@@ -9039,7 +8210,6 @@ pub unsafe fn MsiOpenPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiOpenPackageExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpackagepath: Param0, dwoptions: u32, hproduct: *mut MSIHANDLE) -> u32 {
@@ -9054,7 +8224,6 @@ pub unsafe fn MsiOpenPackageExA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiOpenPackageExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpackagepath: Param0, dwoptions: u32, hproduct: *mut MSIHANDLE) -> u32 {
@@ -9069,7 +8238,6 @@ pub unsafe fn MsiOpenPackageExW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiOpenPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpackagepath: Param0, hproduct: *mut MSIHANDLE) -> u32 {
@@ -9084,7 +8252,6 @@ pub unsafe fn MsiOpenPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiOpenProductA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, hproduct: *mut MSIHANDLE) -> u32 {
@@ -9099,7 +8266,6 @@ pub unsafe fn MsiOpenProductA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiOpenProductW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, hproduct: *mut MSIHANDLE) -> u32 {
@@ -9114,7 +8280,6 @@ pub unsafe fn MsiOpenProductW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiPreviewBillboardA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hpreview: Param0, szcontrolname: Param1, szbillboard: Param2) -> u32 {
@@ -9129,7 +8294,6 @@ pub unsafe fn MsiPreviewBillboardA<'a, Param0: ::windows::core::IntoParam<'a, MS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiPreviewBillboardW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hpreview: Param0, szcontrolname: Param1, szbillboard: Param2) -> u32 {
@@ -9144,7 +8308,6 @@ pub unsafe fn MsiPreviewBillboardW<'a, Param0: ::windows::core::IntoParam<'a, MS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiPreviewDialogA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hpreview: Param0, szdialogname: Param1) -> u32 {
@@ -9159,7 +8322,6 @@ pub unsafe fn MsiPreviewDialogA<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiPreviewDialogW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hpreview: Param0, szdialogname: Param1) -> u32 {
@@ -9174,7 +8336,6 @@ pub unsafe fn MsiPreviewDialogW<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn MsiProcessAdvertiseScriptA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Registry::HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
@@ -9195,7 +8356,6 @@ pub unsafe fn MsiProcessAdvertiseScriptA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn MsiProcessAdvertiseScriptW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Registry::HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
@@ -9216,7 +8376,6 @@ pub unsafe fn MsiProcessAdvertiseScriptW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiProcessMessage<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0, emessagetype: INSTALLMESSAGE, hrecord: Param2) -> i32 {
     #[cfg(windows)]
@@ -9230,7 +8389,6 @@ pub unsafe fn MsiProcessMessage<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiProvideAssemblyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szassemblyname: Param0, szappcontext: Param1, dwinstallmode: INSTALLMODE, dwassemblyinfo: MSIASSEMBLYINFO, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32 {
@@ -9245,7 +8403,6 @@ pub unsafe fn MsiProvideAssemblyA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiProvideAssemblyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szassemblyname: Param0, szappcontext: Param1, dwinstallmode: INSTALLMODE, dwassemblyinfo: MSIASSEMBLYINFO, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32 {
@@ -9260,7 +8417,6 @@ pub unsafe fn MsiProvideAssemblyW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiProvideComponentA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1, szcomponent: Param2, dwinstallmode: INSTALLMODE, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32 {
@@ -9275,7 +8431,6 @@ pub unsafe fn MsiProvideComponentA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiProvideComponentW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1, szcomponent: Param2, dwinstallmode: INSTALLMODE, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32 {
@@ -9290,7 +8445,6 @@ pub unsafe fn MsiProvideComponentW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiProvideQualifiedComponentA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcategory: Param0, szqualifier: Param1, dwinstallmode: INSTALLMODE, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32 {
@@ -9305,7 +8459,6 @@ pub unsafe fn MsiProvideQualifiedComponentA<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiProvideQualifiedComponentExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcategory: Param0, szqualifier: Param1, dwinstallmode: INSTALLMODE, szproduct: Param3, dwunused1: u32, dwunused2: u32, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32 {
@@ -9329,7 +8482,6 @@ pub unsafe fn MsiProvideQualifiedComponentExA<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiProvideQualifiedComponentExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcategory: Param0, szqualifier: Param1, dwinstallmode: INSTALLMODE, szproduct: Param3, dwunused1: u32, dwunused2: u32, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32 {
@@ -9353,7 +8505,6 @@ pub unsafe fn MsiProvideQualifiedComponentExW<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiProvideQualifiedComponentW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcategory: Param0, szqualifier: Param1, dwinstallmode: INSTALLMODE, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32 {
@@ -9368,7 +8519,6 @@ pub unsafe fn MsiProvideQualifiedComponentW<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiQueryComponentStateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, szcomponentcode: Param3, pdwstate: *mut INSTALLSTATE) -> u32 {
@@ -9383,7 +8533,6 @@ pub unsafe fn MsiQueryComponentStateA<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiQueryComponentStateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, szcomponentcode: Param3, pdwstate: *mut INSTALLSTATE) -> u32 {
@@ -9398,7 +8547,6 @@ pub unsafe fn MsiQueryComponentStateW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiQueryFeatureStateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1) -> INSTALLSTATE {
@@ -9413,7 +8561,6 @@ pub unsafe fn MsiQueryFeatureStateA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiQueryFeatureStateExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, szfeature: Param3, pdwstate: *mut INSTALLSTATE) -> u32 {
@@ -9428,7 +8575,6 @@ pub unsafe fn MsiQueryFeatureStateExA<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiQueryFeatureStateExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, szfeature: Param3, pdwstate: *mut INSTALLSTATE) -> u32 {
@@ -9443,7 +8589,6 @@ pub unsafe fn MsiQueryFeatureStateExW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiQueryFeatureStateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1) -> INSTALLSTATE {
@@ -9458,7 +8603,6 @@ pub unsafe fn MsiQueryFeatureStateW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiQueryProductStateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0) -> INSTALLSTATE {
@@ -9473,7 +8617,6 @@ pub unsafe fn MsiQueryProductStateA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiQueryProductStateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0) -> INSTALLSTATE {
@@ -9488,7 +8631,6 @@ pub unsafe fn MsiQueryProductStateW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiRecordClearData<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0) -> u32 {
     #[cfg(windows)]
@@ -9502,7 +8644,6 @@ pub unsafe fn MsiRecordClearData<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiRecordDataSize<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32) -> u32 {
     #[cfg(windows)]
@@ -9516,7 +8657,6 @@ pub unsafe fn MsiRecordDataSize<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiRecordGetFieldCount<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0) -> u32 {
     #[cfg(windows)]
@@ -9530,7 +8670,6 @@ pub unsafe fn MsiRecordGetFieldCount<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiRecordGetInteger<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32) -> i32 {
     #[cfg(windows)]
@@ -9544,7 +8683,6 @@ pub unsafe fn MsiRecordGetInteger<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiRecordGetStringA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32, szvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -9559,7 +8697,6 @@ pub unsafe fn MsiRecordGetStringA<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiRecordGetStringW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32, szvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -9574,7 +8711,6 @@ pub unsafe fn MsiRecordGetStringW<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiRecordIsNull<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32) -> super::super::Foundation::BOOL {
@@ -9589,7 +8725,6 @@ pub unsafe fn MsiRecordIsNull<'a, Param0: ::windows::core::IntoParam<'a, MSIHAND
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiRecordReadStream<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32, szdatabuf: super::super::Foundation::PSTR, pcbdatabuf: *mut u32) -> u32 {
@@ -9604,7 +8739,6 @@ pub unsafe fn MsiRecordReadStream<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiRecordSetInteger<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32, ivalue: i32) -> u32 {
     #[cfg(windows)]
@@ -9618,7 +8752,6 @@ pub unsafe fn MsiRecordSetInteger<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiRecordSetStreamA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hrecord: Param0, ifield: u32, szfilepath: Param2) -> u32 {
@@ -9633,7 +8766,6 @@ pub unsafe fn MsiRecordSetStreamA<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiRecordSetStreamW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrecord: Param0, ifield: u32, szfilepath: Param2) -> u32 {
@@ -9648,7 +8780,6 @@ pub unsafe fn MsiRecordSetStreamW<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiRecordSetStringA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hrecord: Param0, ifield: u32, szvalue: Param2) -> u32 {
@@ -9663,7 +8794,6 @@ pub unsafe fn MsiRecordSetStringA<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiRecordSetStringW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrecord: Param0, ifield: u32, szvalue: Param2) -> u32 {
@@ -9678,7 +8808,6 @@ pub unsafe fn MsiRecordSetStringW<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiReinstallFeatureA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1, dwreinstallmode: REINSTALLMODE) -> u32 {
@@ -9693,7 +8822,6 @@ pub unsafe fn MsiReinstallFeatureA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiReinstallFeatureW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1, dwreinstallmode: REINSTALLMODE) -> u32 {
@@ -9708,7 +8836,6 @@ pub unsafe fn MsiReinstallFeatureW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiReinstallProductA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szreinstallmode: REINSTALLMODE) -> u32 {
@@ -9723,7 +8850,6 @@ pub unsafe fn MsiReinstallProductA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiReinstallProductW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szreinstallmode: REINSTALLMODE) -> u32 {
@@ -9738,7 +8864,6 @@ pub unsafe fn MsiReinstallProductW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiRemovePatchesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpatchlist: Param0, szproductcode: Param1, euninstalltype: INSTALLTYPE, szpropertylist: Param3) -> u32 {
@@ -9753,7 +8878,6 @@ pub unsafe fn MsiRemovePatchesA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiRemovePatchesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpatchlist: Param0, szproductcode: Param1, euninstalltype: INSTALLTYPE, szpropertylist: Param3) -> u32 {
@@ -9768,7 +8892,6 @@ pub unsafe fn MsiRemovePatchesW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSequenceA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, sztable: Param1, isequencemode: i32) -> u32 {
@@ -9783,7 +8906,6 @@ pub unsafe fn MsiSequenceA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSequenceW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, sztable: Param1, isequencemode: i32) -> u32 {
@@ -9798,7 +8920,6 @@ pub unsafe fn MsiSequenceW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetComponentStateA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szcomponent: Param1, istate: INSTALLSTATE) -> u32 {
@@ -9813,7 +8934,6 @@ pub unsafe fn MsiSetComponentStateA<'a, Param0: ::windows::core::IntoParam<'a, M
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetComponentStateW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szcomponent: Param1, istate: INSTALLSTATE) -> u32 {
@@ -9828,7 +8948,6 @@ pub unsafe fn MsiSetComponentStateW<'a, Param0: ::windows::core::IntoParam<'a, M
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetExternalUIA(puihandler: ::core::option::Option<INSTALLUI_HANDLERA>, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> ::core::option::Option<INSTALLUI_HANDLERA> {
@@ -9843,7 +8962,6 @@ pub unsafe fn MsiSetExternalUIA(puihandler: ::core::option::Option<INSTALLUI_HAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiSetExternalUIRecord(puihandler: ::core::option::Option<PINSTALLUI_HANDLER_RECORD>, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void, ppuiprevhandler: ::core::option::Option<PINSTALLUI_HANDLER_RECORD>) -> u32 {
     #[cfg(windows)]
@@ -9857,7 +8975,6 @@ pub unsafe fn MsiSetExternalUIRecord(puihandler: ::core::option::Option<PINSTALL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetExternalUIW(puihandler: ::core::option::Option<INSTALLUI_HANDLERW>, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> ::core::option::Option<INSTALLUI_HANDLERW> {
@@ -9872,7 +8989,6 @@ pub unsafe fn MsiSetExternalUIW(puihandler: ::core::option::Option<INSTALLUI_HAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetFeatureAttributesA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfeature: Param1, dwattributes: u32) -> u32 {
@@ -9887,7 +9003,6 @@ pub unsafe fn MsiSetFeatureAttributesA<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetFeatureAttributesW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfeature: Param1, dwattributes: u32) -> u32 {
@@ -9902,7 +9017,6 @@ pub unsafe fn MsiSetFeatureAttributesW<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetFeatureStateA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfeature: Param1, istate: INSTALLSTATE) -> u32 {
@@ -9917,7 +9031,6 @@ pub unsafe fn MsiSetFeatureStateA<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetFeatureStateW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfeature: Param1, istate: INSTALLSTATE) -> u32 {
@@ -9932,7 +9045,6 @@ pub unsafe fn MsiSetFeatureStateW<'a, Param0: ::windows::core::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiSetInstallLevel<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0, iinstalllevel: i32) -> u32 {
     #[cfg(windows)]
@@ -9946,7 +9058,6 @@ pub unsafe fn MsiSetInstallLevel<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetInternalUI(dwuilevel: INSTALLUILEVEL, phwnd: *mut super::super::Foundation::HWND) -> INSTALLUILEVEL {
@@ -9961,7 +9072,6 @@ pub unsafe fn MsiSetInternalUI(dwuilevel: INSTALLUILEVEL, phwnd: *mut super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetMode<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hinstall: Param0, erunmode: MSIRUNMODE, fstate: Param2) -> u32 {
@@ -9976,7 +9086,6 @@ pub unsafe fn MsiSetMode<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szname: Param1, szvalue: Param2) -> u32 {
@@ -9991,7 +9100,6 @@ pub unsafe fn MsiSetPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHAND
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szname: Param1, szvalue: Param2) -> u32 {
@@ -10006,7 +9114,6 @@ pub unsafe fn MsiSetPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHAND
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetTargetPathA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfolder: Param1, szfolderpath: Param2) -> u32 {
@@ -10021,7 +9128,6 @@ pub unsafe fn MsiSetTargetPathA<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSetTargetPathW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfolder: Param1, szfolderpath: Param2) -> u32 {
@@ -10036,7 +9142,6 @@ pub unsafe fn MsiSetTargetPathW<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListAddMediaDiskA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32, szvolumelabel: Param5, szdiskprompt: Param6) -> u32 {
@@ -10051,7 +9156,6 @@ pub unsafe fn MsiSourceListAddMediaDiskA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListAddMediaDiskW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
@@ -10074,7 +9178,6 @@ pub unsafe fn MsiSourceListAddMediaDiskW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListAddSourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32, szsource: Param3) -> u32 {
@@ -10089,7 +9192,6 @@ pub unsafe fn MsiSourceListAddSourceA<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListAddSourceExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: Param4, dwindex: u32) -> u32 {
@@ -10104,7 +9206,6 @@ pub unsafe fn MsiSourceListAddSourceExA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListAddSourceExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: Param4, dwindex: u32) -> u32 {
@@ -10119,7 +9220,6 @@ pub unsafe fn MsiSourceListAddSourceExW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListAddSourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32, szsource: Param3) -> u32 {
@@ -10134,7 +9234,6 @@ pub unsafe fn MsiSourceListAddSourceW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListClearAllA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32) -> u32 {
@@ -10149,7 +9248,6 @@ pub unsafe fn MsiSourceListClearAllA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListClearAllExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32 {
@@ -10164,7 +9262,6 @@ pub unsafe fn MsiSourceListClearAllExA<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListClearAllExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32 {
@@ -10179,7 +9276,6 @@ pub unsafe fn MsiSourceListClearAllExW<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListClearAllW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32) -> u32 {
@@ -10194,7 +9290,6 @@ pub unsafe fn MsiSourceListClearAllW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListClearMediaDiskA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32) -> u32 {
@@ -10209,7 +9304,6 @@ pub unsafe fn MsiSourceListClearMediaDiskA<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListClearMediaDiskW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32) -> u32 {
@@ -10224,7 +9318,6 @@ pub unsafe fn MsiSourceListClearMediaDiskW<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListClearSourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: Param4) -> u32 {
@@ -10239,7 +9332,6 @@ pub unsafe fn MsiSourceListClearSourceA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListClearSourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: Param4) -> u32 {
@@ -10254,7 +9346,6 @@ pub unsafe fn MsiSourceListClearSourceW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListEnumMediaDisksA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: super::super::Foundation::PSTR, pcchvolumelabel: *mut u32, szdiskprompt: super::super::Foundation::PSTR, pcchdiskprompt: *mut u32) -> u32 {
@@ -10280,7 +9371,6 @@ pub unsafe fn MsiSourceListEnumMediaDisksA<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListEnumMediaDisksW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: super::super::Foundation::PWSTR, pcchvolumelabel: *mut u32, szdiskprompt: super::super::Foundation::PWSTR, pcchdiskprompt: *mut u32) -> u32 {
@@ -10306,7 +9396,6 @@ pub unsafe fn MsiSourceListEnumMediaDisksW<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListEnumSourcesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, szsource: super::super::Foundation::PSTR, pcchsource: *mut u32) -> u32 {
@@ -10321,7 +9410,6 @@ pub unsafe fn MsiSourceListEnumSourcesA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListEnumSourcesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, szsource: super::super::Foundation::PWSTR, pcchsource: *mut u32) -> u32 {
@@ -10336,7 +9424,6 @@ pub unsafe fn MsiSourceListEnumSourcesW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListForceResolutionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32) -> u32 {
@@ -10351,7 +9438,6 @@ pub unsafe fn MsiSourceListForceResolutionA<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListForceResolutionExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32 {
@@ -10366,7 +9452,6 @@ pub unsafe fn MsiSourceListForceResolutionExA<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListForceResolutionExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32 {
@@ -10381,7 +9466,6 @@ pub unsafe fn MsiSourceListForceResolutionExW<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListForceResolutionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32) -> u32 {
@@ -10396,7 +9480,6 @@ pub unsafe fn MsiSourceListForceResolutionW<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListGetInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: Param4, szvalue: super::super::Foundation::PSTR, pcchvalue: *mut u32) -> u32 {
@@ -10411,7 +9494,6 @@ pub unsafe fn MsiSourceListGetInfoA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListGetInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: Param4, szvalue: super::super::Foundation::PWSTR, pcchvalue: *mut u32) -> u32 {
@@ -10426,7 +9508,6 @@ pub unsafe fn MsiSourceListGetInfoW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListSetInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: Param4, szvalue: Param5) -> u32 {
@@ -10441,7 +9522,6 @@ pub unsafe fn MsiSourceListSetInfoA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSourceListSetInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: Param4, szvalue: Param5) -> u32 {
@@ -10456,7 +9536,6 @@ pub unsafe fn MsiSourceListSetInfoW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSummaryInfoGetPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hsummaryinfo: Param0, uiproperty: u32, puidatatype: *mut u32, pivalue: *mut i32, pftvalue: *mut super::super::Foundation::FILETIME, szvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -10471,7 +9550,6 @@ pub unsafe fn MsiSummaryInfoGetPropertyA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiSummaryInfoGetPropertyCount<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hsummaryinfo: Param0, puipropertycount: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10485,7 +9563,6 @@ pub unsafe fn MsiSummaryInfoGetPropertyCount<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSummaryInfoGetPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hsummaryinfo: Param0, uiproperty: u32, puidatatype: *mut u32, pivalue: *mut i32, pftvalue: *mut super::super::Foundation::FILETIME, szvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -10500,7 +9577,6 @@ pub unsafe fn MsiSummaryInfoGetPropertyW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiSummaryInfoPersist<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hsummaryinfo: Param0) -> u32 {
     #[cfg(windows)]
@@ -10514,7 +9590,6 @@ pub unsafe fn MsiSummaryInfoPersist<'a, Param0: ::windows::core::IntoParam<'a, M
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSummaryInfoSetPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hsummaryinfo: Param0, uiproperty: u32, uidatatype: u32, ivalue: i32, pftvalue: *mut super::super::Foundation::FILETIME, szvalue: Param5) -> u32 {
@@ -10529,7 +9604,6 @@ pub unsafe fn MsiSummaryInfoSetPropertyA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiSummaryInfoSetPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hsummaryinfo: Param0, uiproperty: u32, uidatatype: u32, ivalue: i32, pftvalue: *mut super::super::Foundation::FILETIME, szvalue: Param5) -> u32 {
@@ -10544,7 +9618,6 @@ pub unsafe fn MsiSummaryInfoSetPropertyW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiUseFeatureA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1) -> INSTALLSTATE {
@@ -10559,7 +9632,6 @@ pub unsafe fn MsiUseFeatureA<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiUseFeatureExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1, dwinstallmode: u32, dwreserved: u32) -> INSTALLSTATE {
@@ -10574,7 +9646,6 @@ pub unsafe fn MsiUseFeatureExA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiUseFeatureExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1, dwinstallmode: u32, dwreserved: u32) -> INSTALLSTATE {
@@ -10589,7 +9660,6 @@ pub unsafe fn MsiUseFeatureExW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiUseFeatureW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1) -> INSTALLSTATE {
@@ -10604,7 +9674,6 @@ pub unsafe fn MsiUseFeatureW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiVerifyDiskSpace<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0) -> u32 {
     #[cfg(windows)]
@@ -10618,7 +9687,6 @@ pub unsafe fn MsiVerifyDiskSpace<'a, Param0: ::windows::core::IntoParam<'a, MSIH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiVerifyPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpackagepath: Param0) -> u32 {
@@ -10633,7 +9701,6 @@ pub unsafe fn MsiVerifyPackageA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiVerifyPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpackagepath: Param0) -> u32 {
@@ -10648,7 +9715,6 @@ pub unsafe fn MsiVerifyPackageW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiViewClose<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0) -> u32 {
     #[cfg(windows)]
@@ -10662,7 +9728,6 @@ pub unsafe fn MsiViewClose<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiViewExecute<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0, hrecord: Param1) -> u32 {
     #[cfg(windows)]
@@ -10676,7 +9741,6 @@ pub unsafe fn MsiViewExecute<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiViewFetch<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0, phrecord: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
@@ -10690,7 +9754,6 @@ pub unsafe fn MsiViewFetch<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiViewGetColumnInfo<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0, ecolumninfo: MSICOLINFO, phrecord: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
@@ -10704,7 +9767,6 @@ pub unsafe fn MsiViewGetColumnInfo<'a, Param0: ::windows::core::IntoParam<'a, MS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiViewGetErrorA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0, szcolumnnamebuffer: super::super::Foundation::PSTR, pcchbuf: *mut u32) -> MSIDBERROR {
@@ -10719,7 +9781,6 @@ pub unsafe fn MsiViewGetErrorA<'a, Param0: ::windows::core::IntoParam<'a, MSIHAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsiViewGetErrorW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0, szcolumnnamebuffer: super::super::Foundation::PWSTR, pcchbuf: *mut u32) -> MSIDBERROR {
@@ -10734,7 +9795,6 @@ pub unsafe fn MsiViewGetErrorW<'a, Param0: ::windows::core::IntoParam<'a, MSIHAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[inline]
 pub unsafe fn MsiViewModify<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0, emodifymode: MSIMODIFY, hrecord: Param2) -> u32 {
     #[cfg(windows)]
@@ -10749,7 +9809,6 @@ pub unsafe fn MsiViewModify<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE
     unimplemented!("Unsupported target OS");
 }
 pub const MsmMerge: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda830_2c26_11d2_ad65_00a0c9af11a6);
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, newfilecoffbase: u32, newfilecofftime: u32, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE) -> i32 {
@@ -10775,7 +9834,6 @@ pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PACKMAN_RUNTIME(pub i32);
@@ -10795,7 +9853,6 @@ unsafe impl ::windows::core::Abi for PACKMAN_RUNTIME {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct PATCH_IGNORE_RANGE {
     pub OffsetInOldFile: u32,
     pub LengthInBytes: u32,
@@ -10822,7 +9879,6 @@ unsafe impl ::windows::core::Abi for PATCH_IGNORE_RANGE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct PATCH_INTERLEAVE_MAP {
     pub CountRanges: u32,
     pub Range: [PATCH_INTERLEAVE_MAP_0; 1],
@@ -10849,7 +9905,6 @@ unsafe impl ::windows::core::Abi for PATCH_INTERLEAVE_MAP {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct PATCH_INTERLEAVE_MAP_0 {
     pub OldOffset: u32,
     pub OldLength: u32,
@@ -10878,7 +9933,6 @@ unsafe impl ::windows::core::Abi for PATCH_INTERLEAVE_MAP_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PATCH_OLD_FILE_INFO {
     pub SizeOfThisStruct: u32,
     pub Anonymous: PATCH_OLD_FILE_INFO_0,
@@ -10938,7 +9992,6 @@ unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PATCH_OLD_FILE_INFO_A {
     pub SizeOfThisStruct: u32,
     pub OldFileName: super::super::Foundation::PSTR,
@@ -10983,7 +10036,6 @@ unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_A {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PATCH_OLD_FILE_INFO_H {
     pub SizeOfThisStruct: u32,
     pub OldFileHandle: super::super::Foundation::HANDLE,
@@ -11028,7 +10080,6 @@ unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_H {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PATCH_OLD_FILE_INFO_W {
     pub SizeOfThisStruct: u32,
     pub OldFileName: super::super::Foundation::PWSTR,
@@ -11073,7 +10124,6 @@ unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_W {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PATCH_OPTION_DATA {
     pub SizeOfThisStruct: u32,
     pub SymbolOptionFlags: u32,
@@ -11128,43 +10178,25 @@ impl ::core::cmp::Eq for PATCH_OPTION_DATA {}
 unsafe impl ::windows::core::Abi for PATCH_OPTION_DATA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_FAIL_IF_BIGGER: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_FAIL_IF_SAME_FILE: u32 = 524288u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_INTERLEAVE_FILES: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_NO_BINDFIX: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_NO_CHECKSUM: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_NO_LOCKFIX: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_NO_REBASE: u32 = 262144u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_NO_RESTIMEFIX: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_NO_TIMESTAMP: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_RESERVED1: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_SIGNATURE_MD5: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_USE_BEST: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_USE_LZX_A: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_USE_LZX_B: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_USE_LZX_BEST: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_USE_LZX_LARGE: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_VALID_FLAGS: u32 = 3237937159u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct PATCH_RETAIN_RANGE {
     pub OffsetInOldFile: u32,
     pub LengthInBytes: u32,
@@ -11190,63 +10222,35 @@ impl ::core::cmp::Eq for PATCH_RETAIN_RANGE {}
 unsafe impl ::windows::core::Abi for PATCH_RETAIN_RANGE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_SYMBOL_NO_FAILURES: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_SYMBOL_NO_IMAGEHLP: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_SYMBOL_RESERVED1: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_SYMBOL_UNDECORATED_TOO: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_TRANSFORM_PE_IRELOC_2: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_TRANSFORM_PE_RESOURCE_2: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_APPNAME: u32 = 18u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_AUTHOR: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_CHARCOUNT: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_COMMENTS: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_CREATE_DTM: u32 = 12u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_EDITTIME: u32 = 10u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_KEYWORDS: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_LASTAUTHOR: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_LASTPRINTED: u32 = 11u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_LASTSAVE_DTM: u32 = 13u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_MSIRESTRICT: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_MSISOURCE: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_MSIVERSION: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_PAGECOUNT: u32 = 14u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_REVNUMBER: u32 = 9u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_SUBJECT: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_TEMPLATE: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_THUMBNAIL: u32 = 17u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_TITLE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_WORDCOUNT: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub type PINSTALLUI_HANDLER_RECORD = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, hrecord: MSIHANDLE) -> i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct PMSIHANDLE {
     pub m_h: MSIHANDLE,
 }
@@ -11271,7 +10275,6 @@ unsafe impl ::windows::core::Abi for PMSIHANDLE {
     type Abi = Self;
 }
 pub const PMSvc: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9e511fc_e364_497a_a121_b7b3612cedce);
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_ACTIVATION_POLICY(pub i32);
@@ -11291,7 +10294,6 @@ impl ::core::convert::From<i32> for PM_ACTIVATION_POLICY {
 unsafe impl ::windows::core::Abi for PM_ACTIVATION_POLICY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_APPLICATION_HUBTYPE(pub i32);
@@ -11306,7 +10308,6 @@ impl ::core::convert::From<i32> for PM_APPLICATION_HUBTYPE {
 unsafe impl ::windows::core::Abi for PM_APPLICATION_HUBTYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_APPLICATION_INSTALL_TYPE(pub i32);
@@ -11324,7 +10325,6 @@ impl ::core::convert::From<i32> for PM_APPLICATION_INSTALL_TYPE {
 unsafe impl ::windows::core::Abi for PM_APPLICATION_INSTALL_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_APPLICATION_STATE(pub i32);
@@ -11349,7 +10349,6 @@ impl ::core::convert::From<i32> for PM_APPLICATION_STATE {
 unsafe impl ::windows::core::Abi for PM_APPLICATION_STATE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_APP_GENRE(pub i32);
@@ -11367,7 +10366,6 @@ unsafe impl ::windows::core::Abi for PM_APP_GENRE {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PM_BSATASKID {
     pub ProductID: ::windows::core::GUID,
     pub TaskID: super::super::Foundation::BSTR,
@@ -11401,7 +10399,6 @@ unsafe impl ::windows::core::Abi for PM_BSATASKID {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PM_BWTASKID {
     pub ProductID: ::windows::core::GUID,
     pub TaskID: super::super::Foundation::BSTR,
@@ -11432,7 +10429,6 @@ impl ::core::cmp::Eq for PM_BWTASKID {}
 unsafe impl ::windows::core::Abi for PM_BWTASKID {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_ENUM_APP_FILTER(pub i32);
@@ -11453,7 +10449,6 @@ impl ::core::convert::From<i32> for PM_ENUM_APP_FILTER {
 unsafe impl ::windows::core::Abi for PM_ENUM_APP_FILTER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_ENUM_BSA_FILTER(pub i32);
@@ -11471,7 +10466,6 @@ impl ::core::convert::From<i32> for PM_ENUM_BSA_FILTER {
 unsafe impl ::windows::core::Abi for PM_ENUM_BSA_FILTER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_ENUM_BW_FILTER(pub i32);
@@ -11486,7 +10480,6 @@ impl ::core::convert::From<i32> for PM_ENUM_BW_FILTER {
 unsafe impl ::windows::core::Abi for PM_ENUM_BW_FILTER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_ENUM_EXTENSION_FILTER(pub i32);
@@ -11517,7 +10510,6 @@ impl ::core::clone::Clone for PM_ENUM_FILTER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PM_ENUM_FILTER {
     pub FilterType: i32,
     pub FilterParameter: PM_ENUM_FILTER_0,
@@ -11589,7 +10581,6 @@ impl ::core::cmp::Eq for PM_ENUM_FILTER_0 {}
 unsafe impl ::windows::core::Abi for PM_ENUM_FILTER_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_ENUM_TASK_FILTER(pub i32);
@@ -11607,7 +10598,6 @@ impl ::core::convert::From<i32> for PM_ENUM_TASK_FILTER {
 unsafe impl ::windows::core::Abi for PM_ENUM_TASK_FILTER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_ENUM_TILE_FILTER(pub i32);
@@ -11627,7 +10617,6 @@ unsafe impl ::windows::core::Abi for PM_ENUM_TILE_FILTER {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PM_EXTENSIONCONSUMER {
     pub ConsumerPID: ::windows::core::GUID,
     pub ExtensionID: super::super::Foundation::BSTR,
@@ -11661,7 +10650,6 @@ unsafe impl ::windows::core::Abi for PM_EXTENSIONCONSUMER {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PM_INSTALLINFO {
     pub ProductID: ::windows::core::GUID,
     pub PackagePath: super::super::Foundation::BSTR,
@@ -11712,7 +10700,6 @@ unsafe impl ::windows::core::Abi for PM_INSTALLINFO {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PM_INVOCATIONINFO {
     pub URIBaseOrAUMID: super::super::Foundation::BSTR,
     pub URIFragmentOrArgs: super::super::Foundation::BSTR,
@@ -11743,7 +10730,6 @@ impl ::core::cmp::Eq for PM_INVOCATIONINFO {}
 unsafe impl ::windows::core::Abi for PM_INVOCATIONINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_LIVETILE_RECURRENCE_TYPE(pub i32);
@@ -11759,7 +10745,6 @@ impl ::core::convert::From<i32> for PM_LIVETILE_RECURRENCE_TYPE {
 unsafe impl ::windows::core::Abi for PM_LIVETILE_RECURRENCE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_LOGO_SIZE(pub i32);
@@ -11778,7 +10763,6 @@ unsafe impl ::windows::core::Abi for PM_LOGO_SIZE {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PM_STARTAPPBLOB {
     pub cbSize: u32,
     pub ProductID: ::windows::core::GUID,
@@ -11833,7 +10817,6 @@ unsafe impl ::windows::core::Abi for PM_STARTAPPBLOB {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PM_STARTTILEBLOB {
     pub cbSize: u32,
     pub ProductID: ::windows::core::GUID,
@@ -11901,7 +10884,6 @@ impl ::core::cmp::Eq for PM_STARTTILEBLOB {}
 unsafe impl ::windows::core::Abi for PM_STARTTILEBLOB {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_STARTTILE_TYPE(pub i32);
@@ -11918,7 +10900,6 @@ impl ::core::convert::From<i32> for PM_STARTTILE_TYPE {
 unsafe impl ::windows::core::Abi for PM_STARTTILE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_TASK_TRANSITION(pub i32);
@@ -11938,7 +10919,6 @@ impl ::core::convert::From<i32> for PM_TASK_TRANSITION {
 unsafe impl ::windows::core::Abi for PM_TASK_TRANSITION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_TASK_TYPE(pub i32);
@@ -11956,7 +10936,6 @@ impl ::core::convert::From<i32> for PM_TASK_TYPE {
 unsafe impl ::windows::core::Abi for PM_TASK_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_TILE_HUBTYPE(pub i32);
@@ -11977,7 +10956,6 @@ impl ::core::convert::From<i32> for PM_TILE_HUBTYPE {
 unsafe impl ::windows::core::Abi for PM_TILE_HUBTYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PM_TILE_SIZE(pub i32);
@@ -11998,7 +10976,6 @@ unsafe impl ::windows::core::Abi for PM_TILE_SIZE {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PM_UPDATEINFO {
     pub ProductID: ::windows::core::GUID,
     pub PackagePath: super::super::Foundation::BSTR,
@@ -12045,7 +11022,6 @@ unsafe impl ::windows::core::Abi for PM_UPDATEINFO {
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub struct PM_UPDATEINFO_LEGACY {
     pub ProductID: ::windows::core::GUID,
     pub PackagePath: super::super::Foundation::BSTR,
@@ -12080,15 +11056,12 @@ impl ::core::cmp::Eq for PM_UPDATEINFO_LEGACY {}
 unsafe impl ::windows::core::Abi for PM_UPDATEINFO_LEGACY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PPATCH_PROGRESS_CALLBACK = unsafe extern "system" fn(callbackcontext: *mut ::core::ffi::c_void, currentposition: u32, maximumposition: u32) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PPATCH_SYMLOAD_CALLBACK = unsafe extern "system" fn(whichfile: u32, symbolfilename: super::super::Foundation::PSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct PROTECTED_FILE_DATA {
     pub FileName: [u16; 260],
     pub FileNumber: u32,
@@ -12113,7 +11086,6 @@ impl ::core::cmp::Eq for PROTECTED_FILE_DATA {}
 unsafe impl ::windows::core::Abi for PROTECTED_FILE_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QUERYASMINFO_FLAGS(pub u32);
@@ -12154,7 +11126,6 @@ impl ::core::ops::Not for QUERYASMINFO_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryActCtxSettingsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: u32, hactctx: Param1, settingsnamespace: Param2, settingname: Param3, pvbuffer: super::super::Foundation::PWSTR, dwbuffer: usize, pdwwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL {
@@ -12169,7 +11140,6 @@ pub unsafe fn QueryActCtxSettingsW<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryActCtxW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwflags: u32, hactctx: Param1, pvsubinstance: *const ::core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL {
@@ -12184,7 +11154,6 @@ pub unsafe fn QueryActCtxW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REINSTALLMODE(pub i32);
@@ -12207,7 +11176,6 @@ impl ::core::convert::From<i32> for REINSTALLMODE {
 unsafe impl ::windows::core::Abi for REINSTALLMODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RESULTTYPES(pub i32);
@@ -12223,7 +11191,6 @@ impl ::core::convert::From<i32> for RESULTTYPES {
 unsafe impl ::windows::core::Abi for RESULTTYPES {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReleaseActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hactctx: Param0) {
@@ -12238,7 +11205,6 @@ pub unsafe fn ReleaseActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCRIPTFLAGS(pub i32);
@@ -12259,27 +11225,16 @@ impl ::core::convert::From<i32> for SCRIPTFLAGS {
 unsafe impl ::windows::core::Abi for SCRIPTFLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const SFC_DISABLE_ASK: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const SFC_DISABLE_NOPOPUPS: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const SFC_DISABLE_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const SFC_DISABLE_ONCE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const SFC_DISABLE_SETUP: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const SFC_QUOTA_DEFAULT: u32 = 50u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const SFC_SCAN_ALWAYS: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const SFC_SCAN_IMMEDIATE: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const SFC_SCAN_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const SFC_SCAN_ONCE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STATUSTYPES(pub i32);
@@ -12302,15 +11257,10 @@ impl ::core::convert::From<i32> for STATUSTYPES {
 unsafe impl ::windows::core::Abi for STATUSTYPES {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const STREAM_FORMAT_COMPLIB_MANIFEST: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const STREAM_FORMAT_COMPLIB_MODULE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const STREAM_FORMAT_WIN32_MANIFEST: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const STREAM_FORMAT_WIN32_MODULE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SfcGetNextProtectedFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(rpchandle: Param0, protfiledata: *mut PROTECTED_FILE_DATA) -> super::super::Foundation::BOOL {
@@ -12325,7 +11275,6 @@ pub unsafe fn SfcGetNextProtectedFile<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SfcIsFileProtected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(rpchandle: Param0, protfilename: Param1) -> super::super::Foundation::BOOL {
@@ -12340,7 +11289,6 @@ pub unsafe fn SfcIsFileProtected<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SfcIsKeyProtected<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(keyhandle: Param0, subkeyname: Param1, keysam: u32) -> super::super::Foundation::BOOL {
@@ -12355,7 +11303,6 @@ pub unsafe fn SfcIsKeyProtected<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SfpVerifyFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszfilename: Param0, pszerror: Param1, dwerrsize: u32) -> super::super::Foundation::BOOL {
@@ -12370,7 +11317,6 @@ pub unsafe fn SfpVerifyFile<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TILE_TEMPLATE_TYPE(pub i32);
@@ -12440,77 +11386,41 @@ impl ::core::convert::From<i32> for TILE_TEMPLATE_TYPE {
 unsafe impl ::windows::core::Abi for TILE_TEMPLATE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_BACKUP: u32 = 128u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_CMI: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_COPYFILES: u32 = 8u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_DEPTH_DECR: u32 = 262144u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_DEPTH_INCR: u32 = 131072u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_DETAILS: u32 = 5u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_DEVINST: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_DEVMGR: u32 = 536870912u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_DRIVER_STORE: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_DRVSETUP: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_ERROR: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_FILEQ: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_FLUSH_FILE: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_INF: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_INFDB: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_INSTALLER: u32 = 1073741824u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_NEWDEV: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_POLICY: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_RESERVED_FLAGS: u32 = 65520u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_SETUP: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_SETUPAPI_BITS: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_SETUPAPI_CMDLINE: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_SETUPAPI_DEVLOG: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_SIGVERIF: u32 = 32u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_SUMMARY: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_SYSTEM_STATE_CHANGE: u32 = 3u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_TAB_1: u32 = 524288u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_TIMESTAMP: u32 = 65536u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_UI: u32 = 256u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_UMPNPMGR: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_UTIL: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_VENDOR: u32 = 2147483648u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_VERBOSE: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_VERY_VERBOSE: u32 = 7u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_WARNING: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TestApplyPatchToFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(patchfilename: Param0, oldfilename: Param1, applyoptionflags: u32) -> super::super::Foundation::BOOL {
@@ -12525,7 +11435,6 @@ pub unsafe fn TestApplyPatchToFileA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: *const u8, patchfilesize: u32, oldfilebuffer: *const u8, oldfilesize: u32, newfilesize: *mut u32, applyoptionflags: u32) -> super::super::Foundation::BOOL {
@@ -12540,7 +11449,6 @@ pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: *const u8, patchfil
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TestApplyPatchToFileByHandles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(patchfilehandle: Param0, oldfilehandle: Param1, applyoptionflags: u32) -> super::super::Foundation::BOOL {
@@ -12555,7 +11463,6 @@ pub unsafe fn TestApplyPatchToFileByHandles<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TestApplyPatchToFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(patchfilename: Param0, oldfilename: Param1, applyoptionflags: u32) -> super::super::Foundation::BOOL {
@@ -12570,13 +11477,9 @@ pub unsafe fn TestApplyPatchToFileW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const UIALL: u32 = 32768u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const UILOGBITS: u32 = 15u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const UINONE: u32 = 0u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USERINFOSTATE(pub i32);
@@ -12593,37 +11496,21 @@ impl ::core::convert::From<i32> for USERINFOSTATE {
 unsafe impl ::windows::core::Abi for USERINFOSTATE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_BAD_MAJOR_VERSION: u32 = 3222294792u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_BASE: u32 = 3222294785u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_EQUAL_FILE_VERSION: u32 = 3222294794u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_FILE_VERSION_DOWNREV: u32 = 3222294793u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_IMPROPER_TRANSFORM_VALIDATION: u32 = 3222294788u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_INVALID_TRANSFORM_VALIDATION: u32 = 3222294791u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_MAJOR_UPGRADE_PATCH: u32 = 3222294785u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_OBSOLETION_WITH_MSI30: u32 = 3222294801u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_OBSOLETION_WITH_PATCHSEQUENCE: u32 = 3222294803u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_OBSOLETION_WITH_SEQUENCE_DATA: u32 = 3222294802u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_PATCHPROPERTYNOTSET: u32 = 3222294795u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_PCW_MISMATCHED_PRODUCT_CODES: u32 = 3222294789u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_PCW_MISMATCHED_PRODUCT_VERSIONS: u32 = 3222294790u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_SEQUENCE_DATA_GENERATION_DISABLED: u32 = 3222294786u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_SEQUENCE_DATA_SUPERSEDENCE_IGNORED: u32 = 3222294787u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ZombifyActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hactctx: Param0) -> super::super::Foundation::BOOL {
@@ -12638,13 +11525,10 @@ pub unsafe fn ZombifyActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const _WIN32_MSI: u32 = 500u32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const _WIN32_MSM: u32 = 100u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub struct _tagAPPTASKTYPE {
     pub ProductID: ::windows::core::GUID,
     pub TaskType: PM_TASK_TYPE,
@@ -12669,9 +11553,7 @@ impl ::core::cmp::Eq for _tagAPPTASKTYPE {}
 unsafe impl ::windows::core::Abi for _tagAPPTASKTYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const cchMaxInteger: i32 = 12i32;
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbAssemblyAttributes(pub i32);
@@ -12685,7 +11567,6 @@ impl ::core::convert::From<i32> for msidbAssemblyAttributes {
 unsafe impl ::windows::core::Abi for msidbAssemblyAttributes {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbClassAttributes(pub i32);
@@ -12698,7 +11579,6 @@ impl ::core::convert::From<i32> for msidbClassAttributes {
 unsafe impl ::windows::core::Abi for msidbClassAttributes {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbComponentAttributes(pub i32);
@@ -12723,7 +11603,6 @@ impl ::core::convert::From<i32> for msidbComponentAttributes {
 unsafe impl ::windows::core::Abi for msidbComponentAttributes {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbControlAttributes(pub i32);
@@ -12771,7 +11650,6 @@ impl ::core::convert::From<i32> for msidbControlAttributes {
 unsafe impl ::windows::core::Abi for msidbControlAttributes {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbCustomActionType(pub i32);
@@ -12806,7 +11684,6 @@ impl ::core::convert::From<i32> for msidbCustomActionType {
 unsafe impl ::windows::core::Abi for msidbCustomActionType {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbDialogAttributes(pub i32);
@@ -12830,7 +11707,6 @@ impl ::core::convert::From<i32> for msidbDialogAttributes {
 unsafe impl ::windows::core::Abi for msidbDialogAttributes {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbEmbeddedUIAttributes(pub i32);
@@ -12844,7 +11720,6 @@ impl ::core::convert::From<i32> for msidbEmbeddedUIAttributes {
 unsafe impl ::windows::core::Abi for msidbEmbeddedUIAttributes {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbFeatureAttributes(pub i32);
@@ -12863,7 +11738,6 @@ impl ::core::convert::From<i32> for msidbFeatureAttributes {
 unsafe impl ::windows::core::Abi for msidbFeatureAttributes {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbFileAttributes(pub i32);
@@ -12889,7 +11763,6 @@ impl ::core::convert::From<i32> for msidbFileAttributes {
 unsafe impl ::windows::core::Abi for msidbFileAttributes {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbIniFileAction(pub i32);
@@ -12906,7 +11779,6 @@ impl ::core::convert::From<i32> for msidbIniFileAction {
 unsafe impl ::windows::core::Abi for msidbIniFileAction {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbLocatorType(pub i32);
@@ -12922,7 +11794,6 @@ impl ::core::convert::From<i32> for msidbLocatorType {
 unsafe impl ::windows::core::Abi for msidbLocatorType {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbMoveFileOptions(pub i32);
@@ -12935,7 +11806,6 @@ impl ::core::convert::From<i32> for msidbMoveFileOptions {
 unsafe impl ::windows::core::Abi for msidbMoveFileOptions {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbODBCDataSourceRegistration(pub i32);
@@ -12949,7 +11819,6 @@ impl ::core::convert::From<i32> for msidbODBCDataSourceRegistration {
 unsafe impl ::windows::core::Abi for msidbODBCDataSourceRegistration {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbPatchAttributes(pub i32);
@@ -12962,7 +11831,6 @@ impl ::core::convert::From<i32> for msidbPatchAttributes {
 unsafe impl ::windows::core::Abi for msidbPatchAttributes {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbRegistryRoot(pub i32);
@@ -12978,7 +11846,6 @@ impl ::core::convert::From<i32> for msidbRegistryRoot {
 unsafe impl ::windows::core::Abi for msidbRegistryRoot {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbRemoveFileInstallMode(pub i32);
@@ -12993,7 +11860,6 @@ impl ::core::convert::From<i32> for msidbRemoveFileInstallMode {
 unsafe impl ::windows::core::Abi for msidbRemoveFileInstallMode {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbServiceConfigEvent(pub i32);
@@ -13008,7 +11874,6 @@ impl ::core::convert::From<i32> for msidbServiceConfigEvent {
 unsafe impl ::windows::core::Abi for msidbServiceConfigEvent {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbServiceControlEvent(pub i32);
@@ -13026,7 +11891,6 @@ impl ::core::convert::From<i32> for msidbServiceControlEvent {
 unsafe impl ::windows::core::Abi for msidbServiceControlEvent {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbServiceInstallErrorControl(pub i32);
@@ -13039,7 +11903,6 @@ impl ::core::convert::From<i32> for msidbServiceInstallErrorControl {
 unsafe impl ::windows::core::Abi for msidbServiceInstallErrorControl {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbSumInfoSourceType(pub i32);
@@ -13055,7 +11918,6 @@ impl ::core::convert::From<i32> for msidbSumInfoSourceType {
 unsafe impl ::windows::core::Abi for msidbSumInfoSourceType {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbTextStyleStyleBits(pub i32);
@@ -13071,7 +11933,6 @@ impl ::core::convert::From<i32> for msidbTextStyleStyleBits {
 unsafe impl ::windows::core::Abi for msidbTextStyleStyleBits {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msidbUpgradeAttributes(pub i32);
@@ -13089,7 +11950,6 @@ impl ::core::convert::From<i32> for msidbUpgradeAttributes {
 unsafe impl ::windows::core::Abi for msidbUpgradeAttributes {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msifiFastInstallBits(pub i32);
@@ -13104,7 +11964,6 @@ impl ::core::convert::From<i32> for msifiFastInstallBits {
 unsafe impl ::windows::core::Abi for msifiFastInstallBits {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msirbRebootReason(pub i32);
@@ -13121,7 +11980,6 @@ impl ::core::convert::From<i32> for msirbRebootReason {
 unsafe impl ::windows::core::Abi for msirbRebootReason {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msirbRebootType(pub i32);
@@ -13135,7 +11993,6 @@ impl ::core::convert::From<i32> for msirbRebootType {
 unsafe impl ::windows::core::Abi for msirbRebootType {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct msmErrorType(pub i32);

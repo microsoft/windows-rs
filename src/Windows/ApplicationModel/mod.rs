@@ -53,7 +53,6 @@ pub mod UserDataTasks;
 pub mod VoiceCommands;
 #[cfg(feature = "ApplicationModel_Wallet")]
 pub mod Wallet;
-#[doc = "*Required features: `ApplicationModel`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AddResourcePackageOptions(pub u32);
@@ -104,12 +103,10 @@ impl ::core::ops::Not for AddResourcePackageOptions {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppDisplayInfo(pub ::windows::core::IInspectable);
 impl AppDisplayInfo {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -117,7 +114,6 @@ impl AppDisplayInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -126,7 +122,6 @@ impl AppDisplayInfo {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`, `Storage_Streams`*"]
     pub fn GetLogo<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Size>>(&self, size: Param0) -> ::windows::core::Result<super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
         unsafe {
@@ -187,7 +182,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppDisplayInfo {}
 unsafe impl ::core::marker::Sync for AppDisplayInfo {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppExecutionContext(pub i32);
@@ -210,12 +204,10 @@ unsafe impl ::windows::core::RuntimeType for AppExecutionContext {
 impl ::windows::core::DefaultType for AppExecutionContext {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppInfo(pub ::windows::core::IInspectable);
 impl AppInfo {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -223,7 +215,6 @@ impl AppInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -231,7 +222,6 @@ impl AppInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn DisplayInfo(&self) -> ::windows::core::Result<AppDisplayInfo> {
         let this = self;
         unsafe {
@@ -239,7 +229,6 @@ impl AppInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppDisplayInfo>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -247,7 +236,6 @@ impl AppInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::core::Result<Package> {
         let this = &::windows::core::Interface::cast::<IAppInfo2>(self)?;
         unsafe {
@@ -255,14 +243,12 @@ impl AppInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Package>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Current() -> ::windows::core::Result<AppInfo> {
         Self::IAppInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppInfo>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn GetFromAppUserModelId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appusermodelid: Param0) -> ::windows::core::Result<AppInfo> {
         Self::IAppInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -270,14 +256,12 @@ impl AppInfo {
         })
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel`, `System`*"]
     pub fn GetFromAppUserModelIdForUser<'a, Param0: ::windows::core::IntoParam<'a, super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, appusermodelid: Param1) -> ::windows::core::Result<AppInfo> {
         Self::IAppInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), user.into_param().abi(), appusermodelid.into_param().abi(), &mut result__).from_abi::<AppInfo>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ExecutionContext(&self) -> ::windows::core::Result<AppExecutionContext> {
         let this = &::windows::core::Interface::cast::<IAppInfo3>(self)?;
         unsafe {
@@ -285,7 +269,6 @@ impl AppInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppExecutionContext>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn SupportedFileExtensions(&self) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IAppInfo4>(self)?;
         unsafe {
@@ -350,13 +333,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppInfo {}
 unsafe impl ::core::marker::Sync for AppInfo {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppInstallerInfo(pub ::windows::core::IInspectable);
 impl AppInstallerInfo {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn Uri(&self) -> ::windows::core::Result<super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -364,7 +345,6 @@ impl AppInstallerInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn OnLaunch(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -372,7 +352,6 @@ impl AppInstallerInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn HoursBetweenUpdateChecks(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -380,7 +359,6 @@ impl AppInstallerInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ShowPrompt(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -388,7 +366,6 @@ impl AppInstallerInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn UpdateBlocksActivation(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -396,7 +373,6 @@ impl AppInstallerInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn AutomaticBackgroundTask(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -404,7 +380,6 @@ impl AppInstallerInfo {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -412,7 +387,6 @@ impl AppInstallerInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsAutoRepairEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -420,7 +394,6 @@ impl AppInstallerInfo {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Version(&self) -> ::windows::core::Result<PackageVersion> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -429,7 +402,6 @@ impl AppInstallerInfo {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn LastChecked(&self) -> ::windows::core::Result<super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -438,7 +410,6 @@ impl AppInstallerInfo {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn PausedUntil(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::DateTime>> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -447,7 +418,6 @@ impl AppInstallerInfo {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn UpdateUris(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -456,7 +426,6 @@ impl AppInstallerInfo {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn RepairUris(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -465,7 +434,6 @@ impl AppInstallerInfo {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn DependencyPackageUris(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -474,7 +442,6 @@ impl AppInstallerInfo {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn OptionalPackageUris(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -482,7 +449,6 @@ impl AppInstallerInfo {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<super::Foundation::Uri>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn PolicySource(&self) -> ::windows::core::Result<AppInstallerPolicySource> {
         let this = &::windows::core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
@@ -543,7 +509,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppInstallerInfo {}
 unsafe impl ::core::marker::Sync for AppInstallerInfo {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppInstallerPolicySource(pub i32);
@@ -565,12 +530,10 @@ unsafe impl ::windows::core::RuntimeType for AppInstallerPolicySource {
 impl ::windows::core::DefaultType for AppInstallerPolicySource {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AppInstance(pub ::windows::core::IInspectable);
 impl AppInstance {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Key(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -578,7 +541,6 @@ impl AppInstance {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsCurrentInstance(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -586,12 +548,10 @@ impl AppInstance {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn RedirectActivationTo(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn RecommendedInstance() -> ::windows::core::Result<AppInstance> {
         Self::IAppInstanceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -599,26 +559,22 @@ impl AppInstance {
         })
     }
     #[cfg(feature = "ApplicationModel_Activation")]
-    #[doc = "*Required features: `ApplicationModel`, `ApplicationModel_Activation`*"]
     pub fn GetActivatedEventArgs() -> ::windows::core::Result<Activation::IActivatedEventArgs> {
         Self::IAppInstanceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Activation::IActivatedEventArgs>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn FindOrRegisterInstanceForKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(key: Param0) -> ::windows::core::Result<AppInstance> {
         Self::IAppInstanceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<AppInstance>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Unregister() -> ::windows::core::Result<()> {
         Self::IAppInstanceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation_Collections`*"]
     pub fn GetInstances() -> ::windows::core::Result<super::Foundation::Collections::IVector<AppInstance>> {
         Self::IAppInstanceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -682,10 +638,8 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AppInstance {}
 unsafe impl ::core::marker::Sync for AppInstance {}
-#[doc = "*Required features: `ApplicationModel`*"]
 pub struct CameraApplicationManager {}
 impl CameraApplicationManager {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ShowInstalledApplicationsUI() -> ::windows::core::Result<()> {
         Self::ICameraApplicationManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() })
     }
@@ -697,17 +651,14 @@ impl CameraApplicationManager {
 impl ::windows::core::RuntimeName for CameraApplicationManager {
     const NAME: &'static str = "Windows.ApplicationModel.CameraApplicationManager";
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 pub struct DesignMode {}
 impl DesignMode {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn DesignModeEnabled() -> ::windows::core::Result<bool> {
         Self::IDesignModeStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn DesignMode2Enabled() -> ::windows::core::Result<bool> {
         Self::IDesignModeStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -726,13 +677,11 @@ impl DesignMode {
 impl ::windows::core::RuntimeName for DesignMode {
     const NAME: &'static str = "Windows.ApplicationModel.DesignMode";
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct EnteredBackgroundEventArgs(pub ::windows::core::IInspectable);
 impl EnteredBackgroundEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -816,7 +765,6 @@ unsafe impl ::core::marker::Sync for EnteredBackgroundEventArgs {}
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct FullTrustAppContract(pub u8);
-#[doc = "*Required features: `ApplicationModel`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FullTrustLaunchResult(pub i32);
@@ -840,12 +788,10 @@ unsafe impl ::windows::core::RuntimeType for FullTrustLaunchResult {
 impl ::windows::core::DefaultType for FullTrustLaunchResult {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct FullTrustProcessLaunchResult(pub ::windows::core::IInspectable);
 impl FullTrustProcessLaunchResult {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn LaunchResult(&self) -> ::windows::core::Result<FullTrustLaunchResult> {
         let this = self;
         unsafe {
@@ -853,7 +799,6 @@ impl FullTrustProcessLaunchResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FullTrustLaunchResult>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -914,11 +859,9 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a F
 }
 unsafe impl ::core::marker::Send for FullTrustProcessLaunchResult {}
 unsafe impl ::core::marker::Sync for FullTrustProcessLaunchResult {}
-#[doc = "*Required features: `ApplicationModel`*"]
 pub struct FullTrustProcessLauncher {}
 impl FullTrustProcessLauncher {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn LaunchFullTrustProcessForCurrentAppAsync() -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         Self::IFullTrustProcessLauncherStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -926,7 +869,6 @@ impl FullTrustProcessLauncher {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn LaunchFullTrustProcessForCurrentAppWithParametersAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(parametergroupid: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         Self::IFullTrustProcessLauncherStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -934,7 +876,6 @@ impl FullTrustProcessLauncher {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn LaunchFullTrustProcessForAppAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(fulltrustpackagerelativeappid: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         Self::IFullTrustProcessLauncherStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -942,7 +883,6 @@ impl FullTrustProcessLauncher {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn LaunchFullTrustProcessForAppWithParametersAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(fulltrustpackagerelativeappid: Param0, parametergroupid: Param1) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         Self::IFullTrustProcessLauncherStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -950,7 +890,6 @@ impl FullTrustProcessLauncher {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn LaunchFullTrustProcessForCurrentAppWithArgumentsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(commandline: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>> {
         Self::IFullTrustProcessLauncherStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -958,7 +897,6 @@ impl FullTrustProcessLauncher {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn LaunchFullTrustProcessForAppWithArgumentsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(fulltrustpackagerelativeappid: Param0, commandline: Param1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>> {
         Self::IFullTrustProcessLauncherStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1251,7 +1189,6 @@ pub struct IDesignModeStatics2_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel`*"]
 pub struct IEnteredBackgroundEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IEnteredBackgroundEventArgs {
     type Vtable = IEnteredBackgroundEventArgs_abi;
@@ -1259,7 +1196,6 @@ unsafe impl ::windows::core::Interface for IEnteredBackgroundEventArgs {
 }
 impl IEnteredBackgroundEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1390,7 +1326,6 @@ pub struct IFullTrustProcessLauncherStatics2_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel`*"]
 pub struct ILeavingBackgroundEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ILeavingBackgroundEventArgs {
     type Vtable = ILeavingBackgroundEventArgs_abi;
@@ -1398,7 +1333,6 @@ unsafe impl ::windows::core::Interface for ILeavingBackgroundEventArgs {
 }
 impl ILeavingBackgroundEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -2257,14 +2191,12 @@ pub struct IStartupTaskStatics_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel`*"]
 pub struct ISuspendingDeferral(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ISuspendingDeferral {
     type Vtable = ISuspendingDeferral_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59140509_8bc9_4eb4_b636_dabdc4f46f66);
 }
 impl ISuspendingDeferral {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
@@ -2326,14 +2258,12 @@ pub struct ISuspendingDeferral_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel`*"]
 pub struct ISuspendingEventArgs(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ISuspendingEventArgs {
     type Vtable = ISuspendingEventArgs_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96061c05_2dba_4d08_b0bd_2b30a131c6aa);
 }
 impl ISuspendingEventArgs {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn SuspendingOperation(&self) -> ::windows::core::Result<SuspendingOperation> {
         let this = self;
         unsafe {
@@ -2398,14 +2328,12 @@ pub struct ISuspendingEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel`*"]
 pub struct ISuspendingOperation(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ISuspendingOperation {
     type Vtable = ISuspendingOperation_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9da4ca41_20e1_4e9b_9f65_a9f435340c3a);
 }
 impl ISuspendingOperation {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<SuspendingDeferral> {
         let this = self;
         unsafe {
@@ -2414,7 +2342,6 @@ impl ISuspendingOperation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn Deadline(&self) -> ::windows::core::Result<super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2479,13 +2406,11 @@ pub struct ISuspendingOperation_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LeavingBackgroundEventArgs(pub ::windows::core::IInspectable);
 impl LeavingBackgroundEventArgs {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -2566,12 +2491,10 @@ impl<'a> ::windows::core::IntoParam<'a, ILeavingBackgroundEventArgs> for &Leavin
 }
 unsafe impl ::core::marker::Send for LeavingBackgroundEventArgs {}
 unsafe impl ::core::marker::Sync for LeavingBackgroundEventArgs {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct LimitedAccessFeatureRequestResult(pub ::windows::core::IInspectable);
 impl LimitedAccessFeatureRequestResult {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn FeatureId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2579,7 +2502,6 @@ impl LimitedAccessFeatureRequestResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Status(&self) -> ::windows::core::Result<LimitedAccessFeatureStatus> {
         let this = self;
         unsafe {
@@ -2588,7 +2510,6 @@ impl LimitedAccessFeatureRequestResult {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn EstimatedRemovalDate(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -2649,7 +2570,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 unsafe impl ::core::marker::Send for LimitedAccessFeatureRequestResult {}
 unsafe impl ::core::marker::Sync for LimitedAccessFeatureRequestResult {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LimitedAccessFeatureStatus(pub i32);
@@ -2673,10 +2593,8 @@ unsafe impl ::windows::core::RuntimeType for LimitedAccessFeatureStatus {
 impl ::windows::core::DefaultType for LimitedAccessFeatureStatus {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 pub struct LimitedAccessFeatures {}
 impl LimitedAccessFeatures {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn TryUnlockFeature<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(featureid: Param0, token: Param1, attestation: Param2) -> ::windows::core::Result<LimitedAccessFeatureRequestResult> {
         Self::ILimitedAccessFeaturesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2691,12 +2609,10 @@ impl LimitedAccessFeatures {
 impl ::windows::core::RuntimeName for LimitedAccessFeatures {
     const NAME: &'static str = "Windows.ApplicationModel.LimitedAccessFeatures";
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct Package(pub ::windows::core::IInspectable);
 impl Package {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Id(&self) -> ::windows::core::Result<PackageId> {
         let this = self;
         unsafe {
@@ -2705,7 +2621,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Storage")]
-    #[doc = "*Required features: `ApplicationModel`, `Storage`*"]
     pub fn InstalledLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder> {
         let this = self;
         unsafe {
@@ -2713,7 +2628,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Storage::StorageFolder>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsFramework(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2722,7 +2636,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation_Collections`*"]
     pub fn Dependencies(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Package>> {
         let this = self;
         unsafe {
@@ -2730,7 +2643,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<Package>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackage2>(self)?;
         unsafe {
@@ -2738,7 +2650,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn PublisherDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackage2>(self)?;
         unsafe {
@@ -2746,7 +2657,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackage2>(self)?;
         unsafe {
@@ -2755,7 +2665,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn Logo(&self) -> ::windows::core::Result<super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<IPackage2>(self)?;
         unsafe {
@@ -2763,7 +2672,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsResourcePackage(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPackage2>(self)?;
         unsafe {
@@ -2771,7 +2679,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsBundle(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPackage2>(self)?;
         unsafe {
@@ -2779,7 +2686,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsDevelopmentMode(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPackage2>(self)?;
         unsafe {
@@ -2787,7 +2693,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Status(&self) -> ::windows::core::Result<PackageStatus> {
         let this = &::windows::core::Interface::cast::<IPackage3>(self)?;
         unsafe {
@@ -2796,7 +2701,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn InstalledDate(&self) -> ::windows::core::Result<super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IPackage3>(self)?;
         unsafe {
@@ -2805,7 +2709,6 @@ impl Package {
         }
     }
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel`, `ApplicationModel_Core`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetAppListEntriesAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<Core::AppListEntry>>> {
         let this = &::windows::core::Interface::cast::<IPackage3>(self)?;
         unsafe {
@@ -2814,7 +2717,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn InstallDate(&self) -> ::windows::core::Result<super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IPackageWithMetadata>(self)?;
         unsafe {
@@ -2822,7 +2724,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn GetThumbnailToken(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackageWithMetadata>(self)?;
         unsafe {
@@ -2831,19 +2732,16 @@ impl Package {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Launch<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, parameters: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPackageWithMetadata>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), parameters.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Current() -> ::windows::core::Result<Package> {
         Self::IPackageStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Package>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn SignatureKind(&self) -> ::windows::core::Result<PackageSignatureKind> {
         let this = &::windows::core::Interface::cast::<IPackage4>(self)?;
         unsafe {
@@ -2851,7 +2749,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PackageSignatureKind>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsOptional(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPackage4>(self)?;
         unsafe {
@@ -2860,7 +2757,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn VerifyContentIntegrityAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IPackage4>(self)?;
         unsafe {
@@ -2869,7 +2765,6 @@ impl Package {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetContentGroupsAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>> {
         let this = &::windows::core::Interface::cast::<IPackage5>(self)?;
         unsafe {
@@ -2878,7 +2773,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn GetContentGroupAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageContentGroup>> {
         let this = &::windows::core::Interface::cast::<IPackage5>(self)?;
         unsafe {
@@ -2887,7 +2781,6 @@ impl Package {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn StageContentGroupsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, names: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>> {
         let this = &::windows::core::Interface::cast::<IPackage5>(self)?;
         unsafe {
@@ -2896,7 +2789,6 @@ impl Package {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn StageContentGroupsWithPriorityAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, names: Param0, movetoheadofqueue: bool) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>> {
         let this = &::windows::core::Interface::cast::<IPackage5>(self)?;
         unsafe {
@@ -2905,7 +2797,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn SetInUseAsync(&self, inuse: bool) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IPackage5>(self)?;
         unsafe {
@@ -2913,7 +2804,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), inuse, &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn GetAppInstallerInfo(&self) -> ::windows::core::Result<AppInstallerInfo> {
         let this = &::windows::core::Interface::cast::<IPackage6>(self)?;
         unsafe {
@@ -2922,7 +2812,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn CheckUpdateAvailabilityAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageUpdateAvailabilityResult>> {
         let this = &::windows::core::Interface::cast::<IPackage6>(self)?;
         unsafe {
@@ -2931,7 +2820,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Storage")]
-    #[doc = "*Required features: `ApplicationModel`, `Storage`*"]
     pub fn MutableLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder> {
         let this = &::windows::core::Interface::cast::<IPackage7>(self)?;
         unsafe {
@@ -2940,7 +2828,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Storage")]
-    #[doc = "*Required features: `ApplicationModel`, `Storage`*"]
     pub fn EffectiveLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder> {
         let this = &::windows::core::Interface::cast::<IPackage7>(self)?;
         unsafe {
@@ -2949,7 +2836,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Storage")]
-    #[doc = "*Required features: `ApplicationModel`, `Storage`*"]
     pub fn EffectiveExternalLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -2958,7 +2844,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Storage")]
-    #[doc = "*Required features: `ApplicationModel`, `Storage`*"]
     pub fn MachineExternalLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -2967,7 +2852,6 @@ impl Package {
         }
     }
     #[cfg(feature = "Storage")]
-    #[doc = "*Required features: `ApplicationModel`, `Storage`*"]
     pub fn UserExternalLocation(&self) -> ::windows::core::Result<super::Storage::StorageFolder> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -2975,7 +2859,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Storage::StorageFolder>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn InstalledPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -2983,7 +2866,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn MutablePath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -2991,7 +2873,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn EffectivePath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -2999,7 +2880,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn EffectiveExternalPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -3007,7 +2887,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn MachineExternalPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -3015,7 +2894,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn UserExternalPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -3024,7 +2902,6 @@ impl Package {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`, `Storage_Streams`*"]
     pub fn GetLogoAsRandomAccessStreamReference<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Size>>(&self, size: Param0) -> ::windows::core::Result<super::Storage::Streams::RandomAccessStreamReference> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -3033,7 +2910,6 @@ impl Package {
         }
     }
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel`, `ApplicationModel_Core`, `Foundation_Collections`*"]
     pub fn GetAppListEntries(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Core::AppListEntry>> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -3041,7 +2917,6 @@ impl Package {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<Core::AppListEntry>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsStub(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -3106,13 +2981,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for Package {}
 unsafe impl ::core::marker::Sync for Package {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageCatalog(pub ::windows::core::IInspectable);
 impl PackageCatalog {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn PackageStaging<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageStagingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3121,13 +2994,11 @@ impl PackageCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn RemovePackageStaging<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn PackageInstalling<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageInstallingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3136,13 +3007,11 @@ impl PackageCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn RemovePackageInstalling<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn PackageUpdating<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageUpdatingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3151,13 +3020,11 @@ impl PackageCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn RemovePackageUpdating<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn PackageUninstalling<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageUninstallingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3166,13 +3033,11 @@ impl PackageCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn RemovePackageUninstalling<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn PackageStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageStatusChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3181,19 +3046,16 @@ impl PackageCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn RemovePackageStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn OpenForCurrentPackage() -> ::windows::core::Result<PackageCatalog> {
         Self::IPackageCatalogStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PackageCatalog>(result__)
         })
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn OpenForCurrentUser() -> ::windows::core::Result<PackageCatalog> {
         Self::IPackageCatalogStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3201,7 +3063,6 @@ impl PackageCatalog {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn PackageContentGroupStaging<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageContentGroupStagingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe {
@@ -3210,13 +3071,11 @@ impl PackageCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn RemovePackageContentGroupStaging<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn AddOptionalPackageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, optionalpackagefamilyname: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogAddOptionalPackageResult>> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe {
@@ -3225,7 +3084,6 @@ impl PackageCatalog {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn RemoveOptionalPackagesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, optionalpackagefamilynames: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog3>(self)?;
         unsafe {
@@ -3234,7 +3092,6 @@ impl PackageCatalog {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn AddResourcePackageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, resourcepackagefamilyname: Param0, resourceid: Param1, options: AddResourcePackageOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog4>(self)?;
         unsafe {
@@ -3243,7 +3100,6 @@ impl PackageCatalog {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn RemoveResourcePackagesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<Package>>>(&self, resourcepackages: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog4>(self)?;
         unsafe {
@@ -3306,12 +3162,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageCatalogAddOptionalPackageResult(pub ::windows::core::IInspectable);
 impl PackageCatalogAddOptionalPackageResult {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::core::Result<Package> {
         let this = self;
         unsafe {
@@ -3319,7 +3173,6 @@ impl PackageCatalogAddOptionalPackageResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Package>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -3378,12 +3231,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageCatalogAddResourcePackageResult(pub ::windows::core::IInspectable);
 impl PackageCatalogAddResourcePackageResult {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::core::Result<Package> {
         let this = self;
         unsafe {
@@ -3391,7 +3242,6 @@ impl PackageCatalogAddResourcePackageResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Package>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsComplete(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3399,7 +3249,6 @@ impl PackageCatalogAddResourcePackageResult {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -3460,13 +3309,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PackageCatalogAddResourcePackageResult {}
 unsafe impl ::core::marker::Sync for PackageCatalogAddResourcePackageResult {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageCatalogRemoveOptionalPackagesResult(pub ::windows::core::IInspectable);
 impl PackageCatalogRemoveOptionalPackagesResult {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation_Collections`*"]
     pub fn PackagesRemoved(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Package>> {
         let this = self;
         unsafe {
@@ -3474,7 +3321,6 @@ impl PackageCatalogRemoveOptionalPackagesResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<Package>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -3533,13 +3379,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
         ::windows::core::Param::Borrowed(&self.0)
     }
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageCatalogRemoveResourcePackagesResult(pub ::windows::core::IInspectable);
 impl PackageCatalogRemoveResourcePackagesResult {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation_Collections`*"]
     pub fn PackagesRemoved(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<Package>> {
         let this = self;
         unsafe {
@@ -3547,7 +3391,6 @@ impl PackageCatalogRemoveResourcePackagesResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<Package>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -3608,12 +3451,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PackageCatalogRemoveResourcePackagesResult {}
 unsafe impl ::core::marker::Sync for PackageCatalogRemoveResourcePackagesResult {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageContentGroup(pub ::windows::core::IInspectable);
 impl PackageContentGroup {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::core::Result<Package> {
         let this = self;
         unsafe {
@@ -3621,7 +3462,6 @@ impl PackageContentGroup {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Package>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3629,7 +3469,6 @@ impl PackageContentGroup {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn State(&self) -> ::windows::core::Result<PackageContentGroupState> {
         let this = self;
         unsafe {
@@ -3637,7 +3476,6 @@ impl PackageContentGroup {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PackageContentGroupState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsRequired(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3645,7 +3483,6 @@ impl PackageContentGroup {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn RequiredGroupName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPackageContentGroupStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -3709,12 +3546,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PackageContentGroup {}
 unsafe impl ::core::marker::Sync for PackageContentGroup {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageContentGroupStagingEventArgs(pub ::windows::core::IInspectable);
 impl PackageContentGroupStagingEventArgs {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -3722,7 +3557,6 @@ impl PackageContentGroupStagingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::core::Result<Package> {
         let this = self;
         unsafe {
@@ -3730,7 +3564,6 @@ impl PackageContentGroupStagingEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Package>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Progress(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -3738,7 +3571,6 @@ impl PackageContentGroupStagingEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsComplete(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3746,7 +3578,6 @@ impl PackageContentGroupStagingEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -3754,7 +3585,6 @@ impl PackageContentGroupStagingEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ContentGroupName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3762,7 +3592,6 @@ impl PackageContentGroupStagingEventArgs {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsContentGroupRequired(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3823,7 +3652,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PackageContentGroupStagingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageContentGroupStagingEventArgs {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PackageContentGroupState(pub i32);
@@ -3847,12 +3675,10 @@ unsafe impl ::windows::core::RuntimeType for PackageContentGroupState {
 impl ::windows::core::DefaultType for PackageContentGroupState {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageId(pub ::windows::core::IInspectable);
 impl PackageId {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3860,7 +3686,6 @@ impl PackageId {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Version(&self) -> ::windows::core::Result<PackageVersion> {
         let this = self;
         unsafe {
@@ -3869,7 +3694,6 @@ impl PackageId {
         }
     }
     #[cfg(feature = "System")]
-    #[doc = "*Required features: `ApplicationModel`, `System`*"]
     pub fn Architecture(&self) -> ::windows::core::Result<super::System::ProcessorArchitecture> {
         let this = self;
         unsafe {
@@ -3877,7 +3701,6 @@ impl PackageId {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::System::ProcessorArchitecture>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ResourceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3885,7 +3708,6 @@ impl PackageId {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Publisher(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3893,7 +3715,6 @@ impl PackageId {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn PublisherId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3901,7 +3722,6 @@ impl PackageId {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn FullName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3909,7 +3729,6 @@ impl PackageId {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn FamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3917,7 +3736,6 @@ impl PackageId {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackageIdWithMetadata>(self)?;
         unsafe {
@@ -3925,7 +3743,6 @@ impl PackageId {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Author(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackageIdWithMetadata>(self)?;
         unsafe {
@@ -3988,7 +3805,6 @@ unsafe impl ::core::marker::Send for PackageId {}
 unsafe impl ::core::marker::Sync for PackageId {}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `ApplicationModel`*"]
 pub struct PackageInstallProgress {
     pub PercentComplete: u32,
 }
@@ -4018,12 +3834,10 @@ unsafe impl ::windows::core::RuntimeType for PackageInstallProgress {
 impl ::windows::core::DefaultType for PackageInstallProgress {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageInstallingEventArgs(pub ::windows::core::IInspectable);
 impl PackageInstallingEventArgs {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -4031,7 +3845,6 @@ impl PackageInstallingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::core::Result<Package> {
         let this = self;
         unsafe {
@@ -4039,7 +3852,6 @@ impl PackageInstallingEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Package>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Progress(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -4047,7 +3859,6 @@ impl PackageInstallingEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsComplete(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4055,7 +3866,6 @@ impl PackageInstallingEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -4116,7 +3926,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PackageInstallingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageInstallingEventArgs {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PackageSignatureKind(pub i32);
@@ -4141,12 +3950,10 @@ unsafe impl ::windows::core::RuntimeType for PackageSignatureKind {
 impl ::windows::core::DefaultType for PackageSignatureKind {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageStagingEventArgs(pub ::windows::core::IInspectable);
 impl PackageStagingEventArgs {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -4154,7 +3961,6 @@ impl PackageStagingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::core::Result<Package> {
         let this = self;
         unsafe {
@@ -4162,7 +3968,6 @@ impl PackageStagingEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Package>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Progress(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -4170,7 +3975,6 @@ impl PackageStagingEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsComplete(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4178,7 +3982,6 @@ impl PackageStagingEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -4239,12 +4042,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PackageStagingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageStagingEventArgs {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageStatus(pub ::windows::core::IInspectable);
 impl PackageStatus {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn VerifyIsOK(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4252,7 +4053,6 @@ impl PackageStatus {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn NotAvailable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4260,7 +4060,6 @@ impl PackageStatus {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn PackageOffline(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4268,7 +4067,6 @@ impl PackageStatus {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn DataOffline(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4276,7 +4074,6 @@ impl PackageStatus {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Disabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4284,7 +4081,6 @@ impl PackageStatus {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn NeedsRemediation(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4292,7 +4088,6 @@ impl PackageStatus {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn LicenseIssue(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4300,7 +4095,6 @@ impl PackageStatus {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Modified(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4308,7 +4102,6 @@ impl PackageStatus {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Tampered(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4316,7 +4109,6 @@ impl PackageStatus {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn DependencyIssue(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4324,7 +4116,6 @@ impl PackageStatus {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Servicing(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4332,7 +4123,6 @@ impl PackageStatus {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn DeploymentInProgress(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4340,7 +4130,6 @@ impl PackageStatus {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsPartiallyStaged(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPackageStatus2>(self)?;
         unsafe {
@@ -4401,12 +4190,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PackageStatus {}
 unsafe impl ::core::marker::Sync for PackageStatus {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageStatusChangedEventArgs(pub ::windows::core::IInspectable);
 impl PackageStatusChangedEventArgs {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::core::Result<Package> {
         let this = self;
         unsafe {
@@ -4467,12 +4254,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PackageStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PackageStatusChangedEventArgs {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageUninstallingEventArgs(pub ::windows::core::IInspectable);
 impl PackageUninstallingEventArgs {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -4480,7 +4265,6 @@ impl PackageUninstallingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::core::Result<Package> {
         let this = self;
         unsafe {
@@ -4488,7 +4272,6 @@ impl PackageUninstallingEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Package>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Progress(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -4496,7 +4279,6 @@ impl PackageUninstallingEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsComplete(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4504,7 +4286,6 @@ impl PackageUninstallingEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -4565,7 +4346,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PackageUninstallingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageUninstallingEventArgs {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PackageUpdateAvailability(pub i32);
@@ -4590,12 +4370,10 @@ unsafe impl ::windows::core::RuntimeType for PackageUpdateAvailability {
 impl ::windows::core::DefaultType for PackageUpdateAvailability {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageUpdateAvailabilityResult(pub ::windows::core::IInspectable);
 impl PackageUpdateAvailabilityResult {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Availability(&self) -> ::windows::core::Result<PackageUpdateAvailability> {
         let this = self;
         unsafe {
@@ -4603,7 +4381,6 @@ impl PackageUpdateAvailabilityResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PackageUpdateAvailability>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -4664,12 +4441,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PackageUpdateAvailabilityResult {}
 unsafe impl ::core::marker::Sync for PackageUpdateAvailabilityResult {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PackageUpdatingEventArgs(pub ::windows::core::IInspectable);
 impl PackageUpdatingEventArgs {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -4677,7 +4452,6 @@ impl PackageUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn SourcePackage(&self) -> ::windows::core::Result<Package> {
         let this = self;
         unsafe {
@@ -4685,7 +4459,6 @@ impl PackageUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Package>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn TargetPackage(&self) -> ::windows::core::Result<Package> {
         let this = self;
         unsafe {
@@ -4693,7 +4466,6 @@ impl PackageUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Package>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Progress(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -4701,7 +4473,6 @@ impl PackageUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn IsComplete(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4709,7 +4480,6 @@ impl PackageUpdatingEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -4772,7 +4542,6 @@ unsafe impl ::core::marker::Send for PackageUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageUpdatingEventArgs {}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `ApplicationModel`*"]
 pub struct PackageVersion {
     pub Major: u16,
     pub Minor: u16,
@@ -4805,13 +4574,11 @@ unsafe impl ::windows::core::RuntimeType for PackageVersion {
 impl ::windows::core::DefaultType for PackageVersion {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct StartupTask(pub ::windows::core::IInspectable);
 impl StartupTask {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn RequestEnableAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StartupTaskState>> {
         let this = self;
         unsafe {
@@ -4819,12 +4586,10 @@ impl StartupTask {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<StartupTaskState>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Disable(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn State(&self) -> ::windows::core::Result<StartupTaskState> {
         let this = self;
         unsafe {
@@ -4832,7 +4597,6 @@ impl StartupTask {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StartupTaskState>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4841,7 +4605,6 @@ impl StartupTask {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetForCurrentPackageAsync() -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StartupTask>>> {
         Self::IStartupTaskStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4849,7 +4612,6 @@ impl StartupTask {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn GetAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(taskid: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StartupTask>> {
         Self::IStartupTaskStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4916,7 +4678,6 @@ unsafe impl ::core::marker::Sync for StartupTask {}
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct StartupTaskContract(pub u8);
-#[doc = "*Required features: `ApplicationModel`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StartupTaskState(pub i32);
@@ -4941,12 +4702,10 @@ unsafe impl ::windows::core::RuntimeType for StartupTaskState {
 impl ::windows::core::DefaultType for StartupTaskState {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SuspendingDeferral(pub ::windows::core::IInspectable);
 impl SuspendingDeferral {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
@@ -5024,12 +4783,10 @@ impl<'a> ::windows::core::IntoParam<'a, ISuspendingDeferral> for &SuspendingDefe
 }
 unsafe impl ::core::marker::Send for SuspendingDeferral {}
 unsafe impl ::core::marker::Sync for SuspendingDeferral {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SuspendingEventArgs(pub ::windows::core::IInspectable);
 impl SuspendingEventArgs {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn SuspendingOperation(&self) -> ::windows::core::Result<SuspendingOperation> {
         let this = self;
         unsafe {
@@ -5110,12 +4867,10 @@ impl<'a> ::windows::core::IntoParam<'a, ISuspendingEventArgs> for &SuspendingEve
 }
 unsafe impl ::core::marker::Send for SuspendingEventArgs {}
 unsafe impl ::core::marker::Sync for SuspendingEventArgs {}
-#[doc = "*Required features: `ApplicationModel`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SuspendingOperation(pub ::windows::core::IInspectable);
 impl SuspendingOperation {
-    #[doc = "*Required features: `ApplicationModel`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<SuspendingDeferral> {
         let this = self;
         unsafe {
@@ -5124,7 +4879,6 @@ impl SuspendingOperation {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel`, `Foundation`*"]
     pub fn Deadline(&self) -> ::windows::core::Result<super::Foundation::DateTime> {
         let this = self;
         unsafe {

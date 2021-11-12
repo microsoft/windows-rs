@@ -1,17 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const FAULT_ACTION_SPECIFIC_BASE: u32 = 600u32;
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const FAULT_ACTION_SPECIFIC_MAX: u32 = 899u32;
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const FAULT_DEVICE_INTERNAL_ERROR: u32 = 501u32;
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const FAULT_INVALID_ACTION: u32 = 401u32;
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const FAULT_INVALID_ARG: u32 = 402u32;
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
@@ -25,16 +18,13 @@ unsafe impl ::windows::core::Handle for HSWDEVICE {}
 unsafe impl ::windows::core::Abi for HSWDEVICE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPAddressFamilyControl(pub ::windows::core::IUnknown);
 impl IUPnPAddressFamilyControl {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn SetAddressFamily(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn GetAddressFamily(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -73,12 +63,10 @@ pub struct IUPnPAddressFamilyControl_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwflags: *mut i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPAsyncResult(pub ::windows::core::IUnknown);
 impl IUPnPAsyncResult {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn AsyncOperationComplete(&self, ullrequestid: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ullrequestid)).ok()
     }
@@ -115,42 +103,34 @@ pub struct IUPnPAsyncResult_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ullrequestid: u64) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPDescriptionDocument(pub ::windows::core::IUnknown);
 impl IUPnPDescriptionDocument {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn ReadyState(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn LoadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, bstrurl: Param0, punkcallback: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), bstrurl.into_param().abi(), punkcallback.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn LoadResult(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn Abort(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn RootDevice(&self) -> ::windows::core::Result<IUPnPDevice> {
         let mut result__: <IUPnPDevice as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IUPnPDevice>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn DeviceByUDN<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrudn: Param0) -> ::windows::core::Result<IUPnPDevice> {
         let mut result__: <IUPnPDevice as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), bstrudn.into_param().abi(), &mut result__).from_abi::<IUPnPDevice>(result__)
@@ -229,12 +209,10 @@ pub struct IUPnPDescriptionDocument_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppuddevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPDescriptionDocumentCallback(pub ::windows::core::IUnknown);
 impl IUPnPDescriptionDocumentCallback {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn LoadComplete(&self, hrloadresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrloadresult)).ok()
     }
@@ -271,115 +249,95 @@ pub struct IUPnPDescriptionDocumentCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hrloadresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPDevice(pub ::windows::core::IUnknown);
 impl IUPnPDevice {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn IsRootDevice(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn RootDevice(&self) -> ::windows::core::Result<IUPnPDevice> {
         let mut result__: <IUPnPDevice as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IUPnPDevice>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn ParentDevice(&self) -> ::windows::core::Result<IUPnPDevice> {
         let mut result__: <IUPnPDevice as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IUPnPDevice>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn HasChildren(&self) -> ::windows::core::Result<i16> {
         let mut result__: <i16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn Children(&self) -> ::windows::core::Result<IUPnPDevices> {
         let mut result__: <IUPnPDevices as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IUPnPDevices>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn UniqueDeviceName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn PresentationURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn ManufacturerName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn ManufacturerURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn ModelName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn ModelNumber(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn ModelURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn UPC(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn SerialNumber(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn IconURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrencodingformat: Param0, lsizex: i32, lsizey: i32, lbitdepth: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), bstrencodingformat.into_param().abi(), ::core::mem::transmute(lsizex), ::core::mem::transmute(lsizey), ::core::mem::transmute(lbitdepth), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn Services(&self) -> ::windows::core::Result<IUPnPServices> {
         let mut result__: <IUPnPServices as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IUPnPServices>(result__)
@@ -480,18 +438,15 @@ pub struct IUPnPDevice_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppusservices: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPDeviceControl(pub ::windows::core::IUnknown);
 impl IUPnPDeviceControl {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrxmldesc: Param0, bstrdeviceidentifier: Param1, bstrinitstring: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrxmldesc.into_param().abi(), bstrdeviceidentifier.into_param().abi(), bstrinitstring.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetServiceObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrudn: Param0, bstrserviceid: Param1) -> ::windows::core::Result<super::super::super::System::Com::IDispatch> {
         let mut result__: <super::super::super::System::Com::IDispatch as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), bstrudn.into_param().abi(), bstrserviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::IDispatch>(result__)
@@ -532,13 +487,11 @@ pub struct IUPnPDeviceControl_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrserviceid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppdispservice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPDeviceControlHttpHeaders(pub ::windows::core::IUnknown);
 impl IUPnPDeviceControlHttpHeaders {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn GetAdditionalResponseHeaders(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
@@ -577,13 +530,11 @@ pub struct IUPnPDeviceControlHttpHeaders_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrhttpresponseheaders: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPDeviceDocumentAccess(pub ::windows::core::IUnknown);
 impl IUPnPDeviceDocumentAccess {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
@@ -622,13 +573,11 @@ pub struct IUPnPDeviceDocumentAccess_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrdocument: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPDeviceDocumentAccessEx(pub ::windows::core::IUnknown);
 impl IUPnPDeviceDocumentAccessEx {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn GetDocument(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
@@ -667,33 +616,27 @@ pub struct IUPnPDeviceDocumentAccessEx_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrdocument: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPDeviceFinder(pub ::windows::core::IUnknown);
 impl IUPnPDeviceFinder {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn FindByType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrtypeuri: Param0, dwflags: u32) -> ::windows::core::Result<IUPnPDevices> {
         let mut result__: <IUPnPDevices as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bstrtypeuri.into_param().abi(), ::core::mem::transmute(dwflags), &mut result__).from_abi::<IUPnPDevices>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn CreateAsyncFind<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, bstrtypeuri: Param0, dwflags: u32, punkdevicefindercallback: Param2) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), bstrtypeuri.into_param().abi(), ::core::mem::transmute(dwflags), punkdevicefindercallback.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn StartAsyncFind(&self, lfinddata: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(lfinddata)).ok()
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn CancelAsyncFind(&self, lfinddata: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(lfinddata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn FindByUDN<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrudn: Param0) -> ::windows::core::Result<IUPnPDevice> {
         let mut result__: <IUPnPDevice as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), bstrudn.into_param().abi(), &mut result__).from_abi::<IUPnPDevice>(result__)
@@ -770,12 +713,10 @@ pub struct IUPnPDeviceFinder_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPDeviceFinderAddCallbackWithInterface(pub ::windows::core::IUnknown);
 impl IUPnPDeviceFinderAddCallbackWithInterface {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn DeviceAddedWithInterface<'a, Param1: ::windows::core::IntoParam<'a, IUPnPDevice>>(&self, lfinddata: i32, pdevice: Param1, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lfinddata), pdevice.into_param().abi(), ::core::mem::transmute(pguidinterface)).ok()
     }
@@ -812,21 +753,17 @@ pub struct IUPnPDeviceFinderAddCallbackWithInterface_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lfinddata: i32, pdevice: ::windows::core::RawPtr, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPDeviceFinderCallback(pub ::windows::core::IUnknown);
 impl IUPnPDeviceFinderCallback {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn DeviceAdded<'a, Param1: ::windows::core::IntoParam<'a, IUPnPDevice>>(&self, lfinddata: i32, pdevice: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lfinddata), pdevice.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn DeviceRemoved<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, lfinddata: i32, bstrudn: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lfinddata), bstrudn.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn SearchComplete(&self, lfinddata: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(lfinddata)).ok()
     }
@@ -866,17 +803,14 @@ pub struct IUPnPDeviceFinderCallback_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lfinddata: i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPDeviceProvider(pub ::windows::core::IUnknown);
 impl IUPnPDeviceProvider {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrinitstring: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrinitstring.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
@@ -915,23 +849,19 @@ pub struct IUPnPDeviceProvider_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPDevices(pub ::windows::core::IUnknown);
 impl IUPnPDevices {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrudn: Param0) -> ::windows::core::Result<IUPnPDevice> {
         let mut result__: <IUPnPDevice as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), bstrudn.into_param().abi(), &mut result__).from_abi::<IUPnPDevice>(result__)
@@ -1004,17 +934,14 @@ pub struct IUPnPDevices_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPEventSink(pub ::windows::core::IUnknown);
 impl IUPnPEventSink {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn OnStateChanged(&self, cchanges: u32, rgdispidchanges: *const i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchanges), ::core::mem::transmute(rgdispidchanges)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn OnStateChangedSafe<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varsadispidchanges: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), varsadispidchanges.into_param().abi()).ok()
     }
@@ -1053,16 +980,13 @@ pub struct IUPnPEventSink_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, varsadispidchanges: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPEventSource(pub ::windows::core::IUnknown);
 impl IUPnPEventSource {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn Advise<'a, Param0: ::windows::core::IntoParam<'a, IUPnPEventSink>>(&self, pessubscriber: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pessubscriber.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn Unadvise<'a, Param0: ::windows::core::IntoParam<'a, IUPnPEventSink>>(&self, pessubscriber: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pessubscriber.into_param().abi()).ok()
     }
@@ -1100,13 +1024,11 @@ pub struct IUPnPEventSource_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pessubscriber: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pessubscriber: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPHttpHeaderControl(pub ::windows::core::IUnknown);
 impl IUPnPHttpHeaderControl {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn AddRequestHeaders<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrhttpheaders: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrhttpheaders.into_param().abi()).ok()
     }
@@ -1144,13 +1066,11 @@ pub struct IUPnPHttpHeaderControl_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrhttpheaders: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPRegistrar(pub ::windows::core::IUnknown);
 impl IUPnPRegistrar {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn RegisterDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(
         &self,
         bstrxmldesc: Param0,
@@ -1164,7 +1084,6 @@ impl IUPnPRegistrar {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrxmldesc.into_param().abi(), bstrprogiddevicecontrolclass.into_param().abi(), bstrinitstring.into_param().abi(), bstrcontainerid.into_param().abi(), bstrresourcepath.into_param().abi(), ::core::mem::transmute(nlifetime), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn RegisterRunningDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(
         &self,
         bstrxmldesc: Param0,
@@ -1177,7 +1096,6 @@ impl IUPnPRegistrar {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), bstrxmldesc.into_param().abi(), punkdevicecontrol.into_param().abi(), bstrinitstring.into_param().abi(), bstrresourcepath.into_param().abi(), ::core::mem::transmute(nlifetime), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn RegisterDeviceProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(
         &self,
         bstrprovidername: Param0,
@@ -1188,18 +1106,15 @@ impl IUPnPRegistrar {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), bstrprovidername.into_param().abi(), bstrprogidproviderclass.into_param().abi(), bstrinitstring.into_param().abi(), bstrcontainerid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn GetUniqueDeviceName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrdeviceidentifier: Param0, bstrtemplateudn: Param1) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), bstrdeviceidentifier.into_param().abi(), bstrtemplateudn.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn UnregisterDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, bstrdeviceidentifier: Param0, fpermanent: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bstrdeviceidentifier.into_param().abi(), fpermanent.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn UnregisterDeviceProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrprovidername: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), bstrprovidername.into_param().abi()).ok()
     }
@@ -1258,25 +1173,21 @@ pub struct IUPnPRegistrar_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrprovidername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPRemoteEndpointInfo(pub ::windows::core::IUnknown);
 impl IUPnPRemoteEndpointInfo {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn GetDwordValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrvaluename: Param0) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrvaluename.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn GetStringValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrvaluename: Param0) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), bstrvaluename.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn GetGuidValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrvaluename: Param0) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), bstrvaluename.into_param().abi(), &mut result__).from_abi::<::windows::core::GUID>(result__)
@@ -1319,13 +1230,11 @@ pub struct IUPnPRemoteEndpointInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrvaluename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPReregistrar(pub ::windows::core::IUnknown);
 impl IUPnPReregistrar {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn ReregisterDevice<
         'a,
         Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>,
@@ -1347,7 +1256,6 @@ impl IUPnPReregistrar {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrdeviceidentifier.into_param().abi(), bstrxmldesc.into_param().abi(), bstrprogiddevicecontrolclass.into_param().abi(), bstrinitstring.into_param().abi(), bstrcontainerid.into_param().abi(), bstrresourcepath.into_param().abi(), ::core::mem::transmute(nlifetime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn ReregisterRunningDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(
         &self,
         bstrdeviceidentifier: Param0,
@@ -1406,39 +1314,32 @@ pub struct IUPnPReregistrar_abi(
     pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, punkdevicecontrol: ::windows::core::RawPtr, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrresourcepath: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nlifetime: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPService(pub ::windows::core::IUnknown);
 impl IUPnPService {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn QueryStateVariable<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrvariablename: Param0) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), bstrvariablename.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn InvokeAction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, bstractionname: Param0, vinactionargs: Param1, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), bstractionname.into_param().abi(), vinactionargs.into_param().abi(), ::core::mem::transmute(pvoutactionargs), ::core::mem::transmute(pvretval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn ServiceTypeIdentifier(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn AddCallback<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punkcallback: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), punkcallback.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn LastTransportStatus(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -1518,54 +1419,44 @@ pub struct IUPnPService_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, plvalue: *mut i32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPServiceAsync(pub ::windows::core::IUnknown);
 impl IUPnPServiceAsync {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn BeginInvokeAction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param2: ::windows::core::IntoParam<'a, IUPnPAsyncResult>>(&self, bstractionname: Param0, vinactionargs: Param1, pasyncresult: Param2) -> ::windows::core::Result<u64> {
         let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstractionname.into_param().abi(), vinactionargs.into_param().abi(), pasyncresult.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn EndInvokeAction(&self, ullrequestid: u64, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(ullrequestid), ::core::mem::transmute(pvoutactionargs), ::core::mem::transmute(pvretval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn BeginQueryStateVariable<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IUPnPAsyncResult>>(&self, bstrvariablename: Param0, pasyncresult: Param1) -> ::windows::core::Result<u64> {
         let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), bstrvariablename.into_param().abi(), pasyncresult.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn EndQueryStateVariable(&self, ullrequestid: u64, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ullrequestid), ::core::mem::transmute(pvalue)).ok()
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn BeginSubscribeToEvents<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, IUPnPAsyncResult>>(&self, punkcallback: Param0, pasyncresult: Param1) -> ::windows::core::Result<u64> {
         let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), punkcallback.into_param().abi(), pasyncresult.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn EndSubscribeToEvents(&self, ullrequestid: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(ullrequestid)).ok()
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn BeginSCPDDownload<'a, Param0: ::windows::core::IntoParam<'a, IUPnPAsyncResult>>(&self, pasyncresult: Param0) -> ::windows::core::Result<u64> {
         let mut result__: <u64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pasyncresult.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn EndSCPDDownload(&self, ullrequestid: u64) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(ullrequestid), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn CancelAsyncOperation(&self, ullrequestid: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(ullrequestid)).ok()
     }
@@ -1615,17 +1506,14 @@ pub struct IUPnPServiceAsync_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ullrequestid: u64) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPServiceCallback(pub ::windows::core::IUnknown);
 impl IUPnPServiceCallback {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
     pub unsafe fn StateVariableChanged<'a, Param0: ::windows::core::IntoParam<'a, IUPnPService>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, pus: Param0, pcwszstatevarname: Param1, vavalue: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pus.into_param().abi(), pcwszstatevarname.into_param().abi(), vavalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn ServiceInstanceDied<'a, Param0: ::windows::core::IntoParam<'a, IUPnPService>>(&self, pus: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pus.into_param().abi()).ok()
     }
@@ -1664,19 +1552,16 @@ pub struct IUPnPServiceCallback_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pus: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPServiceDocumentAccess(pub ::windows::core::IUnknown);
 impl IUPnPServiceDocumentAccess {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn GetDocument(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
@@ -1717,12 +1602,10 @@ pub struct IUPnPServiceDocumentAccess_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrdoc: *mut ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPServiceEnumProperty(pub ::windows::core::IUnknown);
 impl IUPnPServiceEnumProperty {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn SetServiceEnumProperty(&self, dwmask: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmask)).ok()
     }
@@ -1759,23 +1642,19 @@ pub struct IUPnPServiceEnumProperty_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwmask: u32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUPnPServices(pub ::windows::core::IUnknown);
 impl IUPnPServices {
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: <i32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
     pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrserviceid: Param0) -> ::windows::core::Result<IUPnPService> {
         let mut result__: <IUPnPService as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), bstrserviceid.into_param().abi(), &mut result__).from_abi::<IUPnPService>(result__)
@@ -1848,7 +1727,6 @@ pub struct IUPnPServices_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrserviceid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppservice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SW_DEVICE_CAPABILITIES(pub i32);
@@ -1865,13 +1743,11 @@ impl ::core::convert::From<i32> for SW_DEVICE_CAPABILITIES {
 unsafe impl ::windows::core::Abi for SW_DEVICE_CAPABILITIES {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SW_DEVICE_CREATE_CALLBACK = unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows::core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: super::super::super::Foundation::PWSTR);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct SW_DEVICE_CREATE_INFO {
     pub cbSize: u32,
     pub pszInstanceId: super::super::super::Foundation::PWSTR,
@@ -1919,7 +1795,6 @@ impl ::core::cmp::Eq for SW_DEVICE_CREATE_INFO {}
 unsafe impl ::windows::core::Abi for SW_DEVICE_CREATE_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SW_DEVICE_LIFETIME(pub i32);
@@ -1934,7 +1809,6 @@ impl ::core::convert::From<i32> for SW_DEVICE_LIFETIME {
 unsafe impl ::windows::core::Abi for SW_DEVICE_LIFETIME {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[inline]
 pub unsafe fn SwDeviceClose<'a, Param0: ::windows::core::IntoParam<'a, HSWDEVICE>>(hswdevice: Param0) {
     #[cfg(windows)]
@@ -1948,7 +1822,6 @@ pub unsafe fn SwDeviceClose<'a, Param0: ::windows::core::IntoParam<'a, HSWDEVICE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Devices_Properties`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn SwDeviceCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
@@ -1972,7 +1845,6 @@ pub unsafe fn SwDeviceCreate<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[inline]
 pub unsafe fn SwDeviceGetLifetime<'a, Param0: ::windows::core::IntoParam<'a, HSWDEVICE>>(hswdevice: Param0) -> ::windows::core::Result<SW_DEVICE_LIFETIME> {
     #[cfg(windows)]
@@ -1987,7 +1859,6 @@ pub unsafe fn SwDeviceGetLifetime<'a, Param0: ::windows::core::IntoParam<'a, HSW
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn SwDeviceInterfacePropertySet<'a, Param0: ::windows::core::IntoParam<'a, HSWDEVICE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hswdevice: Param0, pszdeviceinterfaceid: Param1, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> ::windows::core::Result<()> {
@@ -2002,7 +1873,6 @@ pub unsafe fn SwDeviceInterfacePropertySet<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn SwDeviceInterfaceRegister<'a, Param0: ::windows::core::IntoParam<'a, HSWDEVICE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(
@@ -2025,7 +1895,6 @@ pub unsafe fn SwDeviceInterfaceRegister<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SwDeviceInterfaceSetState<'a, Param0: ::windows::core::IntoParam<'a, HSWDEVICE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(hswdevice: Param0, pszdeviceinterfaceid: Param1, fenabled: Param2) -> ::windows::core::Result<()> {
@@ -2040,7 +1909,6 @@ pub unsafe fn SwDeviceInterfaceSetState<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Devices_Properties`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn SwDevicePropertySet<'a, Param0: ::windows::core::IntoParam<'a, HSWDEVICE>>(hswdevice: Param0, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> ::windows::core::Result<()> {
@@ -2055,7 +1923,6 @@ pub unsafe fn SwDevicePropertySet<'a, Param0: ::windows::core::IntoParam<'a, HSW
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[inline]
 pub unsafe fn SwDeviceSetLifetime<'a, Param0: ::windows::core::IntoParam<'a, HSWDEVICE>>(hswdevice: Param0, lifetime: SW_DEVICE_LIFETIME) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -2069,7 +1936,6 @@ pub unsafe fn SwDeviceSetLifetime<'a, Param0: ::windows::core::IntoParam<'a, HSW
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[inline]
 pub unsafe fn SwMemFree(pmem: *const ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -2083,81 +1949,43 @@ pub unsafe fn SwMemFree(pmem: *const ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_ADDRESSFAMILY_IPv4: u32 = 1u32;
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_ADDRESSFAMILY_IPv6: u32 = 2u32;
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_ACTION_REQUEST_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220976i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_ACTION_SPECIFIC_BASE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220736i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_DEVICE_ELEMENT_EXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_DEVICE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220972i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_DEVICE_NODE_INCOMPLETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220988i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_DEVICE_NOTREGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180494i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_DEVICE_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180495i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_DEVICE_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220969i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_DUPLICATE_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180511i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_DUPLICATE_SERVICE_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180510i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_ERROR_PROCESSING_RESPONSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220970i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_EVENT_SUBSCRIPTION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220223i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_ICON_ELEMENT_EXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220987i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_ICON_NODE_INCOMPLETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220986i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_INVALID_ACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220985i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_INVALID_ARGUMENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220984i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_INVALID_DESCRIPTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180509i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_INVALID_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220224i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_INVALID_ICON: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180507i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_INVALID_ROOT_NAMESPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180505i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_INVALID_SERVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180508i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_INVALID_VARIABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220973i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_INVALID_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180506i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_OUT_OF_SYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220983i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_PROTOCOL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220971i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_REQUIRED_ELEMENT_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180512i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_ROOT_ELEMENT_EXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_SERVICE_ELEMENT_EXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_SERVICE_NODE_INCOMPLETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_SUFFIX_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180504i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_TRANSPORT_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220975i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_URLBASE_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180503i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_VALUE_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180496i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_E_VARIABLE_VALUE_UNKNOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220974i32 as _);
-#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 pub const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1u32;
 pub const UPnPDescriptionDocument: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d8a9b47_3a28_4ce2_8a4b_bd34e45bceeb);
 pub const UPnPDescriptionDocumentEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33fd0563_d81a_4393_83cc_0195b1da2f91);

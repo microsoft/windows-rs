@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckGamingPrivilegeSilently<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(privilegeid: u32, scope: Param1, policy: Param2) -> ::windows::core::Result<super::Foundation::BOOL> {
@@ -15,7 +14,6 @@ pub unsafe fn CheckGamingPrivilegeSilently<'a, Param1: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckGamingPrivilegeSilentlyForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, privilegeid: u32, scope: Param2, policy: Param3) -> ::windows::core::Result<super::Foundation::BOOL> {
@@ -31,7 +29,6 @@ pub unsafe fn CheckGamingPrivilegeSilentlyForUser<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn CheckGamingPrivilegeWithUI<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(privilegeid: u32, scope: Param1, policy: Param2, friendlymessage: Param3, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -45,7 +42,6 @@ pub unsafe fn CheckGamingPrivilegeWithUI<'a, Param1: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn CheckGamingPrivilegeWithUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
     user: Param0,
@@ -67,7 +63,6 @@ pub unsafe fn CheckGamingPrivilegeWithUIForUser<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GAMESTATS_OPEN_RESULT(pub i32);
@@ -81,7 +76,6 @@ impl ::core::convert::From<i32> for GAMESTATS_OPEN_RESULT {
 unsafe impl ::windows::core::Abi for GAMESTATS_OPEN_RESULT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GAMESTATS_OPEN_TYPE(pub i32);
@@ -95,7 +89,6 @@ impl ::core::convert::From<i32> for GAMESTATS_OPEN_TYPE {
 unsafe impl ::windows::core::Abi for GAMESTATS_OPEN_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GAME_INSTALL_SCOPE(pub i32);
@@ -110,7 +103,6 @@ impl ::core::convert::From<i32> for GAME_INSTALL_SCOPE {
 unsafe impl ::windows::core::Abi for GAME_INSTALL_SCOPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GAMING_DEVICE_DEVICE_ID(pub i32);
@@ -129,7 +121,6 @@ unsafe impl ::windows::core::Abi for GAMING_DEVICE_DEVICE_ID {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Gaming`*"]
 pub struct GAMING_DEVICE_MODEL_INFORMATION {
     pub vendorId: GAMING_DEVICE_VENDOR_ID,
     pub deviceId: GAMING_DEVICE_DEVICE_ID,
@@ -154,7 +145,6 @@ impl ::core::cmp::Eq for GAMING_DEVICE_MODEL_INFORMATION {}
 unsafe impl ::windows::core::Abi for GAMING_DEVICE_MODEL_INFORMATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GAMING_DEVICE_VENDOR_ID(pub i32);
@@ -170,9 +160,7 @@ unsafe impl ::windows::core::Abi for GAMING_DEVICE_VENDOR_ID {
 }
 pub const GameExplorer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
 pub const GameStatistics: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
-#[doc = "*Required features: `Win32_Gaming`*"]
 pub type GameUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows::core::HRESULT, context: *const ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -187,7 +175,6 @@ pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> ::windows::core::Result<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn GetGamingDeviceModelInformation() -> ::windows::core::Result<GAMING_DEVICE_MODEL_INFORMATION> {
     #[cfg(windows)]
@@ -202,7 +189,6 @@ pub unsafe fn GetGamingDeviceModelInformation() -> ::windows::core::Result<GAMIN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HasExpandedResources() -> ::windows::core::Result<super::Foundation::BOOL> {
@@ -218,26 +204,21 @@ pub unsafe fn HasExpandedResources() -> ::windows::core::Result<super::Foundatio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IGameExplorer(pub ::windows::core::IUnknown);
 impl IGameExplorer {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn AddGame<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::BSTR>>(&self, bstrgdfbinarypath: Param0, bstrgameinstalldirectory: Param1, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), bstrgdfbinarypath.into_param().abi(), bstrgameinstalldirectory.into_param().abi(), ::core::mem::transmute(installscope), ::core::mem::transmute(pguidinstanceid)).ok()
     }
-    #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn RemoveGame<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, guidinstanceid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), guidinstanceid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn UpdateGame<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, guidinstanceid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), guidinstanceid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn VerifyAccess<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::BSTR>>(&self, bstrgdfbinarypath: Param0) -> ::windows::core::Result<super::Foundation::BOOL> {
         let mut result__: <super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), bstrgdfbinarypath.into_param().abi(), &mut result__).from_abi::<super::Foundation::BOOL>(result__)
@@ -280,23 +261,19 @@ pub struct IGameExplorer_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrgdfbinarypath: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, pfhasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IGameExplorer2(pub ::windows::core::IUnknown);
 impl IGameExplorer2 {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn InstallGame<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, binarygdfpath: Param0, installdirectory: Param1, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), binarygdfpath.into_param().abi(), installdirectory.into_param().abi(), ::core::mem::transmute(installscope)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn UninstallGame<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, binarygdfpath: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), binarygdfpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn CheckAccess<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, binarygdfpath: Param0) -> ::windows::core::Result<super::Foundation::BOOL> {
         let mut result__: <super::Foundation::BOOL as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), binarygdfpath.into_param().abi(), &mut result__).from_abi::<super::Foundation::BOOL>(result__)
@@ -339,67 +316,54 @@ pub struct IGameExplorer2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, binarygdfpath: super::Foundation::PWSTR, phasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IGameStatistics(pub ::windows::core::IUnknown);
 impl IGameStatistics {
-    #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn GetMaxCategoryLength(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn GetMaxNameLength(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn GetMaxValueLength(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn GetMaxCategories(&self) -> ::windows::core::Result<u16> {
         let mut result__: <u16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
-    #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn GetMaxStatsPerCategory(&self) -> ::windows::core::Result<u16> {
         let mut result__: <u16 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn SetCategoryTitle<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, categoryindex: u16, title: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex), title.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetCategoryTitle(&self, categoryindex: u16) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: *mut super::Foundation::PWSTR, pvalue: *mut super::Foundation::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex), ::core::mem::transmute(statindex), ::core::mem::transmute(pname), ::core::mem::transmute(pvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn SetStatistic<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, categoryindex: u16, statindex: u16, name: Param2, value: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex), ::core::mem::transmute(statindex), name.into_param().abi(), value.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(&self, trackchanges: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), trackchanges.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn SetLastPlayedCategory(&self, categoryindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(categoryindex)).ok()
     }
-    #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn GetLastPlayedCategory(&self) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -453,18 +417,15 @@ pub struct IGameStatistics_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, categoryindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcategoryindex: *mut u32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IGameStatisticsMgr(pub ::windows::core::IUnknown);
 impl IGameStatisticsMgr {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetGameStatistics<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, gdfbinarypath: Param0, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::core::option::Option<IGameStatistics>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), gdfbinarypath.into_param().abi(), ::core::mem::transmute(opentype), ::core::mem::transmute(popenresult), ::core::mem::transmute(ppistats)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn RemoveGameStatistics<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, gdfbinarypath: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), gdfbinarypath.into_param().abi()).ok()
     }
@@ -504,40 +465,33 @@ pub struct IGameStatisticsMgr_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, gdfbinarypath: super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IXblIdpAuthManager(pub ::windows::core::IUnknown);
 impl IXblIdpAuthManager {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn SetGamerAccount<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, msaaccountid: Param0, xuid: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), msaaccountid.into_param().abi(), xuid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetGamerAccount(&self, msaaccountid: *mut super::Foundation::PWSTR, xuid: *mut super::Foundation::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(msaaccountid), ::core::mem::transmute(xuid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn SetAppViewInitialized<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(&self, appsid: Param0, msaaccountid: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), appsid.into_param().abi(), msaaccountid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetEnvironment(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetSandbox(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetTokenAndSignatureWithTokenResult<
         'a,
         Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
@@ -622,125 +576,104 @@ pub struct IXblIdpAuthManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, msaaccountid: super::Foundation::PWSTR, appsid: super::Foundation::PWSTR, msatarget: super::Foundation::PWSTR, msapolicy: super::Foundation::PWSTR, httpmethod: super::Foundation::PWSTR, uri: super::Foundation::PWSTR, headers: super::Foundation::PWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IXblIdpAuthTokenResult(pub ::windows::core::IUnknown);
 impl IXblIdpAuthTokenResult {
-    #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<XBL_IDP_AUTH_TOKEN_STATUS> {
         let mut result__: <XBL_IDP_AUTH_TOKEN_STATUS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<XBL_IDP_AUTH_TOKEN_STATUS>(result__)
     }
-    #[doc = "*Required features: `Win32_Gaming`*"]
     pub unsafe fn GetErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let mut result__: <::windows::core::HRESULT as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetToken(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetSignature(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetSandbox(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetEnvironment(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetMsaAccountId(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetXuid(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetGamertag(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetAgeGroup(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetPrivileges(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetMsaTarget(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetMsaPolicy(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetMsaAppId(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetRedirect(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetMessage(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetHelpId(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetEnforcementBans(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetRestrictions(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetTitleRestrictions(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
@@ -815,25 +748,21 @@ pub struct IXblIdpAuthTokenResult_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, titlerestrictions: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IXblIdpAuthTokenResult2(pub ::windows::core::IUnknown);
 impl IXblIdpAuthTokenResult2 {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetModernGamertag(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetModernGamertagSuffix(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
     pub unsafe fn GetUniqueModernGamertag(&self) -> ::windows::core::Result<super::Foundation::PWSTR> {
         let mut result__: <super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
@@ -876,7 +805,6 @@ pub struct IXblIdpAuthTokenResult2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KnownGamingPrivileges(pub i32);
@@ -910,9 +838,7 @@ impl ::core::convert::From<i32> for KnownGamingPrivileges {
 unsafe impl ::windows::core::Abi for KnownGamingPrivileges {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 pub type PlayerPickerUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows::core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, selectedxuidscount: usize);
-#[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ProcessPendingGameUI<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(waitforcompletion: Param0) -> ::windows::core::Result<()> {
@@ -927,7 +853,6 @@ pub unsafe fn ProcessPendingGameUI<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ReleaseExclusiveCpuSets() -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -941,7 +866,6 @@ pub unsafe fn ReleaseExclusiveCpuSets() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowChangeFriendRelationshipUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(targetuserxuid: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -955,7 +879,6 @@ pub unsafe fn ShowChangeFriendRelationshipUI<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowChangeFriendRelationshipUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, targetuserxuid: Param1, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -969,7 +892,6 @@ pub unsafe fn ShowChangeFriendRelationshipUIForUser<'a, Param0: ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowCustomizeUserProfileUI(completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -983,7 +905,6 @@ pub unsafe fn ShowCustomizeUserProfileUI(completionroutine: ::core::option::Opti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowCustomizeUserProfileUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -997,7 +918,6 @@ pub unsafe fn ShowCustomizeUserProfileUIForUser<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowFindFriendsUI(completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1011,7 +931,6 @@ pub unsafe fn ShowFindFriendsUI(completionroutine: ::core::option::Option<GameUI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowFindFriendsUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1025,7 +944,6 @@ pub unsafe fn ShowFindFriendsUIForUser<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowGameInfoUI(titleid: u32, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1039,7 +957,6 @@ pub unsafe fn ShowGameInfoUI(titleid: u32, completionroutine: ::core::option::Op
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowGameInfoUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, titleid: u32, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1053,7 +970,6 @@ pub unsafe fn ShowGameInfoUIForUser<'a, Param0: ::windows::core::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowGameInviteUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
     serviceconfigurationid: Param0,
@@ -1074,7 +990,6 @@ pub unsafe fn ShowGameInviteUI<'a, Param0: ::windows::core::IntoParam<'a, ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowGameInviteUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
     user: Param0,
@@ -1096,7 +1011,6 @@ pub unsafe fn ShowGameInviteUIForUser<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowGameInviteUIWithContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
     serviceconfigurationid: Param0,
@@ -1126,7 +1040,6 @@ pub unsafe fn ShowGameInviteUIWithContext<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowGameInviteUIWithContextForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
     user: Param0,
@@ -1158,7 +1071,6 @@ pub unsafe fn ShowGameInviteUIWithContextForUser<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowPlayerPickerUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(promptdisplaytext: Param0, xuids: *const ::windows::core::HSTRING, xuidscount: usize, preselectedxuids: *const ::windows::core::HSTRING, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: ::core::option::Option<PlayerPickerUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1183,7 +1095,6 @@ pub unsafe fn ShowPlayerPickerUI<'a, Param0: ::windows::core::IntoParam<'a, ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowPlayerPickerUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
     user: Param0,
@@ -1220,7 +1131,6 @@ pub unsafe fn ShowPlayerPickerUIForUser<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowProfileCardUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(targetuserxuid: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1234,7 +1144,6 @@ pub unsafe fn ShowProfileCardUI<'a, Param0: ::windows::core::IntoParam<'a, ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowProfileCardUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, targetuserxuid: Param1, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1248,7 +1157,6 @@ pub unsafe fn ShowProfileCardUIForUser<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowTitleAchievementsUI(titleid: u32, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1262,7 +1170,6 @@ pub unsafe fn ShowTitleAchievementsUI(titleid: u32, completionroutine: ::core::o
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowTitleAchievementsUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, titleid: u32, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1276,7 +1183,6 @@ pub unsafe fn ShowTitleAchievementsUIForUser<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowUserSettingsUI(completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1290,7 +1196,6 @@ pub unsafe fn ShowUserSettingsUI(completionroutine: ::core::option::Option<GameU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
 pub unsafe fn ShowUserSettingsUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, completionroutine: ::core::option::Option<GameUICompletionRoutine>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1304,7 +1209,6 @@ pub unsafe fn ShowUserSettingsUIForUser<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
@@ -1319,7 +1223,6 @@ pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Gaming`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XBL_IDP_AUTH_TOKEN_STATUS(pub i32);

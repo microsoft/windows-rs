@@ -1,17 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const CERTIFICATE_HASH_LENGTH: u32 = 20u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAPCODE_Failure: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAPCODE_Request: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAPCODE_Response: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAPCODE_Success: u32 = 3u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct EAPHOST_AUTH_INFO {
     pub status: EAPHOST_AUTH_STATUS,
     pub dwErrorCode: u32,
@@ -37,7 +31,6 @@ impl ::core::cmp::Eq for EAPHOST_AUTH_INFO {}
 unsafe impl ::windows::core::Abi for EAPHOST_AUTH_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EAPHOST_AUTH_STATUS(pub i32);
@@ -59,7 +52,6 @@ unsafe impl ::windows::core::Abi for EAPHOST_AUTH_STATUS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub eapMethodType: EAP_METHOD_TYPE,
     pub dwFlags: u32,
@@ -114,7 +106,6 @@ unsafe impl ::windows::core::Abi for EAPHOST_IDENTITY_UI_PARAMS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwSizeofContextData: u32,
     pub pContextData: *mut u8,
@@ -156,13 +147,10 @@ impl ::core::cmp::Eq for EAPHOST_INTERACTIVE_UI_PARAMS {}
 unsafe impl ::windows::core::Abi for EAPHOST_INTERACTIVE_UI_PARAMS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAPHOST_METHOD_API_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAPHOST_PEER_API_VERSION: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct EAP_ATTRIBUTE {
     pub eaType: EAP_ATTRIBUTE_TYPE,
     pub dwLength: u32,
@@ -190,7 +178,6 @@ unsafe impl ::windows::core::Abi for EAP_ATTRIBUTE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct EAP_ATTRIBUTES {
     pub dwNumberOfAttributes: u32,
     pub pAttribs: *mut EAP_ATTRIBUTE,
@@ -215,7 +202,6 @@ impl ::core::cmp::Eq for EAP_ATTRIBUTES {}
 unsafe impl ::windows::core::Abi for EAP_ATTRIBUTES {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EAP_ATTRIBUTE_TYPE(pub i32);
@@ -327,7 +313,6 @@ unsafe impl ::windows::core::Abi for EAP_ATTRIBUTE_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES {
     pub dwSizeInBytes: u32,
     pub pEapType: *mut EAP_METHOD_TYPE,
@@ -386,7 +371,6 @@ impl ::core::cmp::Eq for EAP_AUTHENTICATOR_METHOD_ROUTINES {}
 unsafe impl ::windows::core::Abi for EAP_AUTHENTICATOR_METHOD_ROUTINES {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EAP_AUTHENTICATOR_SEND_TIMEOUT(pub i32);
@@ -404,7 +388,6 @@ unsafe impl ::windows::core::Abi for EAP_AUTHENTICATOR_SEND_TIMEOUT {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
     pub dwVersion: u32,
     pub dwNumberOfFields: u32,
@@ -439,7 +422,6 @@ unsafe impl ::windows::core::Abi for EAP_CONFIG_INPUT_FIELD_ARRAY {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_CONFIG_INPUT_FIELD_DATA {
     pub dwSize: u32,
     pub Type: EAP_CONFIG_INPUT_FIELD_TYPE,
@@ -483,13 +465,9 @@ impl ::core::cmp::Eq for EAP_CONFIG_INPUT_FIELD_DATA {}
 unsafe impl ::windows::core::Abi for EAP_CONFIG_INPUT_FIELD_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EAP_CONFIG_INPUT_FIELD_TYPE(pub i32);
@@ -510,12 +488,10 @@ impl ::core::convert::From<i32> for EAP_CONFIG_INPUT_FIELD_TYPE {
 unsafe impl ::windows::core::Abi for EAP_CONFIG_INPUT_FIELD_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_CREDENTIAL_VERSION: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_CRED_EXPIRY_REQ {
     pub curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
@@ -549,7 +525,6 @@ unsafe impl ::windows::core::Abi for EAP_CRED_EXPIRY_REQ {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_ERROR {
     pub dwWinError: u32,
     pub r#type: EAP_METHOD_TYPE,
@@ -595,144 +570,76 @@ impl ::core::cmp::Eq for EAP_ERROR {}
 unsafe impl ::windows::core::Abi for EAP_ERROR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_AUTHENTICATION_FAILED: u32 = 2151809045u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_CERT_STORE_INACCESSIBLE: u32 = 2151809040u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_EAPHOST_EAPQEC_INACCESSIBLE: u32 = 2151809043u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_EAPHOST_FIRST: i32 = -2143158272i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_EAPHOST_IDENTITY_UNKNOWN: u32 = 2151809044u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_EAPHOST_LAST: i32 = -2143158017i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_EAPHOST_METHOD_INVALID_PACKET: u32 = 2151809047u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_EAPHOST_METHOD_NOT_INSTALLED: u32 = 2151809041u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_EAPHOST_METHOD_OPERATION_NOT_SUPPORTED: u32 = 2151809056u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_EAPHOST_REMOTE_INVALID_PACKET: u32 = 2151809048u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_EAPHOST_THIRDPARTY_METHOD_HOST_RESET: u32 = 2151809042u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_EAPHOST_XML_MALFORMED: u32 = 2151809049u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_METHOD_CONFIG_DOES_NOT_SUPPORT_SSO: u32 = 2151809050u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_NO_SMART_CARD_READER: u32 = 2151809299u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SERVER_CERT_EXPIRED: u32 = 2151809538u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SERVER_CERT_INVALID: u32 = 2151809537u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SERVER_CERT_NOT_FOUND: u32 = 2151809536u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SERVER_CERT_OTHER_ERROR: u32 = 2151809540u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SERVER_CERT_REVOKED: u32 = 2151809539u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SERVER_FIRST: i32 = -2143157760i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SERVER_LAST: i32 = -2143157505i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SERVER_ROOT_CERT_FIRST: i32 = -2143157248i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SERVER_ROOT_CERT_INVALID: u32 = 2151810049u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SERVER_ROOT_CERT_LAST: i32 = -2143156993i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SERVER_ROOT_CERT_NAME_REQUIRED: u32 = 2151810054u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SERVER_ROOT_CERT_NOT_FOUND: u32 = 2151810048u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_SIM_NOT_VALID: u32 = 2151810304u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_CERT_EXPIRED: u32 = 2151809282u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_CERT_INVALID: u32 = 2151809281u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_CERT_NOT_FOUND: u32 = 2151809280u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_CERT_OTHER_ERROR: u32 = 2151809284u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_CERT_REJECTED: u32 = 2151809285u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_CERT_REVOKED: u32 = 2151809283u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_CREDENTIALS_REJECTED: u32 = 2151809297u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_FIRST: i32 = -2143158016i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_LAST: i32 = -2143157761i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_NAME_PASSWORD_REJECTED: u32 = 2151809298u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_ROOT_CERT_EXPIRED: u32 = 2151809794u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_ROOT_CERT_FIRST: i32 = -2143157504i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_ROOT_CERT_INVALID: u32 = 2151809793u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_ROOT_CERT_LAST: i32 = -2143157249i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_USER_ROOT_CERT_NOT_FOUND: u32 = 2151809792u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_CONFG_READONLY: u32 = 524288u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_FULL_AUTH: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_GUEST_ACCESS: u32 = 64u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_LOGON: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_MACHINE_AUTH: u32 = 32u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_NON_INTERACTIVE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_ONLY_EAP_TLS: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_PREFER_ALT_CREDENTIALS: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_PREVIEW: u32 = 8u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_PRE_LOGON: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_RESUME_FROM_HIBERNATE: u32 = 512u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_Reserved1: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_Reserved2: u32 = 16u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_Reserved3: u32 = 128u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_Reserved4: u32 = 256u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_Reserved5: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_Reserved6: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_Reserved7: u32 = 16384u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_Reserved8: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_Reserved9: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_SERVER_VALIDATION_REQUIRED: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_SUPRESS_UI: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_USER_AUTH: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_FLAG_VPN: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_GROUP_MASK: i32 = 65280i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_INTERACTIVE_UI_DATA {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -760,7 +667,6 @@ impl ::core::cmp::Eq for EAP_INTERACTIVE_UI_DATA {}
 unsafe impl ::windows::core::Abi for EAP_INTERACTIVE_UI_DATA {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EAP_INTERACTIVE_UI_DATA_TYPE(pub i32);
@@ -778,25 +684,15 @@ impl ::core::convert::From<i32> for EAP_INTERACTIVE_UI_DATA_TYPE {
 unsafe impl ::windows::core::Abi for EAP_INTERACTIVE_UI_DATA_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_INTERACTIVE_UI_DATA_VERSION: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_INVALID_PACKET: u32 = 2151809048u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_I_EAPHOST_EAP_NEGOTIATION_FAILED: u32 = 1078067222u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_I_EAPHOST_FIRST: i32 = -2143158272i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_I_EAPHOST_LAST: i32 = -2143158017i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_I_USER_ACCOUNT_OTHER_ERROR: u32 = 1078067472u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_I_USER_FIRST: i32 = 1078067456i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_I_USER_LAST: i32 = 1078067711i32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_METHOD_AUTHENTICATOR_CONFIG_IS_IDENTITY_PRIVACY: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(pub i32);
@@ -817,7 +713,6 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_METHOD_AUTHENTICATOR_RESULT {
     pub fIsSuccess: super::super::Foundation::BOOL,
     pub dwFailureReason: u32,
@@ -852,7 +747,6 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_AUTHENTICATOR_RESULT {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_METHOD_INFO {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: super::super::Foundation::PWSTR,
@@ -889,7 +783,6 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_INFO {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_METHOD_INFO_ARRAY {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO,
@@ -923,7 +816,6 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_INFO_ARRAY {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_METHOD_INFO_ARRAY_EX {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO_EX,
@@ -957,7 +849,6 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_INFO_ARRAY_EX {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_METHOD_INFO_EX {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: super::super::Foundation::PWSTR,
@@ -991,12 +882,10 @@ impl ::core::cmp::Eq for EAP_METHOD_INFO_EX {}
 unsafe impl ::windows::core::Abi for EAP_METHOD_INFO_EX {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_METHOD_INVALID_PACKET: u32 = 2151809047u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_METHOD_PROPERTY {
     pub eapMethodPropertyType: EAP_METHOD_PROPERTY_TYPE,
     pub eapMethodPropertyValueType: EAP_METHOD_PROPERTY_VALUE_TYPE,
@@ -1025,7 +914,6 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_METHOD_PROPERTY_ARRAY {
     pub dwNumberOfProperties: u32,
     pub pMethodProperty: *mut EAP_METHOD_PROPERTY,
@@ -1056,7 +944,6 @@ impl ::core::cmp::Eq for EAP_METHOD_PROPERTY_ARRAY {}
 unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_ARRAY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EAP_METHOD_PROPERTY_TYPE(pub i32);
@@ -1102,7 +989,6 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub union EAP_METHOD_PROPERTY_VALUE {
     pub empvBool: EAP_METHOD_PROPERTY_VALUE_BOOL,
     pub empvDword: EAP_METHOD_PROPERTY_VALUE_DWORD,
@@ -1131,7 +1017,6 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL {
     pub length: u32,
     pub value: super::super::Foundation::BOOL,
@@ -1164,7 +1049,6 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE_BOOL {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct EAP_METHOD_PROPERTY_VALUE_DWORD {
     pub length: u32,
     pub value: u32,
@@ -1191,7 +1075,6 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE_DWORD {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING {
     pub length: u32,
     pub value: *mut u8,
@@ -1216,7 +1099,6 @@ impl ::core::cmp::Eq for EAP_METHOD_PROPERTY_VALUE_STRING {}
 unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE_STRING {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EAP_METHOD_PROPERTY_VALUE_TYPE(pub i32);
@@ -1233,7 +1115,6 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct EAP_METHOD_TYPE {
     pub eapType: EAP_TYPE,
     pub dwAuthorId: u32,
@@ -1258,13 +1139,10 @@ impl ::core::cmp::Eq for EAP_METHOD_TYPE {}
 unsafe impl ::windows::core::Abi for EAP_METHOD_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_PEER_FLAG_GUEST_ACCESS: u32 = 64u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: u32 = 32768u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct EAP_PEER_METHOD_ROUTINES {
     pub dwVersion: u32,
     pub pEapType: *mut EAP_TYPE,
@@ -1334,7 +1212,6 @@ unsafe impl ::windows::core::Abi for EAP_PEER_METHOD_ROUTINES {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct EAP_TYPE {
     pub r#type: u8,
     pub dwVendorId: u32,
@@ -1363,7 +1240,6 @@ unsafe impl ::windows::core::Abi for EAP_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub union EAP_UI_DATA_FORMAT {
     pub credData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub credExpiryData: *mut EAP_CRED_EXPIRY_REQ,
@@ -1389,18 +1265,13 @@ impl ::core::cmp::Eq for EAP_UI_DATA_FORMAT {}
 unsafe impl ::windows::core::Abi for EAP_UI_DATA_FORMAT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: u32 = 4u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EapCertificateCredential {
     pub certHash: [u8; 20],
     pub password: super::super::Foundation::PWSTR,
@@ -1431,7 +1302,6 @@ impl ::core::cmp::Eq for EapCertificateCredential {}
 unsafe impl ::windows::core::Abi for EapCertificateCredential {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EapCode(pub i32);
@@ -1452,7 +1322,6 @@ unsafe impl ::windows::core::Abi for EapCode {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EapCredential {
     pub credType: EapCredentialType,
     pub credData: EapCredentialTypeData,
@@ -1477,7 +1346,6 @@ impl ::core::cmp::Eq for EapCredential {}
 unsafe impl ::windows::core::Abi for EapCredential {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EapCredentialType(pub i32);
@@ -1497,7 +1365,6 @@ unsafe impl ::windows::core::Abi for EapCredentialType {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub union EapCredentialTypeData {
     pub username_password: EapUsernamePasswordCredential,
     pub certificate: EapCertificateCredential,
@@ -1523,7 +1390,6 @@ impl ::core::cmp::Eq for EapCredentialTypeData {}
 unsafe impl ::windows::core::Abi for EapCredentialTypeData {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EapHostPeerAuthParams(pub i32);
@@ -1539,7 +1405,6 @@ impl ::core::convert::From<i32> for EapHostPeerAuthParams {
 unsafe impl ::windows::core::Abi for EapHostPeerAuthParams {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerBeginSession<'a, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
@@ -1584,7 +1449,6 @@ pub unsafe fn EapHostPeerBeginSession<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerClearConnection(pconnectionid: *mut ::windows::core::GUID, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1599,7 +1463,6 @@ pub unsafe fn EapHostPeerClearConnection(pconnectionid: *mut ::windows::core::GU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn EapHostPeerConfigBlob2Xml<'a, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>>(dwflags: u32, eapmethodtype: Param1, dwsizeofconfigin: u32, pconfigin: *const u8, ppconfigdoc: *mut ::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1614,7 +1477,6 @@ pub unsafe fn EapHostPeerConfigBlob2Xml<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn EapHostPeerConfigXml2Blob<'a, Param1: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMNode>>(dwflags: u32, pconfigdoc: Param1, pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1629,7 +1491,6 @@ pub unsafe fn EapHostPeerConfigXml2Blob<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn EapHostPeerCredentialsXml2Blob<'a, Param1: ::windows::core::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMNode>>(dwflags: u32, pcredentialsdoc: Param1, dwsizeofconfigin: u32, pconfigin: *const u8, pdwsizeofcredentialsout: *mut u32, ppcredentialsout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1653,7 +1514,6 @@ pub unsafe fn EapHostPeerCredentialsXml2Blob<'a, Param1: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1668,7 +1528,6 @@ pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
@@ -1683,7 +1542,6 @@ pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
@@ -1698,7 +1556,6 @@ pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[inline]
 pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
     #[cfg(windows)]
@@ -1712,7 +1569,6 @@ pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[inline]
 pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
     #[cfg(windows)]
@@ -1726,7 +1582,6 @@ pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetAuthStatus(sessionhandle: u32, authparam: EapHostPeerAuthParams, pcbauthdata: *mut u32, ppauthdata: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1741,7 +1596,6 @@ pub unsafe fn EapHostPeerGetAuthStatus(sessionhandle: u32, authparam: EapHostPee
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds: *mut ::windows::core::GUID, phcredentialimpersonationtoken: *mut isize, sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR, fsavetocredman: *mut super::super::Foundation::BOOL) -> u32 {
@@ -1756,7 +1610,6 @@ pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetEncryptedPassword<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwsizeofpassword: u32, szpassword: Param1, ppszencpassword: *mut super::super::Foundation::PWSTR) -> u32 {
@@ -1771,7 +1624,6 @@ pub unsafe fn EapHostPeerGetEncryptedPassword<'a, Param1: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetIdentity<'a, Param2: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
@@ -1816,7 +1668,6 @@ pub unsafe fn EapHostPeerGetIdentity<'a, Param2: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetMethodProperties<'a, Param2: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwversion: u32, dwflags: u32, eapmethodtype: Param2, huserimpersonationtoken: Param3, dweapconndatasize: u32, pbeapconndata: *const u8, dwuserdatasize: u32, pbuserdata: *const u8, pmethodpropertyarray: *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1842,7 +1693,6 @@ pub unsafe fn EapHostPeerGetMethodProperties<'a, Param2: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetMethods(peapmethodinfoarray: *mut EAP_METHOD_INFO_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1857,7 +1707,6 @@ pub unsafe fn EapHostPeerGetMethods(peapmethodinfoarray: *mut EAP_METHOD_INFO_AR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetResponseAttributes(sessionhandle: u32, pattribs: *mut EAP_ATTRIBUTES, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1872,7 +1721,6 @@ pub unsafe fn EapHostPeerGetResponseAttributes(sessionhandle: u32, pattribs: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetResult(sessionhandle: u32, reason: EapHostPeerMethodResultReason, ppresult: *mut EapHostPeerMethodResult, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1887,7 +1735,6 @@ pub unsafe fn EapHostPeerGetResult(sessionhandle: u32, reason: EapHostPeerMethod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetSendPacket(sessionhandle: u32, pcbsendpacket: *mut u32, ppsendpacket: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1902,7 +1749,6 @@ pub unsafe fn EapHostPeerGetSendPacket(sessionhandle: u32, pcbsendpacket: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerGetUIContext(sessionhandle: u32, pdwsizeofuicontextdata: *mut u32, ppuicontextdata: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1917,7 +1763,6 @@ pub unsafe fn EapHostPeerGetUIContext(sessionhandle: u32, pdwsizeofuicontextdata
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[inline]
 pub unsafe fn EapHostPeerInitialize() -> u32 {
     #[cfg(windows)]
@@ -1931,7 +1776,6 @@ pub unsafe fn EapHostPeerInitialize() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerInvokeConfigUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>>(hwndparent: Param0, dwflags: u32, eapmethodtype: Param2, dwsizeofconfigin: u32, pconfigin: *const u8, pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -1955,7 +1799,6 @@ pub unsafe fn EapHostPeerInvokeConfigUI<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerInvokeIdentityUI<'a, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(
@@ -1998,7 +1841,6 @@ pub unsafe fn EapHostPeerInvokeIdentityUI<'a, Param1: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerInvokeInteractiveUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, dwsizeofuicontextdata: u32, puicontextdata: *const u8, pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -2016,7 +1858,6 @@ pub unsafe fn EapHostPeerInvokeInteractiveUI<'a, Param0: ::windows::core::IntoPa
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EapHostPeerMethodResult {
     pub fIsSuccess: super::super::Foundation::BOOL,
     pub dwFailureReasonCode: u32,
@@ -2081,7 +1922,6 @@ impl ::core::cmp::Eq for EapHostPeerMethodResult {}
 unsafe impl ::windows::core::Abi for EapHostPeerMethodResult {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EapHostPeerMethodResultReason(pub i32);
@@ -2096,7 +1936,6 @@ impl ::core::convert::From<i32> for EapHostPeerMethodResultReason {
 unsafe impl ::windows::core::Abi for EapHostPeerMethodResultReason {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerProcessReceivedPacket(sessionhandle: u32, cbreceivepacket: u32, preceivepacket: *const u8, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -2111,7 +1950,6 @@ pub unsafe fn EapHostPeerProcessReceivedPacket(sessionhandle: u32, cbreceivepack
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerQueryCredentialInputFields<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>>(huserimpersonationtoken: Param0, eapmethodtype: Param1, dwflags: u32, dweapconndatasize: u32, pbeapconndata: *const u8, peapconfiginputfieldarray: *mut EAP_CONFIG_INPUT_FIELD_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -2134,7 +1972,6 @@ pub unsafe fn EapHostPeerQueryCredentialInputFields<'a, Param0: ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerQueryInteractiveUIInputFields(dwversion: u32, dwflags: u32, dwsizeofuicontextdata: u32, puicontextdata: *const u8, peapinteractiveuidata: *mut EAP_INTERACTIVE_UI_DATA, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut ::core::ffi::c_void) -> u32 {
@@ -2157,7 +1994,6 @@ pub unsafe fn EapHostPeerQueryInteractiveUIInputFields(dwversion: u32, dwflags: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: u32, dwflags: u32, dwsizeofuicontextdata: u32, puicontextdata: *const u8, peapinteractiveuidata: *const EAP_INTERACTIVE_UI_DATA, pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut ::core::ffi::c_void) -> u32 {
@@ -2182,7 +2018,6 @@ pub unsafe fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerQueryUserBlobFromCredentialInputFields<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>>(huserimpersonationtoken: Param0, eapmethodtype: Param1, dwflags: u32, dweapconndatasize: u32, pbeapconndata: *const u8, peapconfiginputfieldarray: *const EAP_CONFIG_INPUT_FIELD_ARRAY, pdwuserblobsize: *mut u32, ppbuserblob: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -2207,7 +2042,6 @@ pub unsafe fn EapHostPeerQueryUserBlobFromCredentialInputFields<'a, Param0: ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EapHostPeerResponseAction(pub i32);
@@ -2226,7 +2060,6 @@ impl ::core::convert::From<i32> for EapHostPeerResponseAction {
 unsafe impl ::windows::core::Abi for EapHostPeerResponseAction {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerSetResponseAttributes(sessionhandle: u32, pattribs: *const EAP_ATTRIBUTES, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -2241,7 +2074,6 @@ pub unsafe fn EapHostPeerSetResponseAttributes(sessionhandle: u32, pattribs: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EapHostPeerSetUIContext(sessionhandle: u32, dwsizeofuicontextdata: u32, puicontextdata: *const u8, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -2256,7 +2088,6 @@ pub unsafe fn EapHostPeerSetUIContext(sessionhandle: u32, dwsizeofuicontextdata:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[inline]
 pub unsafe fn EapHostPeerUninitialize() {
     #[cfg(windows)]
@@ -2272,7 +2103,6 @@ pub unsafe fn EapHostPeerUninitialize() {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct EapPacket {
     pub Code: u8,
     pub Id: u8,
@@ -2302,7 +2132,6 @@ unsafe impl ::windows::core::Abi for EapPacket {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EapPeerMethodOutput {
     pub action: EapPeerMethodResponseAction,
     pub fAllowNotifications: super::super::Foundation::BOOL,
@@ -2333,7 +2162,6 @@ impl ::core::cmp::Eq for EapPeerMethodOutput {}
 unsafe impl ::windows::core::Abi for EapPeerMethodOutput {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EapPeerMethodResponseAction(pub i32);
@@ -2354,7 +2182,6 @@ unsafe impl ::windows::core::Abi for EapPeerMethodResponseAction {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EapPeerMethodResult {
     pub fIsSuccess: super::super::Foundation::BOOL,
     pub dwFailureReasonCode: u32,
@@ -2419,7 +2246,6 @@ impl ::core::cmp::Eq for EapPeerMethodResult {}
 unsafe impl ::windows::core::Abi for EapPeerMethodResult {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EapPeerMethodResultReason(pub i32);
@@ -2437,7 +2263,6 @@ unsafe impl ::windows::core::Abi for EapPeerMethodResultReason {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EapSimCredential {
     pub iccID: super::super::Foundation::PWSTR,
 }
@@ -2470,7 +2295,6 @@ unsafe impl ::windows::core::Abi for EapSimCredential {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct EapUsernamePasswordCredential {
     pub username: super::super::Foundation::PWSTR,
     pub password: super::super::Foundation::PWSTR,
@@ -2501,7 +2325,6 @@ impl ::core::cmp::Eq for EapUsernamePasswordCredential {}
 unsafe impl ::windows::core::Abi for EapUsernamePasswordCredential {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const FACILITY_EAP_MESSAGE: u32 = 2114u32;
 pub const GUID_EapHost_Cause_CertStoreInaccessible: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000004);
 pub const GUID_EapHost_Cause_EapNegotiationFailed: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001c);
@@ -2557,31 +2380,25 @@ pub const GUID_EapHost_Repair_Server_ClientSelectServerCert: ::windows::core::GU
 pub const GUID_EapHost_Repair_User_AuthFailure: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d800000019);
 pub const GUID_EapHost_Repair_User_GetNewCert: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001a);
 pub const GUID_EapHost_Repair_User_SelectValidCert: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9612fc67_6150_4209_a85e_a8d80000001b);
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAccountingProviderConfig(pub ::windows::core::IUnknown);
 impl IAccountingProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmachinename: Param0) -> ::windows::core::Result<usize> {
         let mut result__: <usize as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), &mut result__).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn Configure<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, uconnectionparam: usize, hwnd: Param1, dwflags: u32, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
     pub unsafe fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
     pub unsafe fn Deactivate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
@@ -2624,31 +2441,25 @@ pub struct IAccountingProviderConfig_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAuthenticationProviderConfig(pub ::windows::core::IUnknown);
 impl IAuthenticationProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmachinename: Param0) -> ::windows::core::Result<usize> {
         let mut result__: <usize as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), &mut result__).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn Configure<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, uconnectionparam: usize, hwnd: Param1, dwflags: u32, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
     pub unsafe fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
     pub unsafe fn Deactivate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(uconnectionparam), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
@@ -2691,28 +2502,23 @@ pub struct IAuthenticationProviderConfig_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEAPProviderConfig(pub ::windows::core::IUnknown);
 impl IEAPProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmachinename: Param0, dweaptypeid: u32) -> ::windows::core::Result<usize> {
         let mut result__: <usize as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), ::core::mem::transmute(dweaptypeid), &mut result__).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn ServerInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: Param2, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn RouterInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -2728,7 +2534,6 @@ impl IEAPProviderConfig {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn RouterInvokeCredentialsUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, puserdatain: *const u8, dwsizeofuserdatain: u32, ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(
             ::core::mem::transmute_copy(self),
@@ -2786,28 +2591,23 @@ pub struct IEAPProviderConfig_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, puserdatain: *const u8, dwsizeofuserdatain: u32, ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEAPProviderConfig2(pub ::windows::core::IUnknown);
 impl IEAPProviderConfig2 {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmachinename: Param0, dweaptypeid: u32) -> ::windows::core::Result<usize> {
         let mut result__: <usize as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), ::core::mem::transmute(dweaptypeid), &mut result__).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn ServerInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: Param2, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn RouterInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -2823,7 +2623,6 @@ impl IEAPProviderConfig2 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn RouterInvokeCredentialsUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, puserdatain: *const u8, dwsizeofuserdatain: u32, ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(
             ::core::mem::transmute_copy(self),
@@ -2841,7 +2640,6 @@ impl IEAPProviderConfig2 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn ServerInvokeConfigUI2<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: Param2, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(
             ::core::mem::transmute_copy(self),
@@ -2855,7 +2653,6 @@ impl IEAPProviderConfig2 {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
     pub unsafe fn GetGlobalConfig(&self, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout)).ok()
     }
@@ -2923,28 +2720,23 @@ pub struct IEAPProviderConfig2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IEAPProviderConfig3(pub ::windows::core::IUnknown);
 impl IEAPProviderConfig3 {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmachinename: Param0, dweaptypeid: u32) -> ::windows::core::Result<usize> {
         let mut result__: <usize as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), ::core::mem::transmute(dweaptypeid), &mut result__).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn ServerInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: Param2, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwnd.into_param().abi(), ::core::mem::transmute(ureserved1), ::core::mem::transmute(ureserved2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn RouterInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(
             ::core::mem::transmute_copy(self),
@@ -2960,7 +2752,6 @@ impl IEAPProviderConfig3 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn RouterInvokeCredentialsUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, puserdatain: *const u8, dwsizeofuserdatain: u32, ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(
             ::core::mem::transmute_copy(self),
@@ -2978,7 +2769,6 @@ impl IEAPProviderConfig3 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn ServerInvokeConfigUI2<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: Param2, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(
             ::core::mem::transmute_copy(self),
@@ -2992,12 +2782,10 @@ impl IEAPProviderConfig3 {
         )
         .ok()
     }
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
     pub unsafe fn GetGlobalConfig(&self, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn ServerInvokeCertificateConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: Param2, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(
             ::core::mem::transmute_copy(self),
@@ -3098,18 +2886,15 @@ pub struct IEAPProviderConfig3_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IRouterProtocolConfig(pub ::windows::core::IUnknown);
 impl IRouterProtocolConfig {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn AddProtocol<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pszmachinename: Param0, dwtransportid: u32, dwprotocolid: u32, hwnd: Param3, dwflags: u32, prouter: Param5, ureserved1: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(dwprotocolid), hwnd.into_param().abi(), ::core::mem::transmute(dwflags), prouter.into_param().abi(), ::core::mem::transmute(ureserved1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
     pub unsafe fn RemoveProtocol<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pszmachinename: Param0, dwtransportid: u32, dwprotocolid: u32, hwnd: Param3, dwflags: u32, prouter: Param5, ureserved1: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszmachinename.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(dwprotocolid), hwnd.into_param().abi(), ::core::mem::transmute(dwflags), prouter.into_param().abi(), ::core::mem::transmute(ureserved1)).ok()
     }
@@ -3149,7 +2934,6 @@ pub struct IRouterProtocolConfig_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pszmachinename: super::super::Foundation::PWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: ::windows::core::RawPtr, ureserved1: usize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ISOLATION_STATE(pub i32);
@@ -3168,7 +2952,6 @@ unsafe impl ::windows::core::Abi for ISOLATION_STATE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct LEGACY_IDENTITY_UI_PARAMS {
     pub eapType: u32,
     pub dwFlags: u32,
@@ -3220,7 +3003,6 @@ unsafe impl ::windows::core::Abi for LEGACY_IDENTITY_UI_PARAMS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct LEGACY_INTERACTIVE_UI_PARAMS {
     pub eapType: u32,
     pub dwSizeofContextData: u32,
@@ -3256,18 +3038,13 @@ impl ::core::cmp::Eq for LEGACY_INTERACTIVE_UI_PARAMS {}
 unsafe impl ::windows::core::Abi for LEGACY_INTERACTIVE_UI_PARAMS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const MAXEAPCODE: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const MAX_EAP_CONFIG_INPUT_FIELD_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const NCRYPT_PIN_CACHE_PIN_BYTE_LENGTH: u32 = 90u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct NgcTicketContext {
     pub wszTicket: [u16; 45],
     pub hKey: usize,
@@ -3299,9 +3076,7 @@ impl ::core::cmp::Eq for NgcTicketContext {}
 unsafe impl ::windows::core::Abi for NgcTicketContext {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub type NotificationHandler = unsafe extern "system" fn(connectionid: ::windows::core::GUID, pcontextdata: *mut ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PPP_EAP_ACTION(pub i32);
@@ -3324,7 +3099,6 @@ unsafe impl ::windows::core::Abi for PPP_EAP_ACTION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct PPP_EAP_INFO {
     pub dwSizeInBytes: u32,
     pub dwEapTypeId: u32,
@@ -3363,7 +3137,6 @@ unsafe impl ::windows::core::Abi for PPP_EAP_INFO {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct PPP_EAP_INPUT {
     pub dwSizeInBytes: u32,
     pub fFlags: u32,
@@ -3458,7 +3231,6 @@ unsafe impl ::windows::core::Abi for PPP_EAP_INPUT {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
 pub struct PPP_EAP_OUTPUT {
     pub dwSizeInBytes: u32,
     pub Action: PPP_EAP_ACTION,
@@ -3534,7 +3306,6 @@ unsafe impl ::windows::core::Abi for PPP_EAP_OUTPUT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct PPP_EAP_PACKET {
     pub Code: u8,
     pub Id: u8,
@@ -3563,7 +3334,6 @@ unsafe impl ::windows::core::Abi for PPP_EAP_PACKET {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub struct RAS_AUTH_ATTRIBUTE {
     pub raaType: RAS_AUTH_ATTRIBUTE_TYPE,
     pub dwLength: u32,
@@ -3589,7 +3359,6 @@ impl ::core::cmp::Eq for RAS_AUTH_ATTRIBUTE {}
 unsafe impl ::windows::core::Abi for RAS_AUTH_ATTRIBUTE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RAS_AUTH_ATTRIBUTE_TYPE(pub i32);
@@ -3697,49 +3466,26 @@ impl ::core::convert::From<i32> for RAS_AUTH_ATTRIBUTE_TYPE {
 unsafe impl ::windows::core::Abi for RAS_AUTH_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_8021X_AUTH: u32 = 128u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_ALTERNATIVE_USER_DB: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_CONFG_READONLY: u32 = 524288u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_FIRST_LINK: u32 = 16u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_GUEST_ACCESS: u32 = 64u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_HOSTED_IN_PEAP: u32 = 256u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_LOGON: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_MACHINE_AUTH: u32 = 32u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_NON_INTERACTIVE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_PEAP_FORCE_FULL_AUTH: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_PEAP_UPFRONT: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_PREVIEW: u32 = 8u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_PRE_LOGON: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_RESERVED: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_RESUME_FROM_HIBERNATE: u32 = 512u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_ROUTER: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_SAVE_CREDMAN: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_SERVER_VALIDATION_REQUIRED: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_ROLE_AUTHENTICATEE: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_ROLE_AUTHENTICATOR: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_ROLE_EXCLUDE_IN_EAP: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_ROLE_EXCLUDE_IN_PEAP: u32 = 8u32;
-#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_ROLE_EXCLUDE_IN_VPN: u32 = 16u32;

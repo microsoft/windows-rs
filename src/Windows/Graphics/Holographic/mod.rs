@@ -1,7 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Graphics_Holographic`*"]
 pub struct HolographicAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -32,13 +31,11 @@ unsafe impl ::windows::core::RuntimeType for HolographicAdapterId {
 impl ::windows::core::DefaultType for HolographicAdapterId {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicCamera(pub ::windows::core::IInspectable);
 impl HolographicCamera {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn RenderTargetSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -46,7 +43,6 @@ impl HolographicCamera {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn ViewportScaleFactor(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -54,12 +50,10 @@ impl HolographicCamera {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn SetViewportScaleFactor(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn IsStereo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -67,7 +61,6 @@ impl HolographicCamera {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -75,17 +68,14 @@ impl HolographicCamera {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn SetNearPlaneDistance(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn SetFarPlaneDistance(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn LeftViewportParameters(&self) -> ::windows::core::Result<HolographicCameraViewportParameters> {
         let this = &::windows::core::Interface::cast::<IHolographicCamera2>(self)?;
         unsafe {
@@ -93,7 +83,6 @@ impl HolographicCamera {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicCameraViewportParameters>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn RightViewportParameters(&self) -> ::windows::core::Result<HolographicCameraViewportParameters> {
         let this = &::windows::core::Interface::cast::<IHolographicCamera2>(self)?;
         unsafe {
@@ -101,7 +90,6 @@ impl HolographicCamera {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicCameraViewportParameters>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn Display(&self) -> ::windows::core::Result<HolographicDisplay> {
         let this = &::windows::core::Interface::cast::<IHolographicCamera2>(self)?;
         unsafe {
@@ -109,7 +97,6 @@ impl HolographicCamera {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicDisplay>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn IsPrimaryLayerEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IHolographicCamera3>(self)?;
         unsafe {
@@ -117,12 +104,10 @@ impl HolographicCamera {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn SetIsPrimaryLayerEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicCamera3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn MaxQuadLayerCount(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IHolographicCamera3>(self)?;
         unsafe {
@@ -131,7 +116,6 @@ impl HolographicCamera {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Collections`*"]
     pub fn QuadLayers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<HolographicQuadLayer>> {
         let this = &::windows::core::Interface::cast::<IHolographicCamera3>(self)?;
         unsafe {
@@ -139,7 +123,6 @@ impl HolographicCamera {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<HolographicQuadLayer>>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn CanOverrideViewport(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IHolographicCamera4>(self)?;
         unsafe {
@@ -147,7 +130,6 @@ impl HolographicCamera {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn IsHardwareContentProtectionSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IHolographicCamera5>(self)?;
         unsafe {
@@ -155,7 +137,6 @@ impl HolographicCamera {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn IsHardwareContentProtectionEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IHolographicCamera5>(self)?;
         unsafe {
@@ -163,12 +144,10 @@ impl HolographicCamera {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn SetIsHardwareContentProtectionEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicCamera5>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn ViewConfiguration(&self) -> ::windows::core::Result<HolographicViewConfiguration> {
         let this = &::windows::core::Interface::cast::<IHolographicCamera6>(self)?;
         unsafe {
@@ -229,12 +208,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicCamera {}
 unsafe impl ::core::marker::Sync for HolographicCamera {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicCameraPose(pub ::windows::core::IInspectable);
 impl HolographicCameraPose {
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn HolographicCamera(&self) -> ::windows::core::Result<HolographicCamera> {
         let this = self;
         unsafe {
@@ -243,7 +220,6 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn Viewport(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -252,7 +228,6 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn TryGetViewTransform<'a, Param0: ::windows::core::IntoParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<HolographicStereoTransform>> {
         let this = self;
         unsafe {
@@ -261,7 +236,6 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Numerics`*"]
     pub fn ProjectionTransform(&self) -> ::windows::core::Result<HolographicStereoTransform> {
         let this = self;
         unsafe {
@@ -270,7 +244,6 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn TryGetCullingFrustum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>> {
         let this = self;
         unsafe {
@@ -279,7 +252,6 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn TryGetVisibleFrustum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>> {
         let this = self;
         unsafe {
@@ -287,7 +259,6 @@ impl HolographicCameraPose {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn NearPlaneDistance(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -295,7 +266,6 @@ impl HolographicCameraPose {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn FarPlaneDistance(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -304,19 +274,16 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn OverrideViewTransform<'a, Param0: ::windows::core::IntoParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, HolographicStereoTransform>>(&self, coordinatesystem: Param0, coordinatesystemtoviewtransform: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraPose2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), coordinatesystemtoviewtransform.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Numerics`*"]
     pub fn OverrideProjectionTransform<'a, Param0: ::windows::core::IntoParam<'a, HolographicStereoTransform>>(&self, projectiontransform: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraPose2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), projectiontransform.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn OverrideViewport<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, leftviewport: Param0, rightviewport: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraPose2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), leftviewport.into_param().abi(), rightviewport.into_param().abi()).ok() }
@@ -374,25 +341,21 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicCameraPose {}
 unsafe impl ::core::marker::Sync for HolographicCameraPose {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicCameraRenderingParameters(pub ::windows::core::IInspectable);
 impl HolographicCameraRenderingParameters {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn SetFocusPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>>(&self, coordinatesystem: Param0, position: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), position.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn SetFocusPointWithNormal<'a, Param0: ::windows::core::IntoParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>>(&self, coordinatesystem: Param0, position: Param1, normal: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), position.into_param().abi(), normal.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn SetFocusPointWithNormalLinearVelocity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>>(
         &self,
         coordinatesystem: Param0,
@@ -404,7 +367,6 @@ impl HolographicCameraRenderingParameters {
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), position.into_param().abi(), normal.into_param().abi(), linearvelocity.into_param().abi()).ok() }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Graphics_DirectX_Direct3D11`*"]
     pub fn Direct3D11Device(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DDevice> {
         let this = self;
         unsafe {
@@ -413,7 +375,6 @@ impl HolographicCameraRenderingParameters {
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Graphics_DirectX_Direct3D11`*"]
     pub fn Direct3D11BackBuffer(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface> {
         let this = self;
         unsafe {
@@ -421,7 +382,6 @@ impl HolographicCameraRenderingParameters {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DirectX::Direct3D11::IDirect3DSurface>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn ReprojectionMode(&self) -> ::windows::core::Result<HolographicReprojectionMode> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraRenderingParameters2>(self)?;
         unsafe {
@@ -429,18 +389,15 @@ impl HolographicCameraRenderingParameters {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicReprojectionMode>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn SetReprojectionMode(&self, value: HolographicReprojectionMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraRenderingParameters2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Graphics_DirectX_Direct3D11`*"]
     pub fn CommitDirect3D11DepthBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::DirectX::Direct3D11::IDirect3DSurface>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraRenderingParameters2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn IsContentProtectionEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraRenderingParameters3>(self)?;
         unsafe {
@@ -448,12 +405,10 @@ impl HolographicCameraRenderingParameters {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn SetIsContentProtectionEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraRenderingParameters3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn DepthReprojectionMethod(&self) -> ::windows::core::Result<HolographicDepthReprojectionMethod> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraRenderingParameters4>(self)?;
         unsafe {
@@ -461,7 +416,6 @@ impl HolographicCameraRenderingParameters {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicDepthReprojectionMethod>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn SetDepthReprojectionMethod(&self, value: HolographicDepthReprojectionMethod) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraRenderingParameters4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
@@ -519,13 +473,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicCameraRenderingParameters {}
 unsafe impl ::core::marker::Sync for HolographicCameraRenderingParameters {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicCameraViewportParameters(pub ::windows::core::IInspectable);
 impl HolographicCameraViewportParameters {
     #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Numerics`*"]
     pub fn HiddenAreaMesh(&self) -> ::windows::core::Result<::windows::core::Array<super::super::Foundation::Numerics::Vector2>> {
         let this = self;
         unsafe {
@@ -534,7 +486,6 @@ impl HolographicCameraViewportParameters {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Numerics`*"]
     pub fn VisibleAreaMesh(&self) -> ::windows::core::Result<::windows::core::Array<super::super::Foundation::Numerics::Vector2>> {
         let this = self;
         unsafe {
@@ -595,7 +546,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicCameraViewportParameters {}
 unsafe impl ::core::marker::Sync for HolographicCameraViewportParameters {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HolographicDepthReprojectionMethod(pub i32);
@@ -617,12 +567,10 @@ unsafe impl ::windows::core::RuntimeType for HolographicDepthReprojectionMethod 
 impl ::windows::core::DefaultType for HolographicDepthReprojectionMethod {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicDisplay(pub ::windows::core::IInspectable);
 impl HolographicDisplay {
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -631,7 +579,6 @@ impl HolographicDisplay {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn MaxViewportSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -639,7 +586,6 @@ impl HolographicDisplay {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn IsStereo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -647,7 +593,6 @@ impl HolographicDisplay {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn IsOpaque(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -655,7 +600,6 @@ impl HolographicDisplay {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn AdapterId(&self) -> ::windows::core::Result<HolographicAdapterId> {
         let this = self;
         unsafe {
@@ -664,7 +608,6 @@ impl HolographicDisplay {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Perception_Spatial`*"]
     pub fn SpatialLocator(&self) -> ::windows::core::Result<super::super::Perception::Spatial::SpatialLocator> {
         let this = self;
         unsafe {
@@ -672,14 +615,12 @@ impl HolographicDisplay {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Perception::Spatial::SpatialLocator>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn GetDefault() -> ::windows::core::Result<HolographicDisplay> {
         Self::IHolographicDisplayStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicDisplay>(result__)
         })
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn RefreshRate(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IHolographicDisplay2>(self)?;
         unsafe {
@@ -687,7 +628,6 @@ impl HolographicDisplay {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn TryGetViewConfiguration(&self, kind: HolographicViewConfigurationKind) -> ::windows::core::Result<HolographicViewConfiguration> {
         let this = &::windows::core::Interface::cast::<IHolographicDisplay3>(self)?;
         unsafe {
@@ -752,13 +692,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicDisplay {}
 unsafe impl ::core::marker::Sync for HolographicDisplay {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicFrame(pub ::windows::core::IInspectable);
 impl HolographicFrame {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Collections`*"]
     pub fn AddedCameras(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCamera>> {
         let this = self;
         unsafe {
@@ -767,7 +705,6 @@ impl HolographicFrame {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Collections`*"]
     pub fn RemovedCameras(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCamera>> {
         let this = self;
         unsafe {
@@ -775,7 +712,6 @@ impl HolographicFrame {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<HolographicCamera>>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn GetRenderingParameters<'a, Param0: ::windows::core::IntoParam<'a, HolographicCameraPose>>(&self, camerapose: Param0) -> ::windows::core::Result<HolographicCameraRenderingParameters> {
         let this = self;
         unsafe {
@@ -784,7 +720,6 @@ impl HolographicFrame {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -792,7 +727,6 @@ impl HolographicFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn CurrentPrediction(&self) -> ::windows::core::Result<HolographicFramePrediction> {
         let this = self;
         unsafe {
@@ -800,12 +734,10 @@ impl HolographicFrame {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicFramePrediction>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn UpdateCurrentPrediction(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn PresentUsingCurrentPrediction(&self) -> ::windows::core::Result<HolographicFramePresentResult> {
         let this = self;
         unsafe {
@@ -813,7 +745,6 @@ impl HolographicFrame {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicFramePresentResult>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn PresentUsingCurrentPredictionWithBehavior(&self, waitbehavior: HolographicFramePresentWaitBehavior) -> ::windows::core::Result<HolographicFramePresentResult> {
         let this = self;
         unsafe {
@@ -821,12 +752,10 @@ impl HolographicFrame {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), waitbehavior, &mut result__).from_abi::<HolographicFramePresentResult>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn WaitForFrameToFinish(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn GetQuadLayerUpdateParameters<'a, Param0: ::windows::core::IntoParam<'a, HolographicQuadLayer>>(&self, layer: Param0) -> ::windows::core::Result<HolographicQuadLayerUpdateParameters> {
         let this = &::windows::core::Interface::cast::<IHolographicFrame2>(self)?;
         unsafe {
@@ -834,7 +763,6 @@ impl HolographicFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), layer.into_param().abi(), &mut result__).from_abi::<HolographicQuadLayerUpdateParameters>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn Id(&self) -> ::windows::core::Result<HolographicFrameId> {
         let this = &::windows::core::Interface::cast::<IHolographicFrame3>(self)?;
         unsafe {
@@ -897,7 +825,6 @@ unsafe impl ::core::marker::Send for HolographicFrame {}
 unsafe impl ::core::marker::Sync for HolographicFrame {}
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Graphics_Holographic`*"]
 pub struct HolographicFrameId {
     pub Value: u64,
 }
@@ -927,13 +854,11 @@ unsafe impl ::windows::core::RuntimeType for HolographicFrameId {
 impl ::windows::core::DefaultType for HolographicFrameId {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicFramePrediction(pub ::windows::core::IInspectable);
 impl HolographicFramePrediction {
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Collections`*"]
     pub fn CameraPoses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCameraPose>> {
         let this = self;
         unsafe {
@@ -942,7 +867,6 @@ impl HolographicFramePrediction {
         }
     }
     #[cfg(feature = "Perception")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Perception`*"]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Perception::PerceptionTimestamp> {
         let this = self;
         unsafe {
@@ -1003,7 +927,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicFramePrediction {}
 unsafe impl ::core::marker::Sync for HolographicFramePrediction {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HolographicFramePresentResult(pub i32);
@@ -1025,7 +948,6 @@ unsafe impl ::windows::core::RuntimeType for HolographicFramePresentResult {
 impl ::windows::core::DefaultType for HolographicFramePresentResult {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HolographicFramePresentWaitBehavior(pub i32);
@@ -1047,20 +969,17 @@ unsafe impl ::windows::core::RuntimeType for HolographicFramePresentWaitBehavior
 impl ::windows::core::DefaultType for HolographicFramePresentWaitBehavior {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicFramePresentationMonitor(pub ::windows::core::IInspectable);
 impl HolographicFramePresentationMonitor {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Collections`*"]
     pub fn ReadReports(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicFramePresentationReport>> {
         let this = self;
         unsafe {
@@ -1147,14 +1066,12 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for HolographicFramePresentationMonitor {}
 unsafe impl ::core::marker::Sync for HolographicFramePresentationMonitor {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicFramePresentationReport(pub ::windows::core::IInspectable);
 impl HolographicFramePresentationReport {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn CompositorGpuDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1164,7 +1081,6 @@ impl HolographicFramePresentationReport {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn AppGpuDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1174,7 +1090,6 @@ impl HolographicFramePresentationReport {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn AppGpuOverrun(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1183,7 +1098,6 @@ impl HolographicFramePresentationReport {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn MissedPresentationOpportunityCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1192,7 +1106,6 @@ impl HolographicFramePresentationReport {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn PresentationCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1253,12 +1166,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicFramePresentationReport {}
 unsafe impl ::core::marker::Sync for HolographicFramePresentationReport {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicFrameRenderingReport(pub ::windows::core::IInspectable);
 impl HolographicFrameRenderingReport {
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn FrameId(&self) -> ::windows::core::Result<HolographicFrameId> {
         let this = self;
         unsafe {
@@ -1266,7 +1177,6 @@ impl HolographicFrameRenderingReport {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicFrameId>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn MissedLatchCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1275,7 +1185,6 @@ impl HolographicFrameRenderingReport {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn SystemRelativeFrameReadyTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1284,7 +1193,6 @@ impl HolographicFrameRenderingReport {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn SystemRelativeActualGpuFinishTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1293,7 +1201,6 @@ impl HolographicFrameRenderingReport {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn SystemRelativeTargetLatchTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1354,19 +1261,16 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicFrameRenderingReport {}
 unsafe impl ::core::marker::Sync for HolographicFrameRenderingReport {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicFrameScanoutMonitor(pub ::windows::core::IInspectable);
 impl HolographicFrameScanoutMonitor {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Collections`*"]
     pub fn ReadReports(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<HolographicFrameScanoutReport>> {
         let this = self;
         unsafe {
@@ -1453,12 +1357,10 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for HolographicFrameScanoutMonitor {}
 unsafe impl ::core::marker::Sync for HolographicFrameScanoutMonitor {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicFrameScanoutReport(pub ::windows::core::IInspectable);
 impl HolographicFrameScanoutReport {
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn RenderingReport(&self) -> ::windows::core::Result<HolographicFrameRenderingReport> {
         let this = self;
         unsafe {
@@ -1466,7 +1368,6 @@ impl HolographicFrameScanoutReport {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicFrameRenderingReport>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn MissedScanoutCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1475,7 +1376,6 @@ impl HolographicFrameScanoutReport {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn SystemRelativeLatchTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1484,7 +1384,6 @@ impl HolographicFrameScanoutReport {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn SystemRelativeScanoutStartTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1493,7 +1392,6 @@ impl HolographicFrameScanoutReport {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn SystemRelativePhotonTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1554,19 +1452,16 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicFrameScanoutReport {}
 unsafe impl ::core::marker::Sync for HolographicFrameScanoutReport {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicQuadLayer(pub ::windows::core::IInspectable);
 impl HolographicQuadLayer {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Graphics_DirectX`*"]
     pub fn PixelFormat(&self) -> ::windows::core::Result<super::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
@@ -1575,7 +1470,6 @@ impl HolographicQuadLayer {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -1584,7 +1478,6 @@ impl HolographicQuadLayer {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(size: Param0) -> ::windows::core::Result<HolographicQuadLayer> {
         Self::IHolographicQuadLayerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1592,7 +1485,6 @@ impl HolographicQuadLayer {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`, `Graphics_DirectX`*"]
     pub fn CreateWithPixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(size: Param0, pixelformat: super::DirectX::DirectXPixelFormat) -> ::windows::core::Result<HolographicQuadLayer> {
         Self::IHolographicQuadLayerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1682,13 +1574,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for HolographicQuadLayer {}
 unsafe impl ::core::marker::Sync for HolographicQuadLayer {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicQuadLayerUpdateParameters(pub ::windows::core::IInspectable);
 impl HolographicQuadLayerUpdateParameters {
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Graphics_DirectX_Direct3D11`*"]
     pub fn AcquireBufferToUpdateContent(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface> {
         let this = self;
         unsafe {
@@ -1697,35 +1587,29 @@ impl HolographicQuadLayerUpdateParameters {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn UpdateViewport<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn UpdateContentProtectionEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Numerics`*"]
     pub fn UpdateExtents<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn UpdateLocationWithStationaryMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(&self, coordinatesystem: Param0, position: Param1, orientation: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), position.into_param().abi(), orientation.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Numerics`*"]
     pub fn UpdateLocationWithDisplayRelativeMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector3>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(&self, position: Param0, orientation: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), position.into_param().abi(), orientation.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn CanAcquireWithHardwareProtection(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IHolographicQuadLayerUpdateParameters2>(self)?;
         unsafe {
@@ -1734,7 +1618,6 @@ impl HolographicQuadLayerUpdateParameters {
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Graphics_DirectX_Direct3D11`*"]
     pub fn AcquireBufferToUpdateContentWithHardwareProtection(&self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface> {
         let this = &::windows::core::Interface::cast::<IHolographicQuadLayerUpdateParameters2>(self)?;
         unsafe {
@@ -1795,7 +1678,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicQuadLayerUpdateParameters {}
 unsafe impl ::core::marker::Sync for HolographicQuadLayerUpdateParameters {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HolographicReprojectionMode(pub i32);
@@ -1818,12 +1700,10 @@ unsafe impl ::windows::core::RuntimeType for HolographicReprojectionMode {
 impl ::windows::core::DefaultType for HolographicReprojectionMode {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicSpace(pub ::windows::core::IInspectable);
 impl HolographicSpace {
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn PrimaryAdapterId(&self) -> ::windows::core::Result<HolographicAdapterId> {
         let this = self;
         unsafe {
@@ -1832,13 +1712,11 @@ impl HolographicSpace {
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Graphics_DirectX_Direct3D11`*"]
     pub fn SetDirect3D11Device<'a, Param0: ::windows::core::IntoParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn CameraAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraAddedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1847,13 +1725,11 @@ impl HolographicSpace {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn RemoveCameraAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn CameraRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1862,12 +1738,10 @@ impl HolographicSpace {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn RemoveCameraRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn CreateNextFrame(&self) -> ::windows::core::Result<HolographicFrame> {
         let this = self;
         unsafe {
@@ -1876,21 +1750,18 @@ impl HolographicSpace {
         }
     }
     #[cfg(feature = "UI_Core")]
-    #[doc = "*Required features: `Graphics_Holographic`, `UI_Core`*"]
     pub fn CreateForCoreWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Core::CoreWindow>>(window: Param0) -> ::windows::core::Result<HolographicSpace> {
         Self::IHolographicSpaceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), window.into_param().abi(), &mut result__).from_abi::<HolographicSpace>(result__)
         })
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IHolographicSpaceStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn IsAvailable() -> ::windows::core::Result<bool> {
         Self::IHolographicSpaceStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -1898,7 +1769,6 @@ impl HolographicSpace {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn IsAvailableChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IHolographicSpaceStatics2(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
@@ -1906,18 +1776,15 @@ impl HolographicSpace {
         })
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn RemoveIsAvailableChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::IHolographicSpaceStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn IsConfigured() -> ::windows::core::Result<bool> {
         Self::IHolographicSpaceStatics3(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn UserPresence(&self) -> ::windows::core::Result<HolographicSpaceUserPresence> {
         let this = &::windows::core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe {
@@ -1926,7 +1793,6 @@ impl HolographicSpace {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn UserPresenceChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<HolographicSpace, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe {
@@ -1935,24 +1801,20 @@ impl HolographicSpace {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn RemoveUserPresenceChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn WaitForNextFrameReady(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn WaitForNextFrameReadyWithHeadStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, requestedheadstartduration: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), requestedheadstartduration.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn CreateFramePresentationMonitor(&self, maxqueuedreports: u32) -> ::windows::core::Result<HolographicFramePresentationMonitor> {
         let this = &::windows::core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe {
@@ -1960,7 +1822,6 @@ impl HolographicSpace {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), maxqueuedreports, &mut result__).from_abi::<HolographicFramePresentationMonitor>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn CreateFrameScanoutMonitor(&self, maxqueuedreports: u32) -> ::windows::core::Result<HolographicFrameScanoutMonitor> {
         let this = &::windows::core::Interface::cast::<IHolographicSpace3>(self)?;
         unsafe {
@@ -2033,12 +1894,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicSpace {}
 unsafe impl ::core::marker::Sync for HolographicSpace {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicSpaceCameraAddedEventArgs(pub ::windows::core::IInspectable);
 impl HolographicSpaceCameraAddedEventArgs {
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn Camera(&self) -> ::windows::core::Result<HolographicCamera> {
         let this = self;
         unsafe {
@@ -2047,7 +1906,6 @@ impl HolographicSpaceCameraAddedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -2108,12 +1966,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicSpaceCameraAddedEventArgs {}
 unsafe impl ::core::marker::Sync for HolographicSpaceCameraAddedEventArgs {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicSpaceCameraRemovedEventArgs(pub ::windows::core::IInspectable);
 impl HolographicSpaceCameraRemovedEventArgs {
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn Camera(&self) -> ::windows::core::Result<HolographicCamera> {
         let this = self;
         unsafe {
@@ -2174,7 +2030,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicSpaceCameraRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for HolographicSpaceCameraRemovedEventArgs {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HolographicSpaceUserPresence(pub i32);
@@ -2200,7 +2055,6 @@ impl ::windows::core::DefaultType for HolographicSpaceUserPresence {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
-#[doc = "*Required features: `Graphics_Holographic`, `Foundation_Numerics`*"]
 pub struct HolographicStereoTransform {
     pub Left: super::super::Foundation::Numerics::Matrix4x4,
     pub Right: super::super::Foundation::Numerics::Matrix4x4,
@@ -2239,13 +2093,11 @@ unsafe impl ::windows::core::RuntimeType for HolographicStereoTransform {
 impl ::windows::core::DefaultType for HolographicStereoTransform {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct HolographicViewConfiguration(pub ::windows::core::IInspectable);
 impl HolographicViewConfiguration {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn NativeRenderTargetSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -2254,7 +2106,6 @@ impl HolographicViewConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn RenderTargetSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -2263,7 +2114,6 @@ impl HolographicViewConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation`*"]
     pub fn RequestRenderTargetSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, size: Param0) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -2272,7 +2122,6 @@ impl HolographicViewConfiguration {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Collections`, `Graphics_DirectX`*"]
     pub fn SupportedPixelFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::DirectX::DirectXPixelFormat>> {
         let this = self;
         unsafe {
@@ -2281,7 +2130,6 @@ impl HolographicViewConfiguration {
         }
     }
     #[cfg(feature = "Graphics_DirectX")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Graphics_DirectX`*"]
     pub fn PixelFormat(&self) -> ::windows::core::Result<super::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
@@ -2290,12 +2138,10 @@ impl HolographicViewConfiguration {
         }
     }
     #[cfg(feature = "Graphics_DirectX")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Graphics_DirectX`*"]
     pub fn SetPixelFormat(&self, value: super::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn IsStereo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2303,7 +2149,6 @@ impl HolographicViewConfiguration {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn RefreshRate(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2311,7 +2156,6 @@ impl HolographicViewConfiguration {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn Kind(&self) -> ::windows::core::Result<HolographicViewConfigurationKind> {
         let this = self;
         unsafe {
@@ -2319,7 +2163,6 @@ impl HolographicViewConfiguration {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicViewConfigurationKind>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn Display(&self) -> ::windows::core::Result<HolographicDisplay> {
         let this = self;
         unsafe {
@@ -2327,7 +2170,6 @@ impl HolographicViewConfiguration {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicDisplay>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2335,13 +2177,11 @@ impl HolographicViewConfiguration {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Graphics_Holographic`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Graphics_Holographic`, `Foundation_Collections`*"]
     pub fn SupportedDepthReprojectionMethods(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicDepthReprojectionMethod>> {
         let this = &::windows::core::Interface::cast::<IHolographicViewConfiguration2>(self)?;
         unsafe {
@@ -2402,7 +2242,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HolographicViewConfiguration {}
 unsafe impl ::core::marker::Sync for HolographicViewConfiguration {}
-#[doc = "*Required features: `Graphics_Holographic`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HolographicViewConfigurationKind(pub i32);

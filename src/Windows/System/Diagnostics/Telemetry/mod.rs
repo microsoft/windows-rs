@@ -57,17 +57,14 @@ pub struct IPlatformTelemetryRegistrationSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
 pub struct PlatformTelemetryClient {}
 impl PlatformTelemetryClient {
-    #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
     pub fn Register<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0) -> ::windows::core::Result<PlatformTelemetryRegistrationResult> {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<PlatformTelemetryRegistrationResult>(result__)
         })
     }
-    #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
     pub fn RegisterWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, PlatformTelemetryRegistrationSettings>>(id: Param0, settings: Param1) -> ::windows::core::Result<PlatformTelemetryRegistrationResult> {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -82,12 +79,10 @@ impl PlatformTelemetryClient {
 impl ::windows::core::RuntimeName for PlatformTelemetryClient {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryClient";
 }
-#[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlatformTelemetryRegistrationResult(pub ::windows::core::IInspectable);
 impl PlatformTelemetryRegistrationResult {
-    #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
     pub fn Status(&self) -> ::windows::core::Result<PlatformTelemetryRegistrationStatus> {
         let this = self;
         unsafe {
@@ -148,7 +143,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationResult {}
 unsafe impl ::core::marker::Sync for PlatformTelemetryRegistrationResult {}
-#[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct PlatformTelemetryRegistrationSettings(pub ::windows::core::IInspectable);
@@ -160,7 +154,6 @@ impl PlatformTelemetryRegistrationSettings {
         static mut SHARED: ::windows::core::FactoryCache<PlatformTelemetryRegistrationSettings, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
     pub fn StorageSize(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -168,12 +161,10 @@ impl PlatformTelemetryRegistrationSettings {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
     pub fn SetStorageSize(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
     pub fn UploadQuotaSize(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -181,7 +172,6 @@ impl PlatformTelemetryRegistrationSettings {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
     pub fn SetUploadQuotaSize(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
@@ -239,7 +229,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationSettings {}
 unsafe impl ::core::marker::Sync for PlatformTelemetryRegistrationSettings {}
-#[doc = "*Required features: `System_Diagnostics_Telemetry`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PlatformTelemetryRegistrationStatus(pub i32);

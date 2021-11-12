@@ -2,7 +2,6 @@
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 pub struct SAFER_CODE_PROPERTIES_V1 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -59,7 +58,6 @@ unsafe impl ::windows::core::Abi for SAFER_CODE_PROPERTIES_V1 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 pub struct SAFER_CODE_PROPERTIES_V2 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -139,7 +137,6 @@ impl ::core::cmp::Eq for SAFER_CODE_PROPERTIES_V2 {}
 unsafe impl ::windows::core::Abi for SAFER_CODE_PROPERTIES_V2 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(pub u32);
@@ -183,24 +180,16 @@ impl ::core::ops::Not for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_CRITERIA_IMAGEPATH: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_CRITERIA_URLZONE: u32 = 16u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 pub struct SAFER_HASH_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
@@ -249,7 +238,6 @@ unsafe impl ::windows::core::Abi for SAFER_HASH_IDENTIFICATION {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 pub struct SAFER_HASH_IDENTIFICATION2 {
     pub hashIdentification: SAFER_HASH_IDENTIFICATION,
     pub HashSize: u32,
@@ -285,7 +273,6 @@ unsafe impl ::windows::core::Abi for SAFER_HASH_IDENTIFICATION2 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 pub struct SAFER_IDENTIFICATION_HEADER {
     pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
     pub cbStructSize: u32,
@@ -318,7 +305,6 @@ impl ::core::cmp::Eq for SAFER_IDENTIFICATION_HEADER {}
 unsafe impl ::windows::core::Abi for SAFER_IDENTIFICATION_HEADER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
@@ -335,25 +321,15 @@ impl ::core::convert::From<i32> for SAFER_IDENTIFICATION_TYPES {
 unsafe impl ::windows::core::Abi for SAFER_IDENTIFICATION_TYPES {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_LEVELID_DISALLOWED: u32 = 0u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_LEVELID_NORMALUSER: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_LEVELID_UNTRUSTED: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_LEVEL_OPEN: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SAFER_OBJECT_INFO_CLASS(pub i32);
@@ -384,7 +360,6 @@ unsafe impl ::windows::core::Abi for SAFER_OBJECT_INFO_CLASS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
@@ -417,11 +392,8 @@ impl ::core::cmp::Eq for SAFER_PATHNAME_IDENTIFICATION {}
 unsafe impl ::windows::core::Abi for SAFER_PATHNAME_IDENTIFICATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SAFER_POLICY_INFO_CLASS(pub i32);
@@ -440,34 +412,21 @@ impl ::core::convert::From<i32> for SAFER_POLICY_INFO_CLASS {
 unsafe impl ::windows::core::Abi for SAFER_POLICY_INFO_CLASS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_JOBID_MASK: u32 = 4278190080u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_ONLY_AUDIT: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_ONLY_EXES: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_SANDBOX_INERT: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_UIFLAGS_HIDDEN: u32 = 4u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_UIFLAGS_INFORMATION_PROMPT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_UIFLAGS_MASK: u32 = 255u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: u32 = 2u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_SCOPEID_MACHINE: u32 = 1u32;
-#[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_SCOPEID_USER: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 pub struct SAFER_URLZONE_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub UrlZoneId: u32,
@@ -499,7 +458,6 @@ impl ::core::cmp::Eq for SAFER_URLZONE_IDENTIFICATION {}
 unsafe impl ::windows::core::Abi for SAFER_URLZONE_IDENTIFICATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferCloseLevel<'a, Param0: ::windows::core::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(hlevelhandle: Param0) -> super::super::Foundation::BOOL {
@@ -514,7 +472,6 @@ pub unsafe fn SaferCloseLevel<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferComputeTokenFromLevel<'a, Param0: ::windows::core::IntoParam<'a, super::SAFER_LEVEL_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(levelhandle: Param0, inaccesstoken: Param1, outaccesstoken: *mut super::super::Foundation::HANDLE, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -529,7 +486,6 @@ pub unsafe fn SaferComputeTokenFromLevel<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -544,7 +500,6 @@ pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferGetLevelInformation<'a, Param0: ::windows::core::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(levelhandle: Param0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *mut ::core::ffi::c_void, dwinbuffersize: u32, lpdwoutbuffersize: *mut u32) -> super::super::Foundation::BOOL {
@@ -559,7 +514,6 @@ pub unsafe fn SaferGetLevelInformation<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *mut ::core::ffi::c_void, infobufferretsize: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -574,7 +528,6 @@ pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferIdentifyLevel(dwnumproperties: u32, pcodeproperties: *const SAFER_CODE_PROPERTIES_V2, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -589,7 +542,6 @@ pub unsafe fn SaferIdentifyLevel(dwnumproperties: u32, pcodeproperties: *const S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::windows::core::IntoParam<'a, super::SAFER_LEVEL_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlevel: Param0, sztargetpath: Param1, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -604,7 +556,6 @@ pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferSetLevelInformation<'a, Param0: ::windows::core::IntoParam<'a, super::SAFER_LEVEL_HANDLE>>(levelhandle: Param0, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const ::core::ffi::c_void, dwinbuffersize: u32) -> super::super::Foundation::BOOL {
@@ -619,7 +570,6 @@ pub unsafe fn SaferSetLevelInformation<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *const ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -634,7 +584,6 @@ pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferiIsExecutableFileType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(szfullpathname: Param0, bfromshellexecute: Param1) -> super::super::Foundation::BOOL {

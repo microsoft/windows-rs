@@ -1,11 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_System_WinRT_ML`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ILearningModelDeviceFactoryNative(pub ::windows::core::IUnknown);
 impl ILearningModelDeviceFactoryNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    #[doc = "*Required features: `Win32_System_WinRT_ML`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn CreateFromD3D12CommandQueue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>(&self, value: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IUnknown>(result__)
@@ -44,13 +42,11 @@ pub struct ILearningModelDeviceFactoryNative_abi(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
-#[doc = "*Required features: `Win32_System_WinRT_ML`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ILearningModelOperatorProviderNative(pub ::windows::core::IUnknown);
 impl ILearningModelOperatorProviderNative {
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
-    #[doc = "*Required features: `Win32_System_WinRT_ML`, `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetRegistry(&self) -> ::windows::core::Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry> {
         let mut result__: <super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry>(result__)
@@ -89,12 +85,10 @@ pub struct ILearningModelOperatorProviderNative_abi(
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppoperatorregistry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_AI_MachineLearning_WinML"))] usize,
 );
-#[doc = "*Required features: `Win32_System_WinRT_ML`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ILearningModelSessionOptionsNative(pub ::windows::core::IUnknown);
 impl ILearningModelSessionOptionsNative {
-    #[doc = "*Required features: `Win32_System_WinRT_ML`*"]
     pub unsafe fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(intraopnumthreads)).ok()
     }
@@ -131,17 +125,14 @@ pub struct ILearningModelSessionOptionsNative_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, intraopnumthreads: u32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_System_WinRT_ML`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITensorNative(pub ::windows::core::IUnknown);
 impl ITensorNative {
-    #[doc = "*Required features: `Win32_System_WinRT_ML`*"]
     pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(value), ::core::mem::transmute(capacity)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    #[doc = "*Required features: `Win32_System_WinRT_ML`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn GetD3D12Resource(&self) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
         let mut result__: <super::super::super::Graphics::Direct3D12::ID3D12Resource as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
@@ -181,13 +172,11 @@ pub struct ITensorNative_abi(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
-#[doc = "*Required features: `Win32_System_WinRT_ML`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ITensorStaticsNative(pub ::windows::core::IUnknown);
 impl ITensorStaticsNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    #[doc = "*Required features: `Win32_System_WinRT_ML`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn CreateFromD3D12Resource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, value: Param0, shape: *mut i64, shapecount: i32, result: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), value.into_param().abi(), ::core::mem::transmute(shape), ::core::mem::transmute(shapecount), ::core::mem::transmute(result)).ok()
     }

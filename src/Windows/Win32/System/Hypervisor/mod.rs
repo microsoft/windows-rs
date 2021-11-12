@@ -1,5 +1,4 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, fixbuffer: *const ::core::ffi::c_void, fixbuffersize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -13,7 +12,6 @@ pub unsafe fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyPendingSavedStateFileReplayLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(vmrsfile: Param0) -> ::windows::core::Result<()> {
@@ -28,7 +26,6 @@ pub unsafe fn ApplyPendingSavedStateFileReplayLog<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CallStackUnwind(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, imageinfo: *const MODULE_INFO, imageinfocount: u32, framecount: u32, callstack: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
@@ -46,7 +43,6 @@ pub unsafe fn CallStackUnwind(vmsavedstatedumphandle: *mut ::core::ffi::c_void, 
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 pub struct DOS_IMAGE_INFO {
     pub PdbName: super::super::Foundation::PSTR,
     pub ImageBaseAddress: u64,
@@ -79,10 +75,8 @@ impl ::core::cmp::Eq for DOS_IMAGE_INFO {}
 unsafe impl ::windows::core::Abi for DOS_IMAGE_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FOUND_IMAGE_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL;
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindSavedStateSymbolFieldInType<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: Param2, fieldname: Param3, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
@@ -97,7 +91,6 @@ pub unsafe fn FindSavedStateSymbolFieldInType<'a, Param2: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn ForceActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -111,7 +104,6 @@ pub unsafe fn ForceActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn ForceArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, architecture: VIRTUAL_PROCESSOR_ARCH) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -125,7 +117,6 @@ pub unsafe fn ForceArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ForceNestedHostMode<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, hostmode: Param2, oldmode: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
@@ -140,7 +131,6 @@ pub unsafe fn ForceNestedHostMode<'a, Param2: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn ForcePagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, pagingmode: PAGING_MODE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -156,7 +146,6 @@ pub unsafe fn ForcePagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, 
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct GPA_MEMORY_CHUNK {
     pub GuestPhysicalStartPageIndex: u64,
     pub PageCount: u64,
@@ -183,7 +172,6 @@ unsafe impl ::windows::core::Abi for GPA_MEMORY_CHUNK {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union GUEST_OS_INFO {
     pub AsUINT64: u64,
     pub ClosedSource: GUEST_OS_INFO_0,
@@ -206,7 +194,6 @@ unsafe impl ::windows::core::Abi for GUEST_OS_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct GUEST_OS_INFO_0 {
     pub _bitfield: u64,
 }
@@ -232,7 +219,6 @@ unsafe impl ::windows::core::Abi for GUEST_OS_INFO_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct GUEST_OS_INFO_1 {
     pub _bitfield: u64,
 }
@@ -256,7 +242,6 @@ impl ::core::cmp::Eq for GUEST_OS_INFO_1 {}
 unsafe impl ::windows::core::Abi for GUEST_OS_INFO_1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GUEST_OS_MICROSOFT_IDS(pub i32);
@@ -274,7 +259,6 @@ impl ::core::convert::From<i32> for GUEST_OS_MICROSOFT_IDS {
 unsafe impl ::windows::core::Abi for GUEST_OS_MICROSOFT_IDS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GUEST_OS_OPENSOURCE_IDS(pub i32);
@@ -291,7 +275,6 @@ impl ::core::convert::From<i32> for GUEST_OS_OPENSOURCE_IDS {
 unsafe impl ::windows::core::Abi for GUEST_OS_OPENSOURCE_IDS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GUEST_OS_VENDOR(pub i32);
@@ -307,11 +290,9 @@ impl ::core::convert::From<i32> for GUEST_OS_VENDOR {
 unsafe impl ::windows::core::Abi for GUEST_OS_VENDOR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = unsafe extern "system" fn(infomessage: super::super::Foundation::PSTR);
 pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ff2c92b_6598_4e60_8e1c_0ccf4927e319);
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevel: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -325,7 +306,6 @@ pub unsafe fn GetActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut ::core::ff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GetArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, architecture: *mut VIRTUAL_PROCESSOR_ARCH) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -339,7 +319,6 @@ pub unsafe fn GetArchitecture(vmsavedstatedumphandle: *mut ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GetEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualtrustlevels: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -353,7 +332,6 @@ pub unsafe fn GetEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::core::ffi::c_void, virtualtrustlevels: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -367,7 +345,6 @@ pub unsafe fn GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: *mut ::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GetGuestOsInfo(vmsavedstatedumphandle: *mut ::core::ffi::c_void, virtualtrustlevel: u8, guestosinfo: *mut GUEST_OS_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -381,7 +358,6 @@ pub unsafe fn GetGuestOsInfo(vmsavedstatedumphandle: *mut ::core::ffi::c_void, v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memorychunkpagesize: *mut u64, memorychunks: *mut GPA_MEMORY_CHUNK, memorychunkcount: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -395,7 +371,6 @@ pub unsafe fn GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle: *mut ::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle: *mut ::core::ffi::c_void, guestrawsavedmemorysize: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -409,7 +384,6 @@ pub unsafe fn GetGuestRawSavedMemorySize(vmsavedstatedumphandle: *mut ::core::ff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -423,7 +397,6 @@ pub unsafe fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNestedVirtualizationMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
@@ -438,7 +411,6 @@ pub unsafe fn GetNestedVirtualizationMode(vmsavedstatedumphandle: *mut ::core::f
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GetPagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, pagingmode: *mut PAGING_MODE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -452,7 +424,6 @@ pub unsafe fn GetPagingMode(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GetRegisterValue(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, registerid: u32, registervalue: *mut VIRTUAL_PROCESSOR_REGISTER) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -466,7 +437,6 @@ pub unsafe fn GetRegisterValue(vmsavedstatedumphandle: *mut ::core::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSavedStateSymbolFieldInfo<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: Param2, typefieldinfomap: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
@@ -481,7 +451,6 @@ pub unsafe fn GetSavedStateSymbolFieldInfo<'a, Param2: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
@@ -496,7 +465,6 @@ pub unsafe fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut ::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSavedStateSymbolTypeSize<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, typename: Param2, size: *mut u32) -> ::windows::core::Result<()> {
@@ -511,7 +479,6 @@ pub unsafe fn GetSavedStateSymbolTypeSize<'a, Param2: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GetVpCount(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -525,7 +492,6 @@ pub unsafe fn GetVpCount(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpcou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle: *mut ::core::ffi::c_void, physicaladdress: u64, rawsavedmemoryoffset: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -539,7 +505,6 @@ pub unsafe fn GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, physicaladdress: *mut u64, unmappedregionsize: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -553,7 +518,6 @@ pub unsafe fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HDV_DEVICE_TYPE(pub i32);
@@ -567,7 +531,6 @@ impl ::core::convert::From<i32> for HDV_DEVICE_TYPE {
 unsafe impl ::windows::core::Abi for HDV_DEVICE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HDV_DOORBELL_FLAGS(pub i32);
@@ -585,7 +548,6 @@ impl ::core::convert::From<i32> for HDV_DOORBELL_FLAGS {
 unsafe impl ::windows::core::Abi for HDV_DOORBELL_FLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HDV_MMIO_MAPPING_FLAGS(pub u32);
@@ -628,9 +590,7 @@ impl ::core::ops::Not for HDV_MMIO_MAPPING_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HDV_PCI_BAR_SELECTOR(pub i32);
@@ -648,14 +608,11 @@ impl ::core::convert::From<i32> for HDV_PCI_BAR_SELECTOR {
 unsafe impl ::windows::core::Abi for HDV_PCI_BAR_SELECTOR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_DEVICE_GET_DETAILS = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_DEVICE_INITIALIZE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 pub struct HDV_PCI_DEVICE_INTERFACE {
     pub Version: HDV_PCI_INTERFACE_VERSION,
     pub Initialize: ::core::option::Option<HDV_PCI_DEVICE_INITIALIZE>,
@@ -705,16 +662,11 @@ impl ::core::cmp::Eq for HDV_PCI_DEVICE_INTERFACE {}
 unsafe impl ::windows::core::Abi for HDV_PCI_DEVICE_INTERFACE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type HDV_PCI_DEVICE_SET_CONFIGURATION = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, configurationvaluecount: u32, configurationvalues: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_DEVICE_START = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_DEVICE_STOP = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_DEVICE_TEARDOWN = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void);
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HDV_PCI_INTERFACE_VERSION(pub i32);
@@ -730,7 +682,6 @@ unsafe impl ::windows::core::Abi for HDV_PCI_INTERFACE_VERSION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct HDV_PCI_PNP_ID {
     pub VendorID: u16,
     pub DeviceID: u16,
@@ -770,19 +721,13 @@ impl ::core::cmp::Eq for HDV_PCI_PNP_ID {}
 unsafe impl ::windows::core::Abi for HDV_PCI_PNP_ID {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_READ_CONFIG_SPACE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: *mut u32) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_READ_INTERCEPTED_MEMORY = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *mut u8) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_WRITE_CONFIG_SPACE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: u32) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const HVSOCKET_ADDRESS_FLAG_PASSTHRU: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct HVSOCKET_ADDRESS_INFO {
     pub SystemId: ::windows::core::GUID,
     pub VirtualMachineId: ::windows::core::GUID,
@@ -809,13 +754,9 @@ impl ::core::cmp::Eq for HVSOCKET_ADDRESS_INFO {}
 unsafe impl ::windows::core::Abi for HVSOCKET_ADDRESS_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const HVSOCKET_CONNECTED_SUSPEND: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const HVSOCKET_CONTAINER_PASSTHRU: u32 = 2u32;
 pub const HV_GUID_BROADCAST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffffffff_ffff_ffff_ffff_ffffffffffff);
 pub const HV_GUID_CHILDREN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90db8b89_0d35_4f79_8ce9_49ea0ac8b7cd);
@@ -824,9 +765,7 @@ pub const HV_GUID_PARENT: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const HV_GUID_SILOHOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36bd0c5c_7276_4223_88ba_7d03b654c568);
 pub const HV_GUID_VSOCK_TEMPLATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_facb_11e6_bd58_64006a7986d3);
 pub const HV_GUID_ZERO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const HV_PROTOCOL_RAW: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn HdvCreateDeviceInstance(devicehosthandle: *const ::core::ffi::c_void, devicetype: HDV_DEVICE_TYPE, deviceclassid: *const ::windows::core::GUID, deviceinstanceid: *const ::windows::core::GUID, deviceinterface: *const ::core::ffi::c_void, devicecontext: *const ::core::ffi::c_void, devicehandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -840,7 +779,6 @@ pub unsafe fn HdvCreateDeviceInstance(devicehosthandle: *const ::core::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HdvCreateGuestMemoryAperture<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, writeprotected: Param3, mappedaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -855,7 +793,6 @@ pub unsafe fn HdvCreateGuestMemoryAperture<'a, Param3: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HdvCreateSectionBackedMmioRange<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64, lengthinpages: u64, mappingflags: HDV_MMIO_MAPPING_FLAGS, sectionhandle: Param5, sectionoffsetinpages: u64) -> ::windows::core::Result<()> {
@@ -870,7 +807,6 @@ pub unsafe fn HdvCreateSectionBackedMmioRange<'a, Param5: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn HdvDeliverGuestInterrupt(requestor: *const ::core::ffi::c_void, msiaddress: u64, msidata: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -884,7 +820,6 @@ pub unsafe fn HdvDeliverGuestInterrupt(requestor: *const ::core::ffi::c_void, ms
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn HdvDestroyGuestMemoryAperture(requestor: *const ::core::ffi::c_void, mappedaddress: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -898,7 +833,6 @@ pub unsafe fn HdvDestroyGuestMemoryAperture(requestor: *const ::core::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn HdvDestroySectionBackedMmioRange(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -912,7 +846,6 @@ pub unsafe fn HdvDestroySectionBackedMmioRange(requestor: *const ::core::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_System_HostComputeSystem`*"]
 #[cfg(feature = "Win32_System_HostComputeSystem")]
 #[inline]
 pub unsafe fn HdvInitializeDeviceHost<'a, Param0: ::windows::core::IntoParam<'a, super::HostComputeSystem::HCS_SYSTEM>>(computesystem: Param0, devicehosthandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -927,7 +860,6 @@ pub unsafe fn HdvInitializeDeviceHost<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn HdvReadGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, buffer: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -941,7 +873,6 @@ pub unsafe fn HdvReadGuestMemory(requestor: *const ::core::ffi::c_void, guestphy
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HdvRegisterDoorbell<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64, doorbellevent: Param5) -> ::windows::core::Result<()> {
@@ -956,7 +887,6 @@ pub unsafe fn HdvRegisterDoorbell<'a, Param5: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn HdvTeardownDeviceHost(devicehosthandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -970,7 +900,6 @@ pub unsafe fn HdvTeardownDeviceHost(devicehosthandle: *const ::core::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn HdvUnregisterDoorbell(requestor: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -984,7 +913,6 @@ pub unsafe fn HdvUnregisterDoorbell(requestor: *const ::core::ffi::c_void, barin
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn HdvWriteGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, buffer: *const u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -998,9 +926,7 @@ pub unsafe fn HdvWriteGuestMemory(requestor: *const ::core::ffi::c_void, guestph
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InKernelSpace(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, inkernelspace: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
@@ -1015,7 +941,6 @@ pub unsafe fn InKernelSpace(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, activevirtualtrustlevelenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
@@ -1030,7 +955,6 @@ pub unsafe fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: *mut ::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
@@ -1045,7 +969,6 @@ pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut ::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadSavedStateFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(vmrsfile: Param0, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -1060,7 +983,6 @@ pub unsafe fn LoadSavedStateFile<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadSavedStateFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(binfile: Param0, vsvfile: Param1, vmsavedstatedumphandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -1075,7 +997,6 @@ pub unsafe fn LoadSavedStateFiles<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadSavedStateModuleSymbols<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: Param1, modulename: Param2, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()> {
@@ -1090,7 +1011,6 @@ pub unsafe fn LoadSavedStateModuleSymbols<'a, Param1: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadSavedStateModuleSymbolsEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, imagename: Param1, imagetimestamp: u32, modulename: Param3, baseaddress: u64, sizeofbase: u32) -> ::windows::core::Result<()> {
@@ -1105,7 +1025,6 @@ pub unsafe fn LoadSavedStateModuleSymbolsEx<'a, Param1: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadSavedStateSymbolProvider<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, usersymbols: Param1, force: Param2) -> ::windows::core::Result<()> {
@@ -1120,7 +1039,6 @@ pub unsafe fn LoadSavedStateSymbolProvider<'a, Param1: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LocateSavedStateFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(vmname: Param0, snapshotname: Param1, binpath: *mut super::super::Foundation::PWSTR, vsvpath: *mut super::super::Foundation::PWSTR, vmrspath: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
@@ -1138,7 +1056,6 @@ pub unsafe fn LocateSavedStateFiles<'a, Param0: ::windows::core::IntoParam<'a, s
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 pub struct MODULE_INFO {
     pub ProcessImageName: super::super::Foundation::PSTR,
     pub Image: DOS_IMAGE_INFO,
@@ -1169,7 +1086,6 @@ impl ::core::cmp::Eq for MODULE_INFO {}
 unsafe impl ::windows::core::Abi for MODULE_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PAGING_MODE(pub i32);
@@ -1187,7 +1103,6 @@ impl ::core::convert::From<i32> for PAGING_MODE {
 unsafe impl ::windows::core::Abi for PAGING_MODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REGISTER_ID(pub i32);
@@ -1358,7 +1273,6 @@ impl ::core::convert::From<i32> for REGISTER_ID {
 unsafe impl ::windows::core::Abi for REGISTER_ID {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn ReadGuestPhysicalAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, physicaladdress: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1372,7 +1286,6 @@ pub unsafe fn ReadGuestPhysicalAddress(vmsavedstatedumphandle: *mut ::core::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut ::core::ffi::c_void, rawsavedmemoryoffset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1386,7 +1299,6 @@ pub unsafe fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut ::core::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadSavedStateGlobalVariable<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: Param2, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()> {
@@ -1401,7 +1313,6 @@ pub unsafe fn ReadSavedStateGlobalVariable<'a, Param2: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn ReleaseSavedStateFiles(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1415,7 +1326,6 @@ pub unsafe fn ReleaseSavedStateFiles(vmsavedstatedumphandle: *mut ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1429,7 +1339,6 @@ pub unsafe fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: *mut ::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResolveSavedStateGlobalVariableAddress<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: Param2, virtualaddress: *mut u64, size: *mut u32) -> ::windows::core::Result<()> {
@@ -1446,7 +1355,6 @@ pub unsafe fn ResolveSavedStateGlobalVariableAddress<'a, Param2: ::windows::core
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct SOCKADDR_HV {
     pub Family: u16,
     pub Reserved: u16,
@@ -1473,7 +1381,6 @@ impl ::core::cmp::Eq for SOCKADDR_HV {}
 unsafe impl ::windows::core::Abi for SOCKADDR_HV {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: ::core::option::Option<FOUND_IMAGE_CALLBACK>, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows::core::Result<()> {
@@ -1498,7 +1405,6 @@ pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1512,7 +1418,6 @@ pub unsafe fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: ::core::option::Option<GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK>) -> ::windows::core::Result<()> {
@@ -1527,7 +1432,6 @@ pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIRTUAL_PROCESSOR_ARCH(pub i32);
@@ -1545,7 +1449,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_ARCH {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union VIRTUAL_PROCESSOR_REGISTER {
     pub Reg64: u64,
     pub Reg32: u32,
@@ -1571,7 +1474,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct VIRTUAL_PROCESSOR_REGISTER_0 {
     pub Low64: u64,
     pub High64: u64,
@@ -1598,7 +1500,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union VIRTUAL_PROCESSOR_REGISTER_1 {
     pub Segment: VIRTUAL_PROCESSOR_REGISTER_1_1,
     pub Table: VIRTUAL_PROCESSOR_REGISTER_1_2,
@@ -1622,7 +1523,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_0 {
     pub FpControl: u16,
     pub FpStatus: u16,
@@ -1648,7 +1548,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
     pub LastFpRip: u64,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0_0,
@@ -1670,7 +1569,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
     pub LastFpEip: u32,
     pub LastFpCs: u16,
@@ -1697,7 +1595,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_1 {
     pub Base: u64,
     pub Limit: u32,
@@ -1721,7 +1618,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
     pub Attributes: u16,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_1_0_0,
@@ -1743,7 +1639,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
     pub _bitfield: u16,
 }
@@ -1769,7 +1664,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_2 {
     pub Limit: u16,
     pub Base: u64,
@@ -1796,7 +1690,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_2 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_3 {
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_3_0,
     pub XmmStatusControl: u32,
@@ -1819,7 +1712,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_3 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
     pub LastFpRdp: u64,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_3_0_0,
@@ -1841,7 +1733,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
     pub LastFpDp: u32,
     pub LastFpDs: u16,
@@ -1866,7 +1757,6 @@ impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {}
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIRTUAL_PROCESSOR_VENDOR(pub i32);
@@ -1885,7 +1775,6 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_VENDOR {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct VM_GENCOUNTER {
     pub GenerationCount: u64,
     pub GenerationCountHigh: u64,
@@ -1912,7 +1801,6 @@ unsafe impl ::windows::core::Abi for VM_GENCOUNTER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_ACCESS_GPA_CONTROLS {
     pub AsUINT64: u64,
     pub Anonymous: WHV_ACCESS_GPA_CONTROLS_0,
@@ -1934,7 +1822,6 @@ unsafe impl ::windows::core::Abi for WHV_ACCESS_GPA_CONTROLS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_ACCESS_GPA_CONTROLS_0 {
     pub CacheType: WHV_CACHE_TYPE,
     pub Reserved: u32,
@@ -1961,7 +1848,6 @@ unsafe impl ::windows::core::Abi for WHV_ACCESS_GPA_CONTROLS_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_ADVISE_GPA_RANGE {
     pub Populate: WHV_ADVISE_GPA_RANGE_POPULATE,
 }
@@ -1980,7 +1866,6 @@ impl ::core::cmp::Eq for WHV_ADVISE_GPA_RANGE {}
 unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_ADVISE_GPA_RANGE_CODE(pub i32);
@@ -1997,7 +1882,6 @@ unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_CODE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_ADVISE_GPA_RANGE_POPULATE {
     pub Flags: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS,
     pub AccessType: WHV_MEMORY_ACCESS_TYPE,
@@ -2019,7 +1903,6 @@ unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_POPULATE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     pub AsUINT32: u32,
     pub Anonymous: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0,
@@ -2041,7 +1924,6 @@ unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -2065,7 +1947,6 @@ impl ::core::cmp::Eq for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {}
 unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(pub u32);
@@ -2107,9 +1988,7 @@ impl ::core::ops::Not for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const WHV_ANY_VP: u32 = 4294967295u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_CACHE_TYPE(pub i32);
@@ -2129,7 +2008,6 @@ unsafe impl ::windows::core::Abi for WHV_CACHE_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 pub union WHV_CAPABILITY {
     pub HypervisorPresent: super::super::Foundation::BOOL,
     pub Features: WHV_CAPABILITY_FEATURES,
@@ -2169,7 +2047,6 @@ impl ::core::cmp::Eq for WHV_CAPABILITY {}
 unsafe impl ::windows::core::Abi for WHV_CAPABILITY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_CAPABILITY_CODE(pub i32);
@@ -2200,7 +2077,6 @@ unsafe impl ::windows::core::Abi for WHV_CAPABILITY_CODE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_CAPABILITY_FEATURES {
     pub Anonymous: WHV_CAPABILITY_FEATURES_0,
     pub AsUINT64: u64,
@@ -2222,7 +2098,6 @@ unsafe impl ::windows::core::Abi for WHV_CAPABILITY_FEATURES {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_CAPABILITY_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -2248,7 +2123,6 @@ unsafe impl ::windows::core::Abi for WHV_CAPABILITY_FEATURES_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     pub _bitfield: u32,
     pub HighestFrequencyMhz: u32,
@@ -2284,7 +2158,6 @@ unsafe impl ::windows::core::Abi for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_CPUID_OUTPUT {
     pub Eax: u32,
     pub Ebx: u32,
@@ -2311,7 +2184,6 @@ impl ::core::cmp::Eq for WHV_CPUID_OUTPUT {}
 unsafe impl ::windows::core::Abi for WHV_CPUID_OUTPUT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_CREATE_VPCI_DEVICE_FLAGS(pub u32);
@@ -2356,7 +2228,6 @@ impl ::core::ops::Not for WHV_CREATE_VPCI_DEVICE_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_DOORBELL_MATCH_DATA {
     pub GuestAddress: u64,
     pub Value: u64,
@@ -2385,7 +2256,6 @@ unsafe impl ::windows::core::Abi for WHV_DOORBELL_MATCH_DATA {
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_EMULATOR_CALLBACKS {
     pub Size: u32,
     pub Reserved: u32,
@@ -2421,11 +2291,9 @@ impl ::core::cmp::Eq for WHV_EMULATOR_CALLBACKS {}
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_CALLBACKS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_EMULATOR_IO_ACCESS_INFO {
     pub Direction: u8,
     pub Port: u16,
@@ -2452,11 +2320,9 @@ impl ::core::cmp::Eq for WHV_EMULATOR_IO_ACCESS_INFO {}
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_IO_ACCESS_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type WHV_EMULATOR_IO_PORT_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ioaccess: *mut WHV_EMULATOR_IO_ACCESS_INFO) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_EMULATOR_MEMORY_ACCESS_INFO {
     pub GpaAddress: u64,
     pub Direction: u8,
@@ -2483,13 +2349,10 @@ impl ::core::cmp::Eq for WHV_EMULATOR_MEMORY_ACCESS_INFO {}
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_MEMORY_ACCESS_INFO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type WHV_EMULATOR_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, memoryaccess: *mut WHV_EMULATOR_MEMORY_ACCESS_INFO) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::core::HRESULT;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_EMULATOR_STATUS {
     pub Anonymous: WHV_EMULATOR_STATUS_0,
     pub AsUINT32: u32,
@@ -2511,7 +2374,6 @@ unsafe impl ::windows::core::Abi for WHV_EMULATOR_STATUS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_EMULATOR_STATUS_0 {
     pub _bitfield: u32,
 }
@@ -2535,9 +2397,7 @@ impl ::core::cmp::Eq for WHV_EMULATOR_STATUS_0 {}
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_STATUS_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> ::windows::core::HRESULT;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_EXCEPTION_TYPE(pub i32);
@@ -2568,7 +2428,6 @@ unsafe impl ::windows::core::Abi for WHV_EXCEPTION_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_EXTENDED_VM_EXITS {
     pub Anonymous: WHV_EXTENDED_VM_EXITS_0,
     pub AsUINT64: u64,
@@ -2590,7 +2449,6 @@ unsafe impl ::windows::core::Abi for WHV_EXTENDED_VM_EXITS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_EXTENDED_VM_EXITS_0 {
     pub _bitfield: u64,
 }
@@ -2616,7 +2474,6 @@ unsafe impl ::windows::core::Abi for WHV_EXTENDED_VM_EXITS_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_HYPERCALL_CONTEXT {
     pub Rax: u64,
     pub Rbx: u64,
@@ -2644,11 +2501,9 @@ impl ::core::cmp::Eq for WHV_HYPERCALL_CONTEXT {}
 unsafe impl ::windows::core::Abi for WHV_HYPERCALL_CONTEXT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: u32 = 6u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_INTERNAL_ACTIVITY_REGISTER {
     pub Anonymous: WHV_INTERNAL_ACTIVITY_REGISTER_0,
     pub AsUINT64: u64,
@@ -2670,7 +2525,6 @@ unsafe impl ::windows::core::Abi for WHV_INTERNAL_ACTIVITY_REGISTER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     pub _bitfield: u64,
 }
@@ -2696,7 +2550,6 @@ unsafe impl ::windows::core::Abi for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_INTERRUPT_CONTROL {
     pub _bitfield: u64,
     pub Destination: u32,
@@ -2722,7 +2575,6 @@ impl ::core::cmp::Eq for WHV_INTERRUPT_CONTROL {}
 unsafe impl ::windows::core::Abi for WHV_INTERRUPT_CONTROL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_INTERRUPT_DESTINATION_MODE(pub i32);
@@ -2736,7 +2588,6 @@ impl ::core::convert::From<i32> for WHV_INTERRUPT_DESTINATION_MODE {
 unsafe impl ::windows::core::Abi for WHV_INTERRUPT_DESTINATION_MODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_INTERRUPT_TRIGGER_MODE(pub i32);
@@ -2750,7 +2601,6 @@ impl ::core::convert::From<i32> for WHV_INTERRUPT_TRIGGER_MODE {
 unsafe impl ::windows::core::Abi for WHV_INTERRUPT_TRIGGER_MODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_INTERRUPT_TYPE(pub i32);
@@ -2768,7 +2618,6 @@ impl ::core::convert::From<i32> for WHV_INTERRUPT_TYPE {
 unsafe impl ::windows::core::Abi for WHV_INTERRUPT_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_MAP_GPA_RANGE_FLAGS(pub u32);
@@ -2813,11 +2662,9 @@ impl ::core::ops::Not for WHV_MAP_GPA_RANGE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: u32 = 200u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_MEMORY_ACCESS_CONTEXT {
     pub InstructionByteCount: u8,
     pub Reserved: [u8; 3],
@@ -2843,7 +2690,6 @@ unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_MEMORY_ACCESS_INFO {
     pub Anonymous: WHV_MEMORY_ACCESS_INFO_0,
     pub AsUINT32: u32,
@@ -2865,7 +2711,6 @@ unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_MEMORY_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
@@ -2889,7 +2734,6 @@ impl ::core::cmp::Eq for WHV_MEMORY_ACCESS_INFO_0 {}
 unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_INFO_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_MEMORY_ACCESS_TYPE(pub i32);
@@ -2906,7 +2750,6 @@ unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_MEMORY_RANGE_ENTRY {
     pub GuestAddress: u64,
     pub SizeInBytes: u64,
@@ -2931,7 +2774,6 @@ impl ::core::cmp::Eq for WHV_MEMORY_RANGE_ENTRY {}
 unsafe impl ::windows::core::Abi for WHV_MEMORY_RANGE_ENTRY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_MSR_ACTION(pub i32);
@@ -2948,7 +2790,6 @@ unsafe impl ::windows::core::Abi for WHV_MSR_ACTION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_MSR_ACTION_ENTRY {
     pub Index: u32,
     pub ReadAction: u8,
@@ -2977,7 +2818,6 @@ unsafe impl ::windows::core::Abi for WHV_MSR_ACTION_ENTRY {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_NOTIFICATION_PORT_PARAMETERS {
     pub NotificationPortType: WHV_NOTIFICATION_PORT_TYPE,
     pub Reserved: u32,
@@ -3000,7 +2840,6 @@ unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PARAMETERS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     pub Doorbell: WHV_DOORBELL_MATCH_DATA,
     pub Event: WHV_NOTIFICATION_PORT_PARAMETERS_0_0,
@@ -3022,7 +2861,6 @@ unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     pub ConnectionId: u32,
 }
@@ -3046,7 +2884,6 @@ impl ::core::cmp::Eq for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {}
 unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_NOTIFICATION_PORT_PROPERTY_CODE(pub i32);
@@ -3060,7 +2897,6 @@ impl ::core::convert::From<i32> for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
 unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_NOTIFICATION_PORT_TYPE(pub i32);
@@ -3074,7 +2910,6 @@ impl ::core::convert::From<i32> for WHV_NOTIFICATION_PORT_TYPE {
 unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_PARTITION_COUNTER_SET(pub i32);
@@ -3101,7 +2936,6 @@ unsafe impl ::windows::core::Abi for WHV_PARTITION_HANDLE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PARTITION_MEMORY_COUNTERS {
     pub Mapped4KPageCount: u64,
     pub Mapped2MPageCount: u64,
@@ -3130,7 +2964,6 @@ unsafe impl ::windows::core::Abi for WHV_PARTITION_MEMORY_COUNTERS {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 pub union WHV_PARTITION_PROPERTY {
     pub ExtendedVmExits: WHV_EXTENDED_VM_EXITS,
     pub ProcessorFeatures: WHV_PROCESSOR_FEATURES,
@@ -3183,7 +3016,6 @@ impl ::core::cmp::Eq for WHV_PARTITION_PROPERTY {}
 unsafe impl ::windows::core::Abi for WHV_PARTITION_PROPERTY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_PARTITION_PROPERTY_CODE(pub i32);
@@ -3227,7 +3059,6 @@ unsafe impl ::windows::core::Abi for WHV_PARTITION_PROPERTY_CODE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PROCESSOR_APIC_COUNTERS {
     pub MmioAccessCount: u64,
     pub EoiAccessCount: u64,
@@ -3255,7 +3086,6 @@ impl ::core::cmp::Eq for WHV_PROCESSOR_APIC_COUNTERS {}
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_APIC_COUNTERS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_PROCESSOR_COUNTER_SET(pub i32);
@@ -3274,7 +3104,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_COUNTER_SET {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PROCESSOR_EVENT_COUNTERS {
     pub PageFaultCount: u64,
     pub ExceptionCount: u64,
@@ -3302,7 +3131,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_EVENT_COUNTERS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_PROCESSOR_FEATURES {
     pub Anonymous: WHV_PROCESSOR_FEATURES_0,
     pub AsUINT64: u64,
@@ -3324,7 +3152,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -3350,7 +3177,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_PROCESSOR_FEATURES1 {
     pub Anonymous: WHV_PROCESSOR_FEATURES1_0,
     pub AsUINT64: u64,
@@ -3372,7 +3198,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PROCESSOR_FEATURES1_0 {
     pub _bitfield: u64,
 }
@@ -3398,7 +3223,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES1_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PROCESSOR_FEATURES_BANKS {
     pub BanksCount: u32,
     pub Reserved0: u32,
@@ -3421,7 +3245,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_BANKS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_PROCESSOR_FEATURES_BANKS_0 {
     pub Anonymous: WHV_PROCESSOR_FEATURES_BANKS_0_0,
     pub AsUINT64: [u64; 2],
@@ -3443,7 +3266,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_BANKS_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     pub Bank0: WHV_PROCESSOR_FEATURES,
     pub Bank1: WHV_PROCESSOR_FEATURES1,
@@ -3463,11 +3285,9 @@ impl ::core::cmp::Eq for WHV_PROCESSOR_FEATURES_BANKS_0_0 {}
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 2u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PROCESSOR_INTERCEPT_COUNTER {
     pub Count: u64,
     pub Time100ns: u64,
@@ -3494,7 +3314,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_INTERCEPT_COUNTER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PROCESSOR_INTERCEPT_COUNTERS {
     pub PageInvalidations: WHV_PROCESSOR_INTERCEPT_COUNTER,
     pub ControlRegisterAccesses: WHV_PROCESSOR_INTERCEPT_COUNTER,
@@ -3561,7 +3380,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_INTERCEPT_COUNTERS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_PROCESSOR_PERFMON_FEATURES {
     pub Anonymous: WHV_PROCESSOR_PERFMON_FEATURES_0,
     pub AsUINT64: u64,
@@ -3583,7 +3401,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_PERFMON_FEATURES {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PROCESSOR_PERFMON_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -3609,7 +3426,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_PERFMON_FEATURES_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PROCESSOR_RUNTIME_COUNTERS {
     pub TotalRuntime100ns: u64,
     pub HypervisorRuntime100ns: u64,
@@ -3636,7 +3452,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_RUNTIME_COUNTERS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     pub SyntheticInterruptsCount: u64,
     pub LongSpinWaitHypercallsCount: u64,
@@ -3672,7 +3487,6 @@ impl ::core::cmp::Eq for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {}
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_PROCESSOR_VENDOR(pub i32);
@@ -3689,7 +3503,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_VENDOR {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_PROCESSOR_XSAVE_FEATURES {
     pub Anonymous: WHV_PROCESSOR_XSAVE_FEATURES_0,
     pub AsUINT64: u64,
@@ -3711,7 +3524,6 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_XSAVE_FEATURES {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_PROCESSOR_XSAVE_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -3735,9 +3547,7 @@ impl ::core::cmp::Eq for WHV_PROCESSOR_XSAVE_FEATURES_0 {}
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_XSAVE_FEATURES_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: u32 = 16u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_REGISTER_NAME(pub i32);
@@ -3977,7 +3787,6 @@ unsafe impl ::windows::core::Abi for WHV_REGISTER_NAME {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_REGISTER_VALUE {
     pub Reg128: WHV_UINT128,
     pub Reg64: u64,
@@ -4014,7 +3823,6 @@ unsafe impl ::windows::core::Abi for WHV_REGISTER_VALUE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_RUN_VP_CANCELED_CONTEXT {
     pub CancelReason: WHV_RUN_VP_CANCEL_REASON,
 }
@@ -4038,7 +3846,6 @@ impl ::core::cmp::Eq for WHV_RUN_VP_CANCELED_CONTEXT {}
 unsafe impl ::windows::core::Abi for WHV_RUN_VP_CANCELED_CONTEXT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_RUN_VP_CANCEL_REASON(pub i32);
@@ -4053,7 +3860,6 @@ unsafe impl ::windows::core::Abi for WHV_RUN_VP_CANCEL_REASON {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_RUN_VP_EXIT_CONTEXT {
     pub ExitReason: WHV_RUN_VP_EXIT_REASON,
     pub Reserved: u32,
@@ -4077,7 +3883,6 @@ unsafe impl ::windows::core::Abi for WHV_RUN_VP_EXIT_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_RUN_VP_EXIT_CONTEXT_0 {
     pub MemoryAccess: WHV_MEMORY_ACCESS_CONTEXT,
     pub IoPortAccess: WHV_X64_IO_PORT_ACCESS_CONTEXT,
@@ -4110,7 +3915,6 @@ impl ::core::cmp::Eq for WHV_RUN_VP_EXIT_CONTEXT_0 {}
 unsafe impl ::windows::core::Abi for WHV_RUN_VP_EXIT_CONTEXT_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_RUN_VP_EXIT_REASON(pub i32);
@@ -4143,7 +3947,6 @@ unsafe impl ::windows::core::Abi for WHV_RUN_VP_EXIT_REASON {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_SCHEDULER_FEATURES {
     pub Anonymous: WHV_SCHEDULER_FEATURES_0,
     pub AsUINT64: u64,
@@ -4165,7 +3968,6 @@ unsafe impl ::windows::core::Abi for WHV_SCHEDULER_FEATURES {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_SCHEDULER_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -4192,7 +3994,6 @@ unsafe impl ::windows::core::Abi for WHV_SCHEDULER_FEATURES_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR {
     pub PnpInstanceId: [u16; 200],
     pub VirtualFunctionId: super::super::Foundation::LUID,
@@ -4227,7 +4028,6 @@ unsafe impl ::windows::core::Abi for WHV_SRIOV_RESOURCE_DESCRIPTOR {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_SYNIC_EVENT_PARAMETERS {
     pub VpIndex: u32,
     pub TargetSint: u8,
@@ -4254,11 +4054,9 @@ impl ::core::cmp::Eq for WHV_SYNIC_EVENT_PARAMETERS {}
 unsafe impl ::windows::core::Abi for WHV_SYNIC_EVENT_PARAMETERS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const WHV_SYNIC_MESSAGE_SIZE: u32 = 256u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     pub DeliverableSints: u16,
     pub Reserved1: u16,
@@ -4286,7 +4084,6 @@ unsafe impl ::windows::core::Abi for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_SYNTHETIC_PROCESSOR_FEATURES {
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_0,
     pub AsUINT64: u64,
@@ -4308,7 +4105,6 @@ unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -4334,7 +4130,6 @@ unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     pub BanksCount: u32,
     pub Reserved0: u32,
@@ -4357,7 +4152,6 @@ unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     pub Anonymous: WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0,
     pub AsUINT64: [u64; 1],
@@ -4379,7 +4173,6 @@ unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     pub Bank0: WHV_SYNTHETIC_PROCESSOR_FEATURES,
 }
@@ -4398,9 +4191,7 @@ impl ::core::cmp::Eq for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {}
 unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_TRANSLATE_GVA_FLAGS(pub u32);
@@ -4450,7 +4241,6 @@ impl ::core::ops::Not for WHV_TRANSLATE_GVA_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_TRANSLATE_GVA_RESULT {
     pub ResultCode: WHV_TRANSLATE_GVA_RESULT_CODE,
     pub Reserved: u32,
@@ -4475,7 +4265,6 @@ impl ::core::cmp::Eq for WHV_TRANSLATE_GVA_RESULT {}
 unsafe impl ::windows::core::Abi for WHV_TRANSLATE_GVA_RESULT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_TRANSLATE_GVA_RESULT_CODE(pub i32);
@@ -4498,7 +4287,6 @@ unsafe impl ::windows::core::Abi for WHV_TRANSLATE_GVA_RESULT_CODE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_TRIGGER_PARAMETERS {
     pub TriggerType: WHV_TRIGGER_TYPE,
     pub Reserved: u32,
@@ -4521,7 +4309,6 @@ unsafe impl ::windows::core::Abi for WHV_TRIGGER_PARAMETERS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_TRIGGER_PARAMETERS_0 {
     pub Interrupt: WHV_INTERRUPT_CONTROL,
     pub SynicEvent: WHV_SYNIC_EVENT_PARAMETERS,
@@ -4544,7 +4331,6 @@ unsafe impl ::windows::core::Abi for WHV_TRIGGER_PARAMETERS_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_TRIGGER_PARAMETERS_0_0 {
     pub LogicalDeviceId: u64,
     pub MsiAddress: u64,
@@ -4571,7 +4357,6 @@ impl ::core::cmp::Eq for WHV_TRIGGER_PARAMETERS_0_0 {}
 unsafe impl ::windows::core::Abi for WHV_TRIGGER_PARAMETERS_0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_TRIGGER_TYPE(pub i32);
@@ -4588,7 +4373,6 @@ unsafe impl ::windows::core::Abi for WHV_TRIGGER_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_UINT128 {
     pub Anonymous: WHV_UINT128_0,
     pub Dword: [u32; 4],
@@ -4610,7 +4394,6 @@ unsafe impl ::windows::core::Abi for WHV_UINT128 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_UINT128_0 {
     pub Low64: u64,
     pub High64: u64,
@@ -4637,7 +4420,6 @@ unsafe impl ::windows::core::Abi for WHV_UINT128_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY {
     pub PropertyCode: WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE,
     pub Reserved: u32,
@@ -4660,7 +4442,6 @@ unsafe impl ::windows::core::Abi for WHV_VIRTUAL_PROCESSOR_PROPERTY {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     pub NumaNode: u16,
     pub Padding: u64,
@@ -4680,7 +4461,6 @@ impl ::core::cmp::Eq for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {}
 unsafe impl ::windows::core::Abi for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE(pub i32);
@@ -4693,7 +4473,6 @@ impl ::core::convert::From<i32> for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
 unsafe impl ::windows::core::Abi for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_VIRTUAL_PROCESSOR_STATE_TYPE(pub i32);
@@ -4712,7 +4491,6 @@ unsafe impl ::windows::core::Abi for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_VPCI_DEVICE_NOTIFICATION {
     pub NotificationType: WHV_VPCI_DEVICE_NOTIFICATION_TYPE,
     pub Reserved1: u32,
@@ -4735,7 +4513,6 @@ unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_NOTIFICATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_VPCI_DEVICE_NOTIFICATION_0 {
     pub Reserved2: u64,
 }
@@ -4754,7 +4531,6 @@ impl ::core::cmp::Eq for WHV_VPCI_DEVICE_NOTIFICATION_0 {}
 unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_NOTIFICATION_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_VPCI_DEVICE_NOTIFICATION_TYPE(pub i32);
@@ -4769,7 +4545,6 @@ impl ::core::convert::From<i32> for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
 unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_VPCI_DEVICE_PROPERTY_CODE(pub i32);
@@ -4786,7 +4561,6 @@ unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_PROPERTY_CODE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_VPCI_DEVICE_REGISTER {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
     pub SizeInBytes: u32,
@@ -4812,7 +4586,6 @@ impl ::core::cmp::Eq for WHV_VPCI_DEVICE_REGISTER {}
 unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_REGISTER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_VPCI_DEVICE_REGISTER_SPACE(pub i32);
@@ -4833,7 +4606,6 @@ unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_REGISTER_SPACE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_VPCI_HARDWARE_IDS {
     pub VendorID: u16,
     pub DeviceID: u16,
@@ -4875,7 +4647,6 @@ unsafe impl ::windows::core::Abi for WHV_VPCI_HARDWARE_IDS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_VPCI_INTERRUPT_TARGET {
     pub Vector: u32,
     pub Flags: WHV_VPCI_INTERRUPT_TARGET_FLAGS,
@@ -4902,7 +4673,6 @@ impl ::core::cmp::Eq for WHV_VPCI_INTERRUPT_TARGET {}
 unsafe impl ::windows::core::Abi for WHV_VPCI_INTERRUPT_TARGET {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_VPCI_INTERRUPT_TARGET_FLAGS(pub u32);
@@ -4946,7 +4716,6 @@ impl ::core::ops::Not for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_VPCI_MMIO_MAPPING {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
     pub Flags: WHV_VPCI_MMIO_RANGE_FLAGS,
@@ -4974,7 +4743,6 @@ impl ::core::cmp::Eq for WHV_VPCI_MMIO_MAPPING {}
 unsafe impl ::windows::core::Abi for WHV_VPCI_MMIO_MAPPING {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_VPCI_MMIO_RANGE_FLAGS(pub u32);
@@ -5018,7 +4786,6 @@ impl ::core::ops::Not for WHV_VPCI_MMIO_RANGE_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_VPCI_PROBED_BARS {
     pub Value: [u32; 6],
 }
@@ -5042,11 +4809,9 @@ impl ::core::cmp::Eq for WHV_VPCI_PROBED_BARS {}
 unsafe impl ::windows::core::Abi for WHV_VPCI_PROBED_BARS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const WHV_VPCI_TYPE0_BAR_COUNT: u32 = 6u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_VP_EXCEPTION_CONTEXT {
     pub InstructionByteCount: u8,
     pub Reserved: [u8; 3],
@@ -5074,7 +4839,6 @@ unsafe impl ::windows::core::Abi for WHV_VP_EXCEPTION_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_VP_EXCEPTION_INFO {
     pub Anonymous: WHV_VP_EXCEPTION_INFO_0,
     pub AsUINT32: u32,
@@ -5096,7 +4860,6 @@ unsafe impl ::windows::core::Abi for WHV_VP_EXCEPTION_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_VP_EXCEPTION_INFO_0 {
     pub _bitfield: u32,
 }
@@ -5122,7 +4885,6 @@ unsafe impl ::windows::core::Abi for WHV_VP_EXCEPTION_INFO_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_VP_EXIT_CONTEXT {
     pub ExecutionState: WHV_X64_VP_EXECUTION_STATE,
     pub _bitfield: u8,
@@ -5149,7 +4911,6 @@ unsafe impl ::windows::core::Abi for WHV_VP_EXIT_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_APIC_EOI_CONTEXT {
     pub InterruptVector: u32,
 }
@@ -5175,7 +4936,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_APIC_EOI_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_APIC_INIT_SIPI_CONTEXT {
     pub ApicIcr: u64,
 }
@@ -5201,7 +4961,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_APIC_INIT_SIPI_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_APIC_SMI_CONTEXT {
     pub ApicIcr: u64,
 }
@@ -5227,7 +4986,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_APIC_SMI_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_APIC_WRITE_CONTEXT {
     pub Type: WHV_X64_APIC_WRITE_TYPE,
     pub Reserved: u32,
@@ -5253,7 +5011,6 @@ impl ::core::cmp::Eq for WHV_X64_APIC_WRITE_CONTEXT {}
 unsafe impl ::windows::core::Abi for WHV_X64_APIC_WRITE_CONTEXT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_X64_APIC_WRITE_TYPE(pub i32);
@@ -5272,7 +5029,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_APIC_WRITE_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_CPUID_ACCESS_CONTEXT {
     pub Rax: u64,
     pub Rcx: u64,
@@ -5314,7 +5070,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_CPUID_ACCESS_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_CPUID_RESULT {
     pub Function: u32,
     pub Reserved: [u32; 3],
@@ -5345,7 +5100,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_CPUID_RESULT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_CPUID_RESULT2 {
     pub Function: u32,
     pub Index: u32,
@@ -5374,7 +5128,6 @@ impl ::core::cmp::Eq for WHV_X64_CPUID_RESULT2 {}
 unsafe impl ::windows::core::Abi for WHV_X64_CPUID_RESULT2 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_X64_CPUID_RESULT2_FLAGS(pub u32);
@@ -5418,7 +5171,6 @@ impl ::core::ops::Not for WHV_X64_CPUID_RESULT2_FLAGS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
     pub Anonymous: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0,
     pub AsUINT64: u64,
@@ -5440,7 +5192,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGIST
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
     pub _bitfield: u64,
 }
@@ -5466,7 +5217,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGIST
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_FP_CONTROL_STATUS_REGISTER {
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
@@ -5488,7 +5238,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     pub FpControl: u16,
     pub FpStatus: u16,
@@ -5514,7 +5263,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     pub LastFpRip: u64,
     pub Anonymous: WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0,
@@ -5536,7 +5284,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
     pub LastFpEip: u32,
     pub LastFpCs: u16,
@@ -5564,7 +5311,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_FP_REGISTER {
     pub Anonymous: WHV_X64_FP_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
@@ -5586,7 +5332,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_FP_REGISTER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_FP_REGISTER_0 {
     pub Mantissa: u64,
     pub _bitfield: u64,
@@ -5613,7 +5358,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_FP_REGISTER_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
     pub DeliverableType: WHV_X64_PENDING_INTERRUPTION_TYPE,
 }
@@ -5639,7 +5383,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_INTERRUPT_STATE_REGISTER {
     pub Anonymous: WHV_X64_INTERRUPT_STATE_REGISTER_0,
     pub AsUINT64: u64,
@@ -5661,7 +5404,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_INTERRUPT_STATE_REGISTER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     pub _bitfield: u64,
 }
@@ -5687,7 +5429,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_IO_PORT_ACCESS_CONTEXT {
     pub InstructionByteCount: u8,
     pub Reserved: [u8; 3],
@@ -5719,7 +5460,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_IO_PORT_ACCESS_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_IO_PORT_ACCESS_INFO {
     pub Anonymous: WHV_X64_IO_PORT_ACCESS_INFO_0,
     pub AsUINT32: u32,
@@ -5741,7 +5481,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_IO_PORT_ACCESS_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_IO_PORT_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
@@ -5765,7 +5504,6 @@ impl ::core::cmp::Eq for WHV_X64_IO_PORT_ACCESS_INFO_0 {}
 unsafe impl ::windows::core::Abi for WHV_X64_IO_PORT_ACCESS_INFO_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_X64_LOCAL_APIC_EMULATION_MODE(pub i32);
@@ -5782,7 +5520,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_LOCAL_APIC_EMULATION_MODE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_MSR_ACCESS_CONTEXT {
     pub AccessInfo: WHV_X64_MSR_ACCESS_INFO,
     pub MsrNumber: u32,
@@ -5806,7 +5543,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_MSR_ACCESS_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_MSR_ACCESS_INFO {
     pub Anonymous: WHV_X64_MSR_ACCESS_INFO_0,
     pub AsUINT32: u32,
@@ -5828,7 +5564,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_MSR_ACCESS_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_MSR_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
@@ -5854,7 +5589,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_MSR_ACCESS_INFO_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_MSR_EXIT_BITMAP {
     pub AsUINT64: u64,
     pub Anonymous: WHV_X64_MSR_EXIT_BITMAP_0,
@@ -5876,7 +5610,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_MSR_EXIT_BITMAP {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_MSR_EXIT_BITMAP_0 {
     pub _bitfield: u64,
 }
@@ -5902,7 +5635,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_MSR_EXIT_BITMAP_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_PENDING_DEBUG_EXCEPTION {
     pub AsUINT64: u64,
     pub Anonymous: WHV_X64_PENDING_DEBUG_EXCEPTION_0,
@@ -5924,7 +5656,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_PENDING_DEBUG_EXCEPTION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     pub _bitfield: u64,
 }
@@ -5948,7 +5679,6 @@ impl ::core::cmp::Eq for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {}
 unsafe impl ::windows::core::Abi for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_X64_PENDING_EVENT_TYPE(pub i32);
@@ -5964,7 +5694,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EVENT_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_PENDING_EXCEPTION_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXCEPTION_EVENT_0,
     pub AsUINT128: WHV_UINT128,
@@ -5986,7 +5715,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXCEPTION_EVENT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     pub _bitfield: u32,
     pub ErrorCode: u32,
@@ -6014,7 +5742,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_PENDING_EXT_INT_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXT_INT_EVENT_0,
     pub AsUINT128: WHV_UINT128,
@@ -6036,7 +5763,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXT_INT_EVENT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_PENDING_EXT_INT_EVENT_0 {
     pub _bitfield: u64,
     pub Reserved2: u64,
@@ -6063,7 +5789,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXT_INT_EVENT_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_PENDING_INTERRUPTION_REGISTER {
     pub Anonymous: WHV_X64_PENDING_INTERRUPTION_REGISTER_0,
     pub AsUINT64: u64,
@@ -6085,7 +5810,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_PENDING_INTERRUPTION_REGISTER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     pub _bitfield: u32,
     pub ErrorCode: u32,
@@ -6110,7 +5834,6 @@ impl ::core::cmp::Eq for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {}
 unsafe impl ::windows::core::Abi for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_X64_PENDING_INTERRUPTION_TYPE(pub i32);
@@ -6127,7 +5850,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_PENDING_INTERRUPTION_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_RDTSC_CONTEXT {
     pub TscAux: u64,
     pub VirtualOffset: u64,
@@ -6152,7 +5874,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_RDTSC_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_RDTSC_INFO {
     pub Anonymous: WHV_X64_RDTSC_INFO_0,
     pub AsUINT64: u64,
@@ -6174,7 +5895,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_RDTSC_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_RDTSC_INFO_0 {
     pub _bitfield: u64,
 }
@@ -6200,7 +5920,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_RDTSC_INFO_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_SEGMENT_REGISTER {
     pub Base: u64,
     pub Limit: u32,
@@ -6224,7 +5943,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_SEGMENT_REGISTER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_SEGMENT_REGISTER_0 {
     pub Anonymous: WHV_X64_SEGMENT_REGISTER_0_0,
     pub Attributes: u16,
@@ -6246,7 +5964,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_SEGMENT_REGISTER_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_SEGMENT_REGISTER_0_0 {
     pub _bitfield: u16,
 }
@@ -6272,7 +5989,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_SEGMENT_REGISTER_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_TABLE_REGISTER {
     pub Pad: [u16; 3],
     pub Limit: u16,
@@ -6298,7 +6014,6 @@ impl ::core::cmp::Eq for WHV_X64_TABLE_REGISTER {}
 unsafe impl ::windows::core::Abi for WHV_X64_TABLE_REGISTER {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CODE(pub i32);
@@ -6314,7 +6029,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_UNSUPPORTED_FEATURE_CODE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     pub FeatureCode: WHV_X64_UNSUPPORTED_FEATURE_CODE,
     pub Reserved: u32,
@@ -6342,7 +6056,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_VP_EXECUTION_STATE {
     pub Anonymous: WHV_X64_VP_EXECUTION_STATE_0,
     pub AsUINT16: u16,
@@ -6364,7 +6077,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_VP_EXECUTION_STATE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_VP_EXECUTION_STATE_0 {
     pub _bitfield: u16,
 }
@@ -6390,7 +6102,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_VP_EXECUTION_STATE_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0,
     pub AsUINT128: WHV_UINT128,
@@ -6412,7 +6123,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0,
     pub XmmStatusControl: u32,
@@ -6435,7 +6145,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub union WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     pub LastFpRdp: u64,
     pub Anonymous: WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0,
@@ -6457,7 +6166,6 @@ unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     pub LastFpDp: u32,
     pub LastFpDs: u16,
@@ -6483,7 +6191,6 @@ impl ::core::cmp::Eq for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {}
 unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvAcceptPartitionMigration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(migrationhandle: Param0) -> ::windows::core::Result<WHV_PARTITION_HANDLE> {
@@ -6499,7 +6206,6 @@ pub unsafe fn WHvAcceptPartitionMigration<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvAdviseGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, gparanges: *const WHV_MEMORY_RANGE_ENTRY, gparangescount: u32, advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const ::core::ffi::c_void, advicebuffersizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6513,7 +6219,6 @@ pub unsafe fn WHvAdviseGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: *const ::core::ffi::c_void, resourcedescriptorsizeinbytes: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
@@ -6529,7 +6234,6 @@ pub unsafe fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvCancelPartitionMigration<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6543,7 +6247,6 @@ pub unsafe fn WHvCancelPartitionMigration<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvCancelRunVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, flags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6557,7 +6260,6 @@ pub unsafe fn WHvCancelRunVirtualProcessor<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvCompletePartitionMigration<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6571,7 +6273,6 @@ pub unsafe fn WHvCompletePartitionMigration<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvCreateNotificationPort<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, parameters: *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle: Param2, porthandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -6586,7 +6287,6 @@ pub unsafe fn WHvCreateNotificationPort<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvCreatePartition() -> ::windows::core::Result<WHV_PARTITION_HANDLE> {
     #[cfg(windows)]
@@ -6601,7 +6301,6 @@ pub unsafe fn WHvCreatePartition() -> ::windows::core::Result<WHV_PARTITION_HAND
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvCreateTrigger<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *mut *mut ::core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
@@ -6616,7 +6315,6 @@ pub unsafe fn WHvCreateTrigger<'a, Param0: ::windows::core::IntoParam<'a, WHV_PA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvCreateVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, flags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6630,7 +6328,6 @@ pub unsafe fn WHvCreateVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvCreateVirtualProcessor2<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, properties: *const WHV_VIRTUAL_PROCESSOR_PROPERTY, propertycount: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6644,7 +6341,6 @@ pub unsafe fn WHvCreateVirtualProcessor2<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvCreateVpciDevice<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, logicaldeviceid: u64, vpciresource: Param2, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: Param4) -> ::windows::core::Result<()> {
@@ -6659,7 +6355,6 @@ pub unsafe fn WHvCreateVpciDevice<'a, Param0: ::windows::core::IntoParam<'a, WHV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvDeleteNotificationPort<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, porthandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6673,7 +6368,6 @@ pub unsafe fn WHvDeleteNotificationPort<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvDeletePartition<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6687,7 +6381,6 @@ pub unsafe fn WHvDeletePartition<'a, Param0: ::windows::core::IntoParam<'a, WHV_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvDeleteTrigger<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, triggerhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6701,7 +6394,6 @@ pub unsafe fn WHvDeleteTrigger<'a, Param0: ::windows::core::IntoParam<'a, WHV_PA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvDeleteVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6715,7 +6407,6 @@ pub unsafe fn WHvDeleteVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvDeleteVpciDevice<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6729,7 +6420,6 @@ pub unsafe fn WHvDeleteVpciDevice<'a, Param0: ::windows::core::IntoParam<'a, WHV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvEmulatorCreateEmulator(callbacks: *const WHV_EMULATOR_CALLBACKS, emulator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6743,7 +6433,6 @@ pub unsafe fn WHvEmulatorCreateEmulator(callbacks: *const WHV_EMULATOR_CALLBACKS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvEmulatorDestroyEmulator(emulator: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6757,7 +6446,6 @@ pub unsafe fn WHvEmulatorDestroyEmulator(emulator: *const ::core::ffi::c_void) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext: *const WHV_X64_IO_PORT_ACCESS_CONTEXT) -> ::windows::core::Result<WHV_EMULATOR_STATUS> {
     #[cfg(windows)]
@@ -6772,7 +6460,6 @@ pub unsafe fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext: *const WHV_MEMORY_ACCESS_CONTEXT) -> ::windows::core::Result<WHV_EMULATOR_STATUS> {
     #[cfg(windows)]
@@ -6787,7 +6474,6 @@ pub unsafe fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetCapability(capabilitycode: WHV_CAPABILITY_CODE, capabilitybuffer: *mut ::core::ffi::c_void, capabilitybuffersizeinbytes: u32, writtensizeinbytes: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6801,7 +6487,6 @@ pub unsafe fn WHvGetCapability(capabilitycode: WHV_CAPABILITY_CODE, capabilitybu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetInterruptTargetVpSet<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, destination: u64, destinationmode: WHV_INTERRUPT_DESTINATION_MODE, targetvps: *mut u32, vpcount: u32, targetvpcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6815,7 +6500,6 @@ pub unsafe fn WHvGetInterruptTargetVpSet<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetPartitionCounters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, counterset: WHV_PARTITION_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6829,7 +6513,6 @@ pub unsafe fn WHvGetPartitionCounters<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetPartitionProperty<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6843,7 +6526,6 @@ pub unsafe fn WHvGetPartitionProperty<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetVirtualProcessorCounters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, counterset: WHV_PROCESSOR_COUNTER_SET, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6857,7 +6539,6 @@ pub unsafe fn WHvGetVirtualProcessorCounters<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetVirtualProcessorCpuidOutput<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, eax: u32, ecx: u32) -> ::windows::core::Result<WHV_CPUID_OUTPUT> {
     #[cfg(windows)]
@@ -6872,7 +6553,6 @@ pub unsafe fn WHvGetVirtualProcessorCpuidOutput<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetVirtualProcessorInterruptControllerState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6886,7 +6566,6 @@ pub unsafe fn WHvGetVirtualProcessorInterruptControllerState<'a, Param0: ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6900,7 +6579,6 @@ pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetVirtualProcessorRegisters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6914,7 +6592,6 @@ pub unsafe fn WHvGetVirtualProcessorRegisters<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetVirtualProcessorState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6928,7 +6605,6 @@ pub unsafe fn WHvGetVirtualProcessorState<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetVirtualProcessorXsaveState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, buffer: *mut ::core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6942,7 +6618,6 @@ pub unsafe fn WHvGetVirtualProcessorXsaveState<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetVpciDeviceInterruptTarget<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6956,7 +6631,6 @@ pub unsafe fn WHvGetVpciDeviceInterruptTarget<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetVpciDeviceNotification<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6970,7 +6644,6 @@ pub unsafe fn WHvGetVpciDeviceNotification<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvGetVpciDeviceProperty<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, propertycode: WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer: *mut ::core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6984,7 +6657,6 @@ pub unsafe fn WHvGetVpciDeviceProperty<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvMapGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6998,7 +6670,6 @@ pub unsafe fn WHvMapGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PART
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvMapGpaRange2<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, process: Param1, sourceaddress: *const ::core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::core::Result<()> {
@@ -7013,7 +6684,6 @@ pub unsafe fn WHvMapGpaRange2<'a, Param0: ::windows::core::IntoParam<'a, WHV_PAR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvMapVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, index: u32, messagecount: u32, target: *const WHV_VPCI_INTERRUPT_TARGET, msiaddress: *mut u64, msidata: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7027,7 +6697,6 @@ pub unsafe fn WHvMapVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvMapVpciDeviceMmioRanges<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, mappingcount: *mut u32, mappings: *mut *mut WHV_VPCI_MMIO_MAPPING) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7041,7 +6710,6 @@ pub unsafe fn WHvMapVpciDeviceMmioRanges<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvPostVirtualProcessorSynicMessage<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, sintindex: u32, message: *const ::core::ffi::c_void, messagesizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7055,7 +6723,6 @@ pub unsafe fn WHvPostVirtualProcessorSynicMessage<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvQueryGpaRangeDirtyBitmap<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, guestaddress: u64, rangesizeinbytes: u64, bitmap: *mut u64, bitmapsizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7069,7 +6736,6 @@ pub unsafe fn WHvQueryGpaRangeDirtyBitmap<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvReadGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param3: ::windows::core::IntoParam<'a, WHV_ACCESS_GPA_CONTROLS>>(partition: Param0, vpindex: u32, guestaddress: u64, controls: Param3, data: *mut ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7083,7 +6749,6 @@ pub unsafe fn WHvReadGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PAR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvReadVpciDeviceRegister<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7097,7 +6762,6 @@ pub unsafe fn WHvReadVpciDeviceRegister<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvRegisterPartitionDoorbellEvent<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, matchdata: *const WHV_DOORBELL_MATCH_DATA, eventhandle: Param2) -> ::windows::core::Result<()> {
@@ -7112,7 +6776,6 @@ pub unsafe fn WHvRegisterPartitionDoorbellEvent<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvRequestInterrupt<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, interrupt: *const WHV_INTERRUPT_CONTROL, interruptcontrolsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7126,7 +6789,6 @@ pub unsafe fn WHvRequestInterrupt<'a, Param0: ::windows::core::IntoParam<'a, WHV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvRequestVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, msiaddress: u64, msidata: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7140,7 +6802,6 @@ pub unsafe fn WHvRequestVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvResetPartition<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7154,7 +6815,6 @@ pub unsafe fn WHvResetPartition<'a, Param0: ::windows::core::IntoParam<'a, WHV_P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvResumePartitionTime<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7168,7 +6828,6 @@ pub unsafe fn WHvResumePartitionTime<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvRetargetVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, msiaddress: u64, msidata: u32, target: *const WHV_VPCI_INTERRUPT_TARGET) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7182,7 +6841,6 @@ pub unsafe fn WHvRetargetVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvRunVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, exitcontext: *mut ::core::ffi::c_void, exitcontextsizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7196,7 +6854,6 @@ pub unsafe fn WHvRunVirtualProcessor<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvSetNotificationPortProperty<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, porthandle: *const ::core::ffi::c_void, propertycode: WHV_NOTIFICATION_PORT_PROPERTY_CODE, propertyvalue: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7210,7 +6867,6 @@ pub unsafe fn WHvSetNotificationPortProperty<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvSetPartitionProperty<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *const ::core::ffi::c_void, propertybuffersizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7224,7 +6880,6 @@ pub unsafe fn WHvSetPartitionProperty<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvSetVirtualProcessorInterruptControllerState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7238,7 +6893,6 @@ pub unsafe fn WHvSetVirtualProcessorInterruptControllerState<'a, Param0: ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvSetVirtualProcessorInterruptControllerState2<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, state: *const ::core::ffi::c_void, statesize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7252,7 +6906,6 @@ pub unsafe fn WHvSetVirtualProcessorInterruptControllerState2<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvSetVirtualProcessorRegisters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7266,7 +6919,6 @@ pub unsafe fn WHvSetVirtualProcessorRegisters<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvSetVirtualProcessorState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7280,7 +6932,6 @@ pub unsafe fn WHvSetVirtualProcessorState<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvSetVirtualProcessorXsaveState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, buffer: *const ::core::ffi::c_void, buffersizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7294,7 +6945,6 @@ pub unsafe fn WHvSetVirtualProcessorXsaveState<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_System_Power`*"]
 #[cfg(feature = "Win32_System_Power")]
 #[inline]
 pub unsafe fn WHvSetVpciDevicePowerState<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, powerstate: super::Power::DEVICE_POWER_STATE) -> ::windows::core::Result<()> {
@@ -7309,7 +6959,6 @@ pub unsafe fn WHvSetVpciDevicePowerState<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvSetupPartition<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7323,7 +6972,6 @@ pub unsafe fn WHvSetupPartition<'a, Param0: ::windows::core::IntoParam<'a, WHV_P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvSignalVirtualProcessorSynicEvent<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param1: ::windows::core::IntoParam<'a, WHV_SYNIC_EVENT_PARAMETERS>>(partition: Param0, synicevent: Param1) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -7339,7 +6987,6 @@ pub unsafe fn WHvSignalVirtualProcessorSynicEvent<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvStartPartitionMigration<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
@@ -7355,7 +7002,6 @@ pub unsafe fn WHvStartPartitionMigration<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvSuspendPartitionTime<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7369,7 +7015,6 @@ pub unsafe fn WHvSuspendPartitionTime<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvTranslateGva<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT, gpa: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7383,7 +7028,6 @@ pub unsafe fn WHvTranslateGva<'a, Param0: ::windows::core::IntoParam<'a, WHV_PAR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvUnmapGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, guestaddress: u64, sizeinbytes: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7397,7 +7041,6 @@ pub unsafe fn WHvUnmapGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvUnmapVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, index: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7411,7 +7054,6 @@ pub unsafe fn WHvUnmapVpciDeviceInterrupt<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvUnmapVpciDeviceMmioRanges<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7425,7 +7067,6 @@ pub unsafe fn WHvUnmapVpciDeviceMmioRanges<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvUnregisterPartitionDoorbellEvent<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, matchdata: *const WHV_DOORBELL_MATCH_DATA) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7439,7 +7080,6 @@ pub unsafe fn WHvUnregisterPartitionDoorbellEvent<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvUpdateTriggerParameters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7453,7 +7093,6 @@ pub unsafe fn WHvUpdateTriggerParameters<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvWriteGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, Param3: ::windows::core::IntoParam<'a, WHV_ACCESS_GPA_CONTROLS>>(partition: Param0, vpindex: u32, guestaddress: u64, controls: Param3, data: *const ::core::ffi::c_void, datasizeinbytes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7467,7 +7106,6 @@ pub unsafe fn WHvWriteGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_PA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[inline]
 pub unsafe fn WHvWriteVpciDeviceRegister<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]

@@ -1,21 +1,17 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `UI_Xaml_Resources`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CustomXamlResourceLoader(pub ::windows::core::IInspectable);
 impl CustomXamlResourceLoader {
-    #[doc = "*Required features: `UI_Xaml_Resources`*"]
     pub fn Current() -> ::windows::core::Result<CustomXamlResourceLoader> {
         Self::ICustomXamlResourceLoaderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CustomXamlResourceLoader>(result__)
         })
     }
-    #[doc = "*Required features: `UI_Xaml_Resources`*"]
     pub fn SetCurrent<'a, Param0: ::windows::core::IntoParam<'a, CustomXamlResourceLoader>>(value: Param0) -> ::windows::core::Result<()> {
         Self::ICustomXamlResourceLoaderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
-    #[doc = "*Required features: `UI_Xaml_Resources`*"]
     pub fn new() -> ::windows::core::Result<CustomXamlResourceLoader> {
         Self::ICustomXamlResourceLoaderFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

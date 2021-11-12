@@ -1,11 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Media_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AudioCaptureEffectsManager(pub ::windows::core::IInspectable);
 impl AudioCaptureEffectsManager {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation`*"]
     pub fn AudioCaptureEffectsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -14,13 +12,11 @@ impl AudioCaptureEffectsManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation`*"]
     pub fn RemoveAudioCaptureEffectsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn GetAudioCaptureEffects(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>> {
         let this = self;
         unsafe {
@@ -81,12 +77,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AudioCaptureEffectsManager {}
 unsafe impl ::core::marker::Sync for AudioCaptureEffectsManager {}
-#[doc = "*Required features: `Media_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AudioEffect(pub ::windows::core::IInspectable);
 impl AudioEffect {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn AudioEffectType(&self) -> ::windows::core::Result<AudioEffectType> {
         let this = self;
         unsafe {
@@ -147,12 +141,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AudioEffect {}
 unsafe impl ::core::marker::Sync for AudioEffect {}
-#[doc = "*Required features: `Media_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AudioEffectDefinition(pub ::windows::core::IInspectable);
 impl AudioEffectDefinition {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -161,7 +153,6 @@ impl AudioEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
@@ -169,7 +160,6 @@ impl AudioEffectDefinition {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(activatableclassid: Param0) -> ::windows::core::Result<AudioEffectDefinition> {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -177,7 +167,6 @@ impl AudioEffectDefinition {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn CreateWithProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(activatableclassid: Param0, props: Param1) -> ::windows::core::Result<AudioEffectDefinition> {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -261,7 +250,6 @@ impl<'a> ::windows::core::IntoParam<'a, IAudioEffectDefinition> for &AudioEffect
 }
 unsafe impl ::core::marker::Send for AudioEffectDefinition {}
 unsafe impl ::core::marker::Sync for AudioEffectDefinition {}
-#[doc = "*Required features: `Media_Effects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioEffectType(pub i32);
@@ -301,11 +289,9 @@ unsafe impl ::windows::core::RuntimeType for AudioEffectType {
 impl ::windows::core::DefaultType for AudioEffectType {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Media_Effects`*"]
 pub struct AudioEffectsManager {}
 impl AudioEffectsManager {
     #[cfg(feature = "Media_Render")]
-    #[doc = "*Required features: `Media_Effects`, `Media_Render`*"]
     pub fn CreateAudioRenderEffectsManager<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0, category: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioRenderEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -313,7 +299,6 @@ impl AudioEffectsManager {
         })
     }
     #[cfg(feature = "Media_Render")]
-    #[doc = "*Required features: `Media_Effects`, `Media_Render`*"]
     pub fn CreateAudioRenderEffectsManagerWithMode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioRenderEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -321,7 +306,6 @@ impl AudioEffectsManager {
         })
     }
     #[cfg(feature = "Media_Capture")]
-    #[doc = "*Required features: `Media_Effects`, `Media_Capture`*"]
     pub fn CreateAudioCaptureEffectsManager<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0, category: super::Capture::MediaCategory) -> ::windows::core::Result<AudioCaptureEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -329,7 +313,6 @@ impl AudioEffectsManager {
         })
     }
     #[cfg(feature = "Media_Capture")]
-    #[doc = "*Required features: `Media_Effects`, `Media_Capture`*"]
     pub fn CreateAudioCaptureEffectsManagerWithMode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioCaptureEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -344,13 +327,11 @@ impl AudioEffectsManager {
 impl ::windows::core::RuntimeName for AudioEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffectsManager";
 }
-#[doc = "*Required features: `Media_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct AudioRenderEffectsManager(pub ::windows::core::IInspectable);
 impl AudioRenderEffectsManager {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation`*"]
     pub fn AudioRenderEffectsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -359,13 +340,11 @@ impl AudioRenderEffectsManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation`*"]
     pub fn RemoveAudioRenderEffectsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn GetAudioRenderEffects(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>> {
         let this = self;
         unsafe {
@@ -375,7 +354,6 @@ impl AudioRenderEffectsManager {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Storage_Streams")]
-    #[doc = "*Required features: `Media_Effects`, `Storage_Streams`*"]
     pub fn EffectsProviderThumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = &::windows::core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
         unsafe {
@@ -384,7 +362,6 @@ impl AudioRenderEffectsManager {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn EffectsProviderSettingsLabel(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
         unsafe {
@@ -393,7 +370,6 @@ impl AudioRenderEffectsManager {
         }
     }
     #[cfg(feature = "deprecated")]
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn ShowSettingsUI(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
@@ -451,13 +427,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 unsafe impl ::core::marker::Send for AudioRenderEffectsManager {}
 unsafe impl ::core::marker::Sync for AudioRenderEffectsManager {}
-#[doc = "*Required features: `Media_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CompositeVideoFrameContext(pub ::windows::core::IInspectable);
 impl CompositeVideoFrameContext {
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`, `Graphics_DirectX_Direct3D11`*"]
     pub fn SurfacesToOverlay(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>> {
         let this = self;
         unsafe {
@@ -465,7 +439,6 @@ impl CompositeVideoFrameContext {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn BackgroundFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
@@ -473,7 +446,6 @@ impl CompositeVideoFrameContext {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::VideoFrame>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn OutputFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
@@ -482,7 +454,6 @@ impl CompositeVideoFrameContext {
         }
     }
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing"))]
-    #[doc = "*Required features: `Media_Effects`, `Graphics_DirectX_Direct3D11`, `Media_Editing`*"]
     pub fn GetOverlayForSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>(&self, surfacetooverlay: Param0) -> ::windows::core::Result<super::Editing::MediaOverlay> {
         let this = self;
         unsafe {
@@ -586,14 +557,12 @@ pub struct IAudioEffect_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Media_Effects`*"]
 pub struct IAudioEffectDefinition(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IAudioEffectDefinition {
     type Vtable = IAudioEffectDefinition_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4d7f974_7d80_4f73_9089_e31c9db9c294);
 }
 impl IAudioEffectDefinition {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -602,7 +571,6 @@ impl IAudioEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
@@ -758,14 +726,12 @@ pub struct IAudioRenderEffectsManager2_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Media_Effects`*"]
 pub struct IBasicAudioEffect(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IBasicAudioEffect {
     type Vtable = IBasicAudioEffect_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c062c53_6bc0_48b8_a99a_4b41550f1359);
 }
 impl IBasicAudioEffect {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn UseInputFrameForOutput(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -774,7 +740,6 @@ impl IBasicAudioEffect {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`, `Media_MediaProperties`*"]
     pub fn SupportedEncodingProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>> {
         let this = self;
         unsafe {
@@ -783,28 +748,23 @@ impl IBasicAudioEffect {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    #[doc = "*Required features: `Media_Effects`, `Media_MediaProperties`*"]
     pub fn SetEncodingProperties<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProperties::AudioEncodingProperties>>(&self, encodingproperties: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), encodingproperties.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn ProcessFrame<'a, Param0: ::windows::core::IntoParam<'a, ProcessAudioFrameContext>>(&self, context: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), context.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), reason).ok() }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn SetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), configuration.into_param().abi()).ok() }
@@ -895,14 +855,12 @@ pub struct IBasicAudioEffect_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Media_Effects`*"]
 pub struct IBasicVideoEffect(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IBasicVideoEffect {
     type Vtable = IBasicVideoEffect_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8262c7ef_b360_40be_949b_2ff42ff35693);
 }
 impl IBasicVideoEffect {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -910,7 +868,6 @@ impl IBasicVideoEffect {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn SupportedMemoryTypes(&self) -> ::windows::core::Result<MediaMemoryTypes> {
         let this = self;
         unsafe {
@@ -918,7 +875,6 @@ impl IBasicVideoEffect {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaMemoryTypes>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn TimeIndependent(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -927,7 +883,6 @@ impl IBasicVideoEffect {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`, `Media_MediaProperties`*"]
     pub fn SupportedEncodingProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>> {
         let this = self;
         unsafe {
@@ -936,28 +891,23 @@ impl IBasicVideoEffect {
         }
     }
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    #[doc = "*Required features: `Media_Effects`, `Graphics_DirectX_Direct3D11`, `Media_MediaProperties`*"]
     pub fn SetEncodingProperties<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProperties::VideoEncodingProperties>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>>(&self, encodingproperties: Param0, device: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), encodingproperties.into_param().abi(), device.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn ProcessFrame<'a, Param0: ::windows::core::IntoParam<'a, ProcessVideoFrameContext>>(&self, context: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), context.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), reason).ok() }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn SetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), configuration.into_param().abi()).ok() }
@@ -1130,14 +1080,12 @@ pub struct ISlowMotionEffectDefinition_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Media_Effects`*"]
 pub struct IVideoCompositor(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IVideoCompositor {
     type Vtable = IVideoCompositor_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8510b43e_420c_420f_96c7_7c98bba1fc55);
 }
 impl IVideoCompositor {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn TimeIndependent(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1146,28 +1094,23 @@ impl IVideoCompositor {
         }
     }
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    #[doc = "*Required features: `Media_Effects`, `Graphics_DirectX_Direct3D11`, `Media_MediaProperties`*"]
     pub fn SetEncodingProperties<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProperties::VideoEncodingProperties>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>>(&self, backgroundproperties: Param0, device: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), backgroundproperties.into_param().abi(), device.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn CompositeFrame<'a, Param0: ::windows::core::IntoParam<'a, CompositeVideoFrameContext>>(&self, context: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), context.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), reason).ok() }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn SetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), configuration.into_param().abi()).ok() }
@@ -1256,14 +1199,12 @@ pub struct IVideoCompositor_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Media_Effects`*"]
 pub struct IVideoCompositorDefinition(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IVideoCompositorDefinition {
     type Vtable = IVideoCompositorDefinition_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2);
 }
 impl IVideoCompositorDefinition {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1272,7 +1213,6 @@ impl IVideoCompositorDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
@@ -1359,14 +1299,12 @@ pub struct IVideoCompositorDefinitionFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `Media_Effects`*"]
 pub struct IVideoEffectDefinition(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for IVideoEffectDefinition {
     type Vtable = IVideoEffectDefinition_abi;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
 }
 impl IVideoEffectDefinition {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1375,7 +1313,6 @@ impl IVideoEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
@@ -1552,7 +1489,6 @@ pub struct IVideoTransformSphericalProjection_abi(
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
-#[doc = "*Required features: `Media_Effects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaEffectClosedReason(pub i32);
@@ -1576,7 +1512,6 @@ unsafe impl ::windows::core::RuntimeType for MediaEffectClosedReason {
 impl ::windows::core::DefaultType for MediaEffectClosedReason {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Media_Effects`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaMemoryTypes(pub i32);
@@ -1599,12 +1534,10 @@ unsafe impl ::windows::core::RuntimeType for MediaMemoryTypes {
 impl ::windows::core::DefaultType for MediaMemoryTypes {
     type DefaultType = Self;
 }
-#[doc = "*Required features: `Media_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProcessAudioFrameContext(pub ::windows::core::IInspectable);
 impl ProcessAudioFrameContext {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn InputFrame(&self) -> ::windows::core::Result<super::AudioFrame> {
         let this = self;
         unsafe {
@@ -1612,7 +1545,6 @@ impl ProcessAudioFrameContext {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::AudioFrame>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn OutputFrame(&self) -> ::windows::core::Result<super::AudioFrame> {
         let this = self;
         unsafe {
@@ -1673,12 +1605,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for ProcessAudioFrameContext {}
 unsafe impl ::core::marker::Sync for ProcessAudioFrameContext {}
-#[doc = "*Required features: `Media_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ProcessVideoFrameContext(pub ::windows::core::IInspectable);
 impl ProcessVideoFrameContext {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn InputFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
@@ -1686,7 +1616,6 @@ impl ProcessVideoFrameContext {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::VideoFrame>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn OutputFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
@@ -1747,7 +1676,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for ProcessVideoFrameContext {}
 unsafe impl ::core::marker::Sync for ProcessVideoFrameContext {}
-#[doc = "*Required features: `Media_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SlowMotionEffectDefinition(pub ::windows::core::IInspectable);
@@ -1759,7 +1687,6 @@ impl SlowMotionEffectDefinition {
         static mut SHARED: ::windows::core::FactoryCache<SlowMotionEffectDefinition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn TimeStretchRate(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1767,12 +1694,10 @@ impl SlowMotionEffectDefinition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn SetTimeStretchRate(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IVideoEffectDefinition>(self)?;
         unsafe {
@@ -1781,7 +1706,6 @@ impl SlowMotionEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows::core::Interface::cast::<IVideoEffectDefinition>(self)?;
         unsafe {
@@ -1864,12 +1788,10 @@ impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for &SlowMotionE
 }
 unsafe impl ::core::marker::Send for SlowMotionEffectDefinition {}
 unsafe impl ::core::marker::Sync for SlowMotionEffectDefinition {}
-#[doc = "*Required features: `Media_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VideoCompositorDefinition(pub ::windows::core::IInspectable);
 impl VideoCompositorDefinition {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1878,7 +1800,6 @@ impl VideoCompositorDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
@@ -1886,7 +1807,6 @@ impl VideoCompositorDefinition {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(activatableclassid: Param0) -> ::windows::core::Result<VideoCompositorDefinition> {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1894,7 +1814,6 @@ impl VideoCompositorDefinition {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn CreateWithProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(activatableclassid: Param0, props: Param1) -> ::windows::core::Result<VideoCompositorDefinition> {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1978,12 +1897,10 @@ impl<'a> ::windows::core::IntoParam<'a, IVideoCompositorDefinition> for &VideoCo
 }
 unsafe impl ::core::marker::Send for VideoCompositorDefinition {}
 unsafe impl ::core::marker::Sync for VideoCompositorDefinition {}
-#[doc = "*Required features: `Media_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VideoEffectDefinition(pub ::windows::core::IInspectable);
 impl VideoEffectDefinition {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1992,7 +1909,6 @@ impl VideoEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
@@ -2000,7 +1916,6 @@ impl VideoEffectDefinition {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(activatableclassid: Param0) -> ::windows::core::Result<VideoEffectDefinition> {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2008,7 +1923,6 @@ impl VideoEffectDefinition {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn CreateWithProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(activatableclassid: Param0, props: Param1) -> ::windows::core::Result<VideoEffectDefinition> {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2092,7 +2006,6 @@ impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for &VideoEffect
 }
 unsafe impl ::core::marker::Send for VideoEffectDefinition {}
 unsafe impl ::core::marker::Sync for VideoEffectDefinition {}
-#[doc = "*Required features: `Media_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VideoTransformEffectDefinition(pub ::windows::core::IInspectable);
@@ -2104,7 +2017,6 @@ impl VideoTransformEffectDefinition {
         static mut SHARED: ::windows::core::FactoryCache<VideoTransformEffectDefinition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2113,7 +2025,6 @@ impl VideoTransformEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
@@ -2122,7 +2033,6 @@ impl VideoTransformEffectDefinition {
         }
     }
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `Media_Effects`, `UI`*"]
     pub fn PaddingColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
@@ -2131,13 +2041,11 @@ impl VideoTransformEffectDefinition {
         }
     }
     #[cfg(feature = "UI")]
-    #[doc = "*Required features: `Media_Effects`, `UI`*"]
     pub fn SetPaddingColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation`*"]
     pub fn OutputSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
@@ -2146,13 +2054,11 @@ impl VideoTransformEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation`*"]
     pub fn SetOutputSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation`*"]
     pub fn CropRectangle(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
@@ -2161,13 +2067,11 @@ impl VideoTransformEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation`*"]
     pub fn SetCropRectangle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    #[doc = "*Required features: `Media_Effects`, `Media_MediaProperties`*"]
     pub fn Rotation(&self) -> ::windows::core::Result<super::MediaProperties::MediaRotation> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
@@ -2176,13 +2080,11 @@ impl VideoTransformEffectDefinition {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    #[doc = "*Required features: `Media_Effects`, `Media_MediaProperties`*"]
     pub fn SetRotation(&self, value: super::MediaProperties::MediaRotation) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    #[doc = "*Required features: `Media_Effects`, `Media_MediaProperties`*"]
     pub fn Mirror(&self) -> ::windows::core::Result<super::MediaProperties::MediaMirroringOptions> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
@@ -2191,19 +2093,16 @@ impl VideoTransformEffectDefinition {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    #[doc = "*Required features: `Media_Effects`, `Media_MediaProperties`*"]
     pub fn SetMirror(&self, value: super::MediaProperties::MediaMirroringOptions) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Media_Transcoding")]
-    #[doc = "*Required features: `Media_Effects`, `Media_Transcoding`*"]
     pub fn SetProcessingAlgorithm(&self, value: super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Media_Transcoding")]
-    #[doc = "*Required features: `Media_Effects`, `Media_Transcoding`*"]
     pub fn ProcessingAlgorithm(&self) -> ::windows::core::Result<super::Transcoding::MediaVideoProcessingAlgorithm> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
@@ -2211,7 +2110,6 @@ impl VideoTransformEffectDefinition {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Transcoding::MediaVideoProcessingAlgorithm>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn SphericalProjection(&self) -> ::windows::core::Result<VideoTransformSphericalProjection> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition2>(self)?;
         unsafe {
@@ -2292,12 +2190,10 @@ impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for &VideoTransf
 }
 unsafe impl ::core::marker::Send for VideoTransformEffectDefinition {}
 unsafe impl ::core::marker::Sync for VideoTransformEffectDefinition {}
-#[doc = "*Required features: `Media_Effects`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct VideoTransformSphericalProjection(pub ::windows::core::IInspectable);
 impl VideoTransformSphericalProjection {
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2305,13 +2201,11 @@ impl VideoTransformSphericalProjection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    #[doc = "*Required features: `Media_Effects`, `Media_MediaProperties`*"]
     pub fn FrameFormat(&self) -> ::windows::core::Result<super::MediaProperties::SphericalVideoFrameFormat> {
         let this = self;
         unsafe {
@@ -2320,13 +2214,11 @@ impl VideoTransformSphericalProjection {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    #[doc = "*Required features: `Media_Effects`, `Media_MediaProperties`*"]
     pub fn SetFrameFormat(&self, value: super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Media_Playback")]
-    #[doc = "*Required features: `Media_Effects`, `Media_Playback`*"]
     pub fn ProjectionMode(&self) -> ::windows::core::Result<super::Playback::SphericalVideoProjectionMode> {
         let this = self;
         unsafe {
@@ -2335,12 +2227,10 @@ impl VideoTransformSphericalProjection {
         }
     }
     #[cfg(feature = "Media_Playback")]
-    #[doc = "*Required features: `Media_Effects`, `Media_Playback`*"]
     pub fn SetProjectionMode(&self, value: super::Playback::SphericalVideoProjectionMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn HorizontalFieldOfViewInDegrees(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2348,13 +2238,11 @@ impl VideoTransformSphericalProjection {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `Media_Effects`*"]
     pub fn SetHorizontalFieldOfViewInDegrees(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Numerics`*"]
     pub fn ViewOrientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
@@ -2363,7 +2251,6 @@ impl VideoTransformSphericalProjection {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    #[doc = "*Required features: `Media_Effects`, `Foundation_Numerics`*"]
     pub fn SetViewOrientation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }

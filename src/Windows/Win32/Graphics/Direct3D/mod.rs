@@ -5,7 +5,6 @@ pub mod Dxc;
 pub mod Fxc;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub struct D3DMATRIX {
     pub Anonymous: D3DMATRIX_0,
 }
@@ -26,7 +25,6 @@ unsafe impl ::windows::core::Abi for D3DMATRIX {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub union D3DMATRIX_0 {
     pub Anonymous: D3DMATRIX_0_0,
     pub m: [f32; 16],
@@ -48,7 +46,6 @@ unsafe impl ::windows::core::Abi for D3DMATRIX_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub struct D3DMATRIX_0_0 {
     pub _11: f32,
     pub _12: f32,
@@ -106,7 +103,6 @@ unsafe impl ::windows::core::Abi for D3DMATRIX_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub struct D3DVECTOR {
     pub x: f32,
     pub y: f32,
@@ -132,7 +128,6 @@ impl ::core::cmp::Eq for D3DVECTOR {}
 unsafe impl ::windows::core::Abi for D3DVECTOR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_CBUFFER_TYPE(pub i32);
@@ -154,15 +149,10 @@ impl ::core::convert::From<i32> for D3D_CBUFFER_TYPE {
 unsafe impl ::windows::core::Abi for D3D_CBUFFER_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_COMPONENT_MASK_W: u32 = 8u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_COMPONENT_MASK_X: u32 = 1u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_COMPONENT_MASK_Y: u32 = 2u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_COMPONENT_MASK_Z: u32 = 4u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_DRIVER_TYPE(pub i32);
@@ -180,7 +170,6 @@ impl ::core::convert::From<i32> for D3D_DRIVER_TYPE {
 unsafe impl ::windows::core::Abi for D3D_DRIVER_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_FEATURE_LEVEL(pub i32);
@@ -203,37 +192,21 @@ impl ::core::convert::From<i32> for D3D_FEATURE_LEVEL {
 unsafe impl ::windows::core::Abi for D3D_FEATURE_LEVEL {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_1_DEFAULT_MAX_ANISOTROPY: u32 = 2u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_1_IA_PRIMITIVE_MAX_COUNT: u32 = 65535u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_1_MAX_TEXTURE_REPEAT: u32 = 128u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_1_REQ_TEXTURE1D_U_DIMENSION: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_1_REQ_TEXTURE2D_U_OR_V_DIMENSION: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_1_REQ_TEXTURE3D_U_V_OR_W_DIMENSION: u32 = 256u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_1_REQ_TEXTURECUBE_DIMENSION: u32 = 512u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_1_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 1u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_2_IA_PRIMITIVE_MAX_COUNT: u32 = 1048575u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_2_MAX_TEXTURE_REPEAT: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_3_MAX_TEXTURE_REPEAT: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_3_REQ_TEXTURE1D_U_DIMENSION: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_3_REQ_TEXTURE2D_U_OR_V_DIMENSION: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_3_REQ_TEXTURECUBE_DIMENSION: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_FL9_3_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 4u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_INCLUDE_TYPE(pub i32);
@@ -250,7 +223,6 @@ impl ::core::convert::From<i32> for D3D_INCLUDE_TYPE {
 unsafe impl ::windows::core::Abi for D3D_INCLUDE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_INTERPOLATION_MODE(pub i32);
@@ -270,7 +242,6 @@ impl ::core::convert::From<i32> for D3D_INTERPOLATION_MODE {
 unsafe impl ::windows::core::Abi for D3D_INTERPOLATION_MODE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_MIN_PRECISION(pub i32);
@@ -290,7 +261,6 @@ impl ::core::convert::From<i32> for D3D_MIN_PRECISION {
 unsafe impl ::windows::core::Abi for D3D_MIN_PRECISION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_NAME(pub i32);
@@ -356,7 +326,6 @@ impl ::core::convert::From<i32> for D3D_NAME {
 unsafe impl ::windows::core::Abi for D3D_NAME {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_PARAMETER_FLAGS(pub i32);
@@ -372,7 +341,6 @@ impl ::core::convert::From<i32> for D3D_PARAMETER_FLAGS {
 unsafe impl ::windows::core::Abi for D3D_PARAMETER_FLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_PRIMITIVE(pub i32);
@@ -466,7 +434,6 @@ impl ::core::convert::From<i32> for D3D_PRIMITIVE {
 unsafe impl ::windows::core::Abi for D3D_PRIMITIVE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_PRIMITIVE_TOPOLOGY(pub i32);
@@ -572,7 +539,6 @@ impl ::core::convert::From<i32> for D3D_PRIMITIVE_TOPOLOGY {
 unsafe impl ::windows::core::Abi for D3D_PRIMITIVE_TOPOLOGY {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_REGISTER_COMPONENT_TYPE(pub i32);
@@ -592,7 +558,6 @@ impl ::core::convert::From<i32> for D3D_REGISTER_COMPONENT_TYPE {
 unsafe impl ::windows::core::Abi for D3D_REGISTER_COMPONENT_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_RESOURCE_RETURN_TYPE(pub i32);
@@ -626,7 +591,6 @@ impl ::core::convert::From<i32> for D3D_RESOURCE_RETURN_TYPE {
 unsafe impl ::windows::core::Abi for D3D_RESOURCE_RETURN_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_SHADER_CBUFFER_FLAGS(pub i32);
@@ -641,65 +605,35 @@ impl ::core::convert::From<i32> for D3D_SHADER_CBUFFER_FLAGS {
 unsafe impl ::windows::core::Abi for D3D_SHADER_CBUFFER_FLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_11_1_DOUBLE_EXTENSIONS: u32 = 32u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_11_1_SHADER_EXTENSIONS: u32 = 64u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_64_UAVS: u32 = 8u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_ATOMIC_INT64_ON_DESCRIPTOR_HEAP_RESOURCE: u32 = 268435456u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_ATOMIC_INT64_ON_GROUP_SHARED: u32 = 8388608u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_ATOMIC_INT64_ON_TYPED_RESOURCE: u32 = 4194304u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_BARYCENTRICS: u32 = 131072u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_COMPUTE_SHADERS_PLUS_RAW_AND_STRUCTURED_BUFFERS_VIA_SHADER_4_X: u32 = 2u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_DERIVATIVES_IN_MESH_AND_AMPLIFICATION_SHADERS: u32 = 16777216u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_DOUBLES: u32 = 1u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_INNER_COVERAGE: u32 = 1024u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_INT64_OPS: u32 = 32768u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_LEVEL_9_COMPARISON_FILTERING: u32 = 128u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_MINIMUM_PRECISION: u32 = 16u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_NATIVE_16BIT_OPS: u32 = 262144u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_RAYTRACING_TIER_1_1: u32 = 1048576u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_RESOURCE_DESCRIPTOR_HEAP_INDEXING: u32 = 33554432u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_ROVS: u32 = 4096u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_SAMPLER_DESCRIPTOR_HEAP_INDEXING: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_SAMPLER_FEEDBACK: u32 = 2097152u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_SHADING_RATE: u32 = 524288u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_STENCIL_REF: u32 = 512u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_TILED_RESOURCES: u32 = 256u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_TYPED_UAV_LOAD_ADDITIONAL_FORMATS: u32 = 2048u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_UAVS_AT_EVERY_STAGE: u32 = 4u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_VIEWPORT_AND_RT_ARRAY_INDEX_FROM_ANY_SHADER_FEEDING_RASTERIZER: u32 = 8192u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_VIEW_ID: u32 = 65536u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_WAVE_MMA: u32 = 134217728u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub const D3D_SHADER_FEATURE_WAVE_OPS: u32 = 16384u32;
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_SHADER_INPUT_FLAGS(pub i32);
@@ -723,7 +657,6 @@ impl ::core::convert::From<i32> for D3D_SHADER_INPUT_FLAGS {
 unsafe impl ::windows::core::Abi for D3D_SHADER_INPUT_FLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_SHADER_INPUT_TYPE(pub i32);
@@ -764,7 +697,6 @@ unsafe impl ::windows::core::Abi for D3D_SHADER_INPUT_TYPE {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D`, `Win32_Foundation`*"]
 pub struct D3D_SHADER_MACRO {
     pub Name: super::super::Foundation::PSTR,
     pub Definition: super::super::Foundation::PSTR,
@@ -795,7 +727,6 @@ impl ::core::cmp::Eq for D3D_SHADER_MACRO {}
 unsafe impl ::windows::core::Abi for D3D_SHADER_MACRO {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_SHADER_VARIABLE_CLASS(pub i32);
@@ -824,7 +755,6 @@ impl ::core::convert::From<i32> for D3D_SHADER_VARIABLE_CLASS {
 unsafe impl ::windows::core::Abi for D3D_SHADER_VARIABLE_CLASS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_SHADER_VARIABLE_FLAGS(pub i32);
@@ -845,7 +775,6 @@ impl ::core::convert::From<i32> for D3D_SHADER_VARIABLE_FLAGS {
 unsafe impl ::windows::core::Abi for D3D_SHADER_VARIABLE_FLAGS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_SHADER_VARIABLE_TYPE(pub i32);
@@ -973,7 +902,6 @@ impl ::core::convert::From<i32> for D3D_SHADER_VARIABLE_TYPE {
 unsafe impl ::windows::core::Abi for D3D_SHADER_VARIABLE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_SRV_DIMENSION(pub i32);
@@ -1030,7 +958,6 @@ impl ::core::convert::From<i32> for D3D_SRV_DIMENSION {
 unsafe impl ::windows::core::Abi for D3D_SRV_DIMENSION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_TESSELLATOR_DOMAIN(pub i32);
@@ -1050,7 +977,6 @@ impl ::core::convert::From<i32> for D3D_TESSELLATOR_DOMAIN {
 unsafe impl ::windows::core::Abi for D3D_TESSELLATOR_DOMAIN {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_TESSELLATOR_OUTPUT_PRIMITIVE(pub i32);
@@ -1072,7 +998,6 @@ impl ::core::convert::From<i32> for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
 unsafe impl ::windows::core::Abi for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_TESSELLATOR_PARTITIONING(pub i32);
@@ -1096,16 +1021,13 @@ unsafe impl ::windows::core::Abi for D3D_TESSELLATOR_PARTITIONING {
 }
 pub const D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c0f29e3_3f5f_4d35_84c9_bc0983b62c28);
 pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5dc234f_72bb_4bec_9705_8cf258df6b6c);
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ID3DBlob(pub ::windows::core::IUnknown);
 impl ID3DBlob {
-    #[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
     pub unsafe fn GetBufferSize(&self) -> usize {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
@@ -1143,17 +1065,14 @@ pub struct ID3DBlob_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> *mut ::core::ffi::c_void,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> usize,
 );
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ID3DDestructionNotifier(pub ::windows::core::IUnknown);
 impl ID3DDestructionNotifier {
-    #[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
     pub unsafe fn RegisterDestructionCallback(&self, callbackfn: ::core::option::Option<PFN_DESTRUCTION_CALLBACK>, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(callbackfn), ::core::mem::transmute(pdata), &mut result__).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
     pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(callbackid)).ok()
     }
@@ -1191,17 +1110,14 @@ pub struct ID3DDestructionNotifier_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, callbackfn: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, callbackid: u32) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ID3DInclude(pub ::windows::core::IUnknown);
 impl ID3DInclude {
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_Graphics_Direct3D`, `Win32_Foundation`*"]
     pub unsafe fn Open<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: Param1, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(includetype), pfilename.into_param().abi(), ::core::mem::transmute(pparentdata), ::core::mem::transmute(ppdata), ::core::mem::transmute(pbytes)).ok()
     }
-    #[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
     pub unsafe fn Close(&self, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata)).ok()
     }
@@ -1240,7 +1156,6 @@ pub struct ID3DInclude_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_Graphics_Direct3D`*"]
 pub type PFN_DESTRUCTION_CALLBACK = unsafe extern "system" fn(pdata: *mut ::core::ffi::c_void);
 pub const WKPDID_CommentStringW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0149dc0_90e8_4ec8_8144_e900ad266bb2);
 pub const WKPDID_D3D12UniqueObjectId: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b39de15_ec04_4bae_ba4d_8cef79fc04c1);

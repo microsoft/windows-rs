@@ -1,11 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreDragDropManager(pub ::windows::core::IInspectable);
 impl CoreDragDropManager {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`, `Foundation`*"]
     pub fn TargetRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs>>>(&self, value: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -14,12 +12,10 @@ impl CoreDragDropManager {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`, `Foundation`*"]
     pub fn RemoveTargetRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn AreConcurrentOperationsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -27,12 +23,10 @@ impl CoreDragDropManager {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn SetAreConcurrentOperationsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<CoreDragDropManager> {
         Self::ICoreDragDropManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -96,12 +90,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreDragDropManager {}
 unsafe impl ::core::marker::Sync for CoreDragDropManager {}
-#[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreDragInfo(pub ::windows::core::IInspectable);
 impl CoreDragInfo {
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn Data(&self) -> ::windows::core::Result<super::super::DataPackageView> {
         let this = self;
         unsafe {
@@ -109,7 +101,6 @@ impl CoreDragInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DataPackageView>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn Modifiers(&self) -> ::windows::core::Result<super::DragDropModifiers> {
         let this = self;
         unsafe {
@@ -118,7 +109,6 @@ impl CoreDragInfo {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`, `Foundation`*"]
     pub fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -126,7 +116,6 @@ impl CoreDragInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn AllowedOperations(&self) -> ::windows::core::Result<super::super::DataPackageOperation> {
         let this = &::windows::core::Interface::cast::<ICoreDragInfo2>(self)?;
         unsafe {
@@ -187,7 +176,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreDragInfo {}
 unsafe impl ::core::marker::Sync for CoreDragInfo {}
-#[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreDragOperation(pub ::windows::core::IInspectable);
@@ -199,7 +187,6 @@ impl CoreDragOperation {
         static mut SHARED: ::windows::core::FactoryCache<CoreDragOperation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn Data(&self) -> ::windows::core::Result<super::super::DataPackage> {
         let this = self;
         unsafe {
@@ -207,24 +194,20 @@ impl CoreDragOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DataPackage>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn SetPointerId(&self, pointerid: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), pointerid).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`, `Graphics_Imaging`*"]
     pub fn SetDragUIContentFromSoftwareBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Graphics::Imaging::SoftwareBitmap>>(&self, softwarebitmap: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), softwarebitmap.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`, `Foundation`, `Graphics_Imaging`*"]
     pub fn SetDragUIContentFromSoftwareBitmapWithAnchorPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Graphics::Imaging::SoftwareBitmap>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, softwarebitmap: Param0, anchorpoint: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), softwarebitmap.into_param().abi(), anchorpoint.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn DragUIContentMode(&self) -> ::windows::core::Result<CoreDragUIContentMode> {
         let this = self;
         unsafe {
@@ -232,13 +215,11 @@ impl CoreDragOperation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreDragUIContentMode>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn SetDragUIContentMode(&self, value: CoreDragUIContentMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`, `Foundation`*"]
     pub fn StartAsync(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>> {
         let this = self;
         unsafe {
@@ -246,7 +227,6 @@ impl CoreDragOperation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn AllowedOperations(&self) -> ::windows::core::Result<super::super::DataPackageOperation> {
         let this = &::windows::core::Interface::cast::<ICoreDragOperation2>(self)?;
         unsafe {
@@ -254,7 +234,6 @@ impl CoreDragOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DataPackageOperation>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn SetAllowedOperations(&self, value: super::super::DataPackageOperation) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreDragOperation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
@@ -312,7 +291,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreDragOperation {}
 unsafe impl ::core::marker::Sync for CoreDragOperation {}
-#[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreDragUIContentMode(pub u32);
@@ -362,24 +340,20 @@ impl ::core::ops::Not for CoreDragUIContentMode {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreDragUIOverride(pub ::windows::core::IInspectable);
 impl CoreDragUIOverride {
     #[cfg(feature = "Graphics_Imaging")]
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`, `Graphics_Imaging`*"]
     pub fn SetContentFromSoftwareBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Graphics::Imaging::SoftwareBitmap>>(&self, softwarebitmap: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), softwarebitmap.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`, `Foundation`, `Graphics_Imaging`*"]
     pub fn SetContentFromSoftwareBitmapWithAnchorPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Graphics::Imaging::SoftwareBitmap>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, softwarebitmap: Param0, anchorpoint: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), softwarebitmap.into_param().abi(), anchorpoint.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn IsContentVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -387,12 +361,10 @@ impl CoreDragUIOverride {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn SetIsContentVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -400,12 +372,10 @@ impl CoreDragUIOverride {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn SetCaption<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn IsCaptionVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -413,12 +383,10 @@ impl CoreDragUIOverride {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn SetIsCaptionVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn IsGlyphVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -426,12 +394,10 @@ impl CoreDragUIOverride {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn SetIsGlyphVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this)).ok() }
@@ -489,12 +455,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 unsafe impl ::core::marker::Send for CoreDragUIOverride {}
 unsafe impl ::core::marker::Sync for CoreDragUIOverride {}
-#[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct CoreDropOperationTargetRequestedEventArgs(pub ::windows::core::IInspectable);
 impl CoreDropOperationTargetRequestedEventArgs {
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
     pub fn SetTarget<'a, Param0: ::windows::core::IntoParam<'a, ICoreDropOperationTarget>>(&self, target: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), target.into_param().abi()).ok() }
@@ -710,7 +674,6 @@ pub struct ICoreDragUIOverride_abi(
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-#[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 pub struct ICoreDropOperationTarget(pub ::windows::core::IInspectable);
 unsafe impl ::windows::core::Interface for ICoreDropOperationTarget {
     type Vtable = ICoreDropOperationTarget_abi;
@@ -718,7 +681,6 @@ unsafe impl ::windows::core::Interface for ICoreDropOperationTarget {
 }
 impl ICoreDropOperationTarget {
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`, `Foundation`*"]
     pub fn EnterAsync<'a, Param0: ::windows::core::IntoParam<'a, CoreDragInfo>, Param1: ::windows::core::IntoParam<'a, CoreDragUIOverride>>(&self, draginfo: Param0, draguioverride: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>> {
         let this = self;
         unsafe {
@@ -727,7 +689,6 @@ impl ICoreDropOperationTarget {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`, `Foundation`*"]
     pub fn OverAsync<'a, Param0: ::windows::core::IntoParam<'a, CoreDragInfo>, Param1: ::windows::core::IntoParam<'a, CoreDragUIOverride>>(&self, draginfo: Param0, draguioverride: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>> {
         let this = self;
         unsafe {
@@ -736,7 +697,6 @@ impl ICoreDropOperationTarget {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`, `Foundation`*"]
     pub fn LeaveAsync<'a, Param0: ::windows::core::IntoParam<'a, CoreDragInfo>>(&self, draginfo: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -745,7 +705,6 @@ impl ICoreDropOperationTarget {
         }
     }
     #[cfg(feature = "Foundation")]
-    #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`, `Foundation`*"]
     pub fn DropAsync<'a, Param0: ::windows::core::IntoParam<'a, CoreDragInfo>>(&self, draginfo: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>> {
         let this = self;
         unsafe {

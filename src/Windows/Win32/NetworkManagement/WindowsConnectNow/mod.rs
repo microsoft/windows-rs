@@ -1,14 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWCNConnectNotify(pub ::windows::core::IUnknown);
 impl IWCNConnectNotify {
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn ConnectSucceeded(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn ConnectFailed(&self, hrfailure: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrfailure)).ok()
     }
@@ -46,56 +43,44 @@ pub struct IWCNConnectNotify_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hrfailure: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWCNDevice(pub ::windows::core::IUnknown);
 impl IWCNDevice {
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(dwpasswordlength), ::core::mem::transmute(pbpassword)).ok()
     }
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn Connect<'a, Param0: ::windows::core::IntoParam<'a, IWCNConnectNotify>>(&self, pnotify: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pnotify.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(attributetype), ::core::mem::transmute(dwmaxbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbufferused)).ok()
     }
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> ::windows::core::Result<u32> {
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(attributetype), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_Foundation`*"]
     pub unsafe fn GetStringAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(attributetype), ::core::mem::transmute(cchmaxstring), ::core::mem::transmute(wszstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkProfile(&self, cchmaxstringlength: u32, wszprofile: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchmaxstringlength), ::core::mem::transmute(wszprofile)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszprofilexml: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), pszprofilexml.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn GetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvendorextspec), ::core::mem::transmute(dwmaxbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbufferused)).ok()
     }
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn SetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, cbbuffer: u32, pbbuffer: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvendorextspec), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pbbuffer)).ok()
     }
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn Unadvise(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
     pub unsafe fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(
             ::core::mem::transmute_copy(self),
@@ -157,34 +142,28 @@ pub struct IWCNDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> ::windows::core::HRESULT,
 );
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_WCN_DeviceType_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81),
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_WCN_DeviceType_SubCategory: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81),
     pid: 18u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_WCN_DeviceType_SubCategoryOUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81),
     pid: 17u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`, `Win32_UI_Shell_PropertiesSystem`*"]
 pub const PKEY_WCN_SSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::core::GUID::from_u128(0x88190b8b_4684_11da_a26a_0002b3988e81),
     pid: 32u32,
 };
 pub const SID_WcnProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100beca_d33a_4a4b_bf23_bbef4663d017);
 pub const WCNDeviceObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100bea7_d33a_4a4b_bf23_bbef4663d017);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_API_MAX_BUFFER_SIZE: u32 = 2096u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_ATTRIBUTE_TYPE(pub i32);
@@ -297,27 +276,16 @@ impl ::core::convert::From<i32> for WCN_ATTRIBUTE_TYPE {
 unsafe impl ::windows::core::Abi for WCN_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_E_AUTHENTICATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206142i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_E_CONNECTION_REJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206141i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_E_PEER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206143i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_E_PROTOCOL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206139i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_E_SESSION_TIMEDOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147206140i32 as _);
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_FLAG_AUTHENTICATED_VE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_FLAG_DISCOVERY_VE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_FLAG_ENCRYPTED_VE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_MICROSOFT_VENDOR_ID: u32 = 311u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_NO_SUBTYPE: u32 = 4294967294u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_PASSWORD_TYPE(pub i32);
@@ -334,7 +302,6 @@ impl ::core::convert::From<i32> for WCN_PASSWORD_TYPE {
 unsafe impl ::windows::core::Abi for WCN_PASSWORD_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_SESSION_STATUS(pub i32);
@@ -349,151 +316,78 @@ impl ::core::convert::From<i32> for WCN_SESSION_STATUS {
 unsafe impl ::windows::core::Abi for WCN_SESSION_STATUS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_AUDIO_DEVICE: u32 = 11u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_CAMERA: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_COMPUTER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_DISPLAY: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_GAMING_DEVICE: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_INPUT_DEVICE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_MULTIMEDIA_DEVICE: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_NETWORK_INFRASTRUCTURE: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_OTHER: u32 = 255u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_PRINTER: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_STORAGE: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_TELEPHONE: u32 = 10u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__HEADPHONES: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__HEADSET: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__HOMETHEATER: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__MICROPHONE: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__PMP: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__SPEAKERS: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_AUDIO_DEVICE__TUNER_RECEIVER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_CAMERA__SECURITY_CAMERA: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_CAMERA__STILL_CAMERA: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_CAMERA__VIDEO_CAMERA: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_CAMERA__WEB_CAMERA: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__DESKTOP: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__MEDIACENTER: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__MID: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__NETBOOK: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__NOTEBOOK: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__PC: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__SERVER: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_COMPUTER__ULTRAMOBILEPC: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_DISPLAY__MONITOR: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_DISPLAY__PICTURE_FRAME: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_DISPLAY__PROJECTOR: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_DISPLAY__TELEVISION: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_GAMING_DEVICE__CONSOLE_ADAPT: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_GAMING_DEVICE__PLAYSTATION: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_GAMING_DEVICE__PORTABLE: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_GAMING_DEVICE__XBOX: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_GAMING_DEVICE__XBOX360: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__BARCODEREADER: u32 = 9u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__BIOMETRICREADER: u32 = 8u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__GAMECONTROLLER: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__JOYSTICK: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__KEYBOARD: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__MOUSE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__REMOTE: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__TOUCHSCREEN: u32 = 7u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_INPUT_DEVICE__TRACKBALL: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_MULTIMEDIA_DEVICE__DAR: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_MULTIMEDIA_DEVICE__MCX: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_MULTIMEDIA_DEVICE__MEDIA_SERVER_ADAPT_EXT: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_MULTIMEDIA_DEVICE__PVP: u32 = 6u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_MULTIMEDIA_DEVICE__PVR: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_MULTIMEDIA_DEVICE__SETTOPBOX: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_NETWORK_INFRASTRUCUTURE__AP: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_NETWORK_INFRASTRUCUTURE__BRIDGE: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_NETWORK_INFRASTRUCUTURE__GATEWAY: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_NETWORK_INFRASTRUCUTURE__ROUTER: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_NETWORK_INFRASTRUCUTURE__SWITCH: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_PRINTER__ALLINONE: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_PRINTER__COPIER: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_PRINTER__FAX: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_PRINTER__PRINTER: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_PRINTER__SCANNER: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_STORAGE__NAS: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__PHONE_DUALMODE: u32 = 3u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__PHONE_SINGLEMODE: u32 = 2u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__SMARTPHONE_DUALMODE: u32 = 5u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__SMARTPHONE_SINGLEMODE: u32 = 4u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_TELEPHONE__WINDOWS_MOBILE: u32 = 1u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_SUBTYPE_WIFI_OUI: u32 = 5304836u32;
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_ASSOCIATION_STATE(pub i32);
@@ -510,7 +404,6 @@ impl ::core::convert::From<i32> for WCN_VALUE_TYPE_ASSOCIATION_STATE {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_ASSOCIATION_STATE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_AUTHENTICATION_TYPE(pub i32);
@@ -529,7 +422,6 @@ impl ::core::convert::From<i32> for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_BOOLEAN(pub i32);
@@ -543,7 +435,6 @@ impl ::core::convert::From<i32> for WCN_VALUE_TYPE_BOOLEAN {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_BOOLEAN {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_CONFIGURATION_ERROR(pub i32);
@@ -574,7 +465,6 @@ impl ::core::convert::From<i32> for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_CONFIG_METHODS(pub i32);
@@ -599,7 +489,6 @@ impl ::core::convert::From<i32> for WCN_VALUE_TYPE_CONFIG_METHODS {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONFIG_METHODS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_CONNECTION_TYPE(pub i32);
@@ -613,7 +502,6 @@ impl ::core::convert::From<i32> for WCN_VALUE_TYPE_CONNECTION_TYPE {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONNECTION_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(pub i32);
@@ -635,7 +523,6 @@ impl ::core::convert::From<i32> for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_ENCRYPTION_TYPE(pub i32);
@@ -652,7 +539,6 @@ impl ::core::convert::From<i32> for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_MESSAGE_TYPE(pub i32);
@@ -681,7 +567,6 @@ unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_MESSAGE_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     pub Category: u16,
     pub SubCategoryOUI: u32,
@@ -702,7 +587,6 @@ impl ::core::cmp::Eq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_REQUEST_TYPE(pub i32);
@@ -718,7 +602,6 @@ impl ::core::convert::From<i32> for WCN_VALUE_TYPE_REQUEST_TYPE {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_REQUEST_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_RESPONSE_TYPE(pub i32);
@@ -734,7 +617,6 @@ impl ::core::convert::From<i32> for WCN_VALUE_TYPE_RESPONSE_TYPE {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_RESPONSE_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_RF_BANDS(pub i32);
@@ -748,7 +630,6 @@ impl ::core::convert::From<i32> for WCN_VALUE_TYPE_RF_BANDS {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_RF_BANDS {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_VERSION(pub i32);
@@ -762,7 +643,6 @@ impl ::core::convert::From<i32> for WCN_VALUE_TYPE_VERSION {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_VERSION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(pub i32);
@@ -779,7 +659,6 @@ unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE 
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub struct WCN_VENDOR_EXTENSION_SPEC {
     pub VendorId: u32,
     pub SubType: u32,

@@ -1,7 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct CACHE_DESCRIPTOR {
     pub Level: u8,
     pub Associativity: u8,
@@ -31,7 +30,6 @@ unsafe impl ::windows::core::Abi for CACHE_DESCRIPTOR {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct CACHE_RELATIONSHIP {
     pub Level: u8,
     pub Associativity: u8,
@@ -59,7 +57,6 @@ unsafe impl ::windows::core::Abi for CACHE_RELATIONSHIP {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union CACHE_RELATIONSHIP_0 {
     pub GroupMask: GROUP_AFFINITY,
     pub GroupMasks: [GROUP_AFFINITY; 1],
@@ -79,7 +76,6 @@ impl ::core::cmp::Eq for CACHE_RELATIONSHIP_0 {}
 unsafe impl ::windows::core::Abi for CACHE_RELATIONSHIP_0 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMPUTER_NAME_FORMAT(pub i32);
@@ -100,7 +96,6 @@ impl ::core::convert::From<i32> for COMPUTER_NAME_FORMAT {
 unsafe impl ::windows::core::Abi for COMPUTER_NAME_FORMAT {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CPU_SET_INFORMATION_TYPE(pub i32);
@@ -113,7 +108,6 @@ impl ::core::convert::From<i32> for CPU_SET_INFORMATION_TYPE {
 unsafe impl ::windows::core::Abi for CPU_SET_INFORMATION_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEP_SYSTEM_POLICY_TYPE(pub i32);
@@ -130,7 +124,6 @@ impl ::core::convert::From<i32> for DEP_SYSTEM_POLICY_TYPE {
 unsafe impl ::windows::core::Abi for DEP_SYSTEM_POLICY_TYPE {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEVICEFAMILYDEVICEFORM(pub u32);
@@ -217,7 +210,6 @@ impl ::core::ops::Not for DEVICEFAMILYDEVICEFORM {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEVICEFAMILYINFOENUM(pub u32);
@@ -276,7 +268,6 @@ impl ::core::ops::Not for DEVICEFAMILYINFOENUM {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsHostnameToComputerNameExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, computername: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
@@ -291,7 +282,6 @@ pub unsafe fn DnsHostnameToComputerNameExW<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: *mut FIRMWARE_TABLE_ID, buffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -317,7 +307,6 @@ unsafe impl ::windows::core::Handle for FIRMWARE_TABLE_ID {}
 unsafe impl ::windows::core::Abi for FIRMWARE_TABLE_ID {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FIRMWARE_TABLE_PROVIDER(pub u32);
@@ -360,7 +349,6 @@ impl ::core::ops::Not for FIRMWARE_TABLE_PROVIDER {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FIRMWARE_TYPE(pub i32);
@@ -378,7 +366,6 @@ unsafe impl ::windows::core::Abi for FIRMWARE_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct GROUP_AFFINITY {
     pub Mask: usize,
     pub Group: u16,
@@ -406,7 +393,6 @@ unsafe impl ::windows::core::Abi for GROUP_AFFINITY {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct GROUP_RELATIONSHIP {
     pub MaximumGroupCount: u16,
     pub ActiveGroupCount: u16,
@@ -433,7 +419,6 @@ impl ::core::cmp::Eq for GROUP_RELATIONSHIP {}
 unsafe impl ::windows::core::Abi for GROUP_RELATIONSHIP {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
@@ -448,7 +433,6 @@ pub unsafe fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
@@ -463,7 +447,6 @@ pub unsafe fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super::Foundation::BOOL {
@@ -478,7 +461,6 @@ pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn GetIntegratedDisplaySize() -> ::windows::core::Result<f64> {
     #[cfg(windows)]
@@ -493,7 +475,6 @@ pub unsafe fn GetIntegratedDisplaySize() -> ::windows::core::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) {
@@ -508,7 +489,6 @@ pub unsafe fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogicalProcessorInformation(buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION, returnedlength: *mut u32) -> super::super::Foundation::BOOL {
@@ -523,7 +503,6 @@ pub unsafe fn GetLogicalProcessorInformation(buffer: *mut SYSTEM_LOGICAL_PROCESS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength: *mut u32) -> super::super::Foundation::BOOL {
@@ -538,7 +517,6 @@ pub unsafe fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_System_Diagnostics_Debug`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
@@ -553,7 +531,6 @@ pub unsafe fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOsManufacturingMode(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
@@ -568,7 +545,6 @@ pub unsafe fn GetOsManufacturingMode(pbenabled: *mut super::super::Foundation::B
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOsSafeBootMode(flags: *mut u32) -> super::super::Foundation::BOOL {
@@ -583,7 +559,6 @@ pub unsafe fn GetOsSafeBootMode(flags: *mut u32) -> super::super::Foundation::BO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u64) -> super::super::Foundation::BOOL {
@@ -598,7 +573,6 @@ pub unsafe fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u6
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessorSystemCycleTime(group: u16, buffer: *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, returnedlength: *mut u32) -> super::super::Foundation::BOOL {
@@ -613,7 +587,6 @@ pub unsafe fn GetProcessorSystemCycleTime(group: u16, buffer: *mut SYSTEM_PROCES
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspmajorversion: u32, dwspminorversion: u32, pdwreturnedproducttype: *mut OS_PRODUCT_TYPE) -> super::super::Foundation::BOOL {
@@ -628,7 +601,6 @@ pub unsafe fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspm
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemCpuSetInformation<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(information: *mut SYSTEM_CPU_SET_INFORMATION, bufferlength: u32, returnedlength: *mut u32, process: Param3, flags: u32) -> super::super::Foundation::BOOL {
@@ -643,7 +615,6 @@ pub unsafe fn GetSystemCpuSetInformation<'a, Param3: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE {
     #[cfg(windows)]
@@ -657,7 +628,6 @@ pub unsafe fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32 {
@@ -672,7 +642,6 @@ pub unsafe fn GetSystemDirectoryA(lpbuffer: super::super::Foundation::PSTR, usiz
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32 {
@@ -687,7 +656,6 @@ pub unsafe fn GetSystemDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn GetSystemFirmwareTable<'a, Param1: ::windows::core::IntoParam<'a, FIRMWARE_TABLE_ID>>(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: Param1, pfirmwaretablebuffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -701,7 +669,6 @@ pub unsafe fn GetSystemFirmwareTable<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_System_Diagnostics_Debug`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
@@ -716,7 +683,6 @@ pub unsafe fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemLeapSecondInformation(enabled: *mut super::super::Foundation::BOOL, flags: *mut u32) -> super::super::Foundation::BOOL {
@@ -731,7 +697,6 @@ pub unsafe fn GetSystemLeapSecondInformation(enabled: *mut super::super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) {
@@ -746,7 +711,6 @@ pub unsafe fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTimeAdjustment(lptimeadjustment: *mut u32, lptimeincrement: *mut u32, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
@@ -761,7 +725,6 @@ pub unsafe fn GetSystemTimeAdjustment(lptimeadjustment: *mut u32, lptimeincremen
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimeincrement: *mut u64, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
@@ -776,7 +739,6 @@ pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimei
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME) {
@@ -791,7 +753,6 @@ pub unsafe fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime: *mut super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME) {
@@ -806,7 +767,6 @@ pub unsafe fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: *mut super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32 {
@@ -821,7 +781,6 @@ pub unsafe fn GetSystemWindowsDirectoryA(lpbuffer: super::super::Foundation::PST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32 {
@@ -836,7 +795,6 @@ pub unsafe fn GetSystemWindowsDirectoryW(lpbuffer: super::super::Foundation::PWS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemWow64Directory2A(lpbuffer: super::super::Foundation::PSTR, usize: u32, imagefilemachinetype: u16) -> u32 {
@@ -851,7 +809,6 @@ pub unsafe fn GetSystemWow64Directory2A(lpbuffer: super::super::Foundation::PSTR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemWow64Directory2W(lpbuffer: super::super::Foundation::PWSTR, usize: u32, imagefilemachinetype: u16) -> u32 {
@@ -866,7 +823,6 @@ pub unsafe fn GetSystemWow64Directory2W(lpbuffer: super::super::Foundation::PWST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32 {
@@ -881,7 +837,6 @@ pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: super::super::Foundation::PSTR,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemWow64DirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32 {
@@ -896,7 +851,6 @@ pub unsafe fn GetSystemWow64DirectoryW(lpbuffer: super::super::Foundation::PWSTR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn GetTickCount() -> u32 {
     #[cfg(windows)]
@@ -910,7 +864,6 @@ pub unsafe fn GetTickCount() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn GetTickCount64() -> u64 {
     #[cfg(windows)]
@@ -924,7 +877,6 @@ pub unsafe fn GetTickCount64() -> u64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn GetVersion() -> u32 {
     #[cfg(windows)]
@@ -938,7 +890,6 @@ pub unsafe fn GetVersion() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVersionExA(lpversioninformation: *mut OSVERSIONINFOA) -> super::super::Foundation::BOOL {
@@ -953,7 +904,6 @@ pub unsafe fn GetVersionExA(lpversioninformation: *mut OSVERSIONINFOA) -> super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> super::super::Foundation::BOOL {
@@ -968,7 +918,6 @@ pub unsafe fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32 {
@@ -983,7 +932,6 @@ pub unsafe fn GetWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32 {
@@ -998,7 +946,6 @@ pub unsafe fn GetWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, us
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
     #[cfg(windows)]
@@ -1012,7 +959,6 @@ pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GlobalMemoryStatusEx(lpbuffer: *mut MEMORYSTATUSEX) -> super::super::Foundation::BOOL {
@@ -1027,7 +973,6 @@ pub unsafe fn GlobalMemoryStatusEx(lpbuffer: *mut MEMORYSTATUSEX) -> super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIRONMENT) -> super::super::Foundation::BOOL {
@@ -1042,7 +987,6 @@ pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -1058,7 +1002,6 @@ pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: u16) -> ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LOGICAL_PROCESSOR_RELATIONSHIP(pub i32);
@@ -1081,7 +1024,6 @@ unsafe impl ::windows::core::Abi for LOGICAL_PROCESSOR_RELATIONSHIP {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct MEMORYSTATUS {
     pub dwLength: u32,
     pub dwMemoryLoad: u32,
@@ -1123,7 +1065,6 @@ unsafe impl ::windows::core::Abi for MEMORYSTATUS {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct MEMORYSTATUSEX {
     pub dwLength: u32,
     pub dwMemoryLoad: u32,
@@ -1165,105 +1106,56 @@ impl ::core::cmp::Eq for MEMORYSTATUSEX {}
 unsafe impl ::windows::core::Abi for MEMORYSTATUSEX {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_LONGHORN: u32 = 100663296u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_VERSION: u32 = 167772171u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_VISTA: u32 = 100663296u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_VISTASP1: u32 = 100663552u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_VISTASP2: u32 = 100663808u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_VISTASP3: u32 = 100664064u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_VISTASP4: u32 = 100664320u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN10: u32 = 167772160u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN10_19H1: u32 = 167772167u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN10_CO: u32 = 167772171u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN10_FE: u32 = 167772170u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN10_MN: u32 = 167772169u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN10_RS1: u32 = 167772162u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN10_RS2: u32 = 167772163u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN10_RS3: u32 = 167772164u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN10_RS4: u32 = 167772165u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN10_RS5: u32 = 167772166u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN10_TH2: u32 = 167772161u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN10_VB: u32 = 167772168u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN2K: u32 = 83886080u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN2KSP1: u32 = 83886336u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN2KSP2: u32 = 83886592u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN2KSP3: u32 = 83886848u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN2KSP4: u32 = 83887104u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN4: u32 = 67108864u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN6: u32 = 100663296u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN6SP1: u32 = 100663552u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN6SP2: u32 = 100663808u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN6SP3: u32 = 100664064u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN6SP4: u32 = 100664320u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN7: u32 = 100728832u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WIN8: u32 = 100794368u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WINBLUE: u32 = 100859904u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WINTHRESHOLD: u32 = 167772160u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WINXP: u32 = 83951616u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WINXPSP1: u32 = 83951872u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WINXPSP2: u32 = 83952128u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WINXPSP3: u32 = 83952384u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WINXPSP4: u32 = 83952640u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WS03: u32 = 84017152u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WS03SP1: u32 = 84017408u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WS03SP2: u32 = 84017664u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WS03SP3: u32 = 84017920u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WS03SP4: u32 = 84018176u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WS08: u32 = 100663552u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WS08SP2: u32 = 100663808u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WS08SP3: u32 = 100664064u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_WS08SP4: u32 = 100664320u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct NUMA_NODE_RELATIONSHIP {
     pub NodeNumber: u32,
     pub Reserved: [u8; 18],
@@ -1287,7 +1179,6 @@ unsafe impl ::windows::core::Abi for NUMA_NODE_RELATIONSHIP {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union NUMA_NODE_RELATIONSHIP_0 {
     pub GroupMask: GROUP_AFFINITY,
     pub GroupMasks: [GROUP_AFFINITY; 1],
@@ -1310,7 +1201,6 @@ unsafe impl ::windows::core::Abi for NUMA_NODE_RELATIONSHIP_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 pub struct OSVERSIONINFOA {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -1355,7 +1245,6 @@ unsafe impl ::windows::core::Abi for OSVERSIONINFOA {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 pub struct OSVERSIONINFOEXA {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -1419,7 +1308,6 @@ unsafe impl ::windows::core::Abi for OSVERSIONINFOEXA {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct OSVERSIONINFOEXW {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -1477,7 +1365,6 @@ unsafe impl ::windows::core::Abi for OSVERSIONINFOEXW {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct OSVERSIONINFOW {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -1513,9 +1400,7 @@ impl ::core::cmp::Eq for OSVERSIONINFOW {}
 unsafe impl ::windows::core::Abi for OSVERSIONINFOW {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const OSVERSION_MASK: u32 = 4294901760u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OS_DEPLOYEMENT_STATE_VALUES(pub i32);
@@ -1529,7 +1414,6 @@ impl ::core::convert::From<i32> for OS_DEPLOYEMENT_STATE_VALUES {
 unsafe impl ::windows::core::Abi for OS_DEPLOYEMENT_STATE_VALUES {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OS_PRODUCT_TYPE(pub u32);
@@ -1665,13 +1549,10 @@ impl ::core::ops::Not for OS_PRODUCT_TYPE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_SYSTEM_WOW64_DIRECTORY_A = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_SYSTEM_WOW64_DIRECTORY_W = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROCESSOR_CACHE_TYPE(pub i32);
@@ -1689,7 +1570,6 @@ unsafe impl ::windows::core::Abi for PROCESSOR_CACHE_TYPE {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct PROCESSOR_GROUP_INFO {
     pub MaximumProcessorCount: u8,
     pub ActiveProcessorCount: u8,
@@ -1718,7 +1598,6 @@ unsafe impl ::windows::core::Abi for PROCESSOR_GROUP_INFO {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct PROCESSOR_RELATIONSHIP {
     pub Flags: u8,
     pub EfficiencyClass: u8,
@@ -1746,7 +1625,6 @@ impl ::core::cmp::Eq for PROCESSOR_RELATIONSHIP {}
 unsafe impl ::windows::core::Abi for PROCESSOR_RELATIONSHIP {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTL_SYSTEM_GLOBAL_DATA_ID(pub i32);
@@ -1772,7 +1650,6 @@ impl ::core::convert::From<i32> for RTL_SYSTEM_GLOBAL_DATA_ID {
 unsafe impl ::windows::core::Abi for RTL_SYSTEM_GLOBAL_DATA_ID {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: super::super::Foundation::PWSTR, deviceform: super::super::Foundation::PWSTR) -> u32 {
@@ -1787,7 +1664,6 @@ pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily: *mut DEVICEFAMILYINFOENUM, puldeviceform: *mut DEVICEFAMILYDEVICEFORM) {
     #[cfg(windows)]
@@ -1801,7 +1677,6 @@ pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: *mut u32) -> super::super::Foundation::BOOLEAN {
@@ -1816,7 +1691,6 @@ pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: *mut ::core::ffi::c_void, size: u32) -> u32 {
     #[cfg(windows)]
@@ -1830,7 +1704,6 @@ pub unsafe fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES {
     #[cfg(windows)]
@@ -1844,7 +1717,6 @@ pub unsafe fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32 {
     #[cfg(windows)]
@@ -1858,15 +1730,11 @@ pub unsafe fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const SCEX2_ALT_NETBIOS_NAME: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const SPVERSION_MASK: u32 = 65280u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const SUBVERSION_MASK: u32 = 255u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_CPU_SET_INFORMATION {
     pub Size: u32,
     pub Type: CPU_SET_INFORMATION_TYPE,
@@ -1889,7 +1757,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union SYSTEM_CPU_SET_INFORMATION_0 {
     pub CpuSet: SYSTEM_CPU_SET_INFORMATION_0_0,
 }
@@ -1910,7 +1777,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
     pub Id: u32,
     pub Group: u16,
@@ -1940,7 +1806,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
     pub AllFlags: u8,
     pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0_0,
@@ -1962,7 +1827,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     pub _bitfield: u8,
 }
@@ -1988,7 +1852,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     pub Reserved: u32,
     pub SchedulingClass: u8,
@@ -2008,18 +1871,13 @@ impl ::core::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_1 {}
 unsafe impl ::windows::core::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: u32 = 2u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const SYSTEM_CPU_SET_INFORMATION_PARKED: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: u32 = 8u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_System_Diagnostics_Debug`*"]
 pub struct SYSTEM_INFO {
     pub Anonymous: SYSTEM_INFO_0,
     pub dwPageSize: u32,
@@ -2114,7 +1972,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_INFO_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     pub ProcessorMask: usize,
     pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
@@ -2137,7 +1994,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
     pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
@@ -2161,7 +2017,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     pub NodeNumber: u32,
 }
@@ -2187,7 +2042,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     pub Flags: u8,
 }
@@ -2213,7 +2067,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
     pub Size: u32,
@@ -2236,7 +2089,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     pub Processor: PROCESSOR_RELATIONSHIP,
     pub NumaNode: NUMA_NODE_RELATIONSHIP,
@@ -2261,7 +2113,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 pub struct SYSTEM_POOL_ZEROING_INFORMATION {
     pub PoolZeroingSupportPresent: super::super::Foundation::BOOLEAN,
 }
@@ -2293,7 +2144,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_POOL_ZEROING_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     pub CycleTime: u64,
 }
@@ -2319,7 +2169,6 @@ unsafe impl ::windows::core::Abi for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     pub _bitfield: u32,
 }
@@ -2343,7 +2192,6 @@ impl ::core::cmp::Eq for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {}
 unsafe impl ::windows::core::Abi for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     type Abi = Self;
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpcomputername: Param0) -> super::super::Foundation::BOOL {
@@ -2358,7 +2206,6 @@ pub unsafe fn SetComputerNameA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameEx2W<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: Param2) -> super::super::Foundation::BOOL {
@@ -2373,7 +2220,6 @@ pub unsafe fn SetComputerNameEx2W<'a, Param2: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: Param1) -> super::super::Foundation::BOOL {
@@ -2388,7 +2234,6 @@ pub unsafe fn SetComputerNameExA<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: Param1) -> super::super::Foundation::BOOL {
@@ -2403,7 +2248,6 @@ pub unsafe fn SetComputerNameExW<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpcomputername: Param0) -> super::super::Foundation::BOOL {
@@ -2418,7 +2262,6 @@ pub unsafe fn SetComputerNameW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
@@ -2433,7 +2276,6 @@ pub unsafe fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
@@ -2448,7 +2290,6 @@ pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSystemTimeAdjustment<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwtimeadjustment: u32, btimeadjustmentdisabled: Param1) -> super::super::Foundation::BOOL {
@@ -2463,7 +2304,6 @@ pub unsafe fn SetSystemTimeAdjustment<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSystemTimeAdjustmentPrecise<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwtimeadjustment: u64, btimeadjustmentdisabled: Param1) -> super::super::Foundation::BOOL {
@@ -2478,7 +2318,6 @@ pub unsafe fn SetSystemTimeAdjustmentPrecise<'a, Param1: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USER_CET_ENVIRONMENT(pub u32);
@@ -2522,7 +2361,6 @@ impl ::core::ops::Not for USER_CET_ENVIRONMENT {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VER_FLAGS(pub u32);
@@ -2570,7 +2408,6 @@ impl ::core::ops::Not for VER_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condition: u8) -> u64 {
     #[cfg(windows)]
@@ -2584,7 +2421,6 @@ pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL {
@@ -2599,7 +2435,6 @@ pub unsafe fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dw
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL {
@@ -2614,117 +2449,60 @@ pub unsafe fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dw
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const WDK_NTDDI_VERSION: u32 = 167772171u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE100: u32 = 2560u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE110: u32 = 2560u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE20: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE30: u32 = 768u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE302: u32 = 770u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE40: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE401: u32 = 1025u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE50: u32 = 1280u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE501: u32 = 1281u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE55: u32 = 1360u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE60: u32 = 1536u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE60SP1: u32 = 1537u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE60SP2: u32 = 1539u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE70: u32 = 1792u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE80: u32 = 2048u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_IE90: u32 = 2304u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_LONGHORN: u32 = 1792u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_NT4: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_NT4SP1: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_NT4SP2: u32 = 512u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_NT4SP3: u32 = 770u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_NT4SP4: u32 = 1025u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_NT4SP5: u32 = 1025u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_NT4SP6: u32 = 1280u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WIN10: u32 = 2560u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WIN2K: u32 = 1281u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WIN2KSP1: u32 = 1281u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WIN2KSP2: u32 = 1281u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WIN2KSP3: u32 = 1281u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WIN2KSP4: u32 = 1281u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WIN6: u32 = 1792u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WIN7: u32 = 2048u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WIN8: u32 = 2560u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WIN98: u32 = 1025u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WIN98SE: u32 = 1280u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WINBLUE: u32 = 2560u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WINME: u32 = 1360u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WINTHRESHOLD: u32 = 2560u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WS03: u32 = 1538u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_WS03SP1: u32 = 1539u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_XP: u32 = 1536u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_XPSP1: u32 = 1537u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_IE_XPSP2: u32 = 1539u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_LONGHORN: u32 = 1536u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_NT4: u32 = 1024u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_VISTA: u32 = 1536u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_WIN10: u32 = 2560u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_WIN2K: u32 = 1280u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_WIN6: u32 = 1536u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_WIN7: u32 = 1537u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_WIN8: u32 = 1538u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_WINBLUE: u32 = 1539u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_WINTHRESHOLD: u32 = 2560u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_WINXP: u32 = 1281u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_WS03: u32 = 1282u32;
-#[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const _WIN32_WINNT_WS08: u32 = 1536u32;

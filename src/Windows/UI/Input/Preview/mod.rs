@@ -20,11 +20,9 @@ pub struct IInputActivationListenerPreviewStatics_abi(
     #[cfg(feature = "UI_WindowManagement")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_WindowManagement"))] usize,
 );
-#[doc = "*Required features: `UI_Input_Preview`*"]
 pub struct InputActivationListenerPreview {}
 impl InputActivationListenerPreview {
     #[cfg(feature = "UI_WindowManagement")]
-    #[doc = "*Required features: `UI_Input_Preview`, `UI_WindowManagement`*"]
     pub fn CreateForApplicationWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowManagement::AppWindow>>(window: Param0) -> ::windows::core::Result<super::InputActivationListener> {
         Self::IInputActivationListenerPreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
