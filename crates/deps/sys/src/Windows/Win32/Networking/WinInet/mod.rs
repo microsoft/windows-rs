@@ -608,6 +608,12 @@ pub struct APP_CACHE_FINALIZE_STATE(pub i32);
 pub const AppCacheFinalizeStateIncomplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(0i32);
 pub const AppCacheFinalizeStateManifestChange: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(1i32);
 pub const AppCacheFinalizeStateComplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(2i32);
+impl ::core::marker::Copy for APP_CACHE_FINALIZE_STATE {}
+impl ::core::clone::Clone for APP_CACHE_FINALIZE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct APP_CACHE_GROUP_INFO {
@@ -644,6 +650,12 @@ pub const AppCacheStateNoUpdateNeeded: APP_CACHE_STATE = APP_CACHE_STATE(0i32);
 pub const AppCacheStateUpdateNeeded: APP_CACHE_STATE = APP_CACHE_STATE(1i32);
 pub const AppCacheStateUpdateNeededNew: APP_CACHE_STATE = APP_CACHE_STATE(2i32);
 pub const AppCacheStateUpdateNeededMasterOnly: APP_CACHE_STATE = APP_CACHE_STATE(3i32);
+impl ::core::marker::Copy for APP_CACHE_STATE {}
+impl ::core::clone::Clone for APP_CACHE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AUTH_FLAG_DISABLE_BASIC_CLEARCHANNEL: u32 = 4u32;
 pub const AUTH_FLAG_DISABLE_NEGOTIATE: u32 = 1u32;
 pub const AUTH_FLAG_DISABLE_SERVER_AUTH: u32 = 8u32;
@@ -729,6 +741,12 @@ pub const CACHE_CONFIG_QUOTA_FC: CACHE_CONFIG = CACHE_CONFIG(2048u32);
 pub const CACHE_CONFIG_USER_MODE_FC: CACHE_CONFIG = CACHE_CONFIG(4096u32);
 pub const CACHE_CONFIG_CONTENT_USAGE_FC: CACHE_CONFIG = CACHE_CONFIG(8192u32);
 pub const CACHE_CONFIG_STICKY_CONTENT_USAGE_FC: CACHE_CONFIG = CACHE_CONFIG(16384u32);
+impl ::core::marker::Copy for CACHE_CONFIG {}
+impl ::core::clone::Clone for CACHE_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CACHE_CONFIG_APPCONTAINER_CONTENT_QUOTA_FC: u32 = 131072u32;
 pub const CACHE_CONFIG_APPCONTAINER_TOTAL_CONTENT_QUOTA_FC: u32 = 262144u32;
 pub const CACHE_CONFIG_CONTENT_QUOTA_FC: u32 = 32768u32;
@@ -981,10 +999,22 @@ pub struct FORTCMD(pub i32);
 pub const FORTCMD_LOGON: FORTCMD = FORTCMD(1i32);
 pub const FORTCMD_LOGOFF: FORTCMD = FORTCMD(2i32);
 pub const FORTCMD_CHG_PERSONALITY: FORTCMD = FORTCMD(3i32);
+impl ::core::marker::Copy for FORTCMD {}
+impl ::core::clone::Clone for FORTCMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FORTSTAT(pub i32);
 pub const FORTSTAT_INSTALLED: FORTSTAT = FORTSTAT(1i32);
 pub const FORTSTAT_LOGGEDON: FORTSTAT = FORTSTAT(2i32);
+impl ::core::marker::Copy for FORTSTAT {}
+impl ::core::clone::Clone for FORTSTAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FTP_FLAGS(pub u32);
 pub const FTP_TRANSFER_TYPE_ASCII: FTP_FLAGS = FTP_FLAGS(1u32);
@@ -992,6 +1022,12 @@ pub const FTP_TRANSFER_TYPE_BINARY: FTP_FLAGS = FTP_FLAGS(2u32);
 pub const FTP_TRANSFER_TYPE_UNKNOWN: FTP_FLAGS = FTP_FLAGS(0u32);
 pub const INTERNET_FLAG_TRANSFER_ASCII: FTP_FLAGS = FTP_FLAGS(1u32);
 pub const INTERNET_FLAG_TRANSFER_BINARY: FTP_FLAGS = FTP_FLAGS(2u32);
+impl ::core::marker::Copy for FTP_FLAGS {}
+impl ::core::clone::Clone for FTP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     pub ShortAbstract: *mut i8,
@@ -1266,6 +1302,12 @@ pub const GOPHER_TYPE_TEXT_FILE: GOPHER_TYPE = GOPHER_TYPE(1u32);
 pub const GOPHER_TYPE_TN3270: GOPHER_TYPE = GOPHER_TYPE(2048u32);
 pub const GOPHER_TYPE_UNIX_UUENCODED: GOPHER_TYPE = GOPHER_TYPE(64u32);
 pub const GOPHER_TYPE_UNKNOWN: GOPHER_TYPE = GOPHER_TYPE(536870912u32);
+impl ::core::marker::Copy for GOPHER_TYPE {}
+impl ::core::clone::Clone for GOPHER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     pub Text: *mut i8,
@@ -1328,6 +1370,12 @@ pub const HTTP_ADDREQ_FLAG_COALESCE: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(1073741
 pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(1073741824u32);
 pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(16777216u32);
 pub const HTTP_ADDREQ_FLAG_REPLACE: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(2147483648u32);
+impl ::core::marker::Copy for HTTP_ADDREQ_FLAG {}
+impl ::core::clone::Clone for HTTP_ADDREQ_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_ADDREQ_FLAGS_MASK: u32 = 4294901760u32;
 pub const HTTP_ADDREQ_FLAG_ALLOW_EMPTY_VALUES: u32 = 67108864u32;
 pub const HTTP_ADDREQ_FLAG_RESPONSE_HEADERS: u32 = 33554432u32;
@@ -1346,9 +1394,21 @@ pub struct HTTP_POLICY_EXTENSION_TYPE(pub i32);
 pub const POLICY_EXTENSION_TYPE_NONE: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(0i32);
 pub const POLICY_EXTENSION_TYPE_WINHTTP: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(1i32);
 pub const POLICY_EXTENSION_TYPE_WININET: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(2i32);
+impl ::core::marker::Copy for HTTP_POLICY_EXTENSION_TYPE {}
+impl ::core::clone::Clone for HTTP_POLICY_EXTENSION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTTP_POLICY_EXTENSION_VERSION(pub i32);
 pub const POLICY_EXTENSION_VERSION1: HTTP_POLICY_EXTENSION_VERSION = HTTP_POLICY_EXTENSION_VERSION(1i32);
+impl ::core::marker::Copy for HTTP_POLICY_EXTENSION_VERSION {}
+impl ::core::clone::Clone for HTTP_POLICY_EXTENSION_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_PROTOCOL_FLAG_HTTP2: u32 = 2u32;
 pub const HTTP_PROTOCOL_MASK: u32 = 2u32;
 #[repr(C)]
@@ -1391,6 +1451,12 @@ pub struct HTTP_PUSH_WAIT_TYPE(pub i32);
 pub const HttpPushWaitEnableComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(0i32);
 pub const HttpPushWaitReceiveComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(1i32);
 pub const HttpPushWaitSendComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(2i32);
+impl ::core::marker::Copy for HTTP_PUSH_WAIT_TYPE {}
+impl ::core::clone::Clone for HTTP_PUSH_WAIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_QUERY_ACCEPT: u32 = 24u32;
 pub const HTTP_QUERY_ACCEPT_CHARSET: u32 = 25u32;
 pub const HTTP_QUERY_ACCEPT_ENCODING: u32 = 26u32;
@@ -1529,6 +1595,12 @@ pub const HTTP_WEB_SOCKET_UTF8_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_
 pub const HTTP_WEB_SOCKET_UTF8_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(3i32);
 pub const HTTP_WEB_SOCKET_CLOSE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(4i32);
 pub const HTTP_WEB_SOCKET_PING_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(5i32);
+impl ::core::marker::Copy for HTTP_WEB_SOCKET_BUFFER_TYPE {}
+impl ::core::clone::Clone for HTTP_WEB_SOCKET_BUFFER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
 pub const HTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
@@ -1543,6 +1615,12 @@ pub const HTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_ST
 pub const HTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1010i32);
 pub const HTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1011i32);
 pub const HTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1015i32);
+impl ::core::marker::Copy for HTTP_WEB_SOCKET_CLOSE_STATUS {}
+impl ::core::clone::Clone for HTTP_WEB_SOCKET_CLOSE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 pub const HTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 10000u32;
 #[repr(transparent)]
@@ -1551,6 +1629,12 @@ pub const HTTP_WEB_SOCKET_SEND_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_S
 pub const HTTP_WEB_SOCKET_RECEIVE_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(1i32);
 pub const HTTP_WEB_SOCKET_CLOSE_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(2i32);
 pub const HTTP_WEB_SOCKET_SHUTDOWN_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(3i32);
+impl ::core::marker::Copy for HTTP_WEB_SOCKET_OPERATION {}
+impl ::core::clone::Clone for HTTP_WEB_SOCKET_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ICU_USERNAME: u32 = 1073741824u32;
 pub const IDENTITY_CACHE_ENTRY: u32 = 2147483648u32;
 pub const IDSI_FLAG_KEEP_ALIVE: u32 = 1u32;
@@ -1573,6 +1657,12 @@ pub struct INTERNET_ACCESS_TYPE(pub u32);
 pub const INTERNET_OPEN_TYPE_DIRECT: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(1u32);
 pub const INTERNET_OPEN_TYPE_PRECONFIG: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(0u32);
 pub const INTERNET_OPEN_TYPE_PROXY: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(3u32);
+impl ::core::marker::Copy for INTERNET_ACCESS_TYPE {}
+impl ::core::clone::Clone for INTERNET_ACCESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct INTERNET_ASYNC_RESULT {
     pub dwResult: usize,
@@ -1610,6 +1700,12 @@ pub const INTERNET_AUTODIAL_FAILIFSECURITYCHECK: INTERNET_AUTODIAL = INTERNET_AU
 pub const INTERNET_AUTODIAL_FORCE_ONLINE: INTERNET_AUTODIAL = INTERNET_AUTODIAL(1u32);
 pub const INTERNET_AUTODIAL_FORCE_UNATTENDED: INTERNET_AUTODIAL = INTERNET_AUTODIAL(2u32);
 pub const INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: INTERNET_AUTODIAL = INTERNET_AUTODIAL(8u32);
+impl ::core::marker::Copy for INTERNET_AUTODIAL {}
+impl ::core::clone::Clone for INTERNET_AUTODIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_AUTOPROXY_INIT_DEFAULT: u32 = 1u32;
 pub const INTERNET_AUTOPROXY_INIT_DOWNLOADSYNC: u32 = 2u32;
 pub const INTERNET_AUTOPROXY_INIT_ONLYQUERY: u32 = 8u32;
@@ -2015,6 +2111,12 @@ pub const INTERNET_CONNECTION_MODEM_BUSY: INTERNET_CONNECTION = INTERNET_CONNECT
 pub const INTERNET_CONNECTION_OFFLINE_: INTERNET_CONNECTION = INTERNET_CONNECTION(32u32);
 pub const INTERNET_CONNECTION_PROXY: INTERNET_CONNECTION = INTERNET_CONNECTION(4u32);
 pub const INTERNET_RAS_INSTALLED: INTERNET_CONNECTION = INTERNET_CONNECTION(16u32);
+impl ::core::marker::Copy for INTERNET_CONNECTION {}
+impl ::core::clone::Clone for INTERNET_CONNECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_CONNECTION_LAN: u32 = 2u32;
 pub const INTERNET_CONNECTION_OFFLINE: u32 = 32u32;
 #[repr(C)]
@@ -2068,6 +2170,12 @@ pub struct INTERNET_COOKIE_FLAGS(pub u32);
 pub const INTERNET_COOKIE_HTTPONLY: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(8192u32);
 pub const INTERNET_COOKIE_THIRD_PARTY: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(16u32);
 pub const INTERNET_FLAG_RESTRICTED_ZONE: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(131072u32);
+impl ::core::marker::Copy for INTERNET_COOKIE_FLAGS {}
+impl ::core::clone::Clone for INTERNET_COOKIE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_COOKIE_HOST_ONLY: u32 = 16384u32;
 pub const INTERNET_COOKIE_HOST_ONLY_APPLIED: u32 = 524288u32;
 pub const INTERNET_COOKIE_IE6: u32 = 1024u32;
@@ -2457,6 +2565,12 @@ pub const INTERNET_PER_CONN_AUTOCONFIG_SECONDARY_URL: INTERNET_PER_CONN = INTERN
 pub const INTERNET_PER_CONN_AUTOCONFIG_RELOAD_DELAY_MINS: INTERNET_PER_CONN = INTERNET_PER_CONN(7u32);
 pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_TIME: INTERNET_PER_CONN = INTERNET_PER_CONN(8u32);
 pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(9u32);
+impl ::core::marker::Copy for INTERNET_PER_CONN {}
+impl ::core::clone::Clone for INTERNET_PER_CONN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_PER_CONN_FLAGS_UI: u32 = 10u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -2601,6 +2715,12 @@ pub const INTERNET_SCHEME_VBSCRIPT: INTERNET_SCHEME = INTERNET_SCHEME(10i32);
 pub const INTERNET_SCHEME_RES: INTERNET_SCHEME = INTERNET_SCHEME(11i32);
 pub const INTERNET_SCHEME_FIRST: INTERNET_SCHEME = INTERNET_SCHEME(1i32);
 pub const INTERNET_SCHEME_LAST: INTERNET_SCHEME = INTERNET_SCHEME(11i32);
+impl ::core::marker::Copy for INTERNET_SCHEME {}
+impl ::core::clone::Clone for INTERNET_SCHEME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 pub struct INTERNET_SECURITY_CONNECTION_INFO {
@@ -2667,6 +2787,12 @@ pub const INTERNET_STATE_DISCONNECTED: INTERNET_STATE = INTERNET_STATE(2u32);
 pub const INTERNET_STATE_DISCONNECTED_BY_USER: INTERNET_STATE = INTERNET_STATE(16u32);
 pub const INTERNET_STATE_IDLE: INTERNET_STATE = INTERNET_STATE(256u32);
 pub const INTERNET_STATE_BUSY: INTERNET_STATE = INTERNET_STATE(512u32);
+impl ::core::marker::Copy for INTERNET_STATE {}
+impl ::core::clone::Clone for INTERNET_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_STATUS_CLOSING_CONNECTION: u32 = 50u32;
 pub const INTERNET_STATUS_CONNECTED_TO_SERVER: u32 = 21u32;
 pub const INTERNET_STATUS_CONNECTING_TO_SERVER: u32 = 20u32;
@@ -2788,6 +2914,12 @@ pub const COOKIE_STATE_LEASH: InternetCookieState = InternetCookieState(3i32);
 pub const COOKIE_STATE_DOWNGRADE: InternetCookieState = InternetCookieState(4i32);
 pub const COOKIE_STATE_REJECT: InternetCookieState = InternetCookieState(5i32);
 pub const COOKIE_STATE_MAX: InternetCookieState = InternetCookieState(5i32);
+impl ::core::marker::Copy for InternetCookieState {}
+impl ::core::clone::Clone for InternetCookieState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type LPINTERNET_STATUS_CALLBACK = unsafe extern "system" fn(hinternet: *const ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *const ::core::ffi::c_void, dwstatusinformationlength: u32);
 pub const MAX_CACHE_ENTRY_INFO_SIZE: u32 = 4096u32;
 pub const MAX_GOPHER_ATTRIBUTE_NAME: u32 = 128u32;
@@ -2838,6 +2970,12 @@ pub const PRIVACY_TYPE_THIRD_PARTY: u32 = 1u32;
 pub struct PROXY_AUTO_DETECT_TYPE(pub u32);
 pub const PROXY_AUTO_DETECT_TYPE_DHCP: PROXY_AUTO_DETECT_TYPE = PROXY_AUTO_DETECT_TYPE(1u32);
 pub const PROXY_AUTO_DETECT_TYPE_DNS_A: PROXY_AUTO_DETECT_TYPE = PROXY_AUTO_DETECT_TYPE(2u32);
+impl ::core::marker::Copy for PROXY_AUTO_DETECT_TYPE {}
+impl ::core::clone::Clone for PROXY_AUTO_DETECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROXY_TYPE_AUTO_DETECT: u32 = 8u32;
 pub const PROXY_TYPE_AUTO_PROXY_URL: u32 = 4u32;
 pub const PROXY_TYPE_DIRECT: u32 = 1u32;
@@ -2869,6 +3007,12 @@ pub const ConnectionEstablishmentEnd: REQUEST_TIMES = REQUEST_TIMES(3i32);
 pub const TLSHandshakeStart: REQUEST_TIMES = REQUEST_TIMES(4i32);
 pub const TLSHandshakeEnd: REQUEST_TIMES = REQUEST_TIMES(5i32);
 pub const HttpRequestTimeMax: REQUEST_TIMES = REQUEST_TIMES(32i32);
+impl ::core::marker::Copy for REQUEST_TIMES {}
+impl ::core::clone::Clone for REQUEST_TIMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SECURITY_FLAG_128BIT: u32 = 536870912u32;
 pub const SECURITY_FLAG_40BIT: u32 = 268435456u32;
 pub const SECURITY_FLAG_56BIT: u32 = 1073741824u32;
@@ -2927,6 +3071,12 @@ pub const UrlCacheLimitTypeIETotal: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(
 pub const UrlCacheLimitTypeAppContainer: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(2i32);
 pub const UrlCacheLimitTypeAppContainerTotal: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(3i32);
 pub const UrlCacheLimitTypeNum: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(4i32);
+impl ::core::marker::Copy for URL_CACHE_LIMIT_TYPE {}
+impl ::core::clone::Clone for URL_CACHE_LIMIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct URL_COMPONENTSA {
@@ -3023,10 +3173,22 @@ pub const WININET_SYNC_MODE_ONCE_PER_SESSION: WININET_SYNC_MODE = WININET_SYNC_M
 pub const WININET_SYNC_MODE_ALWAYS: WININET_SYNC_MODE = WININET_SYNC_MODE(3i32);
 pub const WININET_SYNC_MODE_AUTOMATIC: WININET_SYNC_MODE = WININET_SYNC_MODE(4i32);
 pub const WININET_SYNC_MODE_DEFAULT: WININET_SYNC_MODE = WININET_SYNC_MODE(4i32);
+impl ::core::marker::Copy for WININET_SYNC_MODE {}
+impl ::core::clone::Clone for WININET_SYNC_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WPAD_CACHE_DELETE(pub i32);
 pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(0i32);
 pub const WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(1i32);
+impl ::core::marker::Copy for WPAD_CACHE_DELETE {}
+impl ::core::clone::Clone for WPAD_CACHE_DELETE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type pfnInternetDeInitializeAutoProxyDll = unsafe extern "system" fn(lpszmime: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;

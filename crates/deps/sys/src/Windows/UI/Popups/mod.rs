@@ -19,6 +19,12 @@ impl MessageDialogOptions {
     pub const None: Self = Self(0u32);
     pub const AcceptUserInputAfterDelay: Self = Self(1u32);
 }
+impl ::core::marker::Copy for MessageDialogOptions {}
+impl ::core::clone::Clone for MessageDialogOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Placement(pub i32);
 impl Placement {
@@ -27,6 +33,12 @@ impl Placement {
     pub const Below: Self = Self(2i32);
     pub const Left: Self = Self(3i32);
     pub const Right: Self = Self(4i32);
+}
+impl ::core::marker::Copy for Placement {}
+impl ::core::clone::Clone for Placement {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PopupMenu(pub *mut ::core::ffi::c_void);

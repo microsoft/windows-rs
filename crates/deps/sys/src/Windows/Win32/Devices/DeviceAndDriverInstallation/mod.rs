@@ -1313,6 +1313,12 @@ pub const CM_NOTIFY_ACTION_DEVICEINSTANCEENUMERATED: CM_NOTIFY_ACTION = CM_NOTIF
 pub const CM_NOTIFY_ACTION_DEVICEINSTANCESTARTED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(8i32);
 pub const CM_NOTIFY_ACTION_DEVICEINSTANCEREMOVED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(9i32);
 pub const CM_NOTIFY_ACTION_MAX: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(10i32);
+impl ::core::marker::Copy for CM_NOTIFY_ACTION {}
+impl ::core::clone::Clone for CM_NOTIFY_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CM_NOTIFY_EVENT_DATA {
     pub FilterType: CM_NOTIFY_FILTER_TYPE,
@@ -1447,6 +1453,12 @@ pub const CM_NOTIFY_FILTER_TYPE_DEVICEINTERFACE: CM_NOTIFY_FILTER_TYPE = CM_NOTI
 pub const CM_NOTIFY_FILTER_TYPE_DEVICEHANDLE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(1i32);
 pub const CM_NOTIFY_FILTER_TYPE_DEVICEINSTANCE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(2i32);
 pub const CM_NOTIFY_FILTER_TYPE_MAX: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(3i32);
+impl ::core::marker::Copy for CM_NOTIFY_FILTER_TYPE {}
+impl ::core::clone::Clone for CM_NOTIFY_FILTER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CM_OPEN_CLASS_KEY_BITS: u32 = 1u32;
 pub const CM_OPEN_CLASS_KEY_INSTALLER: u32 = 0u32;
 pub const CM_OPEN_CLASS_KEY_INTERFACE: u32 = 1u32;
@@ -1666,6 +1678,12 @@ pub const CR_INVALID_CONFLICT_LIST: CONFIGRET = CONFIGRET(57u32);
 pub const CR_INVALID_INDEX: CONFIGRET = CONFIGRET(58u32);
 pub const CR_INVALID_STRUCTURE_SIZE: CONFIGRET = CONFIGRET(59u32);
 pub const NUM_CR_RESULTS: CONFIGRET = CONFIGRET(60u32);
+impl ::core::marker::Copy for CONFIGRET {}
+impl ::core::clone::Clone for CONFIGRET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONFLICT_DETAILS_A {
@@ -3296,6 +3314,12 @@ pub struct OEM_SOURCE_MEDIA_TYPE(pub u32);
 pub const SPOST_NONE: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(0u32);
 pub const SPOST_PATH: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(1u32);
 pub const SPOST_URL: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(2u32);
+impl ::core::marker::Copy for OEM_SOURCE_MEDIA_TYPE {}
+impl ::core::clone::Clone for OEM_SOURCE_MEDIA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OVERRIDE_LOG_CONF: u32 = 5u32;
 #[repr(C, packed(1))]
 pub struct PCCARD_DES {
@@ -3347,6 +3371,12 @@ pub const PNP_VetoNonDisableable: PNP_VETO_TYPE = PNP_VETO_TYPE(10i32);
 pub const PNP_VetoLegacyDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(11i32);
 pub const PNP_VetoInsufficientRights: PNP_VETO_TYPE = PNP_VETO_TYPE(12i32);
 pub const PNP_VetoAlreadyRemoved: PNP_VETO_TYPE = PNP_VETO_TYPE(13i32);
+impl ::core::marker::Copy for PNP_VETO_TYPE {}
+impl ::core::clone::Clone for PNP_VETO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRIORITY_BIT: u32 = 8u32;
 pub const PRIORITY_EQUAL_FIRST: u32 = 8u32;
 pub const PRIORITY_EQUAL_LAST: u32 = 0u32;
@@ -3381,10 +3411,22 @@ pub const SETDIRID_NOT_FULL_PATH: u32 = 1u32;
 pub struct SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(pub u32);
 pub const SPDIT_CLASSDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(1u32);
 pub const SPDIT_COMPATDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(2u32);
+impl ::core::marker::Copy for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {}
+impl ::core::clone::Clone for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SETUP_FILE_OPERATION(pub u32);
 pub const FILEOP_DELETE: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(2u32);
 pub const FILEOP_COPY: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(0u32);
+impl ::core::marker::Copy for SETUP_FILE_OPERATION {}
+impl ::core::clone::Clone for SETUP_FILE_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SIGNERSCORE_AUTHENTICODE: u32 = 251658240u32;
 pub const SIGNERSCORE_INBOX: u32 = 218103811u32;
 pub const SIGNERSCORE_LOGO_PREMIUM: u32 = 218103809u32;
@@ -4059,6 +4101,12 @@ pub const SP_COPY_PNPLOCKED: SP_COPY_STYLE = SP_COPY_STYLE(33554432u32);
 pub const SP_COPY_IN_USE_TRY_RENAME: SP_COPY_STYLE = SP_COPY_STYLE(67108864u32);
 pub const SP_COPY_INBOX_INF: SP_COPY_STYLE = SP_COPY_STYLE(134217728u32);
 pub const SP_COPY_HARDLINK: SP_COPY_STYLE = SP_COPY_STYLE(268435456u32);
+impl ::core::marker::Copy for SP_COPY_STYLE {}
+impl ::core::clone::Clone for SP_COPY_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -5015,6 +5063,12 @@ pub struct SP_INF_STYLE(pub u32);
 pub const INF_STYLE_NONE: SP_INF_STYLE = SP_INF_STYLE(0u32);
 pub const INF_STYLE_OLDNT: SP_INF_STYLE = SP_INF_STYLE(1u32);
 pub const INF_STYLE_WIN4: SP_INF_STYLE = SP_INF_STYLE(2u32);
+impl ::core::marker::Copy for SP_INF_STYLE {}
+impl ::core::clone::Clone for SP_INF_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -5531,3 +5585,9 @@ pub const SetupFileLogDiskTagfile: SetupFileLogInfo = SetupFileLogInfo(2i32);
 pub const SetupFileLogDiskDescription: SetupFileLogInfo = SetupFileLogInfo(3i32);
 pub const SetupFileLogOtherInfo: SetupFileLogInfo = SetupFileLogInfo(4i32);
 pub const SetupFileLogMax: SetupFileLogInfo = SetupFileLogInfo(5i32);
+impl ::core::marker::Copy for SetupFileLogInfo {}
+impl ::core::clone::Clone for SetupFileLogInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -12,6 +12,12 @@ impl AdvancedColorKind {
     pub const WideColorGamut: Self = Self(1i32);
     pub const HighDynamicRange: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AdvancedColorKind {}
+impl ::core::clone::Clone for AdvancedColorKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BrightnessOverride(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -24,12 +30,24 @@ impl DisplayBrightnessOverrideOptions {
     pub const None: Self = Self(0u32);
     pub const UseDimmedPolicyWhenBatteryIsLow: Self = Self(1u32);
 }
+impl ::core::marker::Copy for DisplayBrightnessOverrideOptions {}
+impl ::core::clone::Clone for DisplayBrightnessOverrideOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DisplayBrightnessOverrideScenario(pub i32);
 impl DisplayBrightnessOverrideScenario {
     pub const IdleBrightness: Self = Self(0i32);
     pub const BarcodeReadingBrightness: Self = Self(1i32);
     pub const FullBrightness: Self = Self(2i32);
+}
+impl ::core::marker::Copy for DisplayBrightnessOverrideScenario {}
+impl ::core::clone::Clone for DisplayBrightnessOverrideScenario {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DisplayBrightnessScenario(pub i32);
@@ -39,10 +57,22 @@ impl DisplayBrightnessScenario {
     pub const BarcodeReadingBrightness: Self = Self(2i32);
     pub const FullBrightness: Self = Self(3i32);
 }
+impl ::core::marker::Copy for DisplayBrightnessScenario {}
+impl ::core::clone::Clone for DisplayBrightnessScenario {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DisplayColorOverrideScenario(pub i32);
 impl DisplayColorOverrideScenario {
     pub const Accurate: Self = Self(0i32);
+}
+impl ::core::marker::Copy for DisplayColorOverrideScenario {}
+impl ::core::clone::Clone for DisplayColorOverrideScenario {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DisplayEnhancementOverride(pub *mut ::core::ffi::c_void);
@@ -61,6 +91,12 @@ impl DisplayOrientations {
     pub const LandscapeFlipped: Self = Self(4u32);
     pub const PortraitFlipped: Self = Self(8u32);
 }
+impl ::core::marker::Copy for DisplayOrientations {}
+impl ::core::clone::Clone for DisplayOrientations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DisplayPropertiesEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -70,6 +106,12 @@ pub struct HdrMetadataFormat(pub i32);
 impl HdrMetadataFormat {
     pub const Hdr10: Self = Self(0i32);
     pub const Hdr10Plus: Self = Self(1i32);
+}
+impl ::core::marker::Copy for HdrMetadataFormat {}
+impl ::core::clone::Clone for HdrMetadataFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IAdvancedColorInfo(pub *mut ::core::ffi::c_void);
@@ -143,4 +185,10 @@ impl ResolutionScale {
     pub const Scale400Percent: Self = Self(400i32);
     pub const Scale450Percent: Self = Self(450i32);
     pub const Scale500Percent: Self = Self(500i32);
+}
+impl ::core::marker::Copy for ResolutionScale {}
+impl ::core::clone::Clone for ResolutionScale {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

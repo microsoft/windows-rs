@@ -1149,6 +1149,12 @@ pub const JET_errcatUsage: JET_ERRCAT = JET_ERRCAT(14i32);
 pub const JET_errcatState: JET_ERRCAT = JET_ERRCAT(15i32);
 pub const JET_errcatObsolete: JET_ERRCAT = JET_ERRCAT(16i32);
 pub const JET_errcatMax: JET_ERRCAT = JET_ERRCAT(17i32);
+impl ::core::marker::Copy for JET_ERRCAT {}
+impl ::core::clone::Clone for JET_ERRCAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct JET_ERRINFOBASIC_W {
     pub cbStruct: u32,
@@ -1179,6 +1185,12 @@ pub const JET_IndexCheckingOff: JET_INDEXCHECKING = JET_INDEXCHECKING(0i32);
 pub const JET_IndexCheckingOn: JET_INDEXCHECKING = JET_INDEXCHECKING(1i32);
 pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = JET_INDEXCHECKING(2i32);
 pub const JET_IndexCheckingMax: JET_INDEXCHECKING = JET_INDEXCHECKING(3i32);
+impl ::core::marker::Copy for JET_INDEXCHECKING {}
+impl ::core::clone::Clone for JET_INDEXCHECKING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE2_A {
@@ -2063,6 +2075,12 @@ pub const JET_relopGreaterThanOrEqual: JET_RELOP = JET_RELOP(5i32);
 pub const JET_relopGreaterThan: JET_RELOP = JET_RELOP(6i32);
 pub const JET_relopBitmaskEqualsZero: JET_RELOP = JET_RELOP(7i32);
 pub const JET_relopBitmaskNotEqualsZero: JET_RELOP = JET_RELOP(8i32);
+impl ::core::marker::Copy for JET_RELOP {}
+impl ::core::clone::Clone for JET_RELOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct JET_RETINFO {
     pub cbStruct: u32,

@@ -8,6 +8,12 @@ impl CellularClass {
     pub const Gsm: Self = Self(1i32);
     pub const Cdma: Self = Self(2i32);
 }
+impl ::core::marker::Copy for CellularClass {}
+impl ::core::clone::Clone for CellularClass {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DeleteSmsMessageOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -101,6 +107,12 @@ impl SmsBroadcastType {
     pub const EtwsTsunamiAndEarthquake: Self = Self(13i32);
     pub const LatAlertLocal: Self = Self(14i32);
 }
+impl ::core::marker::Copy for SmsBroadcastType {}
+impl ::core::clone::Clone for SmsBroadcastType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmsDataFormat(pub i32);
 impl SmsDataFormat {
@@ -109,6 +121,12 @@ impl SmsDataFormat {
     pub const GsmSubmit: Self = Self(2i32);
     pub const CdmaDeliver: Self = Self(3i32);
     pub const GsmDeliver: Self = Self(4i32);
+}
+impl ::core::marker::Copy for SmsDataFormat {}
+impl ::core::clone::Clone for SmsDataFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmsDevice(pub *mut ::core::ffi::c_void);
@@ -127,6 +145,12 @@ impl SmsDeviceStatus {
     pub const SubscriptionNotActivated: Self = Self(5i32);
     pub const DeviceLocked: Self = Self(6i32);
     pub const DeviceBlocked: Self = Self(7i32);
+}
+impl ::core::marker::Copy for SmsDeviceStatus {}
+impl ::core::clone::Clone for SmsDeviceStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmsDeviceStatusChangedEventHandler(pub *mut ::core::ffi::c_void);
@@ -159,6 +183,12 @@ impl SmsEncoding {
     pub const ShiftJis: Self = Self(9i32);
     pub const LatinHebrew: Self = Self(10i32);
 }
+impl ::core::marker::Copy for SmsEncoding {}
+impl ::core::clone::Clone for SmsEncoding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmsFilterActionType(pub i32);
 impl SmsFilterActionType {
@@ -166,6 +196,12 @@ impl SmsFilterActionType {
     pub const Drop: Self = Self(1i32);
     pub const Peek: Self = Self(2i32);
     pub const Accept: Self = Self(3i32);
+}
+impl ::core::marker::Copy for SmsFilterActionType {}
+impl ::core::clone::Clone for SmsFilterActionType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmsFilterRule(pub *mut ::core::ffi::c_void);
@@ -180,6 +216,12 @@ impl SmsGeographicalScope {
     pub const Plmn: Self = Self(3i32);
     pub const Cell: Self = Self(4i32);
 }
+impl ::core::marker::Copy for SmsGeographicalScope {}
+impl ::core::clone::Clone for SmsGeographicalScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmsMessageClass(pub i32);
 impl SmsMessageClass {
@@ -189,6 +231,12 @@ impl SmsMessageClass {
     pub const Class2: Self = Self(3i32);
     pub const Class3: Self = Self(4i32);
 }
+impl ::core::marker::Copy for SmsMessageClass {}
+impl ::core::clone::Clone for SmsMessageClass {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmsMessageFilter(pub i32);
 impl SmsMessageFilter {
@@ -197,6 +245,12 @@ impl SmsMessageFilter {
     pub const Read: Self = Self(2i32);
     pub const Sent: Self = Self(3i32);
     pub const Draft: Self = Self(4i32);
+}
+impl ::core::marker::Copy for SmsMessageFilter {}
+impl ::core::clone::Clone for SmsMessageFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmsMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
@@ -217,6 +271,12 @@ impl SmsMessageType {
     pub const Voicemail: Self = Self(5i32);
     pub const Status: Self = Self(6i32);
 }
+impl ::core::marker::Copy for SmsMessageType {}
+impl ::core::clone::Clone for SmsMessageType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmsModemErrorCode(pub i32);
 impl SmsModemErrorCode {
@@ -232,6 +292,12 @@ impl SmsModemErrorCode {
     pub const InvalidSmscAddress: Self = Self(9i32);
     pub const NetworkFailure: Self = Self(10i32);
     pub const FixedDialingNumberRestricted: Self = Self(11i32);
+}
+impl ::core::marker::Copy for SmsModemErrorCode {}
+impl ::core::clone::Clone for SmsModemErrorCode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmsReceivedEventDetails(pub *mut ::core::ffi::c_void);

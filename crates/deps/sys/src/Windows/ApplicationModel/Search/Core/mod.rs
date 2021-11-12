@@ -20,6 +20,12 @@ impl SearchSuggestionKind {
     pub const Result: Self = Self(1i32);
     pub const Separator: Self = Self(2i32);
 }
+impl ::core::marker::Copy for SearchSuggestionKind {}
+impl ::core::clone::Clone for SearchSuggestionKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SearchSuggestionManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

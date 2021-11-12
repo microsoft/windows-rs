@@ -281,6 +281,12 @@ pub const BM_S2DOT13FIXED_scARGB: BMFORMAT = BMFORMAT(1540i32);
 pub const BM_R10G10B10A2: BMFORMAT = BMFORMAT(1793i32);
 pub const BM_R10G10B10A2_XR: BMFORMAT = BMFORMAT(1794i32);
 pub const BM_R16G16B16A16_FLOAT: BMFORMAT = BMFORMAT(1795i32);
+impl ::core::marker::Copy for BMFORMAT {}
+impl ::core::clone::Clone for BMFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BlackInformation {
@@ -377,6 +383,12 @@ pub const COLOR_S2DOT13FIXED: COLORDATATYPE = COLORDATATYPE(4i32);
 pub const COLOR_10b_R10G10B10A2: COLORDATATYPE = COLORDATATYPE(5i32);
 pub const COLOR_10b_R10G10B10A2_XR: COLORDATATYPE = COLORDATATYPE(6i32);
 pub const COLOR_FLOAT16: COLORDATATYPE = COLORDATATYPE(7i32);
+impl ::core::marker::Copy for COLORDATATYPE {}
+impl ::core::clone::Clone for COLORDATATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct COLORMATCHSETUPA {
@@ -450,12 +462,24 @@ pub const CPST_RGB_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(5i32
 pub const CPST_CUSTOM_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(6i32);
 pub const CPST_STANDARD_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(7i32);
 pub const CPST_EXTENDED_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(8i32);
+impl ::core::marker::Copy for COLORPROFILESUBTYPE {}
+impl ::core::clone::Clone for COLORPROFILESUBTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COLORPROFILETYPE(pub i32);
 pub const CPT_ICC: COLORPROFILETYPE = COLORPROFILETYPE(0i32);
 pub const CPT_DMP: COLORPROFILETYPE = COLORPROFILETYPE(1i32);
 pub const CPT_CAMP: COLORPROFILETYPE = COLORPROFILETYPE(2i32);
 pub const CPT_GMMP: COLORPROFILETYPE = COLORPROFILETYPE(3i32);
+impl ::core::marker::Copy for COLORPROFILETYPE {}
+impl ::core::clone::Clone for COLORPROFILETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COLORTYPE(pub i32);
 pub const COLOR_GRAY: COLORTYPE = COLORTYPE(1i32);
@@ -470,11 +494,23 @@ pub const COLOR_6_CHANNEL: COLORTYPE = COLORTYPE(9i32);
 pub const COLOR_7_CHANNEL: COLORTYPE = COLORTYPE(10i32);
 pub const COLOR_8_CHANNEL: COLORTYPE = COLORTYPE(11i32);
 pub const COLOR_NAMED: COLORTYPE = COLORTYPE(12i32);
+impl ::core::marker::Copy for COLORTYPE {}
+impl ::core::clone::Clone for COLORTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COLOR_MATCH_TO_TARGET_ACTION(pub i32);
 pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(1i32);
 pub const CS_DISABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(2i32);
 pub const CS_DELETE_TRANSFORM: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(3i32);
+impl ::core::marker::Copy for COLOR_MATCH_TO_TARGET_ACTION {}
+impl ::core::clone::Clone for COLOR_MATCH_TO_TARGET_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const COLOR_MATCH_VERSION: u32 = 512u32;
 pub const CSA_A: u32 = 1u32;
 pub const CSA_ABC: u32 = 2u32;
@@ -702,6 +738,12 @@ pub const ICM_SETDEFAULTPROFILE: ICM_COMMAND = ICM_COMMAND(4u32);
 pub const ICM_REGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(5u32);
 pub const ICM_UNREGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(6u32);
 pub const ICM_QUERYMATCH: ICM_COMMAND = ICM_COMMAND(7u32);
+impl ::core::marker::Copy for ICM_COMMAND {}
+impl ::core::clone::Clone for ICM_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDeviceModelPlugIn(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -925,6 +967,12 @@ pub const WCS_DEFAULT: i32 = 0i32;
 pub struct WCS_DEVICE_CAPABILITIES_TYPE(pub i32);
 pub const VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(1i32);
 pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(2i32);
+impl ::core::marker::Copy for WCS_DEVICE_CAPABILITIES_TYPE {}
+impl ::core::clone::Clone for WCS_DEVICE_CAPABILITIES_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WCS_DEVICE_MHC2_CAPABILITIES {
@@ -961,6 +1009,12 @@ pub const WCS_ICCONLY: i32 = 65536i32;
 pub struct WCS_PROFILE_MANAGEMENT_SCOPE(pub i32);
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(0i32);
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(1i32);
+impl ::core::marker::Copy for WCS_PROFILE_MANAGEMENT_SCOPE {}
+impl ::core::clone::Clone for WCS_PROFILE_MANAGEMENT_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct XYZCOLOR {
     pub X: u16,

@@ -847,6 +847,12 @@ pub const AW_HOR_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(2u32);
 pub const AW_SLIDE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(262144u32);
 pub const AW_VER_POSITIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(4u32);
 pub const AW_VER_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(8u32);
+impl ::core::marker::Copy for ANIMATE_WINDOW_FLAGS {}
+impl ::core::clone::Clone for ANIMATE_WINDOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ANIMATIONINFO {
     pub cbSize: u32,
@@ -941,6 +947,12 @@ pub const CALERT_SYSTEM: u32 = 6u32;
 pub struct CASCADE_WINDOWS_HOW(pub u32);
 pub const MDITILE_SKIPDISABLED: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(2u32);
 pub const MDITILE_ZORDER: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(4u32);
+impl ::core::marker::Copy for CASCADE_WINDOWS_HOW {}
+impl ::core::clone::Clone for CASCADE_WINDOWS_HOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CBN_CLOSEUP: u32 = 8u32;
 pub const CBN_DBLCLK: u32 = 2u32;
 pub const CBN_DROPDOWN: u32 = 7u32;
@@ -1064,6 +1076,12 @@ impl ::core::clone::Clone for CHANGEFILTERSTRUCT {
 pub struct CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(pub u32);
 pub const MSGFLT_ADD: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(1u32);
 pub const MSGFLT_REMOVE: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(2u32);
+impl ::core::marker::Copy for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {}
+impl ::core::clone::Clone for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CHILDID_SELF: u32 = 0u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1165,6 +1183,12 @@ impl ::core::clone::Clone for CURSORINFO {
 pub struct CURSORINFO_FLAGS(pub u32);
 pub const CURSOR_SHOWING: CURSORINFO_FLAGS = CURSORINFO_FLAGS(1u32);
 pub const CURSOR_SUPPRESSED: CURSORINFO_FLAGS = CURSORINFO_FLAGS(2u32);
+impl ::core::marker::Copy for CURSORINFO_FLAGS {}
+impl ::core::clone::Clone for CURSORINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CURSORSHAPE {
     pub xHotSpot: i32,
@@ -1223,6 +1247,12 @@ pub const CWP_ALL: CWP_FLAGS = CWP_FLAGS(0u32);
 pub const CWP_SKIPINVISIBLE: CWP_FLAGS = CWP_FLAGS(1u32);
 pub const CWP_SKIPDISABLED: CWP_FLAGS = CWP_FLAGS(2u32);
 pub const CWP_SKIPTRANSPARENT: CWP_FLAGS = CWP_FLAGS(4u32);
+impl ::core::marker::Copy for CWP_FLAGS {}
+impl ::core::clone::Clone for CWP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CW_USEDEFAULT: i32 = -2147483648i32;
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 pub const DC_HASDEFID: u32 = 21323u32;
@@ -1263,6 +1293,12 @@ pub const DI_NORMAL: DI_FLAGS = DI_FLAGS(3u32);
 pub const DI_COMPAT: DI_FLAGS = DI_FLAGS(4u32);
 pub const DI_DEFAULTSIZE: DI_FLAGS = DI_FLAGS(8u32);
 pub const DI_NOMIRROR: DI_FLAGS = DI_FLAGS(16u32);
+impl ::core::marker::Copy for DI_FLAGS {}
+impl ::core::clone::Clone for DI_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DLGC_BUTTON: u32 = 8192u32;
 pub const DLGC_DEFPUSHBUTTON: u32 = 16u32;
 pub const DLGC_HASSETSEL: u32 = 8u32;
@@ -1366,6 +1402,12 @@ pub const EDD_GET_DEVICE_INTERFACE_NAME: u32 = 1u32;
 pub struct EDIT_CONTROL_FEATURE(pub i32);
 pub const EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(0i32);
 pub const EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(1i32);
+impl ::core::marker::Copy for EDIT_CONTROL_FEATURE {}
+impl ::core::clone::Clone for EDIT_CONTROL_FEATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EDS_RAWMODE: u32 = 2u32;
 pub const EDS_ROTATEDMODE: u32 = 4u32;
 pub const EIMES_CANCELCOMPSTRINFOCUS: u32 = 2u32;
@@ -1553,11 +1595,23 @@ pub const FLASHW_STOP: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(0u32);
 pub const FLASHW_TIMER: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(4u32);
 pub const FLASHW_TIMERNOFG: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(12u32);
 pub const FLASHW_TRAY: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(2u32);
+impl ::core::marker::Copy for FLASHWINFO_FLAGS {}
+impl ::core::clone::Clone for FLASHWINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FNOINVERT: u32 = 2u32;
 #[repr(transparent)]
 pub struct FOREGROUND_WINDOW_LOCK_CODE(pub u32);
 pub const LSFW_LOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(1u32);
 pub const LSFW_UNLOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(2u32);
+impl ::core::marker::Copy for FOREGROUND_WINDOW_LOCK_CODE {}
+impl ::core::clone::Clone for FOREGROUND_WINDOW_LOCK_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FSHIFT: u32 = 4u32;
 pub const FVIRTKEY: u32 = 1u32;
 pub const GCF_INCLUDE_ANCESTORS: u32 = 1u32;
@@ -1566,6 +1620,12 @@ pub struct GDI_IMAGE_TYPE(pub u32);
 pub const IMAGE_BITMAP: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(0u32);
 pub const IMAGE_CURSOR: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(2u32);
 pub const IMAGE_ICON: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(1u32);
+impl ::core::marker::Copy for GDI_IMAGE_TYPE {}
+impl ::core::clone::Clone for GDI_IMAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GESTURECONFIGMAXCOUNT: u32 = 256u32;
 pub const GESTUREVISUALIZATION_DOUBLETAP: u32 = 2u32;
 pub const GESTUREVISUALIZATION_OFF: u32 = 0u32;
@@ -1579,6 +1639,12 @@ pub struct GET_ANCESTOR_FLAGS(pub u32);
 pub const GA_PARENT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(1u32);
 pub const GA_ROOT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(2u32);
 pub const GA_ROOTOWNER: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(3u32);
+impl ::core::marker::Copy for GET_ANCESTOR_FLAGS {}
+impl ::core::clone::Clone for GET_ANCESTOR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GET_CLASS_LONG_INDEX(pub i32);
 pub const GCW_ATOM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-32i32);
@@ -1599,10 +1665,22 @@ pub const GCLP_HICONSM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-34i32);
 pub const GCLP_HMODULE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-16i32);
 pub const GCLP_MENUNAME: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-8i32);
 pub const GCLP_WNDPROC: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-24i32);
+impl ::core::marker::Copy for GET_CLASS_LONG_INDEX {}
+impl ::core::clone::Clone for GET_CLASS_LONG_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GET_MENU_DEFAULT_ITEM_FLAGS(pub u32);
 pub const GMDI_GOINTOPOPUPS: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(2u32);
 pub const GMDI_USEDISABLED: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(1u32);
+impl ::core::marker::Copy for GET_MENU_DEFAULT_ITEM_FLAGS {}
+impl ::core::clone::Clone for GET_MENU_DEFAULT_ITEM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GET_WINDOW_CMD(pub u32);
 pub const GW_CHILD: GET_WINDOW_CMD = GET_WINDOW_CMD(5u32);
@@ -1612,6 +1690,12 @@ pub const GW_HWNDLAST: GET_WINDOW_CMD = GET_WINDOW_CMD(1u32);
 pub const GW_HWNDNEXT: GET_WINDOW_CMD = GET_WINDOW_CMD(2u32);
 pub const GW_HWNDPREV: GET_WINDOW_CMD = GET_WINDOW_CMD(3u32);
 pub const GW_OWNER: GET_WINDOW_CMD = GET_WINDOW_CMD(4u32);
+impl ::core::marker::Copy for GET_WINDOW_CMD {}
+impl ::core::clone::Clone for GET_WINDOW_CMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GF_BEGIN: u32 = 1u32;
 pub const GF_END: u32 = 4u32;
 pub const GF_INERTIA: u32 = 2u32;
@@ -1645,6 +1729,12 @@ pub const GUI_INMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(4u32);
 pub const GUI_INMOVESIZE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(2u32);
 pub const GUI_POPUPMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(16u32);
 pub const GUI_SYSTEMMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(8u32);
+impl ::core::marker::Copy for GUITHREADINFO_FLAGS {}
+impl ::core::clone::Clone for GUITHREADINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GUI_16BITTASK: u32 = 0u32;
 pub const GWFS_INCLUDE_ANCESTORS: u32 = 1u32;
 pub const GW_MAX: u32 = 5u32;
@@ -1662,6 +1752,12 @@ impl ::core::clone::Clone for HACCEL {
 pub struct HANDEDNESS(pub i32);
 pub const HANDEDNESS_LEFT: HANDEDNESS = HANDEDNESS(0i32);
 pub const HANDEDNESS_RIGHT: HANDEDNESS = HANDEDNESS(1i32);
+impl ::core::marker::Copy for HANDEDNESS {}
+impl ::core::clone::Clone for HANDEDNESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HARDWAREHOOKSTRUCT {
@@ -2018,6 +2114,12 @@ pub const LR_VGACOLOR: IMAGE_FLAGS = IMAGE_FLAGS(128u32);
 pub const LR_COPYDELETEORG: IMAGE_FLAGS = IMAGE_FLAGS(8u32);
 pub const LR_COPYFROMRESOURCE: IMAGE_FLAGS = IMAGE_FLAGS(16384u32);
 pub const LR_COPYRETURNORG: IMAGE_FLAGS = IMAGE_FLAGS(4u32);
+impl ::core::marker::Copy for IMAGE_FLAGS {}
+impl ::core::clone::Clone for IMAGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INDEXID_CONTAINER: u32 = 0u32;
 pub const INDEXID_OBJECT: u32 = 0u32;
 pub const INPUTLANGCHANGE_BACKWARD: u32 = 4u32;
@@ -2067,6 +2169,12 @@ pub const LLKHF_ALTDOWN: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(32u32);
 pub const LLKHF_UP: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(128u32);
 pub const LLKHF_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(16u32);
 pub const LLKHF_LOWER_IL_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(2u32);
+impl ::core::marker::Copy for KBDLLHOOKSTRUCT_FLAGS {}
+impl ::core::clone::Clone for KBDLLHOOKSTRUCT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KF_ALTDOWN: u32 = 8192u32;
 pub const KF_DLGMODE: u32 = 2048u32;
 pub const KF_EXTENDED: u32 = 256u32;
@@ -2078,6 +2186,12 @@ pub const KL_NAMELENGTH: u32 = 9u32;
 pub struct LAYERED_WINDOW_ATTRIBUTES_FLAGS(pub u32);
 pub const LWA_ALPHA: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(2u32);
 pub const LWA_COLORKEY: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(1u32);
+impl ::core::marker::Copy for LAYERED_WINDOW_ATTRIBUTES_FLAGS {}
+impl ::core::clone::Clone for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LBN_DBLCLK: u32 = 2u32;
 pub const LBN_ERRSPACE: i32 = -2i32;
 pub const LBN_KILLFOCUS: u32 = 5u32;
@@ -2258,6 +2372,12 @@ impl ::core::clone::Clone for MENUGETOBJECTINFO {
 pub struct MENUGETOBJECTINFO_FLAGS(pub u32);
 pub const MNGOF_BOTTOMGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(2u32);
 pub const MNGOF_TOPGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(1u32);
+impl ::core::marker::Copy for MENUGETOBJECTINFO_FLAGS {}
+impl ::core::clone::Clone for MENUGETOBJECTINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct MENUINFO {
@@ -2285,6 +2405,12 @@ pub const MIM_HELPID: MENUINFO_MASK = MENUINFO_MASK(4u32);
 pub const MIM_MAXHEIGHT: MENUINFO_MASK = MENUINFO_MASK(1u32);
 pub const MIM_MENUDATA: MENUINFO_MASK = MENUINFO_MASK(8u32);
 pub const MIM_STYLE: MENUINFO_MASK = MENUINFO_MASK(16u32);
+impl ::core::marker::Copy for MENUINFO_MASK {}
+impl ::core::clone::Clone for MENUINFO_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MENUINFO_STYLE(pub u32);
 pub const MNS_AUTODISMISS: MENUINFO_STYLE = MENUINFO_STYLE(268435456u32);
@@ -2293,6 +2419,12 @@ pub const MNS_DRAGDROP: MENUINFO_STYLE = MENUINFO_STYLE(536870912u32);
 pub const MNS_MODELESS: MENUINFO_STYLE = MENUINFO_STYLE(1073741824u32);
 pub const MNS_NOCHECK: MENUINFO_STYLE = MENUINFO_STYLE(2147483648u32);
 pub const MNS_NOTIFYBYPOS: MENUINFO_STYLE = MENUINFO_STYLE(134217728u32);
+impl ::core::marker::Copy for MENUINFO_STYLE {}
+impl ::core::clone::Clone for MENUINFO_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MENUITEMINFOA {
@@ -2394,6 +2526,12 @@ pub const MF_HELP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
 pub const MF_RIGHTJUSTIFY: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
 pub const MF_MOUSESELECT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(32768u32);
 pub const MF_END: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
+impl ::core::marker::Copy for MENU_ITEM_FLAGS {}
+impl ::core::clone::Clone for MENU_ITEM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MENU_ITEM_MASK(pub u32);
 pub const MIIM_BITMAP: MENU_ITEM_MASK = MENU_ITEM_MASK(128u32);
@@ -2405,6 +2543,12 @@ pub const MIIM_STATE: MENU_ITEM_MASK = MENU_ITEM_MASK(1u32);
 pub const MIIM_STRING: MENU_ITEM_MASK = MENU_ITEM_MASK(64u32);
 pub const MIIM_SUBMENU: MENU_ITEM_MASK = MENU_ITEM_MASK(4u32);
 pub const MIIM_TYPE: MENU_ITEM_MASK = MENU_ITEM_MASK(16u32);
+impl ::core::marker::Copy for MENU_ITEM_MASK {}
+impl ::core::clone::Clone for MENU_ITEM_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MENU_ITEM_STATE(pub u32);
 pub const MFS_GRAYED: MENU_ITEM_STATE = MENU_ITEM_STATE(3u32);
@@ -2415,6 +2559,12 @@ pub const MFS_ENABLED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
 pub const MFS_UNCHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
 pub const MFS_UNHILITE: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
 pub const MFS_DEFAULT: MENU_ITEM_STATE = MENU_ITEM_STATE(4096u32);
+impl ::core::marker::Copy for MENU_ITEM_STATE {}
+impl ::core::clone::Clone for MENU_ITEM_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MENU_ITEM_TYPE(pub u32);
 pub const MFT_BITMAP: MENU_ITEM_TYPE = MENU_ITEM_TYPE(4u32);
@@ -2426,6 +2576,12 @@ pub const MFT_RIGHTJUSTIFY: MENU_ITEM_TYPE = MENU_ITEM_TYPE(16384u32);
 pub const MFT_RIGHTORDER: MENU_ITEM_TYPE = MENU_ITEM_TYPE(8192u32);
 pub const MFT_SEPARATOR: MENU_ITEM_TYPE = MENU_ITEM_TYPE(2048u32);
 pub const MFT_STRING: MENU_ITEM_TYPE = MENU_ITEM_TYPE(0u32);
+impl ::core::marker::Copy for MENU_ITEM_TYPE {}
+impl ::core::clone::Clone for MENU_ITEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MESSAGEBOX_RESULT(pub i32);
 pub const IDOK: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(1i32);
@@ -2441,6 +2597,12 @@ pub const IDTRYAGAIN: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(10i32);
 pub const IDCONTINUE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(11i32);
 pub const IDASYNC: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32001i32);
 pub const IDTIMEOUT: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32000i32);
+impl ::core::marker::Copy for MESSAGEBOX_RESULT {}
+impl ::core::clone::Clone for MESSAGEBOX_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MESSAGEBOX_STYLE(pub u32);
 pub const MB_ABORTRETRYIGNORE: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(2u32);
@@ -2480,6 +2642,12 @@ pub const MB_ICONMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(240u32);
 pub const MB_DEFMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(3840u32);
 pub const MB_MODEMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(12288u32);
 pub const MB_MISCMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(49152u32);
+impl ::core::marker::Copy for MESSAGEBOX_STYLE {}
+impl ::core::clone::Clone for MESSAGEBOX_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MESSAGE_RESOURCE_BLOCK {
     pub LowId: u32,
@@ -2536,6 +2704,12 @@ pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(0i
 pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(1i32);
 pub const ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(2i32);
 pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(3i32);
+impl ::core::marker::Copy for MINIMIZEDMETRICS_ARRANGE {}
+impl ::core::clone::Clone for MINIMIZEDMETRICS_ARRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -2619,6 +2793,12 @@ impl ::core::clone::Clone for MOUSEHOOKSTRUCTEX {
 pub struct MOUSEHOOKSTRUCTEX_MOUSE_DATA(pub u32);
 pub const XBUTTON1: MOUSEHOOKSTRUCTEX_MOUSE_DATA = MOUSEHOOKSTRUCTEX_MOUSE_DATA(1u32);
 pub const XBUTTON2: MOUSEHOOKSTRUCTEX_MOUSE_DATA = MOUSEHOOKSTRUCTEX_MOUSE_DATA(2u32);
+impl ::core::marker::Copy for MOUSEHOOKSTRUCTEX_MOUSE_DATA {}
+impl ::core::clone::Clone for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
 pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
 pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
@@ -2692,6 +2872,12 @@ pub const MSGFLTINFO_NONE: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(0u32);
 pub const MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(3u32);
 pub const MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(1u32);
 pub const MSGFLTINFO_ALREADYDISALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(2u32);
+impl ::core::marker::Copy for MSGFLTINFO_STATUS {}
+impl ::core::clone::Clone for MSGFLTINFO_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MSGF_DIALOGBOX: u32 = 0u32;
 pub const MSGF_MAX: u32 = 8u32;
 pub const MSGF_MENU: u32 = 2u32;
@@ -2705,6 +2891,12 @@ pub const MWMO_NONE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTI
 pub const MWMO_ALERTABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(2u32);
 pub const MWMO_INPUTAVAILABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(4u32);
 pub const MWMO_WAITALL: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(1u32);
+impl ::core::marker::Copy for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {}
+impl ::core::clone::Clone for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MSLLHOOKSTRUCT {
@@ -2727,26 +2919,56 @@ pub struct MrmDumpType(pub i32);
 pub const MrmDumpType_Basic: MrmDumpType = MrmDumpType(0i32);
 pub const MrmDumpType_Detailed: MrmDumpType = MrmDumpType(1i32);
 pub const MrmDumpType_Schema: MrmDumpType = MrmDumpType(2i32);
+impl ::core::marker::Copy for MrmDumpType {}
+impl ::core::clone::Clone for MrmDumpType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MrmIndexerFlags(pub i32);
 pub const MrmIndexerFlagsNone: MrmIndexerFlags = MrmIndexerFlags(0i32);
 pub const MrmIndexerFlagsAutoMerge: MrmIndexerFlags = MrmIndexerFlags(1i32);
 pub const MrmIndexerFlagsCreateContentChecksum: MrmIndexerFlags = MrmIndexerFlags(2i32);
+impl ::core::marker::Copy for MrmIndexerFlags {}
+impl ::core::clone::Clone for MrmIndexerFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MrmPackagingMode(pub i32);
 pub const MrmPackagingModeStandaloneFile: MrmPackagingMode = MrmPackagingMode(0i32);
 pub const MrmPackagingModeAutoSplit: MrmPackagingMode = MrmPackagingMode(1i32);
 pub const MrmPackagingModeResourcePack: MrmPackagingMode = MrmPackagingMode(2i32);
+impl ::core::marker::Copy for MrmPackagingMode {}
+impl ::core::clone::Clone for MrmPackagingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MrmPackagingOptions(pub i32);
 pub const MrmPackagingOptionsNone: MrmPackagingOptions = MrmPackagingOptions(0i32);
 pub const MrmPackagingOptionsOmitSchemaFromResourcePacks: MrmPackagingOptions = MrmPackagingOptions(1i32);
 pub const MrmPackagingOptionsSplitLanguageVariants: MrmPackagingOptions = MrmPackagingOptions(2i32);
+impl ::core::marker::Copy for MrmPackagingOptions {}
+impl ::core::clone::Clone for MrmPackagingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MrmPlatformVersion(pub i32);
 pub const MrmPlatformVersion_Default: MrmPlatformVersion = MrmPlatformVersion(0i32);
 pub const MrmPlatformVersion_Windows10_0_0_0: MrmPlatformVersion = MrmPlatformVersion(17432576i32);
 pub const MrmPlatformVersion_Windows10_0_0_5: MrmPlatformVersion = MrmPlatformVersion(17432581i32);
+impl ::core::marker::Copy for MrmPlatformVersion {}
+impl ::core::clone::Clone for MrmPlatformVersion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MrmResourceIndexerHandle {
     pub handle: *mut ::core::ffi::c_void,
@@ -2778,6 +3000,12 @@ pub const MrmResourceIndexerMessageSeverityVerbose: MrmResourceIndexerMessageSev
 pub const MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(1i32);
 pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(2i32);
 pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(3i32);
+impl ::core::marker::Copy for MrmResourceIndexerMessageSeverity {}
+impl ::core::clone::Clone for MrmResourceIndexerMessageSeverity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type NAMEENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
@@ -2878,6 +3106,12 @@ pub const OBJID_ALERT: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-10i32);
 pub const OBJID_SOUND: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-11i32);
 pub const OBJID_QUERYCLASSNAMEIDX: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-12i32);
 pub const OBJID_NATIVEOM: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-16i32);
+impl ::core::marker::Copy for OBJECT_IDENTIFIER {}
+impl ::core::clone::Clone for OBJECT_IDENTIFIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OBM_BTNCORNERS: u32 = 32758u32;
 pub const OBM_BTSIZE: u32 = 32761u32;
 pub const OBM_CHECK: u32 = 32760u32;
@@ -2978,6 +3212,12 @@ pub const PM_QS_INPUT: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(67567
 pub const PM_QS_POSTMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(9961472u32);
 pub const PM_QS_PAINT: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(2097152u32);
 pub const PM_QS_SENDMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(4194304u32);
+impl ::core::marker::Copy for PEEK_MESSAGE_REMOVE_TYPE {}
+impl ::core::clone::Clone for PEEK_MESSAGE_REMOVE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PENARBITRATIONTYPE_FIS: u32 = 2u32;
 pub const PENARBITRATIONTYPE_MAX: u32 = 4u32;
 pub const PENARBITRATIONTYPE_NONE: u32 = 0u32;
@@ -3006,6 +3246,12 @@ pub const PT_TOUCH: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(2i32);
 pub const PT_PEN: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(3i32);
 pub const PT_MOUSE: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(4i32);
 pub const PT_TOUCHPAD: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(5i32);
+impl ::core::marker::Copy for POINTER_INPUT_TYPE {}
+impl ::core::clone::Clone for POINTER_INPUT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const POINTER_MESSAGE_FLAG_CANCELED: u32 = 32768u32;
 pub const POINTER_MESSAGE_FLAG_CONFIDENCE: u32 = 16384u32;
 pub const POINTER_MESSAGE_FLAG_FIFTHBUTTON: u32 = 256u32;
@@ -3059,6 +3305,12 @@ pub const QS_POSTMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(8u32);
 pub const QS_RAWINPUT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1024u32);
 pub const QS_SENDMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(64u32);
 pub const QS_TIMER: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(16u32);
+impl ::core::marker::Copy for QUEUE_STATUS_FLAGS {}
+impl ::core::clone::Clone for QUEUE_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RES_CURSOR: u32 = 2u32;
 pub const RES_ICON: u32 = 1u32;
 pub const RIDEV_EXMODEMASK: u32 = 240u32;
@@ -3182,6 +3434,12 @@ pub const SB_CTL: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(2u32);
 pub const SB_HORZ: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(0u32);
 pub const SB_VERT: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(1u32);
 pub const SB_BOTH: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(3u32);
+impl ::core::marker::Copy for SCROLLBAR_CONSTANTS {}
+impl ::core::clone::Clone for SCROLLBAR_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCROLLINFO {
     pub cbSize: u32,
@@ -3206,6 +3464,12 @@ pub const SIF_PAGE: SCROLLINFO_MASK = SCROLLINFO_MASK(2u32);
 pub const SIF_POS: SCROLLINFO_MASK = SCROLLINFO_MASK(4u32);
 pub const SIF_RANGE: SCROLLINFO_MASK = SCROLLINFO_MASK(1u32);
 pub const SIF_TRACKPOS: SCROLLINFO_MASK = SCROLLINFO_MASK(16u32);
+impl ::core::marker::Copy for SCROLLINFO_MASK {}
+impl ::core::clone::Clone for SCROLLINFO_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SC_ARRANGE: u32 = 61712u32;
 pub const SC_CLOSE: u32 = 61536u32;
 pub const SC_CONTEXTHELP: u32 = 61824u32;
@@ -3236,6 +3500,12 @@ pub const SMTO_BLOCK: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(1u
 pub const SMTO_NORMAL: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(0u32);
 pub const SMTO_NOTIMEOUTIFNOTHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(8u32);
 pub const SMTO_ERRORONEXIT: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(32u32);
+impl ::core::marker::Copy for SEND_MESSAGE_TIMEOUT_FLAGS {}
+impl ::core::clone::Clone for SEND_MESSAGE_TIMEOUT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SET_WINDOW_POS_FLAGS(pub u32);
 pub const SWP_ASYNCWINDOWPOS: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(16384u32);
@@ -3254,6 +3524,12 @@ pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(1u32);
 pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(4u32);
 pub const SWP_SHOWWINDOW: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(64u32);
 pub const SWP__NOOWNERZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(512u32);
+impl ::core::marker::Copy for SET_WINDOW_POS_FLAGS {}
+impl ::core::clone::Clone for SET_WINDOW_POS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHELLHOOKINFO {
@@ -3297,6 +3573,12 @@ pub const SW_SCROLLCHILDREN: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
 pub const SW_INVALIDATE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
 pub const SW_ERASE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
 pub const SW_SMOOTHSCROLL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(16u32);
+impl ::core::marker::Copy for SHOW_WINDOW_CMD {}
+impl ::core::clone::Clone for SHOW_WINDOW_CMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SIZEFULLSCREEN: u32 = 2u32;
 pub const SIZEICONIC: u32 = 1u32;
 pub const SIZENORMAL: u32 = 0u32;
@@ -3435,6 +3717,12 @@ pub const OCR_SIZENWSE: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32642u32);
 pub const OCR_SIZEWE: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32644u32);
 pub const OCR_UP: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32516u32);
 pub const OCR_WAIT: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32514u32);
+impl ::core::marker::Copy for SYSTEM_CURSOR_ID {}
+impl ::core::clone::Clone for SYSTEM_CURSOR_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYSTEM_METRICS_INDEX(pub u32);
 pub const SM_ARRANGE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(56u32);
@@ -3532,6 +3820,12 @@ pub const SM_SYSTEMDOCKED_: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8196u32)
 pub const SM_TABLETPC: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(86u32);
 pub const SM_XVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(76u32);
 pub const SM_YVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(77u32);
+impl ::core::marker::Copy for SYSTEM_METRICS_INDEX {}
+impl ::core::clone::Clone for SYSTEM_METRICS_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYSTEM_PARAMETERS_INFO_ACTION(pub u32);
 pub const SPI_GETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(1u32);
@@ -3775,11 +4069,23 @@ pub const SPI_GETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS
 pub const SPI_SETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8227u32);
 pub const SPI_GETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8228u32);
 pub const SPI_SETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8229u32);
+impl ::core::marker::Copy for SYSTEM_PARAMETERS_INFO_ACTION {}
+impl ::core::clone::Clone for SYSTEM_PARAMETERS_INFO_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(pub u32);
 pub const SPIF_UPDATEINIFILE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(1u32);
 pub const SPIF_SENDCHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(2u32);
 pub const SPIF_SENDWININICHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(2u32);
+impl ::core::marker::Copy for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {}
+impl ::core::clone::Clone for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYS_COLOR_INDEX(pub u32);
 pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(21u32);
@@ -3818,10 +4124,22 @@ pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(0u32);
 pub const COLOR_WINDOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(5u32);
 pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = SYS_COLOR_INDEX(6u32);
 pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8u32);
+impl ::core::marker::Copy for SYS_COLOR_INDEX {}
+impl ::core::clone::Clone for SYS_COLOR_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TILE_WINDOWS_HOW(pub u32);
 pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(1u32);
 pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(0u32);
+impl ::core::marker::Copy for TILE_WINDOWS_HOW {}
+impl ::core::clone::Clone for TILE_WINDOWS_HOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMERPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32);
 pub const TIMERV_COALESCING_MAX: u32 = 2147483637u32;
@@ -3919,6 +4237,12 @@ pub const TPM_VERNEGANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(8
 pub const TPM_NOANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(16384u32);
 pub const TPM_LAYOUTRTL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(32768u32);
 pub const TPM_WORKAREA: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(65536u32);
+impl ::core::marker::Copy for TRACK_POPUP_MENU_FLAGS {}
+impl ::core::clone::Clone for TRACK_POPUP_MENU_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TouchPredictionParameters {
     pub cbSize: u32,
@@ -3968,6 +4292,12 @@ pub const ULW_ALPHA: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(2
 pub const ULW_COLORKEY: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(1u32);
 pub const ULW_OPAQUE: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(4u32);
 pub const ULW_EX_NORESIZE: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(8u32);
+impl ::core::marker::Copy for UPDATE_LAYERED_WINDOW_FLAGS {}
+impl ::core::clone::Clone for UPDATE_LAYERED_WINDOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const USER_DEFAULT_SCREEN_DPI: u32 = 96u32;
 pub const USER_TIMER_MAXIMUM: u32 = 2147483647u32;
 pub const USER_TIMER_MINIMUM: u32 = 10u32;
@@ -4025,6 +4355,12 @@ pub struct WINDOWPLACEMENT_FLAGS(pub u32);
 pub const WPF_ASYNCWINDOWPLACEMENT: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(4u32);
 pub const WPF_RESTORETOMAXIMIZED: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(2u32);
 pub const WPF_SETMINPOSITION: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(1u32);
+impl ::core::marker::Copy for WINDOWPLACEMENT_FLAGS {}
+impl ::core::clone::Clone for WINDOWPLACEMENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWPOS {
@@ -4061,11 +4397,23 @@ pub const WH_MOUSE_LL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(14i32);
 pub const WH_MSGFILTER: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(-1i32);
 pub const WH_SHELL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(10i32);
 pub const WH_SYSMSGFILTER: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(6i32);
+impl ::core::marker::Copy for WINDOWS_HOOK_ID {}
+impl ::core::clone::Clone for WINDOWS_HOOK_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WINDOW_DISPLAY_AFFINITY(pub u32);
 pub const WDA_NONE: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(0u32);
 pub const WDA_MONITOR: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(1u32);
 pub const WDA_EXCLUDEFROMCAPTURE: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(17u32);
+impl ::core::marker::Copy for WINDOW_DISPLAY_AFFINITY {}
+impl ::core::clone::Clone for WINDOW_DISPLAY_AFFINITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WINDOW_EX_STYLE(pub u32);
 pub const WS_EX_DLGMODALFRAME: WINDOW_EX_STYLE = WINDOW_EX_STYLE(1u32);
@@ -4095,6 +4443,12 @@ pub const WS_EX_NOREDIRECTIONBITMAP: WINDOW_EX_STYLE = WINDOW_EX_STYLE(2097152u3
 pub const WS_EX_LAYOUTRTL: WINDOW_EX_STYLE = WINDOW_EX_STYLE(4194304u32);
 pub const WS_EX_COMPOSITED: WINDOW_EX_STYLE = WINDOW_EX_STYLE(33554432u32);
 pub const WS_EX_NOACTIVATE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(134217728u32);
+impl ::core::marker::Copy for WINDOW_EX_STYLE {}
+impl ::core::clone::Clone for WINDOW_EX_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WINDOW_LONG_PTR_INDEX(pub i32);
 pub const GWL_EXSTYLE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-20i32);
@@ -4109,11 +4463,23 @@ pub const GWL_ID: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-12i32);
 pub const GWL_USERDATA: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-21i32);
 pub const GWL_WNDPROC: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-4i32);
 pub const GWL_HWNDPARENT: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-8i32);
+impl ::core::marker::Copy for WINDOW_LONG_PTR_INDEX {}
+impl ::core::clone::Clone for WINDOW_LONG_PTR_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WINDOW_MESSAGE_FILTER_ACTION(pub u32);
 pub const MSGFLT_ALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(1u32);
 pub const MSGFLT_DISALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(2u32);
 pub const MSGFLT_RESET: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(0u32);
+impl ::core::marker::Copy for WINDOW_MESSAGE_FILTER_ACTION {}
+impl ::core::clone::Clone for WINDOW_MESSAGE_FILTER_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WINDOW_STYLE(pub u32);
 pub const WS_OVERLAPPED: WINDOW_STYLE = WINDOW_STYLE(0u32);
@@ -4144,6 +4510,12 @@ pub const WS_OVERLAPPEDWINDOW: WINDOW_STYLE = WINDOW_STYLE(13565952u32);
 pub const WS_POPUPWINDOW: WINDOW_STYLE = WINDOW_STYLE(2156396544u32);
 pub const WS_CHILDWINDOW: WINDOW_STYLE = WINDOW_STYLE(1073741824u32);
 pub const WS_ACTIVECAPTION: WINDOW_STYLE = WINDOW_STYLE(1u32);
+impl ::core::marker::Copy for WINDOW_STYLE {}
+impl ::core::clone::Clone for WINDOW_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WINEVENT_INCONTEXT: u32 = 4u32;
 pub const WINEVENT_OUTOFCONTEXT: u32 = 0u32;
 pub const WINEVENT_SKIPOWNPROCESS: u32 = 2u32;
@@ -4522,6 +4894,12 @@ pub const CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = WNDCLASS_STYLES(8192u32);
 pub const CS_GLOBALCLASS: WNDCLASS_STYLES = WNDCLASS_STYLES(16384u32);
 pub const CS_IME: WNDCLASS_STYLES = WNDCLASS_STYLES(65536u32);
 pub const CS_DROPSHADOW: WNDCLASS_STYLES = WNDCLASS_STYLES(131072u32);
+impl ::core::marker::Copy for WNDCLASS_STYLES {}
+impl ::core::clone::Clone for WNDCLASS_STYLES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type WNDENUMPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]

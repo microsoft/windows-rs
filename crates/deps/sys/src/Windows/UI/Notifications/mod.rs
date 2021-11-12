@@ -8,6 +8,12 @@ pub struct AdaptiveNotificationContentKind(pub i32);
 impl AdaptiveNotificationContentKind {
     pub const Text: Self = Self(0i32);
 }
+impl ::core::marker::Copy for AdaptiveNotificationContentKind {}
+impl ::core::clone::Clone for AdaptiveNotificationContentKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AdaptiveNotificationText(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -17,6 +23,12 @@ pub struct BadgeTemplateType(pub i32);
 impl BadgeTemplateType {
     pub const BadgeGlyph: Self = Self(0i32);
     pub const BadgeNumber: Self = Self(1i32);
+}
+impl ::core::marker::Copy for BadgeTemplateType {}
+impl ::core::clone::Clone for BadgeTemplateType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BadgeUpdateManagerForUser(pub *mut ::core::ffi::c_void);
@@ -164,11 +176,23 @@ impl NotificationKinds {
     pub const Unknown: Self = Self(0u32);
     pub const Toast: Self = Self(1u32);
 }
+impl ::core::marker::Copy for NotificationKinds {}
+impl ::core::clone::Clone for NotificationKinds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NotificationMirroring(pub i32);
 impl NotificationMirroring {
     pub const Allowed: Self = Self(0i32);
     pub const Disabled: Self = Self(1i32);
+}
+impl ::core::marker::Copy for NotificationMirroring {}
+impl ::core::clone::Clone for NotificationMirroring {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct NotificationSetting(pub i32);
@@ -179,12 +203,24 @@ impl NotificationSetting {
     pub const DisabledByGroupPolicy: Self = Self(3i32);
     pub const DisabledByManifest: Self = Self(4i32);
 }
+impl ::core::marker::Copy for NotificationSetting {}
+impl ::core::clone::Clone for NotificationSetting {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NotificationUpdateResult(pub i32);
 impl NotificationUpdateResult {
     pub const Succeeded: Self = Self(0i32);
     pub const Failed: Self = Self(1i32);
     pub const NotificationNotFound: Self = Self(2i32);
+}
+impl ::core::marker::Copy for NotificationUpdateResult {}
+impl ::core::clone::Clone for NotificationUpdateResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct NotificationVisual(pub *mut ::core::ffi::c_void);
@@ -196,6 +232,12 @@ impl PeriodicUpdateRecurrence {
     pub const SixHours: Self = Self(2i32);
     pub const TwelveHours: Self = Self(3i32);
     pub const Daily: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PeriodicUpdateRecurrence {}
+impl ::core::clone::Clone for PeriodicUpdateRecurrence {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ScheduledTileNotification(pub *mut ::core::ffi::c_void);
@@ -211,6 +253,12 @@ pub struct TileFlyoutNotification(pub *mut ::core::ffi::c_void);
 pub struct TileFlyoutTemplateType(pub i32);
 impl TileFlyoutTemplateType {
     pub const TileFlyoutTemplate01: Self = Self(0i32);
+}
+impl ::core::marker::Copy for TileFlyoutTemplateType {}
+impl ::core::clone::Clone for TileFlyoutTemplateType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TileFlyoutUpdater(pub *mut ::core::ffi::c_void);
@@ -346,6 +394,12 @@ impl TileTemplateType {
     pub const TileSquare71x71Image: Self = Self(78i32);
     pub const TileTall150x310Image: Self = Self(79i32);
 }
+impl ::core::marker::Copy for TileTemplateType {}
+impl ::core::clone::Clone for TileTemplateType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TileUpdateManagerForUser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -363,6 +417,12 @@ impl ToastDismissalReason {
     pub const ApplicationHidden: Self = Self(1i32);
     pub const TimedOut: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ToastDismissalReason {}
+impl ::core::clone::Clone for ToastDismissalReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ToastDismissedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -374,6 +434,12 @@ impl ToastHistoryChangedType {
     pub const Removed: Self = Self(1i32);
     pub const Expired: Self = Self(2i32);
     pub const Added: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ToastHistoryChangedType {}
+impl ::core::clone::Clone for ToastHistoryChangedType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ToastNotification(pub *mut ::core::ffi::c_void);
@@ -391,6 +457,12 @@ impl ToastNotificationPriority {
     pub const Default: Self = Self(0i32);
     pub const High: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ToastNotificationPriority {}
+impl ::core::clone::Clone for ToastNotificationPriority {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ToastNotifier(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -405,6 +477,12 @@ impl ToastTemplateType {
     pub const ToastText03: Self = Self(6i32);
     pub const ToastText04: Self = Self(7i32);
 }
+impl ::core::marker::Copy for ToastTemplateType {}
+impl ::core::clone::Clone for ToastTemplateType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserNotification(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -414,4 +492,10 @@ pub struct UserNotificationChangedKind(pub i32);
 impl UserNotificationChangedKind {
     pub const Added: Self = Self(0i32);
     pub const Removed: Self = Self(1i32);
+}
+impl ::core::marker::Copy for UserNotificationChangedKind {}
+impl ::core::clone::Clone for UserNotificationChangedKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

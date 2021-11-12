@@ -33,6 +33,12 @@ impl FocusInputDeviceKind {
     pub const Keyboard: Self = Self(4i32);
     pub const GameController: Self = Self(5i32);
 }
+impl ::core::marker::Copy for FocusInputDeviceKind {}
+impl ::core::clone::Clone for FocusInputDeviceKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FocusManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -51,6 +57,12 @@ impl FocusNavigationDirection {
     pub const Left: Self = Self(4i32);
     pub const Right: Self = Self(5i32);
     pub const None: Self = Self(6i32);
+}
+impl ::core::marker::Copy for FocusNavigationDirection {}
+impl ::core::clone::Clone for FocusNavigationDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GettingFocusEventArgs(pub *mut ::core::ffi::c_void);
@@ -250,6 +262,12 @@ impl InputScopeNameValue {
     pub const FormulaNumber: Self = Self(67i32);
     pub const ChatWithoutEmoji: Self = Self(68i32);
 }
+impl ::core::marker::Copy for InputScopeNameValue {}
+impl ::core::clone::Clone for InputScopeNameValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KeyEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -265,6 +283,12 @@ impl KeyTipPlacementMode {
     pub const Center: Self = Self(5i32);
     pub const Hidden: Self = Self(6i32);
 }
+impl ::core::marker::Copy for KeyTipPlacementMode {}
+impl ::core::clone::Clone for KeyTipPlacementMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KeyboardAccelerator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -275,12 +299,24 @@ impl KeyboardAcceleratorPlacementMode {
     pub const Auto: Self = Self(0i32);
     pub const Hidden: Self = Self(1i32);
 }
+impl ::core::marker::Copy for KeyboardAcceleratorPlacementMode {}
+impl ::core::clone::Clone for KeyboardAcceleratorPlacementMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KeyboardNavigationMode(pub i32);
 impl KeyboardNavigationMode {
     pub const Local: Self = Self(0i32);
     pub const Cycle: Self = Self(1i32);
     pub const Once: Self = Self(2i32);
+}
+impl ::core::marker::Copy for KeyboardNavigationMode {}
+impl ::core::clone::Clone for KeyboardNavigationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct LosingFocusEventArgs(pub *mut ::core::ffi::c_void);
@@ -311,6 +347,12 @@ impl ManipulationModes {
     pub const ScaleInertia: Self = Self(256u32);
     pub const All: Self = Self(65535u32);
     pub const System: Self = Self(65536u32);
+}
+impl ::core::marker::Copy for ManipulationModes {}
+impl ::core::clone::Clone for ManipulationModes {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ManipulationPivot(pub *mut ::core::ffi::c_void);
@@ -359,6 +401,12 @@ impl StandardUICommandKind {
     pub const Undo: Self = Self(15i32);
     pub const Redo: Self = Self(16i32);
 }
+impl ::core::marker::Copy for StandardUICommandKind {}
+impl ::core::clone::Clone for StandardUICommandKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TappedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -370,6 +418,12 @@ impl XYFocusKeyboardNavigationMode {
     pub const Enabled: Self = Self(1i32);
     pub const Disabled: Self = Self(2i32);
 }
+impl ::core::marker::Copy for XYFocusKeyboardNavigationMode {}
+impl ::core::clone::Clone for XYFocusKeyboardNavigationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XYFocusNavigationStrategy(pub i32);
 impl XYFocusNavigationStrategy {
@@ -377,6 +431,12 @@ impl XYFocusNavigationStrategy {
     pub const Projection: Self = Self(1i32);
     pub const NavigationDirectionDistance: Self = Self(2i32);
     pub const RectilinearDistance: Self = Self(3i32);
+}
+impl ::core::marker::Copy for XYFocusNavigationStrategy {}
+impl ::core::clone::Clone for XYFocusNavigationStrategy {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct XYFocusNavigationStrategyOverride(pub i32);
@@ -386,6 +446,12 @@ impl XYFocusNavigationStrategyOverride {
     pub const Projection: Self = Self(2i32);
     pub const NavigationDirectionDistance: Self = Self(3i32);
     pub const RectilinearDistance: Self = Self(4i32);
+}
+impl ::core::marker::Copy for XYFocusNavigationStrategyOverride {}
+impl ::core::clone::Clone for XYFocusNavigationStrategyOverride {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct XamlUICommand(pub *mut ::core::ffi::c_void);

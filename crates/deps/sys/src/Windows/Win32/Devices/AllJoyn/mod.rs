@@ -1217,6 +1217,12 @@ pub const ER_APPLICATION_STATE_LISTENER_NO_SUCH_LISTENER: QStatus = QStatus(3718
 pub const ER_MANAGEMENT_ALREADY_STARTED: QStatus = QStatus(37186i32);
 pub const ER_MANAGEMENT_NOT_STARTED: QStatus = QStatus(37187i32);
 pub const ER_BUS_DESCRIPTION_ALREADY_EXISTS: QStatus = QStatus(37188i32);
+impl ::core::marker::Copy for QStatus {}
+impl ::core::clone::Clone for QStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _alljoyn_abouticon_handle(pub u8);
 #[repr(C)]
@@ -1229,6 +1235,12 @@ pub type alljoyn_about_announced_ptr = unsafe extern "system" fn(context: *const
 pub struct alljoyn_about_announceflag(pub i32);
 pub const UNANNOUNCED: alljoyn_about_announceflag = alljoyn_about_announceflag(0i32);
 pub const ANNOUNCED: alljoyn_about_announceflag = alljoyn_about_announceflag(1i32);
+impl ::core::marker::Copy for alljoyn_about_announceflag {}
+impl ::core::clone::Clone for alljoyn_about_announceflag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct alljoyn_aboutdata {
     pub Value: isize,
@@ -1325,6 +1337,12 @@ pub const NOT_CLAIMABLE: alljoyn_applicationstate = alljoyn_applicationstate(0i3
 pub const CLAIMABLE: alljoyn_applicationstate = alljoyn_applicationstate(1i32);
 pub const CLAIMED: alljoyn_applicationstate = alljoyn_applicationstate(2i32);
 pub const NEED_UPDATE: alljoyn_applicationstate = alljoyn_applicationstate(3i32);
+impl ::core::marker::Copy for alljoyn_applicationstate {}
+impl ::core::clone::Clone for alljoyn_applicationstate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct alljoyn_applicationstatelistener {
     pub Value: isize,
@@ -1542,10 +1560,22 @@ pub struct alljoyn_claimcapability_masks(pub i32);
 pub const CAPABLE_ECDHE_NULL: alljoyn_claimcapability_masks = alljoyn_claimcapability_masks(1i32);
 pub const CAPABLE_ECDHE_ECDSA: alljoyn_claimcapability_masks = alljoyn_claimcapability_masks(4i32);
 pub const CAPABLE_ECDHE_SPEKE: alljoyn_claimcapability_masks = alljoyn_claimcapability_masks(8i32);
+impl ::core::marker::Copy for alljoyn_claimcapability_masks {}
+impl ::core::clone::Clone for alljoyn_claimcapability_masks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct alljoyn_claimcapabilityadditionalinfo_masks(pub i32);
 pub const PASSWORD_GENERATED_BY_SECURITY_MANAGER: alljoyn_claimcapabilityadditionalinfo_masks = alljoyn_claimcapabilityadditionalinfo_masks(1i32);
 pub const PASSWORD_GENERATED_BY_APPLICATION: alljoyn_claimcapabilityadditionalinfo_masks = alljoyn_claimcapabilityadditionalinfo_masks(2i32);
+impl ::core::marker::Copy for alljoyn_claimcapabilityadditionalinfo_masks {}
+impl ::core::clone::Clone for alljoyn_claimcapabilityadditionalinfo_masks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct alljoyn_credentials {
     pub Value: isize,
@@ -1606,6 +1636,12 @@ pub struct alljoyn_interfacedescription_securitypolicy(pub i32);
 pub const AJ_IFC_SECURITY_INHERIT: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(0i32);
 pub const AJ_IFC_SECURITY_REQUIRED: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(1i32);
 pub const AJ_IFC_SECURITY_OFF: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(2i32);
+impl ::core::marker::Copy for alljoyn_interfacedescription_securitypolicy {}
+impl ::core::clone::Clone for alljoyn_interfacedescription_securitypolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_interfacedescription_translation_callback_ptr = unsafe extern "system" fn(sourcelanguage: super::super::Foundation::PSTR, targetlanguage: super::super::Foundation::PSTR, sourcetext: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
 #[repr(C)]
@@ -1689,6 +1725,12 @@ pub const ALLJOYN_MESSAGE_METHOD_CALL: alljoyn_messagetype = alljoyn_messagetype
 pub const ALLJOYN_MESSAGE_METHOD_RET: alljoyn_messagetype = alljoyn_messagetype(2i32);
 pub const ALLJOYN_MESSAGE_ERROR: alljoyn_messagetype = alljoyn_messagetype(3i32);
 pub const ALLJOYN_MESSAGE_SIGNAL: alljoyn_messagetype = alljoyn_messagetype(4i32);
+impl ::core::marker::Copy for alljoyn_messagetype {}
+impl ::core::clone::Clone for alljoyn_messagetype {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct alljoyn_msgarg {
     pub Value: isize,
@@ -1867,6 +1909,12 @@ pub const ALLJOYN_SESSIONLOST_REMOTE_END_CLOSED_ABRUPTLY: alljoyn_sessionlostrea
 pub const ALLJOYN_SESSIONLOST_REMOVED_BY_BINDER: alljoyn_sessionlostreason = alljoyn_sessionlostreason(3i32);
 pub const ALLJOYN_SESSIONLOST_LINK_TIMEOUT: alljoyn_sessionlostreason = alljoyn_sessionlostreason(4i32);
 pub const ALLJOYN_SESSIONLOST_REASON_OTHER: alljoyn_sessionlostreason = alljoyn_sessionlostreason(5i32);
+impl ::core::marker::Copy for alljoyn_sessionlostreason {}
+impl ::core::clone::Clone for alljoyn_sessionlostreason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct alljoyn_sessionopts {
     pub Value: isize,
@@ -1939,3 +1987,9 @@ pub const ALLJOYN_UINT32_ARRAY: alljoyn_typeid = alljoyn_typeid(30049i32);
 pub const ALLJOYN_INT64_ARRAY: alljoyn_typeid = alljoyn_typeid(30817i32);
 pub const ALLJOYN_BYTE_ARRAY: alljoyn_typeid = alljoyn_typeid(31073i32);
 pub const ALLJOYN_WILDCARD: alljoyn_typeid = alljoyn_typeid(42i32);
+impl ::core::marker::Copy for alljoyn_typeid {}
+impl ::core::clone::Clone for alljoyn_typeid {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

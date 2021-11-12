@@ -126,6 +126,12 @@ pub const ACTIVATIONTYPE_FROM_DATA: ACTIVATIONTYPE = ACTIVATIONTYPE(2i32);
 pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = ACTIVATIONTYPE(4i32);
 pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = ACTIVATIONTYPE(8i32);
 pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = ACTIVATIONTYPE(16i32);
+impl ::core::marker::Copy for ACTIVATIONTYPE {}
+impl ::core::clone::Clone for ACTIVATIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
     pub Value: isize,
@@ -140,10 +146,22 @@ impl ::core::clone::Clone for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
 pub struct AgileReferenceOptions(pub i32);
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
 pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceOptions(1i32);
+impl ::core::marker::Copy for AgileReferenceOptions {}
+impl ::core::clone::Clone for AgileReferenceOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BSOS_OPTIONS(pub i32);
 pub const BSOS_DEFAULT: BSOS_OPTIONS = BSOS_OPTIONS(0i32);
 pub const BSOS_PREFERDESTINATIONSTREAM: BSOS_OPTIONS = BSOS_OPTIONS(1i32);
+impl ::core::marker::Copy for BSOS_OPTIONS {}
+impl ::core::clone::Clone for BSOS_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
 pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(0i32);
@@ -153,6 +171,12 @@ pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED: CASTING_CONNECTION_ERRO
 pub const CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(4i32);
 pub const CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(5i32);
 pub const CASTING_CONNECTION_ERROR_STATUS_UNKNOWN: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(6i32);
+impl ::core::marker::Copy for CASTING_CONNECTION_ERROR_STATUS {}
+impl ::core::clone::Clone for CASTING_CONNECTION_ERROR_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CASTING_CONNECTION_STATE(pub i32);
 pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(0i32);
@@ -160,6 +184,12 @@ pub const CASTING_CONNECTION_STATE_CONNECTED: CASTING_CONNECTION_STATE = CASTING
 pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(2i32);
 pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(3i32);
 pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(4i32);
+impl ::core::marker::Copy for CASTING_CONNECTION_STATE {}
+impl ::core::clone::Clone for CASTING_CONNECTION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CastingSourceInfo_Property_CastingTypes: &'static str = "CastingTypes";
 pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &'static str = "PreferredSourceUriScheme";
 pub const CastingSourceInfo_Property_ProtectedMedia: &'static str = "ProtectedMedia";
@@ -168,10 +198,22 @@ pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
 pub const DQTAT_COM_NONE: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(0i32);
 pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(1i32);
 pub const DQTAT_COM_STA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(2i32);
+impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {}
+impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
 pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(1i32);
 pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(2i32);
+impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_TYPE {}
+impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DispatcherQueueOptions {
     pub dwSize: u32,
@@ -322,10 +364,22 @@ pub const RO_ERROR_REPORTING_SUPPRESSEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_E
 pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(2u32);
 pub const RO_ERROR_REPORTING_USESETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(4u32);
 pub const RO_ERROR_REPORTING_SUPPRESSSETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(8u32);
+impl ::core::marker::Copy for RO_ERROR_REPORTING_FLAGS {}
+impl ::core::clone::Clone for RO_ERROR_REPORTING_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RO_INIT_TYPE(pub i32);
 pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = RO_INIT_TYPE(0i32);
 pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = RO_INIT_TYPE(1i32);
+impl ::core::marker::Copy for RO_INIT_TYPE {}
+impl ::core::clone::Clone for RO_INIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ServerInformation {
     pub dwServerPid: u32,
@@ -343,5 +397,11 @@ pub struct TrustLevel(pub i32);
 pub const BaseTrust: TrustLevel = TrustLevel(0i32);
 pub const PartialTrust: TrustLevel = TrustLevel(1i32);
 pub const FullTrust: TrustLevel = TrustLevel(2i32);
+impl ::core::marker::Copy for TrustLevel {}
+impl ::core::clone::Clone for TrustLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _RO_REGISTRATION_COOKIE(pub u8);

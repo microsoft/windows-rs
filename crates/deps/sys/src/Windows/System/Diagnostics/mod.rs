@@ -20,6 +20,12 @@ impl DiagnosticActionState {
     pub const VerifyingResolution: Self = Self(5i32);
     pub const Executing: Self = Self(6i32);
 }
+impl ::core::marker::Copy for DiagnosticActionState {}
+impl ::core::clone::Clone for DiagnosticActionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DiagnosticInvoker(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

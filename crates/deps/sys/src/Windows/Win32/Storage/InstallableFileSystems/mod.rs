@@ -171,6 +171,12 @@ pub struct FILTER_INFORMATION_CLASS(pub i32);
 pub const FilterFullInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(0i32);
 pub const FilterAggregateBasicInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(1i32);
 pub const FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(2i32);
+impl ::core::marker::Copy for FILTER_INFORMATION_CLASS {}
+impl ::core::clone::Clone for FILTER_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct FILTER_MESSAGE_HEADER {
     pub ReplyLength: u32,
@@ -212,6 +218,12 @@ impl ::core::clone::Clone for FILTER_VOLUME_BASIC_INFORMATION {
 pub struct FILTER_VOLUME_INFORMATION_CLASS(pub i32);
 pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(0i32);
 pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(1i32);
+impl ::core::marker::Copy for FILTER_VOLUME_INFORMATION_CLASS {}
+impl ::core::clone::Clone for FILTER_VOLUME_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct FILTER_VOLUME_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
@@ -269,6 +281,12 @@ pub const FLT_FSTYPE_CSVFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(27i32);
 pub const FLT_FSTYPE_REFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(28i32);
 pub const FLT_FSTYPE_OPENAFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(29i32);
 pub const FLT_FSTYPE_CIMFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(30i32);
+impl ::core::marker::Copy for FLT_FILESYSTEM_TYPE {}
+impl ::core::clone::Clone for FLT_FILESYSTEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1u32;
 #[repr(C)]
 pub struct FilterFindHandle {
@@ -426,6 +444,12 @@ pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORM
 pub const InstancePartialInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(1i32);
 pub const InstanceFullInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(2i32);
 pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(3i32);
+impl ::core::marker::Copy for INSTANCE_INFORMATION_CLASS {}
+impl ::core::clone::Clone for INSTANCE_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INSTANCE_NAME_MAX_CHARS: u32 = 255u32;
 #[repr(C)]
 pub struct INSTANCE_PARTIAL_INFORMATION {

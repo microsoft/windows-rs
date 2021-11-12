@@ -12,6 +12,12 @@ impl EnterpriseEnrollmentStatus {
     pub const CancelledByUser: Self = Self(1i32);
     pub const UnknownFailure: Self = Self(2i32);
 }
+impl ::core::marker::Copy for EnterpriseEnrollmentStatus {}
+impl ::core::clone::Clone for EnterpriseEnrollmentStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EnterpriseStatus(pub i32);
 impl EnterpriseStatus {
@@ -19,6 +25,12 @@ impl EnterpriseStatus {
     pub const Disabled: Self = Self(1i32);
     pub const Revoked: Self = Self(2i32);
     pub const Expired: Self = Self(3i32);
+}
+impl ::core::marker::Copy for EnterpriseStatus {}
+impl ::core::clone::Clone for EnterpriseStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IEnterprise(pub *mut ::core::ffi::c_void);

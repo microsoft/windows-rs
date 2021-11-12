@@ -28,6 +28,12 @@ impl NotifyCollectionChangedAction {
     pub const Move: Self = Self(3i32);
     pub const Reset: Self = Self(4i32);
 }
+impl ::core::marker::Copy for NotifyCollectionChangedAction {}
+impl ::core::clone::Clone for NotifyCollectionChangedAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NotifyCollectionChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -38,6 +44,12 @@ impl TypeKind {
     pub const Primitive: Self = Self(0i32);
     pub const Metadata: Self = Self(1i32);
     pub const Custom: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TypeKind {}
+impl ::core::clone::Clone for TypeKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 pub struct TypeName {

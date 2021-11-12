@@ -16,6 +16,12 @@ impl CompositionDebugOverdrawContentKinds {
     pub const SwapChains: Self = Self(64u32);
     pub const All: Self = Self(4294967295u32);
 }
+impl ::core::marker::Copy for CompositionDebugOverdrawContentKinds {}
+impl ::core::clone::Clone for CompositionDebugOverdrawContentKinds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CompositionDebugSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

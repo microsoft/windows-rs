@@ -18,6 +18,12 @@ impl AccelerometerReadingType {
     pub const Linear: Self = Self(1i32);
     pub const Gravity: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AccelerometerReadingType {}
+impl ::core::clone::Clone for AccelerometerReadingType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AccelerometerShakenEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -34,6 +40,12 @@ impl ActivitySensorReadingConfidence {
     pub const High: Self = Self(0i32);
     pub const Low: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ActivitySensorReadingConfidence {}
+impl ::core::clone::Clone for ActivitySensorReadingConfidence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ActivitySensorTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -47,6 +59,12 @@ impl ActivityType {
     pub const Running: Self = Self(5i32);
     pub const InVehicle: Self = Self(6i32);
     pub const Biking: Self = Self(7i32);
+}
+impl ::core::marker::Copy for ActivityType {}
+impl ::core::clone::Clone for ActivityType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct Altimeter(pub *mut ::core::ffi::c_void);
@@ -374,6 +392,12 @@ impl MagnetometerAccuracy {
     pub const Approximate: Self = Self(2i32);
     pub const High: Self = Self(3i32);
 }
+impl ::core::marker::Copy for MagnetometerAccuracy {}
+impl ::core::clone::Clone for MagnetometerAccuracy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MagnetometerDataThreshold(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -401,6 +425,12 @@ impl PedometerStepKind {
     pub const Walking: Self = Self(1i32);
     pub const Running: Self = Self(2i32);
 }
+impl ::core::marker::Copy for PedometerStepKind {}
+impl ::core::clone::Clone for PedometerStepKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProximitySensor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -419,6 +449,12 @@ impl SensorOptimizationGoal {
     pub const Precision: Self = Self(0i32);
     pub const PowerEfficiency: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SensorOptimizationGoal {}
+impl ::core::clone::Clone for SensorOptimizationGoal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SensorQuaternion(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -426,6 +462,12 @@ pub struct SensorReadingType(pub i32);
 impl SensorReadingType {
     pub const Absolute: Self = Self(0i32);
     pub const Relative: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SensorReadingType {}
+impl ::core::clone::Clone for SensorReadingType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SensorRotationMatrix(pub *mut ::core::ffi::c_void);
@@ -447,6 +489,12 @@ impl SensorType {
     pub const RelativeOrientationSensor: Self = Self(12i32);
     pub const SimpleOrientationSensor: Self = Self(13i32);
 }
+impl ::core::marker::Copy for SensorType {}
+impl ::core::clone::Clone for SensorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SimpleOrientation(pub i32);
 impl SimpleOrientation {
@@ -456,6 +504,12 @@ impl SimpleOrientation {
     pub const Rotated270DegreesCounterclockwise: Self = Self(3i32);
     pub const Faceup: Self = Self(4i32);
     pub const Facedown: Self = Self(5i32);
+}
+impl ::core::marker::Copy for SimpleOrientation {}
+impl ::core::clone::Clone for SimpleOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SimpleOrientationSensor(pub *mut ::core::ffi::c_void);

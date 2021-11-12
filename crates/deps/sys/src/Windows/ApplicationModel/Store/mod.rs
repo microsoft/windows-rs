@@ -14,6 +14,12 @@ impl FulfillmentResult {
     pub const PurchaseReverted: Self = Self(3i32);
     pub const ServerError: Self = Self(4i32);
 }
+impl ::core::marker::Copy for FulfillmentResult {}
+impl ::core::clone::Clone for FulfillmentResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICurrentApp(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -78,12 +84,24 @@ impl ProductPurchaseStatus {
     pub const NotFulfilled: Self = Self(2i32);
     pub const NotPurchased: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ProductPurchaseStatus {}
+impl ::core::clone::Clone for ProductPurchaseStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProductType(pub i32);
 impl ProductType {
     pub const Unknown: Self = Self(0i32);
     pub const Durable: Self = Self(1i32);
     pub const Consumable: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ProductType {}
+impl ::core::clone::Clone for ProductType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PurchaseResults(pub *mut ::core::ffi::c_void);

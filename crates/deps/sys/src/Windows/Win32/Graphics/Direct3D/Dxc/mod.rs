@@ -71,6 +71,12 @@ pub struct DXC_CP(pub u32);
 pub const DXC_CP_ACP: DXC_CP = DXC_CP(0u32);
 pub const DXC_CP_UTF16: DXC_CP = DXC_CP(1200u32);
 pub const DXC_CP_UTF8: DXC_CP = DXC_CP(65001u32);
+impl ::core::marker::Copy for DXC_CP {}
+impl ::core::clone::Clone for DXC_CP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
 #[repr(transparent)]
 pub struct DXC_OUT_KIND(pub i32);
@@ -86,6 +92,12 @@ pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = DXC_OUT_KIND(8i32);
 pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = DXC_OUT_KIND(9i32);
 pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = DXC_OUT_KIND(10i32);
 pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = DXC_OUT_KIND(-1i32);
+impl ::core::marker::Copy for DXC_OUT_KIND {}
+impl ::core::clone::Clone for DXC_OUT_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DxcArgPair {

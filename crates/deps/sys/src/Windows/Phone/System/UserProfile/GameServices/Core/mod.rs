@@ -9,6 +9,12 @@ impl GameServiceGameOutcome {
     pub const Loss: Self = Self(2i32);
     pub const Tie: Self = Self(3i32);
 }
+impl ::core::marker::Copy for GameServiceGameOutcome {}
+impl ::core::clone::Clone for GameServiceGameOutcome {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GameServicePropertyCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -16,6 +22,12 @@ pub struct GameServiceScoreKind(pub i32);
 impl GameServiceScoreKind {
     pub const Number: Self = Self(0i32);
     pub const Time: Self = Self(1i32);
+}
+impl ::core::marker::Copy for GameServiceScoreKind {}
+impl ::core::clone::Clone for GameServiceScoreKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IGameService(pub *mut ::core::ffi::c_void);

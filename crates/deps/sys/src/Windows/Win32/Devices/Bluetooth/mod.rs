@@ -88,6 +88,12 @@ pub const MITMProtectionRequiredBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTIC
 pub const MITMProtectionNotRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(4i32);
 pub const MITMProtectionRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(5i32);
 pub const MITMProtectionNotDefined: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(255i32);
+impl ::core::marker::Copy for AUTHENTICATION_REQUIREMENTS {}
+impl ::core::clone::Clone for AUTHENTICATION_REQUIREMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AVCTP_PROTOCOL_UUID16: u32 = 23u32;
 pub const AVDTP_PROTOCOL_UUID16: u32 = 25u32;
 pub const AVRCP_SUPPORTED_FEATURES_CATEGORY_1: u32 = 1u32;
@@ -225,6 +231,12 @@ pub const BLUETOOTH_AUTHENTICATION_METHOD_OOB: BLUETOOTH_AUTHENTICATION_METHOD =
 pub const BLUETOOTH_AUTHENTICATION_METHOD_NUMERIC_COMPARISON: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(3i32);
 pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY_NOTIFICATION: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(4i32);
 pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(5i32);
+impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_METHOD {}
+impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BLUETOOTH_AUTHENTICATION_REQUIREMENTS(pub i32);
 pub const BLUETOOTH_MITM_ProtectionNotRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(0i32);
@@ -234,6 +246,12 @@ pub const BLUETOOTH_MITM_ProtectionRequiredBonding: BLUETOOTH_AUTHENTICATION_REQ
 pub const BLUETOOTH_MITM_ProtectionNotRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(4i32);
 pub const BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(5i32);
 pub const BLUETOOTH_MITM_ProtectionNotDefined: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(255i32);
+impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {}
+impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_COD_PAIRS {
@@ -315,6 +333,12 @@ pub const BLUETOOTH_IO_CAPABILITY_DISPLAYYESNO: BLUETOOTH_IO_CAPABILITY = BLUETO
 pub const BLUETOOTH_IO_CAPABILITY_KEYBOARDONLY: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(2i32);
 pub const BLUETOOTH_IO_CAPABILITY_NOINPUTNOOUTPUT: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(3i32);
 pub const BLUETOOTH_IO_CAPABILITY_UNDEFINED: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(255i32);
+impl ::core::marker::Copy for BLUETOOTH_IO_CAPABILITY {}
+impl ::core::clone::Clone for BLUETOOTH_IO_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
@@ -1063,6 +1087,12 @@ pub const IoCaps_DisplayYesNo: IO_CAPABILITY = IO_CAPABILITY(1i32);
 pub const IoCaps_KeyboardOnly: IO_CAPABILITY = IO_CAPABILITY(2i32);
 pub const IoCaps_NoInputNoOutput: IO_CAPABILITY = IO_CAPABILITY(3i32);
 pub const IoCaps_Undefined: IO_CAPABILITY = IO_CAPABILITY(255i32);
+impl ::core::marker::Copy for IO_CAPABILITY {}
+impl ::core::clone::Clone for IO_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IP_PROTOCOL_UUID16: u32 = 9u32;
 pub const ImagingAutomaticArchiveServiceClassID_UUID16: u32 = 4380u32;
 pub const ImagingReferenceObjectsServiceClassID_UUID16: u32 = 4381u32;
@@ -1098,6 +1128,12 @@ pub const NS_BTH: u32 = 16u32;
 pub struct NodeContainerType(pub i32);
 pub const NodeContainerTypeSequence: NodeContainerType = NodeContainerType(0i32);
 pub const NodeContainerTypeAlternative: NodeContainerType = NodeContainerType(1i32);
+impl ::core::marker::Copy for NodeContainerType {}
+impl ::core::clone::Clone for NodeContainerType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OBEXFileTransferServiceClassID_UUID16: u32 = 4358u32;
 pub const OBEXObjectPushServiceClassID_UUID16: u32 = 4357u32;
 pub const OBEX_PROTOCOL_UUID16: u32 = 8u32;
@@ -1464,6 +1500,12 @@ pub const SDP_ST_INT128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1056i32);
 pub const SDP_ST_UUID16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(304i32);
 pub const SDP_ST_UUID32: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(544i32);
 pub const SDP_ST_UUID128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1072i32);
+impl ::core::marker::Copy for SDP_SPECIFICTYPE {}
+impl ::core::clone::Clone for SDP_SPECIFICTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SDP_STRING_TYPE_DATA {
     pub encoding: u16,
@@ -1488,6 +1530,12 @@ pub const SDP_TYPE_SEQUENCE: SDP_TYPE = SDP_TYPE(6i32);
 pub const SDP_TYPE_ALTERNATIVE: SDP_TYPE = SDP_TYPE(7i32);
 pub const SDP_TYPE_URL: SDP_TYPE = SDP_TYPE(8i32);
 pub const SDP_TYPE_CONTAINER: SDP_TYPE = SDP_TYPE(32i32);
+impl ::core::marker::Copy for SDP_TYPE {}
+impl ::core::clone::Clone for SDP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SDP_ULARGE_INTEGER_16 {
     pub LowPart: u64,

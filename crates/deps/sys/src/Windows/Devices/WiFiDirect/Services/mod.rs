@@ -33,6 +33,12 @@ impl WiFiDirectServiceAdvertisementStatus {
     pub const Stopped: Self = Self(2i32);
     pub const Aborted: Self = Self(3i32);
 }
+impl ::core::marker::Copy for WiFiDirectServiceAdvertisementStatus {}
+impl ::core::clone::Clone for WiFiDirectServiceAdvertisementStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceAdvertiser(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -44,6 +50,12 @@ impl WiFiDirectServiceConfigurationMethod {
     pub const PinDisplay: Self = Self(1i32);
     pub const PinEntry: Self = Self(2i32);
 }
+impl ::core::marker::Copy for WiFiDirectServiceConfigurationMethod {}
+impl ::core::clone::Clone for WiFiDirectServiceConfigurationMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceError(pub i32);
 impl WiFiDirectServiceError {
@@ -53,11 +65,23 @@ impl WiFiDirectServiceError {
     pub const UnsupportedHardware: Self = Self(3i32);
     pub const NoHardware: Self = Self(4i32);
 }
+impl ::core::marker::Copy for WiFiDirectServiceError {}
+impl ::core::clone::Clone for WiFiDirectServiceError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceIPProtocol(pub i32);
 impl WiFiDirectServiceIPProtocol {
     pub const Tcp: Self = Self(6i32);
     pub const Udp: Self = Self(17i32);
+}
+impl ::core::marker::Copy for WiFiDirectServiceIPProtocol {}
+impl ::core::clone::Clone for WiFiDirectServiceIPProtocol {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WiFiDirectServiceProvisioningInfo(pub *mut ::core::ffi::c_void);
@@ -77,6 +101,12 @@ impl WiFiDirectServiceSessionErrorStatus {
     pub const SystemFailure: Self = Self(4i32);
     pub const NoResponseFromRemote: Self = Self(5i32);
 }
+impl ::core::marker::Copy for WiFiDirectServiceSessionErrorStatus {}
+impl ::core::clone::Clone for WiFiDirectServiceSessionErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -89,10 +119,22 @@ impl WiFiDirectServiceSessionStatus {
     pub const Requested: Self = Self(2i32);
     pub const Open: Self = Self(3i32);
 }
+impl ::core::marker::Copy for WiFiDirectServiceSessionStatus {}
+impl ::core::clone::Clone for WiFiDirectServiceSessionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiDirectServiceStatus(pub i32);
 impl WiFiDirectServiceStatus {
     pub const Available: Self = Self(0i32);
     pub const Busy: Self = Self(1i32);
     pub const Custom: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WiFiDirectServiceStatus {}
+impl ::core::clone::Clone for WiFiDirectServiceStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

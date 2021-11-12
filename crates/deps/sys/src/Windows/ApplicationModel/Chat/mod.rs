@@ -17,11 +17,23 @@ impl ChatConversationThreadingKind {
     pub const ConversationId: Self = Self(2i32);
     pub const Custom: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ChatConversationThreadingKind {}
+impl ::core::clone::Clone for ChatConversationThreadingKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ChatItemKind(pub i32);
 impl ChatItemKind {
     pub const Message: Self = Self(0i32);
     pub const Conversation: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ChatItemKind {}
+impl ::core::clone::Clone for ChatItemKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ChatMessage(pub *mut ::core::ffi::c_void);
@@ -41,6 +53,12 @@ impl ChatMessageChangeType {
     pub const MessageDeleted: Self = Self(2i32);
     pub const ChangeTrackingLost: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ChatMessageChangeType {}
+impl ::core::clone::Clone for ChatMessageChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ChatMessageChangedDeferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -56,6 +74,12 @@ impl ChatMessageKind {
     pub const OtherParticipantJoinedConversation: Self = Self(5i32);
     pub const OtherParticipantLeftConversation: Self = Self(6i32);
 }
+impl ::core::marker::Copy for ChatMessageKind {}
+impl ::core::clone::Clone for ChatMessageKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ChatMessageNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -65,6 +89,12 @@ impl ChatMessageOperatorKind {
     pub const Sms: Self = Self(1i32);
     pub const Mms: Self = Self(2i32);
     pub const Rcs: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ChatMessageOperatorKind {}
+impl ::core::clone::Clone for ChatMessageOperatorKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ChatMessageReader(pub *mut ::core::ffi::c_void);
@@ -86,6 +116,12 @@ impl ChatMessageStatus {
     pub const Recalled: Self = Self(12i32);
     pub const ReceiveRetryNeeded: Self = Self(13i32);
 }
+impl ::core::marker::Copy for ChatMessageStatus {}
+impl ::core::clone::Clone for ChatMessageStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ChatMessageStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -101,6 +137,12 @@ impl ChatMessageTransportKind {
     pub const Untriaged: Self = Self(1i32);
     pub const Blocked: Self = Self(2i32);
     pub const Custom: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ChatMessageTransportKind {}
+impl ::core::clone::Clone for ChatMessageTransportKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ChatMessageValidationResult(pub *mut ::core::ffi::c_void);
@@ -122,6 +164,12 @@ impl ChatMessageValidationStatus {
     pub const VoiceRoamingRestriction: Self = Self(12i32);
     pub const DataRoamingRestriction: Self = Self(13i32);
 }
+impl ::core::marker::Copy for ChatMessageValidationStatus {}
+impl ::core::clone::Clone for ChatMessageValidationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ChatQueryOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -132,6 +180,12 @@ impl ChatRestoreHistorySpan {
     pub const LastMonth: Self = Self(0i32);
     pub const LastYear: Self = Self(1i32);
     pub const AnyTime: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ChatRestoreHistorySpan {}
+impl ::core::clone::Clone for ChatRestoreHistorySpan {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ChatSearchReader(pub *mut ::core::ffi::c_void);
@@ -147,6 +201,12 @@ impl ChatStoreChangedEventKind {
     pub const ConversationDeleted: Self = Self(6i32);
     pub const ConversationTransportDeleted: Self = Self(7i32);
 }
+impl ::core::marker::Copy for ChatStoreChangedEventKind {}
+impl ::core::clone::Clone for ChatStoreChangedEventKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ChatSyncConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -159,6 +219,12 @@ impl ChatTransportErrorCodeCategory {
     pub const Network: Self = Self(2i32);
     pub const MmsServer: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ChatTransportErrorCodeCategory {}
+impl ::core::clone::Clone for ChatTransportErrorCodeCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ChatTransportInterpretedErrorCode(pub i32);
 impl ChatTransportInterpretedErrorCode {
@@ -168,6 +234,12 @@ impl ChatTransportInterpretedErrorCode {
     pub const NetworkConnectivity: Self = Self(3i32);
     pub const ServiceDenied: Self = Self(4i32);
     pub const Timeout: Self = Self(5i32);
+}
+impl ::core::marker::Copy for ChatTransportInterpretedErrorCode {}
+impl ::core::clone::Clone for ChatTransportInterpretedErrorCode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IChatCapabilities(pub *mut ::core::ffi::c_void);
@@ -290,6 +362,12 @@ impl RcsServiceKind {
     pub const GroupChat: Self = Self(1i32);
     pub const FileTransfer: Self = Self(2i32);
     pub const Capability: Self = Self(3i32);
+}
+impl ::core::marker::Copy for RcsServiceKind {}
+impl ::core::clone::Clone for RcsServiceKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RcsServiceKindSupportedChangedEventArgs(pub *mut ::core::ffi::c_void);

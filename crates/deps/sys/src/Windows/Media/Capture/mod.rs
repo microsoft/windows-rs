@@ -22,6 +22,12 @@ impl AppBroadcastCameraCaptureState {
     pub const Started: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AppBroadcastCameraCaptureState {}
+impl ::core::clone::Clone for AppBroadcastCameraCaptureState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppBroadcastCameraCaptureStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -37,6 +43,12 @@ impl AppBroadcastCameraOverlayLocation {
     pub const BottomCenter: Self = Self(7i32);
     pub const BottomRight: Self = Self(8i32);
 }
+impl ::core::marker::Copy for AppBroadcastCameraOverlayLocation {}
+impl ::core::clone::Clone for AppBroadcastCameraOverlayLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppBroadcastCameraOverlaySize(pub i32);
 impl AppBroadcastCameraOverlaySize {
@@ -44,11 +56,23 @@ impl AppBroadcastCameraOverlaySize {
     pub const Medium: Self = Self(1i32);
     pub const Large: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AppBroadcastCameraOverlaySize {}
+impl ::core::clone::Clone for AppBroadcastCameraOverlaySize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppBroadcastCaptureTargetType(pub i32);
 impl AppBroadcastCaptureTargetType {
     pub const AppView: Self = Self(0i32);
     pub const EntireDisplay: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AppBroadcastCaptureTargetType {}
+impl ::core::clone::Clone for AppBroadcastCaptureTargetType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppBroadcastExitBroadcastModeReason(pub i32);
@@ -57,6 +81,12 @@ impl AppBroadcastExitBroadcastModeReason {
     pub const UserCanceled: Self = Self(1i32);
     pub const AuthorizationFail: Self = Self(2i32);
     pub const ForegroundAppActivated: Self = Self(3i32);
+}
+impl ::core::marker::Copy for AppBroadcastExitBroadcastModeReason {}
+impl ::core::clone::Clone for AppBroadcastExitBroadcastModeReason {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppBroadcastGlobalSettings(pub *mut ::core::ffi::c_void);
@@ -68,6 +98,12 @@ impl AppBroadcastMicrophoneCaptureState {
     pub const Stopped: Self = Self(0i32);
     pub const Started: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AppBroadcastMicrophoneCaptureState {}
+impl ::core::clone::Clone for AppBroadcastMicrophoneCaptureState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppBroadcastMicrophoneCaptureStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -86,6 +122,12 @@ impl AppBroadcastPlugInState {
     pub const InBandwidthTest: Self = Self(5i32);
     pub const ReadyToBroadcast: Self = Self(6i32);
 }
+impl ::core::marker::Copy for AppBroadcastPlugInState {}
+impl ::core::clone::Clone for AppBroadcastPlugInState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppBroadcastPlugInStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -96,6 +138,12 @@ impl AppBroadcastPreviewState {
     pub const Started: Self = Self(0i32);
     pub const Stopped: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AppBroadcastPreviewState {}
+impl ::core::clone::Clone for AppBroadcastPreviewState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppBroadcastPreviewStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -118,6 +166,12 @@ impl AppBroadcastSignInResult {
     pub const ServiceUnavailable: Self = Self(3i32);
     pub const Unknown: Self = Self(4i32);
 }
+impl ::core::marker::Copy for AppBroadcastSignInResult {}
+impl ::core::clone::Clone for AppBroadcastSignInResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppBroadcastSignInState(pub i32);
 impl AppBroadcastSignInState {
@@ -126,6 +180,12 @@ impl AppBroadcastSignInState {
     pub const MicrosoftSignInComplete: Self = Self(2i32);
     pub const OAuthSignInInProgress: Self = Self(3i32);
     pub const OAuthSignInComplete: Self = Self(4i32);
+}
+impl ::core::marker::Copy for AppBroadcastSignInState {}
+impl ::core::clone::Clone for AppBroadcastSignInState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppBroadcastSignInStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -145,6 +205,12 @@ impl AppBroadcastStreamState {
     pub const Started: Self = Self(2i32);
     pub const Paused: Self = Self(3i32);
     pub const Terminated: Self = Self(4i32);
+}
+impl ::core::marker::Copy for AppBroadcastStreamState {}
+impl ::core::clone::Clone for AppBroadcastStreamState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppBroadcastStreamStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -166,6 +232,12 @@ impl AppBroadcastTerminationReason {
     pub const BackgroundTaskTerminated: Self = Self(8i32);
     pub const BackgroundTaskUnresponsive: Self = Self(9i32);
 }
+impl ::core::marker::Copy for AppBroadcastTerminationReason {}
+impl ::core::clone::Clone for AppBroadcastTerminationReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppBroadcastTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -174,11 +246,23 @@ impl AppBroadcastVideoEncodingBitrateMode {
     pub const Custom: Self = Self(0i32);
     pub const Auto: Self = Self(1i32);
 }
+impl ::core::marker::Copy for AppBroadcastVideoEncodingBitrateMode {}
+impl ::core::clone::Clone for AppBroadcastVideoEncodingBitrateMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppBroadcastVideoEncodingResolutionMode(pub i32);
 impl AppBroadcastVideoEncodingResolutionMode {
     pub const Custom: Self = Self(0i32);
     pub const Auto: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AppBroadcastVideoEncodingResolutionMode {}
+impl ::core::clone::Clone for AppBroadcastVideoEncodingResolutionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppBroadcastViewerCountChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -196,11 +280,23 @@ impl AppCaptureHistoricalBufferLengthUnit {
     pub const Megabytes: Self = Self(0i32);
     pub const Seconds: Self = Self(1i32);
 }
+impl ::core::marker::Copy for AppCaptureHistoricalBufferLengthUnit {}
+impl ::core::clone::Clone for AppCaptureHistoricalBufferLengthUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppCaptureMetadataPriority(pub i32);
 impl AppCaptureMetadataPriority {
     pub const Informational: Self = Self(0i32);
     pub const Important: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AppCaptureMetadataPriority {}
+impl ::core::clone::Clone for AppCaptureMetadataPriority {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppCaptureMetadataWriter(pub *mut ::core::ffi::c_void);
@@ -210,6 +306,12 @@ impl AppCaptureMicrophoneCaptureState {
     pub const Stopped: Self = Self(0i32);
     pub const Started: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AppCaptureMicrophoneCaptureState {}
+impl ::core::clone::Clone for AppCaptureMicrophoneCaptureState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppCaptureMicrophoneCaptureStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -221,6 +323,12 @@ impl AppCaptureRecordingState {
     pub const InProgress: Self = Self(0i32);
     pub const Completed: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AppCaptureRecordingState {}
+impl ::core::clone::Clone for AppCaptureRecordingState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppCaptureRecordingStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -237,11 +345,23 @@ impl AppCaptureVideoEncodingBitrateMode {
     pub const High: Self = Self(1i32);
     pub const Standard: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AppCaptureVideoEncodingBitrateMode {}
+impl ::core::clone::Clone for AppCaptureVideoEncodingBitrateMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppCaptureVideoEncodingFrameRateMode(pub i32);
 impl AppCaptureVideoEncodingFrameRateMode {
     pub const Standard: Self = Self(0i32);
     pub const High: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AppCaptureVideoEncodingFrameRateMode {}
+impl ::core::clone::Clone for AppCaptureVideoEncodingFrameRateMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppCaptureVideoEncodingResolutionMode(pub i32);
@@ -249,6 +369,12 @@ impl AppCaptureVideoEncodingResolutionMode {
     pub const Custom: Self = Self(0i32);
     pub const High: Self = Self(1i32);
     pub const Standard: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AppCaptureVideoEncodingResolutionMode {}
+impl ::core::clone::Clone for AppCaptureVideoEncodingResolutionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CameraCaptureUI(pub *mut ::core::ffi::c_void);
@@ -262,6 +388,12 @@ impl CameraCaptureUIMaxPhotoResolution {
     pub const Large3M: Self = Self(4i32);
     pub const VeryLarge5M: Self = Self(5i32);
 }
+impl ::core::marker::Copy for CameraCaptureUIMaxPhotoResolution {}
+impl ::core::clone::Clone for CameraCaptureUIMaxPhotoResolution {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CameraCaptureUIMaxVideoResolution(pub i32);
 impl CameraCaptureUIMaxVideoResolution {
@@ -270,12 +402,24 @@ impl CameraCaptureUIMaxVideoResolution {
     pub const StandardDefinition: Self = Self(2i32);
     pub const HighDefinition: Self = Self(3i32);
 }
+impl ::core::marker::Copy for CameraCaptureUIMaxVideoResolution {}
+impl ::core::clone::Clone for CameraCaptureUIMaxVideoResolution {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CameraCaptureUIMode(pub i32);
 impl CameraCaptureUIMode {
     pub const PhotoOrVideo: Self = Self(0i32);
     pub const Photo: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CameraCaptureUIMode {}
+impl ::core::clone::Clone for CameraCaptureUIMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CameraCaptureUIPhotoCaptureSettings(pub *mut ::core::ffi::c_void);
@@ -286,6 +430,12 @@ impl CameraCaptureUIPhotoFormat {
     pub const Png: Self = Self(1i32);
     pub const JpegXR: Self = Self(2i32);
 }
+impl ::core::marker::Copy for CameraCaptureUIPhotoFormat {}
+impl ::core::clone::Clone for CameraCaptureUIPhotoFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CameraCaptureUIVideoCaptureSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -293,6 +443,12 @@ pub struct CameraCaptureUIVideoFormat(pub i32);
 impl CameraCaptureUIVideoFormat {
     pub const Mp4: Self = Self(0i32);
     pub const Wmv: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CameraCaptureUIVideoFormat {}
+impl ::core::clone::Clone for CameraCaptureUIVideoFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CapturedFrame(pub *mut ::core::ffi::c_void);
@@ -305,6 +461,12 @@ pub struct ForegroundActivationArgument(pub i32);
 impl ForegroundActivationArgument {
     pub const SignInRequired: Self = Self(0i32);
     pub const MoreSettings: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ForegroundActivationArgument {}
+impl ::core::clone::Clone for ForegroundActivationArgument {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GameBarCommand(pub i32);
@@ -324,12 +486,24 @@ impl GameBarCommand {
     pub const ToggleCameraCapture: Self = Self(12i32);
     pub const ToggleRecordingIndicator: Self = Self(13i32);
 }
+impl ::core::marker::Copy for GameBarCommand {}
+impl ::core::clone::Clone for GameBarCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GameBarCommandOrigin(pub i32);
 impl GameBarCommandOrigin {
     pub const ShortcutKey: Self = Self(0i32);
     pub const Cortana: Self = Self(1i32);
     pub const AppCommand: Self = Self(2i32);
+}
+impl ::core::marker::Copy for GameBarCommandOrigin {}
+impl ::core::clone::Clone for GameBarCommandOrigin {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GameBarServices(pub *mut ::core::ffi::c_void);
@@ -340,6 +514,12 @@ pub struct GameBarServicesDisplayMode(pub i32);
 impl GameBarServicesDisplayMode {
     pub const Windowed: Self = Self(0i32);
     pub const FullScreenExclusive: Self = Self(1i32);
+}
+impl ::core::marker::Copy for GameBarServicesDisplayMode {}
+impl ::core::clone::Clone for GameBarServicesDisplayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GameBarServicesManager(pub *mut ::core::ffi::c_void);
@@ -355,6 +535,12 @@ impl GameBarTargetCapturePolicy {
     pub const NotEnabled: Self = Self(2i32);
     pub const ProhibitedBySystem: Self = Self(3i32);
     pub const ProhibitedByPublisher: Self = Self(4i32);
+}
+impl ::core::marker::Copy for GameBarTargetCapturePolicy {}
+impl ::core::clone::Clone for GameBarTargetCapturePolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IAdvancedCapturedPhoto(pub *mut ::core::ffi::c_void);
@@ -595,6 +781,12 @@ impl KnownVideoProfile {
     pub const VideoHdr8: Self = Self(9i32);
     pub const CompressedCamera: Self = Self(10i32);
 }
+impl ::core::marker::Copy for KnownVideoProfile {}
+impl ::core::clone::Clone for KnownVideoProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LowLagMediaRecording(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -608,6 +800,12 @@ pub struct MediaCaptureDeviceExclusiveControlStatus(pub i32);
 impl MediaCaptureDeviceExclusiveControlStatus {
     pub const ExclusiveControlAvailable: Self = Self(0i32);
     pub const SharedReadOnlyAvailable: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MediaCaptureDeviceExclusiveControlStatus {}
+impl ::core::clone::Clone for MediaCaptureDeviceExclusiveControlStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MediaCaptureDeviceExclusiveControlStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -625,6 +823,12 @@ impl MediaCaptureMemoryPreference {
     pub const Auto: Self = Self(0i32);
     pub const Cpu: Self = Self(1i32);
 }
+impl ::core::marker::Copy for MediaCaptureMemoryPreference {}
+impl ::core::clone::Clone for MediaCaptureMemoryPreference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaCapturePauseResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -637,6 +841,12 @@ impl MediaCaptureSharingMode {
     pub const ExclusiveControl: Self = Self(0i32);
     pub const SharedReadOnly: Self = Self(1i32);
 }
+impl ::core::marker::Copy for MediaCaptureSharingMode {}
+impl ::core::clone::Clone for MediaCaptureSharingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaCaptureStopResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -644,6 +854,12 @@ pub struct MediaCaptureThermalStatus(pub i32);
 impl MediaCaptureThermalStatus {
     pub const Normal: Self = Self(0i32);
     pub const Overheated: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MediaCaptureThermalStatus {}
+impl ::core::clone::Clone for MediaCaptureThermalStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MediaCaptureVideoProfile(pub *mut ::core::ffi::c_void);
@@ -661,6 +877,12 @@ impl MediaCategory {
     pub const UniformSpeech: Self = Self(6i32);
     pub const VoiceTyping: Self = Self(7i32);
 }
+impl ::core::marker::Copy for MediaCategory {}
+impl ::core::clone::Clone for MediaCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaStreamType(pub i32);
 impl MediaStreamType {
@@ -670,6 +892,12 @@ impl MediaStreamType {
     pub const Photo: Self = Self(3i32);
     pub const Metadata: Self = Self(4i32);
 }
+impl ::core::marker::Copy for MediaStreamType {}
+impl ::core::clone::Clone for MediaStreamType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OptionalReferencePhotoCapturedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -678,6 +906,12 @@ impl PhotoCaptureSource {
     pub const Auto: Self = Self(0i32);
     pub const VideoPreview: Self = Self(1i32);
     pub const Photo: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhotoCaptureSource {}
+impl ::core::clone::Clone for PhotoCaptureSource {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PhotoCapturedEventArgs(pub *mut ::core::ffi::c_void);
@@ -690,6 +924,12 @@ impl PowerlineFrequency {
     pub const FiftyHertz: Self = Self(1i32);
     pub const SixtyHertz: Self = Self(2i32);
     pub const Auto: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PowerlineFrequency {}
+impl ::core::clone::Clone for PowerlineFrequency {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RecordLimitationExceededEventHandler(pub *mut ::core::ffi::c_void);
@@ -704,6 +944,12 @@ impl StreamingCaptureMode {
     pub const Audio: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
 }
+impl ::core::marker::Copy for StreamingCaptureMode {}
+impl ::core::clone::Clone for StreamingCaptureMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VideoDeviceCharacteristic(pub i32);
 impl VideoDeviceCharacteristic {
@@ -713,6 +959,12 @@ impl VideoDeviceCharacteristic {
     pub const RecordPhotoStreamsIdentical: Self = Self(3i32);
     pub const AllStreamsIdentical: Self = Self(4i32);
 }
+impl ::core::marker::Copy for VideoDeviceCharacteristic {}
+impl ::core::clone::Clone for VideoDeviceCharacteristic {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VideoRotation(pub i32);
 impl VideoRotation {
@@ -720,6 +972,12 @@ impl VideoRotation {
     pub const Clockwise90Degrees: Self = Self(1i32);
     pub const Clockwise180Degrees: Self = Self(2i32);
     pub const Clockwise270Degrees: Self = Self(3i32);
+}
+impl ::core::marker::Copy for VideoRotation {}
+impl ::core::clone::Clone for VideoRotation {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VideoStreamConfiguration(pub *mut ::core::ffi::c_void);

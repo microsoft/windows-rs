@@ -55,6 +55,12 @@ pub struct DeviceDiscoveryMechanism(pub i32);
 pub const MulticastDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(0i32);
 pub const DirectedDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(1i32);
 pub const SecureDirectedDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(2i32);
+impl ::core::marker::Copy for DeviceDiscoveryMechanism {}
+impl ::core::clone::Clone for DeviceDiscoveryMechanism {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSDAddress(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -267,10 +273,22 @@ pub const WSDET_INCOMING_MESSAGE: WSDEventType = WSDEventType(1i32);
 pub const WSDET_INCOMING_FAULT: WSDEventType = WSDEventType(2i32);
 pub const WSDET_TRANSMISSION_FAILURE: WSDEventType = WSDEventType(3i32);
 pub const WSDET_RESPONSE_TIMEOUT: WSDEventType = WSDEventType(4i32);
+impl ::core::marker::Copy for WSDEventType {}
+impl ::core::clone::Clone for WSDEventType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WSDUdpMessageType(pub i32);
 pub const ONE_WAY: WSDUdpMessageType = WSDUdpMessageType(0i32);
 pub const TWO_WAY: WSDUdpMessageType = WSDUdpMessageType(1i32);
+impl ::core::marker::Copy for WSDUdpMessageType {}
+impl ::core::clone::Clone for WSDUdpMessageType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WSDUdpRetransmitParams {
     pub ulSendDelay: u32,
@@ -427,6 +445,12 @@ pub const OpProcess_: WSDXML_OP = WSDXML_OP(43i32);
 pub const OpQualifiedAttribute_: WSDXML_OP = WSDXML_OP(44i32);
 pub const OpFormatXMLDeclaration_: WSDXML_OP = WSDXML_OP(45i32);
 pub const OpFormatMax: WSDXML_OP = WSDXML_OP(46i32);
+impl ::core::marker::Copy for WSDXML_OP {}
+impl ::core::clone::Clone for WSDXML_OP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSDXML_PREFIX_MAPPING {
@@ -538,6 +562,12 @@ pub const WSD_CONFIG_DEVICE_ADDRESSES: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_
 pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(11i32);
 pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(12i32);
 pub const WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(13i32);
+impl ::core::marker::Copy for WSD_CONFIG_PARAM_TYPE {}
+impl ::core::clone::Clone for WSD_CONFIG_PARAM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_DATETIME {
@@ -937,6 +967,12 @@ pub const WSD_PT_UDP: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(1i32);
 pub const WSD_PT_HTTP: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(2i32);
 pub const WSD_PT_HTTPS: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(4i32);
 pub const WSD_PT_ALL: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(255i32);
+impl ::core::marker::Copy for WSD_PROTOCOL_TYPE {}
+impl ::core::clone::Clone for WSD_PROTOCOL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_REFERENCE_PARAMETERS {

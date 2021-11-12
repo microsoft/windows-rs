@@ -26,6 +26,12 @@ impl ArcadeStickButtons {
     pub const Special1: Self = Self(1024u32);
     pub const Special2: Self = Self(2048u32);
 }
+impl ::core::marker::Copy for ArcadeStickButtons {}
+impl ::core::clone::Clone for ArcadeStickButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ArcadeStickReading {
     pub Timestamp: u64,
@@ -45,6 +51,12 @@ impl FlightStickButtons {
     pub const None: Self = Self(0u32);
     pub const FirePrimary: Self = Self(1u32);
     pub const FireSecondary: Self = Self(2u32);
+}
+impl ::core::marker::Copy for FlightStickButtons {}
+impl ::core::clone::Clone for FlightStickButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 pub struct FlightStickReading {
@@ -135,12 +147,24 @@ impl GameControllerButtonLabel {
     pub const DialRight: Self = Self(67i32);
     pub const Suspension: Self = Self(68i32);
 }
+impl ::core::marker::Copy for GameControllerButtonLabel {}
+impl ::core::clone::Clone for GameControllerButtonLabel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GameControllerSwitchKind(pub i32);
 impl GameControllerSwitchKind {
     pub const TwoWay: Self = Self(0i32);
     pub const FourWay: Self = Self(1i32);
     pub const EightWay: Self = Self(2i32);
+}
+impl ::core::marker::Copy for GameControllerSwitchKind {}
+impl ::core::clone::Clone for GameControllerSwitchKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GameControllerSwitchPosition(pub i32);
@@ -154,6 +178,12 @@ impl GameControllerSwitchPosition {
     pub const DownLeft: Self = Self(6i32);
     pub const Left: Self = Self(7i32);
     pub const UpLeft: Self = Self(8i32);
+}
+impl ::core::marker::Copy for GameControllerSwitchPosition {}
+impl ::core::clone::Clone for GameControllerSwitchPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct Gamepad(pub *mut ::core::ffi::c_void);
@@ -179,6 +209,12 @@ impl GamepadButtons {
     pub const Paddle2: Self = Self(32768u32);
     pub const Paddle3: Self = Self(65536u32);
     pub const Paddle4: Self = Self(131072u32);
+}
+impl ::core::marker::Copy for GamepadButtons {}
+impl ::core::clone::Clone for GamepadButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 pub struct GamepadReading {
@@ -271,6 +307,12 @@ impl OptionalUINavigationButtons {
     pub const ScrollLeft: Self = Self(1024u32);
     pub const ScrollRight: Self = Self(2048u32);
 }
+impl ::core::marker::Copy for OptionalUINavigationButtons {}
+impl ::core::clone::Clone for OptionalUINavigationButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RacingWheel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -299,6 +341,12 @@ impl RacingWheelButtons {
     pub const Button14: Self = Self(524288u32);
     pub const Button15: Self = Self(1048576u32);
     pub const Button16: Self = Self(2097152u32);
+}
+impl ::core::marker::Copy for RacingWheelButtons {}
+impl ::core::clone::Clone for RacingWheelButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 pub struct RacingWheelReading {
@@ -331,6 +379,12 @@ impl RequiredUINavigationButtons {
     pub const Down: Self = Self(32u32);
     pub const Left: Self = Self(64u32);
     pub const Right: Self = Self(128u32);
+}
+impl ::core::marker::Copy for RequiredUINavigationButtons {}
+impl ::core::clone::Clone for RequiredUINavigationButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UINavigationController(pub *mut ::core::ffi::c_void);

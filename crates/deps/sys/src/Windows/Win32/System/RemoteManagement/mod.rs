@@ -1169,6 +1169,12 @@ pub const WSMAN_FLAG_AUTH_BASIC: WSManAuthenticationFlags = WSManAuthenticationF
 pub const WSMAN_FLAG_AUTH_KERBEROS: WSManAuthenticationFlags = WSManAuthenticationFlags(16i32);
 pub const WSMAN_FLAG_AUTH_CREDSSP: WSManAuthenticationFlags = WSManAuthenticationFlags(128i32);
 pub const WSMAN_FLAG_AUTH_CLIENT_CERTIFICATE: WSManAuthenticationFlags = WSManAuthenticationFlags(32i32);
+impl ::core::marker::Copy for WSManAuthenticationFlags {}
+impl ::core::clone::Clone for WSManAuthenticationFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WSManCallbackFlags(pub i32);
 pub const WSMAN_FLAG_CALLBACK_END_OF_OPERATION: WSManCallbackFlags = WSManCallbackFlags(1i32);
@@ -1181,12 +1187,24 @@ pub const WSMAN_FLAG_CALLBACK_RECONNECTED_AFTER_NETWORK_FAILURE: WSManCallbackFl
 pub const WSMAN_FLAG_CALLBACK_SHELL_AUTODISCONNECTING: WSManCallbackFlags = WSManCallbackFlags(2048i32);
 pub const WSMAN_FLAG_CALLBACK_RETRY_ABORTED_DUE_TO_INTERNAL_ERROR: WSManCallbackFlags = WSManCallbackFlags(4096i32);
 pub const WSMAN_FLAG_CALLBACK_RECEIVE_DELAY_STREAM_REQUEST_PROCESSED: WSManCallbackFlags = WSManCallbackFlags(8192i32);
+impl ::core::marker::Copy for WSManCallbackFlags {}
+impl ::core::clone::Clone for WSManCallbackFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WSManDataType(pub i32);
 pub const WSMAN_DATA_NONE: WSManDataType = WSManDataType(0i32);
 pub const WSMAN_DATA_TYPE_TEXT: WSManDataType = WSManDataType(1i32);
 pub const WSMAN_DATA_TYPE_BINARY: WSManDataType = WSManDataType(2i32);
 pub const WSMAN_DATA_TYPE_DWORD: WSManDataType = WSManDataType(4i32);
+impl ::core::marker::Copy for WSManDataType {}
+impl ::core::clone::Clone for WSManDataType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WSManEnumFlags(pub i32);
 pub const WSManFlagNonXmlText: WSManEnumFlags = WSManEnumFlags(1i32);
@@ -1198,6 +1216,12 @@ pub const WSManFlagHierarchyShallow: WSManEnumFlags = WSManEnumFlags(32i32);
 pub const WSManFlagHierarchyDeepBasePropsOnly: WSManEnumFlags = WSManEnumFlags(64i32);
 pub const WSManFlagAssociatedInstance: WSManEnumFlags = WSManEnumFlags(0i32);
 pub const WSManFlagAssociationInstance: WSManEnumFlags = WSManEnumFlags(128i32);
+impl ::core::marker::Copy for WSManEnumFlags {}
+impl ::core::clone::Clone for WSManEnumFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WSManInternal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2111866789, data2: 24011, data3: 19959, data4: [187, 18, 9, 36, 173, 143, 189, 154] };
 #[repr(transparent)]
 pub struct WSManProxyAccessType(pub i32);
@@ -1205,17 +1229,35 @@ pub const WSMAN_OPTION_PROXY_IE_PROXY_CONFIG: WSManProxyAccessType = WSManProxyA
 pub const WSMAN_OPTION_PROXY_WINHTTP_PROXY_CONFIG: WSManProxyAccessType = WSManProxyAccessType(2i32);
 pub const WSMAN_OPTION_PROXY_AUTO_DETECT: WSManProxyAccessType = WSManProxyAccessType(4i32);
 pub const WSMAN_OPTION_PROXY_NO_PROXY_SERVER: WSManProxyAccessType = WSManProxyAccessType(8i32);
+impl ::core::marker::Copy for WSManProxyAccessType {}
+impl ::core::clone::Clone for WSManProxyAccessType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WSManProxyAccessTypeFlags(pub i32);
 pub const WSManProxyIEConfig: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(1i32);
 pub const WSManProxyWinHttpConfig: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(2i32);
 pub const WSManProxyAutoDetect: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(4i32);
 pub const WSManProxyNoProxyServer: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(8i32);
+impl ::core::marker::Copy for WSManProxyAccessTypeFlags {}
+impl ::core::clone::Clone for WSManProxyAccessTypeFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WSManProxyAuthenticationFlags(pub i32);
 pub const WSManFlagProxyAuthenticationUseNegotiate: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(1i32);
 pub const WSManFlagProxyAuthenticationUseBasic: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(2i32);
 pub const WSManFlagProxyAuthenticationUseDigest: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(4i32);
+impl ::core::marker::Copy for WSManProxyAuthenticationFlags {}
+impl ::core::clone::Clone for WSManProxyAuthenticationFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WSManSessionFlags(pub i32);
 pub const WSManFlagUTF8: WSManSessionFlags = WSManSessionFlags(1i32);
@@ -1235,6 +1277,12 @@ pub const WSManFlagUseCredSsp: WSManSessionFlags = WSManSessionFlags(16777216i32
 pub const WSManFlagSkipRevocationCheck: WSManSessionFlags = WSManSessionFlags(33554432i32);
 pub const WSManFlagAllowNegotiateImplicitCredentials: WSManSessionFlags = WSManSessionFlags(67108864i32);
 pub const WSManFlagUseSsl: WSManSessionFlags = WSManSessionFlags(134217728i32);
+impl ::core::marker::Copy for WSManSessionFlags {}
+impl ::core::clone::Clone for WSManSessionFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WSManSessionOption(pub i32);
 pub const WSMAN_OPTION_DEFAULT_OPERATION_TIMEOUTMS: WSManSessionOption = WSManSessionOption(1i32);
@@ -1260,6 +1308,12 @@ pub const WSMAN_OPTION_SKIP_REVOCATION_CHECK: WSManSessionOption = WSManSessionO
 pub const WSMAN_OPTION_ALLOW_NEGOTIATE_IMPLICIT_CREDENTIALS: WSManSessionOption = WSManSessionOption(32i32);
 pub const WSMAN_OPTION_USE_SSL: WSManSessionOption = WSManSessionOption(33i32);
 pub const WSMAN_OPTION_USE_INTEARACTIVE_TOKEN: WSManSessionOption = WSManSessionOption(34i32);
+impl ::core::marker::Copy for WSManSessionOption {}
+impl ::core::clone::Clone for WSManSessionOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WSManShellFlag(pub i32);
 pub const WSMAN_FLAG_NO_COMPRESSION: WSManShellFlag = WSManShellFlag(1i32);
@@ -1267,3 +1321,9 @@ pub const WSMAN_FLAG_DELETE_SERVER_SESSION: WSManShellFlag = WSManShellFlag(2i32
 pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_DROP: WSManShellFlag = WSManShellFlag(4i32);
 pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_BLOCK: WSManShellFlag = WSManShellFlag(8i32);
 pub const WSMAN_FLAG_RECEIVE_DELAY_OUTPUT_STREAM: WSManShellFlag = WSManShellFlag(16i32);
+impl ::core::marker::Copy for WSManShellFlag {}
+impl ::core::clone::Clone for WSManShellFlag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

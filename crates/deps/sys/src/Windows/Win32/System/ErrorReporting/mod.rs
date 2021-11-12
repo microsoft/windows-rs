@@ -82,6 +82,12 @@ pub const frrvOkHeadless: EFaultRepRetVal = EFaultRepRetVal(7i32);
 pub const frrvErrAnotherInstance: EFaultRepRetVal = EFaultRepRetVal(8i32);
 pub const frrvErrNoMemory: EFaultRepRetVal = EFaultRepRetVal(9i32);
 pub const frrvErrDoubleFault: EFaultRepRetVal = EFaultRepRetVal(10i32);
+impl ::core::marker::Copy for EFaultRepRetVal {}
+impl ::core::clone::Clone for EFaultRepRetVal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HREPORT {
     pub Value: isize,
@@ -115,6 +121,12 @@ pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(1i32);
 pub const E_STORE_MACHINE_ARCHIVE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(2i32);
 pub const E_STORE_MACHINE_QUEUE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(3i32);
 pub const E_STORE_INVALID: REPORT_STORE_TYPES = REPORT_STORE_TYPES(4i32);
+impl ::core::marker::Copy for REPORT_STORE_TYPES {}
+impl ::core::clone::Clone for REPORT_STORE_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WER_CONSENT(pub i32);
 pub const WerConsentNotAsked: WER_CONSENT = WER_CONSENT(1i32);
@@ -122,6 +134,12 @@ pub const WerConsentApproved: WER_CONSENT = WER_CONSENT(2i32);
 pub const WerConsentDenied: WER_CONSENT = WER_CONSENT(3i32);
 pub const WerConsentAlwaysPrompt: WER_CONSENT = WER_CONSENT(4i32);
 pub const WerConsentMax: WER_CONSENT = WER_CONSENT(5i32);
+impl ::core::marker::Copy for WER_CONSENT {}
+impl ::core::clone::Clone for WER_CONSENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WER_DUMP_AUXILIARY: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -209,6 +227,12 @@ pub const WerDumpTypeMiniDump: WER_DUMP_TYPE = WER_DUMP_TYPE(2i32);
 pub const WerDumpTypeHeapDump: WER_DUMP_TYPE = WER_DUMP_TYPE(3i32);
 pub const WerDumpTypeTriageDump: WER_DUMP_TYPE = WER_DUMP_TYPE(4i32);
 pub const WerDumpTypeMax: WER_DUMP_TYPE = WER_DUMP_TYPE(5i32);
+impl ::core::marker::Copy for WER_DUMP_TYPE {}
+impl ::core::clone::Clone for WER_DUMP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct WER_EXCEPTION_INFORMATION {
@@ -230,6 +254,12 @@ pub const WER_FAULT_REPORTING_FLAG_NOHEAP: WER_FAULT_REPORTING = WER_FAULT_REPOR
 pub const WER_FAULT_REPORTING_FLAG_QUEUE: WER_FAULT_REPORTING = WER_FAULT_REPORTING(2u32);
 pub const WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD: WER_FAULT_REPORTING = WER_FAULT_REPORTING(8u32);
 pub const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: WER_FAULT_REPORTING = WER_FAULT_REPORTING(16u32);
+impl ::core::marker::Copy for WER_FAULT_REPORTING {}
+impl ::core::clone::Clone for WER_FAULT_REPORTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WER_FAULT_REPORTING_CRITICAL: u32 = 512u32;
 pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH: u32 = 128u32;
 pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_HANG: u32 = 256u32;
@@ -240,6 +270,12 @@ pub const WER_FAULT_REPORTING_NO_UI: u32 = 32u32;
 pub struct WER_FILE(pub u32);
 pub const WER_FILE_ANONYMOUS_DATA: WER_FILE = WER_FILE(2u32);
 pub const WER_FILE_DELETE_WHEN_DONE: WER_FILE = WER_FILE(1u32);
+impl ::core::marker::Copy for WER_FILE {}
+impl ::core::clone::Clone for WER_FILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WER_FILE_COMPRESSED: u32 = 4u32;
 #[repr(transparent)]
 pub struct WER_FILE_TYPE(pub i32);
@@ -253,6 +289,12 @@ pub const WerFileTypeCustomDump: WER_FILE_TYPE = WER_FILE_TYPE(7i32);
 pub const WerFileTypeAuxiliaryDump: WER_FILE_TYPE = WER_FILE_TYPE(8i32);
 pub const WerFileTypeEtlTrace: WER_FILE_TYPE = WER_FILE_TYPE(9i32);
 pub const WerFileTypeMax: WER_FILE_TYPE = WER_FILE_TYPE(10i32);
+impl ::core::marker::Copy for WER_FILE_TYPE {}
+impl ::core::clone::Clone for WER_FILE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128u32;
 pub const WER_MAX_BUCKET_ID_STRING_LENGTH: u32 = 260u32;
 pub const WER_MAX_DESCRIPTION_LENGTH: u32 = 512u32;
@@ -286,6 +328,12 @@ pub struct WER_REGISTER_FILE_TYPE(pub i32);
 pub const WerRegFileTypeUserDocument: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(1i32);
 pub const WerRegFileTypeOther: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(2i32);
 pub const WerRegFileTypeMax: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(3i32);
+impl ::core::marker::Copy for WER_REGISTER_FILE_TYPE {}
+impl ::core::clone::Clone for WER_REGISTER_FILE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_INFORMATION {
@@ -478,6 +526,12 @@ pub const WerReportApplicationCrash: WER_REPORT_TYPE = WER_REPORT_TYPE(2i32);
 pub const WerReportApplicationHang: WER_REPORT_TYPE = WER_REPORT_TYPE(3i32);
 pub const WerReportKernel: WER_REPORT_TYPE = WER_REPORT_TYPE(4i32);
 pub const WerReportInvalid: WER_REPORT_TYPE = WER_REPORT_TYPE(5i32);
+impl ::core::marker::Copy for WER_REPORT_TYPE {}
+impl ::core::clone::Clone for WER_REPORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WER_REPORT_UI(pub i32);
 pub const WerUIAdditionalDataDlgHeader: WER_REPORT_UI = WER_REPORT_UI(1i32);
@@ -491,6 +545,12 @@ pub const WerUICloseDlgHeader: WER_REPORT_UI = WER_REPORT_UI(8i32);
 pub const WerUICloseDlgBody: WER_REPORT_UI = WER_REPORT_UI(9i32);
 pub const WerUICloseDlgButtonText: WER_REPORT_UI = WER_REPORT_UI(10i32);
 pub const WerUIMax: WER_REPORT_UI = WER_REPORT_UI(11i32);
+impl ::core::marker::Copy for WER_REPORT_UI {}
+impl ::core::clone::Clone for WER_REPORT_UI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
@@ -529,6 +589,12 @@ pub const WER_SUBMIT_START_MINIMIZED: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(512u32
 pub const WER_SUBMIT_BYPASS_DATA_THROTTLING: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(2048u32);
 pub const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(4096u32);
 pub const WER_SUBMIT_REPORT_MACHINE_ID: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(8192u32);
+impl ::core::marker::Copy for WER_SUBMIT_FLAGS {}
+impl ::core::clone::Clone for WER_SUBMIT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WER_SUBMIT_RESULT(pub i32);
 pub const WerReportQueued: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(1i32);
@@ -544,6 +610,12 @@ pub const WerThrottled: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(10i32);
 pub const WerReportUploadedCab: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(11i32);
 pub const WerStorageLocationNotFound: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(12i32);
 pub const WerSubmitResultMax: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(13i32);
+impl ::core::marker::Copy for WER_SUBMIT_RESULT {}
+impl ::core::clone::Clone for WER_SUBMIT_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type pfn_ADDEREXCLUDEDAPPLICATIONA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR) -> EFaultRepRetVal;
 #[cfg(feature = "Win32_Foundation")]

@@ -330,6 +330,12 @@ pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = WMDMMessage(0i32);
 pub const WMDM_MSG_DEVICE_REMOVAL: WMDMMessage = WMDMMessage(1i32);
 pub const WMDM_MSG_MEDIA_ARRIVAL: WMDMMessage = WMDMMessage(2i32);
 pub const WMDM_MSG_MEDIA_REMOVAL: WMDMMessage = WMDMMessage(3i32);
+impl ::core::marker::Copy for WMDMMessage {}
+impl ::core::clone::Clone for WMDMMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WMDMMetadataView {
@@ -406,6 +412,12 @@ pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(pub i32);
 pub const WMDM_ENUM_PROP_VALID_VALUES_ANY: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(0i32);
 pub const WMDM_ENUM_PROP_VALID_VALUES_RANGE: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(1i32);
 pub const WMDM_ENUM_PROP_VALID_VALUES_ENUM: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(2i32);
+impl ::core::marker::Copy for WMDM_ENUM_PROP_VALID_VALUES_FORM {}
+impl ::core::clone::Clone for WMDM_ENUM_PROP_VALID_VALUES_FORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMDM_E_BUFFERTOOSMALL: i32 = -2147201016i32;
 pub const WMDM_E_BUSY: i32 = -2147201024i32;
 pub const WMDM_E_CALL_OUT_OF_SEQUENCE: i32 = -2147201017i32;
@@ -448,6 +460,12 @@ pub const WMDM_FILE_CREATE_OVERWRITE: u32 = 1048576u32;
 pub struct WMDM_FIND_SCOPE(pub i32);
 pub const WMDM_FIND_SCOPE_GLOBAL: WMDM_FIND_SCOPE = WMDM_FIND_SCOPE(0i32);
 pub const WMDM_FIND_SCOPE_IMMEDIATE_CHILDREN: WMDM_FIND_SCOPE = WMDM_FIND_SCOPE(1i32);
+impl ::core::marker::Copy for WMDM_FIND_SCOPE {}
+impl ::core::clone::Clone for WMDM_FIND_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMDM_FORMATCODE(pub i32);
 pub const WMDM_FORMATCODE_NOTUSED: WMDM_FORMATCODE = WMDM_FORMATCODE(0i32);
@@ -545,6 +563,12 @@ pub const WMDM_FORMATCODE_M4A: WMDM_FORMATCODE = WMDM_FORMATCODE(1297101889i32);
 pub const WMDM_FORMATCODE_3GPA: WMDM_FORMATCODE = WMDM_FORMATCODE(860311617i32);
 pub const WMDM_FORMATCODE_3G2A: WMDM_FORMATCODE = WMDM_FORMATCODE(860303937i32);
 pub const WMDM_FORMATCODE_SECTION: WMDM_FORMATCODE = WMDM_FORMATCODE(48770i32);
+impl ::core::marker::Copy for WMDM_FORMATCODE {}
+impl ::core::clone::Clone for WMDM_FORMATCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_FORMAT_CAPABILITY {
@@ -689,6 +713,12 @@ pub const WMDM_SESSION_TRANSFER_TO_DEVICE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE
 pub const WMDM_SESSION_TRANSFER_FROM_DEVICE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(16i32);
 pub const WMDM_SESSION_DELETE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(256i32);
 pub const WMDM_SESSION_CUSTOM: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(4096i32);
+impl ::core::marker::Copy for WMDM_SESSION_TYPE {}
+impl ::core::clone::Clone for WMDM_SESSION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMDM_SP_REVOKED: u32 = 4u32;
 pub const WMDM_STATUS_BUSY: u32 = 2u32;
 pub const WMDM_STATUS_DEVICECONTROL_PAUSED: u32 = 32u32;
@@ -732,6 +762,12 @@ pub struct WMDM_STORAGE_ENUM_MODE(pub i32);
 pub const ENUM_MODE_RAW: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(0i32);
 pub const ENUM_MODE_USE_DEVICE_PREF: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(1i32);
 pub const ENUM_MODE_METADATA_VIEWS: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(2i32);
+impl ::core::marker::Copy for WMDM_STORAGE_ENUM_MODE {}
+impl ::core::clone::Clone for WMDM_STORAGE_ENUM_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMDM_STORAGE_IS_DEFAULT: u32 = 134217728u32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_APPLIED: i32 = 282625i32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
@@ -745,6 +781,12 @@ pub const WMDM_TYPE_QWORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(4i32);
 pub const WMDM_TYPE_WORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(5i32);
 pub const WMDM_TYPE_GUID: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(6i32);
 pub const WMDM_TYPE_DATE: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(7i32);
+impl ::core::marker::Copy for WMDM_TAG_DATATYPE {}
+impl ::core::clone::Clone for WMDM_TAG_DATATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMDM_WMDM_REVOKED: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

@@ -428,12 +428,24 @@ pub struct GET_CONVERSION_LIST_FLAG(pub u32);
 pub const GCL_CONVERSION: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(1u32);
 pub const GCL_REVERSECONVERSION: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(2u32);
 pub const GCL_REVERSE_LENGTH: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(3u32);
+impl ::core::marker::Copy for GET_CONVERSION_LIST_FLAG {}
+impl ::core::clone::Clone for GET_CONVERSION_LIST_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GET_GUIDE_LINE_TYPE(pub u32);
 pub const GGL_LEVEL: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(1u32);
 pub const GGL_INDEX: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(2u32);
 pub const GGL_STRING: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(3u32);
 pub const GGL_PRIVATE: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(4u32);
+impl ::core::marker::Copy for GET_GUIDE_LINE_TYPE {}
+impl ::core::clone::Clone for GET_GUIDE_LINE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GL_ID_CANNOTSAVE: u32 = 17u32;
 pub const GL_ID_CHOOSECANDIDATE: u32 = 40u32;
 pub const GL_ID_INPUTCODE: u32 = 38u32;
@@ -745,6 +757,12 @@ pub const IFED_MSIME_TEXT_USER: IMEFMT = IMEFMT(23i32);
 pub const IFED_PIME2_BIN_USER: IMEFMT = IMEFMT(24i32);
 pub const IFED_PIME2_BIN_SYSTEM: IMEFMT = IMEFMT(25i32);
 pub const IFED_PIME2_BIN_STANDARD_SYSTEM: IMEFMT = IMEFMT(26i32);
+impl ::core::marker::Copy for IMEFMT {}
+impl ::core::clone::Clone for IMEFMT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IMEINFO {
     pub dwPrivateDataSize: u32,
@@ -1027,6 +1045,12 @@ pub struct IMEREG(pub i32);
 pub const IFED_REG_HEAD: IMEREG = IMEREG(0i32);
 pub const IFED_REG_TAIL: IMEREG = IMEREG(1i32);
 pub const IFED_REG_DEL: IMEREG = IMEREG(2i32);
+impl ::core::marker::Copy for IMEREG {}
+impl ::core::clone::Clone for IMEREG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMEREL(pub i32);
 pub const IFED_REL_NONE: IMEREL = IMEREL(0i32);
@@ -1054,6 +1078,12 @@ pub const IFED_REL_KEIYOU_TARU_YOUGEN: IMEREL = IMEREL(21i32);
 pub const IFED_REL_UNKNOWN1: IMEREL = IMEREL(22i32);
 pub const IFED_REL_UNKNOWN2: IMEREL = IMEREL(23i32);
 pub const IFED_REL_ALL: IMEREL = IMEREL(24i32);
+impl ::core::marker::Copy for IMEREL {}
+impl ::core::clone::Clone for IMEREL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMESHF {
@@ -1110,6 +1140,12 @@ pub const IFED_UCT_STRING_SJIS: IMEUCT = IMEUCT(1i32);
 pub const IFED_UCT_STRING_UNICODE: IMEUCT = IMEUCT(2i32);
 pub const IFED_UCT_USER_DEFINED: IMEUCT = IMEUCT(3i32);
 pub const IFED_UCT_MAX: IMEUCT = IMEUCT(4i32);
+impl ::core::marker::Copy for IMEUCT {}
+impl ::core::clone::Clone for IMEUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMEVER_0310: u32 = 196618u32;
 pub const IMEVER_0400: u32 = 262144u32;
 #[repr(C, packed(1))]
@@ -1224,6 +1260,12 @@ pub const IMEPADREQ_SETAPPLETMINMAXSIZE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST
 pub const IMEPADREQ_GETCONVERSIONSTATUS: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4126u32);
 pub const IMEPADREQ_GETVERSION: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4127u32);
 pub const IMEPADREQ_GETCURRENTIMEINFO: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4128u32);
+impl ::core::marker::Copy for IME_PAD_REQUEST_FLAGS {}
+impl ::core::clone::Clone for IME_PAD_REQUEST_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IME_PROP_ACCEPT_WIDE_VKEY: u32 = 32u32;
 pub const IME_PROP_AT_CARET: u32 = 65536u32;
 pub const IME_PROP_CANDLIST_START_FROM_1: u32 = 262144u32;
@@ -1614,12 +1656,24 @@ pub const NI_OPENCANDIDATE: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(16u32);
 pub const NI_SELECTCANDIDATESTR: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(18u32);
 pub const NI_SETCANDIDATE_PAGESIZE: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(23u32);
 pub const NI_SETCANDIDATE_PAGESTART: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(22u32);
+impl ::core::marker::Copy for NOTIFY_IME_ACTION {}
+impl ::core::clone::Clone for NOTIFY_IME_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NOTIFY_IME_INDEX(pub u32);
 pub const CPS_CANCEL: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(4u32);
 pub const CPS_COMPLETE: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(1u32);
 pub const CPS_CONVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(2u32);
 pub const CPS_REVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(3u32);
+impl ::core::marker::Copy for NOTIFY_IME_INDEX {}
+impl ::core::clone::Clone for NOTIFY_IME_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNLOG = unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows_sys::core::HRESULT) -> super::super::super::Foundation::BOOL;
 #[repr(C, packed(1))]
@@ -1697,6 +1751,12 @@ pub const SCS_CHANGEATTR: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_T
 pub const SCS_CHANGECLAUSE: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(36u32);
 pub const SCS_SETRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(65536u32);
 pub const SCS_QUERYRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(131072u32);
+impl ::core::marker::Copy for SET_COMPOSITION_STRING_TYPE {}
+impl ::core::clone::Clone for SET_COMPOSITION_STRING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SHOWIMEPAD_CATEGORY: u32 = 1u32;
 pub const SHOWIMEPAD_DEFAULT: u32 = 0u32;
 pub const SHOWIMEPAD_GUID: u32 = 2u32;

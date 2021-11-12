@@ -534,6 +534,12 @@ pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = ACE_FLAGS(4u32);
 pub const INHERIT_ONLY: ACE_FLAGS = ACE_FLAGS(8u32);
 pub const NO_INHERITANCE: ACE_FLAGS = ACE_FLAGS(0u32);
 pub const INHERIT_ONLY_ACE_: ACE_FLAGS = ACE_FLAGS(8u32);
+impl ::core::marker::Copy for ACE_FLAGS {}
+impl ::core::clone::Clone for ACE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ACE_HEADER {
     pub AceType: u8,
@@ -550,6 +556,12 @@ impl ::core::clone::Clone for ACE_HEADER {
 pub struct ACE_REVISION(pub u32);
 pub const ACL_REVISION: ACE_REVISION = ACE_REVISION(2u32);
 pub const ACL_REVISION_DS: ACE_REVISION = ACE_REVISION(4u32);
+impl ::core::marker::Copy for ACE_REVISION {}
+impl ::core::clone::Clone for ACE_REVISION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ACL {
     pub AclRevision: u8,
@@ -568,6 +580,12 @@ impl ::core::clone::Clone for ACL {
 pub struct ACL_INFORMATION_CLASS(pub i32);
 pub const AclRevisionInformation: ACL_INFORMATION_CLASS = ACL_INFORMATION_CLASS(1i32);
 pub const AclSizeInformation: ACL_INFORMATION_CLASS = ACL_INFORMATION_CLASS(2i32);
+impl ::core::marker::Copy for ACL_INFORMATION_CLASS {}
+impl ::core::clone::Clone for ACL_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ACL_REVISION_INFORMATION {
     pub AclRevision: u32,
@@ -594,6 +612,12 @@ impl ::core::clone::Clone for ACL_SIZE_INFORMATION {
 pub struct AUDIT_EVENT_TYPE(pub i32);
 pub const AuditEventObjectAccess: AUDIT_EVENT_TYPE = AUDIT_EVENT_TYPE(0i32);
 pub const AuditEventDirectoryServiceAccess: AUDIT_EVENT_TYPE = AUDIT_EVENT_TYPE(1i32);
+impl ::core::marker::Copy for AUDIT_EVENT_TYPE {}
+impl ::core::clone::Clone for AUDIT_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
@@ -629,6 +653,12 @@ pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: CLAIM_SECURITY_ATTRIBUTE_F
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(8u32);
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(16u32);
 pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(32u32);
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_FLAGS {}
+impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
@@ -724,12 +754,24 @@ pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: CLAIM_SECURITY_ATTRIBUTE_V
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(4u16);
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_SID: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(5u16);
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(6u16);
+impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {}
+impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CREATE_RESTRICTED_TOKEN_FLAGS(pub u32);
 pub const DISABLE_MAX_PRIVILEGE: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(1u32);
 pub const SANDBOX_INERT: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(2u32);
 pub const LUA_TOKEN: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(4u32);
 pub const WRITE_RESTRICTED: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(8u32);
+impl ::core::marker::Copy for CREATE_RESTRICTED_TOKEN_FLAGS {}
+impl ::core::clone::Clone for CREATE_RESTRICTED_TOKEN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CVT_SECONDS: u32 = 1u32;
 #[repr(transparent)]
 pub struct ENUM_PERIOD(pub i32);
@@ -741,6 +783,12 @@ pub const ENUM_PERIOD_DAYS: ENUM_PERIOD = ENUM_PERIOD(3i32);
 pub const ENUM_PERIOD_WEEKS: ENUM_PERIOD = ENUM_PERIOD(4i32);
 pub const ENUM_PERIOD_MONTHS: ENUM_PERIOD = ENUM_PERIOD(5i32);
 pub const ENUM_PERIOD_YEARS: ENUM_PERIOD = ENUM_PERIOD(6i32);
+impl ::core::marker::Copy for ENUM_PERIOD {}
+impl ::core::clone::Clone for ENUM_PERIOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct GENERIC_MAPPING {
     pub GenericRead: u32,
@@ -848,11 +896,23 @@ pub const LOGON32_LOGON_NETWORK_CLEARTEXT: LOGON32_LOGON = LOGON32_LOGON(8u32);
 pub const LOGON32_LOGON_NEW_CREDENTIALS: LOGON32_LOGON = LOGON32_LOGON(9u32);
 pub const LOGON32_LOGON_SERVICE: LOGON32_LOGON = LOGON32_LOGON(5u32);
 pub const LOGON32_LOGON_UNLOCK: LOGON32_LOGON = LOGON32_LOGON(7u32);
+impl ::core::marker::Copy for LOGON32_LOGON {}
+impl ::core::clone::Clone for LOGON32_LOGON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LOGON32_PROVIDER(pub u32);
 pub const LOGON32_PROVIDER_DEFAULT: LOGON32_PROVIDER = LOGON32_PROVIDER(0u32);
 pub const LOGON32_PROVIDER_WINNT50: LOGON32_PROVIDER = LOGON32_PROVIDER(3u32);
 pub const LOGON32_PROVIDER_WINNT40: LOGON32_PROVIDER = LOGON32_PROVIDER(2u32);
+impl ::core::marker::Copy for LOGON32_PROVIDER {}
+impl ::core::clone::Clone for LOGON32_PROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LUID_AND_ATTRIBUTES {
@@ -876,6 +936,12 @@ pub const MandatoryLevelHigh: MANDATORY_LEVEL = MANDATORY_LEVEL(3i32);
 pub const MandatoryLevelSystem: MANDATORY_LEVEL = MANDATORY_LEVEL(4i32);
 pub const MandatoryLevelSecureProcess: MANDATORY_LEVEL = MANDATORY_LEVEL(5i32);
 pub const MandatoryLevelCount: MANDATORY_LEVEL = MANDATORY_LEVEL(6i32);
+impl ::core::marker::Copy for MANDATORY_LEVEL {}
+impl ::core::clone::Clone for MANDATORY_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct NCRYPT_DESCRIPTOR_HANDLE {
     pub Value: isize,
@@ -910,6 +976,12 @@ pub const SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURI
 pub const SCOPE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(64u32);
 pub const UNPROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(536870912u32);
 pub const UNPROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(268435456u32);
+impl ::core::marker::Copy for OBJECT_SECURITY_INFORMATION {}
+impl ::core::clone::Clone for OBJECT_SECURITY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct OBJECT_TYPE_LIST {
     pub Level: u16,
@@ -1002,6 +1074,12 @@ pub const SEF_MACL_NO_EXECUTE_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_IN
 pub const SEF_MACL_NO_READ_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(512u32);
 pub const SEF_MACL_NO_WRITE_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(256u32);
 pub const SEF_SACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(2u32);
+impl ::core::marker::Copy for SECURITY_AUTO_INHERIT_FLAGS {}
+impl ::core::clone::Clone for SECURITY_AUTO_INHERIT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_CAPABILITIES {
@@ -1043,6 +1121,12 @@ pub const SecurityAnonymous: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATI
 pub const SecurityIdentification: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(1i32);
 pub const SecurityImpersonation: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(2i32);
 pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(3i32);
+impl ::core::marker::Copy for SECURITY_IMPERSONATION_LEVEL {}
+impl ::core::clone::Clone for SECURITY_IMPERSONATION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_QUALITY_OF_SERVICE {
@@ -1204,6 +1288,12 @@ pub const SidTypeUnknown: SID_NAME_USE = SID_NAME_USE(8i32);
 pub const SidTypeComputer: SID_NAME_USE = SID_NAME_USE(9i32);
 pub const SidTypeLabel: SID_NAME_USE = SID_NAME_USE(10i32);
 pub const SidTypeLogonSession: SID_NAME_USE = SID_NAME_USE(11i32);
+impl ::core::marker::Copy for SID_NAME_USE {}
+impl ::core::clone::Clone for SID_NAME_USE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SYSTEM_ACCESS_FILTER_ACE {
     pub Header: ACE_HEADER,
@@ -1328,6 +1418,12 @@ impl ::core::clone::Clone for SYSTEM_AUDIT_OBJECT_ACE {
 pub struct SYSTEM_AUDIT_OBJECT_ACE_FLAGS(pub u32);
 pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(1u32);
 pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(2u32);
+impl ::core::marker::Copy for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {}
+impl ::core::clone::Clone for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SYSTEM_MANDATORY_LABEL_ACE {
     pub Header: ACE_HEADER,
@@ -1418,6 +1514,12 @@ pub const TOKEN_ADJUST_GROUPS: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(64u32);
 pub const TOKEN_ADJUST_DEFAULT: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(128u32);
 pub const TOKEN_ADJUST_SESSIONID: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(256u32);
 pub const TOKEN_ALL_ACCESS: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(983295u32);
+impl ::core::marker::Copy for TOKEN_ACCESS_MASK {}
+impl ::core::clone::Clone for TOKEN_ACCESS_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_APPCONTAINER_INFORMATION {
@@ -1492,6 +1594,12 @@ pub struct TOKEN_ELEVATION_TYPE(pub i32);
 pub const TokenElevationTypeDefault: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(1i32);
 pub const TokenElevationTypeFull: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(2i32);
 pub const TokenElevationTypeLimited: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(3i32);
+impl ::core::marker::Copy for TOKEN_ELEVATION_TYPE {}
+impl ::core::clone::Clone for TOKEN_ELEVATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_GROUPS {
@@ -1578,6 +1686,12 @@ pub const TokenChildProcessFlags: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CL
 pub const TokenIsLessPrivilegedAppContainer: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(46i32);
 pub const TokenIsSandboxed: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(47i32);
 pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(48i32);
+impl ::core::marker::Copy for TOKEN_INFORMATION_CLASS {}
+impl ::core::clone::Clone for TOKEN_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_LINKED_TOKEN {
@@ -1620,6 +1734,12 @@ pub const TOKEN_MANDATORY_POLICY_OFF: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATOR
 pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(1u32);
 pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(2u32);
 pub const TOKEN_MANDATORY_POLICY_VALID_MASK: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(3u32);
+impl ::core::marker::Copy for TOKEN_MANDATORY_POLICY_ID {}
+impl ::core::clone::Clone for TOKEN_MANDATORY_POLICY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_ORIGIN {
@@ -1679,6 +1799,12 @@ pub const SE_PRIVILEGE_ENABLED: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_A
 pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(1u32);
 pub const SE_PRIVILEGE_REMOVED: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(4u32);
 pub const SE_PRIVILEGE_USED_FOR_ACCESS: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(2147483648u32);
+impl ::core::marker::Copy for TOKEN_PRIVILEGES_ATTRIBUTES {}
+impl ::core::clone::Clone for TOKEN_PRIVILEGES_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_SOURCE {
@@ -1719,6 +1845,12 @@ impl ::core::clone::Clone for TOKEN_STATISTICS {
 pub struct TOKEN_TYPE(pub i32);
 pub const TokenPrimary: TOKEN_TYPE = TOKEN_TYPE(1i32);
 pub const TokenImpersonation: TOKEN_TYPE = TOKEN_TYPE(2i32);
+impl ::core::marker::Copy for TOKEN_TYPE {}
+impl ::core::clone::Clone for TOKEN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_USER {
@@ -1864,3 +1996,9 @@ pub const WinAuthenticationKeyPropertyMFASid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_S
 pub const WinAuthenticationKeyPropertyAttestationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(117i32);
 pub const WinAuthenticationFreshKeyAuthSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(118i32);
 pub const WinBuiltinDeviceOwnersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(119i32);
+impl ::core::marker::Copy for WELL_KNOWN_SID_TYPE {}
+impl ::core::clone::Clone for WELL_KNOWN_SID_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

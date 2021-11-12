@@ -150,6 +150,12 @@ impl LearningModelDeviceKind {
     pub const DirectXHighPerformance: Self = Self(3i32);
     pub const DirectXMinPower: Self = Self(4i32);
 }
+impl ::core::marker::Copy for LearningModelDeviceKind {}
+impl ::core::clone::Clone for LearningModelDeviceKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LearningModelEvaluationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -160,12 +166,24 @@ impl LearningModelFeatureKind {
     pub const Map: Self = Self(2i32);
     pub const Image: Self = Self(3i32);
 }
+impl ::core::marker::Copy for LearningModelFeatureKind {}
+impl ::core::clone::Clone for LearningModelFeatureKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LearningModelPixelRange(pub i32);
 impl LearningModelPixelRange {
     pub const ZeroTo255: Self = Self(0i32);
     pub const ZeroToOne: Self = Self(1i32);
     pub const MinusOneToOne: Self = Self(2i32);
+}
+impl ::core::marker::Copy for LearningModelPixelRange {}
+impl ::core::clone::Clone for LearningModelPixelRange {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct LearningModelSession(pub *mut ::core::ffi::c_void);
@@ -212,6 +230,12 @@ impl TensorKind {
     pub const UInt64: Self = Self(13i32);
     pub const Complex64: Self = Self(14i32);
     pub const Complex128: Self = Self(15i32);
+}
+impl ::core::marker::Copy for TensorKind {}
+impl ::core::clone::Clone for TensorKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TensorString(pub *mut ::core::ffi::c_void);

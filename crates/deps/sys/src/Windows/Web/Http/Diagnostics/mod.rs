@@ -28,6 +28,12 @@ impl HttpDiagnosticRequestInitiator {
     pub const Fetch: Self = Self(11i32);
     pub const Beacon: Self = Self(12i32);
 }
+impl ::core::marker::Copy for HttpDiagnosticRequestInitiator {}
+impl ::core::clone::Clone for HttpDiagnosticRequestInitiator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HttpDiagnosticSourceLocation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

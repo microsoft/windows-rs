@@ -102,6 +102,12 @@ pub const KLF_ACTIVATE: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOU
 pub const KLF_NOTELLSHELL: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(128u32);
 pub const KLF_REPLACELANG: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(16u32);
 pub const KLF_SUBSTITUTE_OK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(2u32);
+impl ::core::marker::Copy for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {}
+impl ::core::clone::Clone for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACUTE: u32 = 769u32;
 pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
 pub const BREVE: u32 = 774u32;
@@ -138,6 +144,12 @@ pub const FMV_KBD_OASYS_TYPE: u32 = 2u32;
 pub struct GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(pub u32);
 pub const GMMP_USE_DISPLAY_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(1u32);
 pub const GMMP_USE_HIGH_RESOLUTION_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(2u32);
+impl ::core::marker::Copy for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {}
+impl ::core::clone::Clone for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GRAVE: u32 = 768u32;
 pub const GRPSELTAP: u32 = 128u32;
 pub const HACEK: u32 = 780u32;
@@ -161,6 +173,12 @@ pub const MOD_CONTROL: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(2u32);
 pub const MOD_NOREPEAT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(16384u32);
 pub const MOD_SHIFT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(4u32);
 pub const MOD_WIN: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(8u32);
+impl ::core::marker::Copy for HOT_KEY_MODIFIERS {}
+impl ::core::clone::Clone for HOT_KEY_MODIFIERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct INPUT {
     pub r#type: INPUT_TYPE,
@@ -188,6 +206,12 @@ pub struct INPUT_TYPE(pub u32);
 pub const INPUT_MOUSE: INPUT_TYPE = INPUT_TYPE(0u32);
 pub const INPUT_KEYBOARD: INPUT_TYPE = INPUT_TYPE(1u32);
 pub const INPUT_HARDWARE: INPUT_TYPE = INPUT_TYPE(2u32);
+impl ::core::marker::Copy for INPUT_TYPE {}
+impl ::core::clone::Clone for INPUT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KANALOK: u32 = 8u32;
 pub const KBDALT: u32 = 4u32;
 pub const KBDBASE: u32 = 0u32;
@@ -276,6 +300,12 @@ pub const KEYEVENTF_EXTENDEDKEY: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(1u32);
 pub const KEYEVENTF_KEYUP: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(2u32);
 pub const KEYEVENTF_SCANCODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(8u32);
 pub const KEYEVENTF_UNICODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(4u32);
+impl ::core::marker::Copy for KEYBD_EVENT_FLAGS {}
+impl ::core::clone::Clone for KEYBD_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KEYBOARD_TYPE_GENERIC_101: u32 = 4u32;
 pub const KEYBOARD_TYPE_JAPAN: u32 = 7u32;
 pub const KEYBOARD_TYPE_KOREA: u32 = 8u32;
@@ -422,6 +452,12 @@ pub const MOUSEEVENTF_XUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(256u32);
 pub const MOUSEEVENTF_HWHEEL: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(4096u32);
 pub const MOUSEEVENTF_MOVE_NOCOALESCE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(8192u32);
 pub const MOUSEEVENTF_VIRTUALDESK: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(16384u32);
+impl ::core::marker::Copy for MOUSE_EVENT_FLAGS {}
+impl ::core::clone::Clone for MOUSE_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NEC_KBD_106_TYPE: u32 = 5u32;
 pub const NEC_KBD_H_MODE_TYPE: u32 = 3u32;
 pub const NEC_KBD_LAPTOP_TYPE: u32 = 4u32;
@@ -481,6 +517,12 @@ pub const TME_HOVER: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(1u32);
 pub const TME_LEAVE: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(2u32);
 pub const TME_NONCLIENT: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(16u32);
 pub const TME_QUERY: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(1073741824u32);
+impl ::core::marker::Copy for TRACKMOUSEEVENT_FLAGS {}
+impl ::core::clone::Clone for TRACKMOUSEEVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UMLAUT: u32 = 776u32;
 #[repr(transparent)]
 pub struct VIRTUAL_KEY(pub u16);
@@ -714,6 +756,12 @@ pub const VK_ZOOM: VIRTUAL_KEY = VIRTUAL_KEY(251u16);
 pub const VK_NONAME: VIRTUAL_KEY = VIRTUAL_KEY(252u16);
 pub const VK_PA1: VIRTUAL_KEY = VIRTUAL_KEY(253u16);
 pub const VK_OEM_CLEAR: VIRTUAL_KEY = VIRTUAL_KEY(254u16);
+impl ::core::marker::Copy for VIRTUAL_KEY {}
+impl ::core::clone::Clone for VIRTUAL_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VK_ABNT_C1: u32 = 193u32;
 pub const VK_ABNT_C2: u32 = 194u32;
 pub const VK_DBE_ALPHANUMERIC: u32 = 240u32;

@@ -8,6 +8,12 @@ impl CredentialPromptType {
     pub const RetypeCredentials: Self = Self(1i32);
     pub const DoNotPrompt: Self = Self(2i32);
 }
+impl ::core::marker::Copy for CredentialPromptType {}
+impl ::core::clone::Clone for CredentialPromptType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOnlineIdAuthenticator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -44,6 +50,12 @@ impl OnlineIdSystemTicketStatus {
     pub const Success: Self = Self(0i32);
     pub const Error: Self = Self(1i32);
     pub const ServiceConnectionError: Self = Self(2i32);
+}
+impl ::core::marker::Copy for OnlineIdSystemTicketStatus {}
+impl ::core::clone::Clone for OnlineIdSystemTicketStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SignOutUserOperation(pub *mut ::core::ffi::c_void);

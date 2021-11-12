@@ -122,6 +122,12 @@ impl VpnAppIdType {
     pub const FullyQualifiedBinaryName: Self = Self(1i32);
     pub const FilePath: Self = Self(2i32);
 }
+impl ::core::marker::Copy for VpnAppIdType {}
+impl ::core::clone::Clone for VpnAppIdType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VpnAuthenticationMethod(pub i32);
 impl VpnAuthenticationMethod {
@@ -129,6 +135,12 @@ impl VpnAuthenticationMethod {
     pub const Eap: Self = Self(1i32);
     pub const Certificate: Self = Self(2i32);
     pub const PresharedKey: Self = Self(3i32);
+}
+impl ::core::marker::Copy for VpnAuthenticationMethod {}
+impl ::core::clone::Clone for VpnAuthenticationMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VpnChannel(pub *mut ::core::ffi::c_void);
@@ -140,6 +152,12 @@ impl VpnChannelActivityEventType {
     pub const Idle: Self = Self(0i32);
     pub const Active: Self = Self(1i32);
 }
+impl ::core::marker::Copy for VpnChannelActivityEventType {}
+impl ::core::clone::Clone for VpnChannelActivityEventType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VpnChannelActivityStateChangedArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -150,6 +168,12 @@ impl VpnChannelRequestCredentialsOptions {
     pub const None: Self = Self(0u32);
     pub const Retrying: Self = Self(1u32);
     pub const UseForSingleSignIn: Self = Self(2u32);
+}
+impl ::core::marker::Copy for VpnChannelRequestCredentialsOptions {}
+impl ::core::clone::Clone for VpnChannelRequestCredentialsOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VpnCredential(pub *mut ::core::ffi::c_void);
@@ -163,6 +187,12 @@ impl VpnCredentialType {
     pub const SmartCard: Self = Self(4i32);
     pub const ProtectedCertificate: Self = Self(5i32);
     pub const UnProtectedCertificate: Self = Self(6i32);
+}
+impl ::core::marker::Copy for VpnCredentialType {}
+impl ::core::clone::Clone for VpnCredentialType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VpnCustomCheckBox(pub *mut ::core::ffi::c_void);
@@ -188,6 +218,12 @@ impl VpnDataPathType {
     pub const Send: Self = Self(0i32);
     pub const Receive: Self = Self(1i32);
 }
+impl ::core::marker::Copy for VpnDataPathType {}
+impl ::core::clone::Clone for VpnDataPathType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VpnDomainNameAssignment(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -198,6 +234,12 @@ impl VpnDomainNameType {
     pub const Suffix: Self = Self(0i32);
     pub const FullyQualified: Self = Self(1i32);
     pub const Reserved: Self = Self(65535i32);
+}
+impl ::core::marker::Copy for VpnDomainNameType {}
+impl ::core::clone::Clone for VpnDomainNameType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VpnForegroundActivatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -214,6 +256,12 @@ impl VpnIPProtocol {
     pub const Igmp: Self = Self(2i32);
     pub const Pgm: Self = Self(113i32);
 }
+impl ::core::marker::Copy for VpnIPProtocol {}
+impl ::core::clone::Clone for VpnIPProtocol {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VpnInterfaceId(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -225,6 +273,12 @@ impl VpnManagementConnectionStatus {
     pub const Disconnecting: Self = Self(1i32);
     pub const Connected: Self = Self(2i32);
     pub const Connecting: Self = Self(3i32);
+}
+impl ::core::marker::Copy for VpnManagementConnectionStatus {}
+impl ::core::clone::Clone for VpnManagementConnectionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VpnManagementErrorStatus(pub i32);
@@ -249,6 +303,12 @@ impl VpnManagementErrorStatus {
     pub const DnsNotResolvable: Self = Self(17i32);
     pub const InvalidIP: Self = Self(18i32);
 }
+impl ::core::marker::Copy for VpnManagementErrorStatus {}
+impl ::core::clone::Clone for VpnManagementErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VpnNamespaceAssignment(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -262,6 +322,12 @@ impl VpnNativeProtocolType {
     pub const L2tp: Self = Self(1i32);
     pub const IpsecIkev2: Self = Self(2i32);
 }
+impl ::core::marker::Copy for VpnNativeProtocolType {}
+impl ::core::clone::Clone for VpnNativeProtocolType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VpnPacketBuffer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -271,6 +337,12 @@ pub struct VpnPacketBufferStatus(pub i32);
 impl VpnPacketBufferStatus {
     pub const Ok: Self = Self(0i32);
     pub const InvalidBufferSize: Self = Self(1i32);
+}
+impl ::core::marker::Copy for VpnPacketBufferStatus {}
+impl ::core::clone::Clone for VpnPacketBufferStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VpnPickedCredential(pub *mut ::core::ffi::c_void);
@@ -285,6 +357,12 @@ pub struct VpnRoutingPolicyType(pub i32);
 impl VpnRoutingPolicyType {
     pub const SplitRouting: Self = Self(0i32);
     pub const ForceAllTrafficOverVpn: Self = Self(1i32);
+}
+impl ::core::marker::Copy for VpnRoutingPolicyType {}
+impl ::core::clone::Clone for VpnRoutingPolicyType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VpnSystemHealth(pub *mut ::core::ffi::c_void);

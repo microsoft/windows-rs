@@ -147,6 +147,12 @@ impl RemoteSystemAccessStatus {
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
 }
+impl ::core::marker::Copy for RemoteSystemAccessStatus {}
+impl ::core::clone::Clone for RemoteSystemAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RemoteSystemAddedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -158,6 +164,12 @@ pub struct RemoteSystemAuthorizationKind(pub i32);
 impl RemoteSystemAuthorizationKind {
     pub const SameUser: Self = Self(0i32);
     pub const Anonymous: Self = Self(1i32);
+}
+impl ::core::marker::Copy for RemoteSystemAuthorizationKind {}
+impl ::core::clone::Clone for RemoteSystemAuthorizationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RemoteSystemAuthorizationKindFilter(pub *mut ::core::ffi::c_void);
@@ -173,6 +185,12 @@ impl RemoteSystemDiscoveryType {
     pub const Cloud: Self = Self(2i32);
     pub const SpatiallyProximal: Self = Self(3i32);
 }
+impl ::core::marker::Copy for RemoteSystemDiscoveryType {}
+impl ::core::clone::Clone for RemoteSystemDiscoveryType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RemoteSystemDiscoveryTypeFilter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -187,6 +205,12 @@ impl RemoteSystemPlatform {
     pub const Android: Self = Self(2i32);
     pub const Ios: Self = Self(3i32);
     pub const Linux: Self = Self(4i32);
+}
+impl ::core::marker::Copy for RemoteSystemPlatform {}
+impl ::core::clone::Clone for RemoteSystemPlatform {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RemoteSystemRemovedEventArgs(pub *mut ::core::ffi::c_void);
@@ -205,6 +229,12 @@ impl RemoteSystemSessionCreationStatus {
     pub const SessionLimitsExceeded: Self = Self(1i32);
     pub const OperationAborted: Self = Self(2i32);
 }
+impl ::core::marker::Copy for RemoteSystemSessionCreationStatus {}
+impl ::core::clone::Clone for RemoteSystemSessionCreationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RemoteSystemSessionDisconnectedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -213,6 +243,12 @@ impl RemoteSystemSessionDisconnectedReason {
     pub const SessionUnavailable: Self = Self(0i32);
     pub const RemovedByController: Self = Self(1i32);
     pub const SessionClosed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for RemoteSystemSessionDisconnectedReason {}
+impl ::core::clone::Clone for RemoteSystemSessionDisconnectedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RemoteSystemSessionInfo(pub *mut ::core::ffi::c_void);
@@ -237,6 +273,12 @@ impl RemoteSystemSessionJoinStatus {
     pub const SessionUnavailable: Self = Self(3i32);
     pub const RejectedByController: Self = Self(4i32);
 }
+impl ::core::marker::Copy for RemoteSystemSessionJoinStatus {}
+impl ::core::clone::Clone for RemoteSystemSessionJoinStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RemoteSystemSessionMessageChannel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -244,6 +286,12 @@ pub struct RemoteSystemSessionMessageChannelReliability(pub i32);
 impl RemoteSystemSessionMessageChannelReliability {
     pub const Reliable: Self = Self(0i32);
     pub const Unreliable: Self = Self(1i32);
+}
+impl ::core::marker::Copy for RemoteSystemSessionMessageChannelReliability {}
+impl ::core::clone::Clone for RemoteSystemSessionMessageChannelReliability {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RemoteSystemSessionOptions(pub *mut ::core::ffi::c_void);
@@ -265,6 +313,12 @@ impl RemoteSystemSessionParticipantWatcherStatus {
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
 }
+impl ::core::marker::Copy for RemoteSystemSessionParticipantWatcherStatus {}
+impl ::core::clone::Clone for RemoteSystemSessionParticipantWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RemoteSystemSessionRemovedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -283,6 +337,12 @@ impl RemoteSystemSessionWatcherStatus {
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
 }
+impl ::core::marker::Copy for RemoteSystemSessionWatcherStatus {}
+impl ::core::clone::Clone for RemoteSystemSessionWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RemoteSystemStatus(pub i32);
 impl RemoteSystemStatus {
@@ -291,11 +351,23 @@ impl RemoteSystemStatus {
     pub const Available: Self = Self(2i32);
     pub const Unknown: Self = Self(3i32);
 }
+impl ::core::marker::Copy for RemoteSystemStatus {}
+impl ::core::clone::Clone for RemoteSystemStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RemoteSystemStatusType(pub i32);
 impl RemoteSystemStatusType {
     pub const Any: Self = Self(0i32);
     pub const Available: Self = Self(1i32);
+}
+impl ::core::marker::Copy for RemoteSystemStatusType {}
+impl ::core::clone::Clone for RemoteSystemStatusType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RemoteSystemStatusTypeFilter(pub *mut ::core::ffi::c_void);
@@ -309,6 +381,12 @@ impl RemoteSystemWatcherError {
     pub const Unknown: Self = Self(0i32);
     pub const InternetNotAvailable: Self = Self(1i32);
     pub const AuthenticationError: Self = Self(2i32);
+}
+impl ::core::marker::Copy for RemoteSystemWatcherError {}
+impl ::core::clone::Clone for RemoteSystemWatcherError {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RemoteSystemWatcherErrorOccurredEventArgs(pub *mut ::core::ffi::c_void);

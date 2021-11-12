@@ -17,6 +17,12 @@ pub const FindSimilarResults: ::windows_sys::core::GUID = ::windows_sys::GUID { 
 pub struct GeneratorParametersType(pub i32);
 pub const RDCGENTYPE_Unused: GeneratorParametersType = GeneratorParametersType(0i32);
 pub const RDCGENTYPE_FilterMax: GeneratorParametersType = GeneratorParametersType(1i32);
+impl ::core::marker::Copy for GeneratorParametersType {}
+impl ::core::clone::Clone for GeneratorParametersType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFindSimilarResults(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -86,6 +92,12 @@ pub const RDC_FileChecksumMismatch: RDC_ErrorCode = RDC_ErrorCode(7i32);
 pub const RDC_ApplicationError: RDC_ErrorCode = RDC_ErrorCode(8i32);
 pub const RDC_Aborted: RDC_ErrorCode = RDC_ErrorCode(9i32);
 pub const RDC_Win32Error: RDC_ErrorCode = RDC_ErrorCode(10i32);
+impl ::core::marker::Copy for RDC_ErrorCode {}
+impl ::core::clone::Clone for RDC_ErrorCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct RdcBufferPointer {
     pub m_Size: u32,
@@ -104,6 +116,12 @@ pub struct RdcCreatedTables(pub i32);
 pub const RDCTABLE_InvalidOrUnknown: RdcCreatedTables = RdcCreatedTables(0i32);
 pub const RDCTABLE_Existing: RdcCreatedTables = RdcCreatedTables(1i32);
 pub const RDCTABLE_New: RdcCreatedTables = RdcCreatedTables(2i32);
+impl ::core::marker::Copy for RdcCreatedTables {}
+impl ::core::clone::Clone for RdcCreatedTables {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RdcFileReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903433, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
 pub const RdcGenerator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903432, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
 pub const RdcGeneratorFilterMaxParameters: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903431, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
@@ -114,6 +132,12 @@ pub struct RdcMappingAccessMode(pub i32);
 pub const RDCMAPPING_Undefined: RdcMappingAccessMode = RdcMappingAccessMode(0i32);
 pub const RDCMAPPING_ReadOnly: RdcMappingAccessMode = RdcMappingAccessMode(1i32);
 pub const RDCMAPPING_ReadWrite: RdcMappingAccessMode = RdcMappingAccessMode(2i32);
+impl ::core::marker::Copy for RdcMappingAccessMode {}
+impl ::core::clone::Clone for RdcMappingAccessMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct RdcNeed {
     pub m_BlockType: RdcNeedType,
@@ -144,6 +168,12 @@ pub const RDCNEED_SOURCE: RdcNeedType = RdcNeedType(0i32);
 pub const RDCNEED_TARGET: RdcNeedType = RdcNeedType(1i32);
 pub const RDCNEED_SEED: RdcNeedType = RdcNeedType(2i32);
 pub const RDCNEED_SEED_MAX: RdcNeedType = RdcNeedType(255i32);
+impl ::core::marker::Copy for RdcNeedType {}
+impl ::core::clone::Clone for RdcNeedType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct RdcSignature {
     pub m_Signature: [u8; 16],

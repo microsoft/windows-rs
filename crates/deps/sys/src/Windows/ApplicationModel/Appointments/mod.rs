@@ -16,6 +16,12 @@ impl AppointmentBusyStatus {
     pub const OutOfOffice: Self = Self(3i32);
     pub const WorkingElsewhere: Self = Self(4i32);
 }
+impl ::core::marker::Copy for AppointmentBusyStatus {}
+impl ::core::clone::Clone for AppointmentBusyStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentCalendar(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -26,12 +32,24 @@ impl AppointmentCalendarOtherAppReadAccess {
     pub const Full: Self = Self(2i32);
     pub const None: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AppointmentCalendarOtherAppReadAccess {}
+impl ::core::clone::Clone for AppointmentCalendarOtherAppReadAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentCalendarOtherAppWriteAccess(pub i32);
 impl AppointmentCalendarOtherAppWriteAccess {
     pub const None: Self = Self(0i32);
     pub const SystemOnly: Self = Self(1i32);
     pub const Limited: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AppointmentCalendarOtherAppWriteAccess {}
+impl ::core::clone::Clone for AppointmentCalendarOtherAppWriteAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncManager(pub *mut ::core::ffi::c_void);
@@ -46,6 +64,12 @@ impl AppointmentCalendarSyncStatus {
     pub const UnknownError: Self = Self(5i32);
     pub const ManualAccountRemovalRequired: Self = Self(6i32);
 }
+impl ::core::marker::Copy for AppointmentCalendarSyncStatus {}
+impl ::core::clone::Clone for AppointmentCalendarSyncStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentConflictResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -54,6 +78,12 @@ impl AppointmentConflictType {
     pub const None: Self = Self(0i32);
     pub const Adjacent: Self = Self(1i32);
     pub const Overlap: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AppointmentConflictType {}
+impl ::core::clone::Clone for AppointmentConflictType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppointmentDaysOfWeek(pub u32);
@@ -67,11 +97,23 @@ impl AppointmentDaysOfWeek {
     pub const Friday: Self = Self(32u32);
     pub const Saturday: Self = Self(64u32);
 }
+impl ::core::marker::Copy for AppointmentDaysOfWeek {}
+impl ::core::clone::Clone for AppointmentDaysOfWeek {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentDetailsKind(pub i32);
 impl AppointmentDetailsKind {
     pub const PlainText: Self = Self(0i32);
     pub const Html: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AppointmentDetailsKind {}
+impl ::core::clone::Clone for AppointmentDetailsKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppointmentException(pub *mut ::core::ffi::c_void);
@@ -90,12 +132,24 @@ impl AppointmentParticipantResponse {
     pub const Declined: Self = Self(3i32);
     pub const Unknown: Self = Self(4i32);
 }
+impl ::core::marker::Copy for AppointmentParticipantResponse {}
+impl ::core::clone::Clone for AppointmentParticipantResponse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentParticipantRole(pub i32);
 impl AppointmentParticipantRole {
     pub const RequiredAttendee: Self = Self(0i32);
     pub const OptionalAttendee: Self = Self(1i32);
     pub const Resource: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AppointmentParticipantRole {}
+impl ::core::clone::Clone for AppointmentParticipantRole {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppointmentRecurrence(pub *mut ::core::ffi::c_void);
@@ -109,11 +163,23 @@ impl AppointmentRecurrenceUnit {
     pub const Yearly: Self = Self(4i32);
     pub const YearlyOnDay: Self = Self(5i32);
 }
+impl ::core::marker::Copy for AppointmentRecurrenceUnit {}
+impl ::core::clone::Clone for AppointmentRecurrenceUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentSensitivity(pub i32);
 impl AppointmentSensitivity {
     pub const Public: Self = Self(0i32);
     pub const Private: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AppointmentSensitivity {}
+impl ::core::clone::Clone for AppointmentSensitivity {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppointmentStore(pub *mut ::core::ffi::c_void);
@@ -123,6 +189,12 @@ impl AppointmentStoreAccessType {
     pub const AppCalendarsReadWrite: Self = Self(0i32);
     pub const AllCalendarsReadOnly: Self = Self(1i32);
     pub const AllCalendarsReadWrite: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AppointmentStoreAccessType {}
+impl ::core::clone::Clone for AppointmentStoreAccessType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppointmentStoreChange(pub *mut ::core::ffi::c_void);
@@ -141,6 +213,12 @@ impl AppointmentStoreChangeType {
     pub const CalendarModified: Self = Self(5i32);
     pub const CalendarDeleted: Self = Self(6i32);
 }
+impl ::core::marker::Copy for AppointmentStoreChangeType {}
+impl ::core::clone::Clone for AppointmentStoreChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentStoreChangedDeferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -153,6 +231,12 @@ impl AppointmentSummaryCardView {
     pub const System: Self = Self(0i32);
     pub const App: Self = Self(1i32);
 }
+impl ::core::marker::Copy for AppointmentSummaryCardView {}
+impl ::core::clone::Clone for AppointmentSummaryCardView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentWeekOfMonth(pub i32);
 impl AppointmentWeekOfMonth {
@@ -162,11 +246,23 @@ impl AppointmentWeekOfMonth {
     pub const Fourth: Self = Self(3i32);
     pub const Last: Self = Self(4i32);
 }
+impl ::core::marker::Copy for AppointmentWeekOfMonth {}
+impl ::core::clone::Clone for AppointmentWeekOfMonth {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FindAppointmentCalendarsOptions(pub u32);
 impl FindAppointmentCalendarsOptions {
     pub const None: Self = Self(0u32);
     pub const IncludeHidden: Self = Self(1u32);
+}
+impl ::core::marker::Copy for FindAppointmentCalendarsOptions {}
+impl ::core::clone::Clone for FindAppointmentCalendarsOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FindAppointmentsOptions(pub *mut ::core::ffi::c_void);
@@ -242,4 +338,10 @@ impl RecurrenceType {
     pub const Master: Self = Self(0i32);
     pub const Instance: Self = Self(1i32);
     pub const ExceptionInstance: Self = Self(2i32);
+}
+impl ::core::marker::Copy for RecurrenceType {}
+impl ::core::clone::Clone for RecurrenceType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

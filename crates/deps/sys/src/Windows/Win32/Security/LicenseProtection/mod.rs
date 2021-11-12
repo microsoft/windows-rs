@@ -13,3 +13,9 @@ pub const LicenseKeyNotFound: LicenseProtectionStatus = LicenseProtectionStatus(
 pub const LicenseKeyUnprotected: LicenseProtectionStatus = LicenseProtectionStatus(2i32);
 pub const LicenseKeyCorrupted: LicenseProtectionStatus = LicenseProtectionStatus(3i32);
 pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = LicenseProtectionStatus(4i32);
+impl ::core::marker::Copy for LicenseProtectionStatus {}
+impl ::core::clone::Clone for LicenseProtectionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

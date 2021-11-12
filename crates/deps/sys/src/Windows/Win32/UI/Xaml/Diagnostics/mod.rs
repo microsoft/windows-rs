@@ -23,6 +23,12 @@ pub const ParentTemplateTrigger: BaseValueSource = BaseValueSource(11i32);
 pub const Animation: BaseValueSource = BaseValueSource(12i32);
 pub const Coercion: BaseValueSource = BaseValueSource(13i32);
 pub const BaseValueSourceVisualState: BaseValueSource = BaseValueSource(14i32);
+impl ::core::marker::Copy for BaseValueSource {}
+impl ::core::clone::Clone for BaseValueSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct BitmapDescription {
@@ -97,6 +103,12 @@ impl MetadataBit {
     pub const IsValueNull: Self = Self(32i32);
     pub const IsValueHandleAndEvaluatedValue: Self = Self(64i32);
 }
+impl ::core::marker::Copy for MetadataBit {}
+impl ::core::clone::Clone for MetadataBit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ParentChildRelation {
     pub Parent: u64,
@@ -152,10 +164,22 @@ impl ::core::clone::Clone for PropertyChainValue {
 pub struct RenderTargetBitmapOptions(pub i32);
 pub const RenderTarget: RenderTargetBitmapOptions = RenderTargetBitmapOptions(0i32);
 pub const RenderTargetAndChildren: RenderTargetBitmapOptions = RenderTargetBitmapOptions(1i32);
+impl ::core::marker::Copy for RenderTargetBitmapOptions {}
+impl ::core::clone::Clone for RenderTargetBitmapOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ResourceType(pub i32);
 pub const ResourceTypeStatic: ResourceType = ResourceType(0i32);
 pub const ResourceTypeTheme: ResourceType = ResourceType(1i32);
+impl ::core::marker::Copy for ResourceType {}
+impl ::core::clone::Clone for ResourceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SourceInfo {
@@ -195,7 +219,19 @@ pub struct VisualElementState(pub i32);
 pub const ErrorResolved: VisualElementState = VisualElementState(0i32);
 pub const ErrorResourceNotFound: VisualElementState = VisualElementState(1i32);
 pub const ErrorInvalidResource: VisualElementState = VisualElementState(2i32);
+impl ::core::marker::Copy for VisualElementState {}
+impl ::core::clone::Clone for VisualElementState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VisualMutationType(pub i32);
 pub const Add: VisualMutationType = VisualMutationType(0i32);
 pub const Remove: VisualMutationType = VisualMutationType(1i32);
+impl ::core::marker::Copy for VisualMutationType {}
+impl ::core::clone::Clone for VisualMutationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

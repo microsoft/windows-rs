@@ -73,6 +73,12 @@ impl SpatialAnchorExportPurpose {
     pub const Relocalization: Self = Self(0i32);
     pub const Sharing: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SpatialAnchorExportPurpose {}
+impl ::core::clone::Clone for SpatialAnchorExportPurpose {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialAnchorExportSufficiency(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -168,6 +174,12 @@ impl SpatialEntityWatcherStatus {
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
 }
+impl ::core::marker::Copy for SpatialEntityWatcherStatus {}
+impl ::core::clone::Clone for SpatialEntityWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialLocatability(pub i32);
 impl SpatialLocatability {
@@ -176,6 +188,12 @@ impl SpatialLocatability {
     pub const PositionalTrackingActivating: Self = Self(2i32);
     pub const PositionalTrackingActive: Self = Self(3i32);
     pub const PositionalTrackingInhibited: Self = Self(4i32);
+}
+impl ::core::marker::Copy for SpatialLocatability {}
+impl ::core::clone::Clone for SpatialLocatability {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SpatialLocation(pub *mut ::core::ffi::c_void);
@@ -191,11 +209,23 @@ impl SpatialLookDirectionRange {
     pub const ForwardOnly: Self = Self(0i32);
     pub const Omnidirectional: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SpatialLookDirectionRange {}
+impl ::core::clone::Clone for SpatialLookDirectionRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialMovementRange(pub i32);
 impl SpatialMovementRange {
     pub const NoMovement: Self = Self(0i32);
     pub const Bounded: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SpatialMovementRange {}
+impl ::core::clone::Clone for SpatialMovementRange {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SpatialPerceptionAccessStatus(pub i32);
@@ -204,6 +234,12 @@ impl SpatialPerceptionAccessStatus {
     pub const Allowed: Self = Self(1i32);
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
+}
+impl ::core::marker::Copy for SpatialPerceptionAccessStatus {}
+impl ::core::clone::Clone for SpatialPerceptionAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]

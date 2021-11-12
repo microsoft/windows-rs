@@ -17,3 +17,9 @@ impl NamedPolicyKind {
     pub const Int64: Self = Self(4i32);
     pub const String: Self = Self(5i32);
 }
+impl ::core::marker::Copy for NamedPolicyKind {}
+impl ::core::clone::Clone for NamedPolicyKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

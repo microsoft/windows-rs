@@ -26,6 +26,12 @@ impl ImageScannerAutoCroppingMode {
     pub const SingleRegion: Self = Self(1i32);
     pub const MultipleRegion: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ImageScannerAutoCroppingMode {}
+impl ::core::clone::Clone for ImageScannerAutoCroppingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ImageScannerColorMode(pub i32);
 impl ImageScannerColorMode {
@@ -33,6 +39,12 @@ impl ImageScannerColorMode {
     pub const Grayscale: Self = Self(1i32);
     pub const Monochrome: Self = Self(2i32);
     pub const AutoColor: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ImageScannerColorMode {}
+impl ::core::clone::Clone for ImageScannerColorMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ImageScannerFeederConfiguration(pub *mut ::core::ffi::c_void);
@@ -48,6 +60,12 @@ impl ImageScannerFormat {
     pub const Xps: Self = Self(4i32);
     pub const OpenXps: Self = Self(5i32);
     pub const Pdf: Self = Self(6i32);
+}
+impl ::core::marker::Copy for ImageScannerFormat {}
+impl ::core::clone::Clone for ImageScannerFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ImageScannerPreviewResult(pub *mut ::core::ffi::c_void);
@@ -71,4 +89,10 @@ impl ImageScannerScanSource {
     pub const Flatbed: Self = Self(1i32);
     pub const Feeder: Self = Self(2i32);
     pub const AutoConfigured: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ImageScannerScanSource {}
+impl ::core::clone::Clone for ImageScannerScanSource {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

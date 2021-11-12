@@ -56,6 +56,12 @@ impl ::core::clone::Clone for BIN_RESULTS {
 pub struct BIN_TYPES(pub i32);
 pub const RequestSize: BIN_TYPES = BIN_TYPES(0i32);
 pub const RequestLocation: BIN_TYPES = BIN_TYPES(1i32);
+impl ::core::marker::Copy for BIN_TYPES {}
+impl ::core::clone::Clone for BIN_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct BOOT_AREA_INFO {
     pub BootSectorCount: u32,
@@ -108,6 +114,12 @@ pub const DeviceProblemSensorError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE
 pub const DeviceProblemCartridgeEjectError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(11i32);
 pub const DeviceProblemGripperError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(12i32);
 pub const DeviceProblemDriveError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(13i32);
+impl ::core::marker::Copy for CHANGER_DEVICE_PROBLEM_TYPE {}
+impl ::core::clone::Clone for CHANGER_DEVICE_PROBLEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CHANGER_ELEMENT {
     pub ElementType: ELEMENT_TYPE,
@@ -185,6 +197,12 @@ pub const ELEMENT_STATUS_NOT_BUS: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT
 pub const ELEMENT_STATUS_PVOLTAG: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(268435456u32);
 pub const ELEMENT_STATUS_SVALID: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(8388608u32);
 pub const ELEMENT_STATUS_PRODUCT_DATA: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(64u32);
+impl ::core::marker::Copy for CHANGER_ELEMENT_STATUS_FLAGS {}
+impl ::core::clone::Clone for CHANGER_ELEMENT_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_EXCHANGE_MEDIUM {
@@ -234,6 +252,12 @@ pub const CHANGER_VOLUME_IDENTIFICATION: CHANGER_FEATURES = CHANGER_FEATURES(104
 pub const CHANGER_VOLUME_REPLACE: CHANGER_FEATURES = CHANGER_FEATURES(8388608u32);
 pub const CHANGER_VOLUME_SEARCH: CHANGER_FEATURES = CHANGER_FEATURES(2097152u32);
 pub const CHANGER_VOLUME_UNDEFINE: CHANGER_FEATURES = CHANGER_FEATURES(16777216u32);
+impl ::core::marker::Copy for CHANGER_FEATURES {}
+impl ::core::clone::Clone for CHANGER_FEATURES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_INITIALIZE_ELEMENT_STATUS {
@@ -468,6 +492,12 @@ pub const CsvFsDiskConnectivityNone: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNEC
 pub const CsvFsDiskConnectivityMdsNodeOnly: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(1i32);
 pub const CsvFsDiskConnectivitySubsetOfNodes: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(2i32);
 pub const CsvFsDiskConnectivityAllNodes: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(3i32);
+impl ::core::marker::Copy for CSVFS_DISK_CONNECTIVITY {}
+impl ::core::clone::Clone for CSVFS_DISK_CONNECTIVITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CSV_CONTROL_OP(pub i32);
 pub const CsvControlStartRedirectFile: CSV_CONTROL_OP = CSV_CONTROL_OP(2i32);
@@ -488,6 +518,12 @@ pub const CsvControlStopForceDFO: CSV_CONTROL_OP = CSV_CONTROL_OP(22i32);
 pub const CsvControlQueryMdsPathNoPause: CSV_CONTROL_OP = CSV_CONTROL_OP(23i32);
 pub const CsvControlSetVolumeId: CSV_CONTROL_OP = CSV_CONTROL_OP(24i32);
 pub const CsvControlQueryVolumeId: CSV_CONTROL_OP = CSV_CONTROL_OP(25i32);
+impl ::core::marker::Copy for CSV_CONTROL_OP {}
+impl ::core::clone::Clone for CSV_CONTROL_OP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CSV_CONTROL_PARAM {
     pub Operation: CSV_CONTROL_OP,
@@ -695,6 +731,12 @@ pub struct DETECTION_TYPE(pub i32);
 pub const DetectNone: DETECTION_TYPE = DETECTION_TYPE(0i32);
 pub const DetectInt13: DETECTION_TYPE = DETECTION_TYPE(1i32);
 pub const DetectExInt13: DETECTION_TYPE = DETECTION_TYPE(2i32);
+impl ::core::marker::Copy for DETECTION_TYPE {}
+impl ::core::clone::Clone for DETECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEVICEDUMP_CAP_PRIVATE_SECTION: u32 = 1u32;
 pub const DEVICEDUMP_CAP_RESTRICTED_SECTION: u32 = 2u32;
 pub const DEVICEDUMP_MAX_IDSTRING: u32 = 32u32;
@@ -1251,6 +1293,12 @@ pub const DeviceCurrentInternalStatusDataHeader: DEVICE_INTERNAL_STATUS_DATA_REQ
 pub const DeviceCurrentInternalStatusData: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(2i32);
 pub const DeviceSavedInternalStatusDataHeader: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(3i32);
 pub const DeviceSavedInternalStatusData: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(4i32);
+impl ::core::marker::Copy for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {}
+impl ::core::clone::Clone for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEVICE_INTERNAL_STATUS_DATA_SET(pub i32);
 pub const DeviceStatusDataSetUndefined: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(0i32);
@@ -1259,6 +1307,12 @@ pub const DeviceStatusDataSet2: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNA
 pub const DeviceStatusDataSet3: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(3i32);
 pub const DeviceStatusDataSet4: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(4i32);
 pub const DeviceStatusDataSetMax: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(5i32);
+impl ::core::marker::Copy for DEVICE_INTERNAL_STATUS_DATA_SET {}
+impl ::core::clone::Clone for DEVICE_INTERNAL_STATUS_DATA_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DEVICE_LB_PROVISIONING_DESCRIPTOR {
     pub Version: u32,
@@ -1683,6 +1737,12 @@ pub struct DISK_CACHE_RETENTION_PRIORITY(pub i32);
 pub const EqualPriority: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(0i32);
 pub const KeepPrefetchedData: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(1i32);
 pub const KeepReadData: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(2i32);
+impl ::core::marker::Copy for DISK_CACHE_RETENTION_PRIORITY {}
+impl ::core::clone::Clone for DISK_CACHE_RETENTION_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DISK_CONTROLLER_NUMBER {
     pub ControllerNumber: u32,
@@ -2079,6 +2139,12 @@ pub struct DUPLICATE_EXTENTS_STATE(pub i32);
 pub const FileSnapStateInactive: DUPLICATE_EXTENTS_STATE = DUPLICATE_EXTENTS_STATE(0i32);
 pub const FileSnapStateSource: DUPLICATE_EXTENTS_STATE = DUPLICATE_EXTENTS_STATE(1i32);
 pub const FileSnapStateTarget: DUPLICATE_EXTENTS_STATE = DUPLICATE_EXTENTS_STATE(2i32);
+impl ::core::marker::Copy for DUPLICATE_EXTENTS_STATE {}
+impl ::core::clone::Clone for DUPLICATE_EXTENTS_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DeviceDsmActionFlag_NonDestructive: u32 = 2147483648u32;
 pub const EFS_TRACKED_OFFSET_HEADER_FLAG: u32 = 1u32;
 #[repr(transparent)]
@@ -2091,6 +2157,12 @@ pub const ChangerDrive: ELEMENT_TYPE = ELEMENT_TYPE(4i32);
 pub const ChangerDoor: ELEMENT_TYPE = ELEMENT_TYPE(5i32);
 pub const ChangerKeypad: ELEMENT_TYPE = ELEMENT_TYPE(6i32);
 pub const ChangerMaxElement: ELEMENT_TYPE = ELEMENT_TYPE(7i32);
+impl ::core::marker::Copy for ELEMENT_TYPE {}
+impl ::core::clone::Clone for ELEMENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ENABLE_DISABLE_AUTOSAVE: u32 = 210u32;
 pub const ENABLE_DISABLE_AUTO_OFFLINE: u32 = 219u32;
 pub const ENABLE_SMART: u32 = 216u32;
@@ -2255,6 +2327,12 @@ pub struct FILESYSTEM_STATISTICS_TYPE(pub u16);
 pub const FILESYSTEM_STATISTICS_TYPE_EXFAT: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(3u16);
 pub const FILESYSTEM_STATISTICS_TYPE_FAT: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(2u16);
 pub const FILESYSTEM_STATISTICS_TYPE_NTFS: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(1u16);
+impl ::core::marker::Copy for FILESYSTEM_STATISTICS_TYPE {}
+impl ::core::clone::Clone for FILESYSTEM_STATISTICS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FILESYSTEM_STATISTICS_TYPE_REFS: u32 = 4u32;
 #[repr(C)]
 pub struct FILE_ALLOCATED_RANGE_BUFFER {
@@ -2775,10 +2853,22 @@ pub const FileStorageTierClassUnspecified: FILE_STORAGE_TIER_CLASS = FILE_STORAG
 pub const FileStorageTierClassCapacity: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(1i32);
 pub const FileStorageTierClassPerformance: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(2i32);
 pub const FileStorageTierClassMax: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(3i32);
+impl ::core::marker::Copy for FILE_STORAGE_TIER_CLASS {}
+impl ::core::clone::Clone for FILE_STORAGE_TIER_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FILE_STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
 #[repr(transparent)]
 pub struct FILE_STORAGE_TIER_FLAGS(pub u32);
 pub const FILE_STORAGE_TIER_FLAG_NO_SEEK_PENALTY: FILE_STORAGE_TIER_FLAGS = FILE_STORAGE_TIER_FLAGS(131072u32);
+impl ::core::marker::Copy for FILE_STORAGE_TIER_FLAGS {}
+impl ::core::clone::Clone for FILE_STORAGE_TIER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FILE_STORAGE_TIER_FLAG_PARITY: u32 = 8388608u32;
 pub const FILE_STORAGE_TIER_FLAG_READ_CACHE: u32 = 4194304u32;
 pub const FILE_STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
@@ -2790,6 +2880,12 @@ pub const FileStorageTierMediaTypeDisk: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STOR
 pub const FileStorageTierMediaTypeSsd: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(2i32);
 pub const FileStorageTierMediaTypeScm: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(4i32);
 pub const FileStorageTierMediaTypeMax: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(5i32);
+impl ::core::marker::Copy for FILE_STORAGE_TIER_MEDIA_TYPE {}
+impl ::core::clone::Clone for FILE_STORAGE_TIER_MEDIA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FILE_STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
 #[repr(C)]
 pub struct FILE_STORAGE_TIER_REGION {
@@ -3290,6 +3386,12 @@ pub const FSCTL_WRITE_USN_REASON: u32 = 590544u32;
 pub struct FS_BPIO_INFLAGS(pub i32);
 pub const FSBPIO_INFL_None: FS_BPIO_INFLAGS = FS_BPIO_INFLAGS(0i32);
 pub const FSBPIO_INFL_SKIP_STORAGE_STACK_QUERY: FS_BPIO_INFLAGS = FS_BPIO_INFLAGS(1i32);
+impl ::core::marker::Copy for FS_BPIO_INFLAGS {}
+impl ::core::clone::Clone for FS_BPIO_INFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct FS_BPIO_INFO {
     pub ActiveBypassIoCount: u32,
@@ -3326,6 +3428,12 @@ pub const FS_BPIO_OP_STREAM_PAUSE: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(6i32)
 pub const FS_BPIO_OP_STREAM_RESUME: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(7i32);
 pub const FS_BPIO_OP_GET_INFO: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(8i32);
 pub const FS_BPIO_OP_MAX_OPERATION: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(9i32);
+impl ::core::marker::Copy for FS_BPIO_OPERATIONS {}
+impl ::core::clone::Clone for FS_BPIO_OPERATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FS_BPIO_OUTFLAGS(pub i32);
 pub const FSBPIO_OUTFL_None: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(0i32);
@@ -3333,6 +3441,12 @@ pub const FSBPIO_OUTFL_VOLUME_STACK_BYPASS_PAUSED: FS_BPIO_OUTFLAGS = FS_BPIO_OU
 pub const FSBPIO_OUTFL_STREAM_BYPASS_PAUSED: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(2i32);
 pub const FSBPIO_OUTFL_FILTER_ATTACH_BLOCKED: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(4i32);
 pub const FSBPIO_OUTFL_COMPATIBLE_STORAGE_DRIVER: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(8i32);
+impl ::core::marker::Copy for FS_BPIO_OUTFLAGS {}
+impl ::core::clone::Clone for FS_BPIO_OUTFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct FS_BPIO_OUTPUT {
     pub Operation: FS_BPIO_OPERATIONS,
@@ -3441,6 +3555,12 @@ pub const CHANGER_PREDISMOUNT_ALIGN_TO_SLOT: GET_CHANGER_PARAMETERS_FEATURES1 = 
 pub const CHANGER_RTN_MEDIA_TO_ORIGINAL_ADDR: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483680u32);
 pub const CHANGER_SLOTS_USE_TRAYS: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483664u32);
 pub const CHANGER_TRUE_EXCHANGE_CAPABLE: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483656u32);
+impl ::core::marker::Copy for GET_CHANGER_PARAMETERS_FEATURES1 {}
+impl ::core::clone::Clone for GET_CHANGER_PARAMETERS_FEATURES1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
     pub Version: u32,
@@ -3521,6 +3641,12 @@ pub const GPT_BASIC_DATA_ATTRIBUTE_NO_DRIVE_LETTER: GPT_ATTRIBUTES = GPT_ATTRIBU
 pub const GPT_BASIC_DATA_ATTRIBUTE_HIDDEN: GPT_ATTRIBUTES = GPT_ATTRIBUTES(4611686018427387904u64);
 pub const GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: GPT_ATTRIBUTES = GPT_ATTRIBUTES(2305843009213693952u64);
 pub const GPT_BASIC_DATA_ATTRIBUTE_READ_ONLY: GPT_ATTRIBUTES = GPT_ATTRIBUTES(1152921504606846976u64);
+impl ::core::marker::Copy for GPT_ATTRIBUTES {}
+impl ::core::clone::Clone for GPT_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GPT_ATTRIBUTE_LEGACY_BIOS_BOOTABLE: u64 = 4u64;
 pub const GPT_ATTRIBUTE_NO_BLOCK_IO_PROTOCOL: u64 = 2u64;
 pub const GPT_BASIC_DATA_ATTRIBUTE_DAX: u64 = 288230376151711744u64;
@@ -3915,6 +4041,12 @@ pub const F8_256_128: MEDIA_TYPE = MEDIA_TYPE(22i32);
 pub const F3_200Mb_512: MEDIA_TYPE = MEDIA_TYPE(23i32);
 pub const F3_240M_512: MEDIA_TYPE = MEDIA_TYPE(24i32);
 pub const F3_32M_512: MEDIA_TYPE = MEDIA_TYPE(25i32);
+impl ::core::marker::Copy for MEDIA_TYPE {}
+impl ::core::clone::Clone for MEDIA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MEDIA_WRITE_ONCE: u32 = 2u32;
 pub const MEDIA_WRITE_PROTECTED: u32 = 256u32;
 pub const METHOD_BUFFERED: u32 = 0u32;
@@ -4438,6 +4570,12 @@ pub struct PARTITION_STYLE(pub i32);
 pub const PARTITION_STYLE_MBR: PARTITION_STYLE = PARTITION_STYLE(0i32);
 pub const PARTITION_STYLE_GPT: PARTITION_STYLE = PARTITION_STYLE(1i32);
 pub const PARTITION_STYLE_RAW: PARTITION_STYLE = PARTITION_STYLE(2i32);
+impl ::core::marker::Copy for PARTITION_STYLE {}
+impl ::core::clone::Clone for PARTITION_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PARTITION_SYSTEM: u32 = 239u32;
 pub const PARTITION_UNIX: u32 = 99u32;
 pub const PARTITION_WINDOWS_SYSTEM: u32 = 45u32;
@@ -4660,6 +4798,12 @@ pub const QUERY_FILE_LAYOUT_FILTER_TYPE_CLUSTERS: QUERY_FILE_LAYOUT_FILTER_TYPE 
 pub const QUERY_FILE_LAYOUT_FILTER_TYPE_FILEID: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(2i32);
 pub const QUERY_FILE_LAYOUT_FILTER_TYPE_STORAGE_RESERVE_ID: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(3i32);
 pub const QUERY_FILE_LAYOUT_NUM_FILTER_TYPES: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(4i32);
+impl ::core::marker::Copy for QUERY_FILE_LAYOUT_FILTER_TYPE {}
+impl ::core::clone::Clone for QUERY_FILE_LAYOUT_FILTER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QUERY_FILE_LAYOUT_INCLUDE_EXTENTS: u32 = 8u32;
 pub const QUERY_FILE_LAYOUT_INCLUDE_EXTRA_INFO: u32 = 16u32;
 pub const QUERY_FILE_LAYOUT_INCLUDE_FILES_WITH_DSC_ATTRIBUTE: u32 = 4096u32;
@@ -4823,11 +4967,23 @@ pub const SmrGcActionStart: REFS_SMR_VOLUME_GC_ACTION = REFS_SMR_VOLUME_GC_ACTIO
 pub const SmrGcActionStartFullSpeed: REFS_SMR_VOLUME_GC_ACTION = REFS_SMR_VOLUME_GC_ACTION(2i32);
 pub const SmrGcActionPause: REFS_SMR_VOLUME_GC_ACTION = REFS_SMR_VOLUME_GC_ACTION(3i32);
 pub const SmrGcActionStop: REFS_SMR_VOLUME_GC_ACTION = REFS_SMR_VOLUME_GC_ACTION(4i32);
+impl ::core::marker::Copy for REFS_SMR_VOLUME_GC_ACTION {}
+impl ::core::clone::Clone for REFS_SMR_VOLUME_GC_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REFS_SMR_VOLUME_GC_METHOD(pub i32);
 pub const SmrGcMethodCompaction: REFS_SMR_VOLUME_GC_METHOD = REFS_SMR_VOLUME_GC_METHOD(1i32);
 pub const SmrGcMethodCompression: REFS_SMR_VOLUME_GC_METHOD = REFS_SMR_VOLUME_GC_METHOD(2i32);
 pub const SmrGcMethodRotation: REFS_SMR_VOLUME_GC_METHOD = REFS_SMR_VOLUME_GC_METHOD(3i32);
+impl ::core::marker::Copy for REFS_SMR_VOLUME_GC_METHOD {}
+impl ::core::clone::Clone for REFS_SMR_VOLUME_GC_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct REFS_SMR_VOLUME_GC_PARAMETERS {
     pub Version: u32,
@@ -4851,6 +5007,12 @@ pub const SmrGcStateInactive: REFS_SMR_VOLUME_GC_STATE = REFS_SMR_VOLUME_GC_STAT
 pub const SmrGcStatePaused: REFS_SMR_VOLUME_GC_STATE = REFS_SMR_VOLUME_GC_STATE(1i32);
 pub const SmrGcStateActive: REFS_SMR_VOLUME_GC_STATE = REFS_SMR_VOLUME_GC_STATE(2i32);
 pub const SmrGcStateActiveFullSpeed: REFS_SMR_VOLUME_GC_STATE = REFS_SMR_VOLUME_GC_STATE(3i32);
+impl ::core::marker::Copy for REFS_SMR_VOLUME_GC_STATE {}
+impl ::core::clone::Clone for REFS_SMR_VOLUME_GC_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct REFS_SMR_VOLUME_INFO_OUTPUT {
     pub Version: u32,
@@ -5113,12 +5275,24 @@ pub struct SCM_BUS_FIRMWARE_ACTIVATION_STATE(pub i32);
 pub const ScmBusFirmwareActivationState_Idle: SCM_BUS_FIRMWARE_ACTIVATION_STATE = SCM_BUS_FIRMWARE_ACTIVATION_STATE(0i32);
 pub const ScmBusFirmwareActivationState_Armed: SCM_BUS_FIRMWARE_ACTIVATION_STATE = SCM_BUS_FIRMWARE_ACTIVATION_STATE(1i32);
 pub const ScmBusFirmwareActivationState_Busy: SCM_BUS_FIRMWARE_ACTIVATION_STATE = SCM_BUS_FIRMWARE_ACTIVATION_STATE(2i32);
+impl ::core::marker::Copy for SCM_BUS_FIRMWARE_ACTIVATION_STATE {}
+impl ::core::clone::Clone for SCM_BUS_FIRMWARE_ACTIVATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCM_BUS_PROPERTY_ID(pub i32);
 pub const ScmBusProperty_RuntimeFwActivationInfo: SCM_BUS_PROPERTY_ID = SCM_BUS_PROPERTY_ID(0i32);
 pub const ScmBusProperty_DedicatedMemoryInfo: SCM_BUS_PROPERTY_ID = SCM_BUS_PROPERTY_ID(1i32);
 pub const ScmBusProperty_DedicatedMemoryState: SCM_BUS_PROPERTY_ID = SCM_BUS_PROPERTY_ID(2i32);
 pub const ScmBusProperty_Max: SCM_BUS_PROPERTY_ID = SCM_BUS_PROPERTY_ID(3i32);
+impl ::core::marker::Copy for SCM_BUS_PROPERTY_ID {}
+impl ::core::clone::Clone for SCM_BUS_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCM_BUS_PROPERTY_QUERY {
     pub Version: u32,
@@ -5152,6 +5326,12 @@ pub struct SCM_BUS_QUERY_TYPE(pub i32);
 pub const ScmBusQuery_Descriptor: SCM_BUS_QUERY_TYPE = SCM_BUS_QUERY_TYPE(0i32);
 pub const ScmBusQuery_IsSupported: SCM_BUS_QUERY_TYPE = SCM_BUS_QUERY_TYPE(1i32);
 pub const ScmBusQuery_Max: SCM_BUS_QUERY_TYPE = SCM_BUS_QUERY_TYPE(2i32);
+impl ::core::marker::Copy for SCM_BUS_QUERY_TYPE {}
+impl ::core::clone::Clone for SCM_BUS_QUERY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
@@ -5191,6 +5371,12 @@ pub struct SCM_BUS_SET_TYPE(pub i32);
 pub const ScmBusSet_Descriptor: SCM_BUS_SET_TYPE = SCM_BUS_SET_TYPE(0i32);
 pub const ScmBusSet_IsSupported: SCM_BUS_SET_TYPE = SCM_BUS_SET_TYPE(1i32);
 pub const ScmBusSet_Max: SCM_BUS_SET_TYPE = SCM_BUS_SET_TYPE(2i32);
+impl ::core::marker::Copy for SCM_BUS_SET_TYPE {}
+impl ::core::clone::Clone for SCM_BUS_SET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCM_INTERLEAVED_PD_INFO {
     pub DeviceHandle: u32,
@@ -5342,6 +5528,12 @@ pub struct SCM_PD_FIRMWARE_ACTIVATION_STATE(pub i32);
 pub const ScmPdFirmwareActivationState_Idle: SCM_PD_FIRMWARE_ACTIVATION_STATE = SCM_PD_FIRMWARE_ACTIVATION_STATE(0i32);
 pub const ScmPdFirmwareActivationState_Armed: SCM_PD_FIRMWARE_ACTIVATION_STATE = SCM_PD_FIRMWARE_ACTIVATION_STATE(1i32);
 pub const ScmPdFirmwareActivationState_Busy: SCM_PD_FIRMWARE_ACTIVATION_STATE = SCM_PD_FIRMWARE_ACTIVATION_STATE(2i32);
+impl ::core::marker::Copy for SCM_PD_FIRMWARE_ACTIVATION_STATE {}
+impl ::core::clone::Clone for SCM_PD_FIRMWARE_ACTIVATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCM_PD_FIRMWARE_DOWNLOAD {
     pub Version: u32,
@@ -5421,6 +5613,12 @@ pub const ScmPhysicalDeviceHealth_Unhealthy: SCM_PD_HEALTH_STATUS = SCM_PD_HEALT
 pub const ScmPhysicalDeviceHealth_Warning: SCM_PD_HEALTH_STATUS = SCM_PD_HEALTH_STATUS(2i32);
 pub const ScmPhysicalDeviceHealth_Healthy: SCM_PD_HEALTH_STATUS = SCM_PD_HEALTH_STATUS(3i32);
 pub const ScmPhysicalDeviceHealth_Max: SCM_PD_HEALTH_STATUS = SCM_PD_HEALTH_STATUS(4i32);
+impl ::core::marker::Copy for SCM_PD_HEALTH_STATUS {}
+impl ::core::clone::Clone for SCM_PD_HEALTH_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCM_PD_LAST_FW_ACTIVATION_STATUS(pub i32);
 pub const ScmPdLastFwActivationStatus_None: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(0i32);
@@ -5431,6 +5629,12 @@ pub const ScmPdLastFwActivaitonStatus_ActivationInProgress: SCM_PD_LAST_FW_ACTIV
 pub const ScmPdLastFwActivaitonStatus_Retry: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(5i32);
 pub const ScmPdLastFwActivaitonStatus_FwUnsupported: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(6i32);
 pub const ScmPdLastFwActivaitonStatus_UnknownError: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(7i32);
+impl ::core::marker::Copy for SCM_PD_LAST_FW_ACTIVATION_STATUS {}
+impl ::core::clone::Clone for SCM_PD_LAST_FW_ACTIVATION_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCM_PD_LOCATION_STRING {
     pub Version: u32,
@@ -5466,6 +5670,12 @@ pub const ScmPhysicalDeviceReinit_Success: SCM_PD_MEDIA_REINITIALIZATION_STATUS 
 pub const ScmPhysicalDeviceReinit_RebootNeeded: SCM_PD_MEDIA_REINITIALIZATION_STATUS = SCM_PD_MEDIA_REINITIALIZATION_STATUS(1i32);
 pub const ScmPhysicalDeviceReinit_ColdBootNeeded: SCM_PD_MEDIA_REINITIALIZATION_STATUS = SCM_PD_MEDIA_REINITIALIZATION_STATUS(2i32);
 pub const ScmPhysicalDeviceReinit_Max: SCM_PD_MEDIA_REINITIALIZATION_STATUS = SCM_PD_MEDIA_REINITIALIZATION_STATUS(3i32);
+impl ::core::marker::Copy for SCM_PD_MEDIA_REINITIALIZATION_STATUS {}
+impl ::core::clone::Clone for SCM_PD_MEDIA_REINITIALIZATION_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCM_PD_OPERATIONAL_STATUS(pub i32);
 pub const ScmPhysicalDeviceOpStatus_Unknown: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(0i32);
@@ -5477,6 +5687,12 @@ pub const ScmPhysicalDeviceOpStatus_NotUsable: SCM_PD_OPERATIONAL_STATUS = SCM_P
 pub const ScmPhysicalDeviceOpStatus_TransientError: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(6i32);
 pub const ScmPhysicalDeviceOpStatus_Missing: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(7i32);
 pub const ScmPhysicalDeviceOpStatus_Max: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(8i32);
+impl ::core::marker::Copy for SCM_PD_OPERATIONAL_STATUS {}
+impl ::core::clone::Clone for SCM_PD_OPERATIONAL_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCM_PD_OPERATIONAL_STATUS_REASON(pub i32);
 pub const ScmPhysicalDeviceOpReason_Unknown: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(0i32);
@@ -5503,6 +5719,12 @@ pub const ScmPhysicalDeviceOpReason_PerformanceDegradation: SCM_PD_OPERATIONAL_S
 pub const ScmPhysicalDeviceOpReason_ExcessiveTemperature: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(21i32);
 pub const ScmPhysicalDeviceOpReason_InternalFailure: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(22i32);
 pub const ScmPhysicalDeviceOpReason_Max: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(23i32);
+impl ::core::marker::Copy for SCM_PD_OPERATIONAL_STATUS_REASON {}
+impl ::core::clone::Clone for SCM_PD_OPERATIONAL_STATUS_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCM_PD_PASSTHROUGH_INPUT {
     pub Version: u32,
@@ -5568,6 +5790,12 @@ pub const ScmPhysicalDeviceProperty_FruIdString: SCM_PD_PROPERTY_ID = SCM_PD_PRO
 pub const ScmPhysicalDeviceProperty_RuntimeFwActivationInfo: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(7i32);
 pub const ScmPhysicalDeviceProperty_RuntimeFwActivationArmState: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(8i32);
 pub const ScmPhysicalDeviceProperty_Max: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(9i32);
+impl ::core::marker::Copy for SCM_PD_PROPERTY_ID {}
+impl ::core::clone::Clone for SCM_PD_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCM_PD_PROPERTY_NAME_LENGTH_IN_CHARS: u32 = 128u32;
 #[repr(C)]
 pub struct SCM_PD_PROPERTY_QUERY {
@@ -5602,6 +5830,12 @@ pub struct SCM_PD_QUERY_TYPE(pub i32);
 pub const ScmPhysicalDeviceQuery_Descriptor: SCM_PD_QUERY_TYPE = SCM_PD_QUERY_TYPE(0i32);
 pub const ScmPhysicalDeviceQuery_IsSupported: SCM_PD_QUERY_TYPE = SCM_PD_QUERY_TYPE(1i32);
 pub const ScmPhysicalDeviceQuery_Max: SCM_PD_QUERY_TYPE = SCM_PD_QUERY_TYPE(2i32);
+impl ::core::marker::Copy for SCM_PD_QUERY_TYPE {}
+impl ::core::clone::Clone for SCM_PD_QUERY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCM_PD_REINITIALIZE_MEDIA_INPUT {
     pub Version: u32,
@@ -5667,6 +5901,12 @@ pub struct SCM_PD_SET_TYPE(pub i32);
 pub const ScmPhysicalDeviceSet_Descriptor: SCM_PD_SET_TYPE = SCM_PD_SET_TYPE(0i32);
 pub const ScmPhysicalDeviceSet_IsSupported: SCM_PD_SET_TYPE = SCM_PD_SET_TYPE(1i32);
 pub const ScmPhysicalDeviceSet_Max: SCM_PD_SET_TYPE = SCM_PD_SET_TYPE(2i32);
+impl ::core::marker::Copy for SCM_PD_SET_TYPE {}
+impl ::core::clone::Clone for SCM_PD_SET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCM_PHYSICAL_DEVICES {
     pub Version: u32,
@@ -5731,6 +5971,12 @@ impl ::core::clone::Clone for SCM_REGIONS {
 pub struct SCM_REGION_FLAG(pub i32);
 pub const ScmRegionFlagNone: SCM_REGION_FLAG = SCM_REGION_FLAG(0i32);
 pub const ScmRegionFlagLabel: SCM_REGION_FLAG = SCM_REGION_FLAG(1i32);
+impl ::core::marker::Copy for SCM_REGION_FLAG {}
+impl ::core::clone::Clone for SCM_REGION_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SD_CHANGE_MACHINE_SID_INPUT {
     pub CurrentMachineSIDOffset: u16,
@@ -6003,6 +6249,12 @@ pub struct SHRINK_VOLUME_REQUEST_TYPES(pub i32);
 pub const ShrinkPrepare: SHRINK_VOLUME_REQUEST_TYPES = SHRINK_VOLUME_REQUEST_TYPES(1i32);
 pub const ShrinkCommit: SHRINK_VOLUME_REQUEST_TYPES = SHRINK_VOLUME_REQUEST_TYPES(2i32);
 pub const ShrinkAbort: SHRINK_VOLUME_REQUEST_TYPES = SHRINK_VOLUME_REQUEST_TYPES(3i32);
+impl ::core::marker::Copy for SHRINK_VOLUME_REQUEST_TYPES {}
+impl ::core::clone::Clone for SHRINK_VOLUME_REQUEST_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SI_COPYFILE {
     pub SourceFileNameLength: u32,
@@ -6189,6 +6441,12 @@ pub struct STORAGE_ASSOCIATION_TYPE(pub i32);
 pub const StorageIdAssocDevice: STORAGE_ASSOCIATION_TYPE = STORAGE_ASSOCIATION_TYPE(0i32);
 pub const StorageIdAssocPort: STORAGE_ASSOCIATION_TYPE = STORAGE_ASSOCIATION_TYPE(1i32);
 pub const StorageIdAssocTarget: STORAGE_ASSOCIATION_TYPE = STORAGE_ASSOCIATION_TYPE(2i32);
+impl ::core::marker::Copy for STORAGE_ASSOCIATION_TYPE {}
+impl ::core::clone::Clone for STORAGE_ASSOCIATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STORAGE_ATTRIBUTE_ASYNC_EVENT_NOTIFICATION: u32 = 16u32;
 pub const STORAGE_ATTRIBUTE_BLOCK_IO: u32 = 2u32;
 pub const STORAGE_ATTRIBUTE_BYTE_ADDRESSABLE_IO: u32 = 1u32;
@@ -6211,6 +6469,12 @@ pub struct STORAGE_ATTRIBUTE_MGMT_ACTION(pub i32);
 pub const StorAttributeMgmt_ClearAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION = STORAGE_ATTRIBUTE_MGMT_ACTION(0i32);
 pub const StorAttributeMgmt_SetAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION = STORAGE_ATTRIBUTE_MGMT_ACTION(1i32);
 pub const StorAttributeMgmt_ResetAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION = STORAGE_ATTRIBUTE_MGMT_ACTION(2i32);
+impl ::core::marker::Copy for STORAGE_ATTRIBUTE_MGMT_ACTION {}
+impl ::core::clone::Clone for STORAGE_ATTRIBUTE_MGMT_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STORAGE_ATTRIBUTE_PERF_SIZE_INDEPENDENT: u32 = 32u32;
 pub const STORAGE_ATTRIBUTE_VOLATILE: u32 = 8u32;
 #[repr(C)]
@@ -6245,6 +6509,12 @@ pub const HealthStatusThrottled: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPO
 pub const HealthStatusWarning: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(3i32);
 pub const HealthStatusDisabled: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(4i32);
 pub const HealthStatusFailed: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(5i32);
+impl ::core::marker::Copy for STORAGE_COMPONENT_HEALTH_STATUS {}
+impl ::core::clone::Clone for STORAGE_COMPONENT_HEALTH_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STORAGE_COMPONENT_ROLE_CACHE: u32 = 1u32;
 pub const STORAGE_COMPONENT_ROLE_DATA: u32 = 4u32;
 pub const STORAGE_COMPONENT_ROLE_TIERING: u32 = 2u32;
@@ -6317,6 +6587,12 @@ pub const StorageCounterTypeReadLatency100NSMax: STORAGE_COUNTER_TYPE = STORAGE_
 pub const StorageCounterTypeWriteLatency100NSMax: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(19i32);
 pub const StorageCounterTypeFlushLatency100NSMax: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(20i32);
 pub const StorageCounterTypeMax: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(21i32);
+impl ::core::marker::Copy for STORAGE_COUNTER_TYPE {}
+impl ::core::clone::Clone for STORAGE_COUNTER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STORAGE_CRYPTO_ALGORITHM_ID(pub i32);
 pub const StorageCryptoAlgorithmUnknown: STORAGE_CRYPTO_ALGORITHM_ID = STORAGE_CRYPTO_ALGORITHM_ID(0i32);
@@ -6325,6 +6601,12 @@ pub const StorageCryptoAlgorithmBitlockerAESCBC: STORAGE_CRYPTO_ALGORITHM_ID = S
 pub const StorageCryptoAlgorithmAESECB: STORAGE_CRYPTO_ALGORITHM_ID = STORAGE_CRYPTO_ALGORITHM_ID(3i32);
 pub const StorageCryptoAlgorithmESSIVAESCBC: STORAGE_CRYPTO_ALGORITHM_ID = STORAGE_CRYPTO_ALGORITHM_ID(4i32);
 pub const StorageCryptoAlgorithmMax: STORAGE_CRYPTO_ALGORITHM_ID = STORAGE_CRYPTO_ALGORITHM_ID(5i32);
+impl ::core::marker::Copy for STORAGE_CRYPTO_ALGORITHM_ID {}
+impl ::core::clone::Clone for STORAGE_CRYPTO_ALGORITHM_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_CRYPTO_CAPABILITY {
     pub Version: u32,
@@ -6363,6 +6645,12 @@ pub const StorageCryptoKeySize128Bits: STORAGE_CRYPTO_KEY_SIZE = STORAGE_CRYPTO_
 pub const StorageCryptoKeySize192Bits: STORAGE_CRYPTO_KEY_SIZE = STORAGE_CRYPTO_KEY_SIZE(2i32);
 pub const StorageCryptoKeySize256Bits: STORAGE_CRYPTO_KEY_SIZE = STORAGE_CRYPTO_KEY_SIZE(3i32);
 pub const StorageCryptoKeySize512Bits: STORAGE_CRYPTO_KEY_SIZE = STORAGE_CRYPTO_KEY_SIZE(4i32);
+impl ::core::marker::Copy for STORAGE_CRYPTO_KEY_SIZE {}
+impl ::core::clone::Clone for STORAGE_CRYPTO_KEY_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_DESCRIPTOR_HEADER {
     pub Version: u32,
@@ -6440,6 +6728,12 @@ pub const FormFactormSata: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACT
 pub const FormFactorM_2: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(8i32);
 pub const FormFactorPCIeBoard: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(9i32);
 pub const FormFactorDimm: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(10i32);
+impl ::core::marker::Copy for STORAGE_DEVICE_FORM_FACTOR {}
+impl ::core::clone::Clone for STORAGE_DEVICE_FORM_FACTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_DEVICE_ID_DESCRIPTOR {
     pub Version: u32,
@@ -6579,6 +6873,12 @@ impl ::core::clone::Clone for STORAGE_DEVICE_POWER_CAP {
 pub struct STORAGE_DEVICE_POWER_CAP_UNITS(pub i32);
 pub const StorageDevicePowerCapUnitsPercent: STORAGE_DEVICE_POWER_CAP_UNITS = STORAGE_DEVICE_POWER_CAP_UNITS(0i32);
 pub const StorageDevicePowerCapUnitsMilliwatts: STORAGE_DEVICE_POWER_CAP_UNITS = STORAGE_DEVICE_POWER_CAP_UNITS(1i32);
+impl ::core::marker::Copy for STORAGE_DEVICE_POWER_CAP_UNITS {}
+impl ::core::clone::Clone for STORAGE_DEVICE_POWER_CAP_UNITS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STORAGE_DEVICE_POWER_CAP_VERSION_V1: u32 = 1u32;
 #[repr(C)]
 pub struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
@@ -6659,6 +6959,12 @@ pub const STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: u32 = 1u32;
 pub struct STORAGE_DIAGNOSTIC_LEVEL(pub i32);
 pub const StorageDiagnosticLevelDefault: STORAGE_DIAGNOSTIC_LEVEL = STORAGE_DIAGNOSTIC_LEVEL(0i32);
 pub const StorageDiagnosticLevelMax: STORAGE_DIAGNOSTIC_LEVEL = STORAGE_DIAGNOSTIC_LEVEL(1i32);
+impl ::core::marker::Copy for STORAGE_DIAGNOSTIC_LEVEL {}
+impl ::core::clone::Clone for STORAGE_DIAGNOSTIC_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_DIAGNOSTIC_REQUEST {
     pub Version: u32,
@@ -6680,6 +6986,12 @@ pub const StorageDiagnosticTargetTypePort: STORAGE_DIAGNOSTIC_TARGET_TYPE = STOR
 pub const StorageDiagnosticTargetTypeMiniport: STORAGE_DIAGNOSTIC_TARGET_TYPE = STORAGE_DIAGNOSTIC_TARGET_TYPE(2i32);
 pub const StorageDiagnosticTargetTypeHbaFirmware: STORAGE_DIAGNOSTIC_TARGET_TYPE = STORAGE_DIAGNOSTIC_TARGET_TYPE(3i32);
 pub const StorageDiagnosticTargetTypeMax: STORAGE_DIAGNOSTIC_TARGET_TYPE = STORAGE_DIAGNOSTIC_TARGET_TYPE(4i32);
+impl ::core::marker::Copy for STORAGE_DIAGNOSTIC_TARGET_TYPE {}
+impl ::core::clone::Clone for STORAGE_DIAGNOSTIC_TARGET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STORAGE_DISK_HEALTH_STATUS(pub i32);
 pub const DiskHealthUnknown: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(0i32);
@@ -6687,6 +6999,12 @@ pub const DiskHealthUnhealthy: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_
 pub const DiskHealthWarning: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(2i32);
 pub const DiskHealthHealthy: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(3i32);
 pub const DiskHealthMax: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(4i32);
+impl ::core::marker::Copy for STORAGE_DISK_HEALTH_STATUS {}
+impl ::core::clone::Clone for STORAGE_DISK_HEALTH_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STORAGE_DISK_OPERATIONAL_STATUS(pub i32);
 pub const DiskOpStatusNone: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(0i32);
@@ -6698,6 +7016,12 @@ pub const DiskOpStatusHardwareError: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_D
 pub const DiskOpStatusNotUsable: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(6i32);
 pub const DiskOpStatusTransientError: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(7i32);
 pub const DiskOpStatusMissing: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(8i32);
+impl ::core::marker::Copy for STORAGE_DISK_OPERATIONAL_STATUS {}
+impl ::core::clone::Clone for STORAGE_DISK_OPERATIONAL_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STORAGE_EVENT_DEVICE_OPERATION: u64 = 4u64;
 pub const STORAGE_EVENT_DEVICE_STATUS: u64 = 2u64;
 pub const STORAGE_EVENT_MEDIA_STATUS: u64 = 1u64;
@@ -6942,6 +7266,12 @@ pub const StorageIdCodeSetReserved: STORAGE_IDENTIFIER_CODE_SET = STORAGE_IDENTI
 pub const StorageIdCodeSetBinary: STORAGE_IDENTIFIER_CODE_SET = STORAGE_IDENTIFIER_CODE_SET(1i32);
 pub const StorageIdCodeSetAscii: STORAGE_IDENTIFIER_CODE_SET = STORAGE_IDENTIFIER_CODE_SET(2i32);
 pub const StorageIdCodeSetUtf8: STORAGE_IDENTIFIER_CODE_SET = STORAGE_IDENTIFIER_CODE_SET(3i32);
+impl ::core::marker::Copy for STORAGE_IDENTIFIER_CODE_SET {}
+impl ::core::clone::Clone for STORAGE_IDENTIFIER_CODE_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STORAGE_IDENTIFIER_TYPE(pub i32);
 pub const StorageIdTypeVendorSpecific: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTIFIER_TYPE(0i32);
@@ -6953,6 +7283,12 @@ pub const StorageIdTypeTargetPortGroup: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTI
 pub const StorageIdTypeLogicalUnitGroup: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTIFIER_TYPE(6i32);
 pub const StorageIdTypeMD5LogicalUnitIdentifier: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTIFIER_TYPE(7i32);
 pub const StorageIdTypeScsiNameString: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTIFIER_TYPE(8i32);
+impl ::core::marker::Copy for STORAGE_IDENTIFIER_TYPE {}
+impl ::core::clone::Clone for STORAGE_IDENTIFIER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_IDLE_POWER {
     pub Version: u32,
@@ -6984,6 +7320,12 @@ pub struct STORAGE_ID_NAA_FORMAT(pub i32);
 pub const StorageIdNAAFormatIEEEExtended: STORAGE_ID_NAA_FORMAT = STORAGE_ID_NAA_FORMAT(2i32);
 pub const StorageIdNAAFormatIEEERegistered: STORAGE_ID_NAA_FORMAT = STORAGE_ID_NAA_FORMAT(3i32);
 pub const StorageIdNAAFormatIEEEERegisteredExtended: STORAGE_ID_NAA_FORMAT = STORAGE_ID_NAA_FORMAT(5i32);
+impl ::core::marker::Copy for STORAGE_ID_NAA_FORMAT {}
+impl ::core::clone::Clone for STORAGE_ID_NAA_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     pub Size: u32,
@@ -7078,6 +7420,12 @@ pub const ADR_2: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(91i32);
 pub const STK_9940: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(92i32);
 pub const SAIT: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(93i32);
 pub const VXATape: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(94i32);
+impl ::core::marker::Copy for STORAGE_MEDIA_TYPE {}
+impl ::core::clone::Clone for STORAGE_MEDIA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     pub Version: u32,
@@ -7274,6 +7622,12 @@ pub const DiskOpReasonLostWritePersistence: STORAGE_OPERATIONAL_STATUS_REASON = 
 pub const DiskOpReasonDataPersistenceLossImminent: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(18i32);
 pub const DiskOpReasonWritePersistenceLossImminent: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(19i32);
 pub const DiskOpReasonMax: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(20i32);
+impl ::core::marker::Copy for STORAGE_OPERATIONAL_STATUS_REASON {}
+impl ::core::clone::Clone for STORAGE_OPERATIONAL_STATUS_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
@@ -7359,11 +7713,23 @@ pub const StoragePortCodeSetATAport: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_S
 pub const StoragePortCodeSetUSBport: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(5i32);
 pub const StoragePortCodeSetSBP2port: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(6i32);
 pub const StoragePortCodeSetSDport: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(7i32);
+impl ::core::marker::Copy for STORAGE_PORT_CODE_SET {}
+impl ::core::clone::Clone for STORAGE_PORT_CODE_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STORAGE_POWERUP_REASON_TYPE(pub i32);
 pub const StoragePowerupUnknown: STORAGE_POWERUP_REASON_TYPE = STORAGE_POWERUP_REASON_TYPE(0i32);
 pub const StoragePowerupIO: STORAGE_POWERUP_REASON_TYPE = STORAGE_POWERUP_REASON_TYPE(1i32);
 pub const StoragePowerupDeviceAttention: STORAGE_POWERUP_REASON_TYPE = STORAGE_POWERUP_REASON_TYPE(2i32);
+impl ::core::marker::Copy for STORAGE_POWERUP_REASON_TYPE {}
+impl ::core::clone::Clone for STORAGE_POWERUP_REASON_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_PREDICT_FAILURE {
     pub PredictFailure: u32,
@@ -7424,6 +7790,12 @@ pub const StorageDeviceEnduranceProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY
 pub const StorageDeviceLedStateProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(63i32);
 pub const StorageDeviceSelfEncryptionProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(64i32);
 pub const StorageFruIdProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(65i32);
+impl ::core::marker::Copy for STORAGE_PROPERTY_ID {}
+impl ::core::clone::Clone for STORAGE_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_PROPERTY_QUERY {
     pub PropertyId: STORAGE_PROPERTY_ID,
@@ -7453,6 +7825,12 @@ pub struct STORAGE_PROTOCOL_ATA_DATA_TYPE(pub i32);
 pub const AtaDataTypeUnknown: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(0i32);
 pub const AtaDataTypeIdentify: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(1i32);
 pub const AtaDataTypeLogPage: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(2i32);
+impl ::core::marker::Copy for STORAGE_PROTOCOL_ATA_DATA_TYPE {}
+impl ::core::clone::Clone for STORAGE_PROTOCOL_ATA_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_PROTOCOL_COMMAND {
     pub Version: u32,
@@ -7533,6 +7911,12 @@ pub const NVMeDataTypeUnknown: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCO
 pub const NVMeDataTypeIdentify: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(1i32);
 pub const NVMeDataTypeLogPage: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(2i32);
 pub const NVMeDataTypeFeature: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(3i32);
+impl ::core::marker::Copy for STORAGE_PROTOCOL_NVME_DATA_TYPE {}
+impl ::core::clone::Clone for STORAGE_PROTOCOL_NVME_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_PROTOCOL_SPECIFIC_DATA {
     pub ProtocolType: STORAGE_PROTOCOL_TYPE,
@@ -7596,6 +7980,12 @@ pub const ProtocolTypeSd: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(4i32);
 pub const ProtocolTypeUfs: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(5i32);
 pub const ProtocolTypeProprietary: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(126i32);
 pub const ProtocolTypeMaxReserved: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(127i32);
+impl ::core::marker::Copy for STORAGE_PROTOCOL_TYPE {}
+impl ::core::clone::Clone for STORAGE_PROTOCOL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STORAGE_PROTOCOL_UFS_DATA_TYPE(pub i32);
 pub const UfsDataTypeUnknown: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(0i32);
@@ -7605,6 +7995,12 @@ pub const UfsDataTypeQueryFlag: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCO
 pub const UfsDataTypeQueryDmeAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(4i32);
 pub const UfsDataTypeQueryDmePeerAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(5i32);
 pub const UfsDataTypeMax: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(6i32);
+impl ::core::marker::Copy for STORAGE_PROTOCOL_UFS_DATA_TYPE {}
+impl ::core::clone::Clone for STORAGE_PROTOCOL_UFS_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
@@ -7690,6 +8086,12 @@ pub const PropertyStandardQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(0i32);
 pub const PropertyExistsQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(1i32);
 pub const PropertyMaskQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(2i32);
 pub const PropertyQueryMaxDefined: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(3i32);
+impl ::core::marker::Copy for STORAGE_QUERY_TYPE {}
+impl ::core::clone::Clone for STORAGE_QUERY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_READ_CAPACITY {
     pub Version: u32,
@@ -7734,6 +8136,12 @@ pub const StorageReserveIdHard: STORAGE_RESERVE_ID = STORAGE_RESERVE_ID(1i32);
 pub const StorageReserveIdSoft: STORAGE_RESERVE_ID = STORAGE_RESERVE_ID(2i32);
 pub const StorageReserveIdUpdateScratch: STORAGE_RESERVE_ID = STORAGE_RESERVE_ID(3i32);
 pub const StorageReserveIdMax: STORAGE_RESERVE_ID = STORAGE_RESERVE_ID(4i32);
+impl ::core::marker::Copy for STORAGE_RESERVE_ID {}
+impl ::core::clone::Clone for STORAGE_RESERVE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STORAGE_RPMB_COMMAND_TYPE(pub i32);
 pub const StorRpmbProgramAuthKey: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_COMMAND_TYPE(1i32);
@@ -7743,6 +8151,12 @@ pub const StorRpmbAuthenticatedRead: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_CO
 pub const StorRpmbReadResultRequest: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_COMMAND_TYPE(5i32);
 pub const StorRpmbAuthenticatedDeviceConfigWrite: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_COMMAND_TYPE(6i32);
 pub const StorRpmbAuthenticatedDeviceConfigRead: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_COMMAND_TYPE(7i32);
+impl ::core::marker::Copy for STORAGE_RPMB_COMMAND_TYPE {}
+impl ::core::clone::Clone for STORAGE_RPMB_COMMAND_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STORAGE_RPMB_DATA_FRAME {
     pub Stuff: [u8; 196],
@@ -7781,17 +8195,35 @@ pub struct STORAGE_RPMB_FRAME_TYPE(pub i32);
 pub const StorageRpmbFrameTypeUnknown: STORAGE_RPMB_FRAME_TYPE = STORAGE_RPMB_FRAME_TYPE(0i32);
 pub const StorageRpmbFrameTypeStandard: STORAGE_RPMB_FRAME_TYPE = STORAGE_RPMB_FRAME_TYPE(1i32);
 pub const StorageRpmbFrameTypeMax: STORAGE_RPMB_FRAME_TYPE = STORAGE_RPMB_FRAME_TYPE(2i32);
+impl ::core::marker::Copy for STORAGE_RPMB_FRAME_TYPE {}
+impl ::core::clone::Clone for STORAGE_RPMB_FRAME_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STORAGE_RPMB_MINIMUM_RELIABLE_WRITE_SIZE: u32 = 512u32;
 #[repr(transparent)]
 pub struct STORAGE_SANITIZE_METHOD(pub i32);
 pub const StorageSanitizeMethodDefault: STORAGE_SANITIZE_METHOD = STORAGE_SANITIZE_METHOD(0i32);
 pub const StorageSanitizeMethodBlockErase: STORAGE_SANITIZE_METHOD = STORAGE_SANITIZE_METHOD(1i32);
 pub const StorageSanitizeMethodCryptoErase: STORAGE_SANITIZE_METHOD = STORAGE_SANITIZE_METHOD(2i32);
+impl ::core::marker::Copy for STORAGE_SANITIZE_METHOD {}
+impl ::core::clone::Clone for STORAGE_SANITIZE_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STORAGE_SET_TYPE(pub i32);
 pub const PropertyStandardSet: STORAGE_SET_TYPE = STORAGE_SET_TYPE(0i32);
 pub const PropertyExistsSet: STORAGE_SET_TYPE = STORAGE_SET_TYPE(1i32);
 pub const PropertySetMaxDefined: STORAGE_SET_TYPE = STORAGE_SET_TYPE(2i32);
+impl ::core::marker::Copy for STORAGE_SET_TYPE {}
+impl ::core::clone::Clone for STORAGE_SET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union STORAGE_SPEC_VERSION {
     pub Anonymous: STORAGE_SPEC_VERSION_0,
@@ -7920,6 +8352,12 @@ pub const StorageTierClassUnspecified: STORAGE_TIER_CLASS = STORAGE_TIER_CLASS(0
 pub const StorageTierClassCapacity: STORAGE_TIER_CLASS = STORAGE_TIER_CLASS(1i32);
 pub const StorageTierClassPerformance: STORAGE_TIER_CLASS = STORAGE_TIER_CLASS(2i32);
 pub const StorageTierClassMax: STORAGE_TIER_CLASS = STORAGE_TIER_CLASS(3i32);
+impl ::core::marker::Copy for STORAGE_TIER_CLASS {}
+impl ::core::clone::Clone for STORAGE_TIER_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
 pub const STORAGE_TIER_FLAG_NO_SEEK_PENALTY: u32 = 131072u32;
 pub const STORAGE_TIER_FLAG_PARITY: u32 = 8388608u32;
@@ -7933,6 +8371,12 @@ pub const StorageTierMediaTypeDisk: STORAGE_TIER_MEDIA_TYPE = STORAGE_TIER_MEDIA
 pub const StorageTierMediaTypeSsd: STORAGE_TIER_MEDIA_TYPE = STORAGE_TIER_MEDIA_TYPE(2i32);
 pub const StorageTierMediaTypeScm: STORAGE_TIER_MEDIA_TYPE = STORAGE_TIER_MEDIA_TYPE(4i32);
 pub const StorageTierMediaTypeMax: STORAGE_TIER_MEDIA_TYPE = STORAGE_TIER_MEDIA_TYPE(5i32);
+impl ::core::marker::Copy for STORAGE_TIER_MEDIA_TYPE {}
+impl ::core::clone::Clone for STORAGE_TIER_MEDIA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
 #[repr(C)]
 pub struct STORAGE_TIER_REGION {
@@ -8033,12 +8477,24 @@ pub const ZonedDeviceTypeUnknown: STORAGE_ZONED_DEVICE_TYPES = STORAGE_ZONED_DEV
 pub const ZonedDeviceTypeHostManaged: STORAGE_ZONED_DEVICE_TYPES = STORAGE_ZONED_DEVICE_TYPES(1i32);
 pub const ZonedDeviceTypeHostAware: STORAGE_ZONED_DEVICE_TYPES = STORAGE_ZONED_DEVICE_TYPES(2i32);
 pub const ZonedDeviceTypeDeviceManaged: STORAGE_ZONED_DEVICE_TYPES = STORAGE_ZONED_DEVICE_TYPES(3i32);
+impl ::core::marker::Copy for STORAGE_ZONED_DEVICE_TYPES {}
+impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STORAGE_ZONES_ATTRIBUTES(pub i32);
 pub const ZonesAttributeTypeAndLengthMayDifferent: STORAGE_ZONES_ATTRIBUTES = STORAGE_ZONES_ATTRIBUTES(0i32);
 pub const ZonesAttributeTypeSameLengthSame: STORAGE_ZONES_ATTRIBUTES = STORAGE_ZONES_ATTRIBUTES(1i32);
 pub const ZonesAttributeTypeSameLastZoneLengthDifferent: STORAGE_ZONES_ATTRIBUTES = STORAGE_ZONES_ATTRIBUTES(2i32);
 pub const ZonesAttributeTypeMayDifferentLengthSame: STORAGE_ZONES_ATTRIBUTES = STORAGE_ZONES_ATTRIBUTES(3i32);
+impl ::core::marker::Copy for STORAGE_ZONES_ATTRIBUTES {}
+impl ::core::clone::Clone for STORAGE_ZONES_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STORAGE_ZONE_CONDITION(pub i32);
 pub const ZoneConditionConventional: STORAGE_ZONE_CONDITION = STORAGE_ZONE_CONDITION(0i32);
@@ -8049,6 +8505,12 @@ pub const ZoneConditionClosed: STORAGE_ZONE_CONDITION = STORAGE_ZONE_CONDITION(4
 pub const ZoneConditionReadOnly: STORAGE_ZONE_CONDITION = STORAGE_ZONE_CONDITION(13i32);
 pub const ZoneConditionFull: STORAGE_ZONE_CONDITION = STORAGE_ZONE_CONDITION(14i32);
 pub const ZoneConditionOffline: STORAGE_ZONE_CONDITION = STORAGE_ZONE_CONDITION(15i32);
+impl ::core::marker::Copy for STORAGE_ZONE_CONDITION {}
+impl ::core::clone::Clone for STORAGE_ZONE_CONDITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONE_DESCRIPTOR {
@@ -8087,6 +8549,12 @@ pub const ZoneTypeConventional: STORAGE_ZONE_TYPES = STORAGE_ZONE_TYPES(1i32);
 pub const ZoneTypeSequentialWriteRequired: STORAGE_ZONE_TYPES = STORAGE_ZONE_TYPES(2i32);
 pub const ZoneTypeSequentialWritePreferred: STORAGE_ZONE_TYPES = STORAGE_ZONE_TYPES(3i32);
 pub const ZoneTypeMax: STORAGE_ZONE_TYPES = STORAGE_ZONE_TYPES(4i32);
+impl ::core::marker::Copy for STORAGE_ZONE_TYPES {}
+impl ::core::clone::Clone for STORAGE_ZONE_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STORATTRIBUTE_MANAGEMENT_STATE: u32 = 1u32;
 pub const STORATTRIBUTE_NONE: u32 = 0u32;
 pub const STREAMS_ASSOCIATE_ID_CLEAR: u32 = 1u32;
@@ -8485,6 +8953,12 @@ pub const TXFS_RM_FLAG_RESET_RM_AT_NEXT_START: TXFS_RMF_LAGS = TXFS_RMF_LAGS(163
 pub const TXFS_RM_FLAG_DO_NOT_RESET_RM_AT_NEXT_START: TXFS_RMF_LAGS = TXFS_RMF_LAGS(32768u32);
 pub const TXFS_RM_FLAG_PREFER_CONSISTENCY: TXFS_RMF_LAGS = TXFS_RMF_LAGS(65536u32);
 pub const TXFS_RM_FLAG_PREFER_AVAILABILITY: TXFS_RMF_LAGS = TXFS_RMF_LAGS(131072u32);
+impl ::core::marker::Copy for TXFS_RMF_LAGS {}
+impl ::core::clone::Clone for TXFS_RMF_LAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TXFS_RM_STATE_ACTIVE: u32 = 2u32;
 pub const TXFS_RM_STATE_NOT_STARTED: u32 = 0u32;
 pub const TXFS_RM_STATE_SHUTTING_DOWN: u32 = 3u32;
@@ -8595,6 +9069,12 @@ pub const UNRECOVERED_WRITES_VALID: u32 = 2u32;
 pub struct USN_DELETE_FLAGS(pub u32);
 pub const USN_DELETE_FLAG_DELETE: USN_DELETE_FLAGS = USN_DELETE_FLAGS(1u32);
 pub const USN_DELETE_FLAG_NOTIFY: USN_DELETE_FLAGS = USN_DELETE_FLAGS(2u32);
+impl ::core::marker::Copy for USN_DELETE_FLAGS {}
+impl ::core::clone::Clone for USN_DELETE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const USN_DELETE_VALID_FLAGS: u32 = 3u32;
 #[repr(C)]
 pub struct USN_JOURNAL_DATA_V0 {
@@ -8800,6 +9280,12 @@ pub const USN_SOURCE_AUXILIARY_DATA: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(2u3
 pub const USN_SOURCE_DATA_MANAGEMENT: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(1u32);
 pub const USN_SOURCE_REPLICATION_MANAGEMENT: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(4u32);
 pub const USN_SOURCE_CLIENT_REPLICATION_MANAGEMENT: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(8u32);
+impl ::core::marker::Copy for USN_SOURCE_INFO_ID {}
+impl ::core::clone::Clone for USN_SOURCE_INFO_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct USN_TRACK_MODIFIED_RANGES {
     pub Flags: u32,
@@ -8868,6 +9354,12 @@ pub const VirtualStorageBehaviorCacheWriteThrough: VIRTUAL_STORAGE_BEHAVIOR_CODE
 pub const VirtualStorageBehaviorCacheWriteBack: VIRTUAL_STORAGE_BEHAVIOR_CODE = VIRTUAL_STORAGE_BEHAVIOR_CODE(2i32);
 pub const VirtualStorageBehaviorStopIoProcessing: VIRTUAL_STORAGE_BEHAVIOR_CODE = VIRTUAL_STORAGE_BEHAVIOR_CODE(3i32);
 pub const VirtualStorageBehaviorRestartIoProcessing: VIRTUAL_STORAGE_BEHAVIOR_CODE = VIRTUAL_STORAGE_BEHAVIOR_CODE(4i32);
+impl ::core::marker::Copy for VIRTUAL_STORAGE_BEHAVIOR_CODE {}
+impl ::core::clone::Clone for VIRTUAL_STORAGE_BEHAVIOR_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
     pub Size: u32,
@@ -9033,23 +9525,47 @@ pub struct WRITE_CACHE_CHANGE(pub i32);
 pub const WriteCacheChangeUnknown: WRITE_CACHE_CHANGE = WRITE_CACHE_CHANGE(0i32);
 pub const WriteCacheNotChangeable: WRITE_CACHE_CHANGE = WRITE_CACHE_CHANGE(1i32);
 pub const WriteCacheChangeable: WRITE_CACHE_CHANGE = WRITE_CACHE_CHANGE(2i32);
+impl ::core::marker::Copy for WRITE_CACHE_CHANGE {}
+impl ::core::clone::Clone for WRITE_CACHE_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WRITE_CACHE_ENABLE(pub i32);
 pub const WriteCacheEnableUnknown: WRITE_CACHE_ENABLE = WRITE_CACHE_ENABLE(0i32);
 pub const WriteCacheDisabled: WRITE_CACHE_ENABLE = WRITE_CACHE_ENABLE(1i32);
 pub const WriteCacheEnabled: WRITE_CACHE_ENABLE = WRITE_CACHE_ENABLE(2i32);
+impl ::core::marker::Copy for WRITE_CACHE_ENABLE {}
+impl ::core::clone::Clone for WRITE_CACHE_ENABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WRITE_CACHE_TYPE(pub i32);
 pub const WriteCacheTypeUnknown: WRITE_CACHE_TYPE = WRITE_CACHE_TYPE(0i32);
 pub const WriteCacheTypeNone: WRITE_CACHE_TYPE = WRITE_CACHE_TYPE(1i32);
 pub const WriteCacheTypeWriteBack: WRITE_CACHE_TYPE = WRITE_CACHE_TYPE(2i32);
 pub const WriteCacheTypeWriteThrough: WRITE_CACHE_TYPE = WRITE_CACHE_TYPE(3i32);
+impl ::core::marker::Copy for WRITE_CACHE_TYPE {}
+impl ::core::clone::Clone for WRITE_CACHE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WRITE_COMPRESSION_INFO_VALID: u32 = 16u32;
 #[repr(transparent)]
 pub struct WRITE_THROUGH(pub i32);
 pub const WriteThroughUnknown: WRITE_THROUGH = WRITE_THROUGH(0i32);
 pub const WriteThroughNotSupported: WRITE_THROUGH = WRITE_THROUGH(1i32);
 pub const WriteThroughSupported: WRITE_THROUGH = WRITE_THROUGH(2i32);
+impl ::core::marker::Copy for WRITE_THROUGH {}
+impl ::core::clone::Clone for WRITE_THROUGH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WRITE_USN_REASON_INPUT {
     pub Flags: u32,
@@ -9066,3 +9582,9 @@ pub struct _DEVICEDUMP_COLLECTION_TYPE(pub i32);
 pub const TCCollectionBugCheck: _DEVICEDUMP_COLLECTION_TYPE = _DEVICEDUMP_COLLECTION_TYPE(1i32);
 pub const TCCollectionApplicationRequested: _DEVICEDUMP_COLLECTION_TYPE = _DEVICEDUMP_COLLECTION_TYPE(2i32);
 pub const TCCollectionDeviceRequested: _DEVICEDUMP_COLLECTION_TYPE = _DEVICEDUMP_COLLECTION_TYPE(3i32);
+impl ::core::marker::Copy for _DEVICEDUMP_COLLECTION_TYPE {}
+impl ::core::clone::Clone for _DEVICEDUMP_COLLECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -33,6 +33,12 @@ impl ApplicationDataCreateDisposition {
     pub const Always: Self = Self(0i32);
     pub const Existing: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ApplicationDataCreateDisposition {}
+impl ::core::clone::Clone for ApplicationDataCreateDisposition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ApplicationDataLocality(pub i32);
 impl ApplicationDataLocality {
@@ -41,6 +47,12 @@ impl ApplicationDataLocality {
     pub const Temporary: Self = Self(2i32);
     pub const LocalCache: Self = Self(3i32);
     pub const SharedLocal: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ApplicationDataLocality {}
+impl ::core::clone::Clone for ApplicationDataLocality {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ApplicationDataSetVersionHandler(pub *mut ::core::ffi::c_void);
@@ -52,11 +64,23 @@ impl CreationCollisionOption {
     pub const FailIfExists: Self = Self(2i32);
     pub const OpenIfExists: Self = Self(3i32);
 }
+impl ::core::marker::Copy for CreationCollisionOption {}
+impl ::core::clone::Clone for CreationCollisionOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FileAccessMode(pub i32);
 impl FileAccessMode {
     pub const Read: Self = Self(0i32);
     pub const ReadWrite: Self = Self(1i32);
+}
+impl ::core::marker::Copy for FileAccessMode {}
+impl ::core::clone::Clone for FileAccessMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FileAttributes(pub u32);
@@ -67,6 +91,12 @@ impl FileAttributes {
     pub const Archive: Self = Self(32u32);
     pub const Temporary: Self = Self(256u32);
     pub const LocallyIncomplete: Self = Self(512u32);
+}
+impl ::core::marker::Copy for FileAttributes {}
+impl ::core::clone::Clone for FileAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IAppDataPaths(pub *mut ::core::ffi::c_void);
@@ -221,6 +251,12 @@ impl KnownFolderId {
     pub const CurrentAppMods: Self = Self(15i32);
     pub const DownloadsFolder: Self = Self(16i32);
 }
+impl ::core::marker::Copy for KnownFolderId {}
+impl ::core::clone::Clone for KnownFolderId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KnownFoldersAccessStatus(pub i32);
 impl KnownFoldersAccessStatus {
@@ -231,6 +267,12 @@ impl KnownFoldersAccessStatus {
     pub const Allowed: Self = Self(4i32);
     pub const AllowedPerAppFolder: Self = Self(5i32);
 }
+impl ::core::marker::Copy for KnownFoldersAccessStatus {}
+impl ::core::clone::Clone for KnownFoldersAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KnownLibraryId(pub i32);
 impl KnownLibraryId {
@@ -239,12 +281,24 @@ impl KnownLibraryId {
     pub const Videos: Self = Self(2i32);
     pub const Documents: Self = Self(3i32);
 }
+impl ::core::marker::Copy for KnownLibraryId {}
+impl ::core::clone::Clone for KnownLibraryId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NameCollisionOption(pub i32);
 impl NameCollisionOption {
     pub const GenerateUniqueName: Self = Self(0i32);
     pub const ReplaceExisting: Self = Self(1i32);
     pub const FailIfExists: Self = Self(2i32);
+}
+impl ::core::marker::Copy for NameCollisionOption {}
+impl ::core::clone::Clone for NameCollisionOption {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SetVersionDeferral(pub *mut ::core::ffi::c_void);
@@ -256,6 +310,12 @@ impl StorageDeleteOption {
     pub const Default: Self = Self(0i32);
     pub const PermanentDelete: Self = Self(1i32);
 }
+impl ::core::marker::Copy for StorageDeleteOption {}
+impl ::core::clone::Clone for StorageDeleteOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StorageFile(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -266,6 +326,12 @@ impl StorageItemTypes {
     pub const None: Self = Self(0u32);
     pub const File: Self = Self(1u32);
     pub const Folder: Self = Self(2u32);
+}
+impl ::core::marker::Copy for StorageItemTypes {}
+impl ::core::clone::Clone for StorageItemTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct StorageLibrary(pub *mut ::core::ffi::c_void);
@@ -291,6 +357,12 @@ impl StorageLibraryChangeType {
     pub const EncryptionChanged: Self = Self(8i32);
     pub const ChangeTrackingLost: Self = Self(9i32);
 }
+impl ::core::marker::Copy for StorageLibraryChangeType {}
+impl ::core::clone::Clone for StorageLibraryChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StorageLibraryLastChangeId(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -299,6 +371,12 @@ impl StorageOpenOptions {
     pub const None: Self = Self(0u32);
     pub const AllowOnlyReaders: Self = Self(1u32);
     pub const AllowReadersAndWriters: Self = Self(2u32);
+}
+impl ::core::marker::Copy for StorageOpenOptions {}
+impl ::core::clone::Clone for StorageOpenOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct StorageProvider(pub *mut ::core::ffi::c_void);
@@ -314,6 +392,12 @@ impl StreamedFileFailureMode {
     pub const Failed: Self = Self(0i32);
     pub const CurrentlyUnavailable: Self = Self(1i32);
     pub const Incomplete: Self = Self(2i32);
+}
+impl ::core::marker::Copy for StreamedFileFailureMode {}
+impl ::core::clone::Clone for StreamedFileFailureMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SystemAudioProperties(pub *mut ::core::ffi::c_void);

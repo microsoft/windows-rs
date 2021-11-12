@@ -82,6 +82,12 @@ impl PrintBinding {
     pub const JogOffset: Self = Self(15i32);
     pub const Trim: Self = Self(16i32);
 }
+impl ::core::marker::Copy for PrintBinding {}
+impl ::core::clone::Clone for PrintBinding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintBordering(pub i32);
 impl PrintBordering {
@@ -91,6 +97,12 @@ impl PrintBordering {
     pub const Bordered: Self = Self(3i32);
     pub const Borderless: Self = Self(4i32);
 }
+impl ::core::marker::Copy for PrintBordering {}
+impl ::core::clone::Clone for PrintBordering {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintCollation(pub i32);
 impl PrintCollation {
@@ -99,6 +111,12 @@ impl PrintCollation {
     pub const PrinterCustom: Self = Self(2i32);
     pub const Collated: Self = Self(3i32);
     pub const Uncollated: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PrintCollation {}
+impl ::core::clone::Clone for PrintCollation {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PrintColorMode(pub i32);
@@ -110,6 +128,12 @@ impl PrintColorMode {
     pub const Grayscale: Self = Self(4i32);
     pub const Monochrome: Self = Self(5i32);
 }
+impl ::core::marker::Copy for PrintColorMode {}
+impl ::core::clone::Clone for PrintColorMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintDuplex(pub i32);
 impl PrintDuplex {
@@ -119,6 +143,12 @@ impl PrintDuplex {
     pub const OneSided: Self = Self(3i32);
     pub const TwoSidedShortEdge: Self = Self(4i32);
     pub const TwoSidedLongEdge: Self = Self(5i32);
+}
+impl ::core::marker::Copy for PrintDuplex {}
+impl ::core::clone::Clone for PrintDuplex {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PrintHolePunch(pub i32);
@@ -131,6 +161,12 @@ impl PrintHolePunch {
     pub const RightEdge: Self = Self(5i32);
     pub const TopEdge: Self = Self(6i32);
     pub const BottomEdge: Self = Self(7i32);
+}
+impl ::core::marker::Copy for PrintHolePunch {}
+impl ::core::clone::Clone for PrintHolePunch {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PrintManager(pub *mut ::core::ffi::c_void);
@@ -311,6 +347,12 @@ impl PrintMediaSize {
     pub const Roll36Inch: Self = Self(171i32);
     pub const Roll54Inch: Self = Self(172i32);
 }
+impl ::core::marker::Copy for PrintMediaSize {}
+impl ::core::clone::Clone for PrintMediaSize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintMediaType(pub i32);
 impl PrintMediaType {
@@ -347,6 +389,12 @@ impl PrintMediaType {
     pub const TShirtTransfer: Self = Self(30i32);
     pub const None: Self = Self(31i32);
 }
+impl ::core::marker::Copy for PrintMediaType {}
+impl ::core::clone::Clone for PrintMediaType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintOrientation(pub i32);
 impl PrintOrientation {
@@ -357,6 +405,12 @@ impl PrintOrientation {
     pub const PortraitFlipped: Self = Self(4i32);
     pub const Landscape: Self = Self(5i32);
     pub const LandscapeFlipped: Self = Self(6i32);
+}
+impl ::core::marker::Copy for PrintOrientation {}
+impl ::core::clone::Clone for PrintOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Foundation")]
@@ -394,6 +448,12 @@ impl PrintQuality {
     pub const Photographic: Self = Self(8i32);
     pub const Text: Self = Self(9i32);
 }
+impl ::core::marker::Copy for PrintQuality {}
+impl ::core::clone::Clone for PrintQuality {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintStaple(pub i32);
 impl PrintStaple {
@@ -411,6 +471,12 @@ impl PrintStaple {
     pub const StapleDualBottom: Self = Self(11i32);
     pub const SaddleStitch: Self = Self(12i32);
 }
+impl ::core::marker::Copy for PrintStaple {}
+impl ::core::clone::Clone for PrintStaple {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintTask(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -422,6 +488,12 @@ impl PrintTaskCompletion {
     pub const Canceled: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
     pub const Submitted: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PrintTaskCompletion {}
+impl ::core::clone::Clone for PrintTaskCompletion {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PrintTaskOptions(pub *mut ::core::ffi::c_void);

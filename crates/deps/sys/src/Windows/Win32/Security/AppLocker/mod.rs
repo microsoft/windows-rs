@@ -81,6 +81,12 @@ pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFE
 pub const SAFER_TOKEN_COMPARE_ONLY: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(2u32);
 pub const SAFER_TOKEN_MAKE_INERT: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(4u32);
 pub const SAFER_TOKEN_WANT_FLAGS: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(8u32);
+impl ::core::marker::Copy for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {}
+impl ::core::clone::Clone for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
 pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8u32;
 pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4u32;
@@ -147,6 +153,12 @@ pub const SaferIdentityTypeImageName: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIF
 pub const SaferIdentityTypeImageHash: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(2i32);
 pub const SaferIdentityTypeUrlZone: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(3i32);
 pub const SaferIdentityTypeCertificate: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(4i32);
+impl ::core::marker::Copy for SAFER_IDENTIFICATION_TYPES {}
+impl ::core::clone::Clone for SAFER_IDENTIFICATION_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536u32;
 pub const SAFER_LEVELID_DISALLOWED: u32 = 0u32;
 pub const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144u32;
@@ -174,6 +186,12 @@ pub const SaferObjectRestrictedSidsAdded: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT
 pub const SaferObjectAllIdentificationGuids: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(14i32);
 pub const SaferObjectSingleIdentification: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(15i32);
 pub const SaferObjectExtendedError: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(16i32);
+impl ::core::marker::Copy for SAFER_OBJECT_INFO_CLASS {}
+impl ::core::clone::Clone for SAFER_OBJECT_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_PATHNAME_IDENTIFICATION {
@@ -201,6 +219,12 @@ pub const SaferPolicyEvaluateUserScope: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_I
 pub const SaferPolicyScopeFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(5i32);
 pub const SaferPolicyDefaultLevelFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(6i32);
 pub const SaferPolicyAuthenticodeEnabled: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(7i32);
+impl ::core::marker::Copy for SAFER_POLICY_INFO_CLASS {}
+impl ::core::clone::Clone for SAFER_POLICY_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864u32;
 pub const SAFER_POLICY_JOBID_MASK: u32 = 4278190080u32;
 pub const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648u32;

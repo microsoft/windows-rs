@@ -787,6 +787,12 @@ pub const DRAGDROP_S_USEDEFAULTCURSORS: ::windows_sys::core::HRESULT = ::windows
 pub struct DUPLICATE_HANDLE_OPTIONS(pub u32);
 pub const DUPLICATE_CLOSE_SOURCE: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(1u32);
 pub const DUPLICATE_SAME_ACCESS: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(2u32);
+impl ::core::marker::Copy for DUPLICATE_HANDLE_OPTIONS {}
+impl ::core::clone::Clone for DUPLICATE_HANDLE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DV_E_CLIPFORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221398i32 as _);
 pub const DV_E_DVASPECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221397i32 as _);
 pub const DV_E_DVTARGETDEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221403i32 as _);
@@ -1767,6 +1773,12 @@ impl ::core::clone::Clone for HANDLE {
 pub struct HANDLE_FLAGS(pub u32);
 pub const HANDLE_FLAG_INHERIT: HANDLE_FLAGS = HANDLE_FLAGS(1u32);
 pub const HANDLE_FLAG_PROTECT_FROM_CLOSE: HANDLE_FLAGS = HANDLE_FLAGS(2u32);
+impl ::core::marker::Copy for HANDLE_FLAGS {}
+impl ::core::clone::Clone for HANDLE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HANDLE_PTR {
     pub Value: usize,
@@ -2329,6 +2341,12 @@ pub const FACILITY_LICENSING: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(23
 pub const FACILITY_PLATFORM_MANIFEST: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(235u32);
 pub const FACILITY_APP_EXEC: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(236u32);
 pub const FACILITY_MAXIMUM_VALUE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(237u32);
+impl ::core::marker::Copy for NTSTATUS_FACILITY_CODE {}
+impl ::core::clone::Clone for NTSTATUS_FACILITY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OLEOBJ_E_FIRST: i32 = -2147221120i32;
 pub const OLEOBJ_E_INVALIDVERB: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221119i32 as _);
 pub const OLEOBJ_E_LAST: i32 = -2147221105i32;
@@ -9917,6 +9935,12 @@ pub const ERROR_VHD_INVALID_CHANGE_TRACKING_ID: WIN32_ERROR = WIN32_ERROR(322502
 pub const ERROR_VHD_CHANGE_TRACKING_DISABLED: WIN32_ERROR = WIN32_ERROR(3225026602u32);
 pub const ERROR_VHD_MISSING_CHANGE_TRACKING_INFORMATION: WIN32_ERROR = WIN32_ERROR(3225026608u32);
 pub const ERROR_QUERY_STORAGE_ERROR: WIN32_ERROR = WIN32_ERROR(2151284737u32);
+impl ::core::marker::Copy for WIN32_ERROR {}
+impl ::core::clone::Clone for WIN32_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WINCODEC_ERR_ALREADYLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003292403i32 as _);
 pub const WINCODEC_ERR_BADHEADER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003292319i32 as _);
 pub const WINCODEC_ERR_BADIMAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003292320i32 as _);

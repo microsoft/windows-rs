@@ -47,6 +47,12 @@ pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32)
 pub const eLoopbackConnector: EndpointConnectorType = EndpointConnectorType(2i32);
 pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorType(3i32);
 pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(4i32);
+impl ::core::marker::Copy for EndpointConnectorType {}
+impl ::core::clone::Clone for EndpointConnectorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEndpointFormatControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

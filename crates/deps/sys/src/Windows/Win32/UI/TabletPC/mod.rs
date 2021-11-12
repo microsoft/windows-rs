@@ -45,6 +45,12 @@ pub struct ALT_BREAKS(pub i32);
 pub const ALT_BREAKS_SAME: ALT_BREAKS = ALT_BREAKS(0i32);
 pub const ALT_BREAKS_UNIQUE: ALT_BREAKS = ALT_BREAKS(1i32);
 pub const ALT_BREAKS_FULL: ALT_BREAKS = ALT_BREAKS(2i32);
+impl ::core::marker::Copy for ALT_BREAKS {}
+impl ::core::clone::Clone for ALT_BREAKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ASYNC_RECO_ADDSTROKE_FAILED: u32 = 4u32;
 pub const ASYNC_RECO_INTERRUPTED: u32 = 1u32;
 pub const ASYNC_RECO_PROCESS_FAILED: u32 = 2u32;
@@ -59,11 +65,23 @@ pub const ASYNC_RECO_SETWORDLIST_FAILED: u32 = 512u32;
 pub struct AppearanceConstants(pub i32);
 pub const rtfFlat: AppearanceConstants = AppearanceConstants(0i32);
 pub const rtfThreeD: AppearanceConstants = AppearanceConstants(1i32);
+impl ::core::marker::Copy for AppearanceConstants {}
+impl ::core::clone::Clone for AppearanceConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BEST_COMPLETE: u32 = 2u32;
 #[repr(transparent)]
 pub struct BorderStyleConstants(pub i32);
 pub const rtfNoBorder: BorderStyleConstants = BorderStyleConstants(0i32);
 pub const rtfFixedSingle: BorderStyleConstants = BorderStyleConstants(1i32);
+impl ::core::marker::Copy for BorderStyleConstants {}
+impl ::core::clone::Clone for BorderStyleConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CAC_FULL: u32 = 0u32;
 pub const CAC_PREFIX: u32 = 1u32;
 pub const CAC_RANDOM: u32 = 2u32;
@@ -83,17 +101,35 @@ pub struct CONFIDENCE_LEVEL(pub i32);
 pub const CFL_STRONG: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(0i32);
 pub const CFL_INTERMEDIATE: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(1i32);
 pub const CFL_POOR: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(2i32);
+impl ::core::marker::Copy for CONFIDENCE_LEVEL {}
+impl ::core::clone::Clone for CONFIDENCE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CorrectionMode(pub i32);
 pub const CorrectionMode_NotVisible: CorrectionMode = CorrectionMode(0i32);
 pub const CorrectionMode_PreInsertion: CorrectionMode = CorrectionMode(1i32);
 pub const CorrectionMode_PostInsertionCollapsed: CorrectionMode = CorrectionMode(2i32);
 pub const CorrectionMode_PostInsertionExpanded: CorrectionMode = CorrectionMode(3i32);
+impl ::core::marker::Copy for CorrectionMode {}
+impl ::core::clone::Clone for CorrectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CorrectionPosition(pub i32);
 pub const CorrectionPosition_Auto: CorrectionPosition = CorrectionPosition(0i32);
 pub const CorrectionPosition_Bottom: CorrectionPosition = CorrectionPosition(1i32);
 pub const CorrectionPosition_Top: CorrectionPosition = CorrectionPosition(2i32);
+impl ::core::marker::Copy for CorrectionPosition {}
+impl ::core::clone::Clone for CorrectionPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_Ink(pub i32);
 pub const DISPID_IStrokes: DISPID_Ink = DISPID_Ink(1i32);
@@ -121,6 +157,12 @@ pub const DISPID_IClipboardCopyWithRectangle: DISPID_Ink = DISPID_Ink(22i32);
 pub const DISPID_IClipboardCopy: DISPID_Ink = DISPID_Ink(23i32);
 pub const DISPID_ICanPaste: DISPID_Ink = DISPID_Ink(24i32);
 pub const DISPID_IClipboardPaste: DISPID_Ink = DISPID_Ink(25i32);
+impl ::core::marker::Copy for DISPID_Ink {}
+impl ::core::clone::Clone for DISPID_Ink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkCollector(pub i32);
 pub const DISPID_ICEnabled: DISPID_InkCollector = DISPID_InkCollector(1i32);
@@ -162,6 +204,12 @@ pub const DISPID_ICMousePointer: DISPID_InkCollector = DISPID_InkCollector(36i32
 pub const DISPID_IPInkEnabled: DISPID_InkCollector = DISPID_InkCollector(37i32);
 pub const DISPID_ICSupportHighContrastInk: DISPID_InkCollector = DISPID_InkCollector(38i32);
 pub const DISPID_IOSupportHighContrastSelectionUI: DISPID_InkCollector = DISPID_InkCollector(39i32);
+impl ::core::marker::Copy for DISPID_InkCollector {}
+impl ::core::clone::Clone for DISPID_InkCollector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkCollectorEvent(pub i32);
 pub const DISPID_ICEStroke: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(1i32);
@@ -205,6 +253,12 @@ pub const DISPID_IPEKeyPress: DISPID_InkCollectorEvent = DISPID_InkCollectorEven
 pub const DISPID_IPEKeyUp: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(39i32);
 pub const DISPID_IPEResize: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(40i32);
 pub const DISPID_IPESizeChanged: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(41i32);
+impl ::core::marker::Copy for DISPID_InkCollectorEvent {}
+impl ::core::clone::Clone for DISPID_InkCollectorEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkCursor(pub i32);
 pub const DISPID_ICsrName: DISPID_InkCursor = DISPID_InkCursor(0i32);
@@ -213,21 +267,45 @@ pub const DISPID_ICsrDrawingAttributes: DISPID_InkCursor = DISPID_InkCursor(2i32
 pub const DISPID_ICsrButtons: DISPID_InkCursor = DISPID_InkCursor(3i32);
 pub const DISPID_ICsrInverted: DISPID_InkCursor = DISPID_InkCursor(4i32);
 pub const DISPID_ICsrTablet: DISPID_InkCursor = DISPID_InkCursor(5i32);
+impl ::core::marker::Copy for DISPID_InkCursor {}
+impl ::core::clone::Clone for DISPID_InkCursor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkCursorButton(pub i32);
 pub const DISPID_ICBName: DISPID_InkCursorButton = DISPID_InkCursorButton(0i32);
 pub const DISPID_ICBId: DISPID_InkCursorButton = DISPID_InkCursorButton(1i32);
 pub const DISPID_ICBState: DISPID_InkCursorButton = DISPID_InkCursorButton(2i32);
+impl ::core::marker::Copy for DISPID_InkCursorButton {}
+impl ::core::clone::Clone for DISPID_InkCursorButton {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkCursorButtons(pub i32);
 pub const DISPID_ICBs_NewEnum: DISPID_InkCursorButtons = DISPID_InkCursorButtons(-4i32);
 pub const DISPID_ICBsItem: DISPID_InkCursorButtons = DISPID_InkCursorButtons(0i32);
 pub const DISPID_ICBsCount: DISPID_InkCursorButtons = DISPID_InkCursorButtons(1i32);
+impl ::core::marker::Copy for DISPID_InkCursorButtons {}
+impl ::core::clone::Clone for DISPID_InkCursorButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkCursors(pub i32);
 pub const DISPID_ICs_NewEnum: DISPID_InkCursors = DISPID_InkCursors(-4i32);
 pub const DISPID_ICsItem: DISPID_InkCursors = DISPID_InkCursors(0i32);
 pub const DISPID_ICsCount: DISPID_InkCursors = DISPID_InkCursors(1i32);
+impl ::core::marker::Copy for DISPID_InkCursors {}
+impl ::core::clone::Clone for DISPID_InkCursors {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkCustomStrokes(pub i32);
 pub const DISPID_ICSs_NewEnum: DISPID_InkCustomStrokes = DISPID_InkCustomStrokes(-4i32);
@@ -236,27 +314,57 @@ pub const DISPID_ICSsCount: DISPID_InkCustomStrokes = DISPID_InkCustomStrokes(1i
 pub const DISPID_ICSsAdd: DISPID_InkCustomStrokes = DISPID_InkCustomStrokes(2i32);
 pub const DISPID_ICSsRemove: DISPID_InkCustomStrokes = DISPID_InkCustomStrokes(3i32);
 pub const DISPID_ICSsClear: DISPID_InkCustomStrokes = DISPID_InkCustomStrokes(4i32);
+impl ::core::marker::Copy for DISPID_InkCustomStrokes {}
+impl ::core::clone::Clone for DISPID_InkCustomStrokes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkDivider(pub i32);
 pub const DISPID_IInkDivider_Strokes: DISPID_InkDivider = DISPID_InkDivider(1i32);
 pub const DISPID_IInkDivider_RecognizerContext: DISPID_InkDivider = DISPID_InkDivider(2i32);
 pub const DISPID_IInkDivider_LineHeight: DISPID_InkDivider = DISPID_InkDivider(3i32);
 pub const DISPID_IInkDivider_Divide: DISPID_InkDivider = DISPID_InkDivider(4i32);
+impl ::core::marker::Copy for DISPID_InkDivider {}
+impl ::core::clone::Clone for DISPID_InkDivider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkDivisionResult(pub i32);
 pub const DISPID_IInkDivisionResult_Strokes: DISPID_InkDivisionResult = DISPID_InkDivisionResult(1i32);
 pub const DISPID_IInkDivisionResult_ResultByType: DISPID_InkDivisionResult = DISPID_InkDivisionResult(2i32);
+impl ::core::marker::Copy for DISPID_InkDivisionResult {}
+impl ::core::clone::Clone for DISPID_InkDivisionResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkDivisionUnit(pub i32);
 pub const DISPID_IInkDivisionUnit_Strokes: DISPID_InkDivisionUnit = DISPID_InkDivisionUnit(1i32);
 pub const DISPID_IInkDivisionUnit_DivisionType: DISPID_InkDivisionUnit = DISPID_InkDivisionUnit(2i32);
 pub const DISPID_IInkDivisionUnit_RecognizedString: DISPID_InkDivisionUnit = DISPID_InkDivisionUnit(3i32);
 pub const DISPID_IInkDivisionUnit_RotationTransform: DISPID_InkDivisionUnit = DISPID_InkDivisionUnit(4i32);
+impl ::core::marker::Copy for DISPID_InkDivisionUnit {}
+impl ::core::clone::Clone for DISPID_InkDivisionUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkDivisionUnits(pub i32);
 pub const DISPID_IInkDivisionUnits_NewEnum: DISPID_InkDivisionUnits = DISPID_InkDivisionUnits(-4i32);
 pub const DISPID_IInkDivisionUnits_Item: DISPID_InkDivisionUnits = DISPID_InkDivisionUnits(0i32);
 pub const DISPID_IInkDivisionUnits_Count: DISPID_InkDivisionUnits = DISPID_InkDivisionUnits(1i32);
+impl ::core::marker::Copy for DISPID_InkDivisionUnits {}
+impl ::core::clone::Clone for DISPID_InkDivisionUnits {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkDrawingAttributes(pub i32);
 pub const DISPID_DAHeight: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(1i32);
@@ -270,6 +378,12 @@ pub const DISPID_DARasterOperation: DISPID_InkDrawingAttributes = DISPID_InkDraw
 pub const DISPID_DAPenTip: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(9i32);
 pub const DISPID_DAClone: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(10i32);
 pub const DISPID_DAExtendedProperties: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(11i32);
+impl ::core::marker::Copy for DISPID_InkDrawingAttributes {}
+impl ::core::clone::Clone for DISPID_InkDrawingAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkEdit(pub i32);
 pub const DISPID_Text: DISPID_InkEdit = DISPID_InkEdit(0i32);
@@ -308,6 +422,12 @@ pub const DISPID_Recognize: DISPID_InkEdit = DISPID_InkEdit(32i32);
 pub const DISPID_GetGestStatus: DISPID_InkEdit = DISPID_InkEdit(33i32);
 pub const DISPID_SetGestStatus: DISPID_InkEdit = DISPID_InkEdit(34i32);
 pub const DISPID_Refresh: DISPID_InkEdit = DISPID_InkEdit(35i32);
+impl ::core::marker::Copy for DISPID_InkEdit {}
+impl ::core::clone::Clone for DISPID_InkEdit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkEditEvents(pub i32);
 pub const DISPID_IeeChange: DISPID_InkEditEvents = DISPID_InkEditEvents(1i32);
@@ -324,10 +444,22 @@ pub const DISPID_IeeCursorDown: DISPID_InkEditEvents = DISPID_InkEditEvents(21i3
 pub const DISPID_IeeStroke: DISPID_InkEditEvents = DISPID_InkEditEvents(22i32);
 pub const DISPID_IeeGesture: DISPID_InkEditEvents = DISPID_InkEditEvents(23i32);
 pub const DISPID_IeeRecognitionResult: DISPID_InkEditEvents = DISPID_InkEditEvents(24i32);
+impl ::core::marker::Copy for DISPID_InkEditEvents {}
+impl ::core::clone::Clone for DISPID_InkEditEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkEvent(pub i32);
 pub const DISPID_IEInkAdded: DISPID_InkEvent = DISPID_InkEvent(1i32);
 pub const DISPID_IEInkDeleted: DISPID_InkEvent = DISPID_InkEvent(2i32);
+impl ::core::marker::Copy for DISPID_InkEvent {}
+impl ::core::clone::Clone for DISPID_InkEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkExtendedProperties(pub i32);
 pub const DISPID_IEPs_NewEnum: DISPID_InkExtendedProperties = DISPID_InkExtendedProperties(-4i32);
@@ -337,15 +469,33 @@ pub const DISPID_IEPsAdd: DISPID_InkExtendedProperties = DISPID_InkExtendedPrope
 pub const DISPID_IEPsRemove: DISPID_InkExtendedProperties = DISPID_InkExtendedProperties(3i32);
 pub const DISPID_IEPsClear: DISPID_InkExtendedProperties = DISPID_InkExtendedProperties(4i32);
 pub const DISPID_IEPsDoesPropertyExist: DISPID_InkExtendedProperties = DISPID_InkExtendedProperties(5i32);
+impl ::core::marker::Copy for DISPID_InkExtendedProperties {}
+impl ::core::clone::Clone for DISPID_InkExtendedProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkExtendedProperty(pub i32);
 pub const DISPID_IEPGuid: DISPID_InkExtendedProperty = DISPID_InkExtendedProperty(1i32);
 pub const DISPID_IEPData: DISPID_InkExtendedProperty = DISPID_InkExtendedProperty(2i32);
+impl ::core::marker::Copy for DISPID_InkExtendedProperty {}
+impl ::core::clone::Clone for DISPID_InkExtendedProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkGesture(pub i32);
 pub const DISPID_IGId: DISPID_InkGesture = DISPID_InkGesture(0i32);
 pub const DISPID_IGGetHotPoint: DISPID_InkGesture = DISPID_InkGesture(1i32);
 pub const DISPID_IGConfidence: DISPID_InkGesture = DISPID_InkGesture(2i32);
+impl ::core::marker::Copy for DISPID_InkGesture {}
+impl ::core::clone::Clone for DISPID_InkGesture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkRecoAlternate(pub i32);
 pub const DISPID_InkRecoAlternate_String: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(1i32);
@@ -363,6 +513,12 @@ pub const DISPID_InkRecoAlternate_GetPropertyValue: DISPID_InkRecoAlternate = DI
 pub const DISPID_InkRecoAlternate_LineAlternates: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(13i32);
 pub const DISPID_InkRecoAlternate_ConfidenceAlternates: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(14i32);
 pub const DISPID_InkRecoAlternate_AlternatesWithConstantPropertyValues: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(15i32);
+impl ::core::marker::Copy for DISPID_InkRecoAlternate {}
+impl ::core::clone::Clone for DISPID_InkRecoAlternate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkRecoContext(pub i32);
 pub const DISPID_IRecoCtx_Strokes: DISPID_InkRecoContext = DISPID_InkRecoContext(1i32);
@@ -382,19 +538,43 @@ pub const DISPID_IRecoCtx_EndInkInput: DISPID_InkRecoContext = DISPID_InkRecoCon
 pub const DISPID_IRecoCtx_BackgroundRecognize: DISPID_InkRecoContext = DISPID_InkRecoContext(15i32);
 pub const DISPID_IRecoCtx_BackgroundRecognizeWithAlternates: DISPID_InkRecoContext = DISPID_InkRecoContext(16i32);
 pub const DISPID_IRecoCtx_IsStringSupported: DISPID_InkRecoContext = DISPID_InkRecoContext(17i32);
+impl ::core::marker::Copy for DISPID_InkRecoContext {}
+impl ::core::clone::Clone for DISPID_InkRecoContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkRecoContext2(pub i32);
 pub const DISPID_IRecoCtx2_EnabledUnicodeRanges: DISPID_InkRecoContext2 = DISPID_InkRecoContext2(0i32);
+impl ::core::marker::Copy for DISPID_InkRecoContext2 {}
+impl ::core::clone::Clone for DISPID_InkRecoContext2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkRecognitionAlternates(pub i32);
 pub const DISPID_InkRecognitionAlternates_NewEnum: DISPID_InkRecognitionAlternates = DISPID_InkRecognitionAlternates(-4i32);
 pub const DISPID_InkRecognitionAlternates_Item: DISPID_InkRecognitionAlternates = DISPID_InkRecognitionAlternates(0i32);
 pub const DISPID_InkRecognitionAlternates_Count: DISPID_InkRecognitionAlternates = DISPID_InkRecognitionAlternates(1i32);
 pub const DISPID_InkRecognitionAlternates_Strokes: DISPID_InkRecognitionAlternates = DISPID_InkRecognitionAlternates(2i32);
+impl ::core::marker::Copy for DISPID_InkRecognitionAlternates {}
+impl ::core::clone::Clone for DISPID_InkRecognitionAlternates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkRecognitionEvent(pub i32);
 pub const DISPID_IRERecognitionWithAlternates: DISPID_InkRecognitionEvent = DISPID_InkRecognitionEvent(1i32);
 pub const DISPID_IRERecognition: DISPID_InkRecognitionEvent = DISPID_InkRecognitionEvent(2i32);
+impl ::core::marker::Copy for DISPID_InkRecognitionEvent {}
+impl ::core::clone::Clone for DISPID_InkRecognitionEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkRecognitionResult(pub i32);
 pub const DISPID_InkRecognitionResult_TopString: DISPID_InkRecognitionResult = DISPID_InkRecognitionResult(1i32);
@@ -404,6 +584,12 @@ pub const DISPID_InkRecognitionResult_TopConfidence: DISPID_InkRecognitionResult
 pub const DISPID_InkRecognitionResult_AlternatesFromSelection: DISPID_InkRecognitionResult = DISPID_InkRecognitionResult(5i32);
 pub const DISPID_InkRecognitionResult_ModifyTopAlternate: DISPID_InkRecognitionResult = DISPID_InkRecognitionResult(6i32);
 pub const DISPID_InkRecognitionResult_SetResultOnStrokes: DISPID_InkRecognitionResult = DISPID_InkRecognitionResult(7i32);
+impl ::core::marker::Copy for DISPID_InkRecognitionResult {}
+impl ::core::clone::Clone for DISPID_InkRecognitionResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkRecognizer(pub i32);
 pub const DISPID_RecoClsid: DISPID_InkRecognizer = DISPID_InkRecognizer(1i32);
@@ -414,10 +600,22 @@ pub const DISPID_RecoLanguageID: DISPID_InkRecognizer = DISPID_InkRecognizer(5i3
 pub const DISPID_RecoPreferredPacketDescription: DISPID_InkRecognizer = DISPID_InkRecognizer(6i32);
 pub const DISPID_RecoCreateRecognizerContext: DISPID_InkRecognizer = DISPID_InkRecognizer(7i32);
 pub const DISPID_RecoSupportedProperties: DISPID_InkRecognizer = DISPID_InkRecognizer(8i32);
+impl ::core::marker::Copy for DISPID_InkRecognizer {}
+impl ::core::clone::Clone for DISPID_InkRecognizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkRecognizer2(pub i32);
 pub const DISPID_RecoId: DISPID_InkRecognizer2 = DISPID_InkRecognizer2(0i32);
 pub const DISPID_RecoUnicodeRanges: DISPID_InkRecognizer2 = DISPID_InkRecognizer2(1i32);
+impl ::core::marker::Copy for DISPID_InkRecognizer2 {}
+impl ::core::clone::Clone for DISPID_InkRecognizer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkRecognizerGuide(pub i32);
 pub const DISPID_IRGWritingBox: DISPID_InkRecognizerGuide = DISPID_InkRecognizerGuide(1i32);
@@ -426,12 +624,24 @@ pub const DISPID_IRGRows: DISPID_InkRecognizerGuide = DISPID_InkRecognizerGuide(
 pub const DISPID_IRGColumns: DISPID_InkRecognizerGuide = DISPID_InkRecognizerGuide(4i32);
 pub const DISPID_IRGMidline: DISPID_InkRecognizerGuide = DISPID_InkRecognizerGuide(5i32);
 pub const DISPID_IRGGuideData: DISPID_InkRecognizerGuide = DISPID_InkRecognizerGuide(6i32);
+impl ::core::marker::Copy for DISPID_InkRecognizerGuide {}
+impl ::core::clone::Clone for DISPID_InkRecognizerGuide {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkRecognizers(pub i32);
 pub const DISPID_IRecos_NewEnum: DISPID_InkRecognizers = DISPID_InkRecognizers(-4i32);
 pub const DISPID_IRecosItem: DISPID_InkRecognizers = DISPID_InkRecognizers(0i32);
 pub const DISPID_IRecosCount: DISPID_InkRecognizers = DISPID_InkRecognizers(1i32);
 pub const DISPID_IRecosGetDefaultRecognizer: DISPID_InkRecognizers = DISPID_InkRecognizers(2i32);
+impl ::core::marker::Copy for DISPID_InkRecognizers {}
+impl ::core::clone::Clone for DISPID_InkRecognizers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkRectangle(pub i32);
 pub const DISPID_IRTop: DISPID_InkRectangle = DISPID_InkRectangle(1i32);
@@ -441,6 +651,12 @@ pub const DISPID_IRRight: DISPID_InkRectangle = DISPID_InkRectangle(4i32);
 pub const DISPID_IRGetRectangle: DISPID_InkRectangle = DISPID_InkRectangle(5i32);
 pub const DISPID_IRSetRectangle: DISPID_InkRectangle = DISPID_InkRectangle(6i32);
 pub const DISPID_IRData: DISPID_InkRectangle = DISPID_InkRectangle(7i32);
+impl ::core::marker::Copy for DISPID_InkRectangle {}
+impl ::core::clone::Clone for DISPID_InkRectangle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkRenderer(pub i32);
 pub const DISPID_IRGetViewTransform: DISPID_InkRenderer = DISPID_InkRenderer(1i32);
@@ -458,6 +674,12 @@ pub const DISPID_IRMeasureStroke: DISPID_InkRenderer = DISPID_InkRenderer(12i32)
 pub const DISPID_IRMove: DISPID_InkRenderer = DISPID_InkRenderer(13i32);
 pub const DISPID_IRRotate: DISPID_InkRenderer = DISPID_InkRenderer(14i32);
 pub const DISPID_IRScale: DISPID_InkRenderer = DISPID_InkRenderer(15i32);
+impl ::core::marker::Copy for DISPID_InkRenderer {}
+impl ::core::clone::Clone for DISPID_InkRenderer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkStrokeDisp(pub i32);
 pub const DISPID_ISDInkIndex: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(1i32);
@@ -493,6 +715,12 @@ pub const DISPID_ISDMove: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(30i32);
 pub const DISPID_ISDRotate: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(31i32);
 pub const DISPID_ISDShear: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(32i32);
 pub const DISPID_ISDScale: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(33i32);
+impl ::core::marker::Copy for DISPID_InkStrokeDisp {}
+impl ::core::clone::Clone for DISPID_InkStrokeDisp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkStrokes(pub i32);
 pub const DISPID_ISs_NewEnum: DISPID_InkStrokes = DISPID_InkStrokes(-4i32);
@@ -516,6 +744,12 @@ pub const DISPID_ISsScale: DISPID_InkStrokes = DISPID_InkStrokes(16i32);
 pub const DISPID_ISsClip: DISPID_InkStrokes = DISPID_InkStrokes(17i32);
 pub const DISPID_ISsRecognitionResult: DISPID_InkStrokes = DISPID_InkStrokes(18i32);
 pub const DISPID_ISsRemoveRecognitionResult: DISPID_InkStrokes = DISPID_InkStrokes(19i32);
+impl ::core::marker::Copy for DISPID_InkStrokes {}
+impl ::core::clone::Clone for DISPID_InkStrokes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkTablet(pub i32);
 pub const DISPID_ITName: DISPID_InkTablet = DISPID_InkTablet(0i32);
@@ -524,13 +758,31 @@ pub const DISPID_ITPropertyMetrics: DISPID_InkTablet = DISPID_InkTablet(2i32);
 pub const DISPID_ITIsPacketPropertySupported: DISPID_InkTablet = DISPID_InkTablet(3i32);
 pub const DISPID_ITMaximumInputRectangle: DISPID_InkTablet = DISPID_InkTablet(4i32);
 pub const DISPID_ITHardwareCapabilities: DISPID_InkTablet = DISPID_InkTablet(5i32);
+impl ::core::marker::Copy for DISPID_InkTablet {}
+impl ::core::clone::Clone for DISPID_InkTablet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkTablet2(pub i32);
 pub const DISPID_IT2DeviceKind: DISPID_InkTablet2 = DISPID_InkTablet2(0i32);
+impl ::core::marker::Copy for DISPID_InkTablet2 {}
+impl ::core::clone::Clone for DISPID_InkTablet2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkTablet3(pub i32);
 pub const DISPID_IT3IsMultiTouch: DISPID_InkTablet3 = DISPID_InkTablet3(0i32);
 pub const DISPID_IT3MaximumCursors: DISPID_InkTablet3 = DISPID_InkTablet3(1i32);
+impl ::core::marker::Copy for DISPID_InkTablet3 {}
+impl ::core::clone::Clone for DISPID_InkTablet3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkTablets(pub i32);
 pub const DISPID_ITs_NewEnum: DISPID_InkTablets = DISPID_InkTablets(-4i32);
@@ -538,6 +790,12 @@ pub const DISPID_ITsItem: DISPID_InkTablets = DISPID_InkTablets(0i32);
 pub const DISPID_ITsDefaultTablet: DISPID_InkTablets = DISPID_InkTablets(1i32);
 pub const DISPID_ITsCount: DISPID_InkTablets = DISPID_InkTablets(2i32);
 pub const DISPID_ITsIsPacketPropertySupported: DISPID_InkTablets = DISPID_InkTablets(3i32);
+impl ::core::marker::Copy for DISPID_InkTablets {}
+impl ::core::clone::Clone for DISPID_InkTablets {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkTransform(pub i32);
 pub const DISPID_ITReset: DISPID_InkTransform = DISPID_InkTransform(1i32);
@@ -555,20 +813,44 @@ pub const DISPID_ITeDy: DISPID_InkTransform = DISPID_InkTransform(12i32);
 pub const DISPID_ITGetTransform: DISPID_InkTransform = DISPID_InkTransform(13i32);
 pub const DISPID_ITSetTransform: DISPID_InkTransform = DISPID_InkTransform(14i32);
 pub const DISPID_ITData: DISPID_InkTransform = DISPID_InkTransform(15i32);
+impl ::core::marker::Copy for DISPID_InkTransform {}
+impl ::core::clone::Clone for DISPID_InkTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkWordList(pub i32);
 pub const DISPID_InkWordList_AddWord: DISPID_InkWordList = DISPID_InkWordList(0i32);
 pub const DISPID_InkWordList_RemoveWord: DISPID_InkWordList = DISPID_InkWordList(1i32);
 pub const DISPID_InkWordList_Merge: DISPID_InkWordList = DISPID_InkWordList(2i32);
+impl ::core::marker::Copy for DISPID_InkWordList {}
+impl ::core::clone::Clone for DISPID_InkWordList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_InkWordList2(pub i32);
 pub const DISPID_InkWordList2_AddWords: DISPID_InkWordList2 = DISPID_InkWordList2(3i32);
+impl ::core::marker::Copy for DISPID_InkWordList2 {}
+impl ::core::clone::Clone for DISPID_InkWordList2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_MathInputControlEvents(pub i32);
 pub const DISPID_MICInsert: DISPID_MathInputControlEvents = DISPID_MathInputControlEvents(0i32);
 pub const DISPID_MICClose: DISPID_MathInputControlEvents = DISPID_MathInputControlEvents(1i32);
 pub const DISPID_MICPaint: DISPID_MathInputControlEvents = DISPID_MathInputControlEvents(2i32);
 pub const DISPID_MICClear: DISPID_MathInputControlEvents = DISPID_MathInputControlEvents(3i32);
+impl ::core::marker::Copy for DISPID_MathInputControlEvents {}
+impl ::core::clone::Clone for DISPID_MathInputControlEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_PenInputPanel(pub i32);
 pub const DISPID_PIPAttachedEditWindow: DISPID_PenInputPanel = DISPID_PenInputPanel(0i32);
@@ -588,16 +870,34 @@ pub const DISPID_PIPVerticalOffset: DISPID_PenInputPanel = DISPID_PenInputPanel(
 pub const DISPID_PIPHorizontalOffset: DISPID_PenInputPanel = DISPID_PenInputPanel(14i32);
 pub const DISPID_PIPEnableTsf: DISPID_PenInputPanel = DISPID_PenInputPanel(15i32);
 pub const DISPID_PIPAutoShow: DISPID_PenInputPanel = DISPID_PenInputPanel(16i32);
+impl ::core::marker::Copy for DISPID_PenInputPanel {}
+impl ::core::clone::Clone for DISPID_PenInputPanel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_PenInputPanelEvents(pub i32);
 pub const DISPID_PIPEVisibleChanged: DISPID_PenInputPanelEvents = DISPID_PenInputPanelEvents(0i32);
 pub const DISPID_PIPEPanelChanged: DISPID_PenInputPanelEvents = DISPID_PenInputPanelEvents(1i32);
 pub const DISPID_PIPEInputFailed: DISPID_PenInputPanelEvents = DISPID_PenInputPanelEvents(2i32);
 pub const DISPID_PIPEPanelMoving: DISPID_PenInputPanelEvents = DISPID_PenInputPanelEvents(3i32);
+impl ::core::marker::Copy for DISPID_PenInputPanelEvents {}
+impl ::core::clone::Clone for DISPID_PenInputPanelEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPID_StrokeEvent(pub i32);
 pub const DISPID_SEStrokesAdded: DISPID_StrokeEvent = DISPID_StrokeEvent(1i32);
 pub const DISPID_SEStrokesRemoved: DISPID_StrokeEvent = DISPID_StrokeEvent(2i32);
+impl ::core::marker::Copy for DISPID_StrokeEvent {}
+impl ::core::clone::Clone for DISPID_StrokeEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DYNAMIC_RENDERER_CACHED_DATA {
     pub strokeId: i32,
@@ -651,6 +951,12 @@ pub const EventMask_InPlaceVisibilityChanged: EventMask = EventMask(512i32);
 pub const EventMask_TextInserting: EventMask = EventMask(1024i32);
 pub const EventMask_TextInserted: EventMask = EventMask(2048i32);
 pub const EventMask_All: EventMask = EventMask(4095i32);
+impl ::core::marker::Copy for EventMask {}
+impl ::core::clone::Clone for EventMask {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FACILITY_INK: u32 = 40u32;
 #[repr(transparent)]
 pub struct FLICKACTION_COMMANDCODE(pub i32);
@@ -659,6 +965,12 @@ pub const FLICKACTION_COMMANDCODE_SCROLL: FLICKACTION_COMMANDCODE = FLICKACTION_
 pub const FLICKACTION_COMMANDCODE_APPCOMMAND: FLICKACTION_COMMANDCODE = FLICKACTION_COMMANDCODE(2i32);
 pub const FLICKACTION_COMMANDCODE_CUSTOMKEY: FLICKACTION_COMMANDCODE = FLICKACTION_COMMANDCODE(3i32);
 pub const FLICKACTION_COMMANDCODE_KEYMODIFIER: FLICKACTION_COMMANDCODE = FLICKACTION_COMMANDCODE(4i32);
+impl ::core::marker::Copy for FLICKACTION_COMMANDCODE {}
+impl ::core::clone::Clone for FLICKACTION_COMMANDCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FLICKDIRECTION(pub i32);
 pub const FLICKDIRECTION_MIN: FLICKDIRECTION = FLICKDIRECTION(0i32);
@@ -671,6 +983,12 @@ pub const FLICKDIRECTION_DOWNLEFT: FLICKDIRECTION = FLICKDIRECTION(5i32);
 pub const FLICKDIRECTION_DOWN: FLICKDIRECTION = FLICKDIRECTION(6i32);
 pub const FLICKDIRECTION_DOWNRIGHT: FLICKDIRECTION = FLICKDIRECTION(7i32);
 pub const FLICKDIRECTION_INVALID: FLICKDIRECTION = FLICKDIRECTION(8i32);
+impl ::core::marker::Copy for FLICKDIRECTION {}
+impl ::core::clone::Clone for FLICKDIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FLICKMODE(pub i32);
 pub const FLICKMODE_MIN: FLICKMODE = FLICKMODE(0i32);
@@ -679,6 +997,12 @@ pub const FLICKMODE_ON: FLICKMODE = FLICKMODE(1i32);
 pub const FLICKMODE_LEARNING: FLICKMODE = FLICKMODE(2i32);
 pub const FLICKMODE_MAX: FLICKMODE = FLICKMODE(2i32);
 pub const FLICKMODE_DEFAULT: FLICKMODE = FLICKMODE(1i32);
+impl ::core::marker::Copy for FLICKMODE {}
+impl ::core::clone::Clone for FLICKMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct FLICK_DATA {
     pub _bitfield: i32,
@@ -1178,11 +1502,23 @@ pub struct InPlaceDirection(pub i32);
 pub const InPlaceDirection_Auto: InPlaceDirection = InPlaceDirection(0i32);
 pub const InPlaceDirection_Bottom: InPlaceDirection = InPlaceDirection(1i32);
 pub const InPlaceDirection_Top: InPlaceDirection = InPlaceDirection(2i32);
+impl ::core::marker::Copy for InPlaceDirection {}
+impl ::core::clone::Clone for InPlaceDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InPlaceState(pub i32);
 pub const InPlaceState_Auto: InPlaceState = InPlaceState(0i32);
 pub const InPlaceState_HoverTarget: InPlaceState = InPlaceState(1i32);
 pub const InPlaceState_Expanded: InPlaceState = InPlaceState(2i32);
+impl ::core::marker::Copy for InPlaceState {}
+impl ::core::clone::Clone for InPlaceState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Ink: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 333335106,
     data2: 36129,
@@ -1235,6 +1571,12 @@ pub const IAG_RightDown: InkApplicationGesture = InkApplicationGesture(61551i32)
 pub const IAG_Exclamation: InkApplicationGesture = InkApplicationGesture(61604i32);
 pub const IAG_Tap: InkApplicationGesture = InkApplicationGesture(61680i32);
 pub const IAG_DoubleTap: InkApplicationGesture = InkApplicationGesture(61681i32);
+impl ::core::marker::Copy for InkApplicationGesture {}
+impl ::core::clone::Clone for InkApplicationGesture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkBoundingBoxMode(pub i32);
 pub const IBBM_Default: InkBoundingBoxMode = InkBoundingBoxMode(0i32);
@@ -1242,6 +1584,12 @@ pub const IBBM_NoCurveFit: InkBoundingBoxMode = InkBoundingBoxMode(1i32);
 pub const IBBM_CurveFit: InkBoundingBoxMode = InkBoundingBoxMode(2i32);
 pub const IBBM_PointsOnly: InkBoundingBoxMode = InkBoundingBoxMode(3i32);
 pub const IBBM_Union: InkBoundingBoxMode = InkBoundingBoxMode(4i32);
+impl ::core::marker::Copy for InkBoundingBoxMode {}
+impl ::core::clone::Clone for InkBoundingBoxMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkClipboardFormats(pub i32);
 pub const ICF_None: InkClipboardFormats = InkClipboardFormats(0i32);
@@ -1254,6 +1602,12 @@ pub const ICF_Bitmap: InkClipboardFormats = InkClipboardFormats(64i32);
 pub const ICF_PasteMask: InkClipboardFormats = InkClipboardFormats(7i32);
 pub const ICF_CopyMask: InkClipboardFormats = InkClipboardFormats(127i32);
 pub const ICF_Default: InkClipboardFormats = InkClipboardFormats(127i32);
+impl ::core::marker::Copy for InkClipboardFormats {}
+impl ::core::clone::Clone for InkClipboardFormats {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkClipboardModes(pub i32);
 pub const ICB_Copy: InkClipboardModes = InkClipboardModes(0i32);
@@ -1261,11 +1615,23 @@ pub const ICB_Cut: InkClipboardModes = InkClipboardModes(1i32);
 pub const ICB_ExtractOnly: InkClipboardModes = InkClipboardModes(48i32);
 pub const ICB_DelayedCopy: InkClipboardModes = InkClipboardModes(32i32);
 pub const ICB_Default: InkClipboardModes = InkClipboardModes(0i32);
+impl ::core::marker::Copy for InkClipboardModes {}
+impl ::core::clone::Clone for InkClipboardModes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkCollectionMode(pub i32);
 pub const ICM_InkOnly: InkCollectionMode = InkCollectionMode(0i32);
 pub const ICM_GestureOnly: InkCollectionMode = InkCollectionMode(1i32);
 pub const ICM_InkAndGesture: InkCollectionMode = InkCollectionMode(2i32);
+impl ::core::marker::Copy for InkCollectionMode {}
+impl ::core::clone::Clone for InkCollectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const InkCollector: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1140528467,
     data2: 44404,
@@ -1294,11 +1660,23 @@ pub const ICEI_MouseUp: InkCollectorEventInterest = InkCollectorEventInterest(13
 pub const ICEI_MouseWheel: InkCollectorEventInterest = InkCollectorEventInterest(14i32);
 pub const ICEI_DblClick: InkCollectorEventInterest = InkCollectorEventInterest(15i32);
 pub const ICEI_AllEvents: InkCollectorEventInterest = InkCollectorEventInterest(16i32);
+impl ::core::marker::Copy for InkCollectorEventInterest {}
+impl ::core::clone::Clone for InkCollectorEventInterest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkCursorButtonState(pub i32);
 pub const ICBS_Unavailable: InkCursorButtonState = InkCursorButtonState(0i32);
 pub const ICBS_Up: InkCursorButtonState = InkCursorButtonState(1i32);
 pub const ICBS_Down: InkCursorButtonState = InkCursorButtonState(2i32);
+impl ::core::marker::Copy for InkCursorButtonState {}
+impl ::core::clone::Clone for InkCursorButtonState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const InkDisp: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2474383924,
     data2: 5405,
@@ -1309,6 +1687,12 @@ pub const InkDisp: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub struct InkDisplayMode(pub i32);
 pub const IDM_Ink: InkDisplayMode = InkDisplayMode(0i32);
 pub const IDM_Text: InkDisplayMode = InkDisplayMode(1i32);
+impl ::core::marker::Copy for InkDisplayMode {}
+impl ::core::clone::Clone for InkDisplayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const InkDivider: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2287269536,
     data2: 18051,
@@ -1321,6 +1705,12 @@ pub const IDT_Segment: InkDivisionType = InkDivisionType(0i32);
 pub const IDT_Line: InkDivisionType = InkDivisionType(1i32);
 pub const IDT_Paragraph: InkDivisionType = InkDivisionType(2i32);
 pub const IDT_Drawing: InkDivisionType = InkDivisionType(3i32);
+impl ::core::marker::Copy for InkDivisionType {}
+impl ::core::clone::Clone for InkDivisionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const InkDrawingAttributes: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3636408994,
     data2: 1445,
@@ -1338,15 +1728,33 @@ pub struct InkEditStatus(pub i32);
 pub const IES_Idle: InkEditStatus = InkEditStatus(0i32);
 pub const IES_Collecting: InkEditStatus = InkEditStatus(1i32);
 pub const IES_Recognizing: InkEditStatus = InkEditStatus(2i32);
+impl ::core::marker::Copy for InkEditStatus {}
+impl ::core::clone::Clone for InkEditStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkExtractFlags(pub i32);
 pub const IEF_CopyFromOriginal: InkExtractFlags = InkExtractFlags(0i32);
 pub const IEF_RemoveFromOriginal: InkExtractFlags = InkExtractFlags(1i32);
 pub const IEF_Default: InkExtractFlags = InkExtractFlags(1i32);
+impl ::core::marker::Copy for InkExtractFlags {}
+impl ::core::clone::Clone for InkExtractFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkInsertMode(pub i32);
 pub const IEM_InsertText: InkInsertMode = InkInsertMode(0i32);
 pub const IEM_InsertInk: InkInsertMode = InkInsertMode(1i32);
+impl ::core::marker::Copy for InkInsertMode {}
+impl ::core::clone::Clone for InkInsertMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const InkMaxTransparencyValue: i32 = 255i32;
 pub const InkMinTransparencyValue: i32 = 0i32;
 #[repr(transparent)]
@@ -1354,11 +1762,23 @@ pub struct InkMode(pub i32);
 pub const IEM_Disabled: InkMode = InkMode(0i32);
 pub const IEM_Ink: InkMode = InkMode(1i32);
 pub const IEM_InkAndGesture: InkMode = InkMode(2i32);
+impl ::core::marker::Copy for InkMode {}
+impl ::core::clone::Clone for InkMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkMouseButton(pub i32);
 pub const IMF_Left: InkMouseButton = InkMouseButton(1i32);
 pub const IMF_Right: InkMouseButton = InkMouseButton(2i32);
 pub const IMF_Middle: InkMouseButton = InkMouseButton(4i32);
+impl ::core::marker::Copy for InkMouseButton {}
+impl ::core::clone::Clone for InkMouseButton {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkMousePointer(pub i32);
 pub const IMP_Default: InkMousePointer = InkMousePointer(0i32);
@@ -1377,6 +1797,12 @@ pub const IMP_ArrowQuestion: InkMousePointer = InkMousePointer(12i32);
 pub const IMP_SizeAll: InkMousePointer = InkMousePointer(13i32);
 pub const IMP_Hand: InkMousePointer = InkMousePointer(14i32);
 pub const IMP_Custom: InkMousePointer = InkMousePointer(99i32);
+impl ::core::marker::Copy for InkMousePointer {}
+impl ::core::clone::Clone for InkMousePointer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const InkOverlay: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1708131910,
     data2: 52707,
@@ -1387,30 +1813,66 @@ pub const InkOverlay: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub struct InkOverlayAttachMode(pub i32);
 pub const IOAM_Behind: InkOverlayAttachMode = InkOverlayAttachMode(0i32);
 pub const IOAM_InFront: InkOverlayAttachMode = InkOverlayAttachMode(1i32);
+impl ::core::marker::Copy for InkOverlayAttachMode {}
+impl ::core::clone::Clone for InkOverlayAttachMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkOverlayEditingMode(pub i32);
 pub const IOEM_Ink: InkOverlayEditingMode = InkOverlayEditingMode(0i32);
 pub const IOEM_Delete: InkOverlayEditingMode = InkOverlayEditingMode(1i32);
 pub const IOEM_Select: InkOverlayEditingMode = InkOverlayEditingMode(2i32);
+impl ::core::marker::Copy for InkOverlayEditingMode {}
+impl ::core::clone::Clone for InkOverlayEditingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkOverlayEraserMode(pub i32);
 pub const IOERM_StrokeErase: InkOverlayEraserMode = InkOverlayEraserMode(0i32);
 pub const IOERM_PointErase: InkOverlayEraserMode = InkOverlayEraserMode(1i32);
+impl ::core::marker::Copy for InkOverlayEraserMode {}
+impl ::core::clone::Clone for InkOverlayEraserMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkPenTip(pub i32);
 pub const IPT_Ball: InkPenTip = InkPenTip(0i32);
 pub const IPT_Rectangle: InkPenTip = InkPenTip(1i32);
+impl ::core::marker::Copy for InkPenTip {}
+impl ::core::clone::Clone for InkPenTip {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkPersistenceCompressionMode(pub i32);
 pub const IPCM_Default: InkPersistenceCompressionMode = InkPersistenceCompressionMode(0i32);
 pub const IPCM_MaximumCompression: InkPersistenceCompressionMode = InkPersistenceCompressionMode(1i32);
 pub const IPCM_NoCompression: InkPersistenceCompressionMode = InkPersistenceCompressionMode(2i32);
+impl ::core::marker::Copy for InkPersistenceCompressionMode {}
+impl ::core::clone::Clone for InkPersistenceCompressionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkPersistenceFormat(pub i32);
 pub const IPF_InkSerializedFormat: InkPersistenceFormat = InkPersistenceFormat(0i32);
 pub const IPF_Base64InkSerializedFormat: InkPersistenceFormat = InkPersistenceFormat(1i32);
 pub const IPF_GIF: InkPersistenceFormat = InkPersistenceFormat(2i32);
 pub const IPF_Base64GIF: InkPersistenceFormat = InkPersistenceFormat(3i32);
+impl ::core::marker::Copy for InkPersistenceFormat {}
+impl ::core::clone::Clone for InkPersistenceFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const InkPicture: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 77718867, data2: 65078, data3: 20446, data4: [134, 94, 52, 65, 148, 230, 148, 36] };
 #[repr(transparent)]
 pub struct InkPictureSizeMode(pub i32);
@@ -1418,6 +1880,12 @@ pub const IPSM_AutoSize: InkPictureSizeMode = InkPictureSizeMode(0i32);
 pub const IPSM_CenterImage: InkPictureSizeMode = InkPictureSizeMode(1i32);
 pub const IPSM_Normal: InkPictureSizeMode = InkPictureSizeMode(2i32);
 pub const IPSM_StretchImage: InkPictureSizeMode = InkPictureSizeMode(3i32);
+impl ::core::marker::Copy for InkPictureSizeMode {}
+impl ::core::clone::Clone for InkPictureSizeMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkRasterOperation(pub i32);
 pub const IRO_Black: InkRasterOperation = InkRasterOperation(1i32);
@@ -1436,6 +1904,12 @@ pub const IRO_CopyPen: InkRasterOperation = InkRasterOperation(13i32);
 pub const IRO_MergePenNot: InkRasterOperation = InkRasterOperation(14i32);
 pub const IRO_MergePen: InkRasterOperation = InkRasterOperation(15i32);
 pub const IRO_White: InkRasterOperation = InkRasterOperation(16i32);
+impl ::core::marker::Copy for InkRasterOperation {}
+impl ::core::clone::Clone for InkRasterOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct InkRecoGuide {
@@ -1458,11 +1932,23 @@ pub struct InkRecognitionAlternatesSelection(pub i32);
 pub const IRAS_Start: InkRecognitionAlternatesSelection = InkRecognitionAlternatesSelection(0i32);
 pub const IRAS_DefaultCount: InkRecognitionAlternatesSelection = InkRecognitionAlternatesSelection(10i32);
 pub const IRAS_All: InkRecognitionAlternatesSelection = InkRecognitionAlternatesSelection(-1i32);
+impl ::core::marker::Copy for InkRecognitionAlternatesSelection {}
+impl ::core::clone::Clone for InkRecognitionAlternatesSelection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkRecognitionConfidence(pub i32);
 pub const IRC_Strong: InkRecognitionConfidence = InkRecognitionConfidence(0i32);
 pub const IRC_Intermediate: InkRecognitionConfidence = InkRecognitionConfidence(1i32);
 pub const IRC_Poor: InkRecognitionConfidence = InkRecognitionConfidence(2i32);
+impl ::core::marker::Copy for InkRecognitionConfidence {}
+impl ::core::clone::Clone for InkRecognitionConfidence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkRecognitionModes(pub i32);
 pub const IRM_None: InkRecognitionModes = InkRecognitionModes(0i32);
@@ -1474,6 +1960,12 @@ pub const IRM_LineMode: InkRecognitionModes = InkRecognitionModes(16i32);
 pub const IRM_DisablePersonalization: InkRecognitionModes = InkRecognitionModes(32i32);
 pub const IRM_AutoSpace: InkRecognitionModes = InkRecognitionModes(64i32);
 pub const IRM_Max: InkRecognitionModes = InkRecognitionModes(128i32);
+impl ::core::marker::Copy for InkRecognitionModes {}
+impl ::core::clone::Clone for InkRecognitionModes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkRecognitionStatus(pub i32);
 pub const IRS_NoError: InkRecognitionStatus = InkRecognitionStatus(0i32);
@@ -1487,6 +1979,12 @@ pub const IRS_SetFlagsFailed: InkRecognitionStatus = InkRecognitionStatus(64i32)
 pub const IRS_SetFactoidFailed: InkRecognitionStatus = InkRecognitionStatus(128i32);
 pub const IRS_SetPrefixSuffixFailed: InkRecognitionStatus = InkRecognitionStatus(256i32);
 pub const IRS_SetWordListFailed: InkRecognitionStatus = InkRecognitionStatus(512i32);
+impl ::core::marker::Copy for InkRecognitionStatus {}
+impl ::core::clone::Clone for InkRecognitionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkRecognizerCapabilities(pub i32);
 pub const IRC_DontCare: InkRecognizerCapabilities = InkRecognizerCapabilities(1i32);
@@ -1511,11 +2009,23 @@ pub const IRC_Cursive: InkRecognizerCapabilities = InkRecognizerCapabilities(262
 pub const IRC_TextPrediction: InkRecognizerCapabilities = InkRecognizerCapabilities(524288i32);
 pub const IRC_Alpha: InkRecognizerCapabilities = InkRecognizerCapabilities(1048576i32);
 pub const IRC_Beta: InkRecognizerCapabilities = InkRecognizerCapabilities(2097152i32);
+impl ::core::marker::Copy for InkRecognizerCapabilities {}
+impl ::core::clone::Clone for InkRecognizerCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkRecognizerCharacterAutoCompletionMode(pub i32);
 pub const IRCACM_Full: InkRecognizerCharacterAutoCompletionMode = InkRecognizerCharacterAutoCompletionMode(0i32);
 pub const IRCACM_Prefix: InkRecognizerCharacterAutoCompletionMode = InkRecognizerCharacterAutoCompletionMode(1i32);
 pub const IRCACM_Random: InkRecognizerCharacterAutoCompletionMode = InkRecognizerCharacterAutoCompletionMode(2i32);
+impl ::core::marker::Copy for InkRecognizerCharacterAutoCompletionMode {}
+impl ::core::clone::Clone for InkRecognizerCharacterAutoCompletionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const InkRecognizerContext: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2864998967,
     data2: 37417,
@@ -1540,11 +2050,23 @@ pub const InkRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub struct InkSelectionConstants(pub i32);
 pub const ISC_FirstElement: InkSelectionConstants = InkSelectionConstants(0i32);
 pub const ISC_AllElements: InkSelectionConstants = InkSelectionConstants(-1i32);
+impl ::core::marker::Copy for InkSelectionConstants {}
+impl ::core::clone::Clone for InkSelectionConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkShiftKeyModifierFlags(pub i32);
 pub const IKM_Shift: InkShiftKeyModifierFlags = InkShiftKeyModifierFlags(1i32);
 pub const IKM_Control: InkShiftKeyModifierFlags = InkShiftKeyModifierFlags(2i32);
 pub const IKM_Alt: InkShiftKeyModifierFlags = InkShiftKeyModifierFlags(4i32);
+impl ::core::marker::Copy for InkShiftKeyModifierFlags {}
+impl ::core::clone::Clone for InkShiftKeyModifierFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const InkStrokes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1223987644, data2: 9230, data3: 18528, data4: [176, 121, 161, 233, 77, 61, 44, 134] };
 #[repr(transparent)]
 pub struct InkSystemGesture(pub i32);
@@ -1558,6 +2080,12 @@ pub const ISG_HoldLeave: InkSystemGesture = InkSystemGesture(22i32);
 pub const ISG_HoverEnter: InkSystemGesture = InkSystemGesture(23i32);
 pub const ISG_HoverLeave: InkSystemGesture = InkSystemGesture(24i32);
 pub const ISG_Flick: InkSystemGesture = InkSystemGesture(31i32);
+impl ::core::marker::Copy for InkSystemGesture {}
+impl ::core::clone::Clone for InkSystemGesture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const InkTablets: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1850723090, data2: 20746, data3: 19776, data4: [147, 4, 29, 161, 10, 233, 20, 124] };
 pub const InkTransform: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3822442812, data2: 5731, data3: 19064, data4: [161, 167, 34, 55, 93, 254, 186, 238] };
 pub const InkWordList: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -1572,6 +2100,12 @@ pub const InteractionMode_InPlace: InteractionMode = InteractionMode(0i32);
 pub const InteractionMode_Floating: InteractionMode = InteractionMode(1i32);
 pub const InteractionMode_DockedTop: InteractionMode = InteractionMode(2i32);
 pub const InteractionMode_DockedBottom: InteractionMode = InteractionMode(3i32);
+impl ::core::marker::Copy for InteractionMode {}
+impl ::core::clone::Clone for InteractionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KEYMODIFIER(pub i32);
 pub const KEYMODIFIER_CONTROL: KEYMODIFIER = KEYMODIFIER(1i32);
@@ -1580,6 +2114,12 @@ pub const KEYMODIFIER_SHIFT: KEYMODIFIER = KEYMODIFIER(4i32);
 pub const KEYMODIFIER_WIN: KEYMODIFIER = KEYMODIFIER(8i32);
 pub const KEYMODIFIER_ALTGR: KEYMODIFIER = KEYMODIFIER(16i32);
 pub const KEYMODIFIER_EXT: KEYMODIFIER = KEYMODIFIER(32i32);
+impl ::core::marker::Copy for KEYMODIFIER {}
+impl ::core::clone::Clone for KEYMODIFIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LATTICE_METRICS {
@@ -1600,6 +2140,12 @@ pub const LM_BASELINE: LINE_METRICS = LINE_METRICS(0i32);
 pub const LM_MIDLINE: LINE_METRICS = LINE_METRICS(1i32);
 pub const LM_ASCENDER: LINE_METRICS = LINE_METRICS(2i32);
 pub const LM_DESCENDER: LINE_METRICS = LINE_METRICS(3i32);
+impl ::core::marker::Copy for LINE_METRICS {}
+impl ::core::clone::Clone for LINE_METRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LINE_SEGMENT {
@@ -1635,12 +2181,24 @@ pub const MICUIELEMENT_BUTTON_INSERT: MICUIELEMENT = MICUIELEMENT(64i32);
 pub const MICUIELEMENT_BUTTON_CANCEL: MICUIELEMENT = MICUIELEMENT(128i32);
 pub const MICUIELEMENT_INKPANEL_BACKGROUND: MICUIELEMENT = MICUIELEMENT(256i32);
 pub const MICUIELEMENT_RESULTPANEL_BACKGROUND: MICUIELEMENT = MICUIELEMENT(512i32);
+impl ::core::marker::Copy for MICUIELEMENT {}
+impl ::core::clone::Clone for MICUIELEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MICUIELEMENTSTATE(pub i32);
 pub const MICUIELEMENTSTATE_NORMAL: MICUIELEMENTSTATE = MICUIELEMENTSTATE(1i32);
 pub const MICUIELEMENTSTATE_HOT: MICUIELEMENTSTATE = MICUIELEMENTSTATE(2i32);
 pub const MICUIELEMENTSTATE_PRESSED: MICUIELEMENTSTATE = MICUIELEMENTSTATE(3i32);
 pub const MICUIELEMENTSTATE_DISABLED: MICUIELEMENTSTATE = MICUIELEMENTSTATE(4i32);
+impl ::core::marker::Copy for MICUIELEMENTSTATE {}
+impl ::core::clone::Clone for MICUIELEMENTSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MathInputControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3311501676,
     data2: 5336,
@@ -1653,6 +2211,12 @@ pub const NO_BUTTON: MouseButton = MouseButton(0i32);
 pub const LEFT_BUTTON: MouseButton = MouseButton(1i32);
 pub const RIGHT_BUTTON: MouseButton = MouseButton(2i32);
 pub const MIDDLE_BUTTON: MouseButton = MouseButton(4i32);
+impl ::core::marker::Copy for MouseButton {}
+impl ::core::clone::Clone for MouseButton {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NUM_FLICK_DIRECTIONS: u32 = 8u32;
 #[repr(C)]
 pub struct PACKET_DESCRIPTION {
@@ -1711,18 +2275,36 @@ pub const PROPERTY_UNITS_KELVIN: PROPERTY_UNITS = PROPERTY_UNITS(13i32);
 pub const PROPERTY_UNITS_FAHRENHEIT: PROPERTY_UNITS = PROPERTY_UNITS(14i32);
 pub const PROPERTY_UNITS_AMPERE: PROPERTY_UNITS = PROPERTY_UNITS(15i32);
 pub const PROPERTY_UNITS_CANDELA: PROPERTY_UNITS = PROPERTY_UNITS(16i32);
+impl ::core::marker::Copy for PROPERTY_UNITS {}
+impl ::core::clone::Clone for PROPERTY_UNITS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PanelInputArea(pub i32);
 pub const PanelInputArea_Auto: PanelInputArea = PanelInputArea(0i32);
 pub const PanelInputArea_Keyboard: PanelInputArea = PanelInputArea(1i32);
 pub const PanelInputArea_WritingPad: PanelInputArea = PanelInputArea(2i32);
 pub const PanelInputArea_CharacterPad: PanelInputArea = PanelInputArea(3i32);
+impl ::core::marker::Copy for PanelInputArea {}
+impl ::core::clone::Clone for PanelInputArea {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PanelType(pub i32);
 pub const PT_Default: PanelType = PanelType(0i32);
 pub const PT_Inactive: PanelType = PanelType(1i32);
 pub const PT_Handwriting: PanelType = PanelType(2i32);
 pub const PT_Keyboard: PanelType = PanelType(3i32);
+impl ::core::marker::Copy for PanelType {}
+impl ::core::clone::Clone for PanelType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PenInputPanel: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4148487318,
     data2: 7002,
@@ -1898,6 +2480,12 @@ pub const RTSDI_TabletRemoved: RealTimeStylusDataInterest = RealTimeStylusDataIn
 pub const RTSDI_CustomStylusDataAdded: RealTimeStylusDataInterest = RealTimeStylusDataInterest(32768i32);
 pub const RTSDI_UpdateMapping: RealTimeStylusDataInterest = RealTimeStylusDataInterest(65536i32);
 pub const RTSDI_DefaultEvents: RealTimeStylusDataInterest = RealTimeStylusDataInterest(37766i32);
+impl ::core::marker::Copy for RealTimeStylusDataInterest {}
+impl ::core::clone::Clone for RealTimeStylusDataInterest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RealTimeStylusLockType(pub i32);
 pub const RTSLT_ObjLock: RealTimeStylusLockType = RealTimeStylusLockType(1i32);
@@ -1906,11 +2494,23 @@ pub const RTSLT_AsyncEventLock: RealTimeStylusLockType = RealTimeStylusLockType(
 pub const RTSLT_ExcludeCallback: RealTimeStylusLockType = RealTimeStylusLockType(8i32);
 pub const RTSLT_SyncObjLock: RealTimeStylusLockType = RealTimeStylusLockType(11i32);
 pub const RTSLT_AsyncObjLock: RealTimeStylusLockType = RealTimeStylusLockType(13i32);
+impl ::core::marker::Copy for RealTimeStylusLockType {}
+impl ::core::clone::Clone for RealTimeStylusLockType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SAFE_PARTIAL: u32 = 1u32;
 #[repr(transparent)]
 pub struct SCROLLDIRECTION(pub i32);
 pub const SCROLLDIRECTION_UP: SCROLLDIRECTION = SCROLLDIRECTION(0i32);
 pub const SCROLLDIRECTION_DOWN: SCROLLDIRECTION = SCROLLDIRECTION(1i32);
+impl ::core::marker::Copy for SCROLLDIRECTION {}
+impl ::core::clone::Clone for SCROLLDIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct STROKE_RANGE {
     pub iStrokeBegin: u32,
@@ -1943,11 +2543,23 @@ pub const rtfNone: ScrollBarsConstants = ScrollBarsConstants(0i32);
 pub const rtfHorizontal: ScrollBarsConstants = ScrollBarsConstants(1i32);
 pub const rtfVertical: ScrollBarsConstants = ScrollBarsConstants(2i32);
 pub const rtfBoth: ScrollBarsConstants = ScrollBarsConstants(3i32);
+impl ::core::marker::Copy for ScrollBarsConstants {}
+impl ::core::clone::Clone for ScrollBarsConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SelAlignmentConstants(pub i32);
 pub const rtfLeft: SelAlignmentConstants = SelAlignmentConstants(0i32);
 pub const rtfRight: SelAlignmentConstants = SelAlignmentConstants(1i32);
 pub const rtfCenter: SelAlignmentConstants = SelAlignmentConstants(2i32);
+impl ::core::marker::Copy for SelAlignmentConstants {}
+impl ::core::clone::Clone for SelAlignmentConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SelectionHitResult(pub i32);
 pub const SHR_None: SelectionHitResult = SelectionHitResult(0i32);
@@ -1960,6 +2572,12 @@ pub const SHR_W: SelectionHitResult = SelectionHitResult(6i32);
 pub const SHR_N: SelectionHitResult = SelectionHitResult(7i32);
 pub const SHR_S: SelectionHitResult = SelectionHitResult(8i32);
 pub const SHR_Selection: SelectionHitResult = SelectionHitResult(9i32);
+impl ::core::marker::Copy for SelectionHitResult {}
+impl ::core::clone::Clone for SelectionHitResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SketchInk: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4029223041,
     data2: 59516,
@@ -1992,6 +2610,12 @@ pub struct StylusQueue(pub i32);
 pub const SyncStylusQueue: StylusQueue = StylusQueue(1i32);
 pub const AsyncStylusQueueImmediate: StylusQueue = StylusQueue(2i32);
 pub const AsyncStylusQueue: StylusQueue = StylusQueue(3i32);
+impl ::core::marker::Copy for StylusQueue {}
+impl ::core::clone::Clone for StylusQueue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TABLET_DISABLE_FLICKFALLBACKKEYS: u32 = 1048576u32;
 pub const TABLET_DISABLE_FLICKS: u32 = 65536u32;
 pub const TABLET_DISABLE_PENBARRELFEEDBACK: u32 = 16u32;
@@ -2009,12 +2633,24 @@ pub struct TabletDeviceKind(pub i32);
 pub const TDK_Mouse: TabletDeviceKind = TabletDeviceKind(0i32);
 pub const TDK_Pen: TabletDeviceKind = TabletDeviceKind(1i32);
 pub const TDK_Touch: TabletDeviceKind = TabletDeviceKind(2i32);
+impl ::core::marker::Copy for TabletDeviceKind {}
+impl ::core::clone::Clone for TabletDeviceKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TabletHardwareCapabilities(pub i32);
 pub const THWC_Integrated: TabletHardwareCapabilities = TabletHardwareCapabilities(1i32);
 pub const THWC_CursorMustTouch: TabletHardwareCapabilities = TabletHardwareCapabilities(2i32);
 pub const THWC_HardProximity: TabletHardwareCapabilities = TabletHardwareCapabilities(4i32);
 pub const THWC_CursorsHavePhysicalIds: TabletHardwareCapabilities = TabletHardwareCapabilities(8i32);
+impl ::core::marker::Copy for TabletHardwareCapabilities {}
+impl ::core::clone::Clone for TabletHardwareCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TabletPropertyMetricUnit(pub i32);
 pub const TPMU_Default: TabletPropertyMetricUnit = TabletPropertyMetricUnit(0i32);
@@ -2025,6 +2661,12 @@ pub const TPMU_Radians: TabletPropertyMetricUnit = TabletPropertyMetricUnit(4i32
 pub const TPMU_Seconds: TabletPropertyMetricUnit = TabletPropertyMetricUnit(5i32);
 pub const TPMU_Pounds: TabletPropertyMetricUnit = TabletPropertyMetricUnit(6i32);
 pub const TPMU_Grams: TabletPropertyMetricUnit = TabletPropertyMetricUnit(7i32);
+impl ::core::marker::Copy for TabletPropertyMetricUnit {}
+impl ::core::clone::Clone for TabletPropertyMetricUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TextInputPanel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4189161943, data2: 8843, data3: 20267, data4: [134, 80, 185, 127, 89, 224, 44, 140] };
 pub const TipAutoCompleteClient: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2155617900,
@@ -2039,6 +2681,12 @@ pub const Floating: VisualState = VisualState(1i32);
 pub const DockedTop: VisualState = VisualState(2i32);
 pub const DockedBottom: VisualState = VisualState(3i32);
 pub const Closed: VisualState = VisualState(4i32);
+impl ::core::marker::Copy for VisualState {}
+impl ::core::clone::Clone for VisualState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WM_TABLET_ADDED: u32 = 712u32;
 pub const WM_TABLET_DEFBASE: u32 = 704u32;
 pub const WM_TABLET_DELETED: u32 = 713u32;
@@ -2067,12 +2715,30 @@ pub struct _IPenInputPanelEvents(pub *mut ::core::ffi::c_void);
 pub struct enumGetCandidateFlags(pub i32);
 pub const TCF_ALLOW_RECOGNITION: enumGetCandidateFlags = enumGetCandidateFlags(1i32);
 pub const TCF_FORCE_RECOGNITION: enumGetCandidateFlags = enumGetCandidateFlags(2i32);
+impl ::core::marker::Copy for enumGetCandidateFlags {}
+impl ::core::clone::Clone for enumGetCandidateFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct enumINKMETRIC_FLAGS(pub i32);
 pub const IMF_FONT_SELECTED_IN_HDC: enumINKMETRIC_FLAGS = enumINKMETRIC_FLAGS(1i32);
 pub const IMF_ITALIC: enumINKMETRIC_FLAGS = enumINKMETRIC_FLAGS(2i32);
 pub const IMF_BOLD: enumINKMETRIC_FLAGS = enumINKMETRIC_FLAGS(4i32);
+impl ::core::marker::Copy for enumINKMETRIC_FLAGS {}
+impl ::core::clone::Clone for enumINKMETRIC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct enumRECO_TYPE(pub i32);
 pub const RECO_TYPE_WSTRING: enumRECO_TYPE = enumRECO_TYPE(0i32);
 pub const RECO_TYPE_WCHAR: enumRECO_TYPE = enumRECO_TYPE(1i32);
+impl ::core::marker::Copy for enumRECO_TYPE {}
+impl ::core::clone::Clone for enumRECO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

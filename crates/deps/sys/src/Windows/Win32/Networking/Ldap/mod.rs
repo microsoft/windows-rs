@@ -761,6 +761,12 @@ pub const LDAP_CONTROL_NOT_FOUND: LDAP_RETCODE = LDAP_RETCODE(93i32);
 pub const LDAP_MORE_RESULTS_TO_RETURN: LDAP_RETCODE = LDAP_RETCODE(95i32);
 pub const LDAP_CLIENT_LOOP: LDAP_RETCODE = LDAP_RETCODE(96i32);
 pub const LDAP_REFERRAL_LIMIT_EXCEEDED: LDAP_RETCODE = LDAP_RETCODE(97i32);
+impl ::core::marker::Copy for LDAP_RETCODE {}
+impl ::core::clone::Clone for LDAP_RETCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LDAP_SCOPE_BASE: u32 = 0u32;
 pub const LDAP_SCOPE_ONELEVEL: u32 = 1u32;
 pub const LDAP_SCOPE_SUBTREE: u32 = 2u32;

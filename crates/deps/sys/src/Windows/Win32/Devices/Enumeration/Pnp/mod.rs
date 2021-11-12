@@ -92,6 +92,12 @@ pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPA
 pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(2i32);
 pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(4i32);
 pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(8i32);
+impl ::core::marker::Copy for SW_DEVICE_CAPABILITIES {}
+impl ::core::clone::Clone for SW_DEVICE_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type SW_DEVICE_CREATE_CALLBACK = unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows_sys::core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: super::super::super::Foundation::PWSTR);
 #[repr(C)]
@@ -120,6 +126,12 @@ pub struct SW_DEVICE_LIFETIME(pub i32);
 pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(0i32);
 pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(1i32);
 pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(2i32);
+impl ::core::marker::Copy for SW_DEVICE_LIFETIME {}
+impl ::core::clone::Clone for SW_DEVICE_LIFETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
 pub const UPNP_ADDRESSFAMILY_IPv4: u32 = 1u32;
 pub const UPNP_ADDRESSFAMILY_IPv6: u32 = 2u32;

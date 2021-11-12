@@ -59,9 +59,21 @@ impl PickerLocationId {
     pub const Objects3D: Self = Self(8i32);
     pub const Unspecified: Self = Self(9i32);
 }
+impl ::core::marker::Copy for PickerLocationId {}
+impl ::core::clone::Clone for PickerLocationId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PickerViewMode(pub i32);
 impl PickerViewMode {
     pub const List: Self = Self(0i32);
     pub const Thumbnail: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PickerViewMode {}
+impl ::core::clone::Clone for PickerViewMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

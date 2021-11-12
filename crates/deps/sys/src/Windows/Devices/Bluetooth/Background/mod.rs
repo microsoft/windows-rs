@@ -8,6 +8,12 @@ impl BluetoothEventTriggeringMode {
     pub const Batch: Self = Self(1i32);
     pub const KeepLatest: Self = Self(2i32);
 }
+impl ::core::marker::Copy for BluetoothEventTriggeringMode {}
+impl ::core::clone::Clone for BluetoothEventTriggeringMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

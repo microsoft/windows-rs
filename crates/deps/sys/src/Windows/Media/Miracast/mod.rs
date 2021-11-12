@@ -53,6 +53,12 @@ impl MiracastReceiverApplySettingsStatus {
     pub const ModelNumberTooLong: Self = Self(6i32);
     pub const InvalidSettings: Self = Self(7i32);
 }
+impl ::core::marker::Copy for MiracastReceiverApplySettingsStatus {}
+impl ::core::clone::Clone for MiracastReceiverApplySettingsStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MiracastReceiverAuthorizationMethod(pub i32);
 impl MiracastReceiverAuthorizationMethod {
@@ -60,6 +66,12 @@ impl MiracastReceiverAuthorizationMethod {
     pub const ConfirmConnection: Self = Self(1i32);
     pub const PinDisplayIfRequested: Self = Self(2i32);
     pub const PinDisplayRequired: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MiracastReceiverAuthorizationMethod {}
+impl ::core::clone::Clone for MiracastReceiverAuthorizationMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MiracastReceiverConnection(pub *mut ::core::ffi::c_void);
@@ -81,6 +93,12 @@ impl MiracastReceiverDisconnectReason {
     pub const MediaStreamingError: Self = Self(6i32);
     pub const MediaDecryptionError: Self = Self(7i32);
 }
+impl ::core::marker::Copy for MiracastReceiverDisconnectReason {}
+impl ::core::clone::Clone for MiracastReceiverDisconnectReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MiracastReceiverDisconnectedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -90,6 +108,12 @@ pub struct MiracastReceiverGameControllerDeviceUsageMode(pub i32);
 impl MiracastReceiverGameControllerDeviceUsageMode {
     pub const AsGameController: Self = Self(0i32);
     pub const AsMouseAndKeyboard: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MiracastReceiverGameControllerDeviceUsageMode {}
+impl ::core::clone::Clone for MiracastReceiverGameControllerDeviceUsageMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MiracastReceiverInputDevices(pub *mut ::core::ffi::c_void);
@@ -105,6 +129,12 @@ impl MiracastReceiverListeningStatus {
     pub const DisabledByPolicy: Self = Self(4i32);
     pub const TemporarilyDisabled: Self = Self(5i32);
 }
+impl ::core::marker::Copy for MiracastReceiverListeningStatus {}
+impl ::core::clone::Clone for MiracastReceiverListeningStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MiracastReceiverMediaSourceCreatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -118,6 +148,12 @@ impl MiracastReceiverSessionStartStatus {
     pub const UnknownFailure: Self = Self(1i32);
     pub const MiracastNotSupported: Self = Self(2i32);
     pub const AccessDenied: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MiracastReceiverSessionStartStatus {}
+impl ::core::clone::Clone for MiracastReceiverSessionStartStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MiracastReceiverSettings(pub *mut ::core::ffi::c_void);
@@ -135,6 +171,12 @@ impl MiracastReceiverWiFiStatus {
     pub const MiracastSupportNotOptimized: Self = Self(2i32);
     pub const MiracastSupported: Self = Self(3i32);
 }
+impl ::core::marker::Copy for MiracastReceiverWiFiStatus {}
+impl ::core::clone::Clone for MiracastReceiverWiFiStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MiracastTransmitter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -144,4 +186,10 @@ impl MiracastTransmitterAuthorizationStatus {
     pub const Allowed: Self = Self(1i32);
     pub const AlwaysPrompt: Self = Self(2i32);
     pub const Blocked: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MiracastTransmitterAuthorizationStatus {}
+impl ::core::clone::Clone for MiracastTransmitterAuthorizationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

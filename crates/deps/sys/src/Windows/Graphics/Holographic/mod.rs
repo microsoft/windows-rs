@@ -26,6 +26,12 @@ impl HolographicDepthReprojectionMethod {
     pub const DepthReprojection: Self = Self(0i32);
     pub const AutoPlanar: Self = Self(1i32);
 }
+impl ::core::marker::Copy for HolographicDepthReprojectionMethod {}
+impl ::core::clone::Clone for HolographicDepthReprojectionMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HolographicDisplay(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -48,11 +54,23 @@ impl HolographicFramePresentResult {
     pub const Success: Self = Self(0i32);
     pub const DeviceRemoved: Self = Self(1i32);
 }
+impl ::core::marker::Copy for HolographicFramePresentResult {}
+impl ::core::clone::Clone for HolographicFramePresentResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HolographicFramePresentWaitBehavior(pub i32);
 impl HolographicFramePresentWaitBehavior {
     pub const WaitForFrameToFinish: Self = Self(0i32);
     pub const DoNotWaitForFrameToFinish: Self = Self(1i32);
+}
+impl ::core::marker::Copy for HolographicFramePresentWaitBehavior {}
+impl ::core::clone::Clone for HolographicFramePresentWaitBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct HolographicFramePresentationMonitor(pub *mut ::core::ffi::c_void);
@@ -75,6 +93,12 @@ impl HolographicReprojectionMode {
     pub const OrientationOnly: Self = Self(1i32);
     pub const Disabled: Self = Self(2i32);
 }
+impl ::core::marker::Copy for HolographicReprojectionMode {}
+impl ::core::clone::Clone for HolographicReprojectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HolographicSpace(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -87,6 +111,12 @@ impl HolographicSpaceUserPresence {
     pub const Absent: Self = Self(0i32);
     pub const PresentPassive: Self = Self(1i32);
     pub const PresentActive: Self = Self(2i32);
+}
+impl ::core::marker::Copy for HolographicSpaceUserPresence {}
+impl ::core::clone::Clone for HolographicSpaceUserPresence {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
@@ -109,6 +139,12 @@ pub struct HolographicViewConfigurationKind(pub i32);
 impl HolographicViewConfigurationKind {
     pub const Display: Self = Self(0i32);
     pub const PhotoVideoCamera: Self = Self(1i32);
+}
+impl ::core::marker::Copy for HolographicViewConfigurationKind {}
+impl ::core::clone::Clone for HolographicViewConfigurationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IHolographicCamera(pub *mut ::core::ffi::c_void);

@@ -15,6 +15,12 @@ impl RadioAccessStatus {
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
 }
+impl ::core::marker::Copy for RadioAccessStatus {}
+impl ::core::clone::Clone for RadioAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadioKind(pub i32);
 impl RadioKind {
@@ -24,6 +30,12 @@ impl RadioKind {
     pub const Bluetooth: Self = Self(3i32);
     pub const FM: Self = Self(4i32);
 }
+impl ::core::marker::Copy for RadioKind {}
+impl ::core::clone::Clone for RadioKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadioState(pub i32);
 impl RadioState {
@@ -31,4 +43,10 @@ impl RadioState {
     pub const On: Self = Self(1i32);
     pub const Off: Self = Self(2i32);
     pub const Disabled: Self = Self(3i32);
+}
+impl ::core::marker::Copy for RadioState {}
+impl ::core::clone::Clone for RadioState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

@@ -11,6 +11,12 @@ impl CompressAlgorithm {
     pub const XpressHuff: Self = Self(4i32);
     pub const Lzms: Self = Self(5i32);
 }
+impl ::core::marker::Copy for CompressAlgorithm {}
+impl ::core::clone::Clone for CompressAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Compressor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

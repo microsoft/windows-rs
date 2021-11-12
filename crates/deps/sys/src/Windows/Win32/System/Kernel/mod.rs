@@ -13,6 +13,12 @@ extern "system" {
 pub struct COMPARTMENT_ID(pub i32);
 pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(0i32);
 pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(1i32);
+impl ::core::marker::Copy for COMPARTMENT_ID {}
+impl ::core::clone::Clone for COMPARTMENT_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CSTRING {
@@ -32,12 +38,24 @@ impl ::core::clone::Clone for CSTRING {
 pub struct EVENT_TYPE(pub i32);
 pub const NotificationEvent: EVENT_TYPE = EVENT_TYPE(0i32);
 pub const SynchronizationEvent: EVENT_TYPE = EVENT_TYPE(1i32);
+impl ::core::marker::Copy for EVENT_TYPE {}
+impl ::core::clone::Clone for EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EXCEPTION_DISPOSITION(pub i32);
 pub const ExceptionContinueExecution: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(0i32);
 pub const ExceptionContinueSearch: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(1i32);
 pub const ExceptionNestedException: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(2i32);
 pub const ExceptionCollidedUnwind: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(3i32);
+impl ::core::marker::Copy for EXCEPTION_DISPOSITION {}
+impl ::core::clone::Clone for EXCEPTION_DISPOSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct EXCEPTION_REGISTRATION_RECORD {
@@ -137,6 +155,12 @@ pub struct NT_PRODUCT_TYPE(pub i32);
 pub const NtProductWinNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(1i32);
 pub const NtProductLanManNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(2i32);
 pub const NtProductServer: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(3i32);
+impl ::core::marker::Copy for NT_PRODUCT_TYPE {}
+impl ::core::clone::Clone for NT_PRODUCT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct NT_TIB {
@@ -494,10 +518,22 @@ pub const WHServer: SUITE_TYPE = SUITE_TYPE(15i32);
 pub const PhoneNT: SUITE_TYPE = SUITE_TYPE(16i32);
 pub const MultiUserTS: SUITE_TYPE = SUITE_TYPE(17i32);
 pub const MaxSuiteType: SUITE_TYPE = SUITE_TYPE(18i32);
+impl ::core::marker::Copy for SUITE_TYPE {}
+impl ::core::clone::Clone for SUITE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TIMER_TYPE(pub i32);
 pub const NotificationTimer: TIMER_TYPE = TIMER_TYPE(0i32);
 pub const SynchronizationTimer: TIMER_TYPE = TIMER_TYPE(1i32);
+impl ::core::marker::Copy for TIMER_TYPE {}
+impl ::core::clone::Clone for TIMER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WAIT_TYPE(pub i32);
 pub const WaitAll: WAIT_TYPE = WAIT_TYPE(0i32);
@@ -505,6 +541,12 @@ pub const WaitAny: WAIT_TYPE = WAIT_TYPE(1i32);
 pub const WaitNotification: WAIT_TYPE = WAIT_TYPE(2i32);
 pub const WaitDequeue: WAIT_TYPE = WAIT_TYPE(3i32);
 pub const WaitDpc: WAIT_TYPE = WAIT_TYPE(4i32);
+impl ::core::marker::Copy for WAIT_TYPE {}
+impl ::core::clone::Clone for WAIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WNF_STATE_NAME {
     pub Data: [u32; 2],

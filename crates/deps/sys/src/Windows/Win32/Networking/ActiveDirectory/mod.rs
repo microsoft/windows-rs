@@ -326,6 +326,12 @@ pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
 pub struct ADSI_DIALECT_ENUM(pub i32);
 pub const ADSI_DIALECT_LDAP: ADSI_DIALECT_ENUM = ADSI_DIALECT_ENUM(0i32);
 pub const ADSI_DIALECT_SQL: ADSI_DIALECT_ENUM = ADSI_DIALECT_ENUM(1i32);
+impl ::core::marker::Copy for ADSI_DIALECT_ENUM {}
+impl ::core::clone::Clone for ADSI_DIALECT_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADSPROPERROR {
@@ -393,6 +399,12 @@ pub const ADSTYPE_NT_SECURITY_DESCRIPTOR: ADSTYPEENUM = ADSTYPEENUM(25i32);
 pub const ADSTYPE_UNKNOWN: ADSTYPEENUM = ADSTYPEENUM(26i32);
 pub const ADSTYPE_DN_WITH_BINARY: ADSTYPEENUM = ADSTYPEENUM(27i32);
 pub const ADSTYPE_DN_WITH_STRING: ADSTYPEENUM = ADSTYPEENUM(28i32);
+impl ::core::marker::Copy for ADSTYPEENUM {}
+impl ::core::clone::Clone for ADSTYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADSVALUE {
@@ -453,6 +465,12 @@ pub const ADS_ACEFLAG_INHERITED_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(16i32);
 pub const ADS_ACEFLAG_VALID_INHERIT_FLAGS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(31i32);
 pub const ADS_ACEFLAG_SUCCESSFUL_ACCESS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(64i32);
 pub const ADS_ACEFLAG_FAILED_ACCESS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(128i32);
+impl ::core::marker::Copy for ADS_ACEFLAG_ENUM {}
+impl ::core::clone::Clone for ADS_ACEFLAG_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_ACETYPE_ENUM(pub i32);
 pub const ADS_ACETYPE_ACCESS_ALLOWED: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(0i32);
@@ -470,6 +488,12 @@ pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM
 pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(14i32);
 pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(15i32);
 pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(16i32);
+impl ::core::marker::Copy for ADS_ACETYPE_ENUM {}
+impl ::core::clone::Clone for ADS_ACETYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ADS_ATTR_APPEND: u32 = 3u32;
 pub const ADS_ATTR_CLEAR: u32 = 1u32;
 #[repr(C)]
@@ -523,6 +547,12 @@ pub const ADS_USE_DELEGATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(
 pub const ADS_SERVER_BIND: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(512u32);
 pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(1024u32);
 pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2147483648u32);
+impl ::core::marker::Copy for ADS_AUTHENTICATION_ENUM {}
+impl ::core::clone::Clone for ADS_AUTHENTICATION_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_BACKLINK {
@@ -557,6 +587,12 @@ pub const ADS_CHASE_REFERRALS_NEVER: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERR
 pub const ADS_CHASE_REFERRALS_SUBORDINATE: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(32i32);
 pub const ADS_CHASE_REFERRALS_EXTERNAL: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(64i32);
 pub const ADS_CHASE_REFERRALS_ALWAYS: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(96i32);
+impl ::core::marker::Copy for ADS_CHASE_REFERRALS_ENUM {}
+impl ::core::clone::Clone for ADS_CHASE_REFERRALS_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_CLASS_DEF {
@@ -585,10 +621,22 @@ pub const ADS_DEREF_NEVER: ADS_DEREFENUM = ADS_DEREFENUM(0i32);
 pub const ADS_DEREF_SEARCHING: ADS_DEREFENUM = ADS_DEREFENUM(1i32);
 pub const ADS_DEREF_FINDING: ADS_DEREFENUM = ADS_DEREFENUM(2i32);
 pub const ADS_DEREF_ALWAYS: ADS_DEREFENUM = ADS_DEREFENUM(3i32);
+impl ::core::marker::Copy for ADS_DEREFENUM {}
+impl ::core::clone::Clone for ADS_DEREFENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_DISPLAY_ENUM(pub i32);
 pub const ADS_DISPLAY_FULL: ADS_DISPLAY_ENUM = ADS_DISPLAY_ENUM(1i32);
 pub const ADS_DISPLAY_VALUE_ONLY: ADS_DISPLAY_ENUM = ADS_DISPLAY_ENUM(2i32);
+impl ::core::marker::Copy for ADS_DISPLAY_ENUM {}
+impl ::core::clone::Clone for ADS_DISPLAY_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_DN_WITH_BINARY {
@@ -638,6 +686,12 @@ pub const ADS_ESCAPEDMODE_DEFAULT: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(1
 pub const ADS_ESCAPEDMODE_ON: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(2i32);
 pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(3i32);
 pub const ADS_ESCAPEDMODE_OFF_EX: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(4i32);
+impl ::core::marker::Copy for ADS_ESCAPE_MODE_ENUM {}
+impl ::core::clone::Clone for ADS_ESCAPE_MODE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ADS_EXT_INITCREDENTIALS: u32 = 1u32;
 pub const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2u32;
 pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215u32;
@@ -661,6 +715,12 @@ impl ::core::clone::Clone for ADS_FAXNUMBER {
 pub struct ADS_FLAGTYPE_ENUM(pub i32);
 pub const ADS_FLAG_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = ADS_FLAGTYPE_ENUM(1i32);
 pub const ADS_FLAG_INHERITED_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = ADS_FLAGTYPE_ENUM(2i32);
+impl ::core::marker::Copy for ADS_FLAGTYPE_ENUM {}
+impl ::core::clone::Clone for ADS_FLAGTYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_FORMAT_ENUM(pub i32);
 pub const ADS_FORMAT_WINDOWS: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(1i32);
@@ -674,6 +734,12 @@ pub const ADS_FORMAT_X500_PARENT: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(8i32);
 pub const ADS_FORMAT_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(9i32);
 pub const ADS_FORMAT_PROVIDER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(10i32);
 pub const ADS_FORMAT_LEAF: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(11i32);
+impl ::core::marker::Copy for ADS_FORMAT_ENUM {}
+impl ::core::clone::Clone for ADS_FORMAT_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_GROUP_TYPE_ENUM(pub i32);
 pub const ADS_GROUP_TYPE_GLOBAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(2i32);
@@ -681,6 +747,12 @@ pub const ADS_GROUP_TYPE_DOMAIN_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYP
 pub const ADS_GROUP_TYPE_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(4i32);
 pub const ADS_GROUP_TYPE_UNIVERSAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(8i32);
 pub const ADS_GROUP_TYPE_SECURITY_ENABLED: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(-2147483648i32);
+impl ::core::marker::Copy for ADS_GROUP_TYPE_ENUM {}
+impl ::core::clone::Clone for ADS_GROUP_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_HOLD {
@@ -700,6 +772,12 @@ pub struct ADS_NAME_INITTYPE_ENUM(pub i32);
 pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(1i32);
 pub const ADS_NAME_INITTYPE_SERVER: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(2i32);
 pub const ADS_NAME_INITTYPE_GC: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(3i32);
+impl ::core::marker::Copy for ADS_NAME_INITTYPE_ENUM {}
+impl ::core::clone::Clone for ADS_NAME_INITTYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_NAME_TYPE_ENUM(pub i32);
 pub const ADS_NAME_TYPE_1779: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(1i32);
@@ -714,6 +792,12 @@ pub const ADS_NAME_TYPE_USER_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_
 pub const ADS_NAME_TYPE_CANONICAL_EX: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(10i32);
 pub const ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(11i32);
 pub const ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(12i32);
+impl ::core::marker::Copy for ADS_NAME_TYPE_ENUM {}
+impl ::core::clone::Clone for ADS_NAME_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ADS_NETADDRESS {
     pub AddressType: u32,
@@ -789,10 +873,22 @@ pub const ADS_OPTION_PASSWORD_PORTNUMBER: ADS_OPTION_ENUM = ADS_OPTION_ENUM(6i32
 pub const ADS_OPTION_PASSWORD_METHOD: ADS_OPTION_ENUM = ADS_OPTION_ENUM(7i32);
 pub const ADS_OPTION_ACCUMULATIVE_MODIFICATION: ADS_OPTION_ENUM = ADS_OPTION_ENUM(8i32);
 pub const ADS_OPTION_SKIP_SID_LOOKUP: ADS_OPTION_ENUM = ADS_OPTION_ENUM(9i32);
+impl ::core::marker::Copy for ADS_OPTION_ENUM {}
+impl ::core::clone::Clone for ADS_OPTION_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_PASSWORD_ENCODING_ENUM(pub i32);
 pub const ADS_PASSWORD_ENCODE_REQUIRE_SSL: ADS_PASSWORD_ENCODING_ENUM = ADS_PASSWORD_ENCODING_ENUM(0i32);
 pub const ADS_PASSWORD_ENCODE_CLEAR: ADS_PASSWORD_ENCODING_ENUM = ADS_PASSWORD_ENCODING_ENUM(1i32);
+impl ::core::marker::Copy for ADS_PASSWORD_ENCODING_ENUM {}
+impl ::core::clone::Clone for ADS_PASSWORD_ENCODING_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_PATH {
@@ -813,6 +909,12 @@ pub struct ADS_PATHTYPE_ENUM(pub i32);
 pub const ADS_PATH_FILE: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(1i32);
 pub const ADS_PATH_FILESHARE: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(2i32);
 pub const ADS_PATH_REGISTRY: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(3i32);
+impl ::core::marker::Copy for ADS_PATHTYPE_ENUM {}
+impl ::core::clone::Clone for ADS_PATHTYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_POSTALADDRESS {
@@ -841,12 +943,24 @@ pub const ADSIPROP_CHASE_REFERRALS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(
 pub const ADSIPROP_SORT_ON: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(10i32);
 pub const ADSIPROP_CACHE_RESULTS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(11i32);
 pub const ADSIPROP_ADSIFLAG: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(12i32);
+impl ::core::marker::Copy for ADS_PREFERENCES_ENUM {}
+impl ::core::clone::Clone for ADS_PREFERENCES_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_PROPERTY_OPERATION_ENUM(pub i32);
 pub const ADS_PROPERTY_CLEAR: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(1i32);
 pub const ADS_PROPERTY_UPDATE: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(2i32);
 pub const ADS_PROPERTY_APPEND: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(3i32);
 pub const ADS_PROPERTY_DELETE: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(4i32);
+impl ::core::marker::Copy for ADS_PROPERTY_OPERATION_ENUM {}
+impl ::core::clone::Clone for ADS_PROPERTY_OPERATION_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ADS_PROV_SPECIFIC {
     pub dwLength: u32,
@@ -896,11 +1010,23 @@ pub const ADS_RIGHT_DS_WRITE_PROP: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(32i32);
 pub const ADS_RIGHT_DS_DELETE_TREE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(64i32);
 pub const ADS_RIGHT_DS_LIST_OBJECT: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(128i32);
 pub const ADS_RIGHT_DS_CONTROL_ACCESS: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(256i32);
+impl ::core::marker::Copy for ADS_RIGHTS_ENUM {}
+impl ::core::clone::Clone for ADS_RIGHTS_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_SCOPEENUM(pub i32);
 pub const ADS_SCOPE_BASE: ADS_SCOPEENUM = ADS_SCOPEENUM(0i32);
 pub const ADS_SCOPE_ONELEVEL: ADS_SCOPEENUM = ADS_SCOPEENUM(1i32);
 pub const ADS_SCOPE_SUBTREE: ADS_SCOPEENUM = ADS_SCOPEENUM(2i32);
+impl ::core::marker::Copy for ADS_SCOPEENUM {}
+impl ::core::clone::Clone for ADS_SCOPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_SD_CONTROL_ENUM(pub i32);
 pub const ADS_SD_CONTROL_SE_OWNER_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(1i32);
@@ -916,14 +1042,32 @@ pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = ADS_SD_CO
 pub const ADS_SD_CONTROL_SE_DACL_PROTECTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(4096i32);
 pub const ADS_SD_CONTROL_SE_SACL_PROTECTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(8192i32);
 pub const ADS_SD_CONTROL_SE_SELF_RELATIVE: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(32768i32);
+impl ::core::marker::Copy for ADS_SD_CONTROL_ENUM {}
+impl ::core::clone::Clone for ADS_SD_CONTROL_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_SD_FORMAT_ENUM(pub i32);
 pub const ADS_SD_FORMAT_IID: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(1i32);
 pub const ADS_SD_FORMAT_RAW: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(2i32);
 pub const ADS_SD_FORMAT_HEXSTRING: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(3i32);
+impl ::core::marker::Copy for ADS_SD_FORMAT_ENUM {}
+impl ::core::clone::Clone for ADS_SD_FORMAT_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_SD_REVISION_ENUM(pub i32);
 pub const ADS_SD_REVISION_DS: ADS_SD_REVISION_ENUM = ADS_SD_REVISION_ENUM(4i32);
+impl ::core::marker::Copy for ADS_SD_REVISION_ENUM {}
+impl ::core::clone::Clone for ADS_SD_REVISION_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_SEARCHPREF_ENUM(pub i32);
 pub const ADS_SEARCHPREF_ASYNCHRONOUS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(0i32);
@@ -945,18 +1089,36 @@ pub const ADS_SEARCHPREF_ATTRIBUTE_QUERY: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_E
 pub const ADS_SEARCHPREF_SECURITY_MASK: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(16i32);
 pub const ADS_SEARCHPREF_DIRSYNC_FLAG: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(17i32);
 pub const ADS_SEARCHPREF_EXTENDED_DN: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(18i32);
+impl ::core::marker::Copy for ADS_SEARCHPREF_ENUM {}
+impl ::core::clone::Clone for ADS_SEARCHPREF_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_SECURITY_INFO_ENUM(pub i32);
 pub const ADS_SECURITY_INFO_OWNER: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(1i32);
 pub const ADS_SECURITY_INFO_GROUP: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(2i32);
 pub const ADS_SECURITY_INFO_DACL: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(4i32);
 pub const ADS_SECURITY_INFO_SACL: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(8i32);
+impl ::core::marker::Copy for ADS_SECURITY_INFO_ENUM {}
+impl ::core::clone::Clone for ADS_SECURITY_INFO_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_SETTYPE_ENUM(pub i32);
 pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(1i32);
 pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(2i32);
 pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(3i32);
 pub const ADS_SETTYPE_DN: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(4i32);
+impl ::core::marker::Copy for ADS_SETTYPE_ENUM {}
+impl ::core::clone::Clone for ADS_SETTYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_SORTKEY {
@@ -977,6 +1139,12 @@ pub struct ADS_STATUSENUM(pub i32);
 pub const ADS_STATUS_S_OK: ADS_STATUSENUM = ADS_STATUSENUM(0i32);
 pub const ADS_STATUS_INVALID_SEARCHPREF: ADS_STATUSENUM = ADS_STATUSENUM(1i32);
 pub const ADS_STATUS_INVALID_SEARCHPREFVALUE: ADS_STATUSENUM = ADS_STATUSENUM(2i32);
+impl ::core::marker::Copy for ADS_STATUSENUM {}
+impl ::core::clone::Clone for ADS_STATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_SYSTEMFLAG_ENUM(pub i32);
 pub const ADS_SYSTEMFLAG_DISALLOW_DELETE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(-2147483648i32);
@@ -989,6 +1157,12 @@ pub const ADS_SYSTEMFLAG_CR_NTDS_NC: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1
 pub const ADS_SYSTEMFLAG_CR_NTDS_DOMAIN: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(2i32);
 pub const ADS_SYSTEMFLAG_ATTR_NOT_REPLICATED: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1i32);
 pub const ADS_SYSTEMFLAG_ATTR_IS_CONSTRUCTED: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(4i32);
+impl ::core::marker::Copy for ADS_SYSTEMFLAG_ENUM {}
+impl ::core::clone::Clone for ADS_SYSTEMFLAG_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ADS_TIMESTAMP {
     pub WholeSeconds: u32,
@@ -1038,6 +1212,12 @@ pub const ADS_UF_USE_DES_KEY_ONLY: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(20971
 pub const ADS_UF_DONT_REQUIRE_PREAUTH: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(4194304i32);
 pub const ADS_UF_PASSWORD_EXPIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8388608i32);
 pub const ADS_UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(16777216i32);
+impl ::core::marker::Copy for ADS_USER_FLAG_ENUM {}
+impl ::core::clone::Clone for ADS_USER_FLAG_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_VLV {
@@ -1673,11 +1853,23 @@ pub const DsRole_RoleStandaloneServer: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE
 pub const DsRole_RoleMemberServer: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(3i32);
 pub const DsRole_RoleBackupDomainController: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(4i32);
 pub const DsRole_RolePrimaryDomainController: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(5i32);
+impl ::core::marker::Copy for DSROLE_MACHINE_ROLE {}
+impl ::core::clone::Clone for DSROLE_MACHINE_ROLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DSROLE_OPERATION_STATE(pub i32);
 pub const DsRoleOperationIdle: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(0i32);
 pub const DsRoleOperationActive: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(1i32);
 pub const DsRoleOperationNeedReboot: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(2i32);
+impl ::core::marker::Copy for DSROLE_OPERATION_STATE {}
+impl ::core::clone::Clone for DSROLE_OPERATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DSROLE_OPERATION_STATE_INFO {
     pub OperationState: DSROLE_OPERATION_STATE,
@@ -1712,6 +1904,12 @@ pub struct DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(pub i32);
 pub const DsRolePrimaryDomainInfoBasic: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(1i32);
 pub const DsRoleUpgradeStatus: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(2i32);
 pub const DsRoleOperationState: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(3i32);
+impl ::core::marker::Copy for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {}
+impl ::core::clone::Clone for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2u32;
 pub const DSROLE_PRIMARY_DS_READONLY: u32 = 8u32;
 pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1u32;
@@ -1720,6 +1918,12 @@ pub struct DSROLE_SERVER_STATE(pub i32);
 pub const DsRoleServerUnknown: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(0i32);
 pub const DsRoleServerPrimary: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(1i32);
 pub const DsRoleServerBackup: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(2i32);
+impl ::core::marker::Copy for DSROLE_SERVER_STATE {}
+impl ::core::clone::Clone for DSROLE_SERVER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4u32;
 #[repr(C)]
 pub struct DSROLE_UPGRADE_STATUS_INFO {
@@ -1975,6 +2179,12 @@ pub const DS_KCC_FLAG_DAMPED: u32 = 2u32;
 #[repr(transparent)]
 pub struct DS_KCC_TASKID(pub i32);
 pub const DS_KCC_TASKID_UPDATE_TOPOLOGY: DS_KCC_TASKID = DS_KCC_TASKID(0i32);
+impl ::core::marker::Copy for DS_KCC_TASKID {}
+impl ::core::clone::Clone for DS_KCC_TASKID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_KDC_FLAG: u32 = 32u32;
 pub const DS_KDC_REQUIRED: u32 = 1024u32;
 pub const DS_KEY_LIST_FLAG: u32 = 131072u32;
@@ -1988,6 +2198,12 @@ pub struct DS_MANGLE_FOR(pub i32);
 pub const DS_MANGLE_UNKNOWN: DS_MANGLE_FOR = DS_MANGLE_FOR(0i32);
 pub const DS_MANGLE_OBJECT_RDN_FOR_DELETION: DS_MANGLE_FOR = DS_MANGLE_FOR(1i32);
 pub const DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT: DS_MANGLE_FOR = DS_MANGLE_FOR(2i32);
+impl ::core::marker::Copy for DS_MANGLE_FOR {}
+impl ::core::clone::Clone for DS_MANGLE_FOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DS_NAME_ERROR(pub i32);
 pub const DS_NAME_NO_ERROR: DS_NAME_ERROR = DS_NAME_ERROR(0i32);
@@ -1998,6 +2214,12 @@ pub const DS_NAME_ERROR_NO_MAPPING: DS_NAME_ERROR = DS_NAME_ERROR(4i32);
 pub const DS_NAME_ERROR_DOMAIN_ONLY: DS_NAME_ERROR = DS_NAME_ERROR(5i32);
 pub const DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING: DS_NAME_ERROR = DS_NAME_ERROR(6i32);
 pub const DS_NAME_ERROR_TRUST_REFERRAL: DS_NAME_ERROR = DS_NAME_ERROR(7i32);
+impl ::core::marker::Copy for DS_NAME_ERROR {}
+impl ::core::clone::Clone for DS_NAME_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DS_NAME_FLAGS(pub i32);
 pub const DS_NAME_NO_FLAGS: DS_NAME_FLAGS = DS_NAME_FLAGS(0i32);
@@ -2005,6 +2227,12 @@ pub const DS_NAME_FLAG_SYNTACTICAL_ONLY: DS_NAME_FLAGS = DS_NAME_FLAGS(1i32);
 pub const DS_NAME_FLAG_EVAL_AT_DC: DS_NAME_FLAGS = DS_NAME_FLAGS(2i32);
 pub const DS_NAME_FLAG_GCVERIFY: DS_NAME_FLAGS = DS_NAME_FLAGS(4i32);
 pub const DS_NAME_FLAG_TRUST_REFERRAL: DS_NAME_FLAGS = DS_NAME_FLAGS(8i32);
+impl ::core::marker::Copy for DS_NAME_FLAGS {}
+impl ::core::clone::Clone for DS_NAME_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DS_NAME_FORMAT(pub i32);
 pub const DS_UNKNOWN_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(0i32);
@@ -2018,6 +2246,12 @@ pub const DS_CANONICAL_NAME_EX: DS_NAME_FORMAT = DS_NAME_FORMAT(9i32);
 pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(10i32);
 pub const DS_SID_OR_SID_HISTORY_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(11i32);
 pub const DS_DNS_DOMAIN_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(12i32);
+impl ::core::marker::Copy for DS_NAME_FORMAT {}
+impl ::core::clone::Clone for DS_NAME_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_NAME_RESULTA {
@@ -2321,6 +2555,12 @@ pub const DS_REPL_INFO_METADATA_2_FOR_OBJ: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE
 pub const DS_REPL_INFO_METADATA_2_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(10i32);
 pub const DS_REPL_INFO_METADATA_EXT_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(11i32);
 pub const DS_REPL_INFO_TYPE_MAX: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(12i32);
+impl ::core::marker::Copy for DS_REPL_INFO_TYPE {}
+impl ::core::clone::Clone for DS_REPL_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_KCC_DSA_FAILURESW {
@@ -2540,6 +2780,12 @@ pub const DS_REPL_OP_TYPE_ADD: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(1i32);
 pub const DS_REPL_OP_TYPE_DELETE: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(2i32);
 pub const DS_REPL_OP_TYPE_MODIFY: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(3i32);
 pub const DS_REPL_OP_TYPE_UPDATE_REFS: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(4i32);
+impl ::core::marker::Copy for DS_REPL_OP_TYPE {}
+impl ::core::clone::Clone for DS_REPL_OP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_PENDING_OPSW {
@@ -2747,12 +2993,24 @@ pub struct DS_REPSYNCALL_ERROR(pub i32);
 pub const DS_REPSYNCALL_WIN32_ERROR_CONTACTING_SERVER: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(0i32);
 pub const DS_REPSYNCALL_WIN32_ERROR_REPLICATING: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(1i32);
 pub const DS_REPSYNCALL_SERVER_UNREACHABLE: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(2i32);
+impl ::core::marker::Copy for DS_REPSYNCALL_ERROR {}
+impl ::core::clone::Clone for DS_REPSYNCALL_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DS_REPSYNCALL_EVENT(pub i32);
 pub const DS_REPSYNCALL_EVENT_ERROR: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(0i32);
 pub const DS_REPSYNCALL_EVENT_SYNC_STARTED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(1i32);
 pub const DS_REPSYNCALL_EVENT_SYNC_COMPLETED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(2i32);
 pub const DS_REPSYNCALL_EVENT_FINISHED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(3i32);
+impl ::core::marker::Copy for DS_REPSYNCALL_EVENT {}
+impl ::core::clone::Clone for DS_REPSYNCALL_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4u32;
 pub const DS_REPSYNCALL_NO_OPTIONS: u32 = 0u32;
 pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32u32;
@@ -2947,11 +3205,23 @@ pub const DS_SPN_NB_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(2i32);
 pub const DS_SPN_DOMAIN: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(3i32);
 pub const DS_SPN_NB_DOMAIN: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(4i32);
 pub const DS_SPN_SERVICE: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(5i32);
+impl ::core::marker::Copy for DS_SPN_NAME_TYPE {}
+impl ::core::clone::Clone for DS_SPN_NAME_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DS_SPN_WRITE_OP(pub i32);
 pub const DS_SPN_ADD_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(0i32);
 pub const DS_SPN_REPLACE_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(1i32);
 pub const DS_SPN_DELETE_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(2i32);
+impl ::core::marker::Copy for DS_SPN_WRITE_OP {}
+impl ::core::clone::Clone for DS_SPN_WRITE_OP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_TIMESERV_FLAG: u32 = 64u32;
 pub const DS_TIMESERV_REQUIRED: u32 = 2048u32;
 pub const DS_TRY_NEXTCLOSEST_SITE: u32 = 262144u32;

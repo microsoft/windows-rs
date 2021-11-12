@@ -6,5 +6,11 @@ pub struct CreateProcessMethod(pub i32);
 pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);
 pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32);
 pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i32);
+impl ::core::marker::Copy for CreateProcessMethod {}
+impl ::core::clone::Clone for CreateProcessMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDDEInitializer(pub *mut ::core::ffi::c_void);

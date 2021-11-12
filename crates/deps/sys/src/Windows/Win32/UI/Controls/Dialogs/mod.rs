@@ -307,6 +307,12 @@ pub const CF_SHOWHELP: CHOOSEFONT_FLAGS = CHOOSEFONT_FLAGS(4u32);
 pub const CF_TTONLY: CHOOSEFONT_FLAGS = CHOOSEFONT_FLAGS(262144u32);
 pub const CF_USESTYLE: CHOOSEFONT_FLAGS = CHOOSEFONT_FLAGS(128u32);
 pub const CF_WYSIWYG: CHOOSEFONT_FLAGS = CHOOSEFONT_FLAGS(32768u32);
+impl ::core::marker::Copy for CHOOSEFONT_FLAGS {}
+impl ::core::clone::Clone for CHOOSEFONT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CHOOSEFONT_FONT_TYPE(pub u16);
 pub const BOLD_FONTTYPE: CHOOSEFONT_FONT_TYPE = CHOOSEFONT_FONT_TYPE(256u16);
@@ -315,6 +321,12 @@ pub const PRINTER_FONTTYPE: CHOOSEFONT_FONT_TYPE = CHOOSEFONT_FONT_TYPE(16384u16
 pub const REGULAR_FONTTYPE: CHOOSEFONT_FONT_TYPE = CHOOSEFONT_FONT_TYPE(1024u16);
 pub const SCREEN_FONTTYPE: CHOOSEFONT_FONT_TYPE = CHOOSEFONT_FONT_TYPE(8192u16);
 pub const SIMULATED_FONTTYPE: CHOOSEFONT_FONT_TYPE = CHOOSEFONT_FONT_TYPE(32768u16);
+impl ::core::marker::Copy for CHOOSEFONT_FONT_TYPE {}
+impl ::core::clone::Clone for CHOOSEFONT_FONT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const COLOR_ADD: u32 = 712u32;
 pub const COLOR_BLUE: u32 = 708u32;
 pub const COLOR_BLUEACCEL: u32 = 728u32;
@@ -384,6 +396,12 @@ pub const FNERR_BUFFERTOOSMALL: COMMON_DLG_ERRORS = COMMON_DLG_ERRORS(12291u32);
 pub const FRERR_FINDREPLACECODES: COMMON_DLG_ERRORS = COMMON_DLG_ERRORS(16384u32);
 pub const FRERR_BUFFERLENGTHZERO: COMMON_DLG_ERRORS = COMMON_DLG_ERRORS(16385u32);
 pub const CCERR_CHOOSECOLORCODES: COMMON_DLG_ERRORS = COMMON_DLG_ERRORS(20480u32);
+impl ::core::marker::Copy for COMMON_DLG_ERRORS {}
+impl ::core::clone::Clone for COMMON_DLG_ERRORS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DEVNAMES {
@@ -541,6 +559,12 @@ pub const FR_REPLACE: FINDREPLACE_FLAGS = FINDREPLACE_FLAGS(16u32);
 pub const FR_REPLACEALL: FINDREPLACE_FLAGS = FINDREPLACE_FLAGS(32u32);
 pub const FR_SHOWHELP: FINDREPLACE_FLAGS = FINDREPLACE_FLAGS(128u32);
 pub const FR_WHOLEWORD: FINDREPLACE_FLAGS = FINDREPLACE_FLAGS(2u32);
+impl ::core::marker::Copy for FINDREPLACE_FLAGS {}
+impl ::core::clone::Clone for FINDREPLACE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FRM_FIRST: u32 = 1124u32;
 pub const FRM_LAST: u32 = 1224u32;
 pub const FRM_SETOPERATIONRESULT: u32 = 1124u32;
@@ -1042,10 +1066,22 @@ pub const OFN_ENABLEINCLUDENOTIFY: OPEN_FILENAME_FLAGS = OPEN_FILENAME_FLAGS(419
 pub const OFN_ENABLESIZING: OPEN_FILENAME_FLAGS = OPEN_FILENAME_FLAGS(8388608u32);
 pub const OFN_DONTADDTORECENT: OPEN_FILENAME_FLAGS = OPEN_FILENAME_FLAGS(33554432u32);
 pub const OFN_FORCESHOWHIDDEN: OPEN_FILENAME_FLAGS = OPEN_FILENAME_FLAGS(268435456u32);
+impl ::core::marker::Copy for OPEN_FILENAME_FLAGS {}
+impl ::core::clone::Clone for OPEN_FILENAME_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPEN_FILENAME_FLAGS_EX(pub u32);
 pub const OFN_EX_NONE: OPEN_FILENAME_FLAGS_EX = OPEN_FILENAME_FLAGS_EX(0u32);
 pub const OFN_EX_NOPLACESBAR: OPEN_FILENAME_FLAGS_EX = OPEN_FILENAME_FLAGS_EX(1u32);
+impl ::core::marker::Copy for OPEN_FILENAME_FLAGS_EX {}
+impl ::core::clone::Clone for OPEN_FILENAME_FLAGS_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -1183,6 +1219,12 @@ pub const PSD_NONETWORKBUTTON: PAGESETUPDLG_FLAGS = PAGESETUPDLG_FLAGS(2097152u3
 pub const PSD_NOWARNING: PAGESETUPDLG_FLAGS = PAGESETUPDLG_FLAGS(128u32);
 pub const PSD_RETURNDEFAULT: PAGESETUPDLG_FLAGS = PAGESETUPDLG_FLAGS(1024u32);
 pub const PSD_SHOWHELP: PAGESETUPDLG_FLAGS = PAGESETUPDLG_FLAGS(2048u32);
+impl ::core::marker::Copy for PAGESETUPDLG_FLAGS {}
+impl ::core::clone::Clone for PAGESETUPDLG_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PD_RESULT_APPLY: u32 = 2u32;
 pub const PD_RESULT_CANCEL: u32 = 0u32;
 pub const PD_RESULT_PRINT: u32 = 1u32;
@@ -1428,6 +1470,12 @@ pub const PD_ENABLESETUPTEMPLATEHANDLE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(1310
 pub const PD_NONETWORKBUTTON: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(2097152u32);
 pub const PD_PRINTSETUP: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(64u32);
 pub const PD_SHOWHELP: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(2048u32);
+impl ::core::marker::Copy for PRINTDLGEX_FLAGS {}
+impl ::core::clone::Clone for PRINTDLGEX_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

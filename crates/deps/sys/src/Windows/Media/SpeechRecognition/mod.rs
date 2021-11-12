@@ -65,6 +65,12 @@ impl SpeechContinuousRecognitionMode {
     pub const Default: Self = Self(0i32);
     pub const PauseOnRecognition: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SpeechContinuousRecognitionMode {}
+impl ::core::clone::Clone for SpeechContinuousRecognitionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpeechContinuousRecognitionResultGeneratedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -80,6 +86,12 @@ impl SpeechRecognitionAudioProblem {
     pub const TooFast: Self = Self(5i32);
     pub const TooSlow: Self = Self(6i32);
 }
+impl ::core::marker::Copy for SpeechRecognitionAudioProblem {}
+impl ::core::clone::Clone for SpeechRecognitionAudioProblem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpeechRecognitionCompilationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -90,12 +102,24 @@ impl SpeechRecognitionConfidence {
     pub const Low: Self = Self(2i32);
     pub const Rejected: Self = Self(3i32);
 }
+impl ::core::marker::Copy for SpeechRecognitionConfidence {}
+impl ::core::clone::Clone for SpeechRecognitionConfidence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpeechRecognitionConstraintProbability(pub i32);
 impl SpeechRecognitionConstraintProbability {
     pub const Default: Self = Self(0i32);
     pub const Min: Self = Self(1i32);
     pub const Max: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SpeechRecognitionConstraintProbability {}
+impl ::core::clone::Clone for SpeechRecognitionConstraintProbability {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SpeechRecognitionConstraintType(pub i32);
@@ -104,6 +128,12 @@ impl SpeechRecognitionConstraintType {
     pub const List: Self = Self(1i32);
     pub const Grammar: Self = Self(2i32);
     pub const VoiceCommandDefinition: Self = Self(3i32);
+}
+impl ::core::marker::Copy for SpeechRecognitionConstraintType {}
+impl ::core::clone::Clone for SpeechRecognitionConstraintType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SpeechRecognitionGrammarFileConstraint(pub *mut ::core::ffi::c_void);
@@ -132,12 +162,24 @@ impl SpeechRecognitionResultStatus {
     pub const NetworkFailure: Self = Self(9i32);
     pub const MicrophoneUnavailable: Self = Self(10i32);
 }
+impl ::core::marker::Copy for SpeechRecognitionResultStatus {}
+impl ::core::clone::Clone for SpeechRecognitionResultStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpeechRecognitionScenario(pub i32);
 impl SpeechRecognitionScenario {
     pub const WebSearch: Self = Self(0i32);
     pub const Dictation: Self = Self(1i32);
     pub const FormFilling: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SpeechRecognitionScenario {}
+impl ::core::clone::Clone for SpeechRecognitionScenario {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SpeechRecognitionSemanticInterpretation(pub *mut ::core::ffi::c_void);
@@ -157,6 +199,12 @@ impl SpeechRecognizerState {
     pub const SoundEnded: Self = Self(4i32);
     pub const SpeechDetected: Self = Self(5i32);
     pub const Paused: Self = Self(6i32);
+}
+impl ::core::marker::Copy for SpeechRecognizerState {}
+impl ::core::clone::Clone for SpeechRecognizerState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SpeechRecognizerStateChangedEventArgs(pub *mut ::core::ffi::c_void);

@@ -14,6 +14,12 @@ impl CoreWetStrokeDisposition {
     pub const Completed: Self = Self(1i32);
     pub const Canceled: Self = Self(2i32);
 }
+impl ::core::marker::Copy for CoreWetStrokeDisposition {}
+impl ::core::clone::Clone for CoreWetStrokeDisposition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreWetStrokeUpdateEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

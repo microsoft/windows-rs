@@ -103,6 +103,12 @@ pub const SCF_BUTTON_FASTFORWARD: SCF_BUTTON_IDS = SCF_BUTTON_IDS(9i32);
 pub const SCF_BUTTON_REWIND: SCF_BUTTON_IDS = SCF_BUTTON_IDS(10i32);
 pub const SCF_BUTTON_STOP: SCF_BUTTON_IDS = SCF_BUTTON_IDS(11i32);
 pub const SCF_BUTTON_BACK: SCF_BUTTON_IDS = SCF_BUTTON_IDS(65280i32);
+impl ::core::marker::Copy for SCF_BUTTON_IDS {}
+impl ::core::clone::Clone for SCF_BUTTON_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCF_CONTEXTMENU_EVENT {
     pub PreviousPage: u32,
@@ -133,6 +139,12 @@ pub struct SCF_EVENT_IDS(pub i32);
 pub const SCF_EVENT_NAVIGATION: SCF_EVENT_IDS = SCF_EVENT_IDS(1i32);
 pub const SCF_EVENT_MENUACTION: SCF_EVENT_IDS = SCF_EVENT_IDS(2i32);
 pub const SCF_EVENT_CONTEXTMENU: SCF_EVENT_IDS = SCF_EVENT_IDS(3i32);
+impl ::core::marker::Copy for SCF_EVENT_IDS {}
+impl ::core::clone::Clone for SCF_EVENT_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCF_MENUACTION_EVENT {
     pub PreviousPage: u32,
@@ -230,6 +242,12 @@ pub struct SIDESHOW_COLOR_TYPE(pub i32);
 pub const SIDESHOW_COLOR_TYPE_COLOR: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(0i32);
 pub const SIDESHOW_COLOR_TYPE_GREYSCALE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(1i32);
 pub const SIDESHOW_COLOR_TYPE_BLACK_AND_WHITE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(2i32);
+impl ::core::marker::Copy for SIDESHOW_COLOR_TYPE {}
+impl ::core::clone::Clone for SIDESHOW_COLOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1342700456, data2: 54035, data3: 17311, data4: [190, 162, 165, 2, 1, 211, 233, 168] };
 pub const SIDESHOW_ENDPOINT_ICAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1308571317, data2: 40414, data3: 20342, data4: [154, 42, 150, 67, 80, 71, 6, 61] };
 pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -245,6 +263,12 @@ pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows_sys::core::GUID = ::windo
 pub struct SIDESHOW_SCREEN_TYPE(pub i32);
 pub const SIDESHOW_SCREEN_TYPE_BITMAP: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(0i32);
 pub const SIDESHOW_SCREEN_TYPE_TEXT: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(1i32);
+impl ::core::marker::Copy for SIDESHOW_SCREEN_TYPE {}
+impl ::core::clone::Clone for SIDESHOW_SCREEN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1342793532,
     data2: 16253,

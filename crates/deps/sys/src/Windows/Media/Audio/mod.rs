@@ -12,6 +12,12 @@ impl AudioDeviceNodeCreationStatus {
     pub const UnknownFailure: Self = Self(3i32);
     pub const AccessDenied: Self = Self(4i32);
 }
+impl ::core::marker::Copy for AudioDeviceNodeCreationStatus {}
+impl ::core::clone::Clone for AudioDeviceNodeCreationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AudioDeviceOutputNode(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -24,6 +30,12 @@ impl AudioFileNodeCreationStatus {
     pub const InvalidFileType: Self = Self(2i32);
     pub const FormatNotSupported: Self = Self(3i32);
     pub const UnknownFailure: Self = Self(4i32);
+}
+impl ::core::marker::Copy for AudioFileNodeCreationStatus {}
+impl ::core::clone::Clone for AudioFileNodeCreationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AudioFileOutputNode(pub *mut ::core::ffi::c_void);
@@ -47,6 +59,12 @@ impl AudioGraphCreationStatus {
     pub const FormatNotSupported: Self = Self(2i32);
     pub const UnknownFailure: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AudioGraphCreationStatus {}
+impl ::core::clone::Clone for AudioGraphCreationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AudioGraphSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -56,6 +74,12 @@ impl AudioGraphUnrecoverableError {
     pub const AudioDeviceLost: Self = Self(1i32);
     pub const AudioSessionDisconnected: Self = Self(2i32);
     pub const UnknownFailure: Self = Self(3i32);
+}
+impl ::core::marker::Copy for AudioGraphUnrecoverableError {}
+impl ::core::clone::Clone for AudioGraphUnrecoverableError {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AudioGraphUnrecoverableErrorOccurredEventArgs(pub *mut ::core::ffi::c_void);
@@ -69,6 +93,12 @@ impl AudioNodeEmitterDecayKind {
     pub const Natural: Self = Self(0i32);
     pub const Custom: Self = Self(1i32);
 }
+impl ::core::marker::Copy for AudioNodeEmitterDecayKind {}
+impl ::core::clone::Clone for AudioNodeEmitterDecayKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AudioNodeEmitterDecayModel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -79,6 +109,12 @@ impl AudioNodeEmitterSettings {
     pub const None: Self = Self(0u32);
     pub const DisableDoppler: Self = Self(1u32);
 }
+impl ::core::marker::Copy for AudioNodeEmitterSettings {}
+impl ::core::clone::Clone for AudioNodeEmitterSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AudioNodeEmitterShape(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -86,6 +122,12 @@ pub struct AudioNodeEmitterShapeKind(pub i32);
 impl AudioNodeEmitterShapeKind {
     pub const Omnidirectional: Self = Self(0i32);
     pub const Cone: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AudioNodeEmitterShapeKind {}
+impl ::core::clone::Clone for AudioNodeEmitterShapeKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AudioNodeListener(pub *mut ::core::ffi::c_void);
@@ -101,11 +143,23 @@ impl AudioPlaybackConnectionOpenResultStatus {
     pub const DeniedBySystem: Self = Self(2i32);
     pub const UnknownFailure: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AudioPlaybackConnectionOpenResultStatus {}
+impl ::core::clone::Clone for AudioPlaybackConnectionOpenResultStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AudioPlaybackConnectionState(pub i32);
 impl AudioPlaybackConnectionState {
     pub const Closed: Self = Self(0i32);
     pub const Opened: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AudioPlaybackConnectionState {}
+impl ::core::clone::Clone for AudioPlaybackConnectionState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AudioStateMonitor(pub *mut ::core::ffi::c_void);
@@ -273,11 +327,23 @@ impl MediaSourceAudioInputNodeCreationStatus {
     pub const NetworkError: Self = Self(2i32);
     pub const UnknownFailure: Self = Self(3i32);
 }
+impl ::core::marker::Copy for MediaSourceAudioInputNodeCreationStatus {}
+impl ::core::clone::Clone for MediaSourceAudioInputNodeCreationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MixedRealitySpatialAudioFormatPolicy(pub i32);
 impl MixedRealitySpatialAudioFormatPolicy {
     pub const UseMixedRealityDefaultSpatialAudioFormat: Self = Self(0i32);
     pub const UseDeviceConfigurationDefaultSpatialAudioFormat: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MixedRealitySpatialAudioFormatPolicy {}
+impl ::core::clone::Clone for MixedRealitySpatialAudioFormatPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct QuantumSizeSelectionMode(pub i32);
@@ -285,6 +351,12 @@ impl QuantumSizeSelectionMode {
     pub const SystemDefault: Self = Self(0i32);
     pub const LowestLatency: Self = Self(1i32);
     pub const ClosestToDesired: Self = Self(2i32);
+}
+impl ::core::marker::Copy for QuantumSizeSelectionMode {}
+impl ::core::clone::Clone for QuantumSizeSelectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ReverbEffectDefinition(pub *mut ::core::ffi::c_void);
@@ -300,6 +372,12 @@ impl SetDefaultSpatialAudioFormatStatus {
     pub const NotSupportedOnAudioEndpoint: Self = Self(4i32);
     pub const UnknownError: Self = Self(5i32);
 }
+impl ::core::marker::Copy for SetDefaultSpatialAudioFormatStatus {}
+impl ::core::clone::Clone for SetDefaultSpatialAudioFormatStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialAudioDeviceConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -309,4 +387,10 @@ pub struct SpatialAudioModel(pub i32);
 impl SpatialAudioModel {
     pub const ObjectBased: Self = Self(0i32);
     pub const FoldDown: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SpatialAudioModel {}
+impl ::core::clone::Clone for SpatialAudioModel {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

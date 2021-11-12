@@ -81,6 +81,12 @@ pub struct APPSTATE(pub i32);
 pub const ABSENT: APPSTATE = APPSTATE(0i32);
 pub const ASSIGNED: APPSTATE = APPSTATE(1i32);
 pub const PUBLISHED: APPSTATE = APPSTATE(2i32);
+impl ::core::marker::Copy for APPSTATE {}
+impl ::core::clone::Clone for APPSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLSID_GPESnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771700, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
 pub const CLSID_GroupPolicyObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3931121442, data2: 41533, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
 pub const CLSID_RSOPSnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -141,6 +147,12 @@ pub const GPMBackupDirEx: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub struct GPMBackupType(pub i32);
 pub const typeGPO: GPMBackupType = GPMBackupType(0i32);
 pub const typeStarterGPO: GPMBackupType = GPMBackupType(1i32);
+impl ::core::marker::Copy for GPMBackupType {}
+impl ::core::clone::Clone for GPMBackupType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GPMCSECollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3482499112,
     data2: 11588,
@@ -160,6 +172,12 @@ pub const opDestinationSameAsSource: GPMDestinationOption = GPMDestinationOption
 pub const opDestinationNone: GPMDestinationOption = GPMDestinationOption(1i32);
 pub const opDestinationByRelativeName: GPMDestinationOption = GPMDestinationOption(2i32);
 pub const opDestinationSet: GPMDestinationOption = GPMDestinationOption(3i32);
+impl ::core::marker::Copy for GPMDestinationOption {}
+impl ::core::clone::Clone for GPMDestinationOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GPMDomain: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1896415678,
     data2: 4176,
@@ -175,6 +193,12 @@ pub const typeGlobalGroup: GPMEntryType = GPMEntryType(3i32);
 pub const typeUniversalGroup: GPMEntryType = GPMEntryType(4i32);
 pub const typeUNCPath: GPMEntryType = GPMEntryType(5i32);
 pub const typeUnknown: GPMEntryType = GPMEntryType(6i32);
+impl ::core::marker::Copy for GPMEntryType {}
+impl ::core::clone::Clone for GPMEntryType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GPMGPO: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3536726420,
     data2: 22965,
@@ -224,6 +248,12 @@ pub const permStarterGPOEdit: GPMPermissionType = GPMPermissionType(197889i32);
 pub const permStarterGPOFullControl: GPMPermissionType = GPMPermissionType(197890i32);
 pub const permStarterGPOCustom: GPMPermissionType = GPMPermissionType(197891i32);
 pub const permSOMStarterGPOCreate: GPMPermissionType = GPMPermissionType(1049856i32);
+impl ::core::marker::Copy for GPMPermissionType {}
+impl ::core::clone::Clone for GPMPermissionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GPMRSOP: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1218120879,
     data2: 40642,
@@ -235,6 +265,12 @@ pub struct GPMRSOPMode(pub i32);
 pub const rsopUnknown: GPMRSOPMode = GPMRSOPMode(0i32);
 pub const rsopPlanning: GPMRSOPMode = GPMRSOPMode(1i32);
 pub const rsopLogging: GPMRSOPMode = GPMRSOPMode(2i32);
+impl ::core::marker::Copy for GPMRSOPMode {}
+impl ::core::clone::Clone for GPMRSOPMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GPMReportType(pub i32);
 pub const repXML: GPMReportType = GPMReportType(0i32);
@@ -243,10 +279,22 @@ pub const repInfraXML: GPMReportType = GPMReportType(2i32);
 pub const repInfraRefreshXML: GPMReportType = GPMReportType(3i32);
 pub const repClientHealthXML: GPMReportType = GPMReportType(4i32);
 pub const repClientHealthRefreshXML: GPMReportType = GPMReportType(5i32);
+impl ::core::marker::Copy for GPMReportType {}
+impl ::core::clone::Clone for GPMReportType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GPMReportingOptions(pub i32);
 pub const opReportLegacy: GPMReportingOptions = GPMReportingOptions(0i32);
 pub const opReportComments: GPMReportingOptions = GPMReportingOptions(1i32);
+impl ::core::marker::Copy for GPMReportingOptions {}
+impl ::core::clone::Clone for GPMReportingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GPMResult: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2450528960,
     data2: 37511,
@@ -265,6 +313,12 @@ pub struct GPMSOMType(pub i32);
 pub const somSite: GPMSOMType = GPMSOMType(0i32);
 pub const somDomain: GPMSOMType = GPMSOMType(1i32);
 pub const somOU: GPMSOMType = GPMSOMType(2i32);
+impl ::core::marker::Copy for GPMSOMType {}
+impl ::core::clone::Clone for GPMSOMType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GPMSearchCriteria: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 397068838, data2: 23776, data3: 17658, data4: [140, 192, 82, 89, 230, 72, 53, 102] };
 #[repr(transparent)]
 pub struct GPMSearchOperation(pub i32);
@@ -272,6 +326,12 @@ pub const opEquals: GPMSearchOperation = GPMSearchOperation(0i32);
 pub const opContains: GPMSearchOperation = GPMSearchOperation(1i32);
 pub const opNotContains: GPMSearchOperation = GPMSearchOperation(2i32);
 pub const opNotEquals: GPMSearchOperation = GPMSearchOperation(3i32);
+impl ::core::marker::Copy for GPMSearchOperation {}
+impl ::core::clone::Clone for GPMSearchOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GPMSearchProperty(pub i32);
 pub const gpoPermissions: GPMSearchProperty = GPMSearchProperty(0i32);
@@ -289,6 +349,12 @@ pub const starterGPOEffectivePermissions: GPMSearchProperty = GPMSearchProperty(
 pub const starterGPODisplayName: GPMSearchProperty = GPMSearchProperty(12i32);
 pub const starterGPOID: GPMSearchProperty = GPMSearchProperty(13i32);
 pub const starterGPODomain: GPMSearchProperty = GPMSearchProperty(14i32);
+impl ::core::marker::Copy for GPMSearchProperty {}
+impl ::core::clone::Clone for GPMSearchProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GPMSecurityInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1417305743,
     data2: 37218,
@@ -313,6 +379,12 @@ pub const GPMStarterGPOCollection: ::windows_sys::core::GUID = ::windows_sys::GU
 pub struct GPMStarterGPOType(pub i32);
 pub const typeSystem: GPMStarterGPOType = GPMStarterGPOType(0i32);
 pub const typeCustom: GPMStarterGPOType = GPMStarterGPOType(1i32);
+impl ::core::marker::Copy for GPMStarterGPOType {}
+impl ::core::clone::Clone for GPMStarterGPOType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GPMStatusMessage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1266142356, data2: 53845, data3: 16539, data4: [188, 98, 55, 8, 129, 113, 90, 25] };
 pub const GPMStatusMsgCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 673506494, data2: 19404, data3: 19628, data4: [158, 96, 14, 62, 215, 241, 36, 150] };
 pub const GPMTemplate: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -389,6 +461,12 @@ pub const GPLinkMachine: GPO_LINK = GPO_LINK(1i32);
 pub const GPLinkSite: GPO_LINK = GPO_LINK(2i32);
 pub const GPLinkDomain: GPO_LINK = GPO_LINK(3i32);
 pub const GPLinkOrganizationalUnit: GPO_LINK = GPO_LINK(4i32);
+impl ::core::marker::Copy for GPO_LINK {}
+impl ::core::clone::Clone for GPO_LINK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GPO_LIST_FLAG_MACHINE: u32 = 1u32;
 pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8u32;
 pub const GPO_LIST_FLAG_NO_WMIFILTERS: u32 = 4u32;
@@ -407,6 +485,12 @@ pub const GPHintMachine: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(1i32);
 pub const GPHintSite: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(2i32);
 pub const GPHintDomain: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(3i32);
 pub const GPHintOrganizationalUnit: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(4i32);
+impl ::core::marker::Copy for GROUP_POLICY_HINT_TYPE {}
+impl ::core::clone::Clone for GROUP_POLICY_HINT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_POLICY_OBJECTA {
@@ -464,6 +548,12 @@ pub const GPOTypeRemote: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(1i3
 pub const GPOTypeDS: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(2i32);
 pub const GPOTypeLocalUser: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(3i32);
 pub const GPOTypeLocalGroup: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(4i32);
+impl ::core::marker::Copy for GROUP_POLICY_OBJECT_TYPE {}
+impl ::core::clone::Clone for GROUP_POLICY_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPEInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -612,6 +702,12 @@ pub const APPNAME: INSTALLSPECTYPE = INSTALLSPECTYPE(1i32);
 pub const FILEEXT: INSTALLSPECTYPE = INSTALLSPECTYPE(2i32);
 pub const PROGID: INSTALLSPECTYPE = INSTALLSPECTYPE(3i32);
 pub const COMCLASS: INSTALLSPECTYPE = INSTALLSPECTYPE(4i32);
+impl ::core::marker::Copy for INSTALLSPECTYPE {}
+impl ::core::clone::Clone for INSTALLSPECTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRSOPInformation(pub *mut ::core::ffi::c_void);
 #[repr(C)]
@@ -765,3 +861,9 @@ pub const RSOPApplied: SETTINGSTATUS = SETTINGSTATUS(1i32);
 pub const RSOPIgnored: SETTINGSTATUS = SETTINGSTATUS(2i32);
 pub const RSOPFailed: SETTINGSTATUS = SETTINGSTATUS(3i32);
 pub const RSOPSubsettingFailed: SETTINGSTATUS = SETTINGSTATUS(4i32);
+impl ::core::marker::Copy for SETTINGSTATUS {}
+impl ::core::clone::Clone for SETTINGSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -760,6 +760,12 @@ pub const FC_EXPR_VAR: EXPR_TOKEN = EXPR_TOKEN(3i32);
 pub const FC_EXPR_OPER: EXPR_TOKEN = EXPR_TOKEN(4i32);
 pub const FC_EXPR_NOOP: EXPR_TOKEN = EXPR_TOKEN(5i32);
 pub const FC_EXPR_END: EXPR_TOKEN = EXPR_TOKEN(6i32);
+impl ::core::marker::Copy for EXPR_TOKEN {}
+impl ::core::clone::Clone for EXPR_TOKEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ExtendedErrorParamTypes(pub i32);
 pub const eeptAnsiString: ExtendedErrorParamTypes = ExtendedErrorParamTypes(1i32);
@@ -769,6 +775,12 @@ pub const eeptShortVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(4i32);
 pub const eeptPointerVal: ExtendedErrorParamTypes = ExtendedErrorParamTypes(5i32);
 pub const eeptNone: ExtendedErrorParamTypes = ExtendedErrorParamTypes(6i32);
 pub const eeptBinary: ExtendedErrorParamTypes = ExtendedErrorParamTypes(7i32);
+impl ::core::marker::Copy for ExtendedErrorParamTypes {}
+impl ::core::clone::Clone for ExtendedErrorParamTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct FULL_PTR_XLAT_TABLES {
     pub RefIdToPointer: *mut ::core::ffi::c_void,
@@ -812,11 +824,23 @@ pub type GENERIC_UNBIND_ROUTINE = unsafe extern "system" fn(param0: *mut ::core:
 pub struct GROUP_NAME_SYNTAX(pub u32);
 pub const RPC_C_NS_SYNTAX_DEFAULT: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(0u32);
 pub const RPC_C_NS_SYNTAX_DCE: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(3u32);
+impl ::core::marker::Copy for GROUP_NAME_SYNTAX {}
+impl ::core::clone::Clone for GROUP_NAME_SYNTAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDL_CS_CONVERT(pub i32);
 pub const IDL_CS_NO_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(0i32);
 pub const IDL_CS_IN_PLACE_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(1i32);
 pub const IDL_CS_NEW_BUFFER_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(2i32);
+impl ::core::marker::Copy for IDL_CS_CONVERT {}
+impl ::core::clone::Clone for IDL_CS_CONVERT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INVALID_FRAGMENT_ID: u32 = 0u32;
 pub type I_RpcFreeCalloutStateFn = unsafe extern "system" fn(calloutstate: *mut RDR_CALLOUT_STATE);
 pub type I_RpcPerformCalloutFn = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS;
@@ -853,6 +877,12 @@ pub type I_RpcProxyUpdatePerfCounterFn = unsafe extern "system" fn(counter: RpcP
 pub struct LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(pub i32);
 pub const MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(0i32);
 pub const MarshalDirectionUnmarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(1i32);
+impl ::core::marker::Copy for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {}
+impl ::core::clone::Clone for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MALLOC_FREE_STRUCT {
     pub pfnAllocate: isize,
@@ -870,11 +900,23 @@ pub struct MIDL_ES_CODE(pub i32);
 pub const MES_ENCODE: MIDL_ES_CODE = MIDL_ES_CODE(0i32);
 pub const MES_DECODE: MIDL_ES_CODE = MIDL_ES_CODE(1i32);
 pub const MES_ENCODE_NDR64: MIDL_ES_CODE = MIDL_ES_CODE(2i32);
+impl ::core::marker::Copy for MIDL_ES_CODE {}
+impl ::core::clone::Clone for MIDL_ES_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MIDL_ES_HANDLE_STYLE(pub i32);
 pub const MES_INCREMENTAL_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(0i32);
 pub const MES_FIXED_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(1i32);
 pub const MES_DYNAMIC_BUFFER_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(2i32);
+impl ::core::marker::Copy for MIDL_ES_HANDLE_STYLE {}
+impl ::core::clone::Clone for MIDL_ES_HANDLE_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type MIDL_ES_READ = unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32);
 #[cfg(feature = "Win32_Foundation")]
 pub type MIDL_ES_WRITE = unsafe extern "system" fn(state: *mut ::core::ffi::c_void, buffer: super::super::Foundation::PSTR, size: u32);
@@ -2086,6 +2128,12 @@ pub const PROXY_GETBUFFER: PROXY_PHASE = PROXY_PHASE(1i32);
 pub const PROXY_MARSHAL: PROXY_PHASE = PROXY_PHASE(2i32);
 pub const PROXY_SENDRECEIVE: PROXY_PHASE = PROXY_PHASE(3i32);
 pub const PROXY_UNMARSHAL: PROXY_PHASE = PROXY_PHASE(4i32);
+impl ::core::marker::Copy for PROXY_PHASE {}
+impl ::core::clone::Clone for PROXY_PHASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PRPC_RUNDOWN = unsafe extern "system" fn(associationcontext: *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct RDR_CALLOUT_STATE {
@@ -2132,6 +2180,12 @@ pub struct RPC_ADDRESS_CHANGE_TYPE(pub i32);
 pub const PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(1i32);
 pub const PROTOCOL_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(2i32);
 pub const PROTOCOL_ADDRESS_CHANGE: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(3i32);
+impl ::core::marker::Copy for RPC_ADDRESS_CHANGE_TYPE {}
+impl ::core::clone::Clone for RPC_ADDRESS_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RPC_ASYNC_EVENT(pub i32);
 pub const RpcCallComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(0i32);
@@ -2139,6 +2193,12 @@ pub const RpcSendComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(1i32);
 pub const RpcReceiveComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(2i32);
 pub const RpcClientDisconnect: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(3i32);
 pub const RpcClientCancel: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(4i32);
+impl ::core::marker::Copy for RPC_ASYNC_EVENT {}
+impl ::core::clone::Clone for RPC_ASYNC_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub union RPC_ASYNC_NOTIFICATION_INFO {
@@ -2228,6 +2288,12 @@ pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1u32;
 pub struct RPC_BINDING_HANDLE_OPTIONS_FLAGS(pub u32);
 pub const RPC_BHO_NONCAUSAL: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(1u32);
 pub const RPC_BHO_DONTLINGER: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(2u32);
+impl ::core::marker::Copy for RPC_BINDING_HANDLE_OPTIONS_FLAGS {}
+impl ::core::clone::Clone for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
     pub Version: u32,
@@ -2577,6 +2643,12 @@ pub const RPC_C_AUTHN_GSS_SCHANNEL: u32 = 14u32;
 pub struct RPC_C_AUTHN_INFO_TYPE(pub u32);
 pub const RPC_C_AUTHN_INFO_NONE: RPC_C_AUTHN_INFO_TYPE = RPC_C_AUTHN_INFO_TYPE(0u32);
 pub const RPC_C_AUTHN_INFO_TYPE_HTTP: RPC_C_AUTHN_INFO_TYPE = RPC_C_AUTHN_INFO_TYPE(1u32);
+impl ::core::marker::Copy for RPC_C_AUTHN_INFO_TYPE {}
+impl ::core::clone::Clone for RPC_C_AUTHN_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RPC_C_AUTHN_KERNEL: u32 = 20u32;
 pub const RPC_C_AUTHN_LIVEXP_SSP: u32 = 35u32;
 pub const RPC_C_AUTHN_LIVE_SSP: u32 = 32u32;
@@ -2613,12 +2685,24 @@ pub const RPC_C_HTTP_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
 pub struct RPC_C_HTTP_AUTHN_TARGET(pub u32);
 pub const RPC_C_HTTP_AUTHN_TARGET_SERVER: RPC_C_HTTP_AUTHN_TARGET = RPC_C_HTTP_AUTHN_TARGET(1u32);
 pub const RPC_C_HTTP_AUTHN_TARGET_PROXY: RPC_C_HTTP_AUTHN_TARGET = RPC_C_HTTP_AUTHN_TARGET(2u32);
+impl ::core::marker::Copy for RPC_C_HTTP_AUTHN_TARGET {}
+impl ::core::clone::Clone for RPC_C_HTTP_AUTHN_TARGET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RPC_C_HTTP_FLAGS(pub u32);
 pub const RPC_C_HTTP_FLAG_USE_SSL: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(1u32);
 pub const RPC_C_HTTP_FLAG_USE_FIRST_AUTH_SCHEME: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(2u32);
 pub const RPC_C_HTTP_FLAG_IGNORE_CERT_CN_INVALID: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(8u32);
 pub const RPC_C_HTTP_FLAG_ENABLE_CERT_REVOCATION_CHECK: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(16u32);
+impl ::core::marker::Copy for RPC_C_HTTP_FLAGS {}
+impl ::core::clone::Clone for RPC_C_HTTP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RPC_C_LISTEN_MAX_CALLS_DEFAULT: u32 = 1234u32;
 pub const RPC_C_MGMT_INQ_IF_IDS: u32 = 0u32;
 pub const RPC_C_MGMT_INQ_PRINC_NAME: u32 = 1u32;
@@ -2695,10 +2779,22 @@ pub const RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY: RPC_C_QOS_CAPABILITIES = RPC_C_Q
 pub const RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(8u32);
 pub const RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(16u32);
 pub const RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(32u32);
+impl ::core::marker::Copy for RPC_C_QOS_CAPABILITIES {}
+impl ::core::clone::Clone for RPC_C_QOS_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RPC_C_QOS_IDENTITY(pub u32);
 pub const RPC_C_QOS_IDENTITY_STATIC: RPC_C_QOS_IDENTITY = RPC_C_QOS_IDENTITY(0u32);
 pub const RPC_C_QOS_IDENTITY_DYNAMIC: RPC_C_QOS_IDENTITY = RPC_C_QOS_IDENTITY(1u32);
+impl ::core::marker::Copy for RPC_C_QOS_IDENTITY {}
+impl ::core::clone::Clone for RPC_C_QOS_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RPC_C_RPCHTTP_USE_LOAD_BALANCE: u32 = 8u32;
 pub const RPC_C_SECURITY_QOS_VERSION: i32 = 1i32;
 pub const RPC_C_SECURITY_QOS_VERSION_1: i32 = 1i32;
@@ -2847,6 +2943,12 @@ pub const RPCHTTP_RS_ACCESS_1: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_S
 pub const RPCHTTP_RS_SESSION: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(3i32);
 pub const RPCHTTP_RS_ACCESS_2: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(4i32);
 pub const RPCHTTP_RS_INTERFACE: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(5i32);
+impl ::core::marker::Copy for RPC_HTTP_REDIRECTOR_STAGE {}
+impl ::core::clone::Clone for RPC_HTTP_REDIRECTOR_STAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
@@ -3067,6 +3169,12 @@ pub struct RPC_NOTIFICATIONS(pub i32);
 pub const RpcNotificationCallNone: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(0i32);
 pub const RpcNotificationClientDisconnect: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(1i32);
 pub const RpcNotificationCallCancel: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(2i32);
+impl ::core::marker::Copy for RPC_NOTIFICATIONS {}
+impl ::core::clone::Clone for RPC_NOTIFICATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RPC_NOTIFICATION_TYPES(pub i32);
 pub const RpcNotificationTypeNone: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(0i32);
@@ -3075,6 +3183,12 @@ pub const RpcNotificationTypeApc: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPE
 pub const RpcNotificationTypeIoc: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(3i32);
 pub const RpcNotificationTypeHwnd: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(4i32);
 pub const RpcNotificationTypeCallback: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(5i32);
+impl ::core::marker::Copy for RPC_NOTIFICATION_TYPES {}
+impl ::core::clone::Clone for RPC_NOTIFICATION_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type RPC_OBJECT_INQ_FN = unsafe extern "system" fn(objectuuid: *const ::windows_sys::core::GUID, typeuuid: *mut ::windows_sys::core::GUID, status: *mut RPC_STATUS);
 #[repr(C)]
 pub struct RPC_POLICY {
@@ -3541,6 +3655,12 @@ pub const RPC_S_PRF_ELT_NOT_ADDED: RPC_STATUS = RPC_STATUS(1926i32);
 pub const RPC_S_PRF_ELT_NOT_REMOVED: RPC_STATUS = RPC_STATUS(1927i32);
 pub const RPC_S_GRP_ELT_NOT_ADDED: RPC_STATUS = RPC_STATUS(1928i32);
 pub const RPC_S_GRP_ELT_NOT_REMOVED: RPC_STATUS = RPC_STATUS(1929i32);
+impl ::core::marker::Copy for RPC_STATUS {}
+impl ::core::clone::Clone for RPC_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct RPC_SYNTAX_IDENTIFIER {
     pub SyntaxGUID: ::windows_sys::core::GUID,
@@ -3587,17 +3707,35 @@ pub const rcclInvalid: RpcCallClientLocality = RpcCallClientLocality(0i32);
 pub const rcclLocal: RpcCallClientLocality = RpcCallClientLocality(1i32);
 pub const rcclRemote: RpcCallClientLocality = RpcCallClientLocality(2i32);
 pub const rcclClientUnknownLocality: RpcCallClientLocality = RpcCallClientLocality(3i32);
+impl ::core::marker::Copy for RpcCallClientLocality {}
+impl ::core::clone::Clone for RpcCallClientLocality {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RpcCallType(pub i32);
 pub const rctInvalid: RpcCallType = RpcCallType(0i32);
 pub const rctNormal: RpcCallType = RpcCallType(1i32);
 pub const rctTraining: RpcCallType = RpcCallType(2i32);
 pub const rctGuaranteed: RpcCallType = RpcCallType(3i32);
+impl ::core::marker::Copy for RpcCallType {}
+impl ::core::clone::Clone for RpcCallType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RpcLocalAddressFormat(pub i32);
 pub const rlafInvalid: RpcLocalAddressFormat = RpcLocalAddressFormat(0i32);
 pub const rlafIPv4: RpcLocalAddressFormat = RpcLocalAddressFormat(1i32);
 pub const rlafIPv6: RpcLocalAddressFormat = RpcLocalAddressFormat(2i32);
+impl ::core::marker::Copy for RpcLocalAddressFormat {}
+impl ::core::clone::Clone for RpcLocalAddressFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RpcProxyPerfCounters(pub i32);
 pub const RpcCurrentUniqueUser: RpcProxyPerfCounters = RpcProxyPerfCounters(1i32);
@@ -3612,6 +3750,12 @@ pub const RpcFailedLbsDecisions: RpcProxyPerfCounters = RpcProxyPerfCounters(9i3
 pub const RpcAttemptedLbsMessages: RpcProxyPerfCounters = RpcProxyPerfCounters(10i32);
 pub const RpcFailedLbsMessages: RpcProxyPerfCounters = RpcProxyPerfCounters(11i32);
 pub const RpcLastCounter: RpcProxyPerfCounters = RpcProxyPerfCounters(12i32);
+impl ::core::marker::Copy for RpcProxyPerfCounters {}
+impl ::core::clone::Clone for RpcProxyPerfCounters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCONTEXT_QUEUE {
     pub NumberOfObjects: u32,
@@ -3627,6 +3771,12 @@ impl ::core::clone::Clone for SCONTEXT_QUEUE {
 pub struct SEC_WINNT_AUTH_IDENTITY(pub u32);
 pub const SEC_WINNT_AUTH_IDENTITY_ANSI: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_AUTH_IDENTITY(1u32);
 pub const SEC_WINNT_AUTH_IDENTITY_UNICODE: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_AUTH_IDENTITY(2u32);
+impl ::core::marker::Copy for SEC_WINNT_AUTH_IDENTITY {}
+impl ::core::clone::Clone for SEC_WINNT_AUTH_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SEC_WINNT_AUTH_IDENTITY_A {
     pub User: *mut u8,
@@ -3666,6 +3816,12 @@ pub const STUB_UNMARSHAL: STUB_PHASE = STUB_PHASE(0i32);
 pub const STUB_CALL_SERVER: STUB_PHASE = STUB_PHASE(1i32);
 pub const STUB_MARSHAL: STUB_PHASE = STUB_PHASE(2i32);
 pub const STUB_CALL_SERVER_NO_HRESULT: STUB_PHASE = STUB_PHASE(3i32);
+impl ::core::marker::Copy for STUB_PHASE {}
+impl ::core::clone::Clone for STUB_PHASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 pub type STUB_THUNK = unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE);
 pub const TARGET_IS_NT100_OR_LATER: u32 = 1u32;
@@ -3708,6 +3864,12 @@ pub const USER_MARSHAL_CB_BUFFER_SIZE: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TY
 pub const USER_MARSHAL_CB_MARSHALL: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(1i32);
 pub const USER_MARSHAL_CB_UNMARSHALL: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(2i32);
 pub const USER_MARSHAL_CB_FREE: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(3i32);
+impl ::core::marker::Copy for USER_MARSHAL_CB_TYPE {}
+impl ::core::clone::Clone for USER_MARSHAL_CB_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const USER_MARSHAL_FC_BYTE: u32 = 1u32;
 pub const USER_MARSHAL_FC_CHAR: u32 = 2u32;
 pub const USER_MARSHAL_FC_DOUBLE: u32 = 12u32;
@@ -3752,6 +3914,12 @@ impl ::core::clone::Clone for UUID_VECTOR {
 pub struct XLAT_SIDE(pub i32);
 pub const XLAT_SERVER: XLAT_SIDE = XLAT_SIDE(1i32);
 pub const XLAT_CLIENT: XLAT_SIDE = XLAT_SIDE(2i32);
+impl ::core::marker::Copy for XLAT_SIDE {}
+impl ::core::clone::Clone for XLAT_SIDE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 pub type XMIT_HELPER_ROUTINE = unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE);
 #[repr(C)]
@@ -3805,3 +3973,9 @@ pub const SYSTEM_HANDLE_JOB: system_handle_t = system_handle_t(11i32);
 pub const SYSTEM_HANDLE_PIPE: system_handle_t = system_handle_t(12i32);
 pub const SYSTEM_HANDLE_MAX: system_handle_t = system_handle_t(12i32);
 pub const SYSTEM_HANDLE_INVALID: system_handle_t = system_handle_t(255i32);
+impl ::core::marker::Copy for system_handle_t {}
+impl ::core::clone::Clone for system_handle_t {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

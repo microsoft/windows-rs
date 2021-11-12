@@ -7,6 +7,12 @@ impl GameChatMessageOrigin {
     pub const Voice: Self = Self(0i32);
     pub const Text: Self = Self(1i32);
 }
+impl ::core::marker::Copy for GameChatMessageOrigin {}
+impl ::core::clone::Clone for GameChatMessageOrigin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GameChatMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -24,6 +30,12 @@ impl GameChatOverlayPosition {
     pub const TopCenter: Self = Self(5i32);
     pub const TopLeft: Self = Self(6i32);
     pub const TopRight: Self = Self(7i32);
+}
+impl ::core::marker::Copy for GameChatOverlayPosition {}
+impl ::core::clone::Clone for GameChatOverlayPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GameUIProviderActivatedEventArgs(pub *mut ::core::ffi::c_void);

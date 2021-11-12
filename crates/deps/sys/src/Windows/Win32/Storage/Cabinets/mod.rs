@@ -78,6 +78,12 @@ pub const FCIERR_CAB_FILE: FCIERROR = FCIERROR(6i32);
 pub const FCIERR_USER_ABORT: FCIERROR = FCIERROR(7i32);
 pub const FCIERR_MCI_FAIL: FCIERROR = FCIERROR(8i32);
 pub const FCIERR_CAB_FORMAT_LIMIT: FCIERROR = FCIERROR(9i32);
+impl ::core::marker::Copy for FCIERROR {}
+impl ::core::clone::Clone for FCIERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FDICABINETINFO {
@@ -102,6 +108,12 @@ impl ::core::clone::Clone for FDICABINETINFO {
 pub struct FDICREATE_CPU_TYPE(pub u32);
 pub const cpu80286: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(0u32);
 pub const cpu80386: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(1u32);
+impl ::core::marker::Copy for FDICREATE_CPU_TYPE {}
+impl ::core::clone::Clone for FDICREATE_CPU_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT {
@@ -184,6 +196,12 @@ pub struct FDIDECRYPTTYPE(pub i32);
 pub const fdidtNEW_CABINET: FDIDECRYPTTYPE = FDIDECRYPTTYPE(0i32);
 pub const fdidtNEW_FOLDER: FDIDECRYPTTYPE = FDIDECRYPTTYPE(1i32);
 pub const fdidtDECRYPT: FDIDECRYPTTYPE = FDIDECRYPTTYPE(2i32);
+impl ::core::marker::Copy for FDIDECRYPTTYPE {}
+impl ::core::clone::Clone for FDIDECRYPTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FDIERROR(pub i32);
 pub const FDIERROR_NONE: FDIERROR = FDIERROR(0i32);
@@ -199,6 +217,12 @@ pub const FDIERROR_RESERVE_MISMATCH: FDIERROR = FDIERROR(9i32);
 pub const FDIERROR_WRONG_CABINET: FDIERROR = FDIERROR(10i32);
 pub const FDIERROR_USER_ABORT: FDIERROR = FDIERROR(11i32);
 pub const FDIERROR_EOF: FDIERROR = FDIERROR(12i32);
+impl ::core::marker::Copy for FDIERROR {}
+impl ::core::clone::Clone for FDIERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FDINOTIFICATION {
@@ -232,6 +256,12 @@ pub const fdintCOPY_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(2i32);
 pub const fdintCLOSE_FILE_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(3i32);
 pub const fdintNEXT_CABINET: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(4i32);
 pub const fdintENUMERATE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(5i32);
+impl ::core::marker::Copy for FDINOTIFICATIONTYPE {}
+impl ::core::clone::Clone for FDINOTIFICATIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]

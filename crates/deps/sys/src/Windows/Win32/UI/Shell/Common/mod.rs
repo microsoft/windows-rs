@@ -34,6 +34,12 @@ pub const SCALE_350_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(350i32);
 pub const SCALE_400_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(400i32);
 pub const SCALE_450_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(450i32);
 pub const SCALE_500_PERCENT: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(500i32);
+impl ::core::marker::Copy for DEVICE_SCALE_FACTOR {}
+impl ::core::clone::Clone for DEVICE_SCALE_FACTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectArray(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -66,6 +72,12 @@ pub const PERCEIVED_TYPE_APPLICATION: PERCEIVED = PERCEIVED(8i32);
 pub const PERCEIVED_TYPE_GAMEMEDIA: PERCEIVED = PERCEIVED(9i32);
 pub const PERCEIVED_TYPE_CONTACTS: PERCEIVED = PERCEIVED(10i32);
 pub const PERCEIVED_TYPE_LAST: PERCEIVED = PERCEIVED(10i32);
+impl ::core::marker::Copy for PERCEIVED {}
+impl ::core::clone::Clone for PERCEIVED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PERCEIVEDFLAG_GDIPLUS: u32 = 16u32;
 pub const PERCEIVEDFLAG_HARDCODED: u32 = 2u32;
 pub const PERCEIVEDFLAG_NATIVESUPPORT: u32 = 4u32;
@@ -95,6 +107,12 @@ pub const SHCOLSTATE_FIXED_WIDTH: SHCOLSTATE = SHCOLSTATE(4096i32);
 pub const SHCOLSTATE_NODPISCALE: SHCOLSTATE = SHCOLSTATE(8192i32);
 pub const SHCOLSTATE_FIXED_RATIO: SHCOLSTATE = SHCOLSTATE(16384i32);
 pub const SHCOLSTATE_DISPLAYMASK: SHCOLSTATE = SHCOLSTATE(61440i32);
+impl ::core::marker::Copy for SHCOLSTATE {}
+impl ::core::clone::Clone for SHCOLSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHELLDETAILS {
@@ -153,3 +171,9 @@ pub struct STRRET_TYPE(pub i32);
 pub const STRRET_WSTR: STRRET_TYPE = STRRET_TYPE(0i32);
 pub const STRRET_OFFSET: STRRET_TYPE = STRRET_TYPE(1i32);
 pub const STRRET_CSTR: STRRET_TYPE = STRRET_TYPE(2i32);
+impl ::core::marker::Copy for STRRET_TYPE {}
+impl ::core::clone::Clone for STRRET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

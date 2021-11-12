@@ -308,6 +308,12 @@ pub const PERM_EXECUTE: ACCESS_MASKENUM = ACCESS_MASKENUM(536870912i32);
 pub const PERM_READ: ACCESS_MASKENUM = ACCESS_MASKENUM(-2147483648i32);
 pub const PERM_UPDATE: ACCESS_MASKENUM = ACCESS_MASKENUM(1073741824i32);
 pub const PERM_DROP: ACCESS_MASKENUM = ACCESS_MASKENUM(256i32);
+impl ::core::marker::Copy for ACCESS_MASKENUM {}
+impl ::core::clone::Clone for ACCESS_MASKENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUTHENTICATION_INFO {
@@ -329,6 +335,12 @@ pub struct AUTH_TYPE(pub i32);
 pub const eAUTH_TYPE_ANONYMOUS: AUTH_TYPE = AUTH_TYPE(0i32);
 pub const eAUTH_TYPE_NTLM: AUTH_TYPE = AUTH_TYPE(1i32);
 pub const eAUTH_TYPE_BASIC: AUTH_TYPE = AUTH_TYPE(2i32);
+impl ::core::marker::Copy for AUTH_TYPE {}
+impl ::core::clone::Clone for AUTH_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BCP6xFILEFMT: u32 = 9u32;
 pub const BCPABORT: u32 = 6u32;
 pub const BCPBATCH: u32 = 4u32;
@@ -376,6 +388,12 @@ pub const BUCKET_LINEAR: u32 = 0u32;
 pub struct CASE_REQUIREMENT(pub i32);
 pub const CASE_REQUIREMENT_ANY: CASE_REQUIREMENT = CASE_REQUIREMENT(0i32);
 pub const CASE_REQUIREMENT_UPPER_IF_AQS: CASE_REQUIREMENT = CASE_REQUIREMENT(1i32);
+impl ::core::marker::Copy for CASE_REQUIREMENT {}
+impl ::core::clone::Clone for CASE_REQUIREMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct CATEGORIZATION {
@@ -436,6 +454,12 @@ pub const CHANNEL_AGENT_DYNAMIC_SCHEDULE: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FL
 pub const CHANNEL_AGENT_PRECACHE_SOME: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(2i32);
 pub const CHANNEL_AGENT_PRECACHE_ALL: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(4i32);
 pub const CHANNEL_AGENT_PRECACHE_SCRNSAVER: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(8i32);
+impl ::core::marker::Copy for CHANNEL_AGENT_FLAGS {}
+impl ::core::clone::Clone for CHANNEL_AGENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CI_E_CORRUPT_FWIDX: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073473491i32 as _);
 pub const CI_E_DIACRITIC_SETTINGS_DIFFER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073473490i32 as _);
 pub const CI_E_INCONSISTENT_TRANSACTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073473486i32 as _);
@@ -464,6 +488,12 @@ pub const CLUSIONREASON_UNKNOWNSCOPE: CLUSION_REASON = CLUSION_REASON(0i32);
 pub const CLUSIONREASON_DEFAULT: CLUSION_REASON = CLUSION_REASON(1i32);
 pub const CLUSIONREASON_USER: CLUSION_REASON = CLUSION_REASON(2i32);
 pub const CLUSIONREASON_GROUPPOLICY: CLUSION_REASON = CLUSION_REASON(3i32);
+impl ::core::marker::Copy for CLUSION_REASON {}
+impl ::core::clone::Clone for CLUSION_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMDLINE_E_ALREADY_INIT: i32 = -2147216123i32;
 pub const CMDLINE_E_NOT_INIT: i32 = -2147216124i32;
 pub const CMDLINE_E_NUM_PARAMS: i32 = -2147216122i32;
@@ -514,6 +544,12 @@ pub const CONDITION_CREATION_VECTOR_AND: CONDITION_CREATION_OPTIONS = CONDITION_
 pub const CONDITION_CREATION_VECTOR_OR: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(4u32);
 pub const CONDITION_CREATION_VECTOR_LEAF: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(8u32);
 pub const CONDITION_CREATION_USE_CONTENT_LOCALE: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(16u32);
+impl ::core::marker::Copy for CONDITION_CREATION_OPTIONS {}
+impl ::core::clone::Clone for CONDITION_CREATION_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct CONTENTRESTRICTION {
@@ -549,6 +585,12 @@ pub const CREATESUBS_FROMFAVORITES: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTION
 pub const CREATESUBS_NOUI: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(4i32);
 pub const CREATESUBS_NOSAVE: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(8i32);
 pub const CREATESUBS_SOFTWAREUPDATE: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(16i32);
+impl ::core::marker::Copy for CREATESUBSCRIPTIONFLAGS {}
+impl ::core::clone::Clone for CREATESUBSCRIPTIONFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRESTRICTIONS_DBSCHEMA_ASSERTIONS: u32 = 3u32;
 pub const CRESTRICTIONS_DBSCHEMA_CATALOGS: u32 = 1u32;
 pub const CRESTRICTIONS_DBSCHEMA_CHARACTER_SETS: u32 = 3u32;
@@ -620,6 +662,12 @@ pub const CATALOG_PAUSED_REASON_DELAYED_RECOVERY: CatalogPausedReason = CatalogP
 pub const CATALOG_PAUSED_REASON_USER_ACTIVE: CatalogPausedReason = CatalogPausedReason(8i32);
 pub const CATALOG_PAUSED_REASON_EXTERNAL: CatalogPausedReason = CatalogPausedReason(9i32);
 pub const CATALOG_PAUSED_REASON_UPGRADING: CatalogPausedReason = CatalogPausedReason(10i32);
+impl ::core::marker::Copy for CatalogPausedReason {}
+impl ::core::clone::Clone for CatalogPausedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CatalogStatus(pub i32);
 pub const CATALOG_STATUS_IDLE: CatalogStatus = CatalogStatus(0i32);
@@ -629,6 +677,12 @@ pub const CATALOG_STATUS_FULL_CRAWL: CatalogStatus = CatalogStatus(3i32);
 pub const CATALOG_STATUS_INCREMENTAL_CRAWL: CatalogStatus = CatalogStatus(4i32);
 pub const CATALOG_STATUS_PROCESSING_NOTIFICATIONS: CatalogStatus = CatalogStatus(5i32);
 pub const CATALOG_STATUS_SHUTTING_DOWN: CatalogStatus = CatalogStatus(6i32);
+impl ::core::marker::Copy for CatalogStatus {}
+impl ::core::clone::Clone for CatalogStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CompoundCondition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 292523283, data2: 4126, data3: 20389, data4: [132, 212, 255, 130, 121, 56, 25, 53] };
 pub const ConditionFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3762193840,
@@ -656,15 +710,33 @@ pub const DBACCESSOR_ROWDATA: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(2i32);
 pub const DBACCESSOR_PARAMETERDATA: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(4i32);
 pub const DBACCESSOR_OPTIMIZED: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(8i32);
 pub const DBACCESSOR_INHERITED: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(16i32);
+impl ::core::marker::Copy for DBACCESSORFLAGSENUM {}
+impl ::core::clone::Clone for DBACCESSORFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBASYNCHOPENUM(pub i32);
 pub const DBASYNCHOP_OPEN: DBASYNCHOPENUM = DBASYNCHOPENUM(0i32);
+impl ::core::marker::Copy for DBASYNCHOPENUM {}
+impl ::core::clone::Clone for DBASYNCHOPENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBASYNCHPHASEENUM(pub i32);
 pub const DBASYNCHPHASE_INITIALIZATION: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(0i32);
 pub const DBASYNCHPHASE_POPULATION: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(1i32);
 pub const DBASYNCHPHASE_COMPLETE: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(2i32);
 pub const DBASYNCHPHASE_CANCELED: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(3i32);
+impl ::core::marker::Copy for DBASYNCHPHASEENUM {}
+impl ::core::clone::Clone for DBASYNCHPHASEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBBINDEXT {
@@ -696,6 +768,12 @@ impl ::core::clone::Clone for DBBINDEXT {
 #[repr(transparent)]
 pub struct DBBINDFLAGENUM(pub i32);
 pub const DBBINDFLAG_HTML: DBBINDFLAGENUM = DBBINDFLAGENUM(1i32);
+impl ::core::marker::Copy for DBBINDFLAGENUM {}
+impl ::core::clone::Clone for DBBINDFLAGENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Com")]
@@ -765,6 +843,12 @@ pub const DBBINDSTATUS_BADBINDINFO: DBBINDSTATUSENUM = DBBINDSTATUSENUM(3i32);
 pub const DBBINDSTATUS_BADSTORAGEFLAGS: DBBINDSTATUSENUM = DBBINDSTATUSENUM(4i32);
 pub const DBBINDSTATUS_NOINTERFACE: DBBINDSTATUSENUM = DBBINDSTATUSENUM(5i32);
 pub const DBBINDSTATUS_MULTIPLESTORAGE: DBBINDSTATUSENUM = DBBINDSTATUSENUM(6i32);
+impl ::core::marker::Copy for DBBINDSTATUSENUM {}
+impl ::core::clone::Clone for DBBINDSTATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBBINDURLFLAGENUM(pub i32);
 pub const DBBINDURLFLAG_READ: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(1i32);
@@ -784,17 +868,35 @@ pub const DBBINDURLFLAG_WAITFORINIT: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(16777
 pub const DBBINDURLFLAG_OPENIFEXISTS: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(33554432i32);
 pub const DBBINDURLFLAG_OVERWRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(67108864i32);
 pub const DBBINDURLFLAG_ISSTRUCTUREDDOCUMENT: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(134217728i32);
+impl ::core::marker::Copy for DBBINDURLFLAGENUM {}
+impl ::core::clone::Clone for DBBINDURLFLAGENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBBINDURLSTATUSENUM(pub i32);
 pub const DBBINDURLSTATUS_S_OK: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(0i32);
 pub const DBBINDURLSTATUS_S_DENYNOTSUPPORTED: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(1i32);
 pub const DBBINDURLSTATUS_S_DENYTYPENOTSUPPORTED: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(4i32);
 pub const DBBINDURLSTATUS_S_REDIRECTED: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(8i32);
+impl ::core::marker::Copy for DBBINDURLSTATUSENUM {}
+impl ::core::clone::Clone for DBBINDURLSTATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBBOOKMARK(pub i32);
 pub const DBBMK_INVALID: DBBOOKMARK = DBBOOKMARK(0i32);
 pub const DBBMK_FIRST: DBBOOKMARK = DBBOOKMARK(1i32);
 pub const DBBMK_LAST: DBBOOKMARK = DBBOOKMARK(2i32);
+impl ::core::marker::Copy for DBBOOKMARK {}
+impl ::core::clone::Clone for DBBOOKMARK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -904,9 +1006,21 @@ pub const DBCOLUMNDESCFLAGS_DBCID: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM
 pub const DBCOLUMNDESCFLAGS_WTYPE: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(64i32);
 pub const DBCOLUMNDESCFLAGS_PRECISION: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(128i32);
 pub const DBCOLUMNDESCFLAGS_SCALE: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(256i32);
+impl ::core::marker::Copy for DBCOLUMNDESCFLAGSENUM {}
+impl ::core::clone::Clone for DBCOLUMNDESCFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBCOLUMNFLAGS15ENUM(pub i32);
 pub const DBCOLUMNFLAGS_ISCHAPTER: DBCOLUMNFLAGS15ENUM = DBCOLUMNFLAGS15ENUM(8192i32);
+impl ::core::marker::Copy for DBCOLUMNFLAGS15ENUM {}
+impl ::core::clone::Clone for DBCOLUMNFLAGS15ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBCOLUMNFLAGSENUM(pub i32);
 pub const DBCOLUMNFLAGS_ISBOOKMARK: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(1i32);
@@ -920,21 +1034,45 @@ pub const DBCOLUMNFLAGS_ISLONG: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(128i32);
 pub const DBCOLUMNFLAGS_ISROWID: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(256i32);
 pub const DBCOLUMNFLAGS_ISROWVER: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(512i32);
 pub const DBCOLUMNFLAGS_CACHEDEFERRED: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(4096i32);
+impl ::core::marker::Copy for DBCOLUMNFLAGSENUM {}
+impl ::core::clone::Clone for DBCOLUMNFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBCOLUMNFLAGSENUM20(pub i32);
 pub const DBCOLUMNFLAGS_SCALEISNEGATIVE: DBCOLUMNFLAGSENUM20 = DBCOLUMNFLAGSENUM20(16384i32);
 pub const DBCOLUMNFLAGS_RESERVED: DBCOLUMNFLAGSENUM20 = DBCOLUMNFLAGSENUM20(32768i32);
+impl ::core::marker::Copy for DBCOLUMNFLAGSENUM20 {}
+impl ::core::clone::Clone for DBCOLUMNFLAGSENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBCOLUMNFLAGSENUM21(pub i32);
 pub const DBCOLUMNFLAGS_ISROWURL: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(65536i32);
 pub const DBCOLUMNFLAGS_ISDEFAULTSTREAM: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(131072i32);
 pub const DBCOLUMNFLAGS_ISCOLLECTION: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(262144i32);
+impl ::core::marker::Copy for DBCOLUMNFLAGSENUM21 {}
+impl ::core::clone::Clone for DBCOLUMNFLAGSENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBCOLUMNFLAGSENUM26(pub i32);
 pub const DBCOLUMNFLAGS_ISSTREAM: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(524288i32);
 pub const DBCOLUMNFLAGS_ISROWSET: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(1048576i32);
 pub const DBCOLUMNFLAGS_ISROW: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(2097152i32);
 pub const DBCOLUMNFLAGS_ROWSPECIFICCOLUMN: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(4194304i32);
+impl ::core::marker::Copy for DBCOLUMNFLAGSENUM26 {}
+impl ::core::clone::Clone for DBCOLUMNFLAGSENUM26 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
@@ -986,11 +1124,23 @@ impl ::core::clone::Clone for DBCOLUMNINFO {
 #[repr(transparent)]
 pub struct DBCOMMANDPERSISTFLAGENUM(pub i32);
 pub const DBCOMMANDPERSISTFLAG_NOSAVE: DBCOMMANDPERSISTFLAGENUM = DBCOMMANDPERSISTFLAGENUM(1i32);
+impl ::core::marker::Copy for DBCOMMANDPERSISTFLAGENUM {}
+impl ::core::clone::Clone for DBCOMMANDPERSISTFLAGENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBCOMMANDPERSISTFLAGENUM21(pub i32);
 pub const DBCOMMANDPERSISTFLAG_DEFAULT: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(0i32);
 pub const DBCOMMANDPERSISTFLAG_PERSISTVIEW: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(2i32);
 pub const DBCOMMANDPERSISTFLAG_PERSISTPROCEDURE: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(4i32);
+impl ::core::marker::Copy for DBCOMMANDPERSISTFLAGENUM21 {}
+impl ::core::clone::Clone for DBCOMMANDPERSISTFLAGENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBCOMPAREENUM(pub i32);
 pub const DBCOMPARE_LT: DBCOMPAREENUM = DBCOMPAREENUM(0i32);
@@ -998,6 +1148,12 @@ pub const DBCOMPARE_EQ: DBCOMPAREENUM = DBCOMPAREENUM(1i32);
 pub const DBCOMPARE_GT: DBCOMPAREENUM = DBCOMPAREENUM(2i32);
 pub const DBCOMPARE_NE: DBCOMPAREENUM = DBCOMPAREENUM(3i32);
 pub const DBCOMPARE_NOTCOMPARABLE: DBCOMPAREENUM = DBCOMPAREENUM(4i32);
+impl ::core::marker::Copy for DBCOMPAREENUM {}
+impl ::core::clone::Clone for DBCOMPAREENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBCOMPAREOPSENUM(pub i32);
 pub const DBCOMPAREOPS_LT: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(0i32);
@@ -1011,10 +1167,22 @@ pub const DBCOMPAREOPS_NE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(7i32);
 pub const DBCOMPAREOPS_IGNORE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(8i32);
 pub const DBCOMPAREOPS_CASESENSITIVE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(4096i32);
 pub const DBCOMPAREOPS_CASEINSENSITIVE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(8192i32);
+impl ::core::marker::Copy for DBCOMPAREOPSENUM {}
+impl ::core::clone::Clone for DBCOMPAREOPSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBCOMPAREOPSENUM20(pub i32);
 pub const DBCOMPAREOPS_NOTBEGINSWITH: DBCOMPAREOPSENUM20 = DBCOMPAREOPSENUM20(9i32);
 pub const DBCOMPAREOPS_NOTCONTAINS: DBCOMPAREOPSENUM20 = DBCOMPAREOPSENUM20(10i32);
+impl ::core::marker::Copy for DBCOMPAREOPSENUM20 {}
+impl ::core::clone::Clone for DBCOMPAREOPSENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DBCOMPUTEMODE_COMPUTED: u32 = 1u32;
 pub const DBCOMPUTEMODE_DYNAMIC: u32 = 2u32;
 pub const DBCOMPUTEMODE_NOTCOMPUTED: u32 = 3u32;
@@ -1082,15 +1250,33 @@ pub const DBCONSTRAINTTYPE_UNIQUE: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(0
 pub const DBCONSTRAINTTYPE_FOREIGNKEY: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(1i32);
 pub const DBCONSTRAINTTYPE_PRIMARYKEY: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(2i32);
 pub const DBCONSTRAINTTYPE_CHECK: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(3i32);
+impl ::core::marker::Copy for DBCONSTRAINTTYPEENUM {}
+impl ::core::clone::Clone for DBCONSTRAINTTYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBCONVERTFLAGSENUM(pub i32);
 pub const DBCONVERTFLAGS_COLUMN: DBCONVERTFLAGSENUM = DBCONVERTFLAGSENUM(0i32);
 pub const DBCONVERTFLAGS_PARAMETER: DBCONVERTFLAGSENUM = DBCONVERTFLAGSENUM(1i32);
+impl ::core::marker::Copy for DBCONVERTFLAGSENUM {}
+impl ::core::clone::Clone for DBCONVERTFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBCONVERTFLAGSENUM20(pub i32);
 pub const DBCONVERTFLAGS_ISLONG: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(2i32);
 pub const DBCONVERTFLAGS_ISFIXEDLENGTH: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(4i32);
 pub const DBCONVERTFLAGS_FROMVARIANT: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(8i32);
+impl ::core::marker::Copy for DBCONVERTFLAGSENUM20 {}
+impl ::core::clone::Clone for DBCONVERTFLAGSENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBCOPYFLAGSENUM(pub i32);
 pub const DBCOPY_ASYNC: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(256i32);
@@ -1098,6 +1284,12 @@ pub const DBCOPY_REPLACE_EXISTING: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(512i32);
 pub const DBCOPY_ALLOW_EMULATION: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(1024i32);
 pub const DBCOPY_NON_RECURSIVE: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(2048i32);
 pub const DBCOPY_ATOMIC: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(4096i32);
+impl ::core::marker::Copy for DBCOPYFLAGSENUM {}
+impl ::core::clone::Clone for DBCOPYFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBCOST {
@@ -1148,6 +1340,12 @@ pub const DBUNIT_NUM_MSGS: DBCOSTUNITENUM = DBCOSTUNITENUM(8192i32);
 pub const DBUNIT_NUM_LOCKS: DBCOSTUNITENUM = DBCOSTUNITENUM(16384i32);
 pub const DBUNIT_NUM_ROWS: DBCOSTUNITENUM = DBCOSTUNITENUM(32768i32);
 pub const DBUNIT_OTHER: DBCOSTUNITENUM = DBCOSTUNITENUM(65536i32);
+impl ::core::marker::Copy for DBCOSTUNITENUM {}
+impl ::core::clone::Clone for DBCOSTUNITENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBDATACONVERTENUM(pub i32);
 pub const DBDATACONVERT_DEFAULT: DBDATACONVERTENUM = DBDATACONVERTENUM(0i32);
@@ -1155,6 +1353,12 @@ pub const DBDATACONVERT_SETDATABEHAVIOR: DBDATACONVERTENUM = DBDATACONVERTENUM(1
 pub const DBDATACONVERT_LENGTHFROMNTS: DBDATACONVERTENUM = DBDATACONVERTENUM(2i32);
 pub const DBDATACONVERT_DSTISFIXEDLENGTH: DBDATACONVERTENUM = DBDATACONVERTENUM(4i32);
 pub const DBDATACONVERT_DECIMALSCALE: DBDATACONVERTENUM = DBDATACONVERTENUM(8i32);
+impl ::core::marker::Copy for DBDATACONVERTENUM {}
+impl ::core::clone::Clone for DBDATACONVERTENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DBDATE {
     pub year: i16,
@@ -1171,10 +1375,22 @@ impl ::core::clone::Clone for DBDATE {
 pub struct DBDEFERRABILITYENUM(pub i32);
 pub const DBDEFERRABILITY_DEFERRED: DBDEFERRABILITYENUM = DBDEFERRABILITYENUM(1i32);
 pub const DBDEFERRABILITY_DEFERRABLE: DBDEFERRABILITYENUM = DBDEFERRABILITYENUM(2i32);
+impl ::core::marker::Copy for DBDEFERRABILITYENUM {}
+impl ::core::clone::Clone for DBDEFERRABILITYENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBDELETEFLAGSENUM(pub i32);
 pub const DBDELETE_ASYNC: DBDELETEFLAGSENUM = DBDELETEFLAGSENUM(256i32);
 pub const DBDELETE_ATOMIC: DBDELETEFLAGSENUM = DBDELETEFLAGSENUM(4096i32);
+impl ::core::marker::Copy for DBDELETEFLAGSENUM {}
+impl ::core::clone::Clone for DBDELETEFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBEVENTPHASEENUM(pub i32);
 pub const DBEVENTPHASE_OKTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(0i32);
@@ -1182,11 +1398,23 @@ pub const DBEVENTPHASE_ABOUTTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(1i32);
 pub const DBEVENTPHASE_SYNCHAFTER: DBEVENTPHASEENUM = DBEVENTPHASEENUM(2i32);
 pub const DBEVENTPHASE_FAILEDTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(3i32);
 pub const DBEVENTPHASE_DIDEVENT: DBEVENTPHASEENUM = DBEVENTPHASEENUM(4i32);
+impl ::core::marker::Copy for DBEVENTPHASEENUM {}
+impl ::core::clone::Clone for DBEVENTPHASEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBEXECLIMITSENUM(pub i32);
 pub const DBEXECLIMITS_ABORT: DBEXECLIMITSENUM = DBEXECLIMITSENUM(1i32);
 pub const DBEXECLIMITS_STOP: DBEXECLIMITSENUM = DBEXECLIMITSENUM(2i32);
 pub const DBEXECLIMITS_SUSPEND: DBEXECLIMITSENUM = DBEXECLIMITSENUM(3i32);
+impl ::core::marker::Copy for DBEXECLIMITSENUM {}
+impl ::core::clone::Clone for DBEXECLIMITSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBFAILUREINFO {
@@ -1287,6 +1515,12 @@ impl ::core::clone::Clone for DBINDEXCOLUMNDESC {
 pub struct DBINDEX_COL_ORDERENUM(pub i32);
 pub const DBINDEX_COL_ORDER_ASC: DBINDEX_COL_ORDERENUM = DBINDEX_COL_ORDERENUM(0i32);
 pub const DBINDEX_COL_ORDER_DESC: DBINDEX_COL_ORDERENUM = DBINDEX_COL_ORDERENUM(1i32);
+impl ::core::marker::Copy for DBINDEX_COL_ORDERENUM {}
+impl ::core::clone::Clone for DBINDEX_COL_ORDERENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBLITERALENUM(pub i32);
 pub const DBLITERAL_INVALID: DBLITERALENUM = DBLITERALENUM(0i32);
@@ -1310,6 +1544,12 @@ pub const DBLITERAL_TABLE_NAME: DBLITERALENUM = DBLITERALENUM(17i32);
 pub const DBLITERAL_TEXT_COMMAND: DBLITERALENUM = DBLITERALENUM(18i32);
 pub const DBLITERAL_USER_NAME: DBLITERALENUM = DBLITERALENUM(19i32);
 pub const DBLITERAL_VIEW_NAME: DBLITERALENUM = DBLITERALENUM(20i32);
+impl ::core::marker::Copy for DBLITERALENUM {}
+impl ::core::clone::Clone for DBLITERALENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBLITERALENUM20(pub i32);
 pub const DBLITERAL_CUBE_NAME: DBLITERALENUM20 = DBLITERALENUM20(21i32);
@@ -1320,10 +1560,22 @@ pub const DBLITERAL_MEMBER_NAME: DBLITERALENUM20 = DBLITERALENUM20(25i32);
 pub const DBLITERAL_PROPERTY_NAME: DBLITERALENUM20 = DBLITERALENUM20(26i32);
 pub const DBLITERAL_SCHEMA_SEPARATOR: DBLITERALENUM20 = DBLITERALENUM20(27i32);
 pub const DBLITERAL_QUOTE_SUFFIX: DBLITERALENUM20 = DBLITERALENUM20(28i32);
+impl ::core::marker::Copy for DBLITERALENUM20 {}
+impl ::core::clone::Clone for DBLITERALENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBLITERALENUM21(pub i32);
 pub const DBLITERAL_ESCAPE_PERCENT_SUFFIX: DBLITERALENUM21 = DBLITERALENUM21(29i32);
 pub const DBLITERAL_ESCAPE_UNDERSCORE_SUFFIX: DBLITERALENUM21 = DBLITERALENUM21(30i32);
+impl ::core::marker::Copy for DBLITERALENUM21 {}
+impl ::core::clone::Clone for DBLITERALENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -1371,11 +1623,23 @@ pub struct DBMATCHTYPEENUM(pub i32);
 pub const DBMATCHTYPE_FULL: DBMATCHTYPEENUM = DBMATCHTYPEENUM(0i32);
 pub const DBMATCHTYPE_NONE: DBMATCHTYPEENUM = DBMATCHTYPEENUM(1i32);
 pub const DBMATCHTYPE_PARTIAL: DBMATCHTYPEENUM = DBMATCHTYPEENUM(2i32);
+impl ::core::marker::Copy for DBMATCHTYPEENUM {}
+impl ::core::clone::Clone for DBMATCHTYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DBMAXCHAR: u32 = 8001u32;
 #[repr(transparent)]
 pub struct DBMEMOWNERENUM(pub i32);
 pub const DBMEMOWNER_CLIENTOWNED: DBMEMOWNERENUM = DBMEMOWNERENUM(0i32);
 pub const DBMEMOWNER_PROVIDEROWNED: DBMEMOWNERENUM = DBMEMOWNERENUM(1i32);
+impl ::core::marker::Copy for DBMEMOWNERENUM {}
+impl ::core::clone::Clone for DBMEMOWNERENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBMOVEFLAGSENUM(pub i32);
 pub const DBMOVE_REPLACE_EXISTING: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(1i32);
@@ -1383,6 +1647,12 @@ pub const DBMOVE_ASYNC: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(256i32);
 pub const DBMOVE_DONT_UPDATE_LINKS: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(512i32);
 pub const DBMOVE_ALLOW_EMULATION: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(1024i32);
 pub const DBMOVE_ATOMIC: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(4096i32);
+impl ::core::marker::Copy for DBMOVEFLAGSENUM {}
+impl ::core::clone::Clone for DBMOVEFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBOBJECT {
@@ -1460,9 +1730,21 @@ pub const DBPARAMFLAGS_ISOUTPUT: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(2i32);
 pub const DBPARAMFLAGS_ISSIGNED: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(16i32);
 pub const DBPARAMFLAGS_ISNULLABLE: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(64i32);
 pub const DBPARAMFLAGS_ISLONG: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(128i32);
+impl ::core::marker::Copy for DBPARAMFLAGSENUM {}
+impl ::core::clone::Clone for DBPARAMFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPARAMFLAGSENUM20(pub i32);
 pub const DBPARAMFLAGS_SCALEISNEGATIVE: DBPARAMFLAGSENUM20 = DBPARAMFLAGSENUM20(256i32);
+impl ::core::marker::Copy for DBPARAMFLAGSENUM20 {}
+impl ::core::clone::Clone for DBPARAMFLAGSENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1514,6 +1796,12 @@ pub struct DBPARAMIOENUM(pub i32);
 pub const DBPARAMIO_NOTPARAM: DBPARAMIOENUM = DBPARAMIOENUM(0i32);
 pub const DBPARAMIO_INPUT: DBPARAMIOENUM = DBPARAMIOENUM(1i32);
 pub const DBPARAMIO_OUTPUT: DBPARAMIOENUM = DBPARAMIOENUM(2i32);
+impl ::core::marker::Copy for DBPARAMIOENUM {}
+impl ::core::clone::Clone for DBPARAMIOENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBPARAMS {
@@ -1554,6 +1842,12 @@ pub const DBPART_INVALID: DBPARTENUM = DBPARTENUM(0i32);
 pub const DBPART_VALUE: DBPARTENUM = DBPARTENUM(1i32);
 pub const DBPART_LENGTH: DBPARTENUM = DBPARTENUM(2i32);
 pub const DBPART_STATUS: DBPARTENUM = DBPARTENUM(4i32);
+impl ::core::marker::Copy for DBPARTENUM {}
+impl ::core::clone::Clone for DBPARTENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPENDINGSTATUSENUM(pub i32);
 pub const DBPENDINGSTATUS_NEW: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(1i32);
@@ -1561,12 +1855,24 @@ pub const DBPENDINGSTATUS_CHANGED: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(2i3
 pub const DBPENDINGSTATUS_DELETED: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(4i32);
 pub const DBPENDINGSTATUS_UNCHANGED: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(8i32);
 pub const DBPENDINGSTATUS_INVALIDROW: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(16i32);
+impl ::core::marker::Copy for DBPENDINGSTATUSENUM {}
+impl ::core::clone::Clone for DBPENDINGSTATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPOSITIONFLAGSENUM(pub i32);
 pub const DBPOSITION_OK: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(0i32);
 pub const DBPOSITION_NOROW: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(1i32);
 pub const DBPOSITION_BOF: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(2i32);
 pub const DBPOSITION_EOF: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(3i32);
+impl ::core::marker::Copy for DBPOSITIONFLAGSENUM {}
+impl ::core::clone::Clone for DBPOSITIONFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPROMPTOPTIONSENUM(pub i32);
 pub const DBPROMPTOPTIONS_NONE: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(0i32);
@@ -1575,6 +1881,12 @@ pub const DBPROMPTOPTIONS_PROPERTYSHEET: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSEN
 pub const DBPROMPTOPTIONS_BROWSEONLY: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(8i32);
 pub const DBPROMPTOPTIONS_DISABLE_PROVIDER_SELECTION: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(16i32);
 pub const DBPROMPTOPTIONS_DISABLESAVEPASSWORD: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(32i32);
+impl ::core::marker::Copy for DBPROMPTOPTIONSENUM {}
+impl ::core::clone::Clone for DBPROMPTOPTIONSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DBPROMPT_COMPLETE: u32 = 2u32;
 pub const DBPROMPT_COMPLETEREQUIRED: u32 = 3u32;
 pub const DBPROMPT_NOPROMPT: u32 = 4u32;
@@ -1781,6 +2093,12 @@ pub const DBPROP_TBL_TEMPTABLE: DBPROPENUM = DBPROPENUM(140i32);
 pub const DBPROP_TRANSACTEDOBJECT: DBPROPENUM = DBPROPENUM(116i32);
 pub const DBPROP_UPDATABILITY: DBPROPENUM = DBPROPENUM(117i32);
 pub const DBPROP_USERNAME: DBPROPENUM = DBPROPENUM(118i32);
+impl ::core::marker::Copy for DBPROPENUM {}
+impl ::core::clone::Clone for DBPROPENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPROPENUM15(pub i32);
 pub const DBPROP_FILTERCOMPAREOPS: DBPROPENUM15 = DBPROPENUM15(209i32);
@@ -1799,6 +2117,12 @@ pub const DBPROP_MAXORSINFILTER: DBPROPENUM15 = DBPROPENUM15(205i32);
 pub const DBPROP_MAXSORTCOLUMNS: DBPROPENUM15 = DBPROPENUM15(206i32);
 pub const DBPROP_ROWSET_ASYNCH: DBPROPENUM15 = DBPROPENUM15(201i32);
 pub const DBPROP_SORTONINDEX: DBPROPENUM15 = DBPROPENUM15(207i32);
+impl ::core::marker::Copy for DBPROPENUM15 {}
+impl ::core::clone::Clone for DBPROPENUM15 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPROPENUM20(pub i32);
 pub const DBPROP_IMultipleResults: DBPROPENUM20 = DBPROPENUM20(217i32);
@@ -1844,6 +2168,12 @@ pub const DBPROP_IParentRowset: DBPROPENUM20 = DBPROPENUM20(257i32);
 pub const DBPROP_HIDDENCOLUMNS: DBPROPENUM20 = DBPROPENUM20(258i32);
 pub const DBPROP_PROVIDERMEMORY: DBPROPENUM20 = DBPROPENUM20(259i32);
 pub const DBPROP_CLIENTCURSOR: DBPROPENUM20 = DBPROPENUM20(260i32);
+impl ::core::marker::Copy for DBPROPENUM20 {}
+impl ::core::clone::Clone for DBPROPENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPROPENUM21(pub i32);
 pub const DBPROP_TRUSTEE_USERNAME: DBPROPENUM21 = DBPROPENUM21(241i32);
@@ -1867,12 +2197,24 @@ pub const DBPROP_IGetSourceRow: DBPROPENUM21 = DBPROPENUM21(278i32);
 pub const DBPROP_IRowsetCurrentIndex: DBPROPENUM21 = DBPROPENUM21(279i32);
 pub const DBPROP_OPENROWSETSUPPORT: DBPROPENUM21 = DBPROPENUM21(280i32);
 pub const DBPROP_COL_ISLONG: DBPROPENUM21 = DBPROPENUM21(281i32);
+impl ::core::marker::Copy for DBPROPENUM21 {}
+impl ::core::clone::Clone for DBPROPENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPROPENUM25(pub i32);
 pub const DBPROP_COL_SEED: DBPROPENUM25 = DBPROPENUM25(282i32);
 pub const DBPROP_COL_INCREMENT: DBPROPENUM25 = DBPROPENUM25(283i32);
 pub const DBPROP_INIT_GENERALTIMEOUT: DBPROPENUM25 = DBPROPENUM25(284i32);
 pub const DBPROP_COMSERVICES: DBPROPENUM25 = DBPROPENUM25(285i32);
+impl ::core::marker::Copy for DBPROPENUM25 {}
+impl ::core::clone::Clone for DBPROPENUM25 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPROPENUM25_DEPRECATED(pub i32);
 pub const DBPROP_ICommandCost: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(141i32);
@@ -1891,6 +2233,12 @@ pub const DBPROP_IRowsetWatchAll: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECA
 pub const DBPROP_IRowsetWatchNotify: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(156i32);
 pub const DBPROP_IRowsetWatchRegion: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(157i32);
 pub const DBPROP_IRowsetWithParameters: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(158i32);
+impl ::core::marker::Copy for DBPROPENUM25_DEPRECATED {}
+impl ::core::clone::Clone for DBPROPENUM25_DEPRECATED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPROPENUM26(pub i32);
 pub const DBPROP_OUTPUTSTREAM: DBPROPENUM26 = DBPROPENUM26(286i32);
@@ -1899,6 +2247,12 @@ pub const DBPROP_TABLESTATISTICS: DBPROPENUM26 = DBPROPENUM26(288i32);
 pub const DBPROP_SKIPROWCOUNTRESULTS: DBPROPENUM26 = DBPROPENUM26(291i32);
 pub const DBPROP_IRowsetBookmark: DBPROPENUM26 = DBPROPENUM26(292i32);
 pub const MDPROP_VISUALMODE: DBPROPENUM26 = DBPROPENUM26(293i32);
+impl ::core::marker::Copy for DBPROPENUM26 {}
+impl ::core::clone::Clone for DBPROPENUM26 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPROPFLAGSENUM(pub i32);
 pub const DBPROPFLAGS_NOTSUPPORTED: DBPROPFLAGSENUM = DBPROPFLAGSENUM(0i32);
@@ -1915,15 +2269,39 @@ pub const DBPROPFLAGS_READ: DBPROPFLAGSENUM = DBPROPFLAGSENUM(512i32);
 pub const DBPROPFLAGS_WRITE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(1024i32);
 pub const DBPROPFLAGS_REQUIRED: DBPROPFLAGSENUM = DBPROPFLAGSENUM(2048i32);
 pub const DBPROPFLAGS_SESSION: DBPROPFLAGSENUM = DBPROPFLAGSENUM(4096i32);
+impl ::core::marker::Copy for DBPROPFLAGSENUM {}
+impl ::core::clone::Clone for DBPROPFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPROPFLAGSENUM21(pub i32);
 pub const DBPROPFLAGS_TRUSTEE: DBPROPFLAGSENUM21 = DBPROPFLAGSENUM21(8192i32);
+impl ::core::marker::Copy for DBPROPFLAGSENUM21 {}
+impl ::core::clone::Clone for DBPROPFLAGSENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPROPFLAGSENUM25(pub i32);
 pub const DBPROPFLAGS_VIEW: DBPROPFLAGSENUM25 = DBPROPFLAGSENUM25(16384i32);
+impl ::core::marker::Copy for DBPROPFLAGSENUM25 {}
+impl ::core::clone::Clone for DBPROPFLAGSENUM25 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPROPFLAGSENUM26(pub i32);
 pub const DBPROPFLAGS_STREAM: DBPROPFLAGSENUM26 = DBPROPFLAGSENUM26(32768i32);
+impl ::core::marker::Copy for DBPROPFLAGSENUM26 {}
+impl ::core::clone::Clone for DBPROPFLAGSENUM26 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DBPROPFLAGS_PERSIST: u32 = 8192u32;
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -2036,6 +2414,12 @@ pub struct DBPROPOPTIONSENUM(pub i32);
 pub const DBPROPOPTIONS_REQUIRED: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(0i32);
 pub const DBPROPOPTIONS_SETIFCHEAP: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(1i32);
 pub const DBPROPOPTIONS_OPTIONAL: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(1i32);
+impl ::core::marker::Copy for DBPROPOPTIONSENUM {}
+impl ::core::clone::Clone for DBPROPOPTIONSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2110,9 +2494,21 @@ pub const DBPROPSTATUS_NOTALLSETTABLE: DBPROPSTATUSENUM = DBPROPSTATUSENUM(5i32)
 pub const DBPROPSTATUS_NOTSETTABLE: DBPROPSTATUSENUM = DBPROPSTATUSENUM(6i32);
 pub const DBPROPSTATUS_NOTSET: DBPROPSTATUSENUM = DBPROPSTATUSENUM(7i32);
 pub const DBPROPSTATUS_CONFLICTING: DBPROPSTATUSENUM = DBPROPSTATUSENUM(8i32);
+impl ::core::marker::Copy for DBPROPSTATUSENUM {}
+impl ::core::clone::Clone for DBPROPSTATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBPROPSTATUSENUM21(pub i32);
 pub const DBPROPSTATUS_NOTAVAILABLE: DBPROPSTATUSENUM21 = DBPROPSTATUSENUM21(9i32);
+impl ::core::marker::Copy for DBPROPSTATUSENUM21 {}
+impl ::core::clone::Clone for DBPROPSTATUSENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DBPROPVAL_AO_RANDOM: i32 = 2i32;
 pub const DBPROPVAL_AO_SEQUENTIAL: i32 = 0i32;
 pub const DBPROPVAL_AO_SEQUENTIALSTORAGEOBJECTS: i32 = 1i32;
@@ -2317,10 +2713,22 @@ pub const DBRANGE_EXCLUSIVEEND: DBRANGEENUM = DBRANGEENUM(2i32);
 pub const DBRANGE_EXCLUDENULLS: DBRANGEENUM = DBRANGEENUM(4i32);
 pub const DBRANGE_PREFIX: DBRANGEENUM = DBRANGEENUM(8i32);
 pub const DBRANGE_MATCH: DBRANGEENUM = DBRANGEENUM(16i32);
+impl ::core::marker::Copy for DBRANGEENUM {}
+impl ::core::clone::Clone for DBRANGEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBRANGEENUM20(pub i32);
 pub const DBRANGE_MATCH_N_SHIFT: DBRANGEENUM20 = DBRANGEENUM20(24i32);
 pub const DBRANGE_MATCH_N_MASK: DBRANGEENUM20 = DBRANGEENUM20(255i32);
+impl ::core::marker::Copy for DBRANGEENUM20 {}
+impl ::core::clone::Clone for DBRANGEENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBREASONENUM(pub i32);
 pub const DBREASON_ROWSET_FETCHPOSITIONCHANGE: DBREASONENUM = DBREASONENUM(0i32);
@@ -2338,17 +2746,35 @@ pub const DBREASON_ROW_UNDOINSERT: DBREASONENUM = DBREASONENUM(11i32);
 pub const DBREASON_ROW_UNDODELETE: DBREASONENUM = DBREASONENUM(12i32);
 pub const DBREASON_ROW_UPDATE: DBREASONENUM = DBREASONENUM(13i32);
 pub const DBREASON_ROWSET_CHANGED: DBREASONENUM = DBREASONENUM(14i32);
+impl ::core::marker::Copy for DBREASONENUM {}
+impl ::core::clone::Clone for DBREASONENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBREASONENUM15(pub i32);
 pub const DBREASON_ROWPOSITION_CHANGED: DBREASONENUM15 = DBREASONENUM15(15i32);
 pub const DBREASON_ROWPOSITION_CHAPTERCHANGED: DBREASONENUM15 = DBREASONENUM15(16i32);
 pub const DBREASON_ROWPOSITION_CLEARED: DBREASONENUM15 = DBREASONENUM15(17i32);
 pub const DBREASON_ROW_ASYNCHINSERT: DBREASONENUM15 = DBREASONENUM15(18i32);
+impl ::core::marker::Copy for DBREASONENUM15 {}
+impl ::core::clone::Clone for DBREASONENUM15 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBREASONENUM25(pub i32);
 pub const DBREASON_ROWSET_ROWSADDED: DBREASONENUM25 = DBREASONENUM25(19i32);
 pub const DBREASON_ROWSET_POPULATIONCOMPLETE: DBREASONENUM25 = DBREASONENUM25(20i32);
 pub const DBREASON_ROWSET_POPULATIONSTOPPED: DBREASONENUM25 = DBREASONENUM25(21i32);
+impl ::core::marker::Copy for DBREASONENUM25 {}
+impl ::core::clone::Clone for DBREASONENUM25 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBRESOURCEKINDENUM(pub i32);
 pub const DBRESOURCE_INVALID: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(0i32);
@@ -2360,17 +2786,35 @@ pub const DBRESOURCE_NETWORK: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(5i32);
 pub const DBRESOURCE_RESPONSE: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(6i32);
 pub const DBRESOURCE_ROWS: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(7i32);
 pub const DBRESOURCE_OTHER: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(8i32);
+impl ::core::marker::Copy for DBRESOURCEKINDENUM {}
+impl ::core::clone::Clone for DBRESOURCEKINDENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBRESULTFLAGENUM(pub i32);
 pub const DBRESULTFLAG_DEFAULT: DBRESULTFLAGENUM = DBRESULTFLAGENUM(0i32);
 pub const DBRESULTFLAG_ROWSET: DBRESULTFLAGENUM = DBRESULTFLAGENUM(1i32);
 pub const DBRESULTFLAG_ROW: DBRESULTFLAGENUM = DBRESULTFLAGENUM(2i32);
+impl ::core::marker::Copy for DBRESULTFLAGENUM {}
+impl ::core::clone::Clone for DBRESULTFLAGENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBROWCHANGEKINDENUM(pub i32);
 pub const DBROWCHANGEKIND_INSERT: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(0i32);
 pub const DBROWCHANGEKIND_DELETE: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(1i32);
 pub const DBROWCHANGEKIND_UPDATE: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(2i32);
 pub const DBROWCHANGEKIND_COUNT: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(3i32);
+impl ::core::marker::Copy for DBROWCHANGEKINDENUM {}
+impl ::core::clone::Clone for DBROWCHANGEKINDENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBROWSTATUSENUM(pub i32);
 pub const DBROWSTATUS_S_OK: DBROWSTATUSENUM = DBROWSTATUSENUM(0i32);
@@ -2391,9 +2835,21 @@ pub const DBROWSTATUS_E_PERMISSIONDENIED: DBROWSTATUSENUM = DBROWSTATUSENUM(16i3
 pub const DBROWSTATUS_E_LIMITREACHED: DBROWSTATUSENUM = DBROWSTATUSENUM(17i32);
 pub const DBROWSTATUS_E_SCHEMAVIOLATION: DBROWSTATUSENUM = DBROWSTATUSENUM(18i32);
 pub const DBROWSTATUS_E_FAIL: DBROWSTATUSENUM = DBROWSTATUSENUM(19i32);
+impl ::core::marker::Copy for DBROWSTATUSENUM {}
+impl ::core::clone::Clone for DBROWSTATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBROWSTATUSENUM20(pub i32);
 pub const DBROWSTATUS_S_NOCHANGE: DBROWSTATUSENUM20 = DBROWSTATUSENUM20(20i32);
+impl ::core::marker::Copy for DBROWSTATUSENUM20 {}
+impl ::core::clone::Clone for DBROWSTATUSENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DBSCHEMA_LINKEDSERVERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2425604852, data2: 11948, data3: 4561, data4: [152, 9, 0, 192, 79, 194, 173, 152] };
 #[repr(transparent)]
 pub struct DBSEEKENUM(pub i32);
@@ -2404,21 +2860,51 @@ pub const DBSEEK_AFTEREQ: DBSEEKENUM = DBSEEKENUM(4i32);
 pub const DBSEEK_AFTER: DBSEEKENUM = DBSEEKENUM(8i32);
 pub const DBSEEK_BEFOREEQ: DBSEEKENUM = DBSEEKENUM(16i32);
 pub const DBSEEK_BEFORE: DBSEEKENUM = DBSEEKENUM(32i32);
+impl ::core::marker::Copy for DBSEEKENUM {}
+impl ::core::clone::Clone for DBSEEKENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBSORTENUM(pub i32);
 pub const DBSORT_ASCENDING: DBSORTENUM = DBSORTENUM(0i32);
 pub const DBSORT_DESCENDING: DBSORTENUM = DBSORTENUM(1i32);
+impl ::core::marker::Copy for DBSORTENUM {}
+impl ::core::clone::Clone for DBSORTENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBSOURCETYPEENUM(pub i32);
 pub const DBSOURCETYPE_DATASOURCE: DBSOURCETYPEENUM = DBSOURCETYPEENUM(1i32);
 pub const DBSOURCETYPE_ENUMERATOR: DBSOURCETYPEENUM = DBSOURCETYPEENUM(2i32);
+impl ::core::marker::Copy for DBSOURCETYPEENUM {}
+impl ::core::clone::Clone for DBSOURCETYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBSOURCETYPEENUM20(pub i32);
 pub const DBSOURCETYPE_DATASOURCE_TDP: DBSOURCETYPEENUM20 = DBSOURCETYPEENUM20(1i32);
 pub const DBSOURCETYPE_DATASOURCE_MDP: DBSOURCETYPEENUM20 = DBSOURCETYPEENUM20(3i32);
+impl ::core::marker::Copy for DBSOURCETYPEENUM20 {}
+impl ::core::clone::Clone for DBSOURCETYPEENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBSOURCETYPEENUM25(pub i32);
 pub const DBSOURCETYPE_BINDER: DBSOURCETYPEENUM25 = DBSOURCETYPEENUM25(4i32);
+impl ::core::marker::Copy for DBSOURCETYPEENUM25 {}
+impl ::core::clone::Clone for DBSOURCETYPEENUM25 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBSTATUSENUM(pub i32);
 pub const DBSTATUS_S_OK: DBSTATUSENUM = DBSTATUSENUM(0i32);
@@ -2435,10 +2921,22 @@ pub const DBSTATUS_E_INTEGRITYVIOLATION: DBSTATUSENUM = DBSTATUSENUM(10i32);
 pub const DBSTATUS_E_SCHEMAVIOLATION: DBSTATUSENUM = DBSTATUSENUM(11i32);
 pub const DBSTATUS_E_BADSTATUS: DBSTATUSENUM = DBSTATUSENUM(12i32);
 pub const DBSTATUS_S_DEFAULT: DBSTATUSENUM = DBSTATUSENUM(13i32);
+impl ::core::marker::Copy for DBSTATUSENUM {}
+impl ::core::clone::Clone for DBSTATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBSTATUSENUM20(pub i32);
 pub const MDSTATUS_S_CELLEMPTY: DBSTATUSENUM20 = DBSTATUSENUM20(14i32);
 pub const DBSTATUS_S_IGNORE: DBSTATUSENUM20 = DBSTATUSENUM20(15i32);
+impl ::core::marker::Copy for DBSTATUSENUM20 {}
+impl ::core::clone::Clone for DBSTATUSENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBSTATUSENUM21(pub i32);
 pub const DBSTATUS_E_DOESNOTEXIST: DBSTATUSENUM21 = DBSTATUSENUM21(16i32);
@@ -2452,18 +2950,42 @@ pub const DBSTATUS_S_CANNOTDELETESOURCE: DBSTATUSENUM21 = DBSTATUSENUM21(23i32);
 pub const DBSTATUS_E_READONLY: DBSTATUSENUM21 = DBSTATUSENUM21(24i32);
 pub const DBSTATUS_E_RESOURCEOUTOFSCOPE: DBSTATUSENUM21 = DBSTATUSENUM21(25i32);
 pub const DBSTATUS_S_ALREADYEXISTS: DBSTATUSENUM21 = DBSTATUSENUM21(26i32);
+impl ::core::marker::Copy for DBSTATUSENUM21 {}
+impl ::core::clone::Clone for DBSTATUSENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBSTATUSENUM25(pub i32);
 pub const DBSTATUS_E_CANCELED: DBSTATUSENUM25 = DBSTATUSENUM25(27i32);
 pub const DBSTATUS_E_NOTCOLLECTION: DBSTATUSENUM25 = DBSTATUSENUM25(28i32);
+impl ::core::marker::Copy for DBSTATUSENUM25 {}
+impl ::core::clone::Clone for DBSTATUSENUM25 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBSTATUSENUM26(pub i32);
 pub const DBSTATUS_S_ROWSETCOLUMN: DBSTATUSENUM26 = DBSTATUSENUM26(29i32);
+impl ::core::marker::Copy for DBSTATUSENUM26 {}
+impl ::core::clone::Clone for DBSTATUSENUM26 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBTABLESTATISTICSTYPE26(pub i32);
 pub const DBSTAT_HISTOGRAM: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(1i32);
 pub const DBSTAT_COLUMN_CARDINALITY: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(2i32);
 pub const DBSTAT_TUPLE_CARDINALITY: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(4i32);
+impl ::core::marker::Copy for DBTABLESTATISTICSTYPE26 {}
+impl ::core::clone::Clone for DBTABLESTATISTICSTYPE26 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DBTIME {
     pub hour: u16,
@@ -2550,14 +3072,32 @@ pub const DBTYPE_UDT: DBTYPEENUM = DBTYPEENUM(132i32);
 pub const DBTYPE_DBDATE: DBTYPEENUM = DBTYPEENUM(133i32);
 pub const DBTYPE_DBTIME: DBTYPEENUM = DBTYPEENUM(134i32);
 pub const DBTYPE_DBTIMESTAMP: DBTYPEENUM = DBTYPEENUM(135i32);
+impl ::core::marker::Copy for DBTYPEENUM {}
+impl ::core::clone::Clone for DBTYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBTYPEENUM15(pub i32);
 pub const DBTYPE_HCHAPTER: DBTYPEENUM15 = DBTYPEENUM15(136i32);
+impl ::core::marker::Copy for DBTYPEENUM15 {}
+impl ::core::clone::Clone for DBTYPEENUM15 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBTYPEENUM20(pub i32);
 pub const DBTYPE_FILETIME: DBTYPEENUM20 = DBTYPEENUM20(64i32);
 pub const DBTYPE_PROPVARIANT: DBTYPEENUM20 = DBTYPEENUM20(138i32);
 pub const DBTYPE_VARNUMERIC: DBTYPEENUM20 = DBTYPEENUM20(139i32);
+impl ::core::marker::Copy for DBTYPEENUM20 {}
+impl ::core::clone::Clone for DBTYPEENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DBTYPE_SQLVARIANT: u32 = 144u32;
 #[repr(transparent)]
 pub struct DBUPDELRULEENUM(pub i32);
@@ -2565,6 +3105,12 @@ pub const DBUPDELRULE_NOACTION: DBUPDELRULEENUM = DBUPDELRULEENUM(0i32);
 pub const DBUPDELRULE_CASCADE: DBUPDELRULEENUM = DBUPDELRULEENUM(1i32);
 pub const DBUPDELRULE_SETNULL: DBUPDELRULEENUM = DBUPDELRULEENUM(2i32);
 pub const DBUPDELRULE_SETDEFAULT: DBUPDELRULEENUM = DBUPDELRULEENUM(3i32);
+impl ::core::marker::Copy for DBUPDELRULEENUM {}
+impl ::core::clone::Clone for DBUPDELRULEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBVECTOR {
@@ -2599,11 +3145,23 @@ pub const DBWATCHMODE_ALL: DBWATCHMODEENUM = DBWATCHMODEENUM(1i32);
 pub const DBWATCHMODE_EXTEND: DBWATCHMODEENUM = DBWATCHMODEENUM(2i32);
 pub const DBWATCHMODE_MOVE: DBWATCHMODEENUM = DBWATCHMODEENUM(4i32);
 pub const DBWATCHMODE_COUNT: DBWATCHMODEENUM = DBWATCHMODEENUM(8i32);
+impl ::core::marker::Copy for DBWATCHMODEENUM {}
+impl ::core::clone::Clone for DBWATCHMODEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBWATCHNOTIFYENUM(pub i32);
 pub const DBWATCHNOTIFY_ROWSCHANGED: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(1i32);
 pub const DBWATCHNOTIFY_QUERYDONE: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(2i32);
 pub const DBWATCHNOTIFY_QUERYREEXECUTED: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(3i32);
+impl ::core::marker::Copy for DBWATCHNOTIFYENUM {}
+impl ::core::clone::Clone for DBWATCHNOTIFYENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DB_ALL_EXCEPT_LIKE: u32 = 3u32;
 pub const DB_BINDFLAGS_COLLECTION: i32 = 16i32;
 pub const DB_BINDFLAGS_DELAYFETCHCOLUMNS: i32 = 1i32;
@@ -2855,11 +3413,23 @@ impl ::core::clone::Clone for DCINFO {
 #[repr(transparent)]
 pub struct DCINFOTYPEENUM(pub i32);
 pub const DCINFOTYPE_VERSION: DCINFOTYPEENUM = DCINFOTYPEENUM(1i32);
+impl ::core::marker::Copy for DCINFOTYPEENUM {}
+impl ::core::clone::Clone for DCINFOTYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DELIVERY_AGENT_FLAGS(pub i32);
 pub const DELIVERY_AGENT_FLAG_NO_BROADCAST: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(4i32);
 pub const DELIVERY_AGENT_FLAG_NO_RESTRICTIONS: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(8i32);
 pub const DELIVERY_AGENT_FLAG_SILENT_DIAL: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(16i32);
+impl ::core::marker::Copy for DELIVERY_AGENT_FLAGS {}
+impl ::core::clone::Clone for DELIVERY_AGENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DISPID_QUERY_ALL: u32 = 6u32;
 pub const DISPID_QUERY_HITCOUNT: u32 = 4u32;
 pub const DISPID_QUERY_LASTSEENTIME: u32 = 10u32;
@@ -2922,6 +3492,12 @@ pub struct DataSourceObject(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EBindInfoOptions(pub i32);
 pub const BIO_BINDER: EBindInfoOptions = EBindInfoOptions(1i32);
+impl ::core::marker::Copy for EBindInfoOptions {}
+impl ::core::clone::Clone for EBindInfoOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct ERRORINFO {
@@ -3202,6 +3778,12 @@ pub const FLTRDMN_E_UNEXPECTED: i32 = -2147212287i32;
 pub struct FOLLOW_FLAGS(pub i32);
 pub const FF_INDEXCOMPLEXURLS: FOLLOW_FLAGS = FOLLOW_FLAGS(1i32);
 pub const FF_SUPPRESSINDEXING: FOLLOW_FLAGS = FOLLOW_FLAGS(2i32);
+impl ::core::marker::Copy for FOLLOW_FLAGS {}
+impl ::core::clone::Clone for FOLLOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FTE_E_ADMIN_BLOB_CORRUPT: i32 = -2147207676i32;
 pub const FTE_E_AFFINITY_MASK: i32 = -2147207651i32;
 pub const FTE_E_ALREADY_INITIALIZED: i32 = -2147207604i32;
@@ -3664,6 +4246,12 @@ pub const ILK_EXPLICIT_INCLUDED: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(0i32)
 pub const ILK_EXPLICIT_EXCLUDED: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(1i32);
 pub const ILK_NEGATIVE_INFINITY: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(2i32);
 pub const ILK_POSITIVE_INFINITY: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(3i32);
+impl ::core::marker::Copy for INTERVAL_LIMIT_KIND {}
+impl ::core::clone::Clone for INTERVAL_LIMIT_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INamedEntity(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -4007,11 +4595,23 @@ impl ::core::clone::Clone for KAGREQDIAG {
 pub struct KAGREQDIAGFLAGSENUM(pub i32);
 pub const KAGREQDIAGFLAGS_HEADER: KAGREQDIAGFLAGSENUM = KAGREQDIAGFLAGSENUM(1i32);
 pub const KAGREQDIAGFLAGS_RECORD: KAGREQDIAGFLAGSENUM = KAGREQDIAGFLAGSENUM(2i32);
+impl ::core::marker::Copy for KAGREQDIAGFLAGSENUM {}
+impl ::core::clone::Clone for KAGREQDIAGFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LOCKMODEENUM(pub i32);
 pub const LOCKMODE_INVALID: LOCKMODEENUM = LOCKMODEENUM(0i32);
 pub const LOCKMODE_EXCLUSIVE: LOCKMODEENUM = LOCKMODEENUM(1i32);
 pub const LOCKMODE_SHARED: LOCKMODEENUM = LOCKMODEENUM(2i32);
+impl ::core::marker::Copy for LOCKMODEENUM {}
+impl ::core::clone::Clone for LOCKMODEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LeafCondition: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1391549577,
     data2: 23063,
@@ -4235,9 +4835,21 @@ pub const MSDAORA_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1
 #[repr(transparent)]
 pub struct MSDSDBINITPROPENUM(pub i32);
 pub const DBPROP_MSDS_DBINIT_DATAPROVIDER: MSDSDBINITPROPENUM = MSDSDBINITPROPENUM(2i32);
+impl ::core::marker::Copy for MSDSDBINITPROPENUM {}
+impl ::core::clone::Clone for MSDSDBINITPROPENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSDSSESSIONPROPENUM(pub i32);
 pub const DBPROP_MSDS_SESS_UNIQUENAMES: MSDSSESSIONPROPENUM = MSDSSESSIONPROPENUM(2i32);
+impl ::core::marker::Copy for MSDSSESSIONPROPENUM {}
+impl ::core::clone::Clone for MSDSSESSIONPROPENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MSG_CI_CORRUPT_INDEX_COMPONENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1073745962i32 as _);
 pub const MSG_CI_CREATE_SEVER_ITEM_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147479480i32 as _);
 pub const MSG_CI_MASTER_MERGE_ABORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1073745928i32 as _);
@@ -4264,6 +4876,12 @@ pub struct NAMED_ENTITY_CERTAINTY(pub i32);
 pub const NEC_LOW: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(0i32);
 pub const NEC_MEDIUM: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(1i32);
 pub const NEC_HIGH: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(2i32);
+impl ::core::marker::Copy for NAMED_ENTITY_CERTAINTY {}
+impl ::core::clone::Clone for NAMED_ENTITY_CERTAINTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct NATLANGUAGERESTRICTION {
@@ -4430,29 +5048,59 @@ pub const OSPCOMP_LE: OSPCOMP = OSPCOMP(3i32);
 pub const OSPCOMP_GE: OSPCOMP = OSPCOMP(4i32);
 pub const OSPCOMP_GT: OSPCOMP = OSPCOMP(5i32);
 pub const OSPCOMP_NE: OSPCOMP = OSPCOMP(6i32);
+impl ::core::marker::Copy for OSPCOMP {}
+impl ::core::clone::Clone for OSPCOMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OSPFIND(pub i32);
 pub const OSPFIND_DEFAULT: OSPFIND = OSPFIND(0i32);
 pub const OSPFIND_UP: OSPFIND = OSPFIND(1i32);
 pub const OSPFIND_CASESENSITIVE: OSPFIND = OSPFIND(2i32);
 pub const OSPFIND_UPCASESENSITIVE: OSPFIND = OSPFIND(3i32);
+impl ::core::marker::Copy for OSPFIND {}
+impl ::core::clone::Clone for OSPFIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OSPFORMAT(pub i32);
 pub const OSPFORMAT_RAW: OSPFORMAT = OSPFORMAT(0i32);
 pub const OSPFORMAT_DEFAULT: OSPFORMAT = OSPFORMAT(0i32);
 pub const OSPFORMAT_FORMATTED: OSPFORMAT = OSPFORMAT(1i32);
 pub const OSPFORMAT_HTML: OSPFORMAT = OSPFORMAT(2i32);
+impl ::core::marker::Copy for OSPFORMAT {}
+impl ::core::clone::Clone for OSPFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OSPRW(pub i32);
 pub const OSPRW_DEFAULT: OSPRW = OSPRW(1i32);
 pub const OSPRW_READONLY: OSPRW = OSPRW(0i32);
 pub const OSPRW_READWRITE: OSPRW = OSPRW(1i32);
 pub const OSPRW_MIXED: OSPRW = OSPRW(2i32);
+impl ::core::marker::Copy for OSPRW {}
+impl ::core::clone::Clone for OSPRW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OSPXFER(pub i32);
 pub const OSPXFER_COMPLETE: OSPXFER = OSPXFER(0i32);
 pub const OSPXFER_ABORT: OSPXFER = OSPXFER(1i32);
 pub const OSPXFER_ERROR: OSPXFER = OSPXFER(2i32);
+impl ::core::marker::Copy for OSPXFER {}
+impl ::core::clone::Clone for OSPXFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OSP_IndexLabel: u32 = 0u32;
 pub const PDPO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3434409056, data2: 47580, data3: 4561, data4: [172, 128, 0, 160, 201, 3, 72, 115] };
 pub const PEOPLE_IMPORT_E_CANONICALURL_TOOLONG: i32 = -2147205110i32;
@@ -4482,12 +5130,24 @@ pub const PRAny: u32 = 512u32;
 pub struct PRIORITIZE_FLAGS(pub i32);
 pub const PRIORITIZE_FLAG_RETRYFAILEDITEMS: PRIORITIZE_FLAGS = PRIORITIZE_FLAGS(1i32);
 pub const PRIORITIZE_FLAG_IGNOREFAILURECOUNT: PRIORITIZE_FLAGS = PRIORITIZE_FLAGS(2i32);
+impl ::core::marker::Copy for PRIORITIZE_FLAGS {}
+impl ::core::clone::Clone for PRIORITIZE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PRIORITY_LEVEL(pub i32);
 pub const PRIORITY_LEVEL_FOREGROUND: PRIORITY_LEVEL = PRIORITY_LEVEL(0i32);
 pub const PRIORITY_LEVEL_HIGH: PRIORITY_LEVEL = PRIORITY_LEVEL(1i32);
 pub const PRIORITY_LEVEL_LOW: PRIORITY_LEVEL = PRIORITY_LEVEL(2i32);
 pub const PRIORITY_LEVEL_DEFAULT: PRIORITY_LEVEL = PRIORITY_LEVEL(3i32);
+impl ::core::marker::Copy for PRIORITY_LEVEL {}
+impl ::core::clone::Clone for PRIORITY_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROGID_MSPersist_Version_W: &'static str = "MSPersist.1";
 pub const PROGID_MSPersist_W: &'static str = "MSPersist";
 #[repr(C)]
@@ -4513,6 +5173,12 @@ pub struct PROXY_ACCESS(pub i32);
 pub const PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = PROXY_ACCESS(0i32);
 pub const PROXY_ACCESS_DIRECT: PROXY_ACCESS = PROXY_ACCESS(1i32);
 pub const PROXY_ACCESS_PROXY: PROXY_ACCESS = PROXY_ACCESS(2i32);
+impl ::core::marker::Copy for PROXY_ACCESS {}
+impl ::core::clone::Clone for PROXY_ACCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROXY_INFO {
@@ -4608,6 +5274,12 @@ pub const QPMO_UNLOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = QUE
 pub const QPMO_LOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = QUERY_PARSER_MANAGER_OPTION(3i32);
 pub const QPMO_APPEND_LCID_TO_LOCALIZED_PATH: QUERY_PARSER_MANAGER_OPTION = QUERY_PARSER_MANAGER_OPTION(4i32);
 pub const QPMO_LOCALIZER_SUPPORT: QUERY_PARSER_MANAGER_OPTION = QUERY_PARSER_MANAGER_OPTION(5i32);
+impl ::core::marker::Copy for QUERY_PARSER_MANAGER_OPTION {}
+impl ::core::clone::Clone for QUERY_PARSER_MANAGER_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QUERY_SORTDEFAULT: u32 = 4u32;
 pub const QUERY_SORTXASCEND: u32 = 2u32;
 pub const QUERY_SORTXDESCEND: u32 = 3u32;
@@ -4734,11 +5406,23 @@ pub struct ROWSETEVENT_ITEMSTATE(pub i32);
 pub const ROWSETEVENT_ITEMSTATE_NOTINROWSET: ROWSETEVENT_ITEMSTATE = ROWSETEVENT_ITEMSTATE(0i32);
 pub const ROWSETEVENT_ITEMSTATE_INROWSET: ROWSETEVENT_ITEMSTATE = ROWSETEVENT_ITEMSTATE(1i32);
 pub const ROWSETEVENT_ITEMSTATE_UNKNOWN: ROWSETEVENT_ITEMSTATE = ROWSETEVENT_ITEMSTATE(2i32);
+impl ::core::marker::Copy for ROWSETEVENT_ITEMSTATE {}
+impl ::core::clone::Clone for ROWSETEVENT_ITEMSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ROWSETEVENT_TYPE(pub i32);
 pub const ROWSETEVENT_TYPE_DATAEXPIRED: ROWSETEVENT_TYPE = ROWSETEVENT_TYPE(0i32);
 pub const ROWSETEVENT_TYPE_FOREGROUNDLOST: ROWSETEVENT_TYPE = ROWSETEVENT_TYPE(1i32);
 pub const ROWSETEVENT_TYPE_SCOPESTATISTICS: ROWSETEVENT_TYPE = ROWSETEVENT_TYPE(2i32);
+impl ::core::marker::Copy for ROWSETEVENT_TYPE {}
+impl ::core::clone::Clone for ROWSETEVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RS_COMPLETED: u32 = 2147483648u32;
 pub const RS_MAYBOTHERUSER: u32 = 131072u32;
 pub const RS_READY: u32 = 1u32;
@@ -4803,6 +5487,12 @@ pub struct SEARCH_INDEXING_PHASE(pub i32);
 pub const SEARCH_INDEXING_PHASE_GATHERER: SEARCH_INDEXING_PHASE = SEARCH_INDEXING_PHASE(0i32);
 pub const SEARCH_INDEXING_PHASE_QUERYABLE: SEARCH_INDEXING_PHASE = SEARCH_INDEXING_PHASE(1i32);
 pub const SEARCH_INDEXING_PHASE_PERSISTED: SEARCH_INDEXING_PHASE = SEARCH_INDEXING_PHASE(2i32);
+impl ::core::marker::Copy for SEARCH_INDEXING_PHASE {}
+impl ::core::clone::Clone for SEARCH_INDEXING_PHASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SEARCH_ITEM_CHANGE {
@@ -4856,20 +5546,44 @@ pub const SEARCH_CHANGE_MOVE_RENAME: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHAN
 pub const SEARCH_CHANGE_SEMANTICS_DIRECTORY: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(262144i32);
 pub const SEARCH_CHANGE_SEMANTICS_SHALLOW: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(524288i32);
 pub const SEARCH_CHANGE_SEMANTICS_UPDATE_SECURITY: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(4194304i32);
+impl ::core::marker::Copy for SEARCH_KIND_OF_CHANGE {}
+impl ::core::clone::Clone for SEARCH_KIND_OF_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SEARCH_NOTIFICATION_PRIORITY(pub i32);
 pub const SEARCH_NORMAL_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = SEARCH_NOTIFICATION_PRIORITY(0i32);
 pub const SEARCH_HIGH_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = SEARCH_NOTIFICATION_PRIORITY(1i32);
+impl ::core::marker::Copy for SEARCH_NOTIFICATION_PRIORITY {}
+impl ::core::clone::Clone for SEARCH_NOTIFICATION_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SEARCH_QUERY_SYNTAX(pub i32);
 pub const SEARCH_NO_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = SEARCH_QUERY_SYNTAX(0i32);
 pub const SEARCH_ADVANCED_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = SEARCH_QUERY_SYNTAX(1i32);
 pub const SEARCH_NATURAL_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = SEARCH_QUERY_SYNTAX(2i32);
+impl ::core::marker::Copy for SEARCH_QUERY_SYNTAX {}
+impl ::core::clone::Clone for SEARCH_QUERY_SYNTAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SEARCH_TERM_EXPANSION(pub i32);
 pub const SEARCH_TERM_NO_EXPANSION: SEARCH_TERM_EXPANSION = SEARCH_TERM_EXPANSION(0i32);
 pub const SEARCH_TERM_PREFIX_ALL: SEARCH_TERM_EXPANSION = SEARCH_TERM_EXPANSION(1i32);
 pub const SEARCH_TERM_STEM_ALL: SEARCH_TERM_EXPANSION = SEARCH_TERM_EXPANSION(2i32);
+impl ::core::marker::Copy for SEARCH_TERM_EXPANSION {}
+impl ::core::clone::Clone for SEARCH_TERM_EXPANSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SEC_E_ACCESSDENIED: i32 = -2147216129i32;
 pub const SEC_E_BADTRUSTEEID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217814i32 as _);
 pub const SEC_E_INITFAILED: i32 = -2147216383i32;
@@ -5029,6 +5743,12 @@ pub const SQL_IS_DAY_TO_SECOND: SQLINTERVAL = SQLINTERVAL(10i32);
 pub const SQL_IS_HOUR_TO_MINUTE: SQLINTERVAL = SQLINTERVAL(11i32);
 pub const SQL_IS_HOUR_TO_SECOND: SQLINTERVAL = SQLINTERVAL(12i32);
 pub const SQL_IS_MINUTE_TO_SECOND: SQLINTERVAL = SQLINTERVAL(13i32);
+impl ::core::marker::Copy for SQLINTERVAL {}
+impl ::core::clone::Clone for SQLINTERVAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SQLINTN: u32 = 38u32;
 pub const SQLMONEY: u32 = 60u32;
 pub const SQLMONEY4: u32 = 122u32;
@@ -5067,6 +5787,12 @@ pub const VT_SS_SMALLDATETIME: SQLVARENUM = SQLVARENUM(206i32);
 pub const VT_SS_BINARY: SQLVARENUM = SQLVARENUM(207i32);
 pub const VT_SS_VARBINARY: SQLVARENUM = SQLVARENUM(208i32);
 pub const VT_SS_UNKNOWN: SQLVARENUM = SQLVARENUM(209i32);
+impl ::core::marker::Copy for SQLVARENUM {}
+impl ::core::clone::Clone for SQLVARENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SQLVARIANT: u32 = 98u32;
 pub const SQL_AA_FALSE: i32 = 0i32;
 pub const SQL_AA_TRUE: i32 = 1i32;
@@ -6874,6 +7600,12 @@ pub const SQMO_VIRTUAL_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = STRUCTURED_QUERY
 pub const SQMO_DEFAULT_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = STRUCTURED_QUERY_MULTIOPTION(1i32);
 pub const SQMO_GENERATOR_FOR_TYPE: STRUCTURED_QUERY_MULTIOPTION = STRUCTURED_QUERY_MULTIOPTION(2i32);
 pub const SQMO_MAP_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = STRUCTURED_QUERY_MULTIOPTION(3i32);
+impl ::core::marker::Copy for STRUCTURED_QUERY_MULTIOPTION {}
+impl ::core::clone::Clone for STRUCTURED_QUERY_MULTIOPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STRUCTURED_QUERY_PARSE_ERROR(pub i32);
 pub const SQPE_NONE: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY_PARSE_ERROR(0i32);
@@ -6883,6 +7615,12 @@ pub const SQPE_IGNORED_MODIFIER: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY
 pub const SQPE_IGNORED_CONNECTOR: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY_PARSE_ERROR(4i32);
 pub const SQPE_IGNORED_KEYWORD: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY_PARSE_ERROR(5i32);
 pub const SQPE_UNHANDLED: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY_PARSE_ERROR(6i32);
+impl ::core::marker::Copy for STRUCTURED_QUERY_PARSE_ERROR {}
+impl ::core::clone::Clone for STRUCTURED_QUERY_PARSE_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STRUCTURED_QUERY_RESOLVE_OPTION(pub u32);
 pub const SQRO_DEFAULT: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(0u32);
@@ -6896,6 +7634,12 @@ pub const SQRO_DONT_SPLIT_WORDS: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QU
 pub const SQRO_IGNORE_PHRASE_ORDER: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(128u32);
 pub const SQRO_ADD_VALUE_TYPE_FOR_PLAIN_VALUES: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(256u32);
 pub const SQRO_ADD_ROBUST_ITEM_NAME: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(512u32);
+impl ::core::marker::Copy for STRUCTURED_QUERY_RESOLVE_OPTION {}
+impl ::core::clone::Clone for STRUCTURED_QUERY_RESOLVE_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STRUCTURED_QUERY_SINGLE_OPTION(pub i32);
 pub const SQSO_SCHEMA: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(0i32);
@@ -6909,11 +7653,23 @@ pub const SQSO_SYNTAX: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_
 pub const SQSO_TIME_ZONE: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(8i32);
 pub const SQSO_IMPLICIT_CONNECTOR: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(9i32);
 pub const SQSO_CONNECTOR_CASE: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(10i32);
+impl ::core::marker::Copy for STRUCTURED_QUERY_SINGLE_OPTION {}
+impl ::core::clone::Clone for STRUCTURED_QUERY_SINGLE_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STRUCTURED_QUERY_SYNTAX(pub i32);
 pub const SQS_NO_SYNTAX: STRUCTURED_QUERY_SYNTAX = STRUCTURED_QUERY_SYNTAX(0i32);
 pub const SQS_ADVANCED_QUERY_SYNTAX: STRUCTURED_QUERY_SYNTAX = STRUCTURED_QUERY_SYNTAX(1i32);
 pub const SQS_NATURAL_QUERY_SYNTAX: STRUCTURED_QUERY_SYNTAX = STRUCTURED_QUERY_SYNTAX(2i32);
+impl ::core::marker::Copy for STRUCTURED_QUERY_SYNTAX {}
+impl ::core::clone::Clone for STRUCTURED_QUERY_SYNTAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STS_ABORTXMLPARSE: i32 = -2147211756i32;
 pub const STS_WS_ERROR: i32 = -2147211754i32;
 #[repr(C)]
@@ -6963,6 +7719,12 @@ pub const SUBSINFO_CHANNELFLAGS: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(2
 pub const SUBSINFO_FRIENDLYNAME: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(8192i32);
 pub const SUBSINFO_NEEDPASSWORD: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(16384i32);
 pub const SUBSINFO_TYPE: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(32768i32);
+impl ::core::marker::Copy for SUBSCRIPTIONINFOFLAGS {}
+impl ::core::clone::Clone for SUBSCRIPTIONINFOFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SUBSCRIPTIONITEMINFO {
     pub cbSize: u32,
@@ -6984,6 +7746,12 @@ pub const SUBSSCHED_DAILY: SUBSCRIPTIONSCHEDULE = SUBSCRIPTIONSCHEDULE(1i32);
 pub const SUBSSCHED_WEEKLY: SUBSCRIPTIONSCHEDULE = SUBSCRIPTIONSCHEDULE(2i32);
 pub const SUBSSCHED_CUSTOM: SUBSCRIPTIONSCHEDULE = SUBSCRIPTIONSCHEDULE(3i32);
 pub const SUBSSCHED_MANUAL: SUBSCRIPTIONSCHEDULE = SUBSCRIPTIONSCHEDULE(4i32);
+impl ::core::marker::Copy for SUBSCRIPTIONSCHEDULE {}
+impl ::core::clone::Clone for SUBSCRIPTIONSCHEDULE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SUBSCRIPTIONTYPE(pub i32);
 pub const SUBSTYPE_URL: SUBSCRIPTIONTYPE = SUBSCRIPTIONTYPE(0i32);
@@ -6991,6 +7759,12 @@ pub const SUBSTYPE_CHANNEL: SUBSCRIPTIONTYPE = SUBSCRIPTIONTYPE(1i32);
 pub const SUBSTYPE_DESKTOPURL: SUBSCRIPTIONTYPE = SUBSCRIPTIONTYPE(2i32);
 pub const SUBSTYPE_EXTERNAL: SUBSCRIPTIONTYPE = SUBSCRIPTIONTYPE(3i32);
 pub const SUBSTYPE_DESKTOPCHANNEL: SUBSCRIPTIONTYPE = SUBSCRIPTIONTYPE(4i32);
+impl ::core::marker::Copy for SUBSCRIPTIONTYPE {}
+impl ::core::clone::Clone for SUBSCRIPTIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SUBSINFO_ALLFLAGS: u32 = 61311u32;
 pub const SUBSMGRENUM_MASK: u32 = 1u32;
 pub const SUBSMGRENUM_TEMP: u32 = 1u32;
@@ -7083,6 +7857,12 @@ pub const WEBCRAWL_GET_CONTROLS: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(1
 pub const WEBCRAWL_LINKS_ELSEWHERE: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(32i32);
 pub const WEBCRAWL_IGNORE_ROBOTSTXT: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(128i32);
 pub const WEBCRAWL_ONLY_LINKS_TO_HTML: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(256i32);
+impl ::core::marker::Copy for WEBCRAWL_RECURSEFLAGS {}
+impl ::core::clone::Clone for WEBCRAWL_RECURSEFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const XML_E_BADSXQL: i32 = -2147212799i32;
 pub const XML_E_NODEFAULTNS: i32 = -2147212800i32;
 pub const _MAPI_E_ACCOUNT_DISABLED: i32 = -2147221212i32;

@@ -705,6 +705,12 @@ pub const AddrMode1616: ADDRESS_MODE = ADDRESS_MODE(0i32);
 pub const AddrMode1632: ADDRESS_MODE = ADDRESS_MODE(1i32);
 pub const AddrModeReal: ADDRESS_MODE = ADDRESS_MODE(2i32);
 pub const AddrModeFlat: ADDRESS_MODE = ADDRESS_MODE(3i32);
+impl ::core::marker::Copy for ADDRESS_MODE {}
+impl ::core::clone::Clone for ADDRESS_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: u32 = 11u32;
 #[repr(C, packed(1))]
 pub union AER_BRIDGE_DESCRIPTOR_FLAGS {
@@ -794,6 +800,12 @@ pub struct APPLICATION_NODE_EVENT_FILTER(pub i32);
 pub const FILTER_EXCLUDE_NOTHING: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(0i32);
 pub const FILTER_EXCLUDE_ANONYMOUS_CODE: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(1i32);
 pub const FILTER_EXCLUDE_EVAL_CODE: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(2i32);
+impl ::core::marker::Copy for APPLICATION_NODE_EVENT_FILTER {}
+impl ::core::clone::Clone for APPLICATION_NODE_EVENT_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 pub struct ARM64_NT_CONTEXT {
@@ -921,6 +933,12 @@ pub struct BREAKPOINT_STATE(pub i32);
 pub const BREAKPOINT_DELETED: BREAKPOINT_STATE = BREAKPOINT_STATE(0i32);
 pub const BREAKPOINT_DISABLED: BREAKPOINT_STATE = BREAKPOINT_STATE(1i32);
 pub const BREAKPOINT_ENABLED: BREAKPOINT_STATE = BREAKPOINT_STATE(2i32);
+impl ::core::marker::Copy for BREAKPOINT_STATE {}
+impl ::core::clone::Clone for BREAKPOINT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BREAKREASON(pub i32);
 pub const BREAKREASON_STEP: BREAKREASON = BREAKREASON(0i32);
@@ -932,6 +950,12 @@ pub const BREAKREASON_DEBUGGER_HALT: BREAKREASON = BREAKREASON(5i32);
 pub const BREAKREASON_ERROR: BREAKREASON = BREAKREASON(6i32);
 pub const BREAKREASON_JIT: BREAKREASON = BREAKREASON(7i32);
 pub const BREAKREASON_MUTATION_BREAKPOINT: BREAKREASON = BREAKREASON(8i32);
+impl ::core::marker::Copy for BREAKREASON {}
+impl ::core::clone::Clone for BREAKREASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BREAKRESUME_ACTION(pub i32);
 pub const BREAKRESUMEACTION_ABORT: BREAKRESUME_ACTION = BREAKRESUME_ACTION(0i32);
@@ -941,6 +965,12 @@ pub const BREAKRESUMEACTION_STEP_OVER: BREAKRESUME_ACTION = BREAKRESUME_ACTION(3
 pub const BREAKRESUMEACTION_STEP_OUT: BREAKRESUME_ACTION = BREAKRESUME_ACTION(4i32);
 pub const BREAKRESUMEACTION_IGNORE: BREAKRESUME_ACTION = BREAKRESUME_ACTION(5i32);
 pub const BREAKRESUMEACTION_STEP_DOCUMENT: BREAKRESUME_ACTION = BREAKRESUME_ACTION(6i32);
+impl ::core::marker::Copy for BREAKRESUME_ACTION {}
+impl ::core::clone::Clone for BREAKRESUME_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BUGCHECK_ERROR(pub u32);
 pub const HARDWARE_PROFILE_UNDOCKED_STRING: BUGCHECK_ERROR = BUGCHECK_ERROR(1073807361u32);
@@ -1460,6 +1490,12 @@ pub const HYPERVISOR_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(131073u32);
 pub const WINLOGON_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(3221226010u32);
 pub const MANUALLY_INITIATED_CRASH1: BUGCHECK_ERROR = BUGCHECK_ERROR(3735936685u32);
 pub const BUGCHECK_CONTEXT_MODIFIER: BUGCHECK_ERROR = BUGCHECK_ERROR(2147483648u32);
+impl ::core::marker::Copy for BUGCHECK_ERROR {}
+impl ::core::clone::Clone for BUGCHECK_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CANNOT_ALLOCATE_MEMORY: u32 = 9u32;
 pub const CATID_ActiveScript: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4038566305, data2: 38983, data3: 4559, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
 pub const CATID_ActiveScriptAuthor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 183380626, data2: 48315, data3: 4560, data4: [140, 114, 0, 192, 79, 194, 176, 133] };
@@ -1810,6 +1846,12 @@ pub const CallingConventionFastCall: CallingConventionKind = CallingConventionKi
 pub const CallingConventionStdCall: CallingConventionKind = CallingConventionKind(3i32);
 pub const CallingConventionSysCall: CallingConventionKind = CallingConventionKind(4i32);
 pub const CallingConventionThisCall: CallingConventionKind = CallingConventionKind(5i32);
+impl ::core::marker::Copy for CallingConventionKind {}
+impl ::core::clone::Clone for CallingConventionKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DBGHELP_DATA_REPORT_STRUCT {
@@ -1914,6 +1956,12 @@ pub const DBGKD_MAJOR_HYPERVISOR: DBGKD_MAJOR_TYPES = DBGKD_MAJOR_TYPES(8i32);
 pub const DBGKD_MAJOR_MIDORI: DBGKD_MAJOR_TYPES = DBGKD_MAJOR_TYPES(9i32);
 pub const DBGKD_MAJOR_CE: DBGKD_MAJOR_TYPES = DBGKD_MAJOR_TYPES(10i32);
 pub const DBGKD_MAJOR_COUNT: DBGKD_MAJOR_TYPES = DBGKD_MAJOR_TYPES(11i32);
+impl ::core::marker::Copy for DBGKD_MAJOR_TYPES {}
+impl ::core::clone::Clone for DBGKD_MAJOR_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DBGKD_SIMULATION_EXDI: i32 = 1i32;
 pub const DBGKD_SIMULATION_NONE: i32 = 0i32;
 pub const DBGKD_VERS_FLAG_DATA: u32 = 2u32;
@@ -1950,6 +1998,12 @@ pub const DBGPROP_ATTRIB_FRAME_INCATCHBLOCK: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTR
 pub const DBGPROP_ATTRIB_FRAME_INFINALLYBLOCK: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(67108864u32);
 pub const DBGPROP_ATTRIB_VALUE_IS_RETURN_VALUE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(134217728u32);
 pub const DBGPROP_ATTRIB_VALUE_PENDING_MUTATION: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(268435456u32);
+impl ::core::marker::Copy for DBGPROP_ATTRIB_FLAGS {}
+impl ::core::clone::Clone for DBGPROP_ATTRIB_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBGPROP_INFO(pub u32);
 pub const DBGPROP_INFO_NAME: DBGPROP_INFO = DBGPROP_INFO(1u32);
@@ -1961,6 +2015,12 @@ pub const DBGPROP_INFO_DEBUGPROP: DBGPROP_INFO = DBGPROP_INFO(16u32);
 pub const DBGPROP_INFO_BEAUTIFY: DBGPROP_INFO = DBGPROP_INFO(33554432u32);
 pub const DBGPROP_INFO_CALLTOSTRING: DBGPROP_INFO = DBGPROP_INFO(67108864u32);
 pub const DBGPROP_INFO_AUTOEXPAND: DBGPROP_INFO = DBGPROP_INFO(134217728u32);
+impl ::core::marker::Copy for DBGPROP_INFO {}
+impl ::core::clone::Clone for DBGPROP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DBG_DUMP_ADDRESS_AT_END: u32 = 131072u32;
 pub const DBG_DUMP_ADDRESS_OF_FIELD: u32 = 65536u32;
 pub const DBG_DUMP_ARRAY: u32 = 32768u32;
@@ -2389,6 +2449,12 @@ pub const LOAD_DLL_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(6u32);
 pub const OUTPUT_DEBUG_STRING_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(8u32);
 pub const RIP_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(9u32);
 pub const UNLOAD_DLL_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(7u32);
+impl ::core::marker::Copy for DEBUG_EVENT_CODE {}
+impl ::core::clone::Clone for DEBUG_EVENT_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DEBUG_EVENT_CONTEXT {
     pub Size: u32,
@@ -2413,6 +2479,12 @@ pub const DEIT_GENERAL: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(0i32);
 pub const DEIT_ASMJS_IN_DEBUGGING: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(1i32);
 pub const DEIT_ASMJS_SUCCEEDED: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(2i32);
 pub const DEIT_ASMJS_FAILED: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(3i32);
+impl ::core::marker::Copy for DEBUG_EVENT_INFO_TYPE {}
+impl ::core::clone::Clone for DEBUG_EVENT_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEBUG_EVENT_LOAD_MODULE: u32 = 64u32;
 pub const DEBUG_EVENT_SERVICE_EXCEPTION: u32 = 8192u32;
 pub const DEBUG_EVENT_SESSION_STATUS: u32 = 512u32;
@@ -3059,6 +3131,12 @@ pub struct DEBUG_STACKFRAME_TYPE(pub i32);
 pub const DST_SCRIPT_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(0i32);
 pub const DST_INTERNAL_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(1i32);
 pub const DST_INVOCATION_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(2i32);
+impl ::core::marker::Copy for DEBUG_STACKFRAME_TYPE {}
+impl ::core::clone::Clone for DEBUG_STACKFRAME_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEBUG_STACK_ARGUMENTS: u32 = 1u32;
 pub const DEBUG_STACK_COLUMN_NAMES: u32 = 16u32;
 pub const DEBUG_STACK_DML: u32 = 2048u32;
@@ -3473,6 +3551,12 @@ pub const DOCUMENTNAMETYPE_FILE_TAIL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(2i32);
 pub const DOCUMENTNAMETYPE_URL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(3i32);
 pub const DOCUMENTNAMETYPE_UNIQUE_TITLE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(4i32);
 pub const DOCUMENTNAMETYPE_SOURCE_MAP_URL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(5i32);
+impl ::core::marker::Copy for DOCUMENTNAMETYPE {}
+impl ::core::clone::Clone for DOCUMENTNAMETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSLFLAG_MISMATCHED_DBG: u32 = 2u32;
 pub const DSLFLAG_MISMATCHED_PDB: u32 = 1u32;
 #[repr(C)]
@@ -3683,6 +3767,12 @@ pub struct ERRORRESUMEACTION(pub i32);
 pub const ERRORRESUMEACTION_ReexecuteErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(0i32);
 pub const ERRORRESUMEACTION_AbortCallAndReturnErrorToCaller: ERRORRESUMEACTION = ERRORRESUMEACTION(1i32);
 pub const ERRORRESUMEACTION_SkipErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(2i32);
+impl ::core::marker::Copy for ERRORRESUMEACTION {}
+impl ::core::clone::Clone for ERRORRESUMEACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ERROR_DBG_CANCELLED: u32 = 3221226695u32;
 pub const ERROR_DBG_TIMEOUT: u32 = 3221226932u32;
 pub const ERROR_IMAGE_NOT_STRIPPED: u32 = 34816u32;
@@ -3923,6 +4013,12 @@ pub const EXT_TDOP_GET_POINTER_TO: EXT_TDOP = EXT_TDOP(16i32);
 pub const EXT_TDOP_SET_FROM_TYPE_ID_AND_U64: EXT_TDOP = EXT_TDOP(17i32);
 pub const EXT_TDOP_SET_PTR_FROM_TYPE_ID_AND_U64: EXT_TDOP = EXT_TDOP(18i32);
 pub const EXT_TDOP_COUNT: EXT_TDOP = EXT_TDOP(19i32);
+impl ::core::marker::Copy for EXT_TDOP {}
+impl ::core::clone::Clone for EXT_TDOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct EXT_TYPED_DATA {
     pub Operation: EXT_TDOP,
@@ -3956,6 +4052,12 @@ pub const EX_PROP_INFO_NTYPE: EX_PROP_INFO_FLAGS = EX_PROP_INFO_FLAGS(512i32);
 pub const EX_PROP_INFO_NVALUE: EX_PROP_INFO_FLAGS = EX_PROP_INFO_FLAGS(1024i32);
 pub const EX_PROP_INFO_LOCKBYTES: EX_PROP_INFO_FLAGS = EX_PROP_INFO_FLAGS(2048i32);
 pub const EX_PROP_INFO_DEBUGEXTPROP: EX_PROP_INFO_FLAGS = EX_PROP_INFO_FLAGS(4096i32);
+impl ::core::marker::Copy for EX_PROP_INFO_FLAGS {}
+impl ::core::clone::Clone for EX_PROP_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const E_JsDEBUG_INVALID_MEMORY_ADDRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1916338171i32 as _);
 pub const E_JsDEBUG_MISMATCHED_RUNTIME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1916338175i32 as _);
 pub const E_JsDEBUG_OUTSIDE_OF_VM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1916338172i32 as _);
@@ -3966,6 +4068,12 @@ pub const E_JsDEBUG_UNKNOWN_THREAD: ::windows_sys::core::HRESULT = ::windows_sys
 pub struct ErrorClass(pub i32);
 pub const ErrorClassWarning: ErrorClass = ErrorClass(0i32);
 pub const ErrorClassError: ErrorClass = ErrorClass(1i32);
+impl ::core::marker::Copy for ErrorClass {}
+impl ::core::clone::Clone for ErrorClass {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct ExtendedDebugPropertyInfo {
@@ -4145,6 +4253,12 @@ pub const FACILITY_XBOX: FACILITY_CODE = FACILITY_CODE(2339u32);
 pub const FACILITY_GAME: FACILITY_CODE = FACILITY_CODE(2340u32);
 pub const FACILITY_PIX: FACILITY_CODE = FACILITY_CODE(2748u32);
 pub const FACILITY_NT_BIT: FACILITY_CODE = FACILITY_CODE(268435456u32);
+impl ::core::marker::Copy for FACILITY_CODE {}
+impl ::core::clone::Clone for FACILITY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FACILITY_JsDEBUG: u32 = 3527u32;
 pub const FIELDS_DID_NOT_MATCH: u32 = 4u32;
 #[repr(C)]
@@ -4199,6 +4313,12 @@ pub const FORMAT_MESSAGE_FROM_HMODULE: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_O
 pub const FORMAT_MESSAGE_FROM_STRING: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(1024u32);
 pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(4096u32);
 pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(512u32);
+impl ::core::marker::Copy for FORMAT_MESSAGE_OPTIONS {}
+impl ::core::clone::Clone for FORMAT_MESSAGE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct FPO_DATA {
     pub ulOffStart: u32,
@@ -4841,6 +4961,12 @@ pub const sevInfo: IMAGEHLP_CBA_EVENT_SEVERITY = IMAGEHLP_CBA_EVENT_SEVERITY(0u3
 pub const sevProblem: IMAGEHLP_CBA_EVENT_SEVERITY = IMAGEHLP_CBA_EVENT_SEVERITY(1u32);
 pub const sevAttn: IMAGEHLP_CBA_EVENT_SEVERITY = IMAGEHLP_CBA_EVENT_SEVERITY(2u32);
 pub const sevFatal: IMAGEHLP_CBA_EVENT_SEVERITY = IMAGEHLP_CBA_EVENT_SEVERITY(3u32);
+impl ::core::marker::Copy for IMAGEHLP_CBA_EVENT_SEVERITY {}
+impl ::core::clone::Clone for IMAGEHLP_CBA_EVENT_SEVERITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IMAGEHLP_CBA_READ_MEMORY {
     pub addr: u64,
@@ -4958,10 +5084,22 @@ pub const SYMOPT_EX_LASTVALIDDEBUGDIRECTORY: IMAGEHLP_EXTENDED_OPTIONS = IMAGEHL
 pub const SYMOPT_EX_NOIMPLICITPATTERNSEARCH: IMAGEHLP_EXTENDED_OPTIONS = IMAGEHLP_EXTENDED_OPTIONS(2i32);
 pub const SYMOPT_EX_NEVERLOADSYMBOLS: IMAGEHLP_EXTENDED_OPTIONS = IMAGEHLP_EXTENDED_OPTIONS(3i32);
 pub const SYMOPT_EX_MAX: IMAGEHLP_EXTENDED_OPTIONS = IMAGEHLP_EXTENDED_OPTIONS(4i32);
+impl ::core::marker::Copy for IMAGEHLP_EXTENDED_OPTIONS {}
+impl ::core::clone::Clone for IMAGEHLP_EXTENDED_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAGEHLP_GET_TYPE_INFO_FLAGS(pub u32);
 pub const IMAGEHLP_GET_TYPE_INFO_CHILDREN: IMAGEHLP_GET_TYPE_INFO_FLAGS = IMAGEHLP_GET_TYPE_INFO_FLAGS(2u32);
 pub const IMAGEHLP_GET_TYPE_INFO_UNCACHED: IMAGEHLP_GET_TYPE_INFO_FLAGS = IMAGEHLP_GET_TYPE_INFO_FLAGS(1u32);
+impl ::core::marker::Copy for IMAGEHLP_GET_TYPE_INFO_FLAGS {}
+impl ::core::clone::Clone for IMAGEHLP_GET_TYPE_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub SizeOfStruct: u32,
@@ -4995,6 +5133,12 @@ pub const hdBase: IMAGEHLP_HD_TYPE = IMAGEHLP_HD_TYPE(0i32);
 pub const hdSym: IMAGEHLP_HD_TYPE = IMAGEHLP_HD_TYPE(1i32);
 pub const hdSrc: IMAGEHLP_HD_TYPE = IMAGEHLP_HD_TYPE(2i32);
 pub const hdMax: IMAGEHLP_HD_TYPE = IMAGEHLP_HD_TYPE(3i32);
+impl ::core::marker::Copy for IMAGEHLP_HD_TYPE {}
+impl ::core::clone::Clone for IMAGEHLP_HD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -5237,6 +5381,12 @@ pub const sfDbg: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(1i32);
 pub const sfPdb: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(2i32);
 pub const sfMpd: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(3i32);
 pub const sfMax: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(4i32);
+impl ::core::marker::Copy for IMAGEHLP_SF_TYPE {}
+impl ::core::clone::Clone for IMAGEHLP_SF_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_STACK_FRAME {
@@ -5281,6 +5431,12 @@ pub const BindForwarder32: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(16i32
 pub const BindForwarder64: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(17i32);
 pub const BindForwarderNOT32: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(18i32);
 pub const BindForwarderNOT64: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(19i32);
+impl ::core::marker::Copy for IMAGEHLP_STATUS_REASON {}
+impl ::core::clone::Clone for IMAGEHLP_STATUS_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -5472,6 +5628,12 @@ pub const TI_GET_INDIRECTVIRTUALBASECLASS: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_
 pub const TI_GET_VIRTUALBASETABLETYPE: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(33i32);
 pub const TI_GET_OBJECTPOINTERTYPE: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(34i32);
 pub const IMAGEHLP_SYMBOL_TYPE_INFO_MAX: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(35i32);
+impl ::core::marker::Copy for IMAGEHLP_SYMBOL_TYPE_INFO {}
+impl ::core::clone::Clone for IMAGEHLP_SYMBOL_TYPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMAGEHLP_SYMBOL_VIRTUAL: u32 = 4096u32;
 #[repr(C)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
@@ -5636,6 +5798,12 @@ pub const IMAGE_DEBUG_TYPE_MISC: IMAGE_DEBUG_TYPE = IMAGE_DEBUG_TYPE(4u32);
 pub const IMAGE_DEBUG_TYPE_EXCEPTION: IMAGE_DEBUG_TYPE = IMAGE_DEBUG_TYPE(5u32);
 pub const IMAGE_DEBUG_TYPE_FIXUP: IMAGE_DEBUG_TYPE = IMAGE_DEBUG_TYPE(6u32);
 pub const IMAGE_DEBUG_TYPE_BORLAND: IMAGE_DEBUG_TYPE = IMAGE_DEBUG_TYPE(9u32);
+impl ::core::marker::Copy for IMAGE_DEBUG_TYPE {}
+impl ::core::clone::Clone for IMAGE_DEBUG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAGE_DIRECTORY_ENTRY(pub u32);
 pub const IMAGE_DIRECTORY_ENTRY_ARCHITECTURE: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(7u32);
@@ -5653,6 +5821,12 @@ pub const IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG: IMAGE_DIRECTORY_ENTRY = IMAGE_DIREC
 pub const IMAGE_DIRECTORY_ENTRY_RESOURCE: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(2u32);
 pub const IMAGE_DIRECTORY_ENTRY_SECURITY: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(4u32);
 pub const IMAGE_DIRECTORY_ENTRY_TLS: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(9u32);
+impl ::core::marker::Copy for IMAGE_DIRECTORY_ENTRY {}
+impl ::core::clone::Clone for IMAGE_DIRECTORY_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAGE_DLL_CHARACTERISTICS(pub u16);
 pub const IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(32u16);
@@ -5672,6 +5846,12 @@ pub const IMAGE_DLLCHARACTERISTICS_EX_CET_SET_CONTEXT_IP_VALIDATION_RELAXED_MODE
 pub const IMAGE_DLLCHARACTERISTICS_EX_CET_DYNAMIC_APIS_ALLOW_IN_PROC: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(8u16);
 pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_1: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(16u16);
 pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_2: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(32u16);
+impl ::core::marker::Copy for IMAGE_DLL_CHARACTERISTICS {}
+impl ::core::clone::Clone for IMAGE_DLL_CHARACTERISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAGE_FILE_CHARACTERISTICS(pub u16);
 pub const IMAGE_FILE_RELOCS_STRIPPED: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(1u16);
@@ -5689,6 +5869,12 @@ pub const IMAGE_FILE_SYSTEM: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERIS
 pub const IMAGE_FILE_DLL: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(8192u16);
 pub const IMAGE_FILE_UP_SYSTEM_ONLY: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(16384u16);
 pub const IMAGE_FILE_BYTES_REVERSED_HI: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(32768u16);
+impl ::core::marker::Copy for IMAGE_FILE_CHARACTERISTICS {}
+impl ::core::clone::Clone for IMAGE_FILE_CHARACTERISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAGE_FILE_CHARACTERISTICS2(pub u32);
 pub const IMAGE_FILE_RELOCS_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(1u32);
@@ -5706,6 +5892,12 @@ pub const IMAGE_FILE_SYSTEM_2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTE
 pub const IMAGE_FILE_DLL_2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(8192u32);
 pub const IMAGE_FILE_UP_SYSTEM_ONLY_2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(16384u32);
 pub const IMAGE_FILE_BYTES_REVERSED_HI_2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(32768u32);
+impl ::core::marker::Copy for IMAGE_FILE_CHARACTERISTICS2 {}
+impl ::core::clone::Clone for IMAGE_FILE_CHARACTERISTICS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IMAGE_FILE_HEADER {
     pub Machine: IMAGE_FILE_MACHINE,
@@ -5756,6 +5948,12 @@ pub const IMAGE_FILE_MACHINE_EBC: IMAGE_FILE_MACHINE = IMAGE_FILE_MACHINE(3772u1
 pub const IMAGE_FILE_MACHINE_M32R: IMAGE_FILE_MACHINE = IMAGE_FILE_MACHINE(36929u16);
 pub const IMAGE_FILE_MACHINE_ARM64: IMAGE_FILE_MACHINE = IMAGE_FILE_MACHINE(43620u16);
 pub const IMAGE_FILE_MACHINE_CEE: IMAGE_FILE_MACHINE = IMAGE_FILE_MACHINE(49390u16);
+impl ::core::marker::Copy for IMAGE_FILE_MACHINE {}
+impl ::core::clone::Clone for IMAGE_FILE_MACHINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IMAGE_FUNCTION_ENTRY {
     pub StartingAddress: u32,
@@ -6026,6 +6224,12 @@ pub const IMAGE_NT_OPTIONAL_HDR_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = IMAGE_OPTIO
 pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = IMAGE_OPTIONAL_HEADER_MAGIC(267u16);
 pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = IMAGE_OPTIONAL_HEADER_MAGIC(523u16);
 pub const IMAGE_ROM_OPTIONAL_HDR_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = IMAGE_OPTIONAL_HEADER_MAGIC(263u16);
+impl ::core::marker::Copy for IMAGE_OPTIONAL_HEADER_MAGIC {}
+impl ::core::clone::Clone for IMAGE_OPTIONAL_HEADER_MAGIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: IMAGE_FILE_HEADER,
@@ -6122,6 +6326,12 @@ pub const IMAGE_SCN_MEM_EXECUTE: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_C
 pub const IMAGE_SCN_MEM_READ: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(1073741824u32);
 pub const IMAGE_SCN_MEM_WRITE: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(2147483648u32);
 pub const IMAGE_SCN_SCALE_INDEX: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(1u32);
+impl ::core::marker::Copy for IMAGE_SECTION_CHARACTERISTICS {}
+impl ::core::clone::Clone for IMAGE_SECTION_CHARACTERISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IMAGE_SECTION_HEADER {
     pub Name: [u8; 8],
@@ -6168,6 +6378,12 @@ pub const IMAGE_SUBSYSTEM_EFI_ROM: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(13u16);
 pub const IMAGE_SUBSYSTEM_XBOX: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(14u16);
 pub const IMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(16u16);
 pub const IMAGE_SUBSYSTEM_XBOX_CODE_CATALOG: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(17u16);
+impl ::core::marker::Copy for IMAGE_SUBSYSTEM {}
+impl ::core::clone::Clone for IMAGE_SUBSYSTEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMachineDebugManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -6330,6 +6546,12 @@ pub const IpmiOsSelRecordTypeDriver: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECOR
 pub const IpmiOsSelRecordTypeBugcheckRecovery: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(8i32);
 pub const IpmiOsSelRecordTypeBugcheckData: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(9i32);
 pub const IpmiOsSelRecordTypeMax: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(10i32);
+impl ::core::marker::Copy for IPMI_OS_SEL_RECORD_TYPE {}
+impl ::core::clone::Clone for IPMI_OS_SEL_RECORD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IPMI_OS_SEL_RECORD_VERSION: u32 = 1u32;
 pub const IPMI_OS_SEL_RECORD_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -6388,6 +6610,12 @@ pub const IntrinsicFloat: IntrinsicKind = IntrinsicKind(8i32);
 pub const IntrinsicHRESULT: IntrinsicKind = IntrinsicKind(9i32);
 pub const IntrinsicChar16: IntrinsicKind = IntrinsicKind(10i32);
 pub const IntrinsicChar32: IntrinsicKind = IntrinsicKind(11i32);
+impl ::core::marker::Copy for IntrinsicKind {}
+impl ::core::clone::Clone for IntrinsicKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct JS_PROPERTY_ATTRIBUTES(pub i32);
 pub const JS_PROPERTY_ATTRIBUTE_NONE: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(0i32);
@@ -6399,10 +6627,22 @@ pub const JS_PROPERTY_NATIVE_WINRT_POINTER: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY
 pub const JS_PROPERTY_FRAME_INTRYBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(32i32);
 pub const JS_PROPERTY_FRAME_INCATCHBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(64i32);
 pub const JS_PROPERTY_FRAME_INFINALLYBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(128i32);
+impl ::core::marker::Copy for JS_PROPERTY_ATTRIBUTES {}
+impl ::core::clone::Clone for JS_PROPERTY_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct JS_PROPERTY_MEMBERS(pub i32);
 pub const JS_PROPERTY_MEMBERS_ALL: JS_PROPERTY_MEMBERS = JS_PROPERTY_MEMBERS(0i32);
 pub const JS_PROPERTY_MEMBERS_ARGUMENTS: JS_PROPERTY_MEMBERS = JS_PROPERTY_MEMBERS(1i32);
+impl ::core::marker::Copy for JS_PROPERTY_MEMBERS {}
+impl ::core::clone::Clone for JS_PROPERTY_MEMBERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JsDebugPropertyInfo {
@@ -6424,6 +6664,12 @@ impl ::core::clone::Clone for JsDebugPropertyInfo {
 pub struct JsDebugReadMemoryFlags(pub i32);
 pub const None: JsDebugReadMemoryFlags = JsDebugReadMemoryFlags(0i32);
 pub const JsDebugAllowPartialRead: JsDebugReadMemoryFlags = JsDebugReadMemoryFlags(1i32);
+impl ::core::marker::Copy for JsDebugReadMemoryFlags {}
+impl ::core::clone::Clone for JsDebugReadMemoryFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct KDDEBUGGER_DATA32 {
@@ -6995,6 +7241,12 @@ pub const LanguageUnknown: LanguageKind = LanguageKind(0i32);
 pub const LanguageC: LanguageKind = LanguageKind(1i32);
 pub const LanguageCPP: LanguageKind = LanguageKind(2i32);
 pub const LanguageAssembly: LanguageKind = LanguageKind(3i32);
+impl ::core::marker::Copy for LanguageKind {}
+impl ::core::clone::Clone for LanguageKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct Location {
     pub HostDefined: u64,
@@ -7012,6 +7264,12 @@ pub const LocationMember: LocationKind = LocationKind(0i32);
 pub const LocationStatic: LocationKind = LocationKind(1i32);
 pub const LocationConstant: LocationKind = LocationKind(2i32);
 pub const LocationNone: LocationKind = LocationKind(3i32);
+impl ::core::marker::Copy for LocationKind {}
+impl ::core::clone::Clone for LocationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct M128A {
     pub Low: u64,
@@ -7205,6 +7463,12 @@ pub const VmStartCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(17i32
 pub const VmQueryCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(18i32);
 pub const VmPreReadCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(19i32);
 pub const VmPostReadCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(20i32);
+impl ::core::marker::Copy for MINIDUMP_CALLBACK_TYPE {}
+impl ::core::clone::Clone for MINIDUMP_CALLBACK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MINIDUMP_DIRECTORY {
     pub StreamType: u32,
@@ -7376,6 +7640,12 @@ pub const MiniEventInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINID
 pub const MiniSectionInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(7i32);
 pub const MiniSemaphoreInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(8i32);
 pub const MiniHandleObjectInformationTypeMax: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(9i32);
+impl ::core::marker::Copy for MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE {}
+impl ::core::clone::Clone for MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MINIDUMP_HANDLE_OPERATION_LIST {
     pub SizeOfHeader: u32,
@@ -7687,6 +7957,12 @@ impl ::core::clone::Clone for MINIDUMP_MISC_INFO_5 {
 pub struct MINIDUMP_MISC_INFO_FLAGS(pub u32);
 pub const MINIDUMP_MISC1_PROCESS_ID: MINIDUMP_MISC_INFO_FLAGS = MINIDUMP_MISC_INFO_FLAGS(1u32);
 pub const MINIDUMP_MISC1_PROCESS_TIMES: MINIDUMP_MISC_INFO_FLAGS = MINIDUMP_MISC_INFO_FLAGS(2u32);
+impl ::core::marker::Copy for MINIDUMP_MISC_INFO_FLAGS {}
+impl ::core::clone::Clone for MINIDUMP_MISC_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE {
@@ -7816,6 +8092,12 @@ impl ::core::clone::Clone for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
 pub struct MINIDUMP_SECONDARY_FLAGS(pub i32);
 pub const MiniSecondaryWithoutPowerInfo: MINIDUMP_SECONDARY_FLAGS = MINIDUMP_SECONDARY_FLAGS(1i32);
 pub const MiniSecondaryValidFlags: MINIDUMP_SECONDARY_FLAGS = MINIDUMP_SECONDARY_FLAGS(1i32);
+impl ::core::marker::Copy for MINIDUMP_SECONDARY_FLAGS {}
+impl ::core::clone::Clone for MINIDUMP_SECONDARY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MINIDUMP_STREAM_TYPE(pub i32);
 pub const UnusedStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(0i32);
@@ -7857,6 +8139,12 @@ pub const ceStreamBucketParameters: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(
 pub const ceStreamProcessModuleMap: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32779i32);
 pub const ceStreamDiagnosisList: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32780i32);
 pub const LastReservedStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(65535i32);
+impl ::core::marker::Copy for MINIDUMP_STREAM_TYPE {}
+impl ::core::clone::Clone for MINIDUMP_STREAM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MINIDUMP_STRING {
     pub Length: u32,
@@ -8291,6 +8579,12 @@ pub const MINIDUMP_THREAD_INFO_INVALID_CONTEXT: MINIDUMP_THREAD_INFO_DUMP_FLAGS 
 pub const MINIDUMP_THREAD_INFO_INVALID_INFO: MINIDUMP_THREAD_INFO_DUMP_FLAGS = MINIDUMP_THREAD_INFO_DUMP_FLAGS(8u32);
 pub const MINIDUMP_THREAD_INFO_INVALID_TEB: MINIDUMP_THREAD_INFO_DUMP_FLAGS = MINIDUMP_THREAD_INFO_DUMP_FLAGS(32u32);
 pub const MINIDUMP_THREAD_INFO_WRITING_THREAD: MINIDUMP_THREAD_INFO_DUMP_FLAGS = MINIDUMP_THREAD_INFO_DUMP_FLAGS(2u32);
+impl ::core::marker::Copy for MINIDUMP_THREAD_INFO_DUMP_FLAGS {}
+impl ::core::clone::Clone for MINIDUMP_THREAD_INFO_DUMP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MINIDUMP_THREAD_INFO_LIST {
     pub SizeOfHeader: u32,
@@ -8390,6 +8684,12 @@ pub const MiniDumpWithIptTrace: MINIDUMP_TYPE = MINIDUMP_TYPE(4194304u32);
 pub const MiniDumpScanInaccessiblePartialPages: MINIDUMP_TYPE = MINIDUMP_TYPE(8388608u32);
 pub const MiniDumpFilterWriteCombinedMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(16777216u32);
 pub const MiniDumpValidTypeFlags: MINIDUMP_TYPE = MINIDUMP_TYPE(33554431u32);
+impl ::core::marker::Copy for MINIDUMP_TYPE {}
+impl ::core::clone::Clone for MINIDUMP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(4))]
 pub struct MINIDUMP_UNLOADED_MODULE {
     pub BaseOfImage: u64,
@@ -8520,6 +8820,12 @@ impl ::core::clone::Clone for MODLOAD_DATA {
 pub struct MODLOAD_DATA_TYPE(pub u32);
 pub const DBHHEADER_DEBUGDIRS: MODLOAD_DATA_TYPE = MODLOAD_DATA_TYPE(1u32);
 pub const DBHHEADER_CVMISC: MODLOAD_DATA_TYPE = MODLOAD_DATA_TYPE(2u32);
+impl ::core::marker::Copy for MODLOAD_DATA_TYPE {}
+impl ::core::clone::Clone for MODLOAD_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MODLOAD_PDBGUID_PDBAGE {
     pub PdbGuid: ::windows_sys::core::GUID,
@@ -8555,6 +8861,12 @@ pub const ModuleWriteCvRecord: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(8i32);
 pub const ModuleReferencedByMemory: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(16i32);
 pub const ModuleWriteTlsData: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(32i32);
 pub const ModuleWriteCodeSegs: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(64i32);
+impl ::core::marker::Copy for MODULE_WRITE_FLAGS {}
+impl ::core::clone::Clone for MODULE_WRITE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MachineDebugManager_DEBUG: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1232510188,
     data2: 14933,
@@ -8574,6 +8886,12 @@ pub const ObjectError: ModelObjectKind = ModelObjectKind(6i32);
 pub const ObjectIntrinsic: ModelObjectKind = ModelObjectKind(7i32);
 pub const ObjectMethod: ModelObjectKind = ModelObjectKind(8i32);
 pub const ObjectKeyReference: ModelObjectKind = ModelObjectKind(9i32);
+impl ::core::marker::Copy for ModelObjectKind {}
+impl ::core::clone::Clone for ModelObjectKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NULL_FIELD_NAME: u32 = 6u32;
 pub const NULL_SYM_DUMP_PARAM: u32 = 5u32;
 pub const NUM_SSRVOPTS: u32 = 32u32;
@@ -8614,6 +8932,12 @@ pub const OBJECT_ATTRIB_IS_MACRO: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(268435
 pub const OBJECT_ATTRIB_IS_TYPE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(536870912u32);
 pub const OBJECT_ATTRIB_IS_INHERITED: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(1073741824u32);
 pub const OBJECT_ATTRIB_IS_INTERFACE: OBJECT_ATTRIB_FLAG = OBJECT_ATTRIB_FLAG(2147483648u32);
+impl ::core::marker::Copy for OBJECT_ATTRIB_FLAG {}
+impl ::core::clone::Clone for OBJECT_ATTRIB_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OID_JSSIP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 113893392, data2: 14542, data3: 4564, data4: [162, 163, 0, 16, 75, 211, 80, 144] };
 pub const OID_VBSSIP: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 371847246,
@@ -8636,6 +8960,12 @@ impl ::core::clone::Clone for OMAP {
 #[repr(transparent)]
 pub struct OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS(pub u32);
 pub const WCT_ASYNC_OPEN_FLAG: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS = OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS(1u32);
+impl ::core::marker::Copy for OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS {}
+impl ::core::clone::Clone for OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OUTPUT_DEBUG_STRING_INFO {
@@ -8848,6 +9178,12 @@ pub const PROCESSOR_ARCHITECTURE_IA64: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHIT
 pub const PROCESSOR_ARCHITECTURE_INTEL: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(0u16);
 pub const PROCESSOR_ARCHITECTURE_ARM: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(5u16);
 pub const PROCESSOR_ARCHITECTURE_UNKNOWN: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(65535u16);
+impl ::core::marker::Copy for PROCESSOR_ARCHITECTURE {}
+impl ::core::clone::Clone for PROCESSOR_ARCHITECTURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PROCESS_NAME_ENTRY {
     pub ProcessId: u32,
@@ -8868,12 +9204,24 @@ pub const PROFILER_EVENT_MASK_TRACE_NATIVE_FUNCTION_CALL: PROFILER_EVENT_MASK = 
 pub const PROFILER_EVENT_MASK_TRACE_DOM_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(4u32);
 pub const PROFILER_EVENT_MASK_TRACE_ALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(3u32);
 pub const PROFILER_EVENT_MASK_TRACE_ALL_WITH_DOM: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(7u32);
+impl ::core::marker::Copy for PROFILER_EVENT_MASK {}
+impl ::core::clone::Clone for PROFILER_EVENT_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROFILER_HEAP_ENUM_FLAGS(pub u32);
 pub const PROFILER_HEAP_ENUM_FLAGS_NONE: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(0u32);
 pub const PROFILER_HEAP_ENUM_FLAGS_STORE_RELATIONSHIP_FLAGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(1u32);
 pub const PROFILER_HEAP_ENUM_FLAGS_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(2u32);
 pub const PROFILER_HEAP_ENUM_FLAGS_RELATIONSHIP_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(3u32);
+impl ::core::marker::Copy for PROFILER_HEAP_ENUM_FLAGS {}
+impl ::core::clone::Clone for PROFILER_HEAP_ENUM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PROFILER_HEAP_OBJECT {
     pub size: u32,
@@ -8914,6 +9262,12 @@ pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_INSTANCE: PROFILER_HEAP_OBJECT_FLAGS 
 pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_RUNTIMECLASS: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1024u32);
 pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_DELEGATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2048u32);
 pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_NAMESPACE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4096u32);
+impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_FLAGS {}
+impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROFILER_HEAP_OBJECT_NAME_ID_UNAVAILABLE: u32 = 4294967295u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -8968,6 +9322,12 @@ pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WEAKMAP_COLLECTION_LIST: PROFILER_H
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAP_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(12i32);
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SET_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(13i32);
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAX_VALUE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(13i32);
+impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE {}
+impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP {
@@ -9006,6 +9366,12 @@ pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_GET_ACCESSOR: PROFILER_HEAP
 pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_SET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(131072u32);
 pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_LET_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(262144u32);
 pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_CONST_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(524288u32);
+impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {}
+impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
@@ -9045,6 +9411,12 @@ impl ::core::clone::Clone for PROFILER_HEAP_SUMMARY {
 #[repr(transparent)]
 pub struct PROFILER_HEAP_SUMMARY_VERSION(pub i32);
 pub const PROFILER_HEAP_SUMMARY_VERSION_1: PROFILER_HEAP_SUMMARY_VERSION = PROFILER_HEAP_SUMMARY_VERSION(1i32);
+impl ::core::marker::Copy for PROFILER_HEAP_SUMMARY_VERSION {}
+impl ::core::clone::Clone for PROFILER_HEAP_SUMMARY_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
@@ -9067,12 +9439,24 @@ pub const PROFILER_PROPERTY_TYPE_HEAP_OBJECT: PROFILER_RELATIONSHIP_INFO = PROFI
 pub const PROFILER_PROPERTY_TYPE_EXTERNAL_OBJECT: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(4i32);
 pub const PROFILER_PROPERTY_TYPE_BSTR: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(5i32);
 pub const PROFILER_PROPERTY_TYPE_SUBSTRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(6i32);
+impl ::core::marker::Copy for PROFILER_RELATIONSHIP_INFO {}
+impl ::core::clone::Clone for PROFILER_RELATIONSHIP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROFILER_SCRIPT_TYPE(pub i32);
 pub const PROFILER_SCRIPT_TYPE_USER: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(0i32);
 pub const PROFILER_SCRIPT_TYPE_DYNAMIC: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(1i32);
 pub const PROFILER_SCRIPT_TYPE_NATIVE: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(2i32);
 pub const PROFILER_SCRIPT_TYPE_DOM: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(3i32);
+impl ::core::marker::Copy for PROFILER_SCRIPT_TYPE {}
+impl ::core::clone::Clone for PROFILER_SCRIPT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROP_INFO_FLAGS(pub i32);
 pub const PROP_INFO_NAME: PROP_INFO_FLAGS = PROP_INFO_FLAGS(1i32);
@@ -9082,6 +9466,12 @@ pub const PROP_INFO_FULLNAME: PROP_INFO_FLAGS = PROP_INFO_FLAGS(32i32);
 pub const PROP_INFO_ATTRIBUTES: PROP_INFO_FLAGS = PROP_INFO_FLAGS(8i32);
 pub const PROP_INFO_DEBUGPROP: PROP_INFO_FLAGS = PROP_INFO_FLAGS(16i32);
 pub const PROP_INFO_AUTOEXPAND: PROP_INFO_FLAGS = PROP_INFO_FLAGS(134217728i32);
+impl ::core::marker::Copy for PROP_INFO_FLAGS {}
+impl ::core::clone::Clone for PROP_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERBYINDEXPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
@@ -9265,6 +9655,12 @@ pub const PointerReference: PointerKind = PointerKind(1i32);
 pub const PointerRValueReference: PointerKind = PointerKind(2i32);
 pub const PointerCXHat: PointerKind = PointerKind(3i32);
 pub const PointerManagedReference: PointerKind = PointerKind(4i32);
+impl ::core::marker::Copy for PointerKind {}
+impl ::core::clone::Clone for PointerKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PreferredFormat(pub i32);
 pub const FormatNone: PreferredFormat = PreferredFormat(0i32);
@@ -9283,6 +9679,12 @@ pub const FormatEnumNameOnly: PreferredFormat = PreferredFormat(12i32);
 pub const FormatEscapedStringWithQuote: PreferredFormat = PreferredFormat(13i32);
 pub const FormatUTF32String: PreferredFormat = PreferredFormat(14i32);
 pub const FormatQuotedUTF32String: PreferredFormat = PreferredFormat(15i32);
+impl ::core::marker::Copy for PreferredFormat {}
+impl ::core::clone::Clone for PreferredFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ProcessDebugManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2024085538, data2: 20980, data3: 4560, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
 #[repr(C)]
 pub struct READCONTROLSPACE {
@@ -9350,20 +9752,44 @@ pub struct RIP_INFO_TYPE(pub u32);
 pub const SLE_ERROR: RIP_INFO_TYPE = RIP_INFO_TYPE(1u32);
 pub const SLE_MINORERROR: RIP_INFO_TYPE = RIP_INFO_TYPE(2u32);
 pub const SLE_WARNING: RIP_INFO_TYPE = RIP_INFO_TYPE(3u32);
+impl ::core::marker::Copy for RIP_INFO_TYPE {}
+impl ::core::clone::Clone for RIP_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTL_VIRTUAL_UNWIND_HANDLER_TYPE(pub u32);
 pub const UNW_FLAG_NHANDLER: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = RTL_VIRTUAL_UNWIND_HANDLER_TYPE(0u32);
 pub const UNW_FLAG_EHANDLER: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = RTL_VIRTUAL_UNWIND_HANDLER_TYPE(1u32);
 pub const UNW_FLAG_UHANDLER: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = RTL_VIRTUAL_UNWIND_HANDLER_TYPE(2u32);
 pub const UNW_FLAG_CHAININFO: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = RTL_VIRTUAL_UNWIND_HANDLER_TYPE(4u32);
+impl ::core::marker::Copy for RTL_VIRTUAL_UNWIND_HANDLER_TYPE {}
+impl ::core::clone::Clone for RTL_VIRTUAL_UNWIND_HANDLER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RawSearchFlags(pub i32);
 pub const RawSearchNone: RawSearchFlags = RawSearchFlags(0i32);
 pub const RawSearchNoBases: RawSearchFlags = RawSearchFlags(1i32);
+impl ::core::marker::Copy for RawSearchFlags {}
+impl ::core::clone::Clone for RawSearchFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCRIPTGCTYPE(pub i32);
 pub const SCRIPTGCTYPE_NORMAL: SCRIPTGCTYPE = SCRIPTGCTYPE(0i32);
 pub const SCRIPTGCTYPE_EXHAUSTIVE: SCRIPTGCTYPE = SCRIPTGCTYPE(1i32);
+impl ::core::marker::Copy for SCRIPTGCTYPE {}
+impl ::core::clone::Clone for SCRIPTGCTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCRIPTINFO_ITYPEINFO: u32 = 2u32;
 pub const SCRIPTINFO_IUNKNOWN: u32 = 1u32;
 pub const SCRIPTINTERRUPT_DEBUG: u32 = 1u32;
@@ -9380,6 +9806,12 @@ pub const SCRIPTLANGUAGEVERSION_DEFAULT: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEV
 pub const SCRIPTLANGUAGEVERSION_5_7: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(1i32);
 pub const SCRIPTLANGUAGEVERSION_5_8: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(2i32);
 pub const SCRIPTLANGUAGEVERSION_MAX: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(255i32);
+impl ::core::marker::Copy for SCRIPTLANGUAGEVERSION {}
+impl ::core::clone::Clone for SCRIPTLANGUAGEVERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCRIPTPROC_HOSTMANAGESSOURCE: u32 = 128u32;
 pub const SCRIPTPROC_IMPLICIT_PARENTS: u32 = 512u32;
 pub const SCRIPTPROC_IMPLICIT_THIS: u32 = 256u32;
@@ -9412,6 +9844,12 @@ pub const SCRIPTSTATE_STARTED: SCRIPTSTATE = SCRIPTSTATE(1i32);
 pub const SCRIPTSTATE_CONNECTED: SCRIPTSTATE = SCRIPTSTATE(2i32);
 pub const SCRIPTSTATE_DISCONNECTED: SCRIPTSTATE = SCRIPTSTATE(3i32);
 pub const SCRIPTSTATE_CLOSED: SCRIPTSTATE = SCRIPTSTATE(4i32);
+impl ::core::marker::Copy for SCRIPTSTATE {}
+impl ::core::clone::Clone for SCRIPTSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCRIPTSTAT_INSTRUCTION_COUNT: u32 = 2u32;
 pub const SCRIPTSTAT_INTSTRUCTION_TIME: u32 = 3u32;
 pub const SCRIPTSTAT_STATEMENT_COUNT: u32 = 1u32;
@@ -9427,6 +9865,12 @@ pub const SCRIPTTEXT_ISXDOMAIN: u32 = 256u32;
 pub struct SCRIPTTHREADSTATE(pub i32);
 pub const SCRIPTTHREADSTATE_NOTINSCRIPT: SCRIPTTHREADSTATE = SCRIPTTHREADSTATE(0i32);
 pub const SCRIPTTHREADSTATE_RUNNING: SCRIPTTHREADSTATE = SCRIPTTHREADSTATE(1i32);
+impl ::core::marker::Copy for SCRIPTTHREADSTATE {}
+impl ::core::clone::Clone for SCRIPTTHREADSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCRIPTTRACEINFO(pub i32);
 pub const SCRIPTTRACEINFO_SCRIPTSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(0i32);
@@ -9437,6 +9881,12 @@ pub const SCRIPTTRACEINFO_CREATEOBJSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(4i32
 pub const SCRIPTTRACEINFO_CREATEOBJEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(5i32);
 pub const SCRIPTTRACEINFO_GETOBJSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(6i32);
 pub const SCRIPTTRACEINFO_GETOBJEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(7i32);
+impl ::core::marker::Copy for SCRIPTTRACEINFO {}
+impl ::core::clone::Clone for SCRIPTTRACEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCRIPTTYPELIB_ISCONTROL: u32 = 16u32;
 pub const SCRIPTTYPELIB_ISPERSISTENT: u32 = 64u32;
 #[repr(transparent)]
@@ -9444,10 +9894,22 @@ pub struct SCRIPTUICHANDLING(pub i32);
 pub const SCRIPTUICHANDLING_ALLOW: SCRIPTUICHANDLING = SCRIPTUICHANDLING(0i32);
 pub const SCRIPTUICHANDLING_NOUIERROR: SCRIPTUICHANDLING = SCRIPTUICHANDLING(1i32);
 pub const SCRIPTUICHANDLING_NOUIDEFAULT: SCRIPTUICHANDLING = SCRIPTUICHANDLING(2i32);
+impl ::core::marker::Copy for SCRIPTUICHANDLING {}
+impl ::core::clone::Clone for SCRIPTUICHANDLING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCRIPTUICITEM(pub i32);
 pub const SCRIPTUICITEM_INPUTBOX: SCRIPTUICITEM = SCRIPTUICITEM(1i32);
 pub const SCRIPTUICITEM_MSGBOX: SCRIPTUICITEM = SCRIPTUICITEM(2i32);
+impl ::core::marker::Copy for SCRIPTUICITEM {}
+impl ::core::clone::Clone for SCRIPTUICITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCRIPT_CMPL_COMMIT: u32 = 4u32;
 pub const SCRIPT_CMPL_ENUMLIST: u32 = 2u32;
 pub const SCRIPT_CMPL_ENUM_TRIGGER: u32 = 1u32;
@@ -9464,6 +9926,12 @@ pub const SDO_ENABLE_FIRST_CHANCE_EXCEPTIONS: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_D
 pub const SDO_ENABLE_WEB_WORKER_SUPPORT: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(2i32);
 pub const SDO_ENABLE_NONUSER_CODE_SUPPORT: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(4i32);
 pub const SDO_ENABLE_LIBRARY_STACK_FRAME: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(8i32);
+impl ::core::marker::Copy for SCRIPT_DEBUGGER_OPTIONS {}
+impl ::core::clone::Clone for SCRIPT_DEBUGGER_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCRIPT_ENCODE_DEFAULT_LANGUAGE: u32 = 1u32;
 pub const SCRIPT_ENCODE_NO_ASP_LANGUAGE: u32 = 2u32;
 pub const SCRIPT_ENCODE_SECTION: u32 = 1u32;
@@ -9472,6 +9940,12 @@ pub struct SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(pub i32);
 pub const ETK_FIRST_CHANCE: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(0i32);
 pub const ETK_USER_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(1i32);
 pub const ETK_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(2i32);
+impl ::core::marker::Copy for SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND {}
+impl ::core::clone::Clone for SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCRIPT_E_PROPAGATE: i32 = -2147352318i32;
 pub const SCRIPT_E_RECORDED: i32 = -2040119292i32;
 pub const SCRIPT_E_REPORTED: i32 = -2147352319i32;
@@ -9486,6 +9960,12 @@ pub const SICT_ToString: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONT
 pub const SICT_MutationObserverCheckpoint: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(6i32);
 pub const SICT_WWAExecUnsafeLocalFunction: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(7i32);
 pub const SICT_WWAExecAtPriority: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(8i32);
+impl ::core::marker::Copy for SCRIPT_INVOCATION_CONTEXT_TYPE {}
+impl ::core::clone::Clone for SCRIPT_INVOCATION_CONTEXT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SEARCHMEMORY {
     pub SearchAddress: u64,
@@ -9828,6 +10308,12 @@ pub const SYMFLAG_THUNK: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(8192u32);
 pub const SYMFLAG_TLSREL: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(16384u32);
 pub const SYMFLAG_VALUEPRESENT: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(1u32);
 pub const SYMFLAG_VIRTUAL: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(4096u32);
+impl ::core::marker::Copy for SYMBOL_INFO_FLAGS {}
+impl ::core::clone::Clone for SYMBOL_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYMBOL_INFO_PACKAGE {
@@ -10012,6 +10498,12 @@ pub struct SYM_FIND_ID_OPTION(pub u32);
 pub const SSRVOPT_DWORD: SYM_FIND_ID_OPTION = SYM_FIND_ID_OPTION(2u32);
 pub const SSRVOPT_DWORDPTR: SYM_FIND_ID_OPTION = SYM_FIND_ID_OPTION(4u32);
 pub const SSRVOPT_GUIDPTR: SYM_FIND_ID_OPTION = SYM_FIND_ID_OPTION(8u32);
+impl ::core::marker::Copy for SYM_FIND_ID_OPTION {}
+impl ::core::clone::Clone for SYM_FIND_ID_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYM_INLINE_COMP_DIFFERENT: u32 = 5u32;
 pub const SYM_INLINE_COMP_ERROR: u32 = 0u32;
 pub const SYM_INLINE_COMP_IDENTICAL: u32 = 1u32;
@@ -10024,6 +10516,12 @@ pub const SLMFLAG_NONE: SYM_LOAD_FLAGS = SYM_LOAD_FLAGS(0u32);
 pub const SLMFLAG_VIRTUAL: SYM_LOAD_FLAGS = SYM_LOAD_FLAGS(1u32);
 pub const SLMFLAG_ALT_INDEX: SYM_LOAD_FLAGS = SYM_LOAD_FLAGS(2u32);
 pub const SLMFLAG_NO_SYMBOLS: SYM_LOAD_FLAGS = SYM_LOAD_FLAGS(4u32);
+impl ::core::marker::Copy for SYM_LOAD_FLAGS {}
+impl ::core::clone::Clone for SYM_LOAD_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYM_SRV_STORE_FILE_FLAGS(pub u32);
 pub const SYMSTOREOPT_COMPRESS: SYM_SRV_STORE_FILE_FLAGS = SYM_SRV_STORE_FILE_FLAGS(1u32);
@@ -10031,6 +10529,12 @@ pub const SYMSTOREOPT_OVERWRITE: SYM_SRV_STORE_FILE_FLAGS = SYM_SRV_STORE_FILE_F
 pub const SYMSTOREOPT_PASS_IF_EXISTS: SYM_SRV_STORE_FILE_FLAGS = SYM_SRV_STORE_FILE_FLAGS(64u32);
 pub const SYMSTOREOPT_POINTER: SYM_SRV_STORE_FILE_FLAGS = SYM_SRV_STORE_FILE_FLAGS(8u32);
 pub const SYMSTOREOPT_RETURNINDEX: SYM_SRV_STORE_FILE_FLAGS = SYM_SRV_STORE_FILE_FLAGS(4u32);
+impl ::core::marker::Copy for SYM_SRV_STORE_FILE_FLAGS {}
+impl ::core::clone::Clone for SYM_SRV_STORE_FILE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYM_STKWALK_DEFAULT: u32 = 0u32;
 pub const SYM_STKWALK_FORCE_FRAMEPTR: u32 = 1u32;
 pub const SYM_STKWALK_ZEROEXTEND_PTRS: u32 = 2u32;
@@ -10046,21 +10550,45 @@ pub const SymSym: SYM_TYPE = SYM_TYPE(6i32);
 pub const SymDia: SYM_TYPE = SYM_TYPE(7i32);
 pub const SymVirtual: SYM_TYPE = SYM_TYPE(8i32);
 pub const NumSymTypes: SYM_TYPE = SYM_TYPE(9i32);
+impl ::core::marker::Copy for SYM_TYPE {}
+impl ::core::clone::Clone for SYM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ScriptChangeKind(pub i32);
 pub const ScriptRename: ScriptChangeKind = ScriptChangeKind(0i32);
+impl ::core::marker::Copy for ScriptChangeKind {}
+impl ::core::clone::Clone for ScriptChangeKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ScriptDebugEvent(pub i32);
 pub const ScriptDebugBreakpoint: ScriptDebugEvent = ScriptDebugEvent(0i32);
 pub const ScriptDebugStep: ScriptDebugEvent = ScriptDebugEvent(1i32);
 pub const ScriptDebugException: ScriptDebugEvent = ScriptDebugEvent(2i32);
 pub const ScriptDebugAsyncBreak: ScriptDebugEvent = ScriptDebugEvent(3i32);
+impl ::core::marker::Copy for ScriptDebugEvent {}
+impl ::core::clone::Clone for ScriptDebugEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ScriptDebugEventFilter(pub i32);
 pub const ScriptDebugEventFilterEntry: ScriptDebugEventFilter = ScriptDebugEventFilter(0i32);
 pub const ScriptDebugEventFilterException: ScriptDebugEventFilter = ScriptDebugEventFilter(1i32);
 pub const ScriptDebugEventFilterUnhandledException: ScriptDebugEventFilter = ScriptDebugEventFilter(2i32);
 pub const ScriptDebugEventFilterAbort: ScriptDebugEventFilter = ScriptDebugEventFilter(3i32);
+impl ::core::marker::Copy for ScriptDebugEventFilter {}
+impl ::core::clone::Clone for ScriptDebugEventFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ScriptDebugEventInformation {
     pub DebugEvent: ScriptDebugEvent,
@@ -10121,12 +10649,24 @@ pub const ScriptDebugNoDebugger: ScriptDebugState = ScriptDebugState(0i32);
 pub const ScriptDebugNotExecuting: ScriptDebugState = ScriptDebugState(1i32);
 pub const ScriptDebugExecuting: ScriptDebugState = ScriptDebugState(2i32);
 pub const ScriptDebugBreak: ScriptDebugState = ScriptDebugState(3i32);
+impl ::core::marker::Copy for ScriptDebugState {}
+impl ::core::clone::Clone for ScriptDebugState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ScriptExecutionKind(pub i32);
 pub const ScriptExecutionNormal: ScriptExecutionKind = ScriptExecutionKind(0i32);
 pub const ScriptExecutionStepIn: ScriptExecutionKind = ScriptExecutionKind(1i32);
 pub const ScriptExecutionStepOut: ScriptExecutionKind = ScriptExecutionKind(2i32);
 pub const ScriptExecutionStepOver: ScriptExecutionKind = ScriptExecutionKind(3i32);
+impl ::core::marker::Copy for ScriptExecutionKind {}
+impl ::core::clone::Clone for ScriptExecutionKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SignatureComparison(pub i32);
 pub const Unrelated: SignatureComparison = SignatureComparison(0i32);
@@ -10134,6 +10674,12 @@ pub const Ambiguous: SignatureComparison = SignatureComparison(1i32);
 pub const LessSpecific: SignatureComparison = SignatureComparison(2i32);
 pub const MoreSpecific: SignatureComparison = SignatureComparison(3i32);
 pub const Identical: SignatureComparison = SignatureComparison(4i32);
+impl ::core::marker::Copy for SignatureComparison {}
+impl ::core::clone::Clone for SignatureComparison {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SymbolKind(pub i32);
 pub const Symbol: SymbolKind = SymbolKind(0i32);
@@ -10145,11 +10691,23 @@ pub const SymbolData: SymbolKind = SymbolKind(5i32);
 pub const SymbolBaseClass: SymbolKind = SymbolKind(6i32);
 pub const SymbolPublic: SymbolKind = SymbolKind(7i32);
 pub const SymbolFunction: SymbolKind = SymbolKind(8i32);
+impl ::core::marker::Copy for SymbolKind {}
+impl ::core::clone::Clone for SymbolKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SymbolSearchOptions(pub i32);
 pub const SymbolSearchNone: SymbolSearchOptions = SymbolSearchOptions(0i32);
 pub const SymbolSearchCompletion: SymbolSearchOptions = SymbolSearchOptions(1i32);
 pub const SymbolSearchCaseInsensitive: SymbolSearchOptions = SymbolSearchOptions(2i32);
+impl ::core::marker::Copy for SymbolSearchOptions {}
+impl ::core::clone::Clone for SymbolSearchOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TEXT_DOCUMENT_ARRAY {
     pub dwCount: u32,
@@ -10173,6 +10731,12 @@ pub const SEM_FAILCRITICALERRORS: THREAD_ERROR_MODE = THREAD_ERROR_MODE(1u32);
 pub const SEM_NOGPFAULTERRORBOX: THREAD_ERROR_MODE = THREAD_ERROR_MODE(2u32);
 pub const SEM_NOOPENFILEERRORBOX: THREAD_ERROR_MODE = THREAD_ERROR_MODE(32768u32);
 pub const SEM_NOALIGNMENTFAULTEXCEPT: THREAD_ERROR_MODE = THREAD_ERROR_MODE(4u32);
+impl ::core::marker::Copy for THREAD_ERROR_MODE {}
+impl ::core::clone::Clone for THREAD_ERROR_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const THREAD_OUT_OF_CONTEXT: u32 = 8u32;
 pub const THREAD_STATE_RUNNING: u32 = 1u32;
 pub const THREAD_STATE_SUSPENDED: u32 = 2u32;
@@ -10185,6 +10749,12 @@ pub const ThreadWriteBackingStore: THREAD_WRITE_FLAGS = THREAD_WRITE_FLAGS(8i32)
 pub const ThreadWriteInstructionWindow: THREAD_WRITE_FLAGS = THREAD_WRITE_FLAGS(16i32);
 pub const ThreadWriteThreadData: THREAD_WRITE_FLAGS = THREAD_WRITE_FLAGS(32i32);
 pub const ThreadWriteThreadInfo: THREAD_WRITE_FLAGS = THREAD_WRITE_FLAGS(64i32);
+impl ::core::marker::Copy for THREAD_WRITE_FLAGS {}
+impl ::core::clone::Clone for THREAD_WRITE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TI_FINDCHILDREN_PARAMS {
     pub Count: u32,
@@ -10219,6 +10789,12 @@ pub const TypeTypedef: TypeKind = TypeKind(5i32);
 pub const TypeEnum: TypeKind = TypeKind(6i32);
 pub const TypeIntrinsic: TypeKind = TypeKind(7i32);
 pub const TypeExtendedArray: TypeKind = TypeKind(8i32);
+impl ::core::marker::Copy for TypeKind {}
+impl ::core::clone::Clone for TypeKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UNAVAILABLE_ERROR: u32 = 12u32;
 pub const UNDNAME_32_BIT_DECODE: u32 = 2048u32;
 pub const UNDNAME_COMPLETE: u32 = 0u32;
@@ -10300,6 +10876,12 @@ pub struct VER_PLATFORM(pub u32);
 pub const VER_PLATFORM_WIN32s: VER_PLATFORM = VER_PLATFORM(0u32);
 pub const VER_PLATFORM_WIN32_WINDOWS: VER_PLATFORM = VER_PLATFORM(1u32);
 pub const VER_PLATFORM_WIN32_NT: VER_PLATFORM = VER_PLATFORM(2u32);
+impl ::core::marker::Copy for VER_PLATFORM {}
+impl ::core::clone::Clone for VER_PLATFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct VIRTUAL_TO_PHYSICAL {
     pub Status: u32,
@@ -10318,6 +10900,12 @@ impl ::core::clone::Clone for VIRTUAL_TO_PHYSICAL {
 pub struct VarArgsKind(pub i32);
 pub const VarArgsNone: VarArgsKind = VarArgsKind(0i32);
 pub const VarArgsCStyle: VarArgsKind = VarArgsKind(1i32);
+impl ::core::marker::Copy for VarArgsKind {}
+impl ::core::clone::Clone for VarArgsKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WAITCHAIN_NODE_INFO {
@@ -10381,6 +10969,12 @@ pub struct WAIT_CHAIN_THREAD_OPTIONS(pub u32);
 pub const WCT_OUT_OF_PROC_COM_FLAG: WAIT_CHAIN_THREAD_OPTIONS = WAIT_CHAIN_THREAD_OPTIONS(2u32);
 pub const WCT_OUT_OF_PROC_CS_FLAG: WAIT_CHAIN_THREAD_OPTIONS = WAIT_CHAIN_THREAD_OPTIONS(4u32);
 pub const WCT_OUT_OF_PROC_FLAG: WAIT_CHAIN_THREAD_OPTIONS = WAIT_CHAIN_THREAD_OPTIONS(1u32);
+impl ::core::marker::Copy for WAIT_CHAIN_THREAD_OPTIONS {}
+impl ::core::clone::Clone for WAIT_CHAIN_THREAD_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WCT_MAX_NODE_COUNT: u32 = 16u32;
 pub const WCT_NETWORK_IO_FLAG: u32 = 8u32;
 #[repr(transparent)]
@@ -10396,6 +10990,12 @@ pub const WctStatusAbandoned: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(8i32);
 pub const WctStatusUnknown: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(9i32);
 pub const WctStatusError: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(10i32);
 pub const WctStatusMax: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(11i32);
+impl ::core::marker::Copy for WCT_OBJECT_STATUS {}
+impl ::core::clone::Clone for WCT_OBJECT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WCT_OBJECT_TYPE(pub i32);
 pub const WctCriticalSectionType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(1i32);
@@ -10411,6 +11011,12 @@ pub const WctUnknownType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(10i32);
 pub const WctSocketIoType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(11i32);
 pub const WctSmbIoType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(12i32);
 pub const WctMaxType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(13i32);
+impl ::core::marker::Copy for WCT_OBJECT_TYPE {}
+impl ::core::clone::Clone for WCT_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WCT_OBJNAME_LENGTH: u32 = 128u32;
 pub const WDBGEXTS_ADDRESS_DEFAULT: u32 = 0u32;
 pub const WDBGEXTS_ADDRESS_RESERVED0: u32 = 2147483648u32;
@@ -10749,6 +11355,12 @@ pub const WheaErrSrcStateStopped: WHEA_ERROR_SOURCE_STATE = WHEA_ERROR_SOURCE_ST
 pub const WheaErrSrcStateStarted: WHEA_ERROR_SOURCE_STATE = WHEA_ERROR_SOURCE_STATE(2i32);
 pub const WheaErrSrcStateRemoved: WHEA_ERROR_SOURCE_STATE = WHEA_ERROR_SOURCE_STATE(3i32);
 pub const WheaErrSrcStateRemovePending: WHEA_ERROR_SOURCE_STATE = WHEA_ERROR_SOURCE_STATE(4i32);
+impl ::core::marker::Copy for WHEA_ERROR_SOURCE_STATE {}
+impl ::core::clone::Clone for WHEA_ERROR_SOURCE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WHEA_ERROR_SOURCE_TYPE(pub i32);
 pub const WheaErrSrcTypeMCE: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(0i32);
@@ -10769,6 +11381,12 @@ pub const WheaErrSrcTypeBMC: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(14i
 pub const WheaErrSrcTypePMEM: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(15i32);
 pub const WheaErrSrcTypeDeviceDriver: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(16i32);
 pub const WheaErrSrcTypeMax: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(17i32);
+impl ::core::marker::Copy for WHEA_ERROR_SOURCE_TYPE {}
+impl ::core::clone::Clone for WHEA_ERROR_SOURCE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = unsafe extern "system" fn(context: *mut ::core::ffi::c_void);
 #[repr(C, packed(1))]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
@@ -11605,6 +12223,12 @@ pub const DUMP_TYPE_TRIAGE: _DUMP_TYPES = _DUMP_TYPES(4i32);
 pub const DUMP_TYPE_BITMAP_FULL: _DUMP_TYPES = _DUMP_TYPES(5i32);
 pub const DUMP_TYPE_BITMAP_KERNEL: _DUMP_TYPES = _DUMP_TYPES(6i32);
 pub const DUMP_TYPE_AUTOMATIC: _DUMP_TYPES = _DUMP_TYPES(7i32);
+impl ::core::marker::Copy for _DUMP_TYPES {}
+impl ::core::clone::Clone for _DUMP_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _GETSETBUSDATA {
     pub BusDataType: u32,

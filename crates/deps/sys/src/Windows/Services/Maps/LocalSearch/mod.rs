@@ -33,6 +33,12 @@ impl LocalLocationFinderStatus {
     pub const NetworkFailure: Self = Self(6i32);
     pub const NotSupported: Self = Self(7i32);
 }
+impl ::core::marker::Copy for LocalLocationFinderStatus {}
+impl ::core::clone::Clone for LocalLocationFinderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LocalLocationHoursOfOperationItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

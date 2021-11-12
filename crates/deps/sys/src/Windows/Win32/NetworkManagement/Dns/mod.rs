@@ -273,6 +273,12 @@ pub const DnsCharSetUnknown: DNS_CHARSET = DNS_CHARSET(0i32);
 pub const DnsCharSetUnicode: DNS_CHARSET = DNS_CHARSET(1i32);
 pub const DnsCharSetUtf8: DNS_CHARSET = DNS_CHARSET(2i32);
 pub const DnsCharSetAnsi: DNS_CHARSET = DNS_CHARSET(3i32);
+impl ::core::marker::Copy for DNS_CHARSET {}
+impl ::core::clone::Clone for DNS_CHARSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_CLASS_ALL: u32 = 255u32;
 pub const DNS_CLASS_ANY: u32 = 255u32;
 pub const DNS_CLASS_CHAOS: u32 = 3u32;
@@ -304,6 +310,12 @@ pub const DnsConfigFullHostName_W: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(15i32);
 pub const DnsConfigFullHostName_A: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(16i32);
 pub const DnsConfigFullHostName_UTF8: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(17i32);
 pub const DnsConfigNameServer: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(18i32);
+impl ::core::marker::Copy for DNS_CONFIG_TYPE {}
+impl ::core::clone::Clone for DNS_CONFIG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DNS_CONNECTION_IFINDEX_ENTRY {
@@ -393,6 +405,12 @@ pub struct DNS_CONNECTION_POLICY_TAG(pub i32);
 pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(0i32);
 pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(1i32);
 pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(2i32);
+impl ::core::marker::Copy for DNS_CONNECTION_POLICY_TAG {}
+impl ::core::clone::Clone for DNS_CONNECTION_POLICY_TAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DNS_CONNECTION_PROXY_ELEMENT {
@@ -499,6 +517,12 @@ pub struct DNS_CONNECTION_PROXY_INFO_SWITCH(pub i32);
 pub const DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(0i32);
 pub const DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(1i32);
 pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(2i32);
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_INFO_SWITCH {}
+impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_SWITCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -521,6 +545,12 @@ pub const DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE = DNS_CONNEC
 pub const DNS_CONNECTION_PROXY_TYPE_WAP: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(2i32);
 pub const DNS_CONNECTION_PROXY_TYPE_SOCKS4: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(4i32);
 pub const DNS_CONNECTION_PROXY_TYPE_SOCKS5: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(5i32);
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_TYPE {}
+impl ::core::clone::Clone for DNS_CONNECTION_PROXY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DNS_CUSTOM_SERVER {
@@ -593,6 +623,12 @@ pub struct DNS_FREE_TYPE(pub i32);
 pub const DnsFreeFlat: DNS_FREE_TYPE = DNS_FREE_TYPE(0i32);
 pub const DnsFreeRecordList: DNS_FREE_TYPE = DNS_FREE_TYPE(1i32);
 pub const DnsFreeParsedMessageFields: DNS_FREE_TYPE = DNS_FREE_TYPE(2i32);
+impl ::core::marker::Copy for DNS_FREE_TYPE {}
+impl ::core::clone::Clone for DNS_FREE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 pub struct DNS_HEADER {
     pub Xid: u16,
@@ -744,6 +780,12 @@ pub const DnsNameHostnameLabel: DNS_NAME_FORMAT = DNS_NAME_FORMAT(3i32);
 pub const DnsNameWildcard: DNS_NAME_FORMAT = DNS_NAME_FORMAT(4i32);
 pub const DnsNameSrvRecord: DNS_NAME_FORMAT = DNS_NAME_FORMAT(5i32);
 pub const DnsNameValidateTld: DNS_NAME_FORMAT = DNS_NAME_FORMAT(6i32);
+impl ::core::marker::Copy for DNS_NAME_FORMAT {}
+impl ::core::clone::Clone for DNS_NAME_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DNS_NAPTR_DATAA {
@@ -926,6 +968,12 @@ pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_I
 pub const DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(1i32);
 pub const DNS_PROXY_INFORMATION_PROXY_NAME: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(2i32);
 pub const DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(3i32);
+impl ::core::marker::Copy for DNS_PROXY_INFORMATION_TYPE {}
+impl ::core::clone::Clone for DNS_PROXY_INFORMATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DNS_PTR_DATAA {
@@ -1428,6 +1476,12 @@ pub const DnsSectionQuestion: DNS_SECTION = DNS_SECTION(0i32);
 pub const DnsSectionAnswer: DNS_SECTION = DNS_SECTION(1i32);
 pub const DnsSectionAuthority: DNS_SECTION = DNS_SECTION(2i32);
 pub const DnsSectionAddtional: DNS_SECTION = DNS_SECTION(3i32);
+impl ::core::marker::Copy for DNS_SECTION {}
+impl ::core::clone::Clone for DNS_SECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SERVICE_BROWSE_REQUEST {

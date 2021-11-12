@@ -9,6 +9,12 @@ impl Capi1KdfTargetAlgorithm {
     pub const NotAes: Self = Self(0i32);
     pub const Aes: Self = Self(1i32);
 }
+impl ::core::marker::Copy for Capi1KdfTargetAlgorithm {}
+impl ::core::clone::Clone for Capi1KdfTargetAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CryptographicHash(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -21,6 +27,12 @@ impl CryptographicPadding {
     pub const RsaPkcs1V15: Self = Self(2i32);
     pub const RsaPss: Self = Self(3i32);
 }
+impl ::core::marker::Copy for CryptographicPadding {}
+impl ::core::clone::Clone for CryptographicPadding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CryptographicPrivateKeyBlobType(pub i32);
 impl CryptographicPrivateKeyBlobType {
@@ -30,6 +42,12 @@ impl CryptographicPrivateKeyBlobType {
     pub const Capi1PrivateKey: Self = Self(3i32);
     pub const BCryptEccFullPrivateKey: Self = Self(4i32);
 }
+impl ::core::marker::Copy for CryptographicPrivateKeyBlobType {}
+impl ::core::clone::Clone for CryptographicPrivateKeyBlobType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CryptographicPublicKeyBlobType(pub i32);
 impl CryptographicPublicKeyBlobType {
@@ -38,6 +56,12 @@ impl CryptographicPublicKeyBlobType {
     pub const BCryptPublicKey: Self = Self(2i32);
     pub const Capi1PublicKey: Self = Self(3i32);
     pub const BCryptEccFullPublicKey: Self = Self(4i32);
+}
+impl ::core::marker::Copy for CryptographicPublicKeyBlobType {}
+impl ::core::clone::Clone for CryptographicPublicKeyBlobType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct EncryptedAndAuthenticatedData(pub *mut ::core::ffi::c_void);

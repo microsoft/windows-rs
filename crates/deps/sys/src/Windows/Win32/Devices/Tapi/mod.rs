@@ -370,10 +370,22 @@ extern "system" {
 pub struct ACDGROUP_EVENT(pub i32);
 pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = ACDGROUP_EVENT(0i32);
 pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = ACDGROUP_EVENT(1i32);
+impl ::core::marker::Copy for ACDGROUP_EVENT {}
+impl ::core::clone::Clone for ACDGROUP_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ACDQUEUE_EVENT(pub i32);
 pub const ACDQE_NEW_QUEUE: ACDQUEUE_EVENT = ACDQUEUE_EVENT(0i32);
 pub const ACDQE_QUEUE_REMOVED: ACDQUEUE_EVENT = ACDQUEUE_EVENT(1i32);
+impl ::core::marker::Copy for ACDQUEUE_EVENT {}
+impl ::core::clone::Clone for ACDQUEUE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADDRESS_CAPABILITY(pub i32);
 pub const AC_ADDRESSTYPES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(0i32);
@@ -424,6 +436,12 @@ pub const AC_GATHERDIGITSMAXTIMEOUT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(44i
 pub const AC_GENERATEDIGITMINDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(45i32);
 pub const AC_GENERATEDIGITMAXDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(46i32);
 pub const AC_GENERATEDIGITDEFAULTDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(47i32);
+impl ::core::marker::Copy for ADDRESS_CAPABILITY {}
+impl ::core::clone::Clone for ADDRESS_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADDRESS_CAPABILITY_STRING(pub i32);
 pub const ACS_PROTOCOL: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(0i32);
@@ -432,6 +450,12 @@ pub const ACS_LINEDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY
 pub const ACS_PROVIDERSPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(3i32);
 pub const ACS_SWITCHSPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(4i32);
 pub const ACS_PERMANENTDEVICEGUID: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(5i32);
+impl ::core::marker::Copy for ADDRESS_CAPABILITY_STRING {}
+impl ::core::clone::Clone for ADDRESS_CAPABILITY_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADDRESS_EVENT(pub i32);
 pub const AE_STATE: ADDRESS_EVENT = ADDRESS_EVENT(0i32);
@@ -444,14 +468,32 @@ pub const AE_REMOVETERMINAL: ADDRESS_EVENT = ADDRESS_EVENT(6i32);
 pub const AE_MSGWAITON: ADDRESS_EVENT = ADDRESS_EVENT(7i32);
 pub const AE_MSGWAITOFF: ADDRESS_EVENT = ADDRESS_EVENT(8i32);
 pub const AE_LASTITEM: ADDRESS_EVENT = ADDRESS_EVENT(8i32);
+impl ::core::marker::Copy for ADDRESS_EVENT {}
+impl ::core::clone::Clone for ADDRESS_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADDRESS_STATE(pub i32);
 pub const AS_INSERVICE: ADDRESS_STATE = ADDRESS_STATE(0i32);
 pub const AS_OUTOFSERVICE: ADDRESS_STATE = ADDRESS_STATE(1i32);
+impl ::core::marker::Copy for ADDRESS_STATE {}
+impl ::core::clone::Clone for ADDRESS_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AGENTHANDLER_EVENT(pub i32);
 pub const AHE_NEW_AGENTHANDLER: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(0i32);
 pub const AHE_AGENTHANDLER_REMOVED: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(1i32);
+impl ::core::marker::Copy for AGENTHANDLER_EVENT {}
+impl ::core::clone::Clone for AGENTHANDLER_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AGENT_EVENT(pub i32);
 pub const AE_NOT_READY: AGENT_EVENT = AGENT_EVENT(0i32);
@@ -460,6 +502,12 @@ pub const AE_BUSY_ACD: AGENT_EVENT = AGENT_EVENT(2i32);
 pub const AE_BUSY_INCOMING: AGENT_EVENT = AGENT_EVENT(3i32);
 pub const AE_BUSY_OUTGOING: AGENT_EVENT = AGENT_EVENT(4i32);
 pub const AE_UNKNOWN: AGENT_EVENT = AGENT_EVENT(5i32);
+impl ::core::marker::Copy for AGENT_EVENT {}
+impl ::core::clone::Clone for AGENT_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AGENT_SESSION_EVENT(pub i32);
 pub const ASE_NEW_SESSION: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(0i32);
@@ -468,6 +516,12 @@ pub const ASE_READY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(2i32);
 pub const ASE_BUSY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(3i32);
 pub const ASE_WRAPUP: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(4i32);
 pub const ASE_END: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(5i32);
+impl ::core::marker::Copy for AGENT_SESSION_EVENT {}
+impl ::core::clone::Clone for AGENT_SESSION_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AGENT_SESSION_STATE(pub i32);
 pub const ASST_NOT_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(0i32);
@@ -475,6 +529,12 @@ pub const ASST_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(1i32);
 pub const ASST_BUSY_ON_CALL: AGENT_SESSION_STATE = AGENT_SESSION_STATE(2i32);
 pub const ASST_BUSY_WRAPUP: AGENT_SESSION_STATE = AGENT_SESSION_STATE(3i32);
 pub const ASST_SESSION_ENDED: AGENT_SESSION_STATE = AGENT_SESSION_STATE(4i32);
+impl ::core::marker::Copy for AGENT_SESSION_STATE {}
+impl ::core::clone::Clone for AGENT_SESSION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AGENT_STATE(pub i32);
 pub const AS_NOT_READY: AGENT_STATE = AGENT_STATE(0i32);
@@ -483,6 +543,12 @@ pub const AS_BUSY_ACD: AGENT_STATE = AGENT_STATE(2i32);
 pub const AS_BUSY_INCOMING: AGENT_STATE = AGENT_STATE(3i32);
 pub const AS_BUSY_OUTGOING: AGENT_STATE = AGENT_STATE(4i32);
 pub const AS_UNKNOWN: AGENT_STATE = AGENT_STATE(5i32);
+impl ::core::marker::Copy for AGENT_STATE {}
+impl ::core::clone::Clone for AGENT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type ASYNC_COMPLETION = unsafe extern "system" fn(dwrequestid: u32, lresult: i32);
 #[repr(transparent)]
 pub struct CALLHUB_EVENT(pub i32);
@@ -491,10 +557,22 @@ pub const CHE_CALLLEAVE: CALLHUB_EVENT = CALLHUB_EVENT(1i32);
 pub const CHE_CALLHUBNEW: CALLHUB_EVENT = CALLHUB_EVENT(2i32);
 pub const CHE_CALLHUBIDLE: CALLHUB_EVENT = CALLHUB_EVENT(3i32);
 pub const CHE_LASTITEM: CALLHUB_EVENT = CALLHUB_EVENT(3i32);
+impl ::core::marker::Copy for CALLHUB_EVENT {}
+impl ::core::clone::Clone for CALLHUB_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLHUB_STATE(pub i32);
 pub const CHS_ACTIVE: CALLHUB_STATE = CALLHUB_STATE(0i32);
 pub const CHS_IDLE: CALLHUB_STATE = CALLHUB_STATE(1i32);
+impl ::core::marker::Copy for CALLHUB_STATE {}
+impl ::core::clone::Clone for CALLHUB_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLINFOCHANGE_CAUSE(pub i32);
 pub const CIC_OTHER: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(0i32);
@@ -525,6 +603,12 @@ pub const CIC_CALLDATA: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(24i32);
 pub const CIC_PRIVILEGE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(25i32);
 pub const CIC_MEDIATYPE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(26i32);
 pub const CIC_LASTITEM: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(26i32);
+impl ::core::marker::Copy for CALLINFOCHANGE_CAUSE {}
+impl ::core::clone::Clone for CALLINFOCHANGE_CAUSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLINFO_BUFFER(pub i32);
 pub const CIB_USERUSERINFO: CALLINFO_BUFFER = CALLINFO_BUFFER(0i32);
@@ -533,6 +617,12 @@ pub const CIB_CALLDATABUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(2i32);
 pub const CIB_CHARGINGINFOBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(3i32);
 pub const CIB_HIGHLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(4i32);
 pub const CIB_LOWLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(5i32);
+impl ::core::marker::Copy for CALLINFO_BUFFER {}
+impl ::core::clone::Clone for CALLINFO_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLINFO_LONG(pub i32);
 pub const CIL_MEDIATYPESAVAILABLE: CALLINFO_LONG = CALLINFO_LONG(0i32);
@@ -560,6 +650,12 @@ pub const CIL_RATE: CALLINFO_LONG = CALLINFO_LONG(21i32);
 pub const CIL_GENERATEDIGITDURATION: CALLINFO_LONG = CALLINFO_LONG(22i32);
 pub const CIL_MONITORDIGITMODES: CALLINFO_LONG = CALLINFO_LONG(23i32);
 pub const CIL_MONITORMEDIAMODES: CALLINFO_LONG = CALLINFO_LONG(24i32);
+impl ::core::marker::Copy for CALLINFO_LONG {}
+impl ::core::clone::Clone for CALLINFO_LONG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLINFO_STRING(pub i32);
 pub const CIS_CALLERIDNAME: CALLINFO_STRING = CALLINFO_STRING(0i32);
@@ -576,6 +672,12 @@ pub const CIS_CALLEDPARTYFRIENDLYNAME: CALLINFO_STRING = CALLINFO_STRING(10i32);
 pub const CIS_COMMENT: CALLINFO_STRING = CALLINFO_STRING(11i32);
 pub const CIS_DISPLAYABLEADDRESS: CALLINFO_STRING = CALLINFO_STRING(12i32);
 pub const CIS_CALLINGPARTYID: CALLINFO_STRING = CALLINFO_STRING(13i32);
+impl ::core::marker::Copy for CALLINFO_STRING {}
+impl ::core::clone::Clone for CALLINFO_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALL_MEDIA_EVENT(pub i32);
 pub const CME_NEW_STREAM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(0i32);
@@ -585,6 +687,12 @@ pub const CME_STREAM_NOT_USED: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(3i32);
 pub const CME_STREAM_ACTIVE: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(4i32);
 pub const CME_STREAM_INACTIVE: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(5i32);
 pub const CME_LASTITEM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(5i32);
+impl ::core::marker::Copy for CALL_MEDIA_EVENT {}
+impl ::core::clone::Clone for CALL_MEDIA_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALL_MEDIA_EVENT_CAUSE(pub i32);
 pub const CMC_UNKNOWN: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(0i32);
@@ -595,15 +703,33 @@ pub const CMC_REMOTE_REQUEST: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(4i
 pub const CMC_MEDIA_TIMEOUT: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(5i32);
 pub const CMC_MEDIA_RECOVERED: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(6i32);
 pub const CMC_QUALITY_OF_SERVICE: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(7i32);
+impl ::core::marker::Copy for CALL_MEDIA_EVENT_CAUSE {}
+impl ::core::clone::Clone for CALL_MEDIA_EVENT_CAUSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALL_NOTIFICATION_EVENT(pub i32);
 pub const CNE_OWNER: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(0i32);
 pub const CNE_MONITOR: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(1i32);
 pub const CNE_LASTITEM: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(1i32);
+impl ::core::marker::Copy for CALL_NOTIFICATION_EVENT {}
+impl ::core::clone::Clone for CALL_NOTIFICATION_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALL_PRIVILEGE(pub i32);
 pub const CP_OWNER: CALL_PRIVILEGE = CALL_PRIVILEGE(0i32);
 pub const CP_MONITOR: CALL_PRIVILEGE = CALL_PRIVILEGE(1i32);
+impl ::core::marker::Copy for CALL_PRIVILEGE {}
+impl ::core::clone::Clone for CALL_PRIVILEGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALL_STATE(pub i32);
 pub const CS_IDLE: CALL_STATE = CALL_STATE(0i32);
@@ -614,6 +740,12 @@ pub const CS_OFFERING: CALL_STATE = CALL_STATE(4i32);
 pub const CS_HOLD: CALL_STATE = CALL_STATE(5i32);
 pub const CS_QUEUED: CALL_STATE = CALL_STATE(6i32);
 pub const CS_LASTITEM: CALL_STATE = CALL_STATE(6i32);
+impl ::core::marker::Copy for CALL_STATE {}
+impl ::core::clone::Clone for CALL_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALL_STATE_EVENT_CAUSE(pub i32);
 pub const CEC_NONE: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(0i32);
@@ -625,36 +757,78 @@ pub const CEC_DISCONNECT_CANCELLED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CA
 pub const CEC_DISCONNECT_REJECTED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(6i32);
 pub const CEC_DISCONNECT_FAILED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(7i32);
 pub const CEC_DISCONNECT_BLOCKED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(8i32);
+impl ::core::marker::Copy for CALL_STATE_EVENT_CAUSE {}
+impl ::core::clone::Clone for CALL_STATE_EVENT_CAUSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DIRECTORY_OBJECT_TYPE(pub i32);
 pub const OT_CONFERENCE: DIRECTORY_OBJECT_TYPE = DIRECTORY_OBJECT_TYPE(1i32);
 pub const OT_USER: DIRECTORY_OBJECT_TYPE = DIRECTORY_OBJECT_TYPE(2i32);
+impl ::core::marker::Copy for DIRECTORY_OBJECT_TYPE {}
+impl ::core::clone::Clone for DIRECTORY_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DIRECTORY_TYPE(pub i32);
 pub const DT_NTDS: DIRECTORY_TYPE = DIRECTORY_TYPE(1i32);
 pub const DT_ILS: DIRECTORY_TYPE = DIRECTORY_TYPE(2i32);
+impl ::core::marker::Copy for DIRECTORY_TYPE {}
+impl ::core::clone::Clone for DIRECTORY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISCONNECT_CODE(pub i32);
 pub const DC_NORMAL: DISCONNECT_CODE = DISCONNECT_CODE(0i32);
 pub const DC_NOANSWER: DISCONNECT_CODE = DISCONNECT_CODE(1i32);
 pub const DC_REJECTED: DISCONNECT_CODE = DISCONNECT_CODE(2i32);
+impl ::core::marker::Copy for DISCONNECT_CODE {}
+impl ::core::clone::Clone for DISCONNECT_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DISPIDMASK: u32 = 65535u32;
 pub const DispatchMapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3911340694, data2: 51033, data3: 4561, data4: [160, 43, 0, 192, 79, 182, 128, 159] };
 #[repr(transparent)]
 pub struct FINISH_MODE(pub i32);
 pub const FM_ASTRANSFER: FINISH_MODE = FINISH_MODE(0i32);
 pub const FM_ASCONFERENCE: FINISH_MODE = FINISH_MODE(1i32);
+impl ::core::marker::Copy for FINISH_MODE {}
+impl ::core::clone::Clone for FINISH_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FT_STATE_EVENT_CAUSE(pub i32);
 pub const FTEC_NORMAL: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(0i32);
 pub const FTEC_END_OF_FILE: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(1i32);
 pub const FTEC_READ_ERROR: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(2i32);
 pub const FTEC_WRITE_ERROR: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(3i32);
+impl ::core::marker::Copy for FT_STATE_EVENT_CAUSE {}
+impl ::core::clone::Clone for FT_STATE_EVENT_CAUSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FULLDUPLEX_SUPPORT(pub i32);
 pub const FDS_SUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(0i32);
 pub const FDS_NOTSUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(1i32);
 pub const FDS_UNKNOWN: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(2i32);
+impl ::core::marker::Copy for FULLDUPLEX_SUPPORT {}
+impl ::core::clone::Clone for FULLDUPLEX_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HDRVCALL__ {
     pub unused: i32,
@@ -3061,6 +3235,12 @@ pub type LPOPENTNEFSTREAMEX = unsafe extern "system" fn(lpvsupport: *mut ::core:
 pub struct MSP_ADDRESS_EVENT(pub i32);
 pub const ADDRESS_TERMINAL_AVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(0i32);
 pub const ADDRESS_TERMINAL_UNAVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(1i32);
+impl ::core::marker::Copy for MSP_ADDRESS_EVENT {}
+impl ::core::clone::Clone for MSP_ADDRESS_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSP_CALL_EVENT(pub i32);
 pub const CALL_NEW_STREAM: MSP_CALL_EVENT = MSP_CALL_EVENT(0i32);
@@ -3069,6 +3249,12 @@ pub const CALL_TERMINAL_FAIL: MSP_CALL_EVENT = MSP_CALL_EVENT(2i32);
 pub const CALL_STREAM_NOT_USED: MSP_CALL_EVENT = MSP_CALL_EVENT(3i32);
 pub const CALL_STREAM_ACTIVE: MSP_CALL_EVENT = MSP_CALL_EVENT(4i32);
 pub const CALL_STREAM_INACTIVE: MSP_CALL_EVENT = MSP_CALL_EVENT(5i32);
+impl ::core::marker::Copy for MSP_CALL_EVENT {}
+impl ::core::clone::Clone for MSP_CALL_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSP_CALL_EVENT_CAUSE(pub i32);
 pub const CALL_CAUSE_UNKNOWN: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(0i32);
@@ -3079,6 +3265,12 @@ pub const CALL_CAUSE_REMOTE_REQUEST: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE
 pub const CALL_CAUSE_MEDIA_TIMEOUT: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(5i32);
 pub const CALL_CAUSE_MEDIA_RECOVERED: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(6i32);
 pub const CALL_CAUSE_QUALITY_OF_SERVICE: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(7i32);
+impl ::core::marker::Copy for MSP_CALL_EVENT_CAUSE {}
+impl ::core::clone::Clone for MSP_CALL_EVENT_CAUSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSP_EVENT(pub i32);
 pub const ME_ADDRESS_EVENT: MSP_EVENT = MSP_EVENT(0i32);
@@ -3089,6 +3281,12 @@ pub const ME_ASR_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(4i32);
 pub const ME_TTS_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(5i32);
 pub const ME_FILE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(6i32);
 pub const ME_TONE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(7i32);
+impl ::core::marker::Copy for MSP_EVENT {}
+impl ::core::clone::Clone for MSP_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO {
@@ -3407,6 +3605,12 @@ impl ::core::clone::Clone for PHONECAPS {
 #[repr(transparent)]
 pub struct PHONECAPS_BUFFER(pub i32);
 pub const PCB_DEVSPECIFICBUFFER: PHONECAPS_BUFFER = PHONECAPS_BUFFER(0i32);
+impl ::core::marker::Copy for PHONECAPS_BUFFER {}
+impl ::core::clone::Clone for PHONECAPS_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONECAPS_LONG(pub i32);
 pub const PCL_HOOKSWITCHES: PHONECAPS_LONG = PHONECAPS_LONG(0i32);
@@ -3418,11 +3622,23 @@ pub const PCL_DISPLAYNUMCOLUMNS: PHONECAPS_LONG = PHONECAPS_LONG(5i32);
 pub const PCL_NUMRINGMODES: PHONECAPS_LONG = PHONECAPS_LONG(6i32);
 pub const PCL_NUMBUTTONLAMPS: PHONECAPS_LONG = PHONECAPS_LONG(7i32);
 pub const PCL_GENERICPHONE: PHONECAPS_LONG = PHONECAPS_LONG(8i32);
+impl ::core::marker::Copy for PHONECAPS_LONG {}
+impl ::core::clone::Clone for PHONECAPS_LONG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONECAPS_STRING(pub i32);
 pub const PCS_PHONENAME: PHONECAPS_STRING = PHONECAPS_STRING(0i32);
 pub const PCS_PHONEINFO: PHONECAPS_STRING = PHONECAPS_STRING(1i32);
 pub const PCS_PROVIDERINFO: PHONECAPS_STRING = PHONECAPS_STRING(2i32);
+impl ::core::marker::Copy for PHONECAPS_STRING {}
+impl ::core::clone::Clone for PHONECAPS_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHONEERR_ALLOCATED: u32 = 2415919105u32;
 pub const PHONEERR_BADDEVICEID: u32 = 2415919106u32;
 pub const PHONEERR_DISCONNECTED: u32 = 2415919140u32;
@@ -3680,6 +3896,12 @@ pub const PBF_SAVEREPEAT: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(44i32);
 pub const PBF_QUEUECALL: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(45i32);
 pub const PBF_NONE: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(46i32);
 pub const PBF_SEND: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(47i32);
+impl ::core::marker::Copy for PHONE_BUTTON_FUNCTION {}
+impl ::core::clone::Clone for PHONE_BUTTON_FUNCTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONE_BUTTON_MODE(pub i32);
 pub const PBM_DUMMY: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(0i32);
@@ -3688,12 +3910,24 @@ pub const PBM_FEATURE: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(2i32);
 pub const PBM_KEYPAD: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(3i32);
 pub const PBM_LOCAL: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(4i32);
 pub const PBM_DISPLAY: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(5i32);
+impl ::core::marker::Copy for PHONE_BUTTON_MODE {}
+impl ::core::clone::Clone for PHONE_BUTTON_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONE_BUTTON_STATE(pub i32);
 pub const PBS_UP: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(1i32);
 pub const PBS_DOWN: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(2i32);
 pub const PBS_UNKNOWN: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(4i32);
 pub const PBS_UNAVAIL: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(8i32);
+impl ::core::marker::Copy for PHONE_BUTTON_STATE {}
+impl ::core::clone::Clone for PHONE_BUTTON_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHONE_CLOSE: i32 = 15i32;
 pub const PHONE_CREATE: i32 = 20i32;
 pub const PHONE_DEVSPECIFIC: i32 = 16i32;
@@ -3712,17 +3946,35 @@ pub const PE_DIALING: PHONE_EVENT = PHONE_EVENT(9i32);
 pub const PE_ANSWER: PHONE_EVENT = PHONE_EVENT(10i32);
 pub const PE_DISCONNECT: PHONE_EVENT = PHONE_EVENT(11i32);
 pub const PE_LASTITEM: PHONE_EVENT = PHONE_EVENT(11i32);
+impl ::core::marker::Copy for PHONE_EVENT {}
+impl ::core::clone::Clone for PHONE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONE_HOOK_SWITCH_DEVICE(pub i32);
 pub const PHSD_HANDSET: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(1i32);
 pub const PHSD_SPEAKERPHONE: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(2i32);
 pub const PHSD_HEADSET: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(4i32);
+impl ::core::marker::Copy for PHONE_HOOK_SWITCH_DEVICE {}
+impl ::core::clone::Clone for PHONE_HOOK_SWITCH_DEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONE_HOOK_SWITCH_STATE(pub i32);
 pub const PHSS_ONHOOK: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(1i32);
 pub const PHSS_OFFHOOK_MIC_ONLY: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(2i32);
 pub const PHSS_OFFHOOK_SPEAKER_ONLY: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(4i32);
 pub const PHSS_OFFHOOK: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(8i32);
+impl ::core::marker::Copy for PHONE_HOOK_SWITCH_STATE {}
+impl ::core::clone::Clone for PHONE_HOOK_SWITCH_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONE_LAMP_MODE(pub i32);
 pub const LM_DUMMY: PHONE_LAMP_MODE = PHONE_LAMP_MODE(1i32);
@@ -3733,10 +3985,22 @@ pub const LM_FLASH: PHONE_LAMP_MODE = PHONE_LAMP_MODE(16i32);
 pub const LM_FLUTTER: PHONE_LAMP_MODE = PHONE_LAMP_MODE(32i32);
 pub const LM_BROKENFLUTTER: PHONE_LAMP_MODE = PHONE_LAMP_MODE(64i32);
 pub const LM_UNKNOWN: PHONE_LAMP_MODE = PHONE_LAMP_MODE(128i32);
+impl ::core::marker::Copy for PHONE_LAMP_MODE {}
+impl ::core::clone::Clone for PHONE_LAMP_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONE_PRIVILEGE(pub i32);
 pub const PP_OWNER: PHONE_PRIVILEGE = PHONE_PRIVILEGE(0i32);
 pub const PP_MONITOR: PHONE_PRIVILEGE = PHONE_PRIVILEGE(1i32);
+impl ::core::marker::Copy for PHONE_PRIVILEGE {}
+impl ::core::clone::Clone for PHONE_PRIVILEGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHONE_REMOVE: i32 = 26i32;
 pub const PHONE_REPLY: i32 = 17i32;
 pub const PHONE_STATE: i32 = 18i32;
@@ -3764,6 +4028,12 @@ pub const PT_BUSY: PHONE_TONE = PHONE_TONE(18i32);
 pub const PT_RINGBACK: PHONE_TONE = PHONE_TONE(19i32);
 pub const PT_ERRORTONE: PHONE_TONE = PHONE_TONE(20i32);
 pub const PT_SILENCE: PHONE_TONE = PHONE_TONE(21i32);
+impl ::core::marker::Copy for PHONE_TONE {}
+impl ::core::clone::Clone for PHONE_TONE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRIVATEOBJECT_ADDRESS: u32 = 6u32;
 pub const PRIVATEOBJECT_CALL: u32 = 4u32;
 pub const PRIVATEOBJECT_CALLID: u32 = 2u32;
@@ -3777,11 +4047,23 @@ pub const QE_ADMISSIONFAILURE: QOS_EVENT = QOS_EVENT(2i32);
 pub const QE_POLICYFAILURE: QOS_EVENT = QOS_EVENT(3i32);
 pub const QE_GENERICERROR: QOS_EVENT = QOS_EVENT(4i32);
 pub const QE_LASTITEM: QOS_EVENT = QOS_EVENT(4i32);
+impl ::core::marker::Copy for QOS_EVENT {}
+impl ::core::clone::Clone for QOS_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct QOS_SERVICE_LEVEL(pub i32);
 pub const QSL_NEEDED: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(1i32);
 pub const QSL_IF_AVAILABLE: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(2i32);
 pub const QSL_BEST_EFFORT: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(3i32);
+impl ::core::marker::Copy for QOS_SERVICE_LEVEL {}
+impl ::core::clone::Clone for QOS_SERVICE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RENDBIND_AUTHENTICATE: u32 = 1u32;
 pub const RENDBIND_DEFAULTCREDENTIALS: u32 = 14u32;
 pub const RENDBIND_DEFAULTDOMAINNAME: u32 = 2u32;
@@ -3793,6 +4075,12 @@ pub const RAS_LOCAL: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(1i32);
 pub const RAS_SITE: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(2i32);
 pub const RAS_REGION: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(3i32);
 pub const RAS_WORLD: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(4i32);
+impl ::core::marker::Copy for RND_ADVERTISING_SCOPE {}
+impl ::core::clone::Clone for RND_ADVERTISING_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Rendezvous: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4043480667, data2: 52059, data3: 4560, data4: [141, 89, 0, 192, 79, 217, 26, 192] };
 pub const RequestMakeCall: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2890465248, data2: 63684, data3: 4561, data4: [160, 48, 0, 192, 79, 182, 128, 159] };
 pub const STRINGFORMAT_ASCII: u32 = 1u32;
@@ -3874,6 +4162,12 @@ pub const TE_TRANSLATECHANGE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(3i32);
 pub const TE_ADDRESSCLOSE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(4i32);
 pub const TE_PHONECREATE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(5i32);
 pub const TE_PHONEREMOVE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(6i32);
+impl ::core::marker::Copy for TAPIOBJECT_EVENT {}
+impl ::core::clone::Clone for TAPIOBJECT_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TAPI_CURRENT_VERSION: u32 = 131074u32;
 #[repr(C)]
 pub struct TAPI_CUSTOMTONE {
@@ -3930,6 +4224,12 @@ pub const TE_TONEEVENT: TAPI_EVENT = TAPI_EVENT(4194304i32);
 pub const TE_GATHERDIGITS: TAPI_EVENT = TAPI_EVENT(8388608i32);
 pub const TE_ADDRESSDEVSPECIFIC: TAPI_EVENT = TAPI_EVENT(16777216i32);
 pub const TE_PHONEDEVSPECIFIC: TAPI_EVENT = TAPI_EVENT(33554432i32);
+impl ::core::marker::Copy for TAPI_EVENT {}
+impl ::core::clone::Clone for TAPI_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TAPI_E_ADDRESSBLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221462i32 as _);
 pub const TAPI_E_ALLOCATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221498i32 as _);
 pub const TAPI_E_BILLINGREJECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221461i32 as _);
@@ -4027,6 +4327,12 @@ pub const TGT_TERMDIGIT: TAPI_GATHERTERM = TAPI_GATHERTERM(2i32);
 pub const TGT_FIRSTTIMEOUT: TAPI_GATHERTERM = TAPI_GATHERTERM(4i32);
 pub const TGT_INTERTIMEOUT: TAPI_GATHERTERM = TAPI_GATHERTERM(8i32);
 pub const TGT_CANCEL: TAPI_GATHERTERM = TAPI_GATHERTERM(16i32);
+impl ::core::marker::Copy for TAPI_GATHERTERM {}
+impl ::core::clone::Clone for TAPI_GATHERTERM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TAPI_OBJECT_TYPE(pub i32);
 pub const TOT_NONE: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(0i32);
@@ -4036,6 +4342,12 @@ pub const TOT_TERMINAL: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(3i32);
 pub const TOT_CALL: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(4i32);
 pub const TOT_CALLHUB: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(5i32);
 pub const TOT_PHONE: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(6i32);
+impl ::core::marker::Copy for TAPI_OBJECT_TYPE {}
+impl ::core::clone::Clone for TAPI_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TAPI_REPLY: u32 = 1123u32;
 #[repr(transparent)]
 pub struct TAPI_TONEMODE(pub i32);
@@ -4043,6 +4355,12 @@ pub const TTM_RINGBACK: TAPI_TONEMODE = TAPI_TONEMODE(2i32);
 pub const TTM_BUSY: TAPI_TONEMODE = TAPI_TONEMODE(4i32);
 pub const TTM_BEEP: TAPI_TONEMODE = TAPI_TONEMODE(8i32);
 pub const TTM_BILLING: TAPI_TONEMODE = TAPI_TONEMODE(16i32);
+impl ::core::marker::Copy for TAPI_TONEMODE {}
+impl ::core::clone::Clone for TAPI_TONEMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TERMINAL_DIRECTION(pub i32);
 pub const TD_CAPTURE: TERMINAL_DIRECTION = TERMINAL_DIRECTION(0i32);
@@ -4050,20 +4368,44 @@ pub const TD_RENDER: TERMINAL_DIRECTION = TERMINAL_DIRECTION(1i32);
 pub const TD_BIDIRECTIONAL: TERMINAL_DIRECTION = TERMINAL_DIRECTION(2i32);
 pub const TD_MULTITRACK_MIXED: TERMINAL_DIRECTION = TERMINAL_DIRECTION(3i32);
 pub const TD_NONE: TERMINAL_DIRECTION = TERMINAL_DIRECTION(4i32);
+impl ::core::marker::Copy for TERMINAL_DIRECTION {}
+impl ::core::clone::Clone for TERMINAL_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TERMINAL_MEDIA_STATE(pub i32);
 pub const TMS_IDLE: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(0i32);
 pub const TMS_ACTIVE: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(1i32);
 pub const TMS_PAUSED: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(2i32);
 pub const TMS_LASTITEM: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(2i32);
+impl ::core::marker::Copy for TERMINAL_MEDIA_STATE {}
+impl ::core::clone::Clone for TERMINAL_MEDIA_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TERMINAL_STATE(pub i32);
 pub const TS_INUSE: TERMINAL_STATE = TERMINAL_STATE(0i32);
 pub const TS_NOTINUSE: TERMINAL_STATE = TERMINAL_STATE(1i32);
+impl ::core::marker::Copy for TERMINAL_STATE {}
+impl ::core::clone::Clone for TERMINAL_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TERMINAL_TYPE(pub i32);
 pub const TT_STATIC: TERMINAL_TYPE = TERMINAL_TYPE(0i32);
 pub const TT_DYNAMIC: TERMINAL_TYPE = TERMINAL_TYPE(1i32);
+impl ::core::marker::Copy for TERMINAL_TYPE {}
+impl ::core::clone::Clone for TERMINAL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TSPI_LINEACCEPT: u32 = 500u32;
 pub const TSPI_LINEADDTOCONFERENCE: u32 = 501u32;
 pub const TSPI_LINEANSWER: u32 = 502u32;

@@ -16,6 +16,12 @@ impl CastingConnectionErrorStatus {
     pub const InvalidCastingSource: Self = Self(5i32);
     pub const Unknown: Self = Self(6i32);
 }
+impl ::core::marker::Copy for CastingConnectionErrorStatus {}
+impl ::core::clone::Clone for CastingConnectionErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CastingConnectionState(pub i32);
 impl CastingConnectionState {
@@ -24,6 +30,12 @@ impl CastingConnectionState {
     pub const Rendering: Self = Self(2i32);
     pub const Disconnecting: Self = Self(3i32);
     pub const Connecting: Self = Self(4i32);
+}
+impl ::core::marker::Copy for CastingConnectionState {}
+impl ::core::clone::Clone for CastingConnectionState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CastingDevice(pub *mut ::core::ffi::c_void);
@@ -40,6 +52,12 @@ impl CastingPlaybackTypes {
     pub const Audio: Self = Self(1u32);
     pub const Video: Self = Self(2u32);
     pub const Picture: Self = Self(4u32);
+}
+impl ::core::marker::Copy for CastingPlaybackTypes {}
+impl ::core::clone::Clone for CastingPlaybackTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CastingSource(pub *mut ::core::ffi::c_void);

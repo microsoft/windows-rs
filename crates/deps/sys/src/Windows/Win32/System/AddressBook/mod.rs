@@ -528,6 +528,12 @@ pub struct Gender(pub i32);
 pub const genderUnspecified: Gender = Gender(0i32);
 pub const genderFemale: Gender = Gender(1i32);
 pub const genderMale: Gender = Gender(2i32);
+impl ::core::marker::Copy for Gender {}
+impl ::core::clone::Clone for Gender {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IABContainer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

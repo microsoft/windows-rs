@@ -23,6 +23,12 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     pub const Playing: Self = Self(4i32);
     pub const Paused: Self = Self(5i32);
 }
+impl ::core::marker::Copy for GlobalSystemMediaTransportControlsSessionPlaybackStatus {}
+impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

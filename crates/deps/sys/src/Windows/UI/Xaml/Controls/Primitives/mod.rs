@@ -9,6 +9,12 @@ impl AnimationDirection {
     pub const Right: Self = Self(2i32);
     pub const Bottom: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AnimationDirection {}
+impl ::core::clone::Clone for AnimationDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppBarButtonTemplateSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -41,6 +47,12 @@ impl ComponentResourceLocation {
     pub const Application: Self = Self(0i32);
     pub const Nested: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ComponentResourceLocation {}
+impl ::core::clone::Clone for ComponentResourceLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DragCompletedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -60,6 +72,12 @@ impl EdgeTransitionLocation {
     pub const Top: Self = Self(1i32);
     pub const Right: Self = Self(2i32);
     pub const Bottom: Self = Self(3i32);
+}
+impl ::core::marker::Copy for EdgeTransitionLocation {}
+impl ::core::clone::Clone for EdgeTransitionLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FlyoutBase(pub *mut ::core::ffi::c_void);
@@ -83,6 +101,12 @@ impl FlyoutPlacementMode {
     pub const RightEdgeAlignedBottom: Self = Self(12i32);
     pub const Auto: Self = Self(13i32);
 }
+impl ::core::marker::Copy for FlyoutPlacementMode {}
+impl ::core::clone::Clone for FlyoutPlacementMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FlyoutShowMode(pub i32);
 impl FlyoutShowMode {
@@ -91,6 +115,12 @@ impl FlyoutShowMode {
     pub const Transient: Self = Self(2i32);
     pub const TransientWithDismissOnPointerMoveAway: Self = Self(3i32);
 }
+impl ::core::marker::Copy for FlyoutShowMode {}
+impl ::core::clone::Clone for FlyoutShowMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FlyoutShowOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -98,6 +128,12 @@ pub struct GeneratorDirection(pub i32);
 impl GeneratorDirection {
     pub const Forward: Self = Self(0i32);
     pub const Backward: Self = Self(1i32);
+}
+impl ::core::marker::Copy for GeneratorDirection {}
+impl ::core::clone::Clone for GeneratorDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 pub struct GeneratorPosition {
@@ -121,6 +157,12 @@ pub struct GroupHeaderPlacement(pub i32);
 impl GroupHeaderPlacement {
     pub const Top: Self = Self(0i32);
     pub const Left: Self = Self(1i32);
+}
+impl ::core::marker::Copy for GroupHeaderPlacement {}
+impl ::core::clone::Clone for GroupHeaderPlacement {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IAppBarButtonTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -402,11 +444,23 @@ impl ListViewItemPresenterCheckMode {
     pub const Inline: Self = Self(0i32);
     pub const Overlay: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ListViewItemPresenterCheckMode {}
+impl ::core::clone::Clone for ListViewItemPresenterCheckMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ListViewItemPresenterSelectionIndicatorMode(pub i32);
 impl ListViewItemPresenterSelectionIndicatorMode {
     pub const Inline: Self = Self(0i32);
     pub const Overlay: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ListViewItemPresenterSelectionIndicatorMode {}
+impl ::core::clone::Clone for ListViewItemPresenterSelectionIndicatorMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ListViewItemTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -441,6 +495,12 @@ impl PlacementMode {
     pub const Right: Self = Self(4i32);
     pub const Top: Self = Self(10i32);
 }
+impl ::core::marker::Copy for PlacementMode {}
+impl ::core::clone::Clone for PlacementMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Popup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -459,6 +519,12 @@ impl PopupPlacementMode {
     pub const LeftEdgeAlignedBottom: Self = Self(10i32);
     pub const RightEdgeAlignedTop: Self = Self(11i32);
     pub const RightEdgeAlignedBottom: Self = Self(12i32);
+}
+impl ::core::marker::Copy for PopupPlacementMode {}
+impl ::core::clone::Clone for PopupPlacementMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ProgressBarTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -491,12 +557,24 @@ impl ScrollEventType {
     pub const Last: Self = Self(7i32);
     pub const EndScroll: Self = Self(8i32);
 }
+impl ::core::marker::Copy for ScrollEventType {}
+impl ::core::clone::Clone for ScrollEventType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ScrollingIndicatorMode(pub i32);
 impl ScrollingIndicatorMode {
     pub const None: Self = Self(0i32);
     pub const TouchIndicator: Self = Self(1i32);
     pub const MouseIndicator: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ScrollingIndicatorMode {}
+impl ::core::clone::Clone for ScrollingIndicatorMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct Selector(pub *mut ::core::ffi::c_void);
@@ -510,12 +588,24 @@ impl SliderSnapsTo {
     pub const StepValues: Self = Self(0i32);
     pub const Ticks: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SliderSnapsTo {}
+impl ::core::clone::Clone for SliderSnapsTo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SnapPointsAlignment(pub i32);
 impl SnapPointsAlignment {
     pub const Near: Self = Self(0i32);
     pub const Center: Self = Self(1i32);
     pub const Far: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SnapPointsAlignment {}
+impl ::core::clone::Clone for SnapPointsAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SplitViewTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -531,6 +621,12 @@ impl TickPlacement {
     pub const BottomRight: Self = Self(2i32);
     pub const Outside: Self = Self(3i32);
     pub const Inline: Self = Self(4i32);
+}
+impl ::core::marker::Copy for TickPlacement {}
+impl ::core::clone::Clone for TickPlacement {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ToggleButton(pub *mut ::core::ffi::c_void);

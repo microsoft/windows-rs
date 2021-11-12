@@ -27,6 +27,12 @@ impl PrintTicketFeatureSelectionType {
     pub const PickOne: Self = Self(0i32);
     pub const PickMany: Self = Self(1i32);
 }
+impl ::core::marker::Copy for PrintTicketFeatureSelectionType {}
+impl ::core::clone::Clone for PrintTicketFeatureSelectionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintTicketOption(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -35,6 +41,12 @@ impl PrintTicketParameterDataType {
     pub const Integer: Self = Self(0i32);
     pub const NumericString: Self = Self(1i32);
     pub const String: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PrintTicketParameterDataType {}
+impl ::core::clone::Clone for PrintTicketParameterDataType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PrintTicketParameterDefinition(pub *mut ::core::ffi::c_void);
@@ -48,6 +60,12 @@ impl PrintTicketValueType {
     pub const Integer: Self = Self(0i32);
     pub const String: Self = Self(1i32);
     pub const Unknown: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PrintTicketValueType {}
+impl ::core::clone::Clone for PrintTicketValueType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WorkflowPrintTicket(pub *mut ::core::ffi::c_void);

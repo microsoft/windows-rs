@@ -11,6 +11,12 @@ impl AlarmAccessStatus {
     pub const AllowedWithoutWakeupCapability: Self = Self(2i32);
     pub const Denied: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AlarmAccessStatus {}
+impl ::core::clone::Clone for AlarmAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppBroadcastTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -27,6 +33,12 @@ impl ApplicationTriggerResult {
     pub const DisabledByPolicy: Self = Self(2i32);
     pub const UnknownError: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ApplicationTriggerResult {}
+impl ::core::clone::Clone for ApplicationTriggerResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppointmentStoreNotificationTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -34,6 +46,12 @@ pub struct BackgroundAccessRequestKind(pub i32);
 impl BackgroundAccessRequestKind {
     pub const AlwaysAllowed: Self = Self(0i32);
     pub const AllowedSubjectToSystemPolicy: Self = Self(1i32);
+}
+impl ::core::marker::Copy for BackgroundAccessRequestKind {}
+impl ::core::clone::Clone for BackgroundAccessRequestKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BackgroundAccessStatus(pub i32);
@@ -46,6 +64,12 @@ impl BackgroundAccessStatus {
     pub const AllowedSubjectToSystemPolicy: Self = Self(5i32);
     pub const DeniedBySystemPolicy: Self = Self(6i32);
     pub const DeniedByUser: Self = Self(7i32);
+}
+impl ::core::marker::Copy for BackgroundAccessStatus {}
+impl ::core::clone::Clone for BackgroundAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BackgroundTaskBuilder(pub *mut ::core::ffi::c_void);
@@ -66,6 +90,12 @@ impl BackgroundTaskCancellationReason {
     pub const ExecutionTimeExceeded: Self = Self(9i32);
     pub const ResourceRevocation: Self = Self(10i32);
     pub const EnergySaver: Self = Self(11i32);
+}
+impl ::core::marker::Copy for BackgroundTaskCancellationReason {}
+impl ::core::clone::Clone for BackgroundTaskCancellationReason {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BackgroundTaskCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -88,12 +118,24 @@ impl BackgroundTaskThrottleCounter {
     pub const Cpu: Self = Self(1i32);
     pub const Network: Self = Self(2i32);
 }
+impl ::core::marker::Copy for BackgroundTaskThrottleCounter {}
+impl ::core::clone::Clone for BackgroundTaskThrottleCounter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BackgroundWorkCostValue(pub i32);
 impl BackgroundWorkCostValue {
     pub const Low: Self = Self(0i32);
     pub const Medium: Self = Self(1i32);
     pub const High: Self = Self(2i32);
+}
+impl ::core::marker::Copy for BackgroundWorkCostValue {}
+impl ::core::clone::Clone for BackgroundWorkCostValue {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherTrigger(pub *mut ::core::ffi::c_void);
@@ -123,6 +165,12 @@ impl CustomSystemEventTriggerRecurrence {
     pub const Once: Self = Self(0i32);
     pub const Always: Self = Self(1i32);
 }
+impl ::core::marker::Copy for CustomSystemEventTriggerRecurrence {}
+impl ::core::clone::Clone for CustomSystemEventTriggerRecurrence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DeviceConnectionChangeTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -136,6 +184,12 @@ impl DeviceTriggerResult {
     pub const DeniedByUser: Self = Self(1i32);
     pub const DeniedBySystem: Self = Self(2i32);
     pub const LowBattery: Self = Self(3i32);
+}
+impl ::core::marker::Copy for DeviceTriggerResult {}
+impl ::core::clone::Clone for DeviceTriggerResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DeviceUseTrigger(pub *mut ::core::ffi::c_void);
@@ -350,6 +404,12 @@ pub struct LocationTriggerType(pub i32);
 impl LocationTriggerType {
     pub const Geofence: Self = Self(0i32);
 }
+impl ::core::marker::Copy for LocationTriggerType {}
+impl ::core::clone::Clone for LocationTriggerType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MaintenanceTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -361,6 +421,12 @@ impl MediaProcessingTriggerResult {
     pub const CurrentlyRunning: Self = Self(1i32);
     pub const DisabledByPolicy: Self = Self(2i32);
     pub const UnknownError: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MediaProcessingTriggerResult {}
+impl ::core::clone::Clone for MediaProcessingTriggerResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceNotificationTrigger(pub *mut ::core::ffi::c_void);
@@ -417,6 +483,12 @@ impl SystemConditionType {
     pub const FreeNetworkAvailable: Self = Self(7i32);
     pub const BackgroundWorkCostNotHigh: Self = Self(8i32);
 }
+impl ::core::marker::Copy for SystemConditionType {}
+impl ::core::clone::Clone for SystemConditionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SystemTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -438,6 +510,12 @@ impl SystemTriggerType {
     pub const BackgroundWorkCostChange: Self = Self(13i32);
     pub const PowerStateChange: Self = Self(14i32);
     pub const DefaultSignInAccountChange: Self = Self(15i32);
+}
+impl ::core::marker::Copy for SystemTriggerType {}
+impl ::core::clone::Clone for SystemTriggerType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TetheringEntitlementCheckTrigger(pub *mut ::core::ffi::c_void);

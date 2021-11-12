@@ -1795,12 +1795,24 @@ pub const NORM_IGNOREWIDTH: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(131072u3
 pub const NORM_LINGUISTIC_CASING: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(134217728u32);
 pub const SORT_DIGITSASNUMBERS: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(8u32);
 pub const SORT_STRINGSORT: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(4096u32);
+impl ::core::marker::Copy for COMPARE_STRING_FLAGS {}
+impl ::core::clone::Clone for COMPARE_STRING_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CORRECTIVE_ACTION(pub i32);
 pub const CORRECTIVE_ACTION_NONE: CORRECTIVE_ACTION = CORRECTIVE_ACTION(0i32);
 pub const CORRECTIVE_ACTION_GET_SUGGESTIONS: CORRECTIVE_ACTION = CORRECTIVE_ACTION(1i32);
 pub const CORRECTIVE_ACTION_REPLACE: CORRECTIVE_ACTION = CORRECTIVE_ACTION(2i32);
 pub const CORRECTIVE_ACTION_DELETE: CORRECTIVE_ACTION = CORRECTIVE_ACTION(3i32);
+impl ::core::marker::Copy for CORRECTIVE_ACTION {}
+impl ::core::clone::Clone for CORRECTIVE_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CPINFO {
     pub MaxCharSize: u32,
@@ -2104,14 +2116,32 @@ pub const DATE_AUTOLAYOUT: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(64u
 pub const DATE_LTRREADING: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(16u32);
 pub const DATE_RTLREADING: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(32u32);
 pub const DATE_USE_ALT_CALENDAR: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(4u32);
+impl ::core::marker::Copy for ENUM_DATE_FORMATS_FLAGS {}
+impl ::core::clone::Clone for ENUM_DATE_FORMATS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ENUM_SYSTEM_CODE_PAGES_FLAGS(pub u32);
 pub const CP_INSTALLED: ENUM_SYSTEM_CODE_PAGES_FLAGS = ENUM_SYSTEM_CODE_PAGES_FLAGS(1u32);
 pub const CP_SUPPORTED: ENUM_SYSTEM_CODE_PAGES_FLAGS = ENUM_SYSTEM_CODE_PAGES_FLAGS(2u32);
+impl ::core::marker::Copy for ENUM_SYSTEM_CODE_PAGES_FLAGS {}
+impl ::core::clone::Clone for ENUM_SYSTEM_CODE_PAGES_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(pub u32);
 pub const LGRPID_INSTALLED: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(1u32);
 pub const LGRPID_SUPPORTED: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(2u32);
+impl ::core::marker::Copy for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {}
+impl ::core::clone::Clone for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct FILEMUIINFO {
     pub dwSize: u32,
@@ -2145,6 +2175,12 @@ pub const MAP_EXPAND_LIGATURES: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(81
 pub const MAP_FOLDCZONE: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(16u32);
 pub const MAP_FOLDDIGITS: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(128u32);
 pub const MAP_PRECOMPOSED: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(32u32);
+impl ::core::marker::Copy for FOLD_STRING_MAP_FLAGS {}
+impl ::core::clone::Clone for FOLD_STRING_MAP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct FONTSIGNATURE {
     pub fsUsb: [u32; 4],
@@ -2277,10 +2313,22 @@ pub const IS_TEXT_UNICODE_UNICODE_MASK: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE
 pub const IS_TEXT_UNICODE_REVERSE_MASK: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(240u32);
 pub const IS_TEXT_UNICODE_NOT_UNICODE_MASK: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(3840u32);
 pub const IS_TEXT_UNICODE_NOT_ASCII_MASK: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(61440u32);
+impl ::core::marker::Copy for IS_TEXT_UNICODE_RESULT {}
+impl ::core::clone::Clone for IS_TEXT_UNICODE_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IS_VALID_LOCALE_FLAGS(pub u32);
 pub const LCID_INSTALLED: IS_VALID_LOCALE_FLAGS = IS_VALID_LOCALE_FLAGS(1u32);
 pub const LCID_SUPPORTED: IS_VALID_LOCALE_FLAGS = IS_VALID_LOCALE_FLAGS(2u32);
+impl ::core::marker::Copy for IS_VALID_LOCALE_FLAGS {}
+impl ::core::clone::Clone for IS_VALID_LOCALE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellCheckProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2681,6 +2729,12 @@ pub const MIMECONTF_VALID_NLS: MIMECONTF = MIMECONTF(262144i32);
 pub const MIMECONTF_MIME_IE4: MIMECONTF = MIMECONTF(268435456i32);
 pub const MIMECONTF_MIME_LATEST: MIMECONTF = MIMECONTF(536870912i32);
 pub const MIMECONTF_MIME_REGISTRY: MIMECONTF = MIMECONTF(1073741824i32);
+impl ::core::marker::Copy for MIMECONTF {}
+impl ::core::clone::Clone for MIMECONTF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MIMECPINFO {
     pub dwFlags: u32,
@@ -2721,10 +2775,22 @@ pub const MLDETECTCP_8BIT: MLDETECTCP = MLDETECTCP(2i32);
 pub const MLDETECTCP_DBCS: MLDETECTCP = MLDETECTCP(4i32);
 pub const MLDETECTCP_HTML: MLDETECTCP = MLDETECTCP(8i32);
 pub const MLDETECTCP_NUMBER: MLDETECTCP = MLDETECTCP(16i32);
+impl ::core::marker::Copy for MLDETECTCP {}
+impl ::core::clone::Clone for MLDETECTCP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MLSTR_FLAGS(pub i32);
 pub const MLSTR_READ: MLSTR_FLAGS = MLSTR_FLAGS(1i32);
 pub const MLSTR_WRITE: MLSTR_FLAGS = MLSTR_FLAGS(2i32);
+impl ::core::marker::Copy for MLSTR_FLAGS {}
+impl ::core::clone::Clone for MLSTR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MUI_COMPLEX_SCRIPT_FILTER: u32 = 512u32;
 pub const MUI_CONSOLE_FILTER: u32 = 256u32;
 pub const MUI_FILEINFO_VERSION: u32 = 1u32;
@@ -2764,6 +2830,12 @@ pub const MB_COMPOSITE: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_
 pub const MB_ERR_INVALID_CHARS: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_FLAGS(8u32);
 pub const MB_PRECOMPOSED: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_FLAGS(1u32);
 pub const MB_USEGLYPHCHARS: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_FLAGS(4u32);
+impl ::core::marker::Copy for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {}
+impl ::core::clone::Clone for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NEWTEXTMETRICEXA {
@@ -2830,6 +2902,12 @@ pub const NormalizationC: NORM_FORM = NORM_FORM(1i32);
 pub const NormalizationD: NORM_FORM = NORM_FORM(2i32);
 pub const NormalizationKC: NORM_FORM = NORM_FORM(5i32);
 pub const NormalizationKD: NORM_FORM = NORM_FORM(6i32);
+impl ::core::marker::Copy for NORM_FORM {}
+impl ::core::clone::Clone for NORM_FORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NUMBERFMTA {
@@ -2929,6 +3007,12 @@ pub const sidUserDefined: SCRIPTCONTF = SCRIPTCONTF(40i32);
 pub const sidLim: SCRIPTCONTF = SCRIPTCONTF(41i32);
 pub const sidFEFirst: SCRIPTCONTF = SCRIPTCONTF(23i32);
 pub const sidFELast: SCRIPTCONTF = SCRIPTCONTF(26i32);
+impl ::core::marker::Copy for SCRIPTCONTF {}
+impl ::core::clone::Clone for SCRIPTCONTF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCRIPTFONTCONTF(pub i32);
 pub const SCRIPTCONTF_FIXED_FONT: SCRIPTFONTCONTF = SCRIPTFONTCONTF(1i32);
@@ -2936,6 +3020,12 @@ pub const SCRIPTCONTF_PROPORTIONAL_FONT: SCRIPTFONTCONTF = SCRIPTFONTCONTF(2i32)
 pub const SCRIPTCONTF_SCRIPT_USER: SCRIPTFONTCONTF = SCRIPTFONTCONTF(65536i32);
 pub const SCRIPTCONTF_SCRIPT_HIDE: SCRIPTFONTCONTF = SCRIPTFONTCONTF(131072i32);
 pub const SCRIPTCONTF_SCRIPT_SYSTEM: SCRIPTFONTCONTF = SCRIPTFONTCONTF(262144i32);
+impl ::core::marker::Copy for SCRIPTFONTCONTF {}
+impl ::core::clone::Clone for SCRIPTFONTCONTF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCRIPTINFO {
     pub ScriptId: u8,
@@ -3007,6 +3097,12 @@ pub struct SCRIPT_IS_COMPLEX_FLAGS(pub u32);
 pub const SIC_ASCIIDIGIT: SCRIPT_IS_COMPLEX_FLAGS = SCRIPT_IS_COMPLEX_FLAGS(2u32);
 pub const SIC_COMPLEX: SCRIPT_IS_COMPLEX_FLAGS = SCRIPT_IS_COMPLEX_FLAGS(1u32);
 pub const SIC_NEUTRAL: SCRIPT_IS_COMPLEX_FLAGS = SCRIPT_IS_COMPLEX_FLAGS(4u32);
+impl ::core::marker::Copy for SCRIPT_IS_COMPLEX_FLAGS {}
+impl ::core::clone::Clone for SCRIPT_IS_COMPLEX_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCRIPT_ITEM {
     pub iCharPos: i32,
@@ -3036,6 +3132,12 @@ pub const SCRIPT_JUSTIFY_ARABIC_BA: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(12i32);
 pub const SCRIPT_JUSTIFY_ARABIC_BARA: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(13i32);
 pub const SCRIPT_JUSTIFY_ARABIC_SEEN: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(14i32);
 pub const SCRIPT_JUSTIFY_ARABIC_SEEN_M: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(15i32);
+impl ::core::marker::Copy for SCRIPT_JUSTIFY {}
+impl ::core::clone::Clone for SCRIPT_JUSTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCRIPT_LOGATTR {
     pub _bitfield: u8,
@@ -3121,6 +3223,12 @@ pub struct SYSGEOCLASS(pub i32);
 pub const GEOCLASS_NATION: SYSGEOCLASS = SYSGEOCLASS(16i32);
 pub const GEOCLASS_REGION: SYSGEOCLASS = SYSGEOCLASS(14i32);
 pub const GEOCLASS_ALL: SYSGEOCLASS = SYSGEOCLASS(0i32);
+impl ::core::marker::Copy for SYSGEOCLASS {}
+impl ::core::clone::Clone for SYSGEOCLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYSGEOTYPE(pub i32);
 pub const GEO_NATION: SYSGEOTYPE = SYSGEOTYPE(1i32);
@@ -3141,9 +3249,21 @@ pub const GEO_CURRENCYCODE: SYSGEOTYPE = SYSGEOTYPE(15i32);
 pub const GEO_CURRENCYSYMBOL: SYSGEOTYPE = SYSGEOTYPE(16i32);
 pub const GEO_NAME: SYSGEOTYPE = SYSGEOTYPE(17i32);
 pub const GEO_ID: SYSGEOTYPE = SYSGEOTYPE(18i32);
+impl ::core::marker::Copy for SYSGEOTYPE {}
+impl ::core::clone::Clone for SYSGEOTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYSNLS_FUNCTION(pub i32);
 pub const COMPARE_STRING: SYSNLS_FUNCTION = SYSNLS_FUNCTION(1i32);
+impl ::core::marker::Copy for SYSNLS_FUNCTION {}
+impl ::core::clone::Clone for SYSNLS_FUNCTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SpellCheckerFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2058577491,
     data2: 6038,
@@ -3162,12 +3282,24 @@ pub const TIME_NOMINUTESORSECONDS: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(1u32);
 pub const TIME_NOSECONDS: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(2u32);
 pub const TIME_NOTIMEMARKER: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(4u32);
 pub const TIME_FORCE24HOURFORMAT: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(8u32);
+impl ::core::marker::Copy for TIME_FORMAT_FLAGS {}
+impl ::core::clone::Clone for TIME_FORMAT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TRANSLATE_CHARSET_INFO_FLAGS(pub u32);
 pub const TCI_SRCCHARSET: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(1u32);
 pub const TCI_SRCCODEPAGE: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(2u32);
 pub const TCI_SRCFONTSIG: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(3u32);
 pub const TCI_SRCLOCALE: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(4096u32);
+impl ::core::marker::Copy for TRANSLATE_CHARSET_INFO_FLAGS {}
+impl ::core::clone::Clone for TRANSLATE_CHARSET_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const U16_MAX_LENGTH: u32 = 2u32;
 pub const U8_MAX_LENGTH: u32 = 4u32;
 #[repr(transparent)]
@@ -3175,12 +3307,24 @@ pub struct UAcceptResult(pub i32);
 pub const ULOC_ACCEPT_FAILED: UAcceptResult = UAcceptResult(0i32);
 pub const ULOC_ACCEPT_VALID: UAcceptResult = UAcceptResult(1i32);
 pub const ULOC_ACCEPT_FALLBACK: UAcceptResult = UAcceptResult(2i32);
+impl ::core::marker::Copy for UAcceptResult {}
+impl ::core::clone::Clone for UAcceptResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UAlphabeticIndexLabelType(pub i32);
 pub const U_ALPHAINDEX_NORMAL: UAlphabeticIndexLabelType = UAlphabeticIndexLabelType(0i32);
 pub const U_ALPHAINDEX_UNDERFLOW: UAlphabeticIndexLabelType = UAlphabeticIndexLabelType(1i32);
 pub const U_ALPHAINDEX_INFLOW: UAlphabeticIndexLabelType = UAlphabeticIndexLabelType(2i32);
 pub const U_ALPHAINDEX_OVERFLOW: UAlphabeticIndexLabelType = UAlphabeticIndexLabelType(3i32);
+impl ::core::marker::Copy for UAlphabeticIndexLabelType {}
+impl ::core::clone::Clone for UAlphabeticIndexLabelType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UBIDI_DEFAULT_LTR: u32 = 254u32;
 pub const UBIDI_DEFAULT_RTL: u32 = 255u32;
 pub const UBIDI_DO_MIRRORING: u32 = 2u32;
@@ -3200,14 +3344,32 @@ pub const UBIDI_LTR: UBiDiDirection = UBiDiDirection(0i32);
 pub const UBIDI_RTL: UBiDiDirection = UBiDiDirection(1i32);
 pub const UBIDI_MIXED: UBiDiDirection = UBiDiDirection(2i32);
 pub const UBIDI_NEUTRAL: UBiDiDirection = UBiDiDirection(3i32);
+impl ::core::marker::Copy for UBiDiDirection {}
+impl ::core::clone::Clone for UBiDiDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UBiDiMirroring(pub i32);
 pub const UBIDI_MIRRORING_OFF: UBiDiMirroring = UBiDiMirroring(0i32);
 pub const UBIDI_MIRRORING_ON: UBiDiMirroring = UBiDiMirroring(1i32);
+impl ::core::marker::Copy for UBiDiMirroring {}
+impl ::core::clone::Clone for UBiDiMirroring {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UBiDiOrder(pub i32);
 pub const UBIDI_LOGICAL: UBiDiOrder = UBiDiOrder(0i32);
 pub const UBIDI_VISUAL: UBiDiOrder = UBiDiOrder(1i32);
+impl ::core::marker::Copy for UBiDiOrder {}
+impl ::core::clone::Clone for UBiDiOrder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UBiDiReorderingMode(pub i32);
 pub const UBIDI_REORDER_DEFAULT: UBiDiReorderingMode = UBiDiReorderingMode(0i32);
@@ -3217,12 +3379,24 @@ pub const UBIDI_REORDER_RUNS_ONLY: UBiDiReorderingMode = UBiDiReorderingMode(3i3
 pub const UBIDI_REORDER_INVERSE_NUMBERS_AS_L: UBiDiReorderingMode = UBiDiReorderingMode(4i32);
 pub const UBIDI_REORDER_INVERSE_LIKE_DIRECT: UBiDiReorderingMode = UBiDiReorderingMode(5i32);
 pub const UBIDI_REORDER_INVERSE_FOR_NUMBERS_SPECIAL: UBiDiReorderingMode = UBiDiReorderingMode(6i32);
+impl ::core::marker::Copy for UBiDiReorderingMode {}
+impl ::core::clone::Clone for UBiDiReorderingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UBiDiReorderingOption(pub i32);
 pub const UBIDI_OPTION_DEFAULT: UBiDiReorderingOption = UBiDiReorderingOption(0i32);
 pub const UBIDI_OPTION_INSERT_MARKS: UBiDiReorderingOption = UBiDiReorderingOption(1i32);
 pub const UBIDI_OPTION_REMOVE_CONTROLS: UBiDiReorderingOption = UBiDiReorderingOption(2i32);
 pub const UBIDI_OPTION_STREAMING: UBiDiReorderingOption = UBiDiReorderingOption(4i32);
+impl ::core::marker::Copy for UBiDiReorderingOption {}
+impl ::core::clone::Clone for UBiDiReorderingOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UBiDiTransform(pub u8);
 #[repr(transparent)]
@@ -3230,6 +3404,12 @@ pub struct UBidiPairedBracketType(pub i32);
 pub const U_BPT_NONE: UBidiPairedBracketType = UBidiPairedBracketType(0i32);
 pub const U_BPT_OPEN: UBidiPairedBracketType = UBidiPairedBracketType(1i32);
 pub const U_BPT_CLOSE: UBidiPairedBracketType = UBidiPairedBracketType(2i32);
+impl ::core::marker::Copy for UBidiPairedBracketType {}
+impl ::core::clone::Clone for UBidiPairedBracketType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UBlockCode(pub i32);
 pub const UBLOCK_NO_BLOCK: UBlockCode = UBlockCode(0i32);
@@ -3544,6 +3724,12 @@ pub const UBLOCK_SYMBOLS_FOR_LEGACY_COMPUTING: UBlockCode = UBlockCode(306i32);
 pub const UBLOCK_TANGUT_SUPPLEMENT: UBlockCode = UBlockCode(307i32);
 pub const UBLOCK_YEZIDI: UBlockCode = UBlockCode(308i32);
 pub const UBLOCK_INVALID_CODE: UBlockCode = UBlockCode(-1i32);
+impl ::core::marker::Copy for UBlockCode {}
+impl ::core::clone::Clone for UBlockCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UBreakIterator(pub u8);
 #[repr(transparent)]
@@ -3552,6 +3738,12 @@ pub const UBRK_CHARACTER: UBreakIteratorType = UBreakIteratorType(0i32);
 pub const UBRK_WORD: UBreakIteratorType = UBreakIteratorType(1i32);
 pub const UBRK_LINE: UBreakIteratorType = UBreakIteratorType(2i32);
 pub const UBRK_SENTENCE: UBreakIteratorType = UBreakIteratorType(3i32);
+impl ::core::marker::Copy for UBreakIteratorType {}
+impl ::core::clone::Clone for UBreakIteratorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UCHAR_MAX_VALUE: u32 = 1114111u32;
 pub const UCHAR_MIN_VALUE: u32 = 0u32;
 pub const UCLN_NO_AUTO_CLEANUP: u32 = 1u32;
@@ -3566,6 +3758,12 @@ pub struct UCPMapRangeOption(pub i32);
 pub const UCPMAP_RANGE_NORMAL: UCPMapRangeOption = UCPMapRangeOption(0i32);
 pub const UCPMAP_RANGE_FIXED_LEAD_SURROGATES: UCPMapRangeOption = UCPMapRangeOption(1i32);
 pub const UCPMAP_RANGE_FIXED_ALL_SURROGATES: UCPMapRangeOption = UCPMapRangeOption(2i32);
+impl ::core::marker::Copy for UCPMapRangeOption {}
+impl ::core::clone::Clone for UCPMapRangeOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type UCPMapValueFilter = unsafe extern "system" fn(context: *const ::core::ffi::c_void, value: u32) -> u32;
 pub const UCPTRIE_ERROR_VALUE_NEG_DATA_OFFSET: i32 = 1i32;
 pub const UCPTRIE_FAST_DATA_BLOCK_LENGTH: i32 = 64i32;
@@ -3612,16 +3810,34 @@ pub struct UCPTrieType(pub i32);
 pub const UCPTRIE_TYPE_ANY: UCPTrieType = UCPTrieType(-1i32);
 pub const UCPTRIE_TYPE_FAST: UCPTrieType = UCPTrieType(0i32);
 pub const UCPTRIE_TYPE_SMALL: UCPTrieType = UCPTrieType(1i32);
+impl ::core::marker::Copy for UCPTrieType {}
+impl ::core::clone::Clone for UCPTrieType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCPTrieValueWidth(pub i32);
 pub const UCPTRIE_VALUE_BITS_ANY: UCPTrieValueWidth = UCPTrieValueWidth(-1i32);
 pub const UCPTRIE_VALUE_BITS_16: UCPTrieValueWidth = UCPTrieValueWidth(0i32);
 pub const UCPTRIE_VALUE_BITS_32: UCPTrieValueWidth = UCPTrieValueWidth(1i32);
 pub const UCPTRIE_VALUE_BITS_8: UCPTrieValueWidth = UCPTrieValueWidth(2i32);
+impl ::core::marker::Copy for UCPTrieValueWidth {}
+impl ::core::clone::Clone for UCPTrieValueWidth {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCalendarAMPMs(pub i32);
 pub const UCAL_AM: UCalendarAMPMs = UCalendarAMPMs(0i32);
 pub const UCAL_PM: UCalendarAMPMs = UCalendarAMPMs(1i32);
+impl ::core::marker::Copy for UCalendarAMPMs {}
+impl ::core::clone::Clone for UCalendarAMPMs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCalendarAttribute(pub i32);
 pub const UCAL_LENIENT: UCalendarAttribute = UCalendarAttribute(0i32);
@@ -3629,6 +3845,12 @@ pub const UCAL_FIRST_DAY_OF_WEEK: UCalendarAttribute = UCalendarAttribute(1i32);
 pub const UCAL_MINIMAL_DAYS_IN_FIRST_WEEK: UCalendarAttribute = UCalendarAttribute(2i32);
 pub const UCAL_REPEATED_WALL_TIME: UCalendarAttribute = UCalendarAttribute(3i32);
 pub const UCAL_SKIPPED_WALL_TIME: UCalendarAttribute = UCalendarAttribute(4i32);
+impl ::core::marker::Copy for UCalendarAttribute {}
+impl ::core::clone::Clone for UCalendarAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCalendarDateFields(pub i32);
 pub const UCAL_ERA: UCalendarDateFields = UCalendarDateFields(0i32);
@@ -3656,6 +3878,12 @@ pub const UCAL_MILLISECONDS_IN_DAY: UCalendarDateFields = UCalendarDateFields(21
 pub const UCAL_IS_LEAP_MONTH: UCalendarDateFields = UCalendarDateFields(22i32);
 pub const UCAL_FIELD_COUNT: UCalendarDateFields = UCalendarDateFields(23i32);
 pub const UCAL_DAY_OF_MONTH: UCalendarDateFields = UCalendarDateFields(5i32);
+impl ::core::marker::Copy for UCalendarDateFields {}
+impl ::core::clone::Clone for UCalendarDateFields {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCalendarDaysOfWeek(pub i32);
 pub const UCAL_SUNDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(1i32);
@@ -3665,12 +3893,24 @@ pub const UCAL_WEDNESDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(4i32);
 pub const UCAL_THURSDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(5i32);
 pub const UCAL_FRIDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(6i32);
 pub const UCAL_SATURDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(7i32);
+impl ::core::marker::Copy for UCalendarDaysOfWeek {}
+impl ::core::clone::Clone for UCalendarDaysOfWeek {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCalendarDisplayNameType(pub i32);
 pub const UCAL_STANDARD: UCalendarDisplayNameType = UCalendarDisplayNameType(0i32);
 pub const UCAL_SHORT_STANDARD: UCalendarDisplayNameType = UCalendarDisplayNameType(1i32);
 pub const UCAL_DST: UCalendarDisplayNameType = UCalendarDisplayNameType(2i32);
 pub const UCAL_SHORT_DST: UCalendarDisplayNameType = UCalendarDisplayNameType(3i32);
+impl ::core::marker::Copy for UCalendarDisplayNameType {}
+impl ::core::clone::Clone for UCalendarDisplayNameType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCalendarLimitType(pub i32);
 pub const UCAL_MINIMUM: UCalendarLimitType = UCalendarLimitType(0i32);
@@ -3679,6 +3919,12 @@ pub const UCAL_GREATEST_MINIMUM: UCalendarLimitType = UCalendarLimitType(2i32);
 pub const UCAL_LEAST_MAXIMUM: UCalendarLimitType = UCalendarLimitType(3i32);
 pub const UCAL_ACTUAL_MINIMUM: UCalendarLimitType = UCalendarLimitType(4i32);
 pub const UCAL_ACTUAL_MAXIMUM: UCalendarLimitType = UCalendarLimitType(5i32);
+impl ::core::marker::Copy for UCalendarLimitType {}
+impl ::core::clone::Clone for UCalendarLimitType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCalendarMonths(pub i32);
 pub const UCAL_JANUARY: UCalendarMonths = UCalendarMonths(0i32);
@@ -3694,22 +3940,46 @@ pub const UCAL_OCTOBER: UCalendarMonths = UCalendarMonths(9i32);
 pub const UCAL_NOVEMBER: UCalendarMonths = UCalendarMonths(10i32);
 pub const UCAL_DECEMBER: UCalendarMonths = UCalendarMonths(11i32);
 pub const UCAL_UNDECIMBER: UCalendarMonths = UCalendarMonths(12i32);
+impl ::core::marker::Copy for UCalendarMonths {}
+impl ::core::clone::Clone for UCalendarMonths {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCalendarType(pub i32);
 pub const UCAL_TRADITIONAL: UCalendarType = UCalendarType(0i32);
 pub const UCAL_DEFAULT: UCalendarType = UCalendarType(0i32);
 pub const UCAL_GREGORIAN: UCalendarType = UCalendarType(1i32);
+impl ::core::marker::Copy for UCalendarType {}
+impl ::core::clone::Clone for UCalendarType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCalendarWallTimeOption(pub i32);
 pub const UCAL_WALLTIME_LAST: UCalendarWallTimeOption = UCalendarWallTimeOption(0i32);
 pub const UCAL_WALLTIME_FIRST: UCalendarWallTimeOption = UCalendarWallTimeOption(1i32);
 pub const UCAL_WALLTIME_NEXT_VALID: UCalendarWallTimeOption = UCalendarWallTimeOption(2i32);
+impl ::core::marker::Copy for UCalendarWallTimeOption {}
+impl ::core::clone::Clone for UCalendarWallTimeOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCalendarWeekdayType(pub i32);
 pub const UCAL_WEEKDAY: UCalendarWeekdayType = UCalendarWeekdayType(0i32);
 pub const UCAL_WEEKEND: UCalendarWeekdayType = UCalendarWeekdayType(1i32);
 pub const UCAL_WEEKEND_ONSET: UCalendarWeekdayType = UCalendarWeekdayType(2i32);
 pub const UCAL_WEEKEND_CEASE: UCalendarWeekdayType = UCalendarWeekdayType(3i32);
+impl ::core::marker::Copy for UCalendarWeekdayType {}
+impl ::core::clone::Clone for UCalendarWeekdayType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UCaseMap(pub u8);
 #[repr(transparent)]
@@ -3746,6 +4016,12 @@ pub const U_OTHER_SYMBOL: UCharCategory = UCharCategory(27i32);
 pub const U_INITIAL_PUNCTUATION: UCharCategory = UCharCategory(28i32);
 pub const U_FINAL_PUNCTUATION: UCharCategory = UCharCategory(29i32);
 pub const U_CHAR_CATEGORY_COUNT: UCharCategory = UCharCategory(30i32);
+impl ::core::marker::Copy for UCharCategory {}
+impl ::core::clone::Clone for UCharCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCharDirection(pub i32);
 pub const U_LEFT_TO_RIGHT: UCharDirection = UCharDirection(0i32);
@@ -3771,6 +4047,12 @@ pub const U_FIRST_STRONG_ISOLATE: UCharDirection = UCharDirection(19i32);
 pub const U_LEFT_TO_RIGHT_ISOLATE: UCharDirection = UCharDirection(20i32);
 pub const U_RIGHT_TO_LEFT_ISOLATE: UCharDirection = UCharDirection(21i32);
 pub const U_POP_DIRECTIONAL_ISOLATE: UCharDirection = UCharDirection(22i32);
+impl ::core::marker::Copy for UCharDirection {}
+impl ::core::clone::Clone for UCharDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type UCharEnumTypeRange = unsafe extern "system" fn(context: *const ::core::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8;
 #[repr(C)]
 pub struct UCharIterator {
@@ -3811,6 +4093,12 @@ pub const UITER_CURRENT: UCharIteratorOrigin = UCharIteratorOrigin(1i32);
 pub const UITER_LIMIT: UCharIteratorOrigin = UCharIteratorOrigin(2i32);
 pub const UITER_ZERO: UCharIteratorOrigin = UCharIteratorOrigin(3i32);
 pub const UITER_LENGTH: UCharIteratorOrigin = UCharIteratorOrigin(4i32);
+impl ::core::marker::Copy for UCharIteratorOrigin {}
+impl ::core::clone::Clone for UCharIteratorOrigin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type UCharIteratorPrevious = unsafe extern "system" fn(iter: *mut UCharIterator) -> i32;
 pub type UCharIteratorReserved = unsafe extern "system" fn(iter: *mut UCharIterator, something: i32) -> i32;
 pub type UCharIteratorSetState = unsafe extern "system" fn(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode);
@@ -3819,6 +4107,12 @@ pub struct UCharNameChoice(pub i32);
 pub const U_UNICODE_CHAR_NAME: UCharNameChoice = UCharNameChoice(0i32);
 pub const U_EXTENDED_CHAR_NAME: UCharNameChoice = UCharNameChoice(2i32);
 pub const U_CHAR_NAME_ALIAS: UCharNameChoice = UCharNameChoice(3i32);
+impl ::core::marker::Copy for UCharNameChoice {}
+impl ::core::clone::Clone for UCharNameChoice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UCharsetDetector(pub u8);
 #[repr(C)]
@@ -3834,6 +4128,12 @@ pub const UCOL_DECOMPOSITION_MODE: UColAttribute = UColAttribute(4i32);
 pub const UCOL_STRENGTH: UColAttribute = UColAttribute(5i32);
 pub const UCOL_NUMERIC_COLLATION: UColAttribute = UColAttribute(7i32);
 pub const UCOL_ATTRIBUTE_COUNT: UColAttribute = UColAttribute(8i32);
+impl ::core::marker::Copy for UColAttribute {}
+impl ::core::clone::Clone for UColAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UColAttributeValue(pub i32);
 pub const UCOL_DEFAULT: UColAttributeValue = UColAttributeValue(-1i32);
@@ -3851,11 +4151,23 @@ pub const UCOL_SHIFTED: UColAttributeValue = UColAttributeValue(20i32);
 pub const UCOL_NON_IGNORABLE: UColAttributeValue = UColAttributeValue(21i32);
 pub const UCOL_LOWER_FIRST: UColAttributeValue = UColAttributeValue(24i32);
 pub const UCOL_UPPER_FIRST: UColAttributeValue = UColAttributeValue(25i32);
+impl ::core::marker::Copy for UColAttributeValue {}
+impl ::core::clone::Clone for UColAttributeValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UColBoundMode(pub i32);
 pub const UCOL_BOUND_LOWER: UColBoundMode = UColBoundMode(0i32);
 pub const UCOL_BOUND_UPPER: UColBoundMode = UColBoundMode(1i32);
 pub const UCOL_BOUND_UPPER_LONG: UColBoundMode = UColBoundMode(2i32);
+impl ::core::marker::Copy for UColBoundMode {}
+impl ::core::clone::Clone for UColBoundMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UColReorderCode(pub i32);
 pub const UCOL_REORDER_CODE_DEFAULT: UColReorderCode = UColReorderCode(-1i32);
@@ -3867,10 +4179,22 @@ pub const UCOL_REORDER_CODE_PUNCTUATION: UColReorderCode = UColReorderCode(4097i
 pub const UCOL_REORDER_CODE_SYMBOL: UColReorderCode = UColReorderCode(4098i32);
 pub const UCOL_REORDER_CODE_CURRENCY: UColReorderCode = UColReorderCode(4099i32);
 pub const UCOL_REORDER_CODE_DIGIT: UColReorderCode = UColReorderCode(4100i32);
+impl ::core::marker::Copy for UColReorderCode {}
+impl ::core::clone::Clone for UColReorderCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UColRuleOption(pub i32);
 pub const UCOL_TAILORING_ONLY: UColRuleOption = UColRuleOption(0i32);
 pub const UCOL_FULL_RULES: UColRuleOption = UColRuleOption(1i32);
+impl ::core::marker::Copy for UColRuleOption {}
+impl ::core::clone::Clone for UColRuleOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UCollationElements(pub u8);
 #[repr(transparent)]
@@ -3878,6 +4202,12 @@ pub struct UCollationResult(pub i32);
 pub const UCOL_EQUAL: UCollationResult = UCollationResult(0i32);
 pub const UCOL_GREATER: UCollationResult = UCollationResult(1i32);
 pub const UCOL_LESS: UCollationResult = UCollationResult(-1i32);
+impl ::core::marker::Copy for UCollationResult {}
+impl ::core::clone::Clone for UCollationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UCollator(pub u8);
 #[repr(C)]
@@ -3892,6 +4222,12 @@ pub const UCNV_IRREGULAR: UConverterCallbackReason = UConverterCallbackReason(2i
 pub const UCNV_RESET: UConverterCallbackReason = UConverterCallbackReason(3i32);
 pub const UCNV_CLOSE: UConverterCallbackReason = UConverterCallbackReason(4i32);
 pub const UCNV_CLONE: UConverterCallbackReason = UConverterCallbackReason(5i32);
+impl ::core::marker::Copy for UConverterCallbackReason {}
+impl ::core::clone::Clone for UConverterCallbackReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type UConverterFromUCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode);
 #[repr(C)]
@@ -3918,6 +4254,12 @@ impl ::core::clone::Clone for UConverterFromUnicodeArgs {
 pub struct UConverterPlatform(pub i32);
 pub const UCNV_UNKNOWN: UConverterPlatform = UConverterPlatform(-1i32);
 pub const UCNV_IBM: UConverterPlatform = UConverterPlatform(0i32);
+impl ::core::marker::Copy for UConverterPlatform {}
+impl ::core::clone::Clone for UConverterPlatform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UConverterSelector(pub u8);
 #[cfg(feature = "Win32_Foundation")]
@@ -3981,10 +4323,22 @@ pub const UCNV_CESU8: UConverterType = UConverterType(31i32);
 pub const UCNV_IMAP_MAILBOX: UConverterType = UConverterType(32i32);
 pub const UCNV_COMPOUND_TEXT: UConverterType = UConverterType(33i32);
 pub const UCNV_NUMBER_OF_SUPPORTED_CONVERTER_TYPES: UConverterType = UConverterType(34i32);
+impl ::core::marker::Copy for UConverterType {}
+impl ::core::clone::Clone for UConverterType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UConverterUnicodeSet(pub i32);
 pub const UCNV_ROUNDTRIP_SET: UConverterUnicodeSet = UConverterUnicodeSet(0i32);
 pub const UCNV_ROUNDTRIP_AND_FALLBACK_SET: UConverterUnicodeSet = UConverterUnicodeSet(1i32);
+impl ::core::marker::Copy for UConverterUnicodeSet {}
+impl ::core::clone::Clone for UConverterUnicodeSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCurrCurrencyType(pub i32);
 pub const UCURR_ALL: UCurrCurrencyType = UCurrCurrencyType(2147483647i32);
@@ -3992,21 +4346,45 @@ pub const UCURR_COMMON: UCurrCurrencyType = UCurrCurrencyType(1i32);
 pub const UCURR_UNCOMMON: UCurrCurrencyType = UCurrCurrencyType(2i32);
 pub const UCURR_DEPRECATED: UCurrCurrencyType = UCurrCurrencyType(4i32);
 pub const UCURR_NON_DEPRECATED: UCurrCurrencyType = UCurrCurrencyType(8i32);
+impl ::core::marker::Copy for UCurrCurrencyType {}
+impl ::core::clone::Clone for UCurrCurrencyType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCurrNameStyle(pub i32);
 pub const UCURR_SYMBOL_NAME: UCurrNameStyle = UCurrNameStyle(0i32);
 pub const UCURR_LONG_NAME: UCurrNameStyle = UCurrNameStyle(1i32);
 pub const UCURR_NARROW_SYMBOL_NAME: UCurrNameStyle = UCurrNameStyle(2i32);
+impl ::core::marker::Copy for UCurrNameStyle {}
+impl ::core::clone::Clone for UCurrNameStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCurrencySpacing(pub i32);
 pub const UNUM_CURRENCY_MATCH: UCurrencySpacing = UCurrencySpacing(0i32);
 pub const UNUM_CURRENCY_SURROUNDING_MATCH: UCurrencySpacing = UCurrencySpacing(1i32);
 pub const UNUM_CURRENCY_INSERT: UCurrencySpacing = UCurrencySpacing(2i32);
 pub const UNUM_CURRENCY_SPACING_COUNT: UCurrencySpacing = UCurrencySpacing(3i32);
+impl ::core::marker::Copy for UCurrencySpacing {}
+impl ::core::clone::Clone for UCurrencySpacing {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCurrencyUsage(pub i32);
 pub const UCURR_USAGE_STANDARD: UCurrencyUsage = UCurrencyUsage(0i32);
 pub const UCURR_USAGE_CASH: UCurrencyUsage = UCurrencyUsage(1i32);
+impl ::core::marker::Copy for UCurrencyUsage {}
+impl ::core::clone::Clone for UCurrencyUsage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDateAbsoluteUnit(pub i32);
 pub const UDAT_ABSOLUTE_SUNDAY: UDateAbsoluteUnit = UDateAbsoluteUnit(0i32);
@@ -4022,6 +4400,12 @@ pub const UDAT_ABSOLUTE_MONTH: UDateAbsoluteUnit = UDateAbsoluteUnit(9i32);
 pub const UDAT_ABSOLUTE_YEAR: UDateAbsoluteUnit = UDateAbsoluteUnit(10i32);
 pub const UDAT_ABSOLUTE_NOW: UDateAbsoluteUnit = UDateAbsoluteUnit(11i32);
 pub const UDAT_ABSOLUTE_UNIT_COUNT: UDateAbsoluteUnit = UDateAbsoluteUnit(12i32);
+impl ::core::marker::Copy for UDateAbsoluteUnit {}
+impl ::core::clone::Clone for UDateAbsoluteUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDateDirection(pub i32);
 pub const UDAT_DIRECTION_LAST_2: UDateDirection = UDateDirection(0i32);
@@ -4031,6 +4415,12 @@ pub const UDAT_DIRECTION_NEXT: UDateDirection = UDateDirection(3i32);
 pub const UDAT_DIRECTION_NEXT_2: UDateDirection = UDateDirection(4i32);
 pub const UDAT_DIRECTION_PLAIN: UDateDirection = UDateDirection(5i32);
 pub const UDAT_DIRECTION_COUNT: UDateDirection = UDateDirection(6i32);
+impl ::core::marker::Copy for UDateDirection {}
+impl ::core::clone::Clone for UDateDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDateFormatBooleanAttribute(pub i32);
 pub const UDAT_PARSE_ALLOW_WHITESPACE: UDateFormatBooleanAttribute = UDateFormatBooleanAttribute(0i32);
@@ -4038,6 +4428,12 @@ pub const UDAT_PARSE_ALLOW_NUMERIC: UDateFormatBooleanAttribute = UDateFormatBoo
 pub const UDAT_PARSE_PARTIAL_LITERAL_MATCH: UDateFormatBooleanAttribute = UDateFormatBooleanAttribute(2i32);
 pub const UDAT_PARSE_MULTIPLE_PATTERNS_FOR_MATCH: UDateFormatBooleanAttribute = UDateFormatBooleanAttribute(3i32);
 pub const UDAT_BOOLEAN_ATTRIBUTE_COUNT: UDateFormatBooleanAttribute = UDateFormatBooleanAttribute(4i32);
+impl ::core::marker::Copy for UDateFormatBooleanAttribute {}
+impl ::core::clone::Clone for UDateFormatBooleanAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDateFormatField(pub i32);
 pub const UDAT_ERA_FIELD: UDateFormatField = UDateFormatField(0i32);
@@ -4076,6 +4472,12 @@ pub const UDAT_TIMEZONE_ISO_FIELD: UDateFormatField = UDateFormatField(32i32);
 pub const UDAT_TIMEZONE_ISO_LOCAL_FIELD: UDateFormatField = UDateFormatField(33i32);
 pub const UDAT_AM_PM_MIDNIGHT_NOON_FIELD: UDateFormatField = UDateFormatField(35i32);
 pub const UDAT_FLEXIBLE_DAY_PERIOD_FIELD: UDateFormatField = UDateFormatField(36i32);
+impl ::core::marker::Copy for UDateFormatField {}
+impl ::core::clone::Clone for UDateFormatField {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDateFormatStyle(pub i32);
 pub const UDAT_FULL: UDateFormatStyle = UDateFormatStyle(0i32);
@@ -4090,6 +4492,12 @@ pub const UDAT_MEDIUM_RELATIVE: UDateFormatStyle = UDateFormatStyle(130i32);
 pub const UDAT_SHORT_RELATIVE: UDateFormatStyle = UDateFormatStyle(131i32);
 pub const UDAT_NONE: UDateFormatStyle = UDateFormatStyle(-1i32);
 pub const UDAT_PATTERN: UDateFormatStyle = UDateFormatStyle(-2i32);
+impl ::core::marker::Copy for UDateFormatStyle {}
+impl ::core::clone::Clone for UDateFormatStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDateFormatSymbolType(pub i32);
 pub const UDAT_ERAS: UDateFormatSymbolType = UDateFormatSymbolType(0i32);
@@ -4120,6 +4528,12 @@ pub const UDAT_CYCLIC_YEARS_NARROW: UDateFormatSymbolType = UDateFormatSymbolTyp
 pub const UDAT_ZODIAC_NAMES_WIDE: UDateFormatSymbolType = UDateFormatSymbolType(25i32);
 pub const UDAT_ZODIAC_NAMES_ABBREVIATED: UDateFormatSymbolType = UDateFormatSymbolType(26i32);
 pub const UDAT_ZODIAC_NAMES_NARROW: UDateFormatSymbolType = UDateFormatSymbolType(27i32);
+impl ::core::marker::Copy for UDateFormatSymbolType {}
+impl ::core::clone::Clone for UDateFormatSymbolType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UDateFormatSymbols(pub u8);
 #[repr(C)]
@@ -4129,6 +4543,12 @@ pub struct UDateRelativeDateTimeFormatterStyle(pub i32);
 pub const UDAT_STYLE_LONG: UDateRelativeDateTimeFormatterStyle = UDateRelativeDateTimeFormatterStyle(0i32);
 pub const UDAT_STYLE_SHORT: UDateRelativeDateTimeFormatterStyle = UDateRelativeDateTimeFormatterStyle(1i32);
 pub const UDAT_STYLE_NARROW: UDateRelativeDateTimeFormatterStyle = UDateRelativeDateTimeFormatterStyle(2i32);
+impl ::core::marker::Copy for UDateRelativeDateTimeFormatterStyle {}
+impl ::core::clone::Clone for UDateRelativeDateTimeFormatterStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDateRelativeUnit(pub i32);
 pub const UDAT_RELATIVE_SECONDS: UDateRelativeUnit = UDateRelativeUnit(0i32);
@@ -4139,16 +4559,34 @@ pub const UDAT_RELATIVE_WEEKS: UDateRelativeUnit = UDateRelativeUnit(4i32);
 pub const UDAT_RELATIVE_MONTHS: UDateRelativeUnit = UDateRelativeUnit(5i32);
 pub const UDAT_RELATIVE_YEARS: UDateRelativeUnit = UDateRelativeUnit(6i32);
 pub const UDAT_RELATIVE_UNIT_COUNT: UDateRelativeUnit = UDateRelativeUnit(7i32);
+impl ::core::marker::Copy for UDateRelativeUnit {}
+impl ::core::clone::Clone for UDateRelativeUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDateTimePGDisplayWidth(pub i32);
 pub const UDATPG_WIDE: UDateTimePGDisplayWidth = UDateTimePGDisplayWidth(0i32);
 pub const UDATPG_ABBREVIATED: UDateTimePGDisplayWidth = UDateTimePGDisplayWidth(1i32);
 pub const UDATPG_NARROW: UDateTimePGDisplayWidth = UDateTimePGDisplayWidth(2i32);
+impl ::core::marker::Copy for UDateTimePGDisplayWidth {}
+impl ::core::clone::Clone for UDateTimePGDisplayWidth {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDateTimePatternConflict(pub i32);
 pub const UDATPG_NO_CONFLICT: UDateTimePatternConflict = UDateTimePatternConflict(0i32);
 pub const UDATPG_BASE_CONFLICT: UDateTimePatternConflict = UDateTimePatternConflict(1i32);
 pub const UDATPG_CONFLICT: UDateTimePatternConflict = UDateTimePatternConflict(2i32);
+impl ::core::marker::Copy for UDateTimePatternConflict {}
+impl ::core::clone::Clone for UDateTimePatternConflict {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDateTimePatternField(pub i32);
 pub const UDATPG_ERA_FIELD: UDateTimePatternField = UDateTimePatternField(0i32);
@@ -4168,11 +4606,23 @@ pub const UDATPG_SECOND_FIELD: UDateTimePatternField = UDateTimePatternField(13i
 pub const UDATPG_FRACTIONAL_SECOND_FIELD: UDateTimePatternField = UDateTimePatternField(14i32);
 pub const UDATPG_ZONE_FIELD: UDateTimePatternField = UDateTimePatternField(15i32);
 pub const UDATPG_FIELD_COUNT: UDateTimePatternField = UDateTimePatternField(16i32);
+impl ::core::marker::Copy for UDateTimePatternField {}
+impl ::core::clone::Clone for UDateTimePatternField {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDateTimePatternMatchOptions(pub i32);
 pub const UDATPG_MATCH_NO_OPTIONS: UDateTimePatternMatchOptions = UDateTimePatternMatchOptions(0i32);
 pub const UDATPG_MATCH_HOUR_FIELD_LENGTH: UDateTimePatternMatchOptions = UDateTimePatternMatchOptions(2048i32);
 pub const UDATPG_MATCH_ALL_FIELDS_LENGTH: UDateTimePatternMatchOptions = UDateTimePatternMatchOptions(65535i32);
+impl ::core::marker::Copy for UDateTimePatternMatchOptions {}
+impl ::core::clone::Clone for UDateTimePatternMatchOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDateTimeScale(pub i32);
 pub const UDTS_JAVA_TIME: UDateTimeScale = UDateTimeScale(0i32);
@@ -4185,6 +4635,12 @@ pub const UDTS_MAC_TIME: UDateTimeScale = UDateTimeScale(6i32);
 pub const UDTS_EXCEL_TIME: UDateTimeScale = UDateTimeScale(7i32);
 pub const UDTS_DB2_TIME: UDateTimeScale = UDateTimeScale(8i32);
 pub const UDTS_UNIX_MICROSECONDS_TIME: UDateTimeScale = UDateTimeScale(9i32);
+impl ::core::marker::Copy for UDateTimeScale {}
+impl ::core::clone::Clone for UDateTimeScale {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDecompositionType(pub i32);
 pub const U_DT_NONE: UDecompositionType = UDecompositionType(0i32);
@@ -4205,10 +4661,22 @@ pub const U_DT_SUB: UDecompositionType = UDecompositionType(14i32);
 pub const U_DT_SUPER: UDecompositionType = UDecompositionType(15i32);
 pub const U_DT_VERTICAL: UDecompositionType = UDecompositionType(16i32);
 pub const U_DT_WIDE: UDecompositionType = UDecompositionType(17i32);
+impl ::core::marker::Copy for UDecompositionType {}
+impl ::core::clone::Clone for UDecompositionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDialectHandling(pub i32);
 pub const ULDN_STANDARD_NAMES: UDialectHandling = UDialectHandling(0i32);
 pub const ULDN_DIALECT_NAMES: UDialectHandling = UDialectHandling(1i32);
+impl ::core::marker::Copy for UDialectHandling {}
+impl ::core::clone::Clone for UDialectHandling {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDisplayContext(pub i32);
 pub const UDISPCTX_STANDARD_NAMES: UDisplayContext = UDisplayContext(0i32);
@@ -4222,12 +4690,24 @@ pub const UDISPCTX_LENGTH_FULL: UDisplayContext = UDisplayContext(512i32);
 pub const UDISPCTX_LENGTH_SHORT: UDisplayContext = UDisplayContext(513i32);
 pub const UDISPCTX_SUBSTITUTE: UDisplayContext = UDisplayContext(768i32);
 pub const UDISPCTX_NO_SUBSTITUTE: UDisplayContext = UDisplayContext(769i32);
+impl ::core::marker::Copy for UDisplayContext {}
+impl ::core::clone::Clone for UDisplayContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UDisplayContextType(pub i32);
 pub const UDISPCTX_TYPE_DIALECT_HANDLING: UDisplayContextType = UDisplayContextType(0i32);
 pub const UDISPCTX_TYPE_CAPITALIZATION: UDisplayContextType = UDisplayContextType(1i32);
 pub const UDISPCTX_TYPE_DISPLAY_LENGTH: UDisplayContextType = UDisplayContextType(2i32);
 pub const UDISPCTX_TYPE_SUBSTITUTE_HANDLING: UDisplayContextType = UDisplayContextType(3i32);
+impl ::core::marker::Copy for UDisplayContextType {}
+impl ::core::clone::Clone for UDisplayContextType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UEastAsianWidth(pub i32);
 pub const U_EA_NEUTRAL: UEastAsianWidth = UEastAsianWidth(0i32);
@@ -4236,6 +4716,12 @@ pub const U_EA_HALFWIDTH: UEastAsianWidth = UEastAsianWidth(2i32);
 pub const U_EA_FULLWIDTH: UEastAsianWidth = UEastAsianWidth(3i32);
 pub const U_EA_NARROW: UEastAsianWidth = UEastAsianWidth(4i32);
 pub const U_EA_WIDE: UEastAsianWidth = UEastAsianWidth(5i32);
+impl ::core::marker::Copy for UEastAsianWidth {}
+impl ::core::clone::Clone for UEastAsianWidth {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type UEnumCharNamesFn = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: super::Foundation::PSTR, length: i32) -> i8;
 #[repr(C)]
@@ -4394,6 +4880,12 @@ pub const U_STRINGPREP_CHECK_BIDI_ERROR: UErrorCode = UErrorCode(66562i32);
 pub const U_PLUGIN_ERROR_START: UErrorCode = UErrorCode(66816i32);
 pub const U_PLUGIN_TOO_HIGH: UErrorCode = UErrorCode(66816i32);
 pub const U_PLUGIN_DIDNT_SET_LEVEL: UErrorCode = UErrorCode(66817i32);
+impl ::core::marker::Copy for UErrorCode {}
+impl ::core::clone::Clone for UErrorCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UFieldCategory(pub i32);
 pub const UFIELD_CATEGORY_UNDEFINED: UFieldCategory = UFieldCategory(0i32);
@@ -4404,6 +4896,12 @@ pub const UFIELD_CATEGORY_RELATIVE_DATETIME: UFieldCategory = UFieldCategory(4i3
 pub const UFIELD_CATEGORY_DATE_INTERVAL: UFieldCategory = UFieldCategory(5i32);
 pub const UFIELD_CATEGORY_LIST_SPAN: UFieldCategory = UFieldCategory(4099i32);
 pub const UFIELD_CATEGORY_DATE_INTERVAL_SPAN: UFieldCategory = UFieldCategory(4101i32);
+impl ::core::marker::Copy for UFieldCategory {}
+impl ::core::clone::Clone for UFieldCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UFieldPosition {
     pub field: i32,
@@ -4427,6 +4925,12 @@ pub const UFMT_STRING: UFormattableType = UFormattableType(3i32);
 pub const UFMT_ARRAY: UFormattableType = UFormattableType(4i32);
 pub const UFMT_INT64: UFormattableType = UFormattableType(5i32);
 pub const UFMT_OBJECT: UFormattableType = UFormattableType(6i32);
+impl ::core::marker::Copy for UFormattableType {}
+impl ::core::clone::Clone for UFormattableType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UFormattedDateInterval(pub u8);
 #[repr(C)]
@@ -4444,6 +4948,12 @@ pub struct UGender(pub i32);
 pub const UGENDER_MALE: UGender = UGender(0i32);
 pub const UGENDER_FEMALE: UGender = UGender(1i32);
 pub const UGENDER_OTHER: UGender = UGender(2i32);
+impl ::core::marker::Copy for UGender {}
+impl ::core::clone::Clone for UGender {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UGenderInfo(pub u8);
 #[repr(transparent)]
@@ -4466,6 +4976,12 @@ pub const U_GCB_E_BASE_GAZ: UGraphemeClusterBreak = UGraphemeClusterBreak(14i32)
 pub const U_GCB_E_MODIFIER: UGraphemeClusterBreak = UGraphemeClusterBreak(15i32);
 pub const U_GCB_GLUE_AFTER_ZWJ: UGraphemeClusterBreak = UGraphemeClusterBreak(16i32);
 pub const U_GCB_ZWJ: UGraphemeClusterBreak = UGraphemeClusterBreak(17i32);
+impl ::core::marker::Copy for UGraphemeClusterBreak {}
+impl ::core::clone::Clone for UGraphemeClusterBreak {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UHangulSyllableType(pub i32);
 pub const U_HST_NOT_APPLICABLE: UHangulSyllableType = UHangulSyllableType(0i32);
@@ -4474,6 +4990,12 @@ pub const U_HST_VOWEL_JAMO: UHangulSyllableType = UHangulSyllableType(2i32);
 pub const U_HST_TRAILING_JAMO: UHangulSyllableType = UHangulSyllableType(3i32);
 pub const U_HST_LV_SYLLABLE: UHangulSyllableType = UHangulSyllableType(4i32);
 pub const U_HST_LVT_SYLLABLE: UHangulSyllableType = UHangulSyllableType(5i32);
+impl ::core::marker::Copy for UHangulSyllableType {}
+impl ::core::clone::Clone for UHangulSyllableType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UHashtable(pub u8);
 #[repr(C)]
@@ -4538,6 +5060,12 @@ pub const U_INPC_TOP_AND_LEFT_AND_RIGHT: UIndicPositionalCategory = UIndicPositi
 pub const U_INPC_TOP_AND_RIGHT: UIndicPositionalCategory = UIndicPositionalCategory(13i32);
 pub const U_INPC_VISUAL_ORDER_LEFT: UIndicPositionalCategory = UIndicPositionalCategory(14i32);
 pub const U_INPC_TOP_AND_BOTTOM_AND_LEFT: UIndicPositionalCategory = UIndicPositionalCategory(15i32);
+impl ::core::marker::Copy for UIndicPositionalCategory {}
+impl ::core::clone::Clone for UIndicPositionalCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UIndicSyllabicCategory(pub i32);
 pub const U_INSC_OTHER: UIndicSyllabicCategory = UIndicSyllabicCategory(0i32);
@@ -4576,6 +5104,12 @@ pub const U_INSC_VISARGA: UIndicSyllabicCategory = UIndicSyllabicCategory(32i32)
 pub const U_INSC_VOWEL: UIndicSyllabicCategory = UIndicSyllabicCategory(33i32);
 pub const U_INSC_VOWEL_DEPENDENT: UIndicSyllabicCategory = UIndicSyllabicCategory(34i32);
 pub const U_INSC_VOWEL_INDEPENDENT: UIndicSyllabicCategory = UIndicSyllabicCategory(35i32);
+impl ::core::marker::Copy for UIndicSyllabicCategory {}
+impl ::core::clone::Clone for UIndicSyllabicCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UJoiningGroup(pub i32);
 pub const U_JG_NO_JOINING_GROUP: UJoiningGroup = UJoiningGroup(0i32);
@@ -4681,6 +5215,12 @@ pub const U_JG_MALAYALAM_SSA: UJoiningGroup = UJoiningGroup(98i32);
 pub const U_JG_MALAYALAM_TTA: UJoiningGroup = UJoiningGroup(99i32);
 pub const U_JG_HANIFI_ROHINGYA_KINNA_YA: UJoiningGroup = UJoiningGroup(100i32);
 pub const U_JG_HANIFI_ROHINGYA_PA: UJoiningGroup = UJoiningGroup(101i32);
+impl ::core::marker::Copy for UJoiningGroup {}
+impl ::core::clone::Clone for UJoiningGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UJoiningType(pub i32);
 pub const U_JT_NON_JOINING: UJoiningType = UJoiningType(0i32);
@@ -4689,6 +5229,12 @@ pub const U_JT_DUAL_JOINING: UJoiningType = UJoiningType(2i32);
 pub const U_JT_LEFT_JOINING: UJoiningType = UJoiningType(3i32);
 pub const U_JT_RIGHT_JOINING: UJoiningType = UJoiningType(4i32);
 pub const U_JT_TRANSPARENT: UJoiningType = UJoiningType(5i32);
+impl ::core::marker::Copy for UJoiningType {}
+impl ::core::clone::Clone for UJoiningType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ULOC_COUNTRY_CAPACITY: u32 = 4u32;
 pub const ULOC_FULLNAME_CAPACITY: u32 = 157u32;
 pub const ULOC_KEYWORDS_CAPACITY: u32 = 96u32;
@@ -4705,6 +5251,12 @@ pub const ULOC_LAYOUT_RTL: ULayoutType = ULayoutType(1i32);
 pub const ULOC_LAYOUT_TTB: ULayoutType = ULayoutType(2i32);
 pub const ULOC_LAYOUT_BTT: ULayoutType = ULayoutType(3i32);
 pub const ULOC_LAYOUT_UNKNOWN: ULayoutType = ULayoutType(4i32);
+impl ::core::marker::Copy for ULayoutType {}
+impl ::core::clone::Clone for ULayoutType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ULineBreak(pub i32);
 pub const U_LB_UNKNOWN: ULineBreak = ULineBreak(0i32);
@@ -4751,37 +5303,79 @@ pub const U_LB_REGIONAL_INDICATOR: ULineBreak = ULineBreak(39i32);
 pub const U_LB_E_BASE: ULineBreak = ULineBreak(40i32);
 pub const U_LB_E_MODIFIER: ULineBreak = ULineBreak(41i32);
 pub const U_LB_ZWJ: ULineBreak = ULineBreak(42i32);
+impl ::core::marker::Copy for ULineBreak {}
+impl ::core::clone::Clone for ULineBreak {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ULineBreakTag(pub i32);
 pub const UBRK_LINE_SOFT: ULineBreakTag = ULineBreakTag(0i32);
 pub const UBRK_LINE_SOFT_LIMIT: ULineBreakTag = ULineBreakTag(100i32);
 pub const UBRK_LINE_HARD: ULineBreakTag = ULineBreakTag(100i32);
 pub const UBRK_LINE_HARD_LIMIT: ULineBreakTag = ULineBreakTag(200i32);
+impl ::core::marker::Copy for ULineBreakTag {}
+impl ::core::clone::Clone for ULineBreakTag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UListFormatter(pub u8);
 #[repr(transparent)]
 pub struct UListFormatterField(pub i32);
 pub const ULISTFMT_LITERAL_FIELD: UListFormatterField = UListFormatterField(0i32);
 pub const ULISTFMT_ELEMENT_FIELD: UListFormatterField = UListFormatterField(1i32);
+impl ::core::marker::Copy for UListFormatterField {}
+impl ::core::clone::Clone for UListFormatterField {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UListFormatterType(pub i32);
 pub const ULISTFMT_TYPE_AND: UListFormatterType = UListFormatterType(0i32);
 pub const ULISTFMT_TYPE_OR: UListFormatterType = UListFormatterType(1i32);
 pub const ULISTFMT_TYPE_UNITS: UListFormatterType = UListFormatterType(2i32);
+impl ::core::marker::Copy for UListFormatterType {}
+impl ::core::clone::Clone for UListFormatterType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UListFormatterWidth(pub i32);
 pub const ULISTFMT_WIDTH_WIDE: UListFormatterWidth = UListFormatterWidth(0i32);
 pub const ULISTFMT_WIDTH_SHORT: UListFormatterWidth = UListFormatterWidth(1i32);
 pub const ULISTFMT_WIDTH_NARROW: UListFormatterWidth = UListFormatterWidth(2i32);
+impl ::core::marker::Copy for UListFormatterWidth {}
+impl ::core::clone::Clone for UListFormatterWidth {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ULocAvailableType(pub i32);
 pub const ULOC_AVAILABLE_DEFAULT: ULocAvailableType = ULocAvailableType(0i32);
 pub const ULOC_AVAILABLE_ONLY_LEGACY_ALIASES: ULocAvailableType = ULocAvailableType(1i32);
 pub const ULOC_AVAILABLE_WITH_LEGACY_ALIASES: ULocAvailableType = ULocAvailableType(2i32);
+impl ::core::marker::Copy for ULocAvailableType {}
+impl ::core::clone::Clone for ULocAvailableType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ULocDataLocaleType(pub i32);
 pub const ULOC_ACTUAL_LOCALE: ULocDataLocaleType = ULocDataLocaleType(0i32);
 pub const ULOC_VALID_LOCALE: ULocDataLocaleType = ULocDataLocaleType(1i32);
+impl ::core::marker::Copy for ULocDataLocaleType {}
+impl ::core::clone::Clone for ULocDataLocaleType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ULocaleData(pub u8);
 #[repr(transparent)]
@@ -4790,12 +5384,24 @@ pub const ULOCDATA_QUOTATION_START: ULocaleDataDelimiterType = ULocaleDataDelimi
 pub const ULOCDATA_QUOTATION_END: ULocaleDataDelimiterType = ULocaleDataDelimiterType(1i32);
 pub const ULOCDATA_ALT_QUOTATION_START: ULocaleDataDelimiterType = ULocaleDataDelimiterType(2i32);
 pub const ULOCDATA_ALT_QUOTATION_END: ULocaleDataDelimiterType = ULocaleDataDelimiterType(3i32);
+impl ::core::marker::Copy for ULocaleDataDelimiterType {}
+impl ::core::clone::Clone for ULocaleDataDelimiterType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ULocaleDataExemplarSetType(pub i32);
 pub const ULOCDATA_ES_STANDARD: ULocaleDataExemplarSetType = ULocaleDataExemplarSetType(0i32);
 pub const ULOCDATA_ES_AUXILIARY: ULocaleDataExemplarSetType = ULocaleDataExemplarSetType(1i32);
 pub const ULOCDATA_ES_INDEX: ULocaleDataExemplarSetType = ULocaleDataExemplarSetType(2i32);
 pub const ULOCDATA_ES_PUNCTUATION: ULocaleDataExemplarSetType = ULocaleDataExemplarSetType(3i32);
+impl ::core::marker::Copy for ULocaleDataExemplarSetType {}
+impl ::core::clone::Clone for ULocaleDataExemplarSetType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ULocaleDisplayNames(pub u8);
 pub const UMSGPAT_ARG_NAME_NOT_NUMBER: i32 = -1i32;
@@ -4807,11 +5413,23 @@ pub const UMEASFMT_WIDTH_SHORT: UMeasureFormatWidth = UMeasureFormatWidth(1i32);
 pub const UMEASFMT_WIDTH_NARROW: UMeasureFormatWidth = UMeasureFormatWidth(2i32);
 pub const UMEASFMT_WIDTH_NUMERIC: UMeasureFormatWidth = UMeasureFormatWidth(3i32);
 pub const UMEASFMT_WIDTH_COUNT: UMeasureFormatWidth = UMeasureFormatWidth(4i32);
+impl ::core::marker::Copy for UMeasureFormatWidth {}
+impl ::core::clone::Clone for UMeasureFormatWidth {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UMeasurementSystem(pub i32);
 pub const UMS_SI: UMeasurementSystem = UMeasurementSystem(0i32);
 pub const UMS_US: UMeasurementSystem = UMeasurementSystem(1i32);
 pub const UMS_UK: UMeasurementSystem = UMeasurementSystem(2i32);
+impl ::core::marker::Copy for UMeasurementSystem {}
+impl ::core::clone::Clone for UMeasurementSystem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type UMemAllocFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void;
 pub type UMemFreeFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void);
 pub type UMemReallocFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void;
@@ -4819,6 +5437,12 @@ pub type UMemReallocFn = unsafe extern "system" fn(context: *const ::core::ffi::
 pub struct UMessagePatternApostropheMode(pub i32);
 pub const UMSGPAT_APOS_DOUBLE_OPTIONAL: UMessagePatternApostropheMode = UMessagePatternApostropheMode(0i32);
 pub const UMSGPAT_APOS_DOUBLE_REQUIRED: UMessagePatternApostropheMode = UMessagePatternApostropheMode(1i32);
+impl ::core::marker::Copy for UMessagePatternApostropheMode {}
+impl ::core::clone::Clone for UMessagePatternApostropheMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UMessagePatternArgType(pub i32);
 pub const UMSGPAT_ARG_TYPE_NONE: UMessagePatternArgType = UMessagePatternArgType(0i32);
@@ -4827,6 +5451,12 @@ pub const UMSGPAT_ARG_TYPE_CHOICE: UMessagePatternArgType = UMessagePatternArgTy
 pub const UMSGPAT_ARG_TYPE_PLURAL: UMessagePatternArgType = UMessagePatternArgType(3i32);
 pub const UMSGPAT_ARG_TYPE_SELECT: UMessagePatternArgType = UMessagePatternArgType(4i32);
 pub const UMSGPAT_ARG_TYPE_SELECTORDINAL: UMessagePatternArgType = UMessagePatternArgType(5i32);
+impl ::core::marker::Copy for UMessagePatternArgType {}
+impl ::core::clone::Clone for UMessagePatternArgType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UMessagePatternPartType(pub i32);
 pub const UMSGPAT_PART_TYPE_MSG_START: UMessagePatternPartType = UMessagePatternPartType(0i32);
@@ -4843,6 +5473,12 @@ pub const UMSGPAT_PART_TYPE_ARG_STYLE: UMessagePatternPartType = UMessagePattern
 pub const UMSGPAT_PART_TYPE_ARG_SELECTOR: UMessagePatternPartType = UMessagePatternPartType(11i32);
 pub const UMSGPAT_PART_TYPE_ARG_INT: UMessagePatternPartType = UMessagePatternPartType(12i32);
 pub const UMSGPAT_PART_TYPE_ARG_DOUBLE: UMessagePatternPartType = UMessagePatternPartType(13i32);
+impl ::core::marker::Copy for UMessagePatternPartType {}
+impl ::core::clone::Clone for UMessagePatternPartType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UMutableCPTrie(pub u8);
 pub type UNESCAPE_CHAR_AT = unsafe extern "system" fn(offset: i32, context: *mut ::core::ffi::c_void) -> u16;
@@ -4865,11 +5501,23 @@ pub const UNORM2_COMPOSE: UNormalization2Mode = UNormalization2Mode(0i32);
 pub const UNORM2_DECOMPOSE: UNormalization2Mode = UNormalization2Mode(1i32);
 pub const UNORM2_FCD: UNormalization2Mode = UNormalization2Mode(2i32);
 pub const UNORM2_COMPOSE_CONTIGUOUS: UNormalization2Mode = UNormalization2Mode(3i32);
+impl ::core::marker::Copy for UNormalization2Mode {}
+impl ::core::clone::Clone for UNormalization2Mode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNormalizationCheckResult(pub i32);
 pub const UNORM_NO: UNormalizationCheckResult = UNormalizationCheckResult(0i32);
 pub const UNORM_YES: UNormalizationCheckResult = UNormalizationCheckResult(1i32);
 pub const UNORM_MAYBE: UNormalizationCheckResult = UNormalizationCheckResult(2i32);
+impl ::core::marker::Copy for UNormalizationCheckResult {}
+impl ::core::clone::Clone for UNormalizationCheckResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNormalizationMode(pub i32);
 pub const UNORM_NONE: UNormalizationMode = UNormalizationMode(1i32);
@@ -4880,17 +5528,35 @@ pub const UNORM_DEFAULT: UNormalizationMode = UNormalizationMode(4i32);
 pub const UNORM_NFKC: UNormalizationMode = UNormalizationMode(5i32);
 pub const UNORM_FCD: UNormalizationMode = UNormalizationMode(6i32);
 pub const UNORM_MODE_COUNT: UNormalizationMode = UNormalizationMode(7i32);
+impl ::core::marker::Copy for UNormalizationMode {}
+impl ::core::clone::Clone for UNormalizationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UNormalizer2(pub u8);
 #[repr(transparent)]
 pub struct UNumberCompactStyle(pub i32);
 pub const UNUM_SHORT: UNumberCompactStyle = UNumberCompactStyle(0i32);
 pub const UNUM_LONG: UNumberCompactStyle = UNumberCompactStyle(1i32);
+impl ::core::marker::Copy for UNumberCompactStyle {}
+impl ::core::clone::Clone for UNumberCompactStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberDecimalSeparatorDisplay(pub i32);
 pub const UNUM_DECIMAL_SEPARATOR_AUTO: UNumberDecimalSeparatorDisplay = UNumberDecimalSeparatorDisplay(0i32);
 pub const UNUM_DECIMAL_SEPARATOR_ALWAYS: UNumberDecimalSeparatorDisplay = UNumberDecimalSeparatorDisplay(1i32);
 pub const UNUM_DECIMAL_SEPARATOR_COUNT: UNumberDecimalSeparatorDisplay = UNumberDecimalSeparatorDisplay(2i32);
+impl ::core::marker::Copy for UNumberDecimalSeparatorDisplay {}
+impl ::core::clone::Clone for UNumberDecimalSeparatorDisplay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberFormatAttribute(pub i32);
 pub const UNUM_PARSE_INT_ONLY: UNumberFormatAttribute = UNumberFormatAttribute(0i32);
@@ -4922,9 +5588,21 @@ pub const UNUM_PARSE_NO_EXPONENT: UNumberFormatAttribute = UNumberFormatAttribut
 pub const UNUM_PARSE_DECIMAL_MARK_REQUIRED: UNumberFormatAttribute = UNumberFormatAttribute(4098i32);
 pub const UNUM_PARSE_CASE_SENSITIVE: UNumberFormatAttribute = UNumberFormatAttribute(4099i32);
 pub const UNUM_SIGN_ALWAYS_SHOWN: UNumberFormatAttribute = UNumberFormatAttribute(4100i32);
+impl ::core::marker::Copy for UNumberFormatAttribute {}
+impl ::core::clone::Clone for UNumberFormatAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberFormatAttributeValue(pub i32);
 pub const UNUM_FORMAT_ATTRIBUTE_VALUE_HIDDEN: UNumberFormatAttributeValue = UNumberFormatAttributeValue(0i32);
+impl ::core::marker::Copy for UNumberFormatAttributeValue {}
+impl ::core::clone::Clone for UNumberFormatAttributeValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberFormatFields(pub i32);
 pub const UNUM_INTEGER_FIELD: UNumberFormatFields = UNumberFormatFields(0i32);
@@ -4940,12 +5618,24 @@ pub const UNUM_PERMILL_FIELD: UNumberFormatFields = UNumberFormatFields(9i32);
 pub const UNUM_SIGN_FIELD: UNumberFormatFields = UNumberFormatFields(10i32);
 pub const UNUM_MEASURE_UNIT_FIELD: UNumberFormatFields = UNumberFormatFields(11i32);
 pub const UNUM_COMPACT_FIELD: UNumberFormatFields = UNumberFormatFields(12i32);
+impl ::core::marker::Copy for UNumberFormatFields {}
+impl ::core::clone::Clone for UNumberFormatFields {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberFormatPadPosition(pub i32);
 pub const UNUM_PAD_BEFORE_PREFIX: UNumberFormatPadPosition = UNumberFormatPadPosition(0i32);
 pub const UNUM_PAD_AFTER_PREFIX: UNumberFormatPadPosition = UNumberFormatPadPosition(1i32);
 pub const UNUM_PAD_BEFORE_SUFFIX: UNumberFormatPadPosition = UNumberFormatPadPosition(2i32);
 pub const UNUM_PAD_AFTER_SUFFIX: UNumberFormatPadPosition = UNumberFormatPadPosition(3i32);
+impl ::core::marker::Copy for UNumberFormatPadPosition {}
+impl ::core::clone::Clone for UNumberFormatPadPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberFormatRoundingMode(pub i32);
 pub const UNUM_ROUND_CEILING: UNumberFormatRoundingMode = UNumberFormatRoundingMode(0i32);
@@ -4956,6 +5646,12 @@ pub const UNUM_ROUND_HALFEVEN: UNumberFormatRoundingMode = UNumberFormatRounding
 pub const UNUM_ROUND_HALFDOWN: UNumberFormatRoundingMode = UNumberFormatRoundingMode(5i32);
 pub const UNUM_ROUND_HALFUP: UNumberFormatRoundingMode = UNumberFormatRoundingMode(6i32);
 pub const UNUM_ROUND_UNNECESSARY: UNumberFormatRoundingMode = UNumberFormatRoundingMode(7i32);
+impl ::core::marker::Copy for UNumberFormatRoundingMode {}
+impl ::core::clone::Clone for UNumberFormatRoundingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberFormatStyle(pub i32);
 pub const UNUM_PATTERN_DECIMAL: UNumberFormatStyle = UNumberFormatStyle(0i32);
@@ -4977,6 +5673,12 @@ pub const UNUM_DECIMAL_COMPACT_LONG: UNumberFormatStyle = UNumberFormatStyle(15i
 pub const UNUM_CURRENCY_STANDARD: UNumberFormatStyle = UNumberFormatStyle(16i32);
 pub const UNUM_DEFAULT: UNumberFormatStyle = UNumberFormatStyle(1i32);
 pub const UNUM_IGNORE: UNumberFormatStyle = UNumberFormatStyle(0i32);
+impl ::core::marker::Copy for UNumberFormatStyle {}
+impl ::core::clone::Clone for UNumberFormatStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberFormatSymbol(pub i32);
 pub const UNUM_DECIMAL_SEPARATOR_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(0i32);
@@ -5007,6 +5709,12 @@ pub const UNUM_SEVEN_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(24i
 pub const UNUM_EIGHT_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(25i32);
 pub const UNUM_NINE_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(26i32);
 pub const UNUM_EXPONENT_MULTIPLICATION_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(27i32);
+impl ::core::marker::Copy for UNumberFormatSymbol {}
+impl ::core::clone::Clone for UNumberFormatSymbol {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberFormatTextAttribute(pub i32);
 pub const UNUM_POSITIVE_PREFIX: UNumberFormatTextAttribute = UNumberFormatTextAttribute(0i32);
@@ -5017,6 +5725,12 @@ pub const UNUM_PADDING_CHARACTER: UNumberFormatTextAttribute = UNumberFormatText
 pub const UNUM_CURRENCY_CODE: UNumberFormatTextAttribute = UNumberFormatTextAttribute(5i32);
 pub const UNUM_DEFAULT_RULESET: UNumberFormatTextAttribute = UNumberFormatTextAttribute(6i32);
 pub const UNUM_PUBLIC_RULESETS: UNumberFormatTextAttribute = UNumberFormatTextAttribute(7i32);
+impl ::core::marker::Copy for UNumberFormatTextAttribute {}
+impl ::core::clone::Clone for UNumberFormatTextAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UNumberFormatter(pub u8);
 #[repr(transparent)]
@@ -5026,23 +5740,47 @@ pub const UNUM_GROUPING_MIN2: UNumberGroupingStrategy = UNumberGroupingStrategy(
 pub const UNUM_GROUPING_AUTO: UNumberGroupingStrategy = UNumberGroupingStrategy(2i32);
 pub const UNUM_GROUPING_ON_ALIGNED: UNumberGroupingStrategy = UNumberGroupingStrategy(3i32);
 pub const UNUM_GROUPING_THOUSANDS: UNumberGroupingStrategy = UNumberGroupingStrategy(4i32);
+impl ::core::marker::Copy for UNumberGroupingStrategy {}
+impl ::core::clone::Clone for UNumberGroupingStrategy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberRangeCollapse(pub i32);
 pub const UNUM_RANGE_COLLAPSE_AUTO: UNumberRangeCollapse = UNumberRangeCollapse(0i32);
 pub const UNUM_RANGE_COLLAPSE_NONE: UNumberRangeCollapse = UNumberRangeCollapse(1i32);
 pub const UNUM_RANGE_COLLAPSE_UNIT: UNumberRangeCollapse = UNumberRangeCollapse(2i32);
 pub const UNUM_RANGE_COLLAPSE_ALL: UNumberRangeCollapse = UNumberRangeCollapse(3i32);
+impl ::core::marker::Copy for UNumberRangeCollapse {}
+impl ::core::clone::Clone for UNumberRangeCollapse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberRangeIdentityFallback(pub i32);
 pub const UNUM_IDENTITY_FALLBACK_SINGLE_VALUE: UNumberRangeIdentityFallback = UNumberRangeIdentityFallback(0i32);
 pub const UNUM_IDENTITY_FALLBACK_APPROXIMATELY_OR_SINGLE_VALUE: UNumberRangeIdentityFallback = UNumberRangeIdentityFallback(1i32);
 pub const UNUM_IDENTITY_FALLBACK_APPROXIMATELY: UNumberRangeIdentityFallback = UNumberRangeIdentityFallback(2i32);
 pub const UNUM_IDENTITY_FALLBACK_RANGE: UNumberRangeIdentityFallback = UNumberRangeIdentityFallback(3i32);
+impl ::core::marker::Copy for UNumberRangeIdentityFallback {}
+impl ::core::clone::Clone for UNumberRangeIdentityFallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberRangeIdentityResult(pub i32);
 pub const UNUM_IDENTITY_RESULT_EQUAL_BEFORE_ROUNDING: UNumberRangeIdentityResult = UNumberRangeIdentityResult(0i32);
 pub const UNUM_IDENTITY_RESULT_EQUAL_AFTER_ROUNDING: UNumberRangeIdentityResult = UNumberRangeIdentityResult(1i32);
 pub const UNUM_IDENTITY_RESULT_NOT_EQUAL: UNumberRangeIdentityResult = UNumberRangeIdentityResult(2i32);
+impl ::core::marker::Copy for UNumberRangeIdentityResult {}
+impl ::core::clone::Clone for UNumberRangeIdentityResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberSignDisplay(pub i32);
 pub const UNUM_SIGN_AUTO: UNumberSignDisplay = UNumberSignDisplay(0i32);
@@ -5053,6 +5791,12 @@ pub const UNUM_SIGN_ACCOUNTING_ALWAYS: UNumberSignDisplay = UNumberSignDisplay(4
 pub const UNUM_SIGN_EXCEPT_ZERO: UNumberSignDisplay = UNumberSignDisplay(5i32);
 pub const UNUM_SIGN_ACCOUNTING_EXCEPT_ZERO: UNumberSignDisplay = UNumberSignDisplay(6i32);
 pub const UNUM_SIGN_COUNT: UNumberSignDisplay = UNumberSignDisplay(7i32);
+impl ::core::marker::Copy for UNumberSignDisplay {}
+impl ::core::clone::Clone for UNumberSignDisplay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNumberUnitWidth(pub i32);
 pub const UNUM_UNIT_WIDTH_NARROW: UNumberUnitWidth = UNumberUnitWidth(0i32);
@@ -5061,6 +5805,12 @@ pub const UNUM_UNIT_WIDTH_FULL_NAME: UNumberUnitWidth = UNumberUnitWidth(2i32);
 pub const UNUM_UNIT_WIDTH_ISO_CODE: UNumberUnitWidth = UNumberUnitWidth(3i32);
 pub const UNUM_UNIT_WIDTH_HIDDEN: UNumberUnitWidth = UNumberUnitWidth(4i32);
 pub const UNUM_UNIT_WIDTH_COUNT: UNumberUnitWidth = UNumberUnitWidth(5i32);
+impl ::core::marker::Copy for UNumberUnitWidth {}
+impl ::core::clone::Clone for UNumberUnitWidth {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UNumberingSystem(pub u8);
 #[repr(transparent)]
@@ -5069,6 +5819,12 @@ pub const U_NT_NONE: UNumericType = UNumericType(0i32);
 pub const U_NT_DECIMAL: UNumericType = UNumericType(1i32);
 pub const U_NT_DIGIT: UNumericType = UNumericType(2i32);
 pub const U_NT_NUMERIC: UNumericType = UNumericType(3i32);
+impl ::core::marker::Copy for UNumericType {}
+impl ::core::clone::Clone for UNumericType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UParseError {
     pub line: i32,
@@ -5088,6 +5844,12 @@ pub struct UPluralRules(pub u8);
 pub struct UPluralType(pub i32);
 pub const UPLURAL_TYPE_CARDINAL: UPluralType = UPluralType(0i32);
 pub const UPLURAL_TYPE_ORDINAL: UPluralType = UPluralType(1i32);
+impl ::core::marker::Copy for UPluralType {}
+impl ::core::clone::Clone for UPluralType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UProperty(pub i32);
 pub const UCHAR_ALPHABETIC: UProperty = UProperty(0i32);
@@ -5202,10 +5964,22 @@ pub const UCHAR_BIDI_PAIRED_BRACKET: UProperty = UProperty(16397i32);
 pub const UCHAR_SCRIPT_EXTENSIONS: UProperty = UProperty(28672i32);
 pub const UCHAR_OTHER_PROPERTY_START: UProperty = UProperty(28672i32);
 pub const UCHAR_INVALID_CODE: UProperty = UProperty(-1i32);
+impl ::core::marker::Copy for UProperty {}
+impl ::core::clone::Clone for UProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UPropertyNameChoice(pub i32);
 pub const U_SHORT_PROPERTY_NAME: UPropertyNameChoice = UPropertyNameChoice(0i32);
 pub const U_LONG_PROPERTY_NAME: UPropertyNameChoice = UPropertyNameChoice(1i32);
+impl ::core::marker::Copy for UPropertyNameChoice {}
+impl ::core::clone::Clone for UPropertyNameChoice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type URegexFindProgressCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, matchindex: i64) -> i8;
 pub type URegexMatchCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, steps: i32) -> i8;
 #[repr(transparent)]
@@ -5218,6 +5992,12 @@ pub const UREGEX_MULTILINE: URegexpFlag = URegexpFlag(8i32);
 pub const UREGEX_UNIX_LINES: URegexpFlag = URegexpFlag(1i32);
 pub const UREGEX_UWORD: URegexpFlag = URegexpFlag(256i32);
 pub const UREGEX_ERROR_ON_UNKNOWN_ESCAPES: URegexpFlag = URegexpFlag(512i32);
+impl ::core::marker::Copy for URegexpFlag {}
+impl ::core::clone::Clone for URegexpFlag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct URegion(pub u8);
 #[repr(transparent)]
@@ -5229,6 +6009,12 @@ pub const URGN_CONTINENT: URegionType = URegionType(3i32);
 pub const URGN_SUBCONTINENT: URegionType = URegionType(4i32);
 pub const URGN_GROUPING: URegionType = URegionType(5i32);
 pub const URGN_DEPRECATED: URegionType = URegionType(6i32);
+impl ::core::marker::Copy for URegionType {}
+impl ::core::clone::Clone for URegionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct URegularExpression(pub u8);
 #[repr(C)]
@@ -5237,6 +6023,12 @@ pub struct URelativeDateTimeFormatter(pub u8);
 pub struct URelativeDateTimeFormatterField(pub i32);
 pub const UDAT_REL_LITERAL_FIELD: URelativeDateTimeFormatterField = URelativeDateTimeFormatterField(0i32);
 pub const UDAT_REL_NUMERIC_FIELD: URelativeDateTimeFormatterField = URelativeDateTimeFormatterField(1i32);
+impl ::core::marker::Copy for URelativeDateTimeFormatterField {}
+impl ::core::clone::Clone for URelativeDateTimeFormatterField {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct URelativeDateTimeUnit(pub i32);
 pub const UDAT_REL_UNIT_YEAR: URelativeDateTimeUnit = URelativeDateTimeUnit(0i32);
@@ -5254,6 +6046,12 @@ pub const UDAT_REL_UNIT_WEDNESDAY: URelativeDateTimeUnit = URelativeDateTimeUnit
 pub const UDAT_REL_UNIT_THURSDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(12i32);
 pub const UDAT_REL_UNIT_FRIDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(13i32);
 pub const UDAT_REL_UNIT_SATURDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(14i32);
+impl ::core::marker::Copy for URelativeDateTimeUnit {}
+impl ::core::clone::Clone for URelativeDateTimeUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UReplaceableCallbacks {
     pub length: isize,
@@ -5279,6 +6077,12 @@ pub const URES_ALIAS: UResType = UResType(3i32);
 pub const URES_INT: UResType = UResType(7i32);
 pub const URES_ARRAY: UResType = UResType(8i32);
 pub const URES_INT_VECTOR: UResType = UResType(14i32);
+impl ::core::marker::Copy for UResType {}
+impl ::core::clone::Clone for UResType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UResourceBundle(pub u8);
 #[repr(transparent)]
@@ -5290,6 +6094,12 @@ pub const USPOOF_MODERATELY_RESTRICTIVE: URestrictionLevel = URestrictionLevel(1
 pub const USPOOF_MINIMALLY_RESTRICTIVE: URestrictionLevel = URestrictionLevel(1342177280i32);
 pub const USPOOF_UNRESTRICTIVE: URestrictionLevel = URestrictionLevel(1610612736i32);
 pub const USPOOF_RESTRICTION_LEVEL_MASK: URestrictionLevel = URestrictionLevel(2130706432i32);
+impl ::core::marker::Copy for URestrictionLevel {}
+impl ::core::clone::Clone for URestrictionLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const USEARCH_DONE: i32 = -1i32;
 pub const USET_ADD_CASE_MAPPINGS: i32 = 4i32;
 pub const USET_CASE_INSENSITIVE: i32 = 2i32;
@@ -5499,6 +6309,12 @@ pub const USCRIPT_CHORASMIAN: UScriptCode = UScriptCode(189i32);
 pub const USCRIPT_DIVES_AKURU: UScriptCode = UScriptCode(190i32);
 pub const USCRIPT_KHITAN_SMALL_SCRIPT: UScriptCode = UScriptCode(191i32);
 pub const USCRIPT_YEZIDI: UScriptCode = UScriptCode(192i32);
+impl ::core::marker::Copy for UScriptCode {}
+impl ::core::clone::Clone for UScriptCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UScriptUsage(pub i32);
 pub const USCRIPT_USAGE_NOT_ENCODED: UScriptUsage = UScriptUsage(0i32);
@@ -5507,12 +6323,24 @@ pub const USCRIPT_USAGE_EXCLUDED: UScriptUsage = UScriptUsage(2i32);
 pub const USCRIPT_USAGE_LIMITED_USE: UScriptUsage = UScriptUsage(3i32);
 pub const USCRIPT_USAGE_ASPIRATIONAL: UScriptUsage = UScriptUsage(4i32);
 pub const USCRIPT_USAGE_RECOMMENDED: UScriptUsage = UScriptUsage(5i32);
+impl ::core::marker::Copy for UScriptUsage {}
+impl ::core::clone::Clone for UScriptUsage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct USearch(pub u8);
 #[repr(transparent)]
 pub struct USearchAttribute(pub i32);
 pub const USEARCH_OVERLAP: USearchAttribute = USearchAttribute(0i32);
 pub const USEARCH_ELEMENT_COMPARISON: USearchAttribute = USearchAttribute(2i32);
+impl ::core::marker::Copy for USearchAttribute {}
+impl ::core::clone::Clone for USearchAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct USearchAttributeValue(pub i32);
 pub const USEARCH_DEFAULT: USearchAttributeValue = USearchAttributeValue(-1i32);
@@ -5521,6 +6349,12 @@ pub const USEARCH_ON: USearchAttributeValue = USearchAttributeValue(1i32);
 pub const USEARCH_STANDARD_ELEMENT_COMPARISON: USearchAttributeValue = USearchAttributeValue(2i32);
 pub const USEARCH_PATTERN_BASE_WEIGHT_IS_WILDCARD: USearchAttributeValue = USearchAttributeValue(3i32);
 pub const USEARCH_ANY_BASE_WEIGHT_IS_WILDCARD: USearchAttributeValue = USearchAttributeValue(4i32);
+impl ::core::marker::Copy for USearchAttributeValue {}
+impl ::core::clone::Clone for USearchAttributeValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct USentenceBreak(pub i32);
 pub const U_SB_OTHER: USentenceBreak = USentenceBreak(0i32);
@@ -5538,12 +6372,24 @@ pub const U_SB_CR: USentenceBreak = USentenceBreak(11i32);
 pub const U_SB_EXTEND: USentenceBreak = USentenceBreak(12i32);
 pub const U_SB_LF: USentenceBreak = USentenceBreak(13i32);
 pub const U_SB_SCONTINUE: USentenceBreak = USentenceBreak(14i32);
+impl ::core::marker::Copy for USentenceBreak {}
+impl ::core::clone::Clone for USentenceBreak {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct USentenceBreakTag(pub i32);
 pub const UBRK_SENTENCE_TERM: USentenceBreakTag = USentenceBreakTag(0i32);
 pub const UBRK_SENTENCE_TERM_LIMIT: USentenceBreakTag = USentenceBreakTag(100i32);
 pub const UBRK_SENTENCE_SEP: USentenceBreakTag = USentenceBreakTag(100i32);
 pub const UBRK_SENTENCE_SEP_LIMIT: USentenceBreakTag = USentenceBreakTag(200i32);
+impl ::core::marker::Copy for USentenceBreakTag {}
+impl ::core::clone::Clone for USentenceBreakTag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct USerializedSet {
     pub array: *mut u16,
@@ -5564,6 +6410,12 @@ pub struct USetSpanCondition(pub i32);
 pub const USET_SPAN_NOT_CONTAINED: USetSpanCondition = USetSpanCondition(0i32);
 pub const USET_SPAN_CONTAINED: USetSpanCondition = USetSpanCondition(1i32);
 pub const USET_SPAN_SIMPLE: USetSpanCondition = USetSpanCondition(2i32);
+impl ::core::marker::Copy for USetSpanCondition {}
+impl ::core::clone::Clone for USetSpanCondition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct USpoofCheckResult(pub u8);
 #[repr(C)]
@@ -5581,6 +6433,12 @@ pub const USPOOF_MIXED_NUMBERS: USpoofChecks = USpoofChecks(128i32);
 pub const USPOOF_HIDDEN_OVERLAY: USpoofChecks = USpoofChecks(256i32);
 pub const USPOOF_ALL_CHECKS: USpoofChecks = USpoofChecks(65535i32);
 pub const USPOOF_AUX_INFO: USpoofChecks = USpoofChecks(1073741824i32);
+impl ::core::marker::Copy for USpoofChecks {}
+impl ::core::clone::Clone for USpoofChecks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type UStringCaseMapper = unsafe extern "system" fn(csm: *const UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
 #[repr(C)]
 pub struct UStringPrepProfile(pub u8);
@@ -5600,23 +6458,47 @@ pub const USPREP_RFC4013_SASLPREP: UStringPrepProfileType = UStringPrepProfileTy
 pub const USPREP_RFC4505_TRACE: UStringPrepProfileType = UStringPrepProfileType(11i32);
 pub const USPREP_RFC4518_LDAP: UStringPrepProfileType = UStringPrepProfileType(12i32);
 pub const USPREP_RFC4518_LDAP_CI: UStringPrepProfileType = UStringPrepProfileType(13i32);
+impl ::core::marker::Copy for UStringPrepProfileType {}
+impl ::core::clone::Clone for UStringPrepProfileType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UStringSearch(pub u8);
 #[repr(transparent)]
 pub struct UStringTrieBuildOption(pub i32);
 pub const USTRINGTRIE_BUILD_FAST: UStringTrieBuildOption = UStringTrieBuildOption(0i32);
 pub const USTRINGTRIE_BUILD_SMALL: UStringTrieBuildOption = UStringTrieBuildOption(1i32);
+impl ::core::marker::Copy for UStringTrieBuildOption {}
+impl ::core::clone::Clone for UStringTrieBuildOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UStringTrieResult(pub i32);
 pub const USTRINGTRIE_NO_MATCH: UStringTrieResult = UStringTrieResult(0i32);
 pub const USTRINGTRIE_NO_VALUE: UStringTrieResult = UStringTrieResult(1i32);
 pub const USTRINGTRIE_FINAL_VALUE: UStringTrieResult = UStringTrieResult(2i32);
 pub const USTRINGTRIE_INTERMEDIATE_VALUE: UStringTrieResult = UStringTrieResult(3i32);
+impl ::core::marker::Copy for UStringTrieResult {}
+impl ::core::clone::Clone for UStringTrieResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct USystemTimeZoneType(pub i32);
 pub const UCAL_ZONE_TYPE_ANY: USystemTimeZoneType = USystemTimeZoneType(0i32);
 pub const UCAL_ZONE_TYPE_CANONICAL: USystemTimeZoneType = USystemTimeZoneType(1i32);
 pub const UCAL_ZONE_TYPE_CANONICAL_LOCATION: USystemTimeZoneType = USystemTimeZoneType(2i32);
+impl ::core::marker::Copy for USystemTimeZoneType {}
+impl ::core::clone::Clone for USystemTimeZoneType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UTEXT_MAGIC: i32 = 878368812i32;
 pub const UTEXT_PROVIDER_HAS_META_DATA: i32 = 4i32;
 pub const UTEXT_PROVIDER_LENGTH_IS_EXPENSIVE: i32 = 1i32;
@@ -5706,6 +6588,12 @@ pub const UTSV_FROM_MIN_VALUE: UTimeScaleValue = UTimeScaleValue(2i32);
 pub const UTSV_FROM_MAX_VALUE: UTimeScaleValue = UTimeScaleValue(3i32);
 pub const UTSV_TO_MIN_VALUE: UTimeScaleValue = UTimeScaleValue(4i32);
 pub const UTSV_TO_MAX_VALUE: UTimeScaleValue = UTimeScaleValue(5i32);
+impl ::core::marker::Copy for UTimeScaleValue {}
+impl ::core::clone::Clone for UTimeScaleValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UTimeZoneFormatGMTOffsetPatternType(pub i32);
 pub const UTZFMT_PAT_POSITIVE_HM: UTimeZoneFormatGMTOffsetPatternType = UTimeZoneFormatGMTOffsetPatternType(0i32);
@@ -5715,11 +6603,23 @@ pub const UTZFMT_PAT_NEGATIVE_HMS: UTimeZoneFormatGMTOffsetPatternType = UTimeZo
 pub const UTZFMT_PAT_POSITIVE_H: UTimeZoneFormatGMTOffsetPatternType = UTimeZoneFormatGMTOffsetPatternType(4i32);
 pub const UTZFMT_PAT_NEGATIVE_H: UTimeZoneFormatGMTOffsetPatternType = UTimeZoneFormatGMTOffsetPatternType(5i32);
 pub const UTZFMT_PAT_COUNT: UTimeZoneFormatGMTOffsetPatternType = UTimeZoneFormatGMTOffsetPatternType(6i32);
+impl ::core::marker::Copy for UTimeZoneFormatGMTOffsetPatternType {}
+impl ::core::clone::Clone for UTimeZoneFormatGMTOffsetPatternType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UTimeZoneFormatParseOption(pub i32);
 pub const UTZFMT_PARSE_OPTION_NONE: UTimeZoneFormatParseOption = UTimeZoneFormatParseOption(0i32);
 pub const UTZFMT_PARSE_OPTION_ALL_STYLES: UTimeZoneFormatParseOption = UTimeZoneFormatParseOption(1i32);
 pub const UTZFMT_PARSE_OPTION_TZ_DATABASE_ABBREVIATIONS: UTimeZoneFormatParseOption = UTimeZoneFormatParseOption(2i32);
+impl ::core::marker::Copy for UTimeZoneFormatParseOption {}
+impl ::core::clone::Clone for UTimeZoneFormatParseOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UTimeZoneFormatStyle(pub i32);
 pub const UTZFMT_STYLE_GENERIC_LOCATION: UTimeZoneFormatStyle = UTimeZoneFormatStyle(0i32);
@@ -5742,11 +6642,23 @@ pub const UTZFMT_STYLE_ISO_EXTENDED_LOCAL_FULL: UTimeZoneFormatStyle = UTimeZone
 pub const UTZFMT_STYLE_ZONE_ID: UTimeZoneFormatStyle = UTimeZoneFormatStyle(17i32);
 pub const UTZFMT_STYLE_ZONE_ID_SHORT: UTimeZoneFormatStyle = UTimeZoneFormatStyle(18i32);
 pub const UTZFMT_STYLE_EXEMPLAR_LOCATION: UTimeZoneFormatStyle = UTimeZoneFormatStyle(19i32);
+impl ::core::marker::Copy for UTimeZoneFormatStyle {}
+impl ::core::clone::Clone for UTimeZoneFormatStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UTimeZoneFormatTimeType(pub i32);
 pub const UTZFMT_TIME_TYPE_UNKNOWN: UTimeZoneFormatTimeType = UTimeZoneFormatTimeType(0i32);
 pub const UTZFMT_TIME_TYPE_STANDARD: UTimeZoneFormatTimeType = UTimeZoneFormatTimeType(1i32);
 pub const UTZFMT_TIME_TYPE_DAYLIGHT: UTimeZoneFormatTimeType = UTimeZoneFormatTimeType(2i32);
+impl ::core::marker::Copy for UTimeZoneFormatTimeType {}
+impl ::core::clone::Clone for UTimeZoneFormatTimeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UTimeZoneNameType(pub i32);
 pub const UTZNM_UNKNOWN: UTimeZoneNameType = UTimeZoneNameType(0i32);
@@ -5757,12 +6669,24 @@ pub const UTZNM_SHORT_GENERIC: UTimeZoneNameType = UTimeZoneNameType(8i32);
 pub const UTZNM_SHORT_STANDARD: UTimeZoneNameType = UTimeZoneNameType(16i32);
 pub const UTZNM_SHORT_DAYLIGHT: UTimeZoneNameType = UTimeZoneNameType(32i32);
 pub const UTZNM_EXEMPLAR_LOCATION: UTimeZoneNameType = UTimeZoneNameType(64i32);
+impl ::core::marker::Copy for UTimeZoneNameType {}
+impl ::core::clone::Clone for UTimeZoneNameType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UTimeZoneTransitionType(pub i32);
 pub const UCAL_TZ_TRANSITION_NEXT: UTimeZoneTransitionType = UTimeZoneTransitionType(0i32);
 pub const UCAL_TZ_TRANSITION_NEXT_INCLUSIVE: UTimeZoneTransitionType = UTimeZoneTransitionType(1i32);
 pub const UCAL_TZ_TRANSITION_PREVIOUS: UTimeZoneTransitionType = UTimeZoneTransitionType(2i32);
 pub const UCAL_TZ_TRANSITION_PREVIOUS_INCLUSIVE: UTimeZoneTransitionType = UTimeZoneTransitionType(3i32);
+impl ::core::marker::Copy for UTimeZoneTransitionType {}
+impl ::core::clone::Clone for UTimeZoneTransitionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type UTraceData = unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32, level: i32, fmt: super::Foundation::PSTR, args: *mut i8);
 pub type UTraceEntry = unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32);
@@ -5797,6 +6721,12 @@ pub const UTRACE_UDATA_RESOURCE: UTraceFunctionNumber = UTraceFunctionNumber(122
 pub const UTRACE_UDATA_BUNDLE: UTraceFunctionNumber = UTraceFunctionNumber(12289i32);
 pub const UTRACE_UDATA_DATA_FILE: UTraceFunctionNumber = UTraceFunctionNumber(12290i32);
 pub const UTRACE_UDATA_RES_FILE: UTraceFunctionNumber = UTraceFunctionNumber(12291i32);
+impl ::core::marker::Copy for UTraceFunctionNumber {}
+impl ::core::clone::Clone for UTraceFunctionNumber {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UTraceLevel(pub i32);
 pub const UTRACE_OFF: UTraceLevel = UTraceLevel(-1i32);
@@ -5805,10 +6735,22 @@ pub const UTRACE_WARNING: UTraceLevel = UTraceLevel(3i32);
 pub const UTRACE_OPEN_CLOSE: UTraceLevel = UTraceLevel(5i32);
 pub const UTRACE_INFO: UTraceLevel = UTraceLevel(7i32);
 pub const UTRACE_VERBOSE: UTraceLevel = UTraceLevel(9i32);
+impl ::core::marker::Copy for UTraceLevel {}
+impl ::core::clone::Clone for UTraceLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UTransDirection(pub i32);
 pub const UTRANS_FORWARD: UTransDirection = UTransDirection(0i32);
 pub const UTRANS_REVERSE: UTransDirection = UTransDirection(1i32);
+impl ::core::marker::Copy for UTransDirection {}
+impl ::core::clone::Clone for UTransDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UTransPosition {
     pub contextStart: i32,
@@ -5828,6 +6770,12 @@ pub const U_VO_ROTATED: UVerticalOrientation = UVerticalOrientation(0i32);
 pub const U_VO_TRANSFORMED_ROTATED: UVerticalOrientation = UVerticalOrientation(1i32);
 pub const U_VO_TRANSFORMED_UPRIGHT: UVerticalOrientation = UVerticalOrientation(2i32);
 pub const U_VO_UPRIGHT: UVerticalOrientation = UVerticalOrientation(3i32);
+impl ::core::marker::Copy for UVerticalOrientation {}
+impl ::core::clone::Clone for UVerticalOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UWordBreak(pub i32);
 pub const UBRK_WORD_NONE: UWordBreak = UWordBreak(0i32);
@@ -5840,6 +6788,12 @@ pub const UBRK_WORD_KANA: UWordBreak = UWordBreak(300i32);
 pub const UBRK_WORD_KANA_LIMIT: UWordBreak = UWordBreak(400i32);
 pub const UBRK_WORD_IDEO: UWordBreak = UWordBreak(400i32);
 pub const UBRK_WORD_IDEO_LIMIT: UWordBreak = UWordBreak(500i32);
+impl ::core::marker::Copy for UWordBreak {}
+impl ::core::clone::Clone for UWordBreak {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UWordBreakValues(pub i32);
 pub const U_WB_OTHER: UWordBreakValues = UWordBreakValues(0i32);
@@ -5865,6 +6819,12 @@ pub const U_WB_E_MODIFIER: UWordBreakValues = UWordBreakValues(19i32);
 pub const U_WB_GLUE_AFTER_ZWJ: UWordBreakValues = UWordBreakValues(20i32);
 pub const U_WB_ZWJ: UWordBreakValues = UWordBreakValues(21i32);
 pub const U_WB_WSEGSPACE: UWordBreakValues = UWordBreakValues(22i32);
+impl ::core::marker::Copy for UWordBreakValues {}
+impl ::core::clone::Clone for UWordBreakValues {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const U_ASCII_FAMILY: u32 = 0u32;
 pub const U_CHECK_DYLOAD: u32 = 1u32;
 pub const U_COMBINED_IMPLEMENTATION: u32 = 1u32;
@@ -5987,6 +6947,12 @@ pub const WORDLIST_TYPE_IGNORE: WORDLIST_TYPE = WORDLIST_TYPE(0i32);
 pub const WORDLIST_TYPE_ADD: WORDLIST_TYPE = WORDLIST_TYPE(1i32);
 pub const WORDLIST_TYPE_EXCLUDE: WORDLIST_TYPE = WORDLIST_TYPE(2i32);
 pub const WORDLIST_TYPE_AUTOCORRECT: WORDLIST_TYPE = WORDLIST_TYPE(3i32);
+impl ::core::marker::Copy for WORDLIST_TYPE {}
+impl ::core::clone::Clone for WORDLIST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct opentype_feature_record {
     pub tagFeature: u32,
@@ -6028,6 +6994,12 @@ pub const MLCONVCHARF_NAME_ENTITIZE: tagMLCONVCHARF = tagMLCONVCHARF(4i32);
 pub const MLCONVCHARF_USEDEFCHAR: tagMLCONVCHARF = tagMLCONVCHARF(8i32);
 pub const MLCONVCHARF_NOBESTFITCHARS: tagMLCONVCHARF = tagMLCONVCHARF(16i32);
 pub const MLCONVCHARF_DETECTJPN: tagMLCONVCHARF = tagMLCONVCHARF(32i32);
+impl ::core::marker::Copy for tagMLCONVCHARF {}
+impl ::core::clone::Clone for tagMLCONVCHARF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct tagMLCPF(pub i32);
 pub const MLDETECTF_MAILNEWS: tagMLCPF = tagMLCPF(1i32);
@@ -6038,6 +7010,12 @@ pub const MLDETECTF_PRESERVE_ORDER: tagMLCPF = tagMLCPF(16i32);
 pub const MLDETECTF_PREFERRED_ONLY: tagMLCPF = tagMLCPF(32i32);
 pub const MLDETECTF_FILTER_SPECIALCHAR: tagMLCPF = tagMLCPF(64i32);
 pub const MLDETECTF_EURO_UTF8: tagMLCPF = tagMLCPF(128i32);
+impl ::core::marker::Copy for tagMLCPF {}
+impl ::core::clone::Clone for tagMLCPF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct tagSCRIPFONTINFO {
     pub scripts: i64,

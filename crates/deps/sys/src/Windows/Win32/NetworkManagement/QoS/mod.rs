@@ -331,6 +331,12 @@ pub const FILTERSPECV6_FLOW: FilterType = FilterType(3i32);
 pub const FILTERSPECV4_GPI: FilterType = FilterType(4i32);
 pub const FILTERSPECV6_GPI: FilterType = FilterType(5i32);
 pub const FILTERSPEC_END: FilterType = FilterType(6i32);
+impl ::core::marker::Copy for FilterType {}
+impl ::core::clone::Clone for FilterType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Filter_Spec_IPv4 {
@@ -988,6 +994,12 @@ pub const QOSFlowRateContentChange: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(1i
 pub const QOSFlowRateCongestion: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(2i32);
 pub const QOSFlowRateHigherContentEncoding: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(3i32);
 pub const QOSFlowRateUserCaused: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(4i32);
+impl ::core::marker::Copy for QOS_FLOWRATE_REASON {}
+impl ::core::clone::Clone for QOS_FLOWRATE_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct QOS_FLOW_FUNDAMENTALS {
@@ -1025,6 +1037,12 @@ pub struct QOS_NOTIFY_FLOW(pub i32);
 pub const QOSNotifyCongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(0i32);
 pub const QOSNotifyUncongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(1i32);
 pub const QOSNotifyAvailable: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(2i32);
+impl ::core::marker::Copy for QOS_NOTIFY_FLOW {}
+impl ::core::clone::Clone for QOS_NOTIFY_FLOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QOS_NOT_SPECIFIED: u32 = 4294967295u32;
 #[repr(C)]
 pub struct QOS_OBJECT_HDR {
@@ -1057,6 +1075,12 @@ pub struct QOS_QUERY_FLOW(pub i32);
 pub const QOSQueryFlowFundamentals: QOS_QUERY_FLOW = QOS_QUERY_FLOW(0i32);
 pub const QOSQueryPacketPriority: QOS_QUERY_FLOW = QOS_QUERY_FLOW(1i32);
 pub const QOSQueryOutgoingRate: QOS_QUERY_FLOW = QOS_QUERY_FLOW(2i32);
+impl ::core::marker::Copy for QOS_QUERY_FLOW {}
+impl ::core::clone::Clone for QOS_QUERY_FLOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct QOS_SD_MODE {
     pub ObjectHdr: QOS_OBJECT_HDR,
@@ -1073,11 +1097,23 @@ pub struct QOS_SET_FLOW(pub i32);
 pub const QOSSetTrafficType: QOS_SET_FLOW = QOS_SET_FLOW(0i32);
 pub const QOSSetOutgoingRate: QOS_SET_FLOW = QOS_SET_FLOW(1i32);
 pub const QOSSetOutgoingDSCPValue: QOS_SET_FLOW = QOS_SET_FLOW(2i32);
+impl ::core::marker::Copy for QOS_SET_FLOW {}
+impl ::core::clone::Clone for QOS_SET_FLOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct QOS_SHAPING(pub i32);
 pub const QOSShapeOnly: QOS_SHAPING = QOS_SHAPING(0i32);
 pub const QOSShapeAndMark: QOS_SHAPING = QOS_SHAPING(1i32);
 pub const QOSUseNonConformantMarkings: QOS_SHAPING = QOS_SHAPING(2i32);
+impl ::core::marker::Copy for QOS_SHAPING {}
+impl ::core::clone::Clone for QOS_SHAPING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct QOS_SHAPING_RATE {
     pub ObjectHdr: QOS_OBJECT_HDR,
@@ -1119,6 +1155,12 @@ pub const QOSTrafficTypeExcellentEffort: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(2i3
 pub const QOSTrafficTypeAudioVideo: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(3i32);
 pub const QOSTrafficTypeVoice: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(4i32);
 pub const QOSTrafficTypeControl: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(5i32);
+impl ::core::marker::Copy for QOS_TRAFFIC_TYPE {}
+impl ::core::clone::Clone for QOS_TRAFFIC_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct QOS_VERSION {
     pub MajorVersion: u16,
@@ -1939,6 +1981,12 @@ pub const IS_WKP_MIN_LATENCY: int_serv_wkp = int_serv_wkp(8i32);
 pub const IS_WKP_COMPOSED_MTU: int_serv_wkp = int_serv_wkp(10i32);
 pub const IS_WKP_TB_TSPEC: int_serv_wkp = int_serv_wkp(127i32);
 pub const IS_WKP_Q_TSPEC: int_serv_wkp = int_serv_wkp(128i32);
+impl ::core::marker::Copy for int_serv_wkp {}
+impl ::core::clone::Clone for int_serv_wkp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct lpmiptable {

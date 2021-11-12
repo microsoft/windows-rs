@@ -63,6 +63,12 @@ impl WebViewControlPermissionState {
     pub const Allow: Self = Self(2i32);
     pub const Deny: Self = Self(3i32);
 }
+impl ::core::marker::Copy for WebViewControlPermissionState {}
+impl ::core::clone::Clone for WebViewControlPermissionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WebViewControlPermissionType(pub i32);
 impl WebViewControlPermissionType {
@@ -73,6 +79,12 @@ impl WebViewControlPermissionType {
     pub const WebNotifications: Self = Self(4i32);
     pub const Screen: Self = Self(5i32);
     pub const ImmersiveView: Self = Self(6i32);
+}
+impl ::core::marker::Copy for WebViewControlPermissionType {}
+impl ::core::clone::Clone for WebViewControlPermissionType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WebViewControlScriptNotifyEventArgs(pub *mut ::core::ffi::c_void);

@@ -2007,17 +2007,35 @@ pub const QC_STARTSWITH: PropertyConstraint = PropertyConstraint(6i32);
 pub const QC_EXISTS: PropertyConstraint = PropertyConstraint(7i32);
 pub const QC_DOESNOTEXIST: PropertyConstraint = PropertyConstraint(8i32);
 pub const QC_CONTAINS: PropertyConstraint = PropertyConstraint(9i32);
+impl ::core::marker::Copy for PropertyConstraint {}
+impl ::core::clone::Clone for PropertyConstraint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PropertyStore: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3833161040, data2: 57185, data3: 17547, data4: [145, 147, 19, 252, 19, 65, 177, 99] };
 pub const PropertyStoreCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3990052905, data2: 55123, data3: 18530, data4: [170, 91, 91, 204, 173, 42, 77, 41] };
 #[repr(transparent)]
 pub struct QueryCategoryType(pub i32);
 pub const QCT_PROVIDER: QueryCategoryType = QueryCategoryType(0i32);
 pub const QCT_LAYERED: QueryCategoryType = QueryCategoryType(1i32);
+impl ::core::marker::Copy for QueryCategoryType {}
+impl ::core::clone::Clone for QueryCategoryType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct QueryUpdateAction(pub i32);
 pub const QUA_ADD: QueryUpdateAction = QueryUpdateAction(0i32);
 pub const QUA_REMOVE: QueryUpdateAction = QueryUpdateAction(1i32);
 pub const QUA_CHANGE: QueryUpdateAction = QueryUpdateAction(2i32);
+impl ::core::marker::Copy for QueryUpdateAction {}
+impl ::core::clone::Clone for QueryUpdateAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SID_DeviceDisplayStatusManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4120552787, data2: 33545, data3: 18122, data4: [151, 54, 26, 195, 198, 45, 96, 49] };
 pub const SID_EnumDeviceFunction: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 333507042,
@@ -2064,3 +2082,9 @@ pub const SID_UnpairProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { 
 pub struct SystemVisibilityFlags(pub i32);
 pub const SVF_SYSTEM: SystemVisibilityFlags = SystemVisibilityFlags(0i32);
 pub const SVF_USER: SystemVisibilityFlags = SystemVisibilityFlags(1i32);
+impl ::core::marker::Copy for SystemVisibilityFlags {}
+impl ::core::clone::Clone for SystemVisibilityFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

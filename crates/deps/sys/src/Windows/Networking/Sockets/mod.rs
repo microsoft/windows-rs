@@ -26,11 +26,23 @@ impl ControlChannelTriggerResetReason {
     pub const QuietHoursExit: Self = Self(2i32);
     pub const ApplicationRestart: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ControlChannelTriggerResetReason {}
+impl ::core::clone::Clone for ControlChannelTriggerResetReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ControlChannelTriggerResourceType(pub i32);
 impl ControlChannelTriggerResourceType {
     pub const RequestSoftwareSlot: Self = Self(0i32);
     pub const RequestHardwareSlot: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ControlChannelTriggerResourceType {}
+impl ::core::clone::Clone for ControlChannelTriggerResourceType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ControlChannelTriggerStatus(pub i32);
@@ -42,6 +54,12 @@ impl ControlChannelTriggerStatus {
     pub const SystemError: Self = Self(4i32);
     pub const TransportDisconnected: Self = Self(5i32);
     pub const ServiceUnavailable: Self = Self(6i32);
+}
+impl ::core::marker::Copy for ControlChannelTriggerStatus {}
+impl ::core::clone::Clone for ControlChannelTriggerStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DatagramSocket(pub *mut ::core::ffi::c_void);
@@ -187,6 +205,12 @@ impl MessageWebSocketReceiveMode {
     pub const FullMessage: Self = Self(0i32);
     pub const PartialMessage: Self = Self(1i32);
 }
+impl ::core::marker::Copy for MessageWebSocketReceiveMode {}
+impl ::core::clone::Clone for MessageWebSocketReceiveMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct RoundTripTimeStatistics {
     pub Variance: u32,
@@ -216,6 +240,12 @@ impl SocketActivityConnectedStandbyAction {
     pub const DoNotWake: Self = Self(0i32);
     pub const Wake: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SocketActivityConnectedStandbyAction {}
+impl ::core::clone::Clone for SocketActivityConnectedStandbyAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SocketActivityContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -228,6 +258,12 @@ impl SocketActivityKind {
     pub const DatagramSocket: Self = Self(2i32);
     pub const StreamSocket: Self = Self(3i32);
 }
+impl ::core::marker::Copy for SocketActivityKind {}
+impl ::core::clone::Clone for SocketActivityKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SocketActivityTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -238,6 +274,12 @@ impl SocketActivityTriggerReason {
     pub const ConnectionAccepted: Self = Self(2i32);
     pub const KeepAliveTimerExpired: Self = Self(3i32);
     pub const SocketClosed: Self = Self(4i32);
+}
+impl ::core::marker::Copy for SocketActivityTriggerReason {}
+impl ::core::clone::Clone for SocketActivityTriggerReason {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SocketErrorStatus(pub i32);
@@ -274,11 +316,23 @@ impl SocketErrorStatus {
     pub const CertificateRevocationServerOffline: Self = Self(29i32);
     pub const CertificateIsInvalid: Self = Self(30i32);
 }
+impl ::core::marker::Copy for SocketErrorStatus {}
+impl ::core::clone::Clone for SocketErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SocketMessageType(pub i32);
 impl SocketMessageType {
     pub const Binary: Self = Self(0i32);
     pub const Utf8: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SocketMessageType {}
+impl ::core::clone::Clone for SocketMessageType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SocketProtectionLevel(pub i32);
@@ -294,11 +348,23 @@ impl SocketProtectionLevel {
     pub const Tls12: Self = Self(8i32);
     pub const Unspecified: Self = Self(9i32);
 }
+impl ::core::marker::Copy for SocketProtectionLevel {}
+impl ::core::clone::Clone for SocketProtectionLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SocketQualityOfService(pub i32);
 impl SocketQualityOfService {
     pub const Normal: Self = Self(0i32);
     pub const LowLatency: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SocketQualityOfService {}
+impl ::core::clone::Clone for SocketQualityOfService {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SocketSslErrorSeverity(pub i32);
@@ -306,6 +372,12 @@ impl SocketSslErrorSeverity {
     pub const None: Self = Self(0i32);
     pub const Ignorable: Self = Self(1i32);
     pub const Fatal: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SocketSslErrorSeverity {}
+impl ::core::clone::Clone for SocketSslErrorSeverity {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct StreamSocket(pub *mut ::core::ffi::c_void);

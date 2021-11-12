@@ -38,6 +38,12 @@ impl WalletActionKind {
     pub const Message: Self = Self(3i32);
     pub const Verb: Self = Self(4i32);
 }
+impl ::core::marker::Copy for WalletActionKind {}
+impl ::core::clone::Clone for WalletActionKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WalletBarcode(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -55,6 +61,12 @@ impl WalletBarcodeSymbology {
     pub const Pdf417: Self = Self(9i32);
     pub const Aztec: Self = Self(10i32);
     pub const Custom: Self = Self(100000i32);
+}
+impl ::core::marker::Copy for WalletBarcodeSymbology {}
+impl ::core::clone::Clone for WalletBarcodeSymbology {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WalletDetailViewPosition(pub i32);
@@ -75,6 +87,12 @@ impl WalletDetailViewPosition {
     pub const FooterField3: Self = Self(13i32);
     pub const FooterField4: Self = Self(14i32);
 }
+impl ::core::marker::Copy for WalletDetailViewPosition {}
+impl ::core::clone::Clone for WalletDetailViewPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WalletItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -90,6 +108,12 @@ impl WalletItemKind {
     pub const BoardingPass: Self = Self(5i32);
     pub const MembershipCard: Self = Self(6i32);
 }
+impl ::core::marker::Copy for WalletItemKind {}
+impl ::core::clone::Clone for WalletItemKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WalletItemStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -100,6 +124,12 @@ impl WalletSummaryViewPosition {
     pub const Hidden: Self = Self(0i32);
     pub const Field1: Self = Self(1i32);
     pub const Field2: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WalletSummaryViewPosition {}
+impl ::core::clone::Clone for WalletSummaryViewPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WalletTransaction(pub *mut ::core::ffi::c_void);

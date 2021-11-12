@@ -195,7 +195,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         quote! { struct }
     };
 
-    let copy = if is_union {
+    let copy = if is_union || has_union {
         quote! {}
     } else {
         quote! {

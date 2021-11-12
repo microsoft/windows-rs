@@ -230,6 +230,12 @@ pub const GuestOsMicrosoftWindows3x: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT
 pub const GuestOsMicrosoftWindows9x: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(3i32);
 pub const GuestOsMicrosoftWindowsNT: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(4i32);
 pub const GuestOsMicrosoftWindowsCE: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(5i32);
+impl ::core::marker::Copy for GUEST_OS_MICROSOFT_IDS {}
+impl ::core::clone::Clone for GUEST_OS_MICROSOFT_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GUEST_OS_OPENSOURCE_IDS(pub i32);
 pub const GuestOsOpenSourceUndefined: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(0i32);
@@ -237,12 +243,24 @@ pub const GuestOsOpenSourceLinux: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_
 pub const GuestOsOpenSourceFreeBSD: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(2i32);
 pub const GuestOsOpenSourceXen: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(3i32);
 pub const GuestOsOpenSourceIllumos: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(4i32);
+impl ::core::marker::Copy for GUEST_OS_OPENSOURCE_IDS {}
+impl ::core::clone::Clone for GUEST_OS_OPENSOURCE_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GUEST_OS_VENDOR(pub i32);
 pub const GuestOsVendorUndefined: GUEST_OS_VENDOR = GUEST_OS_VENDOR(0i32);
 pub const GuestOsVendorMicrosoft: GUEST_OS_VENDOR = GUEST_OS_VENDOR(1i32);
 pub const GuestOsVendorHPE: GUEST_OS_VENDOR = GUEST_OS_VENDOR(2i32);
 pub const GuestOsVendorLANCOM: GUEST_OS_VENDOR = GUEST_OS_VENDOR(512i32);
+impl ::core::marker::Copy for GUEST_OS_VENDOR {}
+impl ::core::clone::Clone for GUEST_OS_VENDOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = unsafe extern "system" fn(infomessage: super::super::Foundation::PSTR);
 pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1072875819, data2: 26008, data3: 20064, data4: [142, 28, 12, 207, 73, 39, 227, 25] };
@@ -250,6 +268,12 @@ pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_sys::core::GUID = ::windows
 pub struct HDV_DEVICE_TYPE(pub i32);
 pub const HdvDeviceTypeUndefined: HDV_DEVICE_TYPE = HDV_DEVICE_TYPE(0i32);
 pub const HdvDeviceTypePCI: HDV_DEVICE_TYPE = HDV_DEVICE_TYPE(1i32);
+impl ::core::marker::Copy for HDV_DEVICE_TYPE {}
+impl ::core::clone::Clone for HDV_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HDV_DOORBELL_FLAGS(pub i32);
 pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_ANY: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(0i32);
@@ -258,11 +282,23 @@ pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_WORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL
 pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_DWORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(3i32);
 pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_QWORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(4i32);
 pub const HDV_DOORBELL_FLAG_TRIGGER_ANY_VALUE: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(-2147483648i32);
+impl ::core::marker::Copy for HDV_DOORBELL_FLAGS {}
+impl ::core::clone::Clone for HDV_DOORBELL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HDV_MMIO_MAPPING_FLAGS(pub u32);
 pub const HdvMmioMappingFlagNone: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(0u32);
 pub const HdvMmioMappingFlagWriteable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(1u32);
 pub const HdvMmioMappingFlagExecutable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(2u32);
+impl ::core::marker::Copy for HDV_MMIO_MAPPING_FLAGS {}
+impl ::core::clone::Clone for HDV_MMIO_MAPPING_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
 #[repr(transparent)]
 pub struct HDV_PCI_BAR_SELECTOR(pub i32);
@@ -272,6 +308,12 @@ pub const HDV_PCI_BAR2: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(2i32);
 pub const HDV_PCI_BAR3: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(3i32);
 pub const HDV_PCI_BAR4: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(4i32);
 pub const HDV_PCI_BAR5: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(5i32);
+impl ::core::marker::Copy for HDV_PCI_BAR_SELECTOR {}
+impl ::core::clone::Clone for HDV_PCI_BAR_SELECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type HDV_PCI_DEVICE_GET_DETAILS = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> ::windows_sys::core::HRESULT;
 pub type HDV_PCI_DEVICE_INITIALIZE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
@@ -306,6 +348,12 @@ pub type HDV_PCI_DEVICE_TEARDOWN = unsafe extern "system" fn(devicecontext: *con
 pub struct HDV_PCI_INTERFACE_VERSION(pub i32);
 pub const HdvPciDeviceInterfaceVersionInvalid: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(0i32);
 pub const HdvPciDeviceInterfaceVersion1: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(1i32);
+impl ::core::marker::Copy for HDV_PCI_INTERFACE_VERSION {}
+impl ::core::clone::Clone for HDV_PCI_INTERFACE_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HDV_PCI_PNP_ID {
     pub VendorID: u16,
@@ -396,6 +444,12 @@ pub const Paging_32Bit: PAGING_MODE = PAGING_MODE(2i32);
 pub const Paging_Pae: PAGING_MODE = PAGING_MODE(3i32);
 pub const Paging_Long: PAGING_MODE = PAGING_MODE(4i32);
 pub const Paging_Armv8: PAGING_MODE = PAGING_MODE(5i32);
+impl ::core::marker::Copy for PAGING_MODE {}
+impl ::core::clone::Clone for PAGING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REGISTER_ID(pub i32);
 pub const X64_RegisterRax: REGISTER_ID = REGISTER_ID(0i32);
@@ -557,6 +611,12 @@ pub const ARM64_RegisterCntkctlEl1: REGISTER_ID = REGISTER_ID(155i32);
 pub const ARM64_RegisterCntvCvalEl0: REGISTER_ID = REGISTER_ID(156i32);
 pub const ARM64_RegisterCntvCtlEl0: REGISTER_ID = REGISTER_ID(157i32);
 pub const ARM64_RegisterMax: REGISTER_ID = REGISTER_ID(158i32);
+impl ::core::marker::Copy for REGISTER_ID {}
+impl ::core::clone::Clone for REGISTER_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SOCKADDR_HV {
     pub Family: u16,
@@ -576,6 +636,12 @@ pub const Arch_Unknown: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(0i32);
 pub const Arch_x86: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(1i32);
 pub const Arch_x64: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(2i32);
 pub const Arch_Armv8: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(3i32);
+impl ::core::marker::Copy for VIRTUAL_PROCESSOR_ARCH {}
+impl ::core::clone::Clone for VIRTUAL_PROCESSOR_ARCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union VIRTUAL_PROCESSOR_REGISTER {
     pub Reg64: u64,
@@ -733,6 +799,12 @@ pub const ProcessorVendor_Amd: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VEND
 pub const ProcessorVendor_Intel: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(2i32);
 pub const ProcessorVendor_Hygon: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(3i32);
 pub const ProcessorVendor_Arm: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(4i32);
+impl ::core::marker::Copy for VIRTUAL_PROCESSOR_VENDOR {}
+impl ::core::clone::Clone for VIRTUAL_PROCESSOR_VENDOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct VM_GENCOUNTER {
     pub GenerationCount: u64,
@@ -779,6 +851,12 @@ pub struct WHV_ADVISE_GPA_RANGE_CODE(pub i32);
 pub const WHvAdviseGpaRangeCodePopulate: WHV_ADVISE_GPA_RANGE_CODE = WHV_ADVISE_GPA_RANGE_CODE(0i32);
 pub const WHvAdviseGpaRangeCodePin: WHV_ADVISE_GPA_RANGE_CODE = WHV_ADVISE_GPA_RANGE_CODE(1i32);
 pub const WHvAdviseGpaRangeCodeUnpin: WHV_ADVISE_GPA_RANGE_CODE = WHV_ADVISE_GPA_RANGE_CODE(2i32);
+impl ::core::marker::Copy for WHV_ADVISE_GPA_RANGE_CODE {}
+impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_ADVISE_GPA_RANGE_POPULATE {
     pub Flags: WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS,
@@ -814,6 +892,12 @@ impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
 pub struct WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(pub u32);
 pub const WHvAllocateVpciResourceFlagNone: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(0u32);
 pub const WHvAllocateVpciResourceFlagAllowDirectP2P: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(1u32);
+impl ::core::marker::Copy for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {}
+impl ::core::clone::Clone for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WHV_ANY_VP: u32 = 4294967295u32;
 #[repr(transparent)]
 pub struct WHV_CACHE_TYPE(pub i32);
@@ -822,6 +906,12 @@ pub const WHvCacheTypeWriteCombining: WHV_CACHE_TYPE = WHV_CACHE_TYPE(1i32);
 pub const WHvCacheTypeWriteThrough: WHV_CACHE_TYPE = WHV_CACHE_TYPE(4i32);
 pub const WHvCacheTypeWriteProtected: WHV_CACHE_TYPE = WHV_CACHE_TYPE(5i32);
 pub const WHvCacheTypeWriteBack: WHV_CACHE_TYPE = WHV_CACHE_TYPE(6i32);
+impl ::core::marker::Copy for WHV_CACHE_TYPE {}
+impl ::core::clone::Clone for WHV_CACHE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WHV_CAPABILITY {
@@ -868,6 +958,12 @@ pub const WHvCapabilityCodeProcessorFeaturesBanks: WHV_CAPABILITY_CODE = WHV_CAP
 pub const WHvCapabilityCodeProcessorFrequencyCap: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4103i32);
 pub const WHvCapabilityCodeSyntheticProcessorFeaturesBanks: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4104i32);
 pub const WHvCapabilityCodeProcessorPerfmonFeatures: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4105i32);
+impl ::core::marker::Copy for WHV_CAPABILITY_CODE {}
+impl ::core::clone::Clone for WHV_CAPABILITY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union WHV_CAPABILITY_FEATURES {
     pub Anonymous: WHV_CAPABILITY_FEATURES_0,
@@ -920,6 +1016,12 @@ pub struct WHV_CREATE_VPCI_DEVICE_FLAGS(pub u32);
 pub const WHvCreateVpciDeviceFlagNone: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(0u32);
 pub const WHvCreateVpciDeviceFlagPhysicallyBacked: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(1u32);
 pub const WHvCreateVpciDeviceFlagUseLogicalInterrupts: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(2u32);
+impl ::core::marker::Copy for WHV_CREATE_VPCI_DEVICE_FLAGS {}
+impl ::core::clone::Clone for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_DOORBELL_MATCH_DATA {
     pub GuestAddress: u64,
@@ -1019,6 +1121,12 @@ pub const WHvX64ExceptionTypeFloatingPointErrorFault: WHV_EXCEPTION_TYPE = WHV_E
 pub const WHvX64ExceptionTypeAlignmentCheckFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(17i32);
 pub const WHvX64ExceptionTypeMachineCheckAbort: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(18i32);
 pub const WHvX64ExceptionTypeSimdFloatingPointFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(19i32);
+impl ::core::marker::Copy for WHV_EXCEPTION_TYPE {}
+impl ::core::clone::Clone for WHV_EXCEPTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union WHV_EXTENDED_VM_EXITS {
     pub Anonymous: WHV_EXTENDED_VM_EXITS_0,
@@ -1095,10 +1203,22 @@ impl ::core::clone::Clone for WHV_INTERRUPT_CONTROL {
 pub struct WHV_INTERRUPT_DESTINATION_MODE(pub i32);
 pub const WHvX64InterruptDestinationModePhysical: WHV_INTERRUPT_DESTINATION_MODE = WHV_INTERRUPT_DESTINATION_MODE(0i32);
 pub const WHvX64InterruptDestinationModeLogical: WHV_INTERRUPT_DESTINATION_MODE = WHV_INTERRUPT_DESTINATION_MODE(1i32);
+impl ::core::marker::Copy for WHV_INTERRUPT_DESTINATION_MODE {}
+impl ::core::clone::Clone for WHV_INTERRUPT_DESTINATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WHV_INTERRUPT_TRIGGER_MODE(pub i32);
 pub const WHvX64InterruptTriggerModeEdge: WHV_INTERRUPT_TRIGGER_MODE = WHV_INTERRUPT_TRIGGER_MODE(0i32);
 pub const WHvX64InterruptTriggerModeLevel: WHV_INTERRUPT_TRIGGER_MODE = WHV_INTERRUPT_TRIGGER_MODE(1i32);
+impl ::core::marker::Copy for WHV_INTERRUPT_TRIGGER_MODE {}
+impl ::core::clone::Clone for WHV_INTERRUPT_TRIGGER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WHV_INTERRUPT_TYPE(pub i32);
 pub const WHvX64InterruptTypeFixed: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(0i32);
@@ -1107,6 +1227,12 @@ pub const WHvX64InterruptTypeNmi: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(4i32);
 pub const WHvX64InterruptTypeInit: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(5i32);
 pub const WHvX64InterruptTypeSipi: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(6i32);
 pub const WHvX64InterruptTypeLocalInt1: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(9i32);
+impl ::core::marker::Copy for WHV_INTERRUPT_TYPE {}
+impl ::core::clone::Clone for WHV_INTERRUPT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WHV_MAP_GPA_RANGE_FLAGS(pub u32);
 pub const WHvMapGpaRangeFlagNone: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(0u32);
@@ -1114,6 +1240,12 @@ pub const WHvMapGpaRangeFlagRead: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FL
 pub const WHvMapGpaRangeFlagWrite: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(2u32);
 pub const WHvMapGpaRangeFlagExecute: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(4u32);
 pub const WHvMapGpaRangeFlagTrackDirtyPages: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(8u32);
+impl ::core::marker::Copy for WHV_MAP_GPA_RANGE_FLAGS {}
+impl ::core::clone::Clone for WHV_MAP_GPA_RANGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: u32 = 200u32;
 #[repr(C)]
 pub struct WHV_MEMORY_ACCESS_CONTEXT {
@@ -1155,6 +1287,12 @@ pub struct WHV_MEMORY_ACCESS_TYPE(pub i32);
 pub const WHvMemoryAccessRead: WHV_MEMORY_ACCESS_TYPE = WHV_MEMORY_ACCESS_TYPE(0i32);
 pub const WHvMemoryAccessWrite: WHV_MEMORY_ACCESS_TYPE = WHV_MEMORY_ACCESS_TYPE(1i32);
 pub const WHvMemoryAccessExecute: WHV_MEMORY_ACCESS_TYPE = WHV_MEMORY_ACCESS_TYPE(2i32);
+impl ::core::marker::Copy for WHV_MEMORY_ACCESS_TYPE {}
+impl ::core::clone::Clone for WHV_MEMORY_ACCESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_MEMORY_RANGE_ENTRY {
     pub GuestAddress: u64,
@@ -1171,6 +1309,12 @@ pub struct WHV_MSR_ACTION(pub i32);
 pub const WHvMsrActionArchitectureDefault: WHV_MSR_ACTION = WHV_MSR_ACTION(0i32);
 pub const WHvMsrActionIgnoreWriteReadZero: WHV_MSR_ACTION = WHV_MSR_ACTION(1i32);
 pub const WHvMsrActionExit: WHV_MSR_ACTION = WHV_MSR_ACTION(2i32);
+impl ::core::marker::Copy for WHV_MSR_ACTION {}
+impl ::core::clone::Clone for WHV_MSR_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_MSR_ACTION_ENTRY {
     pub Index: u32,
@@ -1220,13 +1364,31 @@ impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
 pub struct WHV_NOTIFICATION_PORT_PROPERTY_CODE(pub i32);
 pub const WHvNotificationPortPropertyPreferredTargetVp: WHV_NOTIFICATION_PORT_PROPERTY_CODE = WHV_NOTIFICATION_PORT_PROPERTY_CODE(1i32);
 pub const WHvNotificationPortPropertyPreferredTargetDuration: WHV_NOTIFICATION_PORT_PROPERTY_CODE = WHV_NOTIFICATION_PORT_PROPERTY_CODE(5i32);
+impl ::core::marker::Copy for WHV_NOTIFICATION_PORT_PROPERTY_CODE {}
+impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WHV_NOTIFICATION_PORT_TYPE(pub i32);
 pub const WHvNotificationPortTypeEvent: WHV_NOTIFICATION_PORT_TYPE = WHV_NOTIFICATION_PORT_TYPE(2i32);
 pub const WHvNotificationPortTypeDoorbell: WHV_NOTIFICATION_PORT_TYPE = WHV_NOTIFICATION_PORT_TYPE(4i32);
+impl ::core::marker::Copy for WHV_NOTIFICATION_PORT_TYPE {}
+impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WHV_PARTITION_COUNTER_SET(pub i32);
 pub const WHvPartitionCounterSetMemory: WHV_PARTITION_COUNTER_SET = WHV_PARTITION_COUNTER_SET(0i32);
+impl ::core::marker::Copy for WHV_PARTITION_COUNTER_SET {}
+impl ::core::clone::Clone for WHV_PARTITION_COUNTER_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_PARTITION_HANDLE {
     pub Value: isize,
@@ -1321,6 +1483,12 @@ pub const WHvPartitionPropertyCodeProcessorPerfmonFeatures: WHV_PARTITION_PROPER
 pub const WHvPartitionPropertyCodeMsrActionList: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4111i32);
 pub const WHvPartitionPropertyCodeUnimplementedMsrAction: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4112i32);
 pub const WHvPartitionPropertyCodeProcessorCount: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(8191i32);
+impl ::core::marker::Copy for WHV_PARTITION_PROPERTY_CODE {}
+impl ::core::clone::Clone for WHV_PARTITION_PROPERTY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_PROCESSOR_APIC_COUNTERS {
     pub MmioAccessCount: u64,
@@ -1342,6 +1510,12 @@ pub const WHvProcessorCounterSetIntercepts: WHV_PROCESSOR_COUNTER_SET = WHV_PROC
 pub const WHvProcessorCounterSetEvents: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(2i32);
 pub const WHvProcessorCounterSetApic: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(3i32);
 pub const WHvProcessorCounterSetSyntheticFeatures: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(4i32);
+impl ::core::marker::Copy for WHV_PROCESSOR_COUNTER_SET {}
+impl ::core::clone::Clone for WHV_PROCESSOR_COUNTER_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_PROCESSOR_EVENT_COUNTERS {
     pub PageFaultCount: u64,
@@ -1513,6 +1687,12 @@ pub struct WHV_PROCESSOR_VENDOR(pub i32);
 pub const WHvProcessorVendorAmd: WHV_PROCESSOR_VENDOR = WHV_PROCESSOR_VENDOR(0i32);
 pub const WHvProcessorVendorIntel: WHV_PROCESSOR_VENDOR = WHV_PROCESSOR_VENDOR(1i32);
 pub const WHvProcessorVendorHygon: WHV_PROCESSOR_VENDOR = WHV_PROCESSOR_VENDOR(2i32);
+impl ::core::marker::Copy for WHV_PROCESSOR_VENDOR {}
+impl ::core::clone::Clone for WHV_PROCESSOR_VENDOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union WHV_PROCESSOR_XSAVE_FEATURES {
     pub Anonymous: WHV_PROCESSOR_XSAVE_FEATURES_0,
@@ -1762,6 +1942,12 @@ pub const WHvRegisterPendingEvent: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-214748
 pub const WHvX64RegisterDeliverabilityNotifications: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483644i32);
 pub const WHvRegisterInternalActivityState: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483643i32);
 pub const WHvX64RegisterPendingDebugException: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483642i32);
+impl ::core::marker::Copy for WHV_REGISTER_NAME {}
+impl ::core::clone::Clone for WHV_REGISTER_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union WHV_REGISTER_VALUE {
     pub Reg128: WHV_UINT128,
@@ -1800,6 +1986,12 @@ impl ::core::clone::Clone for WHV_RUN_VP_CANCELED_CONTEXT {
 #[repr(transparent)]
 pub struct WHV_RUN_VP_CANCEL_REASON(pub i32);
 pub const WHvRunVpCancelReasonUser: WHV_RUN_VP_CANCEL_REASON = WHV_RUN_VP_CANCEL_REASON(0i32);
+impl ::core::marker::Copy for WHV_RUN_VP_CANCEL_REASON {}
+impl ::core::clone::Clone for WHV_RUN_VP_CANCEL_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_RUN_VP_EXIT_CONTEXT {
     pub ExitReason: WHV_RUN_VP_EXIT_REASON,
@@ -1857,6 +2049,12 @@ pub const WHvRunVpExitReasonHypercall: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_
 pub const WHvRunVpExitReasonX64ApicInitSipiTrap: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4102i32);
 pub const WHvRunVpExitReasonX64ApicWriteTrap: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4103i32);
 pub const WHvRunVpExitReasonCanceled: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(8193i32);
+impl ::core::marker::Copy for WHV_RUN_VP_EXIT_REASON {}
+impl ::core::clone::Clone for WHV_RUN_VP_EXIT_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union WHV_SCHEDULER_FEATURES {
     pub Anonymous: WHV_SCHEDULER_FEATURES_0,
@@ -1982,6 +2180,12 @@ pub const WHvTranslateGvaFlagPrivilegeExempt: WHV_TRANSLATE_GVA_FLAGS = WHV_TRAN
 pub const WHvTranslateGvaFlagSetPageTableBits: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(16u32);
 pub const WHvTranslateGvaFlagEnforceSmap: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(256u32);
 pub const WHvTranslateGvaFlagOverrideSmap: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(512u32);
+impl ::core::marker::Copy for WHV_TRANSLATE_GVA_FLAGS {}
+impl ::core::clone::Clone for WHV_TRANSLATE_GVA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_TRANSLATE_GVA_RESULT {
     pub ResultCode: WHV_TRANSLATE_GVA_RESULT_CODE,
@@ -2004,6 +2208,12 @@ pub const WHvTranslateGvaResultGpaNoReadAccess: WHV_TRANSLATE_GVA_RESULT_CODE = 
 pub const WHvTranslateGvaResultGpaNoWriteAccess: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(6i32);
 pub const WHvTranslateGvaResultGpaIllegalOverlayAccess: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(7i32);
 pub const WHvTranslateGvaResultIntercept: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(8i32);
+impl ::core::marker::Copy for WHV_TRANSLATE_GVA_RESULT_CODE {}
+impl ::core::clone::Clone for WHV_TRANSLATE_GVA_RESULT_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_TRIGGER_PARAMETERS {
     pub TriggerType: WHV_TRIGGER_TYPE,
@@ -2045,6 +2255,12 @@ pub struct WHV_TRIGGER_TYPE(pub i32);
 pub const WHvTriggerTypeInterrupt: WHV_TRIGGER_TYPE = WHV_TRIGGER_TYPE(0i32);
 pub const WHvTriggerTypeSynicEvent: WHV_TRIGGER_TYPE = WHV_TRIGGER_TYPE(1i32);
 pub const WHvTriggerTypeDeviceInterrupt: WHV_TRIGGER_TYPE = WHV_TRIGGER_TYPE(2i32);
+impl ::core::marker::Copy for WHV_TRIGGER_TYPE {}
+impl ::core::clone::Clone for WHV_TRIGGER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union WHV_UINT128 {
     pub Anonymous: WHV_UINT128_0,
@@ -2091,6 +2307,12 @@ impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
 #[repr(transparent)]
 pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE(pub i32);
 pub const WHvVirtualProcessorPropertyCodeNumaNode: WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE = WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE(0i32);
+impl ::core::marker::Copy for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {}
+impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WHV_VIRTUAL_PROCESSOR_STATE_TYPE(pub i32);
 pub const WHvVirtualProcessorStateTypeSynicMessagePage: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(0i32);
@@ -2098,6 +2320,12 @@ pub const WHvVirtualProcessorStateTypeSynicEventFlagPage: WHV_VIRTUAL_PROCESSOR_
 pub const WHvVirtualProcessorStateTypeSynicTimerState: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(2i32);
 pub const WHvVirtualProcessorStateTypeInterruptControllerState2: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(4096i32);
 pub const WHvVirtualProcessorStateTypeXsaveState: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(4097i32);
+impl ::core::marker::Copy for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {}
+impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_VPCI_DEVICE_NOTIFICATION {
     pub NotificationType: WHV_VPCI_DEVICE_NOTIFICATION_TYPE,
@@ -2124,11 +2352,23 @@ pub struct WHV_VPCI_DEVICE_NOTIFICATION_TYPE(pub i32);
 pub const WHvVpciDeviceNotificationUndefined: WHV_VPCI_DEVICE_NOTIFICATION_TYPE = WHV_VPCI_DEVICE_NOTIFICATION_TYPE(0i32);
 pub const WHvVpciDeviceNotificationMmioRemapping: WHV_VPCI_DEVICE_NOTIFICATION_TYPE = WHV_VPCI_DEVICE_NOTIFICATION_TYPE(1i32);
 pub const WHvVpciDeviceNotificationSurpriseRemoval: WHV_VPCI_DEVICE_NOTIFICATION_TYPE = WHV_VPCI_DEVICE_NOTIFICATION_TYPE(2i32);
+impl ::core::marker::Copy for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {}
+impl ::core::clone::Clone for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WHV_VPCI_DEVICE_PROPERTY_CODE(pub i32);
 pub const WHvVpciDevicePropertyCodeUndefined: WHV_VPCI_DEVICE_PROPERTY_CODE = WHV_VPCI_DEVICE_PROPERTY_CODE(0i32);
 pub const WHvVpciDevicePropertyCodeHardwareIDs: WHV_VPCI_DEVICE_PROPERTY_CODE = WHV_VPCI_DEVICE_PROPERTY_CODE(1i32);
 pub const WHvVpciDevicePropertyCodeProbedBARs: WHV_VPCI_DEVICE_PROPERTY_CODE = WHV_VPCI_DEVICE_PROPERTY_CODE(2i32);
+impl ::core::marker::Copy for WHV_VPCI_DEVICE_PROPERTY_CODE {}
+impl ::core::clone::Clone for WHV_VPCI_DEVICE_PROPERTY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_VPCI_DEVICE_REGISTER {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
@@ -2150,6 +2390,12 @@ pub const WHvVpciBar2: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER
 pub const WHvVpciBar3: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(3i32);
 pub const WHvVpciBar4: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(4i32);
 pub const WHvVpciBar5: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(5i32);
+impl ::core::marker::Copy for WHV_VPCI_DEVICE_REGISTER_SPACE {}
+impl ::core::clone::Clone for WHV_VPCI_DEVICE_REGISTER_SPACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_VPCI_HARDWARE_IDS {
     pub VendorID: u16,
@@ -2184,6 +2430,12 @@ impl ::core::clone::Clone for WHV_VPCI_INTERRUPT_TARGET {
 pub struct WHV_VPCI_INTERRUPT_TARGET_FLAGS(pub u32);
 pub const WHvVpciInterruptTargetFlagNone: WHV_VPCI_INTERRUPT_TARGET_FLAGS = WHV_VPCI_INTERRUPT_TARGET_FLAGS(0u32);
 pub const WHvVpciInterruptTargetFlagMulticast: WHV_VPCI_INTERRUPT_TARGET_FLAGS = WHV_VPCI_INTERRUPT_TARGET_FLAGS(1u32);
+impl ::core::marker::Copy for WHV_VPCI_INTERRUPT_TARGET_FLAGS {}
+impl ::core::clone::Clone for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_VPCI_MMIO_MAPPING {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
@@ -2202,6 +2454,12 @@ impl ::core::clone::Clone for WHV_VPCI_MMIO_MAPPING {
 pub struct WHV_VPCI_MMIO_RANGE_FLAGS(pub u32);
 pub const WHvVpciMmioRangeFlagReadAccess: WHV_VPCI_MMIO_RANGE_FLAGS = WHV_VPCI_MMIO_RANGE_FLAGS(1u32);
 pub const WHvVpciMmioRangeFlagWriteAccess: WHV_VPCI_MMIO_RANGE_FLAGS = WHV_VPCI_MMIO_RANGE_FLAGS(2u32);
+impl ::core::marker::Copy for WHV_VPCI_MMIO_RANGE_FLAGS {}
+impl ::core::clone::Clone for WHV_VPCI_MMIO_RANGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_VPCI_PROBED_BARS {
     pub Value: [u32; 6],
@@ -2315,6 +2573,12 @@ pub const WHvX64ApicWriteTypeDfr: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_T
 pub const WHvX64ApicWriteTypeSvr: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(240i32);
 pub const WHvX64ApicWriteTypeLint0: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(848i32);
 pub const WHvX64ApicWriteTypeLint1: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(864i32);
+impl ::core::marker::Copy for WHV_X64_APIC_WRITE_TYPE {}
+impl ::core::clone::Clone for WHV_X64_APIC_WRITE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_X64_CPUID_ACCESS_CONTEXT {
     pub Rax: u64,
@@ -2366,6 +2630,12 @@ impl ::core::clone::Clone for WHV_X64_CPUID_RESULT2 {
 pub struct WHV_X64_CPUID_RESULT2_FLAGS(pub u32);
 pub const WHvX64CpuidResult2FlagSubleafSpecific: WHV_X64_CPUID_RESULT2_FLAGS = WHV_X64_CPUID_RESULT2_FLAGS(1u32);
 pub const WHvX64CpuidResult2FlagVpSpecific: WHV_X64_CPUID_RESULT2_FLAGS = WHV_X64_CPUID_RESULT2_FLAGS(2u32);
+impl ::core::marker::Copy for WHV_X64_CPUID_RESULT2_FLAGS {}
+impl ::core::clone::Clone for WHV_X64_CPUID_RESULT2_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
     pub Anonymous: WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0,
@@ -2530,6 +2800,12 @@ pub struct WHV_X64_LOCAL_APIC_EMULATION_MODE(pub i32);
 pub const WHvX64LocalApicEmulationModeNone: WHV_X64_LOCAL_APIC_EMULATION_MODE = WHV_X64_LOCAL_APIC_EMULATION_MODE(0i32);
 pub const WHvX64LocalApicEmulationModeXApic: WHV_X64_LOCAL_APIC_EMULATION_MODE = WHV_X64_LOCAL_APIC_EMULATION_MODE(1i32);
 pub const WHvX64LocalApicEmulationModeX2Apic: WHV_X64_LOCAL_APIC_EMULATION_MODE = WHV_X64_LOCAL_APIC_EMULATION_MODE(2i32);
+impl ::core::marker::Copy for WHV_X64_LOCAL_APIC_EMULATION_MODE {}
+impl ::core::clone::Clone for WHV_X64_LOCAL_APIC_EMULATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_X64_MSR_ACCESS_CONTEXT {
     pub AccessInfo: WHV_X64_MSR_ACCESS_INFO,
@@ -2607,6 +2883,12 @@ impl ::core::clone::Clone for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
 pub struct WHV_X64_PENDING_EVENT_TYPE(pub i32);
 pub const WHvX64PendingEventException: WHV_X64_PENDING_EVENT_TYPE = WHV_X64_PENDING_EVENT_TYPE(0i32);
 pub const WHvX64PendingEventExtInt: WHV_X64_PENDING_EVENT_TYPE = WHV_X64_PENDING_EVENT_TYPE(5i32);
+impl ::core::marker::Copy for WHV_X64_PENDING_EVENT_TYPE {}
+impl ::core::clone::Clone for WHV_X64_PENDING_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union WHV_X64_PENDING_EXCEPTION_EVENT {
     pub Anonymous: WHV_X64_PENDING_EXCEPTION_EVENT_0,
@@ -2676,6 +2958,12 @@ pub struct WHV_X64_PENDING_INTERRUPTION_TYPE(pub i32);
 pub const WHvX64PendingInterrupt: WHV_X64_PENDING_INTERRUPTION_TYPE = WHV_X64_PENDING_INTERRUPTION_TYPE(0i32);
 pub const WHvX64PendingNmi: WHV_X64_PENDING_INTERRUPTION_TYPE = WHV_X64_PENDING_INTERRUPTION_TYPE(2i32);
 pub const WHvX64PendingException: WHV_X64_PENDING_INTERRUPTION_TYPE = WHV_X64_PENDING_INTERRUPTION_TYPE(3i32);
+impl ::core::marker::Copy for WHV_X64_PENDING_INTERRUPTION_TYPE {}
+impl ::core::clone::Clone for WHV_X64_PENDING_INTERRUPTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_X64_RDTSC_CONTEXT {
     pub TscAux: u64,
@@ -2759,6 +3047,12 @@ impl ::core::clone::Clone for WHV_X64_TABLE_REGISTER {
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CODE(pub i32);
 pub const WHvUnsupportedFeatureIntercept: WHV_X64_UNSUPPORTED_FEATURE_CODE = WHV_X64_UNSUPPORTED_FEATURE_CODE(1i32);
 pub const WHvUnsupportedFeatureTaskSwitchTss: WHV_X64_UNSUPPORTED_FEATURE_CODE = WHV_X64_UNSUPPORTED_FEATURE_CODE(2i32);
+impl ::core::marker::Copy for WHV_X64_UNSUPPORTED_FEATURE_CODE {}
+impl ::core::clone::Clone for WHV_X64_UNSUPPORTED_FEATURE_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     pub FeatureCode: WHV_X64_UNSUPPORTED_FEATURE_CODE,

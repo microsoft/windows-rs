@@ -25,5 +25,11 @@ impl VibrationAccessStatus {
     pub const DeniedBySystem: Self = Self(2i32);
     pub const DeniedByEnergySaver: Self = Self(3i32);
 }
+impl ::core::marker::Copy for VibrationAccessStatus {}
+impl ::core::clone::Clone for VibrationAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VibrationDevice(pub *mut ::core::ffi::c_void);

@@ -546,6 +546,12 @@ pub const WIAVIDEO_VIDEO_CREATED: WIAVIDEO_STATE = WIAVIDEO_STATE(3i32);
 pub const WIAVIDEO_VIDEO_PLAYING: WIAVIDEO_STATE = WIAVIDEO_STATE(4i32);
 pub const WIAVIDEO_VIDEO_PAUSED: WIAVIDEO_STATE = WIAVIDEO_STATE(5i32);
 pub const WIAVIDEO_DESTROYING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(6i32);
+impl ::core::marker::Copy for WIAVIDEO_STATE {}
+impl ::core::clone::Clone for WIAVIDEO_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WIA_ACTION_EVENT: u32 = 2u32;
 pub const WIA_ADVANCED_PREVIEW: u32 = 0u32;
 pub const WIA_ALARM_BEEP1: u32 = 1u32;

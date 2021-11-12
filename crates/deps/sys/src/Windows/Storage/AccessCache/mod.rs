@@ -10,6 +10,12 @@ impl AccessCacheOptions {
     pub const UseReadOnlyCachedCopy: Self = Self(4u32);
     pub const SuppressAccessTimeUpdate: Self = Self(8u32);
 }
+impl ::core::marker::Copy for AccessCacheOptions {}
+impl ::core::clone::Clone for AccessCacheOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct AccessListEntry {
     pub Token: ::windows_sys::core::HSTRING,
@@ -42,6 +48,12 @@ pub struct RecentStorageItemVisibility(pub i32);
 impl RecentStorageItemVisibility {
     pub const AppOnly: Self = Self(0i32);
     pub const AppAndSystem: Self = Self(1i32);
+}
+impl ::core::marker::Copy for RecentStorageItemVisibility {}
+impl ::core::clone::Clone for RecentStorageItemVisibility {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct StorageItemAccessList(pub *mut ::core::ffi::c_void);

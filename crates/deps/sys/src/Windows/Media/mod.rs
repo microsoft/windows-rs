@@ -64,6 +64,12 @@ impl AudioBufferAccessMode {
     pub const ReadWrite: Self = Self(1i32);
     pub const Write: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AudioBufferAccessMode {}
+impl ::core::clone::Clone for AudioBufferAccessMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AudioFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -71,6 +77,12 @@ pub struct AudioProcessing(pub i32);
 impl AudioProcessing {
     pub const Default: Self = Self(0i32);
     pub const Raw: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AudioProcessing {}
+impl ::core::clone::Clone for AudioProcessing {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AutoRepeatModeChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -159,6 +171,12 @@ impl MediaPlaybackAutoRepeatMode {
     pub const Track: Self = Self(1i32);
     pub const List: Self = Self(2i32);
 }
+impl ::core::marker::Copy for MediaPlaybackAutoRepeatMode {}
+impl ::core::clone::Clone for MediaPlaybackAutoRepeatMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaPlaybackStatus(pub i32);
 impl MediaPlaybackStatus {
@@ -168,6 +186,12 @@ impl MediaPlaybackStatus {
     pub const Playing: Self = Self(3i32);
     pub const Paused: Self = Self(4i32);
 }
+impl ::core::marker::Copy for MediaPlaybackStatus {}
+impl ::core::clone::Clone for MediaPlaybackStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaPlaybackType(pub i32);
 impl MediaPlaybackType {
@@ -175,6 +199,12 @@ impl MediaPlaybackType {
     pub const Music: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
     pub const Image: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MediaPlaybackType {}
+impl ::core::clone::Clone for MediaPlaybackType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MediaProcessingTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -204,6 +234,12 @@ impl MediaTimelineControllerState {
     pub const Stalled: Self = Self(2i32);
     pub const Error: Self = Self(3i32);
 }
+impl ::core::marker::Copy for MediaTimelineControllerState {}
+impl ::core::clone::Clone for MediaTimelineControllerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MusicDisplayProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -218,6 +254,12 @@ impl SoundLevel {
     pub const Muted: Self = Self(0i32);
     pub const Low: Self = Self(1i32);
     pub const Full: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SoundLevel {}
+impl ::core::clone::Clone for SoundLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SystemMediaTransportControls(pub *mut ::core::ffi::c_void);
@@ -235,6 +277,12 @@ impl SystemMediaTransportControlsButton {
     pub const ChannelUp: Self = Self(8i32);
     pub const ChannelDown: Self = Self(9i32);
 }
+impl ::core::marker::Copy for SystemMediaTransportControlsButton {}
+impl ::core::clone::Clone for SystemMediaTransportControlsButton {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsButtonPressedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -243,6 +291,12 @@ pub struct SystemMediaTransportControlsDisplayUpdater(pub *mut ::core::ffi::c_vo
 pub struct SystemMediaTransportControlsProperty(pub i32);
 impl SystemMediaTransportControlsProperty {
     pub const SoundLevel: Self = Self(0i32);
+}
+impl ::core::marker::Copy for SystemMediaTransportControlsProperty {}
+impl ::core::clone::Clone for SystemMediaTransportControlsProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsPropertyChangedEventArgs(pub *mut ::core::ffi::c_void);

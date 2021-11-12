@@ -1583,6 +1583,12 @@ impl ::core::clone::Clone for DEVPROPKEY {
 pub struct DEVPROPSTORE(pub i32);
 pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = DEVPROPSTORE(0i32);
 pub const DEVPROP_STORE_USER: DEVPROPSTORE = DEVPROPSTORE(1i32);
+impl ::core::marker::Copy for DEVPROPSTORE {}
+impl ::core::clone::Clone for DEVPROPSTORE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;
 pub const DEVPROP_TYPEMOD_ARRAY: u32 = 4096u32;

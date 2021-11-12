@@ -10,6 +10,12 @@ impl GazeDeviceConfigurationStatePreview {
     pub const ScreenSetupNeeded: Self = Self(3i32);
     pub const UserCalibrationNeeded: Self = Self(4i32);
 }
+impl ::core::marker::Copy for GazeDeviceConfigurationStatePreview {}
+impl ::core::clone::Clone for GazeDeviceConfigurationStatePreview {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GazeDevicePreview(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -119,6 +119,12 @@ extern "system" {
 #[repr(transparent)]
 pub struct HCS_CREATE_OPTIONS(pub i32);
 pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = HCS_CREATE_OPTIONS(65536i32);
+impl ::core::marker::Copy for HCS_CREATE_OPTIONS {}
+impl ::core::clone::Clone for HCS_CREATE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct HCS_CREATE_OPTIONS_1 {
@@ -158,6 +164,12 @@ pub type HCS_EVENT_CALLBACK = unsafe extern "system" fn(event: *const HCS_EVENT,
 pub struct HCS_EVENT_OPTIONS(pub u32);
 pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0u32);
 pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(1u32);
+impl ::core::marker::Copy for HCS_EVENT_OPTIONS {}
+impl ::core::clone::Clone for HCS_EVENT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HCS_EVENT_TYPE(pub i32);
 pub const HcsEventInvalid: HCS_EVENT_TYPE = HCS_EVENT_TYPE(0i32);
@@ -170,6 +182,12 @@ pub const HcsEventSystemGuestConnectionClosed: HCS_EVENT_TYPE = HCS_EVENT_TYPE(6
 pub const HcsEventProcessExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(65536i32);
 pub const HcsEventOperationCallback: HCS_EVENT_TYPE = HCS_EVENT_TYPE(16777216i32);
 pub const HcsEventServiceDisconnect: HCS_EVENT_TYPE = HCS_EVENT_TYPE(33554432i32);
+impl ::core::marker::Copy for HCS_EVENT_TYPE {}
+impl ::core::clone::Clone for HCS_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HCS_NOTIFICATIONS(pub i32);
 pub const HcsNotificationInvalid: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(0i32);
@@ -193,12 +211,24 @@ pub const HcsNotificationSystemPassThru: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(1
 pub const HcsNotificationProcessExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(65536i32);
 pub const HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16777216i32);
 pub const HcsNotificationFlagsReserved: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(-268435456i32);
+impl ::core::marker::Copy for HCS_NOTIFICATIONS {}
+impl ::core::clone::Clone for HCS_NOTIFICATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type HCS_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_sys::core::HRESULT, notificationdata: super::super::Foundation::PWSTR);
 #[repr(transparent)]
 pub struct HCS_NOTIFICATION_FLAGS(pub i32);
 pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(0i32);
 pub const HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(-2147483648i32);
+impl ::core::marker::Copy for HCS_NOTIFICATION_FLAGS {}
+impl ::core::clone::Clone for HCS_NOTIFICATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HCS_OPERATION {
     pub Value: isize,
@@ -229,6 +259,12 @@ pub const HcsOperationTypeGetProcessInfo: HCS_OPERATION_TYPE = HCS_OPERATION_TYP
 pub const HcsOperationTypeGetProcessProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(13i32);
 pub const HcsOperationTypeModifyProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(14i32);
 pub const HcsOperationTypeCrash: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(15i32);
+impl ::core::marker::Copy for HCS_OPERATION_TYPE {}
+impl ::core::clone::Clone for HCS_OPERATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HCS_PROCESS {
     pub Value: isize,

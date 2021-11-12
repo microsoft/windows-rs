@@ -240,6 +240,12 @@ pub struct TIMECODE_SAMPLE_FLAGS(pub u32);
 pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(4121u32);
 pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
 pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);
+impl ::core::marker::Copy for TIMECODE_SAMPLE_FLAGS {}
+impl ::core::clone::Clone for TIMECODE_SAMPLE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TIMERR_BASE: u32 = 96u32;
 pub const TIMERR_NOCANDO: u32 = 97u32;
 pub const TIMERR_NOERROR: u32 = 0u32;

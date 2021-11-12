@@ -95,6 +95,12 @@ impl MidiMessageType {
     pub const ActiveSensing: Self = Self(254i32);
     pub const SystemReset: Self = Self(255i32);
 }
+impl ::core::marker::Copy for MidiMessageType {}
+impl ::core::clone::Clone for MidiMessageType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MidiNoteOffMessage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -15,6 +15,12 @@ impl ProviderI2cBusSpeed {
     pub const StandardMode: Self = Self(0i32);
     pub const FastMode: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ProviderI2cBusSpeed {}
+impl ::core::clone::Clone for ProviderI2cBusSpeed {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProviderI2cConnectionSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -22,6 +28,12 @@ pub struct ProviderI2cSharingMode(pub i32);
 impl ProviderI2cSharingMode {
     pub const Exclusive: Self = Self(0i32);
     pub const Shared: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ProviderI2cSharingMode {}
+impl ::core::clone::Clone for ProviderI2cSharingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 pub struct ProviderI2cTransferResult {
@@ -40,4 +52,10 @@ impl ProviderI2cTransferStatus {
     pub const FullTransfer: Self = Self(0i32);
     pub const PartialTransfer: Self = Self(1i32);
     pub const SlaveAddressNotAcknowledged: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ProviderI2cTransferStatus {}
+impl ::core::clone::Clone for ProviderI2cTransferStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

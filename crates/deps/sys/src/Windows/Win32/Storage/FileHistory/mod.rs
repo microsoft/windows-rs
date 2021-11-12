@@ -46,6 +46,12 @@ pub const FH_STATUS_DISABLED_BY_GP: FH_BACKUP_STATUS = FH_BACKUP_STATUS(1i32);
 pub const FH_STATUS_ENABLED: FH_BACKUP_STATUS = FH_BACKUP_STATUS(2i32);
 pub const FH_STATUS_REHYDRATING: FH_BACKUP_STATUS = FH_BACKUP_STATUS(3i32);
 pub const MAX_BACKUP_STATUS: FH_BACKUP_STATUS = FH_BACKUP_STATUS(4i32);
+impl ::core::marker::Copy for FH_BACKUP_STATUS {}
+impl ::core::clone::Clone for FH_BACKUP_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FH_DEVICE_VALIDATION_RESULT(pub i32);
 pub const FH_ACCESS_DENIED: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(0i32);
@@ -56,23 +62,47 @@ pub const FH_NAMESPACE_EXISTS: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATIO
 pub const FH_TARGET_PART_OF_LIBRARY: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(5i32);
 pub const FH_VALID_TARGET: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(6i32);
 pub const MAX_VALIDATION_RESULT: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(7i32);
+impl ::core::marker::Copy for FH_DEVICE_VALIDATION_RESULT {}
+impl ::core::clone::Clone for FH_DEVICE_VALIDATION_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FH_LOCAL_POLICY_TYPE(pub i32);
 pub const FH_FREQUENCY: FH_LOCAL_POLICY_TYPE = FH_LOCAL_POLICY_TYPE(0i32);
 pub const FH_RETENTION_TYPE: FH_LOCAL_POLICY_TYPE = FH_LOCAL_POLICY_TYPE(1i32);
 pub const FH_RETENTION_AGE: FH_LOCAL_POLICY_TYPE = FH_LOCAL_POLICY_TYPE(2i32);
 pub const MAX_LOCAL_POLICY: FH_LOCAL_POLICY_TYPE = FH_LOCAL_POLICY_TYPE(3i32);
+impl ::core::marker::Copy for FH_LOCAL_POLICY_TYPE {}
+impl ::core::clone::Clone for FH_LOCAL_POLICY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FH_PROTECTED_ITEM_CATEGORY(pub i32);
 pub const FH_FOLDER: FH_PROTECTED_ITEM_CATEGORY = FH_PROTECTED_ITEM_CATEGORY(0i32);
 pub const FH_LIBRARY: FH_PROTECTED_ITEM_CATEGORY = FH_PROTECTED_ITEM_CATEGORY(1i32);
 pub const MAX_PROTECTED_ITEM_CATEGORY: FH_PROTECTED_ITEM_CATEGORY = FH_PROTECTED_ITEM_CATEGORY(2i32);
+impl ::core::marker::Copy for FH_PROTECTED_ITEM_CATEGORY {}
+impl ::core::clone::Clone for FH_PROTECTED_ITEM_CATEGORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FH_RETENTION_TYPES(pub i32);
 pub const FH_RETENTION_DISABLED: FH_RETENTION_TYPES = FH_RETENTION_TYPES(0i32);
 pub const FH_RETENTION_UNLIMITED: FH_RETENTION_TYPES = FH_RETENTION_TYPES(1i32);
 pub const FH_RETENTION_AGE_BASED: FH_RETENTION_TYPES = FH_RETENTION_TYPES(2i32);
 pub const MAX_RETENTION_TYPE: FH_RETENTION_TYPES = FH_RETENTION_TYPES(3i32);
+impl ::core::marker::Copy for FH_RETENTION_TYPES {}
+impl ::core::clone::Clone for FH_RETENTION_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FH_STATE_BACKUP_NOT_SUPPORTED: u32 = 2064u32;
 pub const FH_STATE_DISABLED_BY_GP: u32 = 2u32;
 pub const FH_STATE_FATAL_CONFIG_ERROR: u32 = 3u32;
@@ -98,12 +128,24 @@ pub const FH_DRIVE_UNKNOWN: FH_TARGET_DRIVE_TYPES = FH_TARGET_DRIVE_TYPES(0i32);
 pub const FH_DRIVE_REMOVABLE: FH_TARGET_DRIVE_TYPES = FH_TARGET_DRIVE_TYPES(2i32);
 pub const FH_DRIVE_FIXED: FH_TARGET_DRIVE_TYPES = FH_TARGET_DRIVE_TYPES(3i32);
 pub const FH_DRIVE_REMOTE: FH_TARGET_DRIVE_TYPES = FH_TARGET_DRIVE_TYPES(4i32);
+impl ::core::marker::Copy for FH_TARGET_DRIVE_TYPES {}
+impl ::core::clone::Clone for FH_TARGET_DRIVE_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FH_TARGET_PROPERTY_TYPE(pub i32);
 pub const FH_TARGET_NAME: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(0i32);
 pub const FH_TARGET_URL: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(1i32);
 pub const FH_TARGET_DRIVE_TYPE: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(2i32);
 pub const MAX_TARGET_PROPERTY: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(3i32);
+impl ::core::marker::Copy for FH_TARGET_PROPERTY_TYPE {}
+impl ::core::clone::Clone for FH_TARGET_PROPERTY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FhBackupStopReason(pub i32);
 pub const BackupInvalidStopReason: FhBackupStopReason = FhBackupStopReason(0i32);
@@ -111,6 +153,12 @@ pub const BackupLimitUserBusyMachineOnAC: FhBackupStopReason = FhBackupStopReaso
 pub const BackupLimitUserIdleMachineOnDC: FhBackupStopReason = FhBackupStopReason(2i32);
 pub const BackupLimitUserBusyMachineOnDC: FhBackupStopReason = FhBackupStopReason(3i32);
 pub const BackupCancelled: FhBackupStopReason = FhBackupStopReason(4i32);
+impl ::core::marker::Copy for FhBackupStopReason {}
+impl ::core::clone::Clone for FhBackupStopReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FhConfigMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3980639036, data2: 2537, data3: 18826, data4: [157, 246, 33, 119, 36, 76, 109, 180] };
 pub const FhReassociation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1299353141, data2: 5882, data3: 17184, data4: [158, 139, 191, 215, 16, 10, 136, 70] };
 #[repr(transparent)]

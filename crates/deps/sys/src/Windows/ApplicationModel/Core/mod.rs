@@ -11,6 +11,12 @@ impl AppRestartFailureReason {
     pub const InvalidUser: Self = Self(2i32);
     pub const Other: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AppRestartFailureReason {}
+impl ::core::clone::Clone for AppRestartFailureReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreApplicationView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

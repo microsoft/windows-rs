@@ -40,6 +40,12 @@ impl PeerDiscoveryTypes {
     pub const Browse: Self = Self(1u32);
     pub const Triggered: Self = Self(2u32);
 }
+impl ::core::marker::Copy for PeerDiscoveryTypes {}
+impl ::core::clone::Clone for PeerDiscoveryTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PeerInformation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -48,6 +54,12 @@ impl PeerRole {
     pub const Peer: Self = Self(0i32);
     pub const Host: Self = Self(1i32);
     pub const Client: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PeerRole {}
+impl ::core::clone::Clone for PeerRole {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PeerWatcher(pub *mut ::core::ffi::c_void);
@@ -60,6 +72,12 @@ impl PeerWatcherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
+}
+impl ::core::marker::Copy for PeerWatcherStatus {}
+impl ::core::clone::Clone for PeerWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ProximityDevice(pub *mut ::core::ffi::c_void);
@@ -74,6 +92,12 @@ impl TriggeredConnectState {
     pub const Completed: Self = Self(3i32);
     pub const Canceled: Self = Self(4i32);
     pub const Failed: Self = Self(5i32);
+}
+impl ::core::marker::Copy for TriggeredConnectState {}
+impl ::core::clone::Clone for TriggeredConnectState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TriggeredConnectionStateChangedEventArgs(pub *mut ::core::ffi::c_void);

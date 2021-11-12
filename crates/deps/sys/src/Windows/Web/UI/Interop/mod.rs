@@ -25,12 +25,24 @@ impl WebViewControlAcceleratorKeyRoutingStage {
     pub const Tunneling: Self = Self(0i32);
     pub const Bubbling: Self = Self(1i32);
 }
+impl ::core::marker::Copy for WebViewControlAcceleratorKeyRoutingStage {}
+impl ::core::clone::Clone for WebViewControlAcceleratorKeyRoutingStage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WebViewControlMoveFocusReason(pub i32);
 impl WebViewControlMoveFocusReason {
     pub const Programmatic: Self = Self(0i32);
     pub const Next: Self = Self(1i32);
     pub const Previous: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WebViewControlMoveFocusReason {}
+impl ::core::clone::Clone for WebViewControlMoveFocusReason {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WebViewControlMoveFocusRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -42,6 +54,12 @@ impl WebViewControlProcessCapabilityState {
     pub const Default: Self = Self(0i32);
     pub const Disabled: Self = Self(1i32);
     pub const Enabled: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WebViewControlProcessCapabilityState {}
+impl ::core::clone::Clone for WebViewControlProcessCapabilityState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WebViewControlProcessOptions(pub *mut ::core::ffi::c_void);

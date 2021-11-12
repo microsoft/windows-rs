@@ -19,6 +19,12 @@ impl HidCollectionType {
     pub const UsageModifier: Self = Self(6i32);
     pub const Other: Self = Self(7i32);
 }
+impl ::core::marker::Copy for HidCollectionType {}
+impl ::core::clone::Clone for HidCollectionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HidDevice(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -39,6 +45,12 @@ impl HidReportType {
     pub const Input: Self = Self(0i32);
     pub const Output: Self = Self(1i32);
     pub const Feature: Self = Self(2i32);
+}
+impl ::core::marker::Copy for HidReportType {}
+impl ::core::clone::Clone for HidReportType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IHidBooleanControl(pub *mut ::core::ffi::c_void);

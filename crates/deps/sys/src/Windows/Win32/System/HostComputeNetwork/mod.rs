@@ -92,17 +92,35 @@ pub const HcnNotificationGuestNetworkServiceStateChanged: HCN_NOTIFICATIONS = HC
 pub const HcnNotificationGuestNetworkServiceInterfaceStateChanged: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(18i32);
 pub const HcnNotificationServiceDisconnect: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(16777216i32);
 pub const HcnNotificationFlagsReserved: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(-268435456i32);
+impl ::core::marker::Copy for HCN_NOTIFICATIONS {}
+impl ::core::clone::Clone for HCN_NOTIFICATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type HCN_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_sys::core::HRESULT, notificationdata: super::super::Foundation::PWSTR);
 #[repr(transparent)]
 pub struct HCN_PORT_ACCESS(pub i32);
 pub const HCN_PORT_ACCESS_EXCLUSIVE: HCN_PORT_ACCESS = HCN_PORT_ACCESS(1i32);
 pub const HCN_PORT_ACCESS_SHARED: HCN_PORT_ACCESS = HCN_PORT_ACCESS(2i32);
+impl ::core::marker::Copy for HCN_PORT_ACCESS {}
+impl ::core::clone::Clone for HCN_PORT_ACCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HCN_PORT_PROTOCOL(pub i32);
 pub const HCN_PORT_PROTOCOL_TCP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(1i32);
 pub const HCN_PORT_PROTOCOL_UDP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(2i32);
 pub const HCN_PORT_PROTOCOL_BOTH: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(3i32);
+impl ::core::marker::Copy for HCN_PORT_PROTOCOL {}
+impl ::core::clone::Clone for HCN_PORT_PROTOCOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HCN_PORT_RANGE_ENTRY {
     pub OwningPartitionId: ::windows_sys::core::GUID,

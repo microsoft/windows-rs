@@ -22,5 +22,11 @@ impl IndexedResourceType {
     pub const Path: Self = Self(1i32);
     pub const EmbeddedData: Self = Self(2i32);
 }
+impl ::core::marker::Copy for IndexedResourceType {}
+impl ::core::clone::Clone for IndexedResourceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ResourceIndexer(pub *mut ::core::ffi::c_void);

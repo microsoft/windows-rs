@@ -17,6 +17,12 @@ impl ActivationSignalDetectionConfigurationCreationStatus {
     pub const ConfigurationAlreadyExists: Self = Self(6i32);
     pub const CreationNotSupported: Self = Self(7i32);
 }
+impl ::core::marker::Copy for ActivationSignalDetectionConfigurationCreationStatus {}
+impl ::core::clone::Clone for ActivationSignalDetectionConfigurationCreationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationRemovalResult(pub i32);
 impl ActivationSignalDetectionConfigurationRemovalResult {
@@ -24,6 +30,12 @@ impl ActivationSignalDetectionConfigurationRemovalResult {
     pub const NotFound: Self = Self(1i32);
     pub const CurrentlyEnabled: Self = Self(2i32);
     pub const RemovalNotSupported: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ActivationSignalDetectionConfigurationRemovalResult {}
+impl ::core::clone::Clone for ActivationSignalDetectionConfigurationRemovalResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationSetModelDataResult(pub i32);
@@ -37,12 +49,24 @@ impl ActivationSignalDetectionConfigurationSetModelDataResult {
     pub const ConfigurationNotFound: Self = Self(6i32);
     pub const UnknownError: Self = Self(7i32);
 }
+impl ::core::marker::Copy for ActivationSignalDetectionConfigurationSetModelDataResult {}
+impl ::core::clone::Clone for ActivationSignalDetectionConfigurationSetModelDataResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationStateChangeResult(pub i32);
 impl ActivationSignalDetectionConfigurationStateChangeResult {
     pub const Success: Self = Self(0i32);
     pub const NoModelData: Self = Self(1i32);
     pub const ConfigurationNotFound: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ActivationSignalDetectionConfigurationStateChangeResult {}
+impl ::core::clone::Clone for ActivationSignalDetectionConfigurationStateChangeResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ActivationSignalDetectionTrainingDataFormat(pub i32);
@@ -59,6 +83,12 @@ impl ActivationSignalDetectionTrainingDataFormat {
     pub const AudioOEMDefined: Self = Self(9i32);
     pub const OtherOEMDefined: Self = Self(10i32);
 }
+impl ::core::marker::Copy for ActivationSignalDetectionTrainingDataFormat {}
+impl ::core::clone::Clone for ActivationSignalDetectionTrainingDataFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ActivationSignalDetector(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -68,6 +98,12 @@ impl ActivationSignalDetectorKind {
     pub const AudioImpulse: Self = Self(1i32);
     pub const HardwareEvent: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ActivationSignalDetectorKind {}
+impl ::core::clone::Clone for ActivationSignalDetectorKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ActivationSignalDetectorPowerState(pub i32);
 impl ActivationSignalDetectorPowerState {
@@ -75,11 +111,23 @@ impl ActivationSignalDetectorPowerState {
     pub const ConnectedLowPower: Self = Self(1i32);
     pub const DisconnectedLowPower: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ActivationSignalDetectorPowerState {}
+impl ::core::clone::Clone for ActivationSignalDetectorPowerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ConversationalAgentActivationKind(pub i32);
 impl ConversationalAgentActivationKind {
     pub const VoiceActivationPreview: Self = Self(0i32);
     pub const Foreground: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ConversationalAgentActivationKind {}
+impl ::core::clone::Clone for ConversationalAgentActivationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ConversationalAgentActivationResult(pub i32);
@@ -88,6 +136,12 @@ impl ConversationalAgentActivationResult {
     pub const AgentInactive: Self = Self(1i32);
     pub const ScreenNotAvailable: Self = Self(2i32);
     pub const AgentInterrupted: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ConversationalAgentActivationResult {}
+impl ::core::clone::Clone for ConversationalAgentActivationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ConversationalAgentDetectorManager(pub *mut ::core::ffi::c_void);
@@ -100,6 +154,12 @@ pub struct ConversationalAgentSessionUpdateResponse(pub i32);
 impl ConversationalAgentSessionUpdateResponse {
     pub const Success: Self = Self(0i32);
     pub const Failed: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ConversationalAgentSessionUpdateResponse {}
+impl ::core::clone::Clone for ConversationalAgentSessionUpdateResponse {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ConversationalAgentSignal(pub *mut ::core::ffi::c_void);
@@ -115,6 +175,12 @@ impl ConversationalAgentState {
     pub const Speaking: Self = Self(4i32);
     pub const ListeningAndSpeaking: Self = Self(5i32);
 }
+impl ::core::marker::Copy for ConversationalAgentState {}
+impl ::core::clone::Clone for ConversationalAgentState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ConversationalAgentSystemStateChangeType(pub i32);
 impl ConversationalAgentSystemStateChangeType {
@@ -122,6 +188,12 @@ impl ConversationalAgentSystemStateChangeType {
     pub const ScreenAvailability: Self = Self(1i32);
     pub const IndicatorLightAvailability: Self = Self(2i32);
     pub const VoiceActivationAvailability: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ConversationalAgentSystemStateChangeType {}
+impl ::core::clone::Clone for ConversationalAgentSystemStateChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ConversationalAgentSystemStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -135,12 +207,24 @@ impl ConversationalAgentVoiceActivationPrerequisiteKind {
     pub const BackgroundTaskRegistration: Self = Self(4i32);
     pub const PolicyPermission: Self = Self(5i32);
 }
+impl ::core::marker::Copy for ConversationalAgentVoiceActivationPrerequisiteKind {}
+impl ::core::clone::Clone for ConversationalAgentVoiceActivationPrerequisiteKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DetectionConfigurationAvailabilityChangeKind(pub i32);
 impl DetectionConfigurationAvailabilityChangeKind {
     pub const SystemResourceAccess: Self = Self(0i32);
     pub const Permission: Self = Self(1i32);
     pub const LockScreenPermission: Self = Self(2i32);
+}
+impl ::core::marker::Copy for DetectionConfigurationAvailabilityChangeKind {}
+impl ::core::clone::Clone for DetectionConfigurationAvailabilityChangeKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DetectionConfigurationAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -159,6 +243,12 @@ impl DetectionConfigurationTrainingStatus {
     pub const TrainingSystemInternalError: Self = Self(7i32);
     pub const TrainingTimedOut: Self = Self(8i32);
     pub const ConfigurationNotFound: Self = Self(9i32);
+}
+impl ::core::marker::Copy for DetectionConfigurationTrainingStatus {}
+impl ::core::clone::Clone for DetectionConfigurationTrainingStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IActivationSignalDetectionConfiguration(pub *mut ::core::ffi::c_void);
@@ -215,4 +305,10 @@ impl SignalDetectorResourceKind {
     pub const AcousticEchoCancellation: Self = Self(11i32);
     pub const ModelIdSupport: Self = Self(12i32);
     pub const DataChannel: Self = Self(13i32);
+}
+impl ::core::marker::Copy for SignalDetectorResourceKind {}
+impl ::core::clone::Clone for SignalDetectorResourceKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

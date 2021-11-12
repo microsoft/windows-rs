@@ -249,3 +249,9 @@ pub struct DdqAccessLevel(pub i32);
 pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);
 pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1i32);
 pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);
+impl ::core::marker::Copy for DdqAccessLevel {}
+impl ::core::clone::Clone for DdqAccessLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

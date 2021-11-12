@@ -24,6 +24,12 @@ pub const CIM_REFERENCE: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(102i32);
 pub const CIM_CHAR16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(103i32);
 pub const CIM_OBJECT: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(13i32);
 pub const CIM_FLAG_ARRAY: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(8192i32);
+impl ::core::marker::Copy for CIMTYPE_ENUMERATION {}
+impl ::core::clone::Clone for CIMTYPE_ENUMERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumWbemClassObject(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -260,6 +266,12 @@ pub struct MI_CallbackMode(pub i32);
 pub const MI_CALLBACKMODE_REPORT: MI_CallbackMode = MI_CallbackMode(0i32);
 pub const MI_CALLBACKMODE_INQUIRE: MI_CallbackMode = MI_CallbackMode(1i32);
 pub const MI_CALLBACKMODE_IGNORE: MI_CallbackMode = MI_CallbackMode(2i32);
+impl ::core::marker::Copy for MI_CallbackMode {}
+impl ::core::clone::Clone for MI_CallbackMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type MI_CancelCallback = unsafe extern "system" fn(reason: MI_CancellationReason, callbackdata: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MI_CancellationReason(pub i32);
@@ -267,6 +279,12 @@ pub const MI_REASON_NONE: MI_CancellationReason = MI_CancellationReason(0i32);
 pub const MI_REASON_TIMEOUT: MI_CancellationReason = MI_CancellationReason(1i32);
 pub const MI_REASON_SHUTDOWN: MI_CancellationReason = MI_CancellationReason(2i32);
 pub const MI_REASON_SERVICESTOP: MI_CancellationReason = MI_CancellationReason(3i32);
+impl ::core::marker::Copy for MI_CancellationReason {}
+impl ::core::clone::Clone for MI_CancellationReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MI_Char16A {
     pub data: *mut u16,
@@ -1118,6 +1136,12 @@ pub const MI_DestinationOptions_ImpersonationType_None: MI_DestinationOptions_Im
 pub const MI_DestinationOptions_ImpersonationType_Identify: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(2i32);
 pub const MI_DestinationOptions_ImpersonationType_Impersonate: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(3i32);
 pub const MI_DestinationOptions_ImpersonationType_Delegate: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(4i32);
+impl ::core::marker::Copy for MI_DestinationOptions_ImpersonationType {}
+impl ::core::clone::Clone for MI_DestinationOptions_ImpersonationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MI_ErrorCategory(pub i32);
 pub const MI_ERRORCATEGORY_NOT_SPECIFIED: MI_ErrorCategory = MI_ErrorCategory(0i32);
@@ -1152,6 +1176,12 @@ pub const MI_ERRORCATEGORY_AUTHENTICATION_ERROR: MI_ErrorCategory = MI_ErrorCate
 pub const MI_ERRORCATEGORY_LIMITS_EXCEEDED: MI_ErrorCategory = MI_ErrorCategory(29i32);
 pub const MI_ERRORCATEGORY_QUOTA_EXCEEDED: MI_ErrorCategory = MI_ErrorCategory(30i32);
 pub const MI_ERRORCATEGORY_NOT_ENABLED: MI_ErrorCategory = MI_ErrorCategory(31i32);
+impl ::core::marker::Copy for MI_ErrorCategory {}
+impl ::core::clone::Clone for MI_ErrorCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MI_FLAG_ABSTRACT: u32 = 131072u32;
 pub const MI_FLAG_ADOPT: u32 = 2147483648u32;
 pub const MI_FLAG_ANY: u32 = 127u32;
@@ -1350,6 +1380,12 @@ pub const MI_LOCALE_TYPE_REQUESTED_UI: MI_LocaleType = MI_LocaleType(0i32);
 pub const MI_LOCALE_TYPE_REQUESTED_DATA: MI_LocaleType = MI_LocaleType(1i32);
 pub const MI_LOCALE_TYPE_CLOSEST_UI: MI_LocaleType = MI_LocaleType(2i32);
 pub const MI_LOCALE_TYPE_CLOSEST_DATA: MI_LocaleType = MI_LocaleType(3i32);
+impl ::core::marker::Copy for MI_LocaleType {}
+impl ::core::clone::Clone for MI_LocaleType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MI_MAX_LOCALE_SIZE: u32 = 128u32;
 pub const MI_MODULE_FLAG_BOOLEANS: u32 = 16u32;
 pub const MI_MODULE_FLAG_CPLUSPLUS: u32 = 32u32;
@@ -1454,6 +1490,12 @@ pub const MI_OperationCallback_ResponseType_No: MI_OperationCallback_ResponseTyp
 pub const MI_OperationCallback_ResponseType_Yes: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(1i32);
 pub const MI_OperationCallback_ResponseType_NoToAll: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(2i32);
 pub const MI_OperationCallback_ResponseType_YesToAll: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(3i32);
+impl ::core::marker::Copy for MI_OperationCallback_ResponseType {}
+impl ::core::clone::Clone for MI_OperationCallback_ResponseType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type MI_OperationCallback_StreamedParameter = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, parametername: *const u16, resulttype: MI_Type, result: *const MI_Value, resultacknowledgement: isize);
 pub type MI_OperationCallback_WriteError = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, instance: *const MI_Instance, writeerrorresult: isize);
 pub type MI_OperationCallback_WriteMessage = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, channel: u32, message: *const u16);
@@ -1572,6 +1614,12 @@ impl ::core::clone::Clone for MI_ParameterSetFT {
 pub struct MI_PromptType(pub i32);
 pub const MI_PROMPTTYPE_NORMAL: MI_PromptType = MI_PromptType(0i32);
 pub const MI_PROMPTTYPE_CRITICAL: MI_PromptType = MI_PromptType(1i32);
+impl ::core::marker::Copy for MI_PromptType {}
+impl ::core::clone::Clone for MI_PromptType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MI_PropertyDecl {
     pub flags: u32,
@@ -1625,6 +1673,12 @@ impl ::core::clone::Clone for MI_PropertySetFT {
 pub struct MI_ProviderArchitecture(pub i32);
 pub const MI_PROVIDER_ARCHITECTURE_32BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(0i32);
 pub const MI_PROVIDER_ARCHITECTURE_64BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(1i32);
+impl ::core::marker::Copy for MI_ProviderArchitecture {}
+impl ::core::clone::Clone for MI_ProviderArchitecture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MI_ProviderFT {
     pub Load: ::core::option::Option<MI_ProviderFT_Load>,
@@ -1848,6 +1902,12 @@ pub const MI_RESULT_FILTERED_ENUMERATION_NOT_SUPPORTED: MI_Result = MI_Result(25
 pub const MI_RESULT_CONTINUATION_ON_ERROR_NOT_SUPPORTED: MI_Result = MI_Result(26i32);
 pub const MI_RESULT_SERVER_LIMITS_EXCEEDED: MI_Result = MI_Result(27i32);
 pub const MI_RESULT_SERVER_IS_SHUTTING_DOWN: MI_Result = MI_Result(28i32);
+impl ::core::marker::Copy for MI_Result {}
+impl ::core::clone::Clone for MI_Result {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MI_SERIALIZER_FLAGS_CLASS_DEEP: u32 = 1u32;
 pub const MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: u32 = 1u32;
 #[repr(C)]
@@ -2176,6 +2236,12 @@ impl ::core::clone::Clone for MI_SubscriptionDeliveryOptionsFT {
 pub struct MI_SubscriptionDeliveryType(pub i32);
 pub const MI_SubscriptionDeliveryType_Pull: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(1i32);
 pub const MI_SubscriptionDeliveryType_Push: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(2i32);
+impl ::core::marker::Copy for MI_SubscriptionDeliveryType {}
+impl ::core::clone::Clone for MI_SubscriptionDeliveryType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MI_Timestamp {
     pub year: u32,
@@ -2228,6 +2294,12 @@ pub const MI_STRINGA: MI_Type = MI_Type(29i32);
 pub const MI_REFERENCEA: MI_Type = MI_Type(30i32);
 pub const MI_INSTANCEA: MI_Type = MI_Type(31i32);
 pub const MI_ARRAY: MI_Type = MI_Type(16i32);
+impl ::core::marker::Copy for MI_Type {}
+impl ::core::clone::Clone for MI_Type {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MI_Uint16A {
     pub data: *mut u16,
@@ -2843,10 +2915,22 @@ pub const WBEMMOF_E_QUALIFIER_USED_OUTSIDE_SCOPE: WBEMSTATUS = WBEMSTATUS(-21472
 pub const WBEMMOF_E_ERROR_CREATING_TEMP_FILE: WBEMSTATUS = WBEMSTATUS(-2147205073i32);
 pub const WBEMMOF_E_ERROR_INVALID_INCLUDE_FILE: WBEMSTATUS = WBEMSTATUS(-2147205072i32);
 pub const WBEMMOF_E_INVALID_DELETECLASS_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205071i32);
+impl ::core::marker::Copy for WBEMSTATUS {}
+impl ::core::clone::Clone for WBEMSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEMSTATUS_FORMAT(pub i32);
 pub const WBEMSTATUS_FORMAT_NEWLINE: WBEMSTATUS_FORMAT = WBEMSTATUS_FORMAT(0i32);
 pub const WBEMSTATUS_FORMAT_NO_NEWLINE: WBEMSTATUS_FORMAT = WBEMSTATUS_FORMAT(1i32);
+impl ::core::marker::Copy for WBEMSTATUS_FORMAT {}
+impl ::core::clone::Clone for WBEMSTATUS_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WBEMS_DISPID_COMPLETED: u32 = 2u32;
 pub const WBEMS_DISPID_CONNECTION_READY: u32 = 5u32;
 pub const WBEMS_DISPID_DERIVATION: u32 = 23u32;
@@ -2857,11 +2941,23 @@ pub const WBEMS_DISPID_PROGRESS: u32 = 3u32;
 pub struct WBEM_BACKUP_RESTORE_FLAGS(pub i32);
 pub const WBEM_FLAG_BACKUP_RESTORE_DEFAULT: WBEM_BACKUP_RESTORE_FLAGS = WBEM_BACKUP_RESTORE_FLAGS(0i32);
 pub const WBEM_FLAG_BACKUP_RESTORE_FORCE_SHUTDOWN: WBEM_BACKUP_RESTORE_FLAGS = WBEM_BACKUP_RESTORE_FLAGS(1i32);
+impl ::core::marker::Copy for WBEM_BACKUP_RESTORE_FLAGS {}
+impl ::core::clone::Clone for WBEM_BACKUP_RESTORE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_BATCH_TYPE(pub i32);
 pub const WBEM_FLAG_BATCH_IF_NEEDED: WBEM_BATCH_TYPE = WBEM_BATCH_TYPE(0i32);
 pub const WBEM_FLAG_MUST_BATCH: WBEM_BATCH_TYPE = WBEM_BATCH_TYPE(1i32);
 pub const WBEM_FLAG_MUST_NOT_BATCH: WBEM_BATCH_TYPE = WBEM_BATCH_TYPE(2i32);
+impl ::core::marker::Copy for WBEM_BATCH_TYPE {}
+impl ::core::clone::Clone for WBEM_BATCH_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_CHANGE_FLAG_TYPE(pub i32);
 pub const WBEM_FLAG_CREATE_OR_UPDATE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(0i32);
@@ -2872,6 +2968,12 @@ pub const WBEM_FLAG_UPDATE_SAFE_MODE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_T
 pub const WBEM_FLAG_UPDATE_FORCE_MODE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(64i32);
 pub const WBEM_MASK_UPDATE_MODE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(96i32);
 pub const WBEM_FLAG_ADVISORY: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(65536i32);
+impl ::core::marker::Copy for WBEM_CHANGE_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_CHANGE_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_COMPARISON_FLAG(pub i32);
 pub const WBEM_COMPARISON_INCLUDE_ALL: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(0i32);
@@ -2881,6 +2983,12 @@ pub const WBEM_FLAG_IGNORE_DEFAULT_VALUES: WBEM_COMPARISON_FLAG = WBEM_COMPARISO
 pub const WBEM_FLAG_IGNORE_CLASS: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(8i32);
 pub const WBEM_FLAG_IGNORE_CASE: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(16i32);
 pub const WBEM_FLAG_IGNORE_FLAVOR: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(32i32);
+impl ::core::marker::Copy for WBEM_COMPARISON_FLAG {}
+impl ::core::clone::Clone for WBEM_COMPARISON_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_COMPILER_OPTIONS(pub i32);
 pub const WBEM_FLAG_CHECK_ONLY: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(1i32);
@@ -2890,6 +2998,12 @@ pub const WBEM_FLAG_CONSOLE_PRINT: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS
 pub const WBEM_FLAG_DONT_ADD_TO_LIST: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(16i32);
 pub const WBEM_FLAG_SPLIT_FILES: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(32i32);
 pub const WBEM_FLAG_STORE_FILE: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(256i32);
+impl ::core::marker::Copy for WBEM_COMPILER_OPTIONS {}
+impl ::core::clone::Clone for WBEM_COMPILER_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WBEM_COMPILE_STATUS_INFO {
     pub lPhaseError: i32,
@@ -2922,11 +3036,23 @@ pub const WBEM_MASK_CONDITION_ORIGIN: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_
 pub const WBEM_FLAG_CLASS_OVERRIDES_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(256i32);
 pub const WBEM_FLAG_CLASS_LOCAL_AND_OVERRIDES: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(512i32);
 pub const WBEM_MASK_CLASS_CONDITION: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(768i32);
+impl ::core::marker::Copy for WBEM_CONDITION_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_CONDITION_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_CONNECT_OPTIONS(pub i32);
 pub const WBEM_FLAG_CONNECT_REPOSITORY_ONLY: WBEM_CONNECT_OPTIONS = WBEM_CONNECT_OPTIONS(64i32);
 pub const WBEM_FLAG_CONNECT_USE_MAX_WAIT: WBEM_CONNECT_OPTIONS = WBEM_CONNECT_OPTIONS(128i32);
 pub const WBEM_FLAG_CONNECT_PROVIDERS: WBEM_CONNECT_OPTIONS = WBEM_CONNECT_OPTIONS(256i32);
+impl ::core::marker::Copy for WBEM_CONNECT_OPTIONS {}
+impl ::core::clone::Clone for WBEM_CONNECT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_EXTRA_RETURN_CODES(pub i32);
 pub const WBEM_S_INITIALIZED: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(0i32);
@@ -2935,6 +3061,12 @@ pub const WBEM_S_INDIRECTLY_UPDATED: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN
 pub const WBEM_S_SUBJECT_TO_SDS: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(274435i32);
 pub const WBEM_E_RETRY_LATER: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(-2147209215i32);
 pub const WBEM_E_RESOURCE_CONTENTION: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(-2147209214i32);
+impl ::core::marker::Copy for WBEM_EXTRA_RETURN_CODES {}
+impl ::core::clone::Clone for WBEM_EXTRA_RETURN_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_FLAVOR_TYPE(pub i32);
 pub const WBEM_FLAVOR_DONT_PROPAGATE: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
@@ -2951,6 +3083,12 @@ pub const WBEM_FLAVOR_MASK_ORIGIN: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(96i32);
 pub const WBEM_FLAVOR_NOT_AMENDED: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
 pub const WBEM_FLAVOR_AMENDED: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(128i32);
 pub const WBEM_FLAVOR_MASK_AMENDED: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(128i32);
+impl ::core::marker::Copy for WBEM_FLAVOR_TYPE {}
+impl ::core::clone::Clone for WBEM_FLAVOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_GENERIC_FLAG_TYPE(pub i32);
 pub const WBEM_FLAG_RETURN_IMMEDIATELY: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(16i32);
@@ -2969,14 +3107,32 @@ pub const WBEM_RETURN_IMMEDIATELY: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TY
 pub const WBEM_MASK_RESERVED_FLAGS: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(126976i32);
 pub const WBEM_FLAG_USE_AMENDED_QUALIFIERS: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(131072i32);
 pub const WBEM_FLAG_STRONG_VALIDATION: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(1048576i32);
+impl ::core::marker::Copy for WBEM_GENERIC_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_GENERIC_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_GENUS_TYPE(pub i32);
 pub const WBEM_GENUS_CLASS: WBEM_GENUS_TYPE = WBEM_GENUS_TYPE(1i32);
 pub const WBEM_GENUS_INSTANCE: WBEM_GENUS_TYPE = WBEM_GENUS_TYPE(2i32);
+impl ::core::marker::Copy for WBEM_GENUS_TYPE {}
+impl ::core::clone::Clone for WBEM_GENUS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_GET_KEY_FLAGS(pub i32);
 pub const WBEMPATH_TEXT: WBEM_GET_KEY_FLAGS = WBEM_GET_KEY_FLAGS(1i32);
 pub const WBEMPATH_QUOTEDTEXT: WBEM_GET_KEY_FLAGS = WBEM_GET_KEY_FLAGS(2i32);
+impl ::core::marker::Copy for WBEM_GET_KEY_FLAGS {}
+impl ::core::clone::Clone for WBEM_GET_KEY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_GET_TEXT_FLAGS(pub i32);
 pub const WBEMPATH_COMPRESSED: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(1i32);
@@ -2985,14 +3141,32 @@ pub const WBEMPATH_GET_SERVER_TOO: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(4i3
 pub const WBEMPATH_GET_SERVER_AND_NAMESPACE_ONLY: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(8i32);
 pub const WBEMPATH_GET_NAMESPACE_ONLY: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(16i32);
 pub const WBEMPATH_GET_ORIGINAL: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(32i32);
+impl ::core::marker::Copy for WBEM_GET_TEXT_FLAGS {}
+impl ::core::clone::Clone for WBEM_GET_TEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_INFORMATION_FLAG_TYPE(pub i32);
 pub const WBEM_FLAG_SHORT_NAME: WBEM_INFORMATION_FLAG_TYPE = WBEM_INFORMATION_FLAG_TYPE(1i32);
 pub const WBEM_FLAG_LONG_NAME: WBEM_INFORMATION_FLAG_TYPE = WBEM_INFORMATION_FLAG_TYPE(2i32);
+impl ::core::marker::Copy for WBEM_INFORMATION_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_INFORMATION_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_LIMITATION_FLAG_TYPE(pub i32);
 pub const WBEM_FLAG_EXCLUDE_OBJECT_QUALIFIERS: WBEM_LIMITATION_FLAG_TYPE = WBEM_LIMITATION_FLAG_TYPE(16i32);
 pub const WBEM_FLAG_EXCLUDE_PROPERTY_QUALIFIERS: WBEM_LIMITATION_FLAG_TYPE = WBEM_LIMITATION_FLAG_TYPE(32i32);
+impl ::core::marker::Copy for WBEM_LIMITATION_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_LIMITATION_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_LIMITS(pub i32);
 pub const WBEM_MAX_IDENTIFIER: WBEM_LIMITS = WBEM_LIMITS(4096i32);
@@ -3000,15 +3174,33 @@ pub const WBEM_MAX_QUERY: WBEM_LIMITS = WBEM_LIMITS(16384i32);
 pub const WBEM_MAX_PATH: WBEM_LIMITS = WBEM_LIMITS(8192i32);
 pub const WBEM_MAX_OBJECT_NESTING: WBEM_LIMITS = WBEM_LIMITS(64i32);
 pub const WBEM_MAX_USER_PROPERTIES: WBEM_LIMITS = WBEM_LIMITS(1024i32);
+impl ::core::marker::Copy for WBEM_LIMITS {}
+impl ::core::clone::Clone for WBEM_LIMITS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_LOCKING(pub i32);
 pub const WBEM_FLAG_ALLOW_READ: WBEM_LOCKING = WBEM_LOCKING(1i32);
+impl ::core::marker::Copy for WBEM_LOCKING {}
+impl ::core::clone::Clone for WBEM_LOCKING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_PATH_CREATE_FLAG(pub i32);
 pub const WBEMPATH_CREATE_ACCEPT_RELATIVE: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(1i32);
 pub const WBEMPATH_CREATE_ACCEPT_ABSOLUTE: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(2i32);
 pub const WBEMPATH_CREATE_ACCEPT_ALL: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(4i32);
 pub const WBEMPATH_TREAT_SINGLE_IDENT_AS_NS: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(8i32);
+impl ::core::marker::Copy for WBEM_PATH_CREATE_FLAG {}
+impl ::core::clone::Clone for WBEM_PATH_CREATE_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_PATH_STATUS_FLAG(pub i32);
 pub const WBEMPATH_INFO_ANON_LOCAL_MACHINE: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(1i32);
@@ -3029,23 +3221,53 @@ pub const WBEMPATH_INFO_SERVER_NAMESPACE_ONLY: WBEM_PATH_STATUS_FLAG = WBEM_PATH
 pub const WBEMPATH_INFO_NATIVE_PATH: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(32768i32);
 pub const WBEMPATH_INFO_WMI_PATH: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(65536i32);
 pub const WBEMPATH_INFO_PATH_HAD_SERVER: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(131072i32);
+impl ::core::marker::Copy for WBEM_PATH_STATUS_FLAG {}
+impl ::core::clone::Clone for WBEM_PATH_STATUS_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_PROVIDER_FLAGS(pub i32);
 pub const WBEM_FLAG_OWNER_UPDATE: WBEM_PROVIDER_FLAGS = WBEM_PROVIDER_FLAGS(65536i32);
+impl ::core::marker::Copy for WBEM_PROVIDER_FLAGS {}
+impl ::core::clone::Clone for WBEM_PROVIDER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_PROVIDER_REQUIREMENTS_TYPE(pub i32);
 pub const WBEM_REQUIREMENTS_START_POSTFILTER: WBEM_PROVIDER_REQUIREMENTS_TYPE = WBEM_PROVIDER_REQUIREMENTS_TYPE(0i32);
 pub const WBEM_REQUIREMENTS_STOP_POSTFILTER: WBEM_PROVIDER_REQUIREMENTS_TYPE = WBEM_PROVIDER_REQUIREMENTS_TYPE(1i32);
 pub const WBEM_REQUIREMENTS_RECHECK_SUBSCRIPTIONS: WBEM_PROVIDER_REQUIREMENTS_TYPE = WBEM_PROVIDER_REQUIREMENTS_TYPE(2i32);
+impl ::core::marker::Copy for WBEM_PROVIDER_REQUIREMENTS_TYPE {}
+impl ::core::clone::Clone for WBEM_PROVIDER_REQUIREMENTS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_QUERY_FLAG_TYPE(pub i32);
 pub const WBEM_FLAG_DEEP: WBEM_QUERY_FLAG_TYPE = WBEM_QUERY_FLAG_TYPE(0i32);
 pub const WBEM_FLAG_SHALLOW: WBEM_QUERY_FLAG_TYPE = WBEM_QUERY_FLAG_TYPE(1i32);
 pub const WBEM_FLAG_PROTOTYPE: WBEM_QUERY_FLAG_TYPE = WBEM_QUERY_FLAG_TYPE(2i32);
+impl ::core::marker::Copy for WBEM_QUERY_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_QUERY_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_REFRESHER_FLAGS(pub i32);
 pub const WBEM_FLAG_REFRESH_AUTO_RECONNECT: WBEM_REFRESHER_FLAGS = WBEM_REFRESHER_FLAGS(0i32);
 pub const WBEM_FLAG_REFRESH_NO_AUTO_RECONNECT: WBEM_REFRESHER_FLAGS = WBEM_REFRESHER_FLAGS(1i32);
+impl ::core::marker::Copy for WBEM_REFRESHER_FLAGS {}
+impl ::core::clone::Clone for WBEM_REFRESHER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_SECURITY_FLAGS(pub i32);
 pub const WBEM_ENABLE: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(1i32);
@@ -3056,11 +3278,23 @@ pub const WBEM_WRITE_PROVIDER: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(16i32);
 pub const WBEM_REMOTE_ACCESS: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(32i32);
 pub const WBEM_RIGHT_SUBSCRIBE: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(64i32);
 pub const WBEM_RIGHT_PUBLISH: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(128i32);
+impl ::core::marker::Copy for WBEM_SECURITY_FLAGS {}
+impl ::core::clone::Clone for WBEM_SECURITY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_SHUTDOWN_FLAGS(pub i32);
 pub const WBEM_SHUTDOWN_UNLOAD_COMPONENT: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(1i32);
 pub const WBEM_SHUTDOWN_WMI: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(2i32);
 pub const WBEM_SHUTDOWN_OS: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(3i32);
+impl ::core::marker::Copy for WBEM_SHUTDOWN_FLAGS {}
+impl ::core::clone::Clone for WBEM_SHUTDOWN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_STATUS_TYPE(pub i32);
 pub const WBEM_STATUS_COMPLETE: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(0i32);
@@ -3071,18 +3305,42 @@ pub const WBEM_STATUS_LOGGING_INFORMATION_PROVIDER: WBEM_STATUS_TYPE = WBEM_STAT
 pub const WBEM_STATUS_LOGGING_INFORMATION_HOST: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(1024i32);
 pub const WBEM_STATUS_LOGGING_INFORMATION_REPOSITORY: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(2048i32);
 pub const WBEM_STATUS_LOGGING_INFORMATION_ESS: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(4096i32);
+impl ::core::marker::Copy for WBEM_STATUS_TYPE {}
+impl ::core::clone::Clone for WBEM_STATUS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_TEXT_FLAG_TYPE(pub i32);
 pub const WBEM_FLAG_NO_FLAVORS: WBEM_TEXT_FLAG_TYPE = WBEM_TEXT_FLAG_TYPE(1i32);
+impl ::core::marker::Copy for WBEM_TEXT_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_TEXT_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_TIMEOUT_TYPE(pub i32);
 pub const WBEM_NO_WAIT: WBEM_TIMEOUT_TYPE = WBEM_TIMEOUT_TYPE(0i32);
 pub const WBEM_INFINITE: WBEM_TIMEOUT_TYPE = WBEM_TIMEOUT_TYPE(-1i32);
+impl ::core::marker::Copy for WBEM_TIMEOUT_TYPE {}
+impl ::core::clone::Clone for WBEM_TIMEOUT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WBEM_UNSECAPP_FLAG_TYPE(pub i32);
 pub const WBEM_FLAG_UNSECAPP_DEFAULT_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = WBEM_UNSECAPP_FLAG_TYPE(0i32);
 pub const WBEM_FLAG_UNSECAPP_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = WBEM_UNSECAPP_FLAG_TYPE(1i32);
 pub const WBEM_FLAG_UNSECAPP_DONT_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = WBEM_UNSECAPP_FLAG_TYPE(2i32);
+impl ::core::marker::Copy for WBEM_UNSECAPP_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_UNSECAPP_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMIExtension: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4036451070, data2: 23679, data3: 4562, data4: [139, 116, 0, 16, 75, 42, 251, 65] };
 #[repr(transparent)]
 pub struct WMIQ_ANALYSIS_TYPE(pub i32);
@@ -3091,6 +3349,12 @@ pub const WMIQ_ANALYSIS_ASSOC_QUERY: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(2i3
 pub const WMIQ_ANALYSIS_PROP_ANALYSIS_MATRIX: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(3i32);
 pub const WMIQ_ANALYSIS_QUERY_TEXT: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(4i32);
 pub const WMIQ_ANALYSIS_RESERVED: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(134217728i32);
+impl ::core::marker::Copy for WMIQ_ANALYSIS_TYPE {}
+impl ::core::clone::Clone for WMIQ_ANALYSIS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMIQ_ASSOCQ_FLAGS(pub i32);
 pub const WMIQ_ASSOCQ_ASSOCIATORS: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(1i32);
@@ -3105,6 +3369,12 @@ pub const WMIQ_ASSOCQ_CLASSDEFSONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(256i3
 pub const WMIQ_ASSOCQ_KEYSONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(512i32);
 pub const WMIQ_ASSOCQ_SCHEMAONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(1024i32);
 pub const WMIQ_ASSOCQ_CLASSREFSONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(2048i32);
+impl ::core::marker::Copy for WMIQ_ASSOCQ_FLAGS {}
+impl ::core::clone::Clone for WMIQ_ASSOCQ_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMIQ_LANGUAGE_FEATURES(pub i32);
 pub const WMIQ_LF1_BASIC_SELECT: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(1i32);
@@ -3148,6 +3418,12 @@ pub const WMIQ_LF38_BASIC_DATETIME_TESTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE
 pub const WMIQ_LF39_COUNT_COLUMN: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(39i32);
 pub const WMIQ_LF40_BETWEEN: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(40i32);
 pub const WMIQ_LF_LAST: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(40i32);
+impl ::core::marker::Copy for WMIQ_LANGUAGE_FEATURES {}
+impl ::core::clone::Clone for WMIQ_LANGUAGE_FEATURES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMIQ_RPNQ_FEATURE(pub i32);
 pub const WMIQ_RPNF_WHERE_CLAUSE_PRESENT: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(1i32);
@@ -3164,6 +3440,12 @@ pub const WMIQ_RPNF_ORDER_BY: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(1024i32);
 pub const WMIQ_RPNF_ISA_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(2048i32);
 pub const WMIQ_RPNF_GROUP_BY_HAVING: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(4096i32);
 pub const WMIQ_RPNF_ARRAY_ACCESS_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(8192i32);
+impl ::core::marker::Copy for WMIQ_RPNQ_FEATURE {}
+impl ::core::clone::Clone for WMIQ_RPNQ_FEATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMIQ_RPN_TOKEN_FLAGS(pub i32);
 pub const WMIQ_RPN_TOKEN_EXPRESSION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
@@ -3199,6 +3481,12 @@ pub const WMIQ_RPN_FROM_UNARY: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32)
 pub const WMIQ_RPN_FROM_PATH: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
 pub const WMIQ_RPN_FROM_CLASS_LIST: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(4i32);
 pub const WMIQ_RPN_FROM_MULTIPLE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(8i32);
+impl ::core::marker::Copy for WMIQ_RPN_TOKEN_FLAGS {}
+impl ::core::clone::Clone for WMIQ_RPN_TOKEN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMI_OBJ_TEXT(pub i32);
 pub const WMI_OBJ_TEXT_CIM_DTD_2_0: WMI_OBJ_TEXT = WMI_OBJ_TEXT(1i32);
@@ -3214,6 +3502,12 @@ pub const WMI_OBJ_TEXT_WMI_EXT8: WMI_OBJ_TEXT = WMI_OBJ_TEXT(10i32);
 pub const WMI_OBJ_TEXT_WMI_EXT9: WMI_OBJ_TEXT = WMI_OBJ_TEXT(11i32);
 pub const WMI_OBJ_TEXT_WMI_EXT10: WMI_OBJ_TEXT = WMI_OBJ_TEXT(12i32);
 pub const WMI_OBJ_TEXT_LAST: WMI_OBJ_TEXT = WMI_OBJ_TEXT(13i32);
+impl ::core::marker::Copy for WMI_OBJ_TEXT {}
+impl ::core::clone::Clone for WMI_OBJ_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WbemAdministrativeLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3414513100, data2: 37160, data3: 4561, data4: [173, 155, 0, 192, 79, 216, 253, 255] };
 pub const WbemAuthenticatedLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3440919350, data2: 37160, data3: 4561, data4: [173, 155, 0, 192, 79, 216, 253, 255] };
 #[repr(transparent)]
@@ -3225,6 +3519,12 @@ pub const wbemAuthenticationLevelCall: WbemAuthenticationLevelEnum = WbemAuthent
 pub const wbemAuthenticationLevelPkt: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(4i32);
 pub const wbemAuthenticationLevelPktIntegrity: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(5i32);
 pub const wbemAuthenticationLevelPktPrivacy: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(6i32);
+impl ::core::marker::Copy for WbemAuthenticationLevelEnum {}
+impl ::core::clone::Clone for WbemAuthenticationLevelEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WbemBackupRestore: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3298702022, data2: 48267, data3: 4562, data4: [133, 212, 0, 16, 90, 31, 131, 4] };
 #[repr(transparent)]
 pub struct WbemChangeFlagEnum(pub i32);
@@ -3236,6 +3536,12 @@ pub const wbemChangeFlagUpdateSafeMode: WbemChangeFlagEnum = WbemChangeFlagEnum(
 pub const wbemChangeFlagUpdateForceMode: WbemChangeFlagEnum = WbemChangeFlagEnum(64i32);
 pub const wbemChangeFlagStrongValidation: WbemChangeFlagEnum = WbemChangeFlagEnum(128i32);
 pub const wbemChangeFlagAdvisory: WbemChangeFlagEnum = WbemChangeFlagEnum(65536i32);
+impl ::core::marker::Copy for WbemChangeFlagEnum {}
+impl ::core::clone::Clone for WbemChangeFlagEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WbemCimtypeEnum(pub i32);
 pub const wbemCimtypeSint8: WbemCimtypeEnum = WbemCimtypeEnum(16i32);
@@ -3254,6 +3560,12 @@ pub const wbemCimtypeDatetime: WbemCimtypeEnum = WbemCimtypeEnum(101i32);
 pub const wbemCimtypeReference: WbemCimtypeEnum = WbemCimtypeEnum(102i32);
 pub const wbemCimtypeChar16: WbemCimtypeEnum = WbemCimtypeEnum(103i32);
 pub const wbemCimtypeObject: WbemCimtypeEnum = WbemCimtypeEnum(13i32);
+impl ::core::marker::Copy for WbemCimtypeEnum {}
+impl ::core::clone::Clone for WbemCimtypeEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WbemClassObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2590322822, data2: 5967, data3: 4562, data4: [181, 249, 0, 16, 75, 112, 62, 253] };
 #[repr(transparent)]
 pub struct WbemComparisonFlagEnum(pub i32);
@@ -3264,9 +3576,21 @@ pub const wbemComparisonFlagIgnoreDefaultValues: WbemComparisonFlagEnum = WbemCo
 pub const wbemComparisonFlagIgnoreClass: WbemComparisonFlagEnum = WbemComparisonFlagEnum(8i32);
 pub const wbemComparisonFlagIgnoreCase: WbemComparisonFlagEnum = WbemComparisonFlagEnum(16i32);
 pub const wbemComparisonFlagIgnoreFlavor: WbemComparisonFlagEnum = WbemComparisonFlagEnum(32i32);
+impl ::core::marker::Copy for WbemComparisonFlagEnum {}
+impl ::core::clone::Clone for WbemComparisonFlagEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WbemConnectOptionsEnum(pub i32);
 pub const wbemConnectFlagUseMaxWait: WbemConnectOptionsEnum = WbemConnectOptionsEnum(128i32);
+impl ::core::marker::Copy for WbemConnectOptionsEnum {}
+impl ::core::clone::Clone for WbemConnectOptionsEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WbemContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1732994712, data2: 61074, data3: 4560, data4: [173, 113, 0, 192, 79, 216, 253, 255] };
 pub const WbemDCOMTransport: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4157484563, data2: 35984, data3: 4561, data4: [158, 123, 0, 192, 79, 195, 36, 168] };
 pub const WbemDecoupledBasicEventProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -3417,6 +3741,12 @@ pub const wbemErrRegistrationTooBroad: WbemErrorEnum = WbemErrorEnum(-2147213311
 pub const wbemErrRegistrationTooPrecise: WbemErrorEnum = WbemErrorEnum(-2147213310i32);
 pub const wbemErrTimedout: WbemErrorEnum = WbemErrorEnum(-2147209215i32);
 pub const wbemErrResetToDefault: WbemErrorEnum = WbemErrorEnum(-2147209214i32);
+impl ::core::marker::Copy for WbemErrorEnum {}
+impl ::core::clone::Clone for WbemErrorEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WbemFlagEnum(pub i32);
 pub const wbemFlagReturnImmediately: WbemFlagEnum = WbemFlagEnum(16i32);
@@ -3434,12 +3764,24 @@ pub const wbemFlagUseAmendedQualifiers: WbemFlagEnum = WbemFlagEnum(131072i32);
 pub const wbemFlagGetDefault: WbemFlagEnum = WbemFlagEnum(0i32);
 pub const wbemFlagSpawnInstance: WbemFlagEnum = WbemFlagEnum(1i32);
 pub const wbemFlagUseCurrentTime: WbemFlagEnum = WbemFlagEnum(1i32);
+impl ::core::marker::Copy for WbemFlagEnum {}
+impl ::core::clone::Clone for WbemFlagEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WbemImpersonationLevelEnum(pub i32);
 pub const wbemImpersonationLevelAnonymous: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(1i32);
 pub const wbemImpersonationLevelIdentify: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(2i32);
 pub const wbemImpersonationLevelImpersonate: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(3i32);
 pub const wbemImpersonationLevelDelegate: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(4i32);
+impl ::core::marker::Copy for WbemImpersonationLevelEnum {}
+impl ::core::clone::Clone for WbemImpersonationLevelEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WbemLevel1Login: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2344874078, data2: 55403, data3: 4560, data4: [160, 117, 0, 192, 79, 182, 136, 32] };
 pub const WbemLocalAddrRes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2701412353, data2: 36734, data3: 4561, data4: [158, 124, 0, 192, 79, 195, 36, 168] };
 pub const WbemLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1167128593, data2: 7482, data3: 4560, data4: [137, 31, 0, 170, 0, 75, 46, 36] };
@@ -3447,6 +3789,12 @@ pub const WbemLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 
 pub struct WbemObjectTextFormatEnum(pub i32);
 pub const wbemObjectTextFormatCIMDTD20: WbemObjectTextFormatEnum = WbemObjectTextFormatEnum(1i32);
 pub const wbemObjectTextFormatWMIDTD20: WbemObjectTextFormatEnum = WbemObjectTextFormatEnum(2i32);
+impl ::core::marker::Copy for WbemObjectTextFormatEnum {}
+impl ::core::clone::Clone for WbemObjectTextFormatEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WbemObjectTextSrc: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2367444381,
     data2: 34032,
@@ -3482,6 +3830,12 @@ pub const wbemPrivilegeUndock: WbemPrivilegeEnum = WbemPrivilegeEnum(24i32);
 pub const wbemPrivilegeSyncAgent: WbemPrivilegeEnum = WbemPrivilegeEnum(25i32);
 pub const wbemPrivilegeEnableDelegation: WbemPrivilegeEnum = WbemPrivilegeEnum(26i32);
 pub const wbemPrivilegeManageVolume: WbemPrivilegeEnum = WbemPrivilegeEnum(27i32);
+impl ::core::marker::Copy for WbemPrivilegeEnum {}
+impl ::core::clone::Clone for WbemPrivilegeEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WbemQuery: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3939016740,
     data2: 8674,
@@ -3493,14 +3847,32 @@ pub struct WbemQueryFlagEnum(pub i32);
 pub const wbemQueryFlagDeep: WbemQueryFlagEnum = WbemQueryFlagEnum(0i32);
 pub const wbemQueryFlagShallow: WbemQueryFlagEnum = WbemQueryFlagEnum(1i32);
 pub const wbemQueryFlagPrototype: WbemQueryFlagEnum = WbemQueryFlagEnum(2i32);
+impl ::core::marker::Copy for WbemQueryFlagEnum {}
+impl ::core::clone::Clone for WbemQueryFlagEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WbemRefresher: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3340068594, data2: 22046, data3: 4561, data4: [173, 135, 0, 192, 79, 216, 253, 255] };
 pub const WbemStatusCodeText: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3951550909, data2: 12851, data3: 4562, data4: [174, 201, 0, 192, 79, 182, 136, 32] };
 #[repr(transparent)]
 pub struct WbemTextFlagEnum(pub i32);
 pub const wbemTextFlagNoFlavors: WbemTextFlagEnum = WbemTextFlagEnum(1i32);
+impl ::core::marker::Copy for WbemTextFlagEnum {}
+impl ::core::clone::Clone for WbemTextFlagEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WbemTimeout(pub i32);
 pub const wbemTimeoutInfinite: WbemTimeout = WbemTimeout(-1i32);
+impl ::core::marker::Copy for WbemTimeout {}
+impl ::core::clone::Clone for WbemTimeout {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WbemUnauthenticatedLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1144945529, data2: 56881, data3: 4562, data4: [179, 64, 0, 16, 75, 204, 75, 74] };
 pub const WbemUninitializedClassObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2046961654, data2: 28936, data3: 4561, data4: [173, 144, 0, 192, 79, 216, 253, 255] };
 #[repr(transparent)]
@@ -3510,3 +3882,9 @@ pub const WBEM_FLAG_LOCAL_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(1i32)
 pub const WBEM_FLAG_REMOTE_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(2i32);
 pub const WBEM_AUTHENTICATION_METHOD_MASK: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(15i32);
 pub const WBEM_FLAG_USE_MULTIPLE_CHALLENGES: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(16i32);
+impl ::core::marker::Copy for tag_WBEM_LOGIN_TYPE {}
+impl ::core::clone::Clone for tag_WBEM_LOGIN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

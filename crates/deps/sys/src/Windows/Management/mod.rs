@@ -27,6 +27,12 @@ impl MdmAlertDataType {
     pub const Boolean: Self = Self(2i32);
     pub const Integer: Self = Self(3i32);
 }
+impl ::core::marker::Copy for MdmAlertDataType {}
+impl ::core::clone::Clone for MdmAlertDataType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MdmAlertMark(pub i32);
 impl MdmAlertMark {
@@ -35,6 +41,12 @@ impl MdmAlertMark {
     pub const Critical: Self = Self(2i32);
     pub const Warning: Self = Self(3i32);
     pub const Informational: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MdmAlertMark {}
+impl ::core::clone::Clone for MdmAlertMark {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MdmSession(pub *mut ::core::ffi::c_void);
@@ -48,4 +60,10 @@ impl MdmSessionState {
     pub const AlertStatusAvailable: Self = Self(4i32);
     pub const Retrying: Self = Self(5i32);
     pub const Completed: Self = Self(6i32);
+}
+impl ::core::marker::Copy for MdmSessionState {}
+impl ::core::clone::Clone for MdmSessionState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

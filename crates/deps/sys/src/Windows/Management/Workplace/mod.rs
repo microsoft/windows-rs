@@ -14,3 +14,9 @@ impl MessagingSyncPolicy {
     pub const Allowed: Self = Self(1i32);
     pub const Required: Self = Self(2i32);
 }
+impl ::core::marker::Copy for MessagingSyncPolicy {}
+impl ::core::clone::Clone for MessagingSyncPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

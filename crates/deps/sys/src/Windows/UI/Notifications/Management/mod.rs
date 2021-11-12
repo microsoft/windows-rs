@@ -14,3 +14,9 @@ impl UserNotificationListenerAccessStatus {
     pub const Allowed: Self = Self(1i32);
     pub const Denied: Self = Self(2i32);
 }
+impl ::core::marker::Copy for UserNotificationListenerAccessStatus {}
+impl ::core::clone::Clone for UserNotificationListenerAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

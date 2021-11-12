@@ -52,6 +52,12 @@ impl PlayToConnectionError {
     pub const DeviceLocked: Self = Self(3i32);
     pub const ProtectedPlaybackFailed: Self = Self(4i32);
 }
+impl ::core::marker::Copy for PlayToConnectionError {}
+impl ::core::clone::Clone for PlayToConnectionError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PlayToConnectionErrorEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -60,6 +66,12 @@ impl PlayToConnectionState {
     pub const Disconnected: Self = Self(0i32);
     pub const Connected: Self = Self(1i32);
     pub const Rendering: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PlayToConnectionState {}
+impl ::core::clone::Clone for PlayToConnectionState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PlayToConnectionStateChangedEventArgs(pub *mut ::core::ffi::c_void);

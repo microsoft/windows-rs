@@ -21,9 +21,21 @@ pub const RoleAssociationUtil: ::windows_sys::core::GUID = ::windows_sys::GUID {
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0001(pub i32);
 pub const mtsInstallUsers: __MIDL___MIDL_itf_mtxadmin_0107_0001 = __MIDL___MIDL_itf_mtxadmin_0107_0001(1i32);
+impl ::core::marker::Copy for __MIDL___MIDL_itf_mtxadmin_0107_0001 {}
+impl ::core::clone::Clone for __MIDL___MIDL_itf_mtxadmin_0107_0001 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0002(pub i32);
 pub const mtsExportUsers: __MIDL___MIDL_itf_mtxadmin_0107_0002 = __MIDL___MIDL_itf_mtxadmin_0107_0002(1i32);
+impl ::core::marker::Copy for __MIDL___MIDL_itf_mtxadmin_0107_0002 {}
+impl ::core::clone::Clone for __MIDL___MIDL_itf_mtxadmin_0107_0002 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0003(pub i32);
 pub const mtsErrObjectErrors: __MIDL___MIDL_itf_mtxadmin_0107_0003 = __MIDL___MIDL_itf_mtxadmin_0107_0003(-2146368511i32);
@@ -71,3 +83,9 @@ pub const mtsErrNotChangeable: __MIDL___MIDL_itf_mtxadmin_0107_0003 = __MIDL___M
 pub const mtsErrNotDeletable: __MIDL___MIDL_itf_mtxadmin_0107_0003 = __MIDL___MIDL_itf_mtxadmin_0107_0003(-2146368469i32);
 pub const mtsErrSession: __MIDL___MIDL_itf_mtxadmin_0107_0003 = __MIDL___MIDL_itf_mtxadmin_0107_0003(-2146368468i32);
 pub const mtsErrCompFileNoRegistrar: __MIDL___MIDL_itf_mtxadmin_0107_0003 = __MIDL___MIDL_itf_mtxadmin_0107_0003(-2146368460i32);
+impl ::core::marker::Copy for __MIDL___MIDL_itf_mtxadmin_0107_0003 {}
+impl ::core::clone::Clone for __MIDL___MIDL_itf_mtxadmin_0107_0003 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

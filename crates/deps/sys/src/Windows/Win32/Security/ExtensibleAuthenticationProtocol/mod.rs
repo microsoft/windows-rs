@@ -88,6 +88,12 @@ pub const EapHostAuthNegotiatingType: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(
 pub const EapHostAuthInProgress: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(4i32);
 pub const EapHostAuthSucceeded: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(5i32);
 pub const EapHostAuthFailed: EAPHOST_AUTH_STATUS = EAPHOST_AUTH_STATUS(6i32);
+impl ::core::marker::Copy for EAPHOST_AUTH_STATUS {}
+impl ::core::clone::Clone for EAPHOST_AUTH_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EAPHOST_IDENTITY_UI_PARAMS {
@@ -254,6 +260,12 @@ pub const eatMethodId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(9002i32);
 pub const eatEMSK: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(9003i32);
 pub const eatSessionId: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(9004i32);
 pub const eatReserved: EAP_ATTRIBUTE_TYPE = EAP_ATTRIBUTE_TYPE(-1i32);
+impl ::core::marker::Copy for EAP_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for EAP_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES {
     pub dwSizeInBytes: u32,
@@ -280,6 +292,12 @@ pub struct EAP_AUTHENTICATOR_SEND_TIMEOUT(pub i32);
 pub const EAP_AUTHENTICATOR_SEND_TIMEOUT_NONE: EAP_AUTHENTICATOR_SEND_TIMEOUT = EAP_AUTHENTICATOR_SEND_TIMEOUT(0i32);
 pub const EAP_AUTHENTICATOR_SEND_TIMEOUT_BASIC: EAP_AUTHENTICATOR_SEND_TIMEOUT = EAP_AUTHENTICATOR_SEND_TIMEOUT(1i32);
 pub const EAP_AUTHENTICATOR_SEND_TIMEOUT_INTERACTIVE: EAP_AUTHENTICATOR_SEND_TIMEOUT = EAP_AUTHENTICATOR_SEND_TIMEOUT(2i32);
+impl ::core::marker::Copy for EAP_AUTHENTICATOR_SEND_TIMEOUT {}
+impl ::core::clone::Clone for EAP_AUTHENTICATOR_SEND_TIMEOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
@@ -328,6 +346,12 @@ pub const EapConfigInputPSK: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIEL
 pub const EapConfigInputEdit: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIELD_TYPE(6i32);
 pub const EapConfigSmartCardUsername: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIELD_TYPE(7i32);
 pub const EapConfigSmartCardError: EAP_CONFIG_INPUT_FIELD_TYPE = EAP_CONFIG_INPUT_FIELD_TYPE(8i32);
+impl ::core::marker::Copy for EAP_CONFIG_INPUT_FIELD_TYPE {}
+impl ::core::clone::Clone for EAP_CONFIG_INPUT_FIELD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EAP_CREDENTIAL_VERSION: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -455,6 +479,12 @@ pub const EapCredExpiryReq: EAP_INTERACTIVE_UI_DATA_TYPE = EAP_INTERACTIVE_UI_DA
 pub const EapCredExpiryResp: EAP_INTERACTIVE_UI_DATA_TYPE = EAP_INTERACTIVE_UI_DATA_TYPE(3i32);
 pub const EapCredLogonReq: EAP_INTERACTIVE_UI_DATA_TYPE = EAP_INTERACTIVE_UI_DATA_TYPE(4i32);
 pub const EapCredLogonResp: EAP_INTERACTIVE_UI_DATA_TYPE = EAP_INTERACTIVE_UI_DATA_TYPE(5i32);
+impl ::core::marker::Copy for EAP_INTERACTIVE_UI_DATA_TYPE {}
+impl ::core::clone::Clone for EAP_INTERACTIVE_UI_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EAP_INTERACTIVE_UI_DATA_VERSION: u32 = 1u32;
 pub const EAP_INVALID_PACKET: u32 = 2151809048u32;
 pub const EAP_I_EAPHOST_EAP_NEGOTIATION_FAILED: u32 = 1078067222u32;
@@ -472,6 +502,12 @@ pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_RESULT: EAP_METHOD_AUTHENTICATOR_RES
 pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_RESPOND: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(3i32);
 pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_AUTHENTICATE: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(4i32);
 pub const EAP_METHOD_AUTHENTICATOR_RESPONSE_HANDLE_IDENTITY: EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(5i32);
+impl ::core::marker::Copy for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {}
+impl ::core::clone::Clone for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EAP_METHOD_AUTHENTICATOR_RESULT {
@@ -612,6 +648,12 @@ pub const emptPropMethodChaining: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY
 pub const emptPropSharedStateEquivalence: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(28i32);
 pub const emptLegacyMethodPropertyFlag: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(31i32);
 pub const emptPropVendorSpecific: EAP_METHOD_PROPERTY_TYPE = EAP_METHOD_PROPERTY_TYPE(255i32);
+impl ::core::marker::Copy for EAP_METHOD_PROPERTY_TYPE {}
+impl ::core::clone::Clone for EAP_METHOD_PROPERTY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union EAP_METHOD_PROPERTY_VALUE {
@@ -666,6 +708,12 @@ pub struct EAP_METHOD_PROPERTY_VALUE_TYPE(pub i32);
 pub const empvtBool: EAP_METHOD_PROPERTY_VALUE_TYPE = EAP_METHOD_PROPERTY_VALUE_TYPE(0i32);
 pub const empvtDword: EAP_METHOD_PROPERTY_VALUE_TYPE = EAP_METHOD_PROPERTY_VALUE_TYPE(1i32);
 pub const empvtString: EAP_METHOD_PROPERTY_VALUE_TYPE = EAP_METHOD_PROPERTY_VALUE_TYPE(2i32);
+impl ::core::marker::Copy for EAP_METHOD_PROPERTY_VALUE_TYPE {}
+impl ::core::clone::Clone for EAP_METHOD_PROPERTY_VALUE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct EAP_METHOD_TYPE {
     pub eapType: EAP_TYPE,
@@ -754,6 +802,12 @@ pub const EapCodeResponse: EapCode = EapCode(2i32);
 pub const EapCodeSuccess: EapCode = EapCode(3i32);
 pub const EapCodeFailure: EapCode = EapCode(4i32);
 pub const EapCodeMaximum: EapCode = EapCode(4i32);
+impl ::core::marker::Copy for EapCode {}
+impl ::core::clone::Clone for EapCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EapCredential {
@@ -775,6 +829,12 @@ pub const EAP_USERNAME_PASSWORD_CREDENTIAL: EapCredentialType = EapCredentialTyp
 pub const EAP_WINLOGON_CREDENTIAL: EapCredentialType = EapCredentialType(2i32);
 pub const EAP_CERTIFICATE_CREDENTIAL: EapCredentialType = EapCredentialType(3i32);
 pub const EAP_SIM_CREDENTIAL: EapCredentialType = EapCredentialType(4i32);
+impl ::core::marker::Copy for EapCredentialType {}
+impl ::core::clone::Clone for EapCredentialType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union EapCredentialTypeData {
@@ -794,6 +854,12 @@ pub const EapHostPeerAuthStatus: EapHostPeerAuthParams = EapHostPeerAuthParams(1
 pub const EapHostPeerIdentity: EapHostPeerAuthParams = EapHostPeerAuthParams(2i32);
 pub const EapHostPeerIdentityExtendedInfo: EapHostPeerAuthParams = EapHostPeerAuthParams(3i32);
 pub const EapHostNapInfo: EapHostPeerAuthParams = EapHostPeerAuthParams(4i32);
+impl ::core::marker::Copy for EapHostPeerAuthParams {}
+impl ::core::clone::Clone for EapHostPeerAuthParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EapHostPeerMethodResult {
@@ -823,6 +889,12 @@ pub struct EapHostPeerMethodResultReason(pub i32);
 pub const EapHostPeerMethodResultAltSuccessReceived: EapHostPeerMethodResultReason = EapHostPeerMethodResultReason(1i32);
 pub const EapHostPeerMethodResultTimeout: EapHostPeerMethodResultReason = EapHostPeerMethodResultReason(2i32);
 pub const EapHostPeerMethodResultFromMethod: EapHostPeerMethodResultReason = EapHostPeerMethodResultReason(3i32);
+impl ::core::marker::Copy for EapHostPeerMethodResultReason {}
+impl ::core::clone::Clone for EapHostPeerMethodResultReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EapHostPeerResponseAction(pub i32);
 pub const EapHostPeerResponseDiscard: EapHostPeerResponseAction = EapHostPeerResponseAction(0i32);
@@ -832,6 +904,12 @@ pub const EapHostPeerResponseInvokeUi: EapHostPeerResponseAction = EapHostPeerRe
 pub const EapHostPeerResponseRespond: EapHostPeerResponseAction = EapHostPeerResponseAction(4i32);
 pub const EapHostPeerResponseStartAuthentication: EapHostPeerResponseAction = EapHostPeerResponseAction(5i32);
 pub const EapHostPeerResponseNone: EapHostPeerResponseAction = EapHostPeerResponseAction(6i32);
+impl ::core::marker::Copy for EapHostPeerResponseAction {}
+impl ::core::clone::Clone for EapHostPeerResponseAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct EapPacket {
     pub Code: u8,
@@ -867,6 +945,12 @@ pub const EapPeerMethodResponseActionResult: EapPeerMethodResponseAction = EapPe
 pub const EapPeerMethodResponseActionInvokeUI: EapPeerMethodResponseAction = EapPeerMethodResponseAction(3i32);
 pub const EapPeerMethodResponseActionRespond: EapPeerMethodResponseAction = EapPeerMethodResponseAction(4i32);
 pub const EapPeerMethodResponseActionNone: EapPeerMethodResponseAction = EapPeerMethodResponseAction(5i32);
+impl ::core::marker::Copy for EapPeerMethodResponseAction {}
+impl ::core::clone::Clone for EapPeerMethodResponseAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EapPeerMethodResult {
@@ -896,6 +980,12 @@ pub struct EapPeerMethodResultReason(pub i32);
 pub const EapPeerMethodResultUnknown: EapPeerMethodResultReason = EapPeerMethodResultReason(1i32);
 pub const EapPeerMethodResultSuccess: EapPeerMethodResultReason = EapPeerMethodResultReason(2i32);
 pub const EapPeerMethodResultFailure: EapPeerMethodResultReason = EapPeerMethodResultReason(3i32);
+impl ::core::marker::Copy for EapPeerMethodResultReason {}
+impl ::core::clone::Clone for EapPeerMethodResultReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EapSimCredential {
@@ -1001,6 +1091,12 @@ pub const ISOLATION_STATE_UNKNOWN: ISOLATION_STATE = ISOLATION_STATE(0i32);
 pub const ISOLATION_STATE_NOT_RESTRICTED: ISOLATION_STATE = ISOLATION_STATE(1i32);
 pub const ISOLATION_STATE_IN_PROBATION: ISOLATION_STATE = ISOLATION_STATE(2i32);
 pub const ISOLATION_STATE_RESTRICTED_ACCESS: ISOLATION_STATE = ISOLATION_STATE(3i32);
+impl ::core::marker::Copy for ISOLATION_STATE {}
+impl ::core::clone::Clone for ISOLATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LEGACY_IDENTITY_UI_PARAMS {
@@ -1069,6 +1165,12 @@ pub const EAPACTION_SendWithTimeout: PPP_EAP_ACTION = PPP_EAP_ACTION(5i32);
 pub const EAPACTION_SendWithTimeoutInteractive: PPP_EAP_ACTION = PPP_EAP_ACTION(6i32);
 pub const EAPACTION_IndicateTLV: PPP_EAP_ACTION = PPP_EAP_ACTION(7i32);
 pub const EAPACTION_IndicateIdentity: PPP_EAP_ACTION = PPP_EAP_ACTION(8i32);
+impl ::core::marker::Copy for PPP_EAP_ACTION {}
+impl ::core::clone::Clone for PPP_EAP_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PPP_EAP_INFO {
     pub dwSizeInBytes: u32,
@@ -1267,6 +1369,12 @@ pub const raatMethodId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(9002i3
 pub const raatEMSK: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(9003i32);
 pub const raatSessionId: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(9004i32);
 pub const raatReserved: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(-1i32);
+impl ::core::marker::Copy for RAS_AUTH_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for RAS_AUTH_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RAS_EAP_FLAG_8021X_AUTH: u32 = 128u32;
 pub const RAS_EAP_FLAG_ALTERNATIVE_USER_DB: u32 = 2048u32;
 pub const RAS_EAP_FLAG_CONFG_READONLY: u32 = 524288u32;

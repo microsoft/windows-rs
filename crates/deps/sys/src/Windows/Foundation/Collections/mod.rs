@@ -9,6 +9,12 @@ impl CollectionChange {
     pub const ItemRemoved: Self = Self(2i32);
     pub const ItemChanged: Self = Self(3i32);
 }
+impl ::core::marker::Copy for CollectionChange {}
+impl ::core::clone::Clone for CollectionChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIterable<T>(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

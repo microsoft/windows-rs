@@ -43,6 +43,12 @@ pub struct EOC_ChangeType(pub i32);
 pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
 pub const EOC_ModifiedObject: EOC_ChangeType = EOC_ChangeType(1i32);
 pub const EOC_DeletedObject: EOC_ChangeType = EOC_ChangeType(2i32);
+impl ::core::marker::Copy for EOC_ChangeType {}
+impl ::core::clone::Clone for EOC_ChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EventObjectChange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3495317504, data2: 40436, data3: 4561, data4: [162, 129, 0, 192, 79, 202, 10, 167] };
 pub const EventObjectChange2: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3137845965,

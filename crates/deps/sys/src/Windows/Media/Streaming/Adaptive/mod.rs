@@ -20,6 +20,12 @@ impl AdaptiveMediaSourceCreationStatus {
     pub const UnsupportedManifestProfile: Self = Self(5i32);
     pub const UnknownFailure: Self = Self(6i32);
 }
+impl ::core::marker::Copy for AdaptiveMediaSourceCreationStatus {}
+impl ::core::clone::Clone for AdaptiveMediaSourceCreationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDiagnosticAvailableEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -35,6 +41,12 @@ impl AdaptiveMediaSourceDiagnosticType {
     pub const BitrateDisabled: Self = Self(7i32);
     pub const FatalMediaSourceError: Self = Self(8i32);
 }
+impl ::core::marker::Copy for AdaptiveMediaSourceDiagnosticType {}
+impl ::core::clone::Clone for AdaptiveMediaSourceDiagnosticType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDiagnostics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -49,6 +61,12 @@ impl AdaptiveMediaSourceDownloadBitrateChangedReason {
     pub const TrackSelectionChanged: Self = Self(4i32);
     pub const DesiredBitratesChanged: Self = Self(5i32);
     pub const ErrorInPreviousBitrate: Self = Self(6i32);
+}
+impl ::core::marker::Copy for AdaptiveMediaSourceDownloadBitrateChangedReason {}
+impl ::core::clone::Clone for AdaptiveMediaSourceDownloadBitrateChangedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AdaptiveMediaSourceDownloadCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -73,6 +91,12 @@ impl AdaptiveMediaSourceResourceType {
     pub const Key: Self = Self(3i32);
     pub const InitializationVector: Self = Self(4i32);
     pub const MediaSegmentIndex: Self = Self(5i32);
+}
+impl ::core::marker::Copy for AdaptiveMediaSourceResourceType {}
+impl ::core::clone::Clone for AdaptiveMediaSourceResourceType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IAdaptiveMediaSource(pub *mut ::core::ffi::c_void);

@@ -165,9 +165,21 @@ pub const ComputerNamePhysicalDnsHostname: COMPUTER_NAME_FORMAT = COMPUTER_NAME_
 pub const ComputerNamePhysicalDnsDomain: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(6i32);
 pub const ComputerNamePhysicalDnsFullyQualified: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(7i32);
 pub const ComputerNameMax: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(8i32);
+impl ::core::marker::Copy for COMPUTER_NAME_FORMAT {}
+impl ::core::clone::Clone for COMPUTER_NAME_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CPU_SET_INFORMATION_TYPE(pub i32);
 pub const CpuSetInformation: CPU_SET_INFORMATION_TYPE = CPU_SET_INFORMATION_TYPE(0i32);
+impl ::core::marker::Copy for CPU_SET_INFORMATION_TYPE {}
+impl ::core::clone::Clone for CPU_SET_INFORMATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEP_SYSTEM_POLICY_TYPE(pub i32);
 pub const DEPPolicyAlwaysOff: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(0i32);
@@ -175,6 +187,12 @@ pub const DEPPolicyAlwaysOn: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(1i3
 pub const DEPPolicyOptIn: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(2i32);
 pub const DEPPolicyOptOut: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(3i32);
 pub const DEPTotalPolicyCount: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(4i32);
+impl ::core::marker::Copy for DEP_SYSTEM_POLICY_TYPE {}
+impl ::core::clone::Clone for DEP_SYSTEM_POLICY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEVICEFAMILYDEVICEFORM(pub u32);
 pub const DEVICEFAMILYDEVICEFORM_UNKNOWN: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(0u32);
@@ -224,6 +242,12 @@ pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_07: DEVICEFAMILYDEVICEFORM = DEVI
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_08: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(44u32);
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_09: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(45u32);
 pub const DEVICEFAMILYDEVICEFORM_MAX: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(45u32);
+impl ::core::marker::Copy for DEVICEFAMILYDEVICEFORM {}
+impl ::core::clone::Clone for DEVICEFAMILYDEVICEFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEVICEFAMILYINFOENUM(pub u32);
 pub const DEVICEFAMILYINFOENUM_UAP: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(0u32);
@@ -245,6 +269,12 @@ pub const DEVICEFAMILYINFOENUM_7067329: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOE
 pub const DEVICEFAMILYINFOENUM_WINDOWS_CORE: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(16u32);
 pub const DEVICEFAMILYINFOENUM_WINDOWS_CORE_HEADLESS: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(17u32);
 pub const DEVICEFAMILYINFOENUM_MAX: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(17u32);
+impl ::core::marker::Copy for DEVICEFAMILYINFOENUM {}
+impl ::core::clone::Clone for DEVICEFAMILYINFOENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct FIRMWARE_TABLE_ID {
     pub Value: u32,
@@ -260,12 +290,24 @@ pub struct FIRMWARE_TABLE_PROVIDER(pub u32);
 pub const ACPI: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1094930505u32);
 pub const FIRM: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1179210317u32);
 pub const RSMB: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1381190978u32);
+impl ::core::marker::Copy for FIRMWARE_TABLE_PROVIDER {}
+impl ::core::clone::Clone for FIRMWARE_TABLE_PROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FIRMWARE_TYPE(pub i32);
 pub const FirmwareTypeUnknown: FIRMWARE_TYPE = FIRMWARE_TYPE(0i32);
 pub const FirmwareTypeBios: FIRMWARE_TYPE = FIRMWARE_TYPE(1i32);
 pub const FirmwareTypeUefi: FIRMWARE_TYPE = FIRMWARE_TYPE(2i32);
 pub const FirmwareTypeMax: FIRMWARE_TYPE = FIRMWARE_TYPE(3i32);
+impl ::core::marker::Copy for FIRMWARE_TYPE {}
+impl ::core::clone::Clone for FIRMWARE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct GROUP_AFFINITY {
     pub Mask: usize,
@@ -302,6 +344,12 @@ pub const RelationProcessorDie: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESS
 pub const RelationNumaNodeEx: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(6i32);
 pub const RelationProcessorModule: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(7i32);
 pub const RelationAll: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(65535i32);
+impl ::core::marker::Copy for LOGICAL_PROCESSOR_RELATIONSHIP {}
+impl ::core::clone::Clone for LOGICAL_PROCESSOR_RELATIONSHIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MEMORYSTATUS {
     pub dwLength: u32,
@@ -489,6 +537,12 @@ pub const OSVERSION_MASK: u32 = 4294901760u32;
 pub struct OS_DEPLOYEMENT_STATE_VALUES(pub i32);
 pub const OS_DEPLOYMENT_STANDARD: OS_DEPLOYEMENT_STATE_VALUES = OS_DEPLOYEMENT_STATE_VALUES(1i32);
 pub const OS_DEPLOYMENT_COMPACT: OS_DEPLOYEMENT_STATE_VALUES = OS_DEPLOYEMENT_STATE_VALUES(2i32);
+impl ::core::marker::Copy for OS_DEPLOYEMENT_STATE_VALUES {}
+impl ::core::clone::Clone for OS_DEPLOYEMENT_STATE_VALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OS_PRODUCT_TYPE(pub u32);
 pub const PRODUCT_BUSINESS: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(6u32);
@@ -587,6 +641,12 @@ pub const PRODUCT_ULTIMATE_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(28u32);
 pub const PRODUCT_UNDEFINED: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(0u32);
 pub const PRODUCT_WEB_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(17u32);
 pub const PRODUCT_WEB_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(29u32);
+impl ::core::marker::Copy for OS_PRODUCT_TYPE {}
+impl ::core::clone::Clone for OS_PRODUCT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_SYSTEM_WOW64_DIRECTORY_A = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -597,6 +657,12 @@ pub const CacheUnified: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(0i32);
 pub const CacheInstruction: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(1i32);
 pub const CacheData: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(2i32);
 pub const CacheTrace: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(3i32);
+impl ::core::marker::Copy for PROCESSOR_CACHE_TYPE {}
+impl ::core::clone::Clone for PROCESSOR_CACHE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PROCESSOR_GROUP_INFO {
     pub MaximumProcessorCount: u8,
@@ -640,6 +706,12 @@ pub const GlobalDataIdKdDebuggerEnabled: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_
 pub const GlobalDataIdCyclesPerYield: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(11i32);
 pub const GlobalDataIdSafeBootMode: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(12i32);
 pub const GlobalDataIdLastSystemRITEventTickCount: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(13i32);
+impl ::core::marker::Copy for RTL_SYSTEM_GLOBAL_DATA_ID {}
+impl ::core::clone::Clone for RTL_SYSTEM_GLOBAL_DATA_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCEX2_ALT_NETBIOS_NAME: u32 = 1u32;
 pub const SPVERSION_MASK: u32 = 65280u32;
 pub const SUBVERSION_MASK: u32 = 255u32;
@@ -872,6 +944,12 @@ pub const USER_CET_ENVIRONMENT_WIN32_PROCESS: USER_CET_ENVIRONMENT = USER_CET_EN
 pub const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(2u32);
 pub const USER_CET_ENVIRONMENT_VBS_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(16u32);
 pub const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(17u32);
+impl ::core::marker::Copy for USER_CET_ENVIRONMENT {}
+impl ::core::clone::Clone for USER_CET_ENVIRONMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VER_FLAGS(pub u32);
 pub const VER_MINORVERSION: VER_FLAGS = VER_FLAGS(1u32);
@@ -882,6 +960,12 @@ pub const VER_SERVICEPACKMINOR: VER_FLAGS = VER_FLAGS(16u32);
 pub const VER_SERVICEPACKMAJOR: VER_FLAGS = VER_FLAGS(32u32);
 pub const VER_SUITENAME: VER_FLAGS = VER_FLAGS(64u32);
 pub const VER_PRODUCT_TYPE: VER_FLAGS = VER_FLAGS(128u32);
+impl ::core::marker::Copy for VER_FLAGS {}
+impl ::core::clone::Clone for VER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WDK_NTDDI_VERSION: u32 = 167772171u32;
 pub const _WIN32_IE_IE100: u32 = 2560u32;
 pub const _WIN32_IE_IE110: u32 = 2560u32;

@@ -38,6 +38,12 @@ impl NavigationCacheMode {
     pub const Required: Self = Self(1i32);
     pub const Enabled: Self = Self(2i32);
 }
+impl ::core::marker::Copy for NavigationCacheMode {}
+impl ::core::clone::Clone for NavigationCacheMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NavigationEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -51,6 +57,12 @@ impl NavigationMode {
     pub const Back: Self = Self(1i32);
     pub const Forward: Self = Self(2i32);
     pub const Refresh: Self = Self(3i32);
+}
+impl ::core::marker::Copy for NavigationMode {}
+impl ::core::clone::Clone for NavigationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct NavigationStoppedEventHandler(pub *mut ::core::ffi::c_void);

@@ -67,6 +67,12 @@ impl PrintContent {
     pub const CustomPageRange: Self = Self(2i32);
     pub const CurrentSelection: Self = Self(3i32);
 }
+impl ::core::marker::Copy for PrintContent {}
+impl ::core::clone::Clone for PrintContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ResumingEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

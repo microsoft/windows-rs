@@ -114,11 +114,23 @@ pub struct HTTP_503_RESPONSE_VERBOSITY(pub i32);
 pub const Http503ResponseVerbosityBasic: HTTP_503_RESPONSE_VERBOSITY = HTTP_503_RESPONSE_VERBOSITY(0i32);
 pub const Http503ResponseVerbosityLimited: HTTP_503_RESPONSE_VERBOSITY = HTTP_503_RESPONSE_VERBOSITY(1i32);
 pub const Http503ResponseVerbosityFull: HTTP_503_RESPONSE_VERBOSITY = HTTP_503_RESPONSE_VERBOSITY(2i32);
+impl ::core::marker::Copy for HTTP_503_RESPONSE_VERBOSITY {}
+impl ::core::clone::Clone for HTTP_503_RESPONSE_VERBOSITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTTP_AUTHENTICATION_HARDENING_LEVELS(pub i32);
 pub const HttpAuthenticationHardeningLegacy: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(0i32);
 pub const HttpAuthenticationHardeningMedium: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(1i32);
 pub const HttpAuthenticationHardeningStrict: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(2i32);
+impl ::core::marker::Copy for HTTP_AUTHENTICATION_HARDENING_LEVELS {}
+impl ::core::clone::Clone for HTTP_AUTHENTICATION_HARDENING_LEVELS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_AUTH_ENABLE_BASIC: u32 = 1u32;
 pub const HTTP_AUTH_ENABLE_DIGEST: u32 = 2u32;
 pub const HTTP_AUTH_ENABLE_KERBEROS: u32 = 16u32;
@@ -131,6 +143,12 @@ pub struct HTTP_AUTH_STATUS(pub i32);
 pub const HttpAuthStatusSuccess: HTTP_AUTH_STATUS = HTTP_AUTH_STATUS(0i32);
 pub const HttpAuthStatusNotAuthenticated: HTTP_AUTH_STATUS = HTTP_AUTH_STATUS(1i32);
 pub const HttpAuthStatusFailure: HTTP_AUTH_STATUS = HTTP_AUTH_STATUS(2i32);
+impl ::core::marker::Copy for HTTP_AUTH_STATUS {}
+impl ::core::clone::Clone for HTTP_AUTH_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_BANDWIDTH_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
@@ -184,6 +202,12 @@ pub const HttpCachePolicyNocache: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYP
 pub const HttpCachePolicyUserInvalidates: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(1i32);
 pub const HttpCachePolicyTimeToLive: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(2i32);
 pub const HttpCachePolicyMaximum: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(3i32);
+impl ::core::marker::Copy for HTTP_CACHE_POLICY_TYPE {}
+impl ::core::clone::Clone for HTTP_CACHE_POLICY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_CHANNEL_BIND_CLIENT_SERVICE: u32 = 16u32;
 pub const HTTP_CHANNEL_BIND_DOTLESS_SERVICE: u32 = 4u32;
 #[repr(C)]
@@ -241,6 +265,12 @@ pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: u32 = 1u32;
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(pub i32);
 pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(1i32);
 pub const CreateRequestQueueMax: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(2i32);
+impl ::core::marker::Copy for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {}
+impl ::core::clone::Clone for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     pub PropertyId: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID,
@@ -360,10 +390,22 @@ pub const HttpDataChunkFromFragmentCache: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK
 pub const HttpDataChunkFromFragmentCacheEx: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(3i32);
 pub const HttpDataChunkTrailers: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(4i32);
 pub const HttpDataChunkMaximum: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(5i32);
+impl ::core::marker::Copy for HTTP_DATA_CHUNK_TYPE {}
+impl ::core::clone::Clone for HTTP_DATA_CHUNK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_ID(pub i32);
 pub const DelegateRequestReservedProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = HTTP_DELEGATE_REQUEST_PROPERTY_ID(0i32);
 pub const DelegateRequestDelegateUrlProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = HTTP_DELEGATE_REQUEST_PROPERTY_ID(1i32);
+impl ::core::marker::Copy for HTTP_DELEGATE_REQUEST_PROPERTY_ID {}
+impl ::core::clone::Clone for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     pub PropertyId: HTTP_DELEGATE_REQUEST_PROPERTY_ID,
@@ -381,6 +423,12 @@ pub const HTTP_DEMAND_CBT: u32 = 4u32;
 pub struct HTTP_ENABLED_STATE(pub i32);
 pub const HttpEnabledStateActive: HTTP_ENABLED_STATE = HTTP_ENABLED_STATE(0i32);
 pub const HttpEnabledStateInactive: HTTP_ENABLED_STATE = HTTP_ENABLED_STATE(1i32);
+impl ::core::marker::Copy for HTTP_ENABLED_STATE {}
+impl ::core::clone::Clone for HTTP_ENABLED_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_ERROR_HEADERS_PARAM {
@@ -404,6 +452,12 @@ pub const HttpFeatureApiTimings: HTTP_FEATURE_ID = HTTP_FEATURE_ID(2i32);
 pub const HttpFeatureDelegateEx: HTTP_FEATURE_ID = HTTP_FEATURE_ID(3i32);
 pub const HttpFeatureHttp3: HTTP_FEATURE_ID = HTTP_FEATURE_ID(4i32);
 pub const HttpFeaturemax: HTTP_FEATURE_ID = HTTP_FEATURE_ID(-1i32);
+impl ::core::marker::Copy for HTTP_FEATURE_ID {}
+impl ::core::clone::Clone for HTTP_FEATURE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_FLOWRATE_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
@@ -474,10 +528,22 @@ pub const HttpHeaderVary: HTTP_HEADER_ID = HTTP_HEADER_ID(28i32);
 pub const HttpHeaderWwwAuthenticate: HTTP_HEADER_ID = HTTP_HEADER_ID(29i32);
 pub const HttpHeaderResponseMaximum: HTTP_HEADER_ID = HTTP_HEADER_ID(30i32);
 pub const HttpHeaderMaximum: HTTP_HEADER_ID = HTTP_HEADER_ID(41i32);
+impl ::core::marker::Copy for HTTP_HEADER_ID {}
+impl ::core::clone::Clone for HTTP_HEADER_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTTP_INITIALIZE(pub u32);
 pub const HTTP_INITIALIZE_CONFIG: HTTP_INITIALIZE = HTTP_INITIALIZE(2u32);
 pub const HTTP_INITIALIZE_SERVER: HTTP_INITIALIZE = HTTP_INITIALIZE(1u32);
+impl ::core::marker::Copy for HTTP_INITIALIZE {}
+impl ::core::clone::Clone for HTTP_INITIALIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_KNOWN_HEADER {
@@ -543,12 +609,24 @@ pub const HttpLoggingRolloverDaily: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_RO
 pub const HttpLoggingRolloverWeekly: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(2i32);
 pub const HttpLoggingRolloverMonthly: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(3i32);
 pub const HttpLoggingRolloverHourly: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(4i32);
+impl ::core::marker::Copy for HTTP_LOGGING_ROLLOVER_TYPE {}
+impl ::core::clone::Clone for HTTP_LOGGING_ROLLOVER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTTP_LOGGING_TYPE(pub i32);
 pub const HttpLoggingTypeW3C: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(0i32);
 pub const HttpLoggingTypeIIS: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(1i32);
 pub const HttpLoggingTypeNCSA: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(2i32);
 pub const HttpLoggingTypeRaw: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(3i32);
+impl ::core::marker::Copy for HTTP_LOGGING_TYPE {}
+impl ::core::clone::Clone for HTTP_LOGGING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_LOG_DATA {
     pub Type: HTTP_LOG_DATA_TYPE,
@@ -562,6 +640,12 @@ impl ::core::clone::Clone for HTTP_LOG_DATA {
 #[repr(transparent)]
 pub struct HTTP_LOG_DATA_TYPE(pub i32);
 pub const HttpLogDataTypeFields: HTTP_LOG_DATA_TYPE = HTTP_LOG_DATA_TYPE(0i32);
+impl ::core::marker::Copy for HTTP_LOG_DATA_TYPE {}
+impl ::core::clone::Clone for HTTP_LOG_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_LOG_FIELDS_DATA {
@@ -674,6 +758,12 @@ pub const PerformanceParamMaxConcurrentClientStreams: HTTP_PERFORMANCE_PARAM_TYP
 pub const PerformanceParamMaxReceiveBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(4i32);
 pub const PerformanceParamDecryptOnSspiThread: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(5i32);
 pub const PerformanceParamMax: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(6i32);
+impl ::core::marker::Copy for HTTP_PERFORMANCE_PARAM_TYPE {}
+impl ::core::clone::Clone for HTTP_PERFORMANCE_PARAM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_PROPERTY_FLAGS {
     pub _bitfield: u32,
@@ -700,6 +790,12 @@ pub struct HTTP_PROTECTION_LEVEL_TYPE(pub i32);
 pub const HttpProtectionLevelUnrestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(0i32);
 pub const HttpProtectionLevelEdgeRestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(1i32);
 pub const HttpProtectionLevelRestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(2i32);
+impl ::core::marker::Copy for HTTP_PROTECTION_LEVEL_TYPE {}
+impl ::core::clone::Clone for HTTP_PROTECTION_LEVEL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_QOS_SETTING_INFO {
     pub QosType: HTTP_QOS_SETTING_TYPE,
@@ -716,6 +812,12 @@ pub struct HTTP_QOS_SETTING_TYPE(pub i32);
 pub const HttpQosSettingTypeBandwidth: HTTP_QOS_SETTING_TYPE = HTTP_QOS_SETTING_TYPE(0i32);
 pub const HttpQosSettingTypeConnectionLimit: HTTP_QOS_SETTING_TYPE = HTTP_QOS_SETTING_TYPE(1i32);
 pub const HttpQosSettingTypeFlowRate: HTTP_QOS_SETTING_TYPE = HTTP_QOS_SETTING_TYPE(2i32);
+impl ::core::marker::Copy for HTTP_QOS_SETTING_TYPE {}
+impl ::core::clone::Clone for HTTP_QOS_SETTING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     pub Freshness: u64,
@@ -801,6 +903,12 @@ pub const HTTP_RECEIVE_FULL_CHAIN: u32 = 2u32;
 pub struct HTTP_RECEIVE_HTTP_REQUEST_FLAGS(pub u32);
 pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = HTTP_RECEIVE_HTTP_REQUEST_FLAGS(1u32);
 pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = HTTP_RECEIVE_HTTP_REQUEST_FLAGS(2u32);
+impl ::core::marker::Copy for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {}
+impl ::core::clone::Clone for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: u32 = 1u32;
 pub const HTTP_RECEIVE_SECURE_CHANNEL_TOKEN: u32 = 1u32;
 pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: u32 = 1u32;
@@ -837,6 +945,12 @@ pub const HttpRequestAuthTypeDigest: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_
 pub const HttpRequestAuthTypeNTLM: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(3i32);
 pub const HttpRequestAuthTypeNegotiate: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(4i32);
 pub const HttpRequestAuthTypeKerberos: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(5i32);
+impl ::core::marker::Copy for HTTP_REQUEST_AUTH_TYPE {}
+impl ::core::clone::Clone for HTTP_REQUEST_AUTH_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
     pub ServiceName: *mut HTTP_SERVICE_BINDING_BASE,
@@ -895,6 +1009,12 @@ pub const HttpRequestInfoTypeTcpInfoV0: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_IN
 pub const HttpRequestInfoTypeRequestSizing: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(7i32);
 pub const HttpRequestInfoTypeQuicStats: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(8i32);
 pub const HttpRequestInfoTypeTcpInfoV1: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(9i32);
+impl ::core::marker::Copy for HTTP_REQUEST_INFO_TYPE {}
+impl ::core::clone::Clone for HTTP_REQUEST_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTTP_REQUEST_PROPERTY(pub i32);
 pub const HttpRequestPropertyIsb: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(0i32);
@@ -905,6 +1025,12 @@ pub const HttpRequestPropertySni: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(
 pub const HttpRequestPropertyStreamError: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(5i32);
 pub const HttpRequestPropertyWskApiTimings: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(6i32);
 pub const HttpRequestPropertyQuicApiTimings: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(7i32);
+impl ::core::marker::Copy for HTTP_REQUEST_PROPERTY {}
+impl ::core::clone::Clone for HTTP_REQUEST_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_REQUEST_PROPERTY_SNI {
     pub Hostname: [u16; 256],
@@ -954,6 +1080,12 @@ pub const HttpRequestSizingTypeTlsHandshakeLeg2ClientData: HTTP_REQUEST_SIZING_T
 pub const HttpRequestSizingTypeTlsHandshakeLeg2ServerData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(3i32);
 pub const HttpRequestSizingTypeHeaders: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(4i32);
 pub const HttpRequestSizingTypeMax: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(5i32);
+impl ::core::marker::Copy for HTTP_REQUEST_SIZING_TYPE {}
+impl ::core::clone::Clone for HTTP_REQUEST_SIZING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_REQUEST_TIMING_INFO {
     pub RequestTimingCount: u32,
@@ -998,6 +1130,12 @@ pub const HttpRequestTimingTypeHttp3StreamStart: HTTP_REQUEST_TIMING_TYPE = HTTP
 pub const HttpRequestTimingTypeHttp3HeaderDecodeStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(28i32);
 pub const HttpRequestTimingTypeHttp3HeaderDecodeEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(29i32);
 pub const HttpRequestTimingTypeMax: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(30i32);
+impl ::core::marker::Copy for HTTP_REQUEST_TIMING_TYPE {}
+impl ::core::clone::Clone for HTTP_REQUEST_TIMING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
     pub TokenBinding: *mut u8,
@@ -1095,6 +1233,12 @@ pub const HttpResponseInfoTypeMultipleKnownHeaders: HTTP_RESPONSE_INFO_TYPE = HT
 pub const HttpResponseInfoTypeAuthenticationProperty: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(1i32);
 pub const HttpResponseInfoTypeQoSProperty: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(2i32);
 pub const HttpResponseInfoTypeChannelBind: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(3i32);
+impl ::core::marker::Copy for HTTP_RESPONSE_INFO_TYPE {}
+impl ::core::clone::Clone for HTTP_RESPONSE_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_RESPONSE_V1 {
@@ -1135,6 +1279,12 @@ pub struct HTTP_SCHEME(pub i32);
 pub const HttpSchemeHttp: HTTP_SCHEME = HTTP_SCHEME(0i32);
 pub const HttpSchemeHttps: HTTP_SCHEME = HTTP_SCHEME(1i32);
 pub const HttpSchemeMaximum: HTTP_SCHEME = HTTP_SCHEME(2i32);
+impl ::core::marker::Copy for HTTP_SCHEME {}
+impl ::core::clone::Clone for HTTP_SCHEME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_SEND_RESPONSE_FLAG_BUFFER_DATA: u32 = 4u32;
 pub const HTTP_SEND_RESPONSE_FLAG_DISCONNECT: u32 = 1u32;
 pub const HTTP_SEND_RESPONSE_FLAG_ENABLE_NAGLING: u32 = 8u32;
@@ -1207,6 +1357,12 @@ pub const HttpServerListenEndpointProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_P
 pub const HttpServerChannelBindProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(10i32);
 pub const HttpServerProtectionLevelProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(11i32);
 pub const HttpServerDelegationProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(16i32);
+impl ::core::marker::Copy for HTTP_SERVER_PROPERTY {}
+impl ::core::clone::Clone for HTTP_SERVER_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVICE_BINDING_A {
@@ -1237,6 +1393,12 @@ pub struct HTTP_SERVICE_BINDING_TYPE(pub i32);
 pub const HttpServiceBindingTypeNone: HTTP_SERVICE_BINDING_TYPE = HTTP_SERVICE_BINDING_TYPE(0i32);
 pub const HttpServiceBindingTypeW: HTTP_SERVICE_BINDING_TYPE = HTTP_SERVICE_BINDING_TYPE(1i32);
 pub const HttpServiceBindingTypeA: HTTP_SERVICE_BINDING_TYPE = HTTP_SERVICE_BINDING_TYPE(2i32);
+impl ::core::marker::Copy for HTTP_SERVICE_BINDING_TYPE {}
+impl ::core::clone::Clone for HTTP_SERVICE_BINDING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVICE_BINDING_W {
@@ -1256,6 +1418,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_BINDING_W {
 pub struct HTTP_SERVICE_CONFIG_CACHE_KEY(pub i32);
 pub const MaxCacheResponseSize: HTTP_SERVICE_CONFIG_CACHE_KEY = HTTP_SERVICE_CONFIG_CACHE_KEY(0i32);
 pub const CacheRangeChunkSize: HTTP_SERVICE_CONFIG_CACHE_KEY = HTTP_SERVICE_CONFIG_CACHE_KEY(1i32);
+impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_CACHE_KEY {}
+impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_CACHE_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_CACHE_KEY,
@@ -1283,6 +1451,12 @@ pub const HttpServiceConfigSslCcsCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVI
 pub const HttpServiceConfigSslScopedCcsCertInfo: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(11i32);
 pub const HttpServiceConfigSslScopedCcsCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(12i32);
 pub const HttpServiceConfigMax: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(13i32);
+impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_ID {}
+impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
@@ -1316,10 +1490,22 @@ pub struct HTTP_SERVICE_CONFIG_QUERY_TYPE(pub i32);
 pub const HttpServiceConfigQueryExact: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(0i32);
 pub const HttpServiceConfigQueryNext: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(1i32);
 pub const HttpServiceConfigQueryMax: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(2i32);
+impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_QUERY_TYPE {}
+impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_QUERY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_KEY(pub i32);
 pub const HttpNone: HTTP_SERVICE_CONFIG_SETTING_KEY = HTTP_SERVICE_CONFIG_SETTING_KEY(0i32);
 pub const HttpTlsThrottle: HTTP_SERVICE_CONFIG_SETTING_KEY = HTTP_SERVICE_CONFIG_SETTING_KEY(1i32);
+impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SETTING_KEY {}
+impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SETTING_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SETTING_KEY,
@@ -1632,6 +1818,12 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_KEY(pub i32);
 pub const IdleConnectionTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = HTTP_SERVICE_CONFIG_TIMEOUT_KEY(0i32);
 pub const HeaderWaitTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = HTTP_SERVICE_CONFIG_TIMEOUT_KEY(1i32);
+impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {}
+impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_TIMEOUT_KEY,
@@ -1760,6 +1952,12 @@ pub const ExParamTypeTlsRestrictions: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HT
 pub const ExParamTypeErrorHeaders: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(4i32);
 pub const ExParamTypeTlsSessionTicketKeys: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(5i32);
 pub const ExParamTypeMax: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(6i32);
+impl ::core::marker::Copy for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {}
+impl ::core::clone::Clone for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_STATE_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
@@ -1863,6 +2061,12 @@ pub const HttpVerbLOCK: HTTP_VERB = HTTP_VERB(17i32);
 pub const HttpVerbUNLOCK: HTTP_VERB = HTTP_VERB(18i32);
 pub const HttpVerbSEARCH: HTTP_VERB = HTTP_VERB(19i32);
 pub const HttpVerbMaximum: HTTP_VERB = HTTP_VERB(20i32);
+impl ::core::marker::Copy for HTTP_VERB {}
+impl ::core::clone::Clone for HTTP_VERB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HTTP_VERSION {
     pub MajorVersion: u16,

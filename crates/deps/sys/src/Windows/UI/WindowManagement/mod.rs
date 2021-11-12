@@ -18,6 +18,12 @@ impl AppWindowClosedReason {
     pub const AppInitiated: Self = Self(1i32);
     pub const UserInitiated: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AppWindowClosedReason {}
+impl ::core::clone::Clone for AppWindowClosedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppWindowFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -25,6 +31,12 @@ pub struct AppWindowFrameStyle(pub i32);
 impl AppWindowFrameStyle {
     pub const Default: Self = Self(0i32);
     pub const NoFrame: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AppWindowFrameStyle {}
+impl ::core::clone::Clone for AppWindowFrameStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppWindowPlacement(pub *mut ::core::ffi::c_void);
@@ -37,6 +49,12 @@ impl AppWindowPresentationKind {
     pub const CompactOverlay: Self = Self(1i32);
     pub const FullScreen: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AppWindowPresentationKind {}
+impl ::core::clone::Clone for AppWindowPresentationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppWindowPresenter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -48,6 +66,12 @@ pub struct AppWindowTitleBarVisibility(pub i32);
 impl AppWindowTitleBarVisibility {
     pub const Default: Self = Self(0i32);
     pub const AlwaysHidden: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AppWindowTitleBarVisibility {}
+impl ::core::clone::Clone for AppWindowTitleBarVisibility {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CompactOverlayPresentationConfiguration(pub *mut ::core::ffi::c_void);
@@ -117,6 +141,12 @@ impl WindowingEnvironmentKind {
     pub const Unknown: Self = Self(0i32);
     pub const Overlapped: Self = Self(1i32);
     pub const Tiled: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WindowingEnvironmentKind {}
+impl ::core::clone::Clone for WindowingEnvironmentKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WindowingEnvironmentRemovedEventArgs(pub *mut ::core::ffi::c_void);

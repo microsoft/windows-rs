@@ -2839,6 +2839,12 @@ pub const GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_
 pub const GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(15i32);
 pub const GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
 pub const GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(16i32);
+impl ::core::marker::Copy for GPIOBUTTONS_BUTTON_TYPE {}
+impl ::core::clone::Clone for GPIOBUTTONS_BUTTON_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GUID_Button: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830384, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const GUID_ConstantForce: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279328, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
 pub const GUID_CustomForce: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279339, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
@@ -3070,6 +3076,12 @@ impl ::core::clone::Clone for HIDP_EXTENDED_ATTRIBUTES {
 pub struct HIDP_KEYBOARD_DIRECTION(pub i32);
 pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(0i32);
 pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(1i32);
+impl ::core::marker::Copy for HIDP_KEYBOARD_DIRECTION {}
+impl ::core::clone::Clone for HIDP_KEYBOARD_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0,
@@ -3122,6 +3134,12 @@ pub struct HIDP_REPORT_TYPE(pub i32);
 pub const HidP_Input: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(0i32);
 pub const HidP_Output: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(1i32);
 pub const HidP_Feature: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(2i32);
+impl ::core::marker::Copy for HIDP_REPORT_TYPE {}
+impl ::core::clone::Clone for HIDP_REPORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HIDP_UNKNOWN_TOKEN {
     pub Token: u8,

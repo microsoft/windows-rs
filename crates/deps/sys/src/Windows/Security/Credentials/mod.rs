@@ -47,11 +47,23 @@ impl KeyCredentialAttestationStatus {
     pub const NotSupported: Self = Self(2i32);
     pub const TemporaryFailure: Self = Self(3i32);
 }
+impl ::core::marker::Copy for KeyCredentialAttestationStatus {}
+impl ::core::clone::Clone for KeyCredentialAttestationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KeyCredentialCreationOption(pub i32);
 impl KeyCredentialCreationOption {
     pub const ReplaceExisting: Self = Self(0i32);
     pub const FailIfExists: Self = Self(1i32);
+}
+impl ::core::marker::Copy for KeyCredentialCreationOption {}
+impl ::core::clone::Clone for KeyCredentialCreationOption {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct KeyCredentialOperationResult(pub *mut ::core::ffi::c_void);
@@ -67,6 +79,12 @@ impl KeyCredentialStatus {
     pub const UserPrefersPassword: Self = Self(4i32);
     pub const CredentialAlreadyExists: Self = Self(5i32);
     pub const SecurityDeviceLocked: Self = Self(6i32);
+}
+impl ::core::marker::Copy for KeyCredentialStatus {}
+impl ::core::clone::Clone for KeyCredentialStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PasswordCredential(pub *mut ::core::ffi::c_void);
@@ -84,6 +102,12 @@ impl WebAccountPictureSize {
     pub const Size424x424: Self = Self(424i32);
     pub const Size1080x1080: Self = Self(1080i32);
 }
+impl ::core::marker::Copy for WebAccountPictureSize {}
+impl ::core::clone::Clone for WebAccountPictureSize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WebAccountProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -92,4 +116,10 @@ impl WebAccountState {
     pub const None: Self = Self(0i32);
     pub const Connected: Self = Self(1i32);
     pub const Error: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WebAccountState {}
+impl ::core::clone::Clone for WebAccountState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

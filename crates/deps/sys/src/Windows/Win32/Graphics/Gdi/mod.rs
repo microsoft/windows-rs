@@ -738,6 +738,12 @@ pub const ARABIC_CHARSET: u32 = 178u32;
 pub struct ARC_DIRECTION(pub u32);
 pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(1u32);
 pub const AD_CLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(2u32);
+impl ::core::marker::Copy for ARC_DIRECTION {}
+impl ::core::clone::Clone for ARC_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ASPECT_FILTERING: u32 = 1u32;
 #[repr(C)]
 pub struct AXESLISTA {
@@ -791,6 +797,12 @@ impl ::core::clone::Clone for AXISINFOW {
 pub struct BACKGROUND_MODE(pub u32);
 pub const OPAQUE: BACKGROUND_MODE = BACKGROUND_MODE(2u32);
 pub const TRANSPARENT: BACKGROUND_MODE = BACKGROUND_MODE(1u32);
+impl ::core::marker::Copy for BACKGROUND_MODE {}
+impl ::core::clone::Clone for BACKGROUND_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BALTIC_CHARSET: u32 = 186u32;
 pub const BANDINFO: u32 = 24u32;
 pub const BEGIN_PATH: u32 = 4096u32;
@@ -1000,6 +1012,12 @@ pub const CDS_VIDEOPARAMETERS: CDS_TYPE = CDS_TYPE(32u32);
 pub const CDS_ENABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(256u32);
 pub const CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(512u32);
 pub const CDS_RESET_EX: CDS_TYPE = CDS_TYPE(536870912u32);
+impl ::core::marker::Copy for CDS_TYPE {}
+impl ::core::clone::Clone for CDS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type CFP_ALLOCPROC = unsafe extern "system" fn(param0: usize) -> *mut ::core::ffi::c_void;
 pub type CFP_FREEPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
 pub type CFP_REALLOCPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: usize) -> *mut ::core::ffi::c_void;
@@ -1103,14 +1121,32 @@ pub struct CREATE_FONT_PACKAGE_SUBSET_ENCODING(pub u32);
 pub const TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0u32);
 pub const TTFCFP_SYMBOL_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0u32);
 pub const TTFCFP_UNICODE_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(1u32);
+impl ::core::marker::Copy for CREATE_FONT_PACKAGE_SUBSET_ENCODING {}
+impl ::core::clone::Clone for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CREATE_FONT_PACKAGE_SUBSET_PLATFORM(pub u32);
 pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(0u32);
 pub const TTFCFP_ISO_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(2u32);
+impl ::core::marker::Copy for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {}
+impl ::core::clone::Clone for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CREATE_POLYGON_RGN_MODE(pub u32);
 pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(1u32);
 pub const WINDING: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(2u32);
+impl ::core::marker::Copy for CREATE_POLYGON_RGN_MODE {}
+impl ::core::clone::Clone for CREATE_POLYGON_RGN_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CreatedHDC {
     pub Value: isize,
@@ -1140,6 +1176,12 @@ pub const DC_EMF_COMPLIANT: u32 = 20u32;
 pub struct DC_LAYOUT(pub u32);
 pub const LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = DC_LAYOUT(8u32);
 pub const LAYOUT_RTL: DC_LAYOUT = DC_LAYOUT(1u32);
+impl ::core::marker::Copy for DC_LAYOUT {}
+impl ::core::clone::Clone for DC_LAYOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DC_MANUFACTURER: u32 = 23u32;
 pub const DC_MODEL: u32 = 24u32;
 pub const DEFAULT_CHARSET: u32 = 1u32;
@@ -1386,6 +1428,12 @@ pub const DFCS_HOT: DFCS_STATE = DFCS_STATE(4096u32);
 pub const DFCS_ADJUSTRECT: DFCS_STATE = DFCS_STATE(8192u32);
 pub const DFCS_FLAT: DFCS_STATE = DFCS_STATE(16384u32);
 pub const DFCS_MONO: DFCS_STATE = DFCS_STATE(32768u32);
+impl ::core::marker::Copy for DFCS_STATE {}
+impl ::core::clone::Clone for DFCS_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DFC_TYPE(pub u32);
 pub const DFC_CAPTION: DFC_TYPE = DFC_TYPE(1u32);
@@ -1393,6 +1441,12 @@ pub const DFC_MENU: DFC_TYPE = DFC_TYPE(2u32);
 pub const DFC_SCROLL: DFC_TYPE = DFC_TYPE(3u32);
 pub const DFC_BUTTON: DFC_TYPE = DFC_TYPE(4u32);
 pub const DFC_POPUPMENU: DFC_TYPE = DFC_TYPE(5u32);
+impl ::core::marker::Copy for DFC_TYPE {}
+impl ::core::clone::Clone for DFC_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIBSECTION {
@@ -1414,6 +1468,12 @@ impl ::core::clone::Clone for DIBSECTION {
 pub struct DIB_USAGE(pub u32);
 pub const DIB_RGB_COLORS: DIB_USAGE = DIB_USAGE(0u32);
 pub const DIB_PAL_COLORS: DIB_USAGE = DIB_USAGE(1u32);
+impl ::core::marker::Copy for DIB_USAGE {}
+impl ::core::clone::Clone for DIB_USAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_COLOR_ENCODING(pub i32);
 pub const DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(0i32);
@@ -1422,6 +1482,12 @@ pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = 
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(3i32);
 pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(4i32);
 pub const DISPLAYCONFIG_COLOR_ENCODING_FORCE_UINT32: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(-1i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_COLOR_ENCODING {}
+impl ::core::clone::Clone for DISPLAYCONFIG_COLOR_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DISPLAYCONFIG_MAXPATH: u32 = 1024u32;
 pub const DISPLAYCONFIG_PATH_ACTIVE: u32 = 1u32;
 pub const DISPLAYCONFIG_PATH_CLONE_GROUP_INVALID: u32 = 65535u32;
@@ -1497,6 +1563,12 @@ pub const DISP_CHANGE_NOTUPDATED: DISP_CHANGE = DISP_CHANGE(-3i32);
 pub const DISP_CHANGE_BADFLAGS: DISP_CHANGE = DISP_CHANGE(-4i32);
 pub const DISP_CHANGE_BADPARAM: DISP_CHANGE = DISP_CHANGE(-5i32);
 pub const DISP_CHANGE_BADDUALVIEW: DISP_CHANGE = DISP_CHANGE(-6i32);
+impl ::core::marker::Copy for DISP_CHANGE {}
+impl ::core::clone::Clone for DISP_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DI_APPBANDING: u32 = 1u32;
 pub const DI_ROPS_READ_DESTINATION: u32 = 2u32;
 pub const DMBIN_AUTO: u32 = 7u32;
@@ -1736,6 +1808,12 @@ pub const EDGE_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
 pub const EDGE_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
 pub const EDGE_ETCHED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(6u32);
 pub const EDGE_BUMP: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(9u32);
+impl ::core::marker::Copy for DRAWEDGE_FLAGS {}
+impl ::core::clone::Clone for DRAWEDGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRAWPATTERNRECT: u32 = 25u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type DRAWSTATEPROC = unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> super::super::Foundation::BOOL;
@@ -1753,6 +1831,12 @@ pub const DSS_MONO: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(128u32);
 pub const DSS_HIDEPREFIX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(512u32);
 pub const DSS_PREFIXONLY: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1024u32);
 pub const DSS_RIGHT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32768u32);
+impl ::core::marker::Copy for DRAWSTATE_FLAGS {}
+impl ::core::clone::Clone for DRAWSTATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DRAWTEXTPARAMS {
     pub cbSize: u32,
@@ -1776,6 +1860,12 @@ pub const DC_ICON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4u32);
 pub const DC_INBUTTON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(16u32);
 pub const DC_SMALLCAP: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(2u32);
 pub const DC_TEXT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(8u32);
+impl ::core::marker::Copy for DRAW_CAPTION_FLAGS {}
+impl ::core::clone::Clone for DRAW_CAPTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DRAW_EDGE_FLAGS(pub u32);
 pub const BF_ADJUST: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8192u32);
@@ -1797,6 +1887,12 @@ pub const BF_SOFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4096u32);
 pub const BF_TOP: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2u32);
 pub const BF_TOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(3u32);
 pub const BF_TOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(6u32);
+impl ::core::marker::Copy for DRAW_EDGE_FLAGS {}
+impl ::core::clone::Clone for DRAW_EDGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DRAW_TEXT_FORMAT(pub u32);
 pub const DT_BOTTOM: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8u32);
@@ -1823,6 +1919,12 @@ pub const DT_TOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
 pub const DT_VCENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4u32);
 pub const DT_WORDBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16u32);
 pub const DT_WORD_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(262144u32);
+impl ::core::marker::Copy for DRAW_TEXT_FORMAT {}
+impl ::core::clone::Clone for DRAW_TEXT_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DT_CHARSTREAM: u32 = 4u32;
 pub const DT_DISPFILE: u32 = 6u32;
 pub const DT_METAFILE: u32 = 5u32;
@@ -1840,10 +1942,22 @@ pub const EMBED_PREVIEWPRINT: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STA
 pub const EMBED_EDITABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(2u32);
 pub const EMBED_INSTALLABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(3u32);
 pub const EMBED_NOEMBEDDING: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(4u32);
+impl ::core::marker::Copy for EMBEDDED_FONT_PRIV_STATUS {}
+impl ::core::clone::Clone for EMBEDDED_FONT_PRIV_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EMBED_FONT_CHARSET(pub u32);
 pub const CHARSET_UNICODE: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(1u32);
 pub const CHARSET_SYMBOL: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(2u32);
+impl ::core::marker::Copy for EMBED_FONT_CHARSET {}
+impl ::core::clone::Clone for EMBED_FONT_CHARSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct EMR {
     pub iType: u32,
@@ -3154,6 +3268,12 @@ pub const ENUMPAPERMETRICS: u32 = 34u32;
 pub struct ENUM_DISPLAY_SETTINGS_MODE(pub u32);
 pub const ENUM_CURRENT_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967295u32);
 pub const ENUM_REGISTRY_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967294u32);
+impl ::core::marker::Copy for ENUM_DISPLAY_SETTINGS_MODE {}
+impl ::core::clone::Clone for ENUM_DISPLAY_SETTINGS_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EPSPRINTING: u32 = 33u32;
 pub const EPS_SIGNATURE: u32 = 1179865157u32;
 pub const ERROR: u32 = 0u32;
@@ -3240,6 +3360,12 @@ pub const ETO_NUMERICSLATIN: ETO_OPTIONS = ETO_OPTIONS(2048u32);
 pub const ETO_IGNORELANGUAGE: ETO_OPTIONS = ETO_OPTIONS(4096u32);
 pub const ETO_PDY: ETO_OPTIONS = ETO_OPTIONS(8192u32);
 pub const ETO_REVERSE_INDEX_MAP: ETO_OPTIONS = ETO_OPTIONS(65536u32);
+impl ::core::marker::Copy for ETO_OPTIONS {}
+impl ::core::clone::Clone for ETO_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXTLOGFONTA {
@@ -3319,6 +3445,12 @@ pub const EXT_DEVICE_CAPS: u32 = 4099u32;
 pub struct EXT_FLOOD_FILL_TYPE(pub u32);
 pub const FLOODFILLBORDER: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(0u32);
 pub const FLOODFILLSURFACE: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(1u32);
+impl ::core::marker::Copy for EXT_FLOOD_FILL_TYPE {}
+impl ::core::clone::Clone for EXT_FLOOD_FILL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const E_ADDFONTFAILED: i32 = 512i32;
 pub const E_API_NOTIMPL: i32 = 1i32;
 pub const E_CHARCODECOUNTINVALID: i32 = 2i32;
@@ -3415,6 +3547,12 @@ pub const CLIP_LH_ANGLES: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(16u32);
 pub const CLIP_MASK: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(15u32);
 pub const CLIP_STROKE_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(2u32);
 pub const CLIP_TT_ALWAYS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(32u32);
+impl ::core::marker::Copy for FONT_CLIP_PRECISION {}
+impl ::core::clone::Clone for FONT_CLIP_PRECISION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FONT_LICENSE_PRIVS(pub u32);
 pub const LICENSE_PREVIEWPRINT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(4u32);
@@ -3422,6 +3560,12 @@ pub const LICENSE_EDITABLE: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(8u32);
 pub const LICENSE_INSTALLABLE: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(0u32);
 pub const LICENSE_NOEMBEDDING: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(2u32);
 pub const LICENSE_DEFAULT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(0u32);
+impl ::core::marker::Copy for FONT_LICENSE_PRIVS {}
+impl ::core::clone::Clone for FONT_LICENSE_PRIVS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FONT_OUTPUT_PRECISION(pub u32);
 pub const OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(2u32);
@@ -3434,6 +3578,12 @@ pub const OUT_STRING_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(1u32)
 pub const OUT_STROKE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(3u32);
 pub const OUT_TT_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(7u32);
 pub const OUT_TT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(4u32);
+impl ::core::marker::Copy for FONT_OUTPUT_PRECISION {}
+impl ::core::clone::Clone for FONT_OUTPUT_PRECISION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FONT_PITCH_AND_FAMILY(pub u32);
 pub const FF_DECORATIVE: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(80u32);
@@ -3442,6 +3592,12 @@ pub const FF_MODERN: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(48u32);
 pub const FF_ROMAN: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(16u32);
 pub const FF_SCRIPT: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(64u32);
 pub const FF_SWISS: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(32u32);
+impl ::core::marker::Copy for FONT_PITCH_AND_FAMILY {}
+impl ::core::clone::Clone for FONT_PITCH_AND_FAMILY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FONT_QUALITY(pub u32);
 pub const ANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(4u32);
@@ -3450,10 +3606,22 @@ pub const DEFAULT_QUALITY: FONT_QUALITY = FONT_QUALITY(0u32);
 pub const DRAFT_QUALITY: FONT_QUALITY = FONT_QUALITY(1u32);
 pub const NONANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(3u32);
 pub const PROOF_QUALITY: FONT_QUALITY = FONT_QUALITY(2u32);
+impl ::core::marker::Copy for FONT_QUALITY {}
+impl ::core::clone::Clone for FONT_QUALITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FONT_RESOURCE_CHARACTERISTICS(pub u32);
 pub const FR_PRIVATE: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(16u32);
 pub const FR_NOT_ENUM: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(32u32);
+impl ::core::marker::Copy for FONT_RESOURCE_CHARACTERISTICS {}
+impl ::core::clone::Clone for FONT_RESOURCE_CHARACTERISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FS_ARABIC: i32 = 64i32;
 pub const FS_BALTIC: i32 = 128i32;
 pub const FS_CHINESESIMP: i32 = 262144i32;
@@ -3593,6 +3761,12 @@ pub const GCP_NUMERICSLOCAL: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACE
 pub const GCP_REORDER: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(2u32);
 pub const GCP_SYMSWAPOFF: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(8388608u32);
 pub const GCP_USEKERNING: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(8u32);
+impl ::core::marker::Copy for GET_CHARACTER_PLACEMENT_FLAGS {}
+impl ::core::clone::Clone for GET_CHARACTER_PLACEMENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GET_DCX_FLAGS(pub u32);
 pub const DCX_WINDOW: GET_DCX_FLAGS = GET_DCX_FLAGS(1u32);
@@ -3606,6 +3780,12 @@ pub const DCX_EXCLUDERGN: GET_DCX_FLAGS = GET_DCX_FLAGS(64u32);
 pub const DCX_INTERSECTRGN: GET_DCX_FLAGS = GET_DCX_FLAGS(128u32);
 pub const DCX_INTERSECTUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(512u32);
 pub const DCX_VALIDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(2097152u32);
+impl ::core::marker::Copy for GET_DCX_FLAGS {}
+impl ::core::clone::Clone for GET_DCX_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GET_DEVICE_CAPS_INDEX(pub u32);
 pub const DRIVERVERSION: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(0u32);
@@ -3648,6 +3828,12 @@ pub const DESKTOPHORZRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(118u32);
 pub const BLTALIGNMENT: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(119u32);
 pub const SHADEBLENDCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(120u32);
 pub const COLORMGMTCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(121u32);
+impl ::core::marker::Copy for GET_DEVICE_CAPS_INDEX {}
+impl ::core::clone::Clone for GET_DEVICE_CAPS_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GET_GLYPH_OUTLINE_FORMAT(pub u32);
 pub const GGO_BEZIER: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(3u32);
@@ -3659,6 +3845,12 @@ pub const GGO_GRAY8_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(
 pub const GGO_METRICS: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(0u32);
 pub const GGO_NATIVE: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(2u32);
 pub const GGO_UNHINTED: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(256u32);
+impl ::core::marker::Copy for GET_GLYPH_OUTLINE_FORMAT {}
+impl ::core::clone::Clone for GET_GLYPH_OUTLINE_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GET_PS_FEATURESETTING: u32 = 4121u32;
 #[repr(transparent)]
 pub struct GET_STOCK_OBJECT_FLAGS(pub u32);
@@ -3682,6 +3874,12 @@ pub const OEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(10u32)
 pub const SYSTEM_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(13u32);
 pub const SYSTEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(16u32);
 pub const DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(15u32);
+impl ::core::marker::Copy for GET_STOCK_OBJECT_FLAGS {}
+impl ::core::clone::Clone for GET_STOCK_OBJECT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GGI_MARK_NONEXISTING_GLYPHS: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3722,6 +3920,12 @@ pub struct GRADIENT_FILL(pub u32);
 pub const GRADIENT_FILL_RECT_H: GRADIENT_FILL = GRADIENT_FILL(0u32);
 pub const GRADIENT_FILL_RECT_V: GRADIENT_FILL = GRADIENT_FILL(1u32);
 pub const GRADIENT_FILL_TRIANGLE: GRADIENT_FILL = GRADIENT_FILL(2u32);
+impl ::core::marker::Copy for GRADIENT_FILL {}
+impl ::core::clone::Clone for GRADIENT_FILL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GRADIENT_FILL_OP_FLAG: u32 = 255u32;
 #[repr(C)]
 pub struct GRADIENT_RECT {
@@ -3750,6 +3954,12 @@ impl ::core::clone::Clone for GRADIENT_TRIANGLE {
 pub struct GRAPHICS_MODE(pub u32);
 pub const GM_COMPATIBLE: GRAPHICS_MODE = GRAPHICS_MODE(1u32);
 pub const GM_ADVANCED: GRAPHICS_MODE = GRAPHICS_MODE(2u32);
+impl ::core::marker::Copy for GRAPHICS_MODE {}
+impl ::core::clone::Clone for GRAPHICS_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type GRAYSTRINGPROC = unsafe extern "system" fn(param0: HDC, param1: super::super::Foundation::LPARAM, param2: i32) -> super::super::Foundation::BOOL;
 pub const GREEK_CHARSET: u32 = 161u32;
@@ -3774,6 +3984,12 @@ pub const HS_DIAGCROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(5u32);
 pub const HS_FDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(2u32);
 pub const HS_HORIZONTAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(0u32);
 pub const HS_VERTICAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(1u32);
+impl ::core::marker::Copy for HATCH_BRUSH_STYLE {}
+impl ::core::clone::Clone for HATCH_BRUSH_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HBITMAP {
     pub Value: isize,
@@ -3814,6 +4030,12 @@ pub const MM_LOENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(4u32);
 pub const MM_LOMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(2u32);
 pub const MM_TEXT: HDC_MAP_MODE = HDC_MAP_MODE(1u32);
 pub const MM_TWIPS: HDC_MAP_MODE = HDC_MAP_MODE(6u32);
+impl ::core::marker::Copy for HDC_MAP_MODE {}
+impl ::core::clone::Clone for HDC_MAP_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HEBREW_CHARSET: u32 = 177u32;
 #[repr(C)]
 pub struct HENHMETAFILE {
@@ -4207,6 +4429,12 @@ pub struct MODIFY_WORLD_TRANSFORM_MODE(pub u32);
 pub const MWT_IDENTITY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(1u32);
 pub const MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(2u32);
 pub const MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(3u32);
+impl ::core::marker::Copy for MODIFY_WORLD_TRANSFORM_MODE {}
+impl ::core::clone::Clone for MODIFY_WORLD_TRANSFORM_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type MONITORENUMPROC = unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[repr(C)]
@@ -4258,6 +4486,12 @@ pub struct MONITOR_FROM_FLAGS(pub u32);
 pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(2u32);
 pub const MONITOR_DEFAULTTONULL: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(0u32);
 pub const MONITOR_DEFAULTTOPRIMARY: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(1u32);
+impl ::core::marker::Copy for MONITOR_FROM_FLAGS {}
+impl ::core::clone::Clone for MONITOR_FROM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MONO_FONT: u32 = 8u32;
 pub const MOUSETRAILS: u32 = 39u32;
 pub const NEWFRAME: u32 = 1u32;
@@ -4355,6 +4589,12 @@ pub const OBJ_EXTPEN: OBJ_TYPE = OBJ_TYPE(11i32);
 pub const OBJ_ENHMETADC: OBJ_TYPE = OBJ_TYPE(12i32);
 pub const OBJ_ENHMETAFILE: OBJ_TYPE = OBJ_TYPE(13i32);
 pub const OBJ_COLORSPACE: OBJ_TYPE = OBJ_TYPE(14i32);
+impl ::core::marker::Copy for OBJ_TYPE {}
+impl ::core::clone::Clone for OBJ_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OEM_CHARSET: u32 = 255u32;
 pub const OPENCHANNEL: u32 = 4110u32;
 #[repr(C)]
@@ -4656,6 +4896,12 @@ pub const PS_JOIN_BEVEL: PEN_STYLE = PEN_STYLE(4096u32);
 pub const PS_JOIN_MITER: PEN_STYLE = PEN_STYLE(8192u32);
 pub const PS_JOIN_MASK: PEN_STYLE = PEN_STYLE(61440u32);
 pub const PS_TYPE_MASK: PEN_STYLE = PEN_STYLE(983040u32);
+impl ::core::marker::Copy for PEN_STYLE {}
+impl ::core::clone::Clone for PEN_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PFD_DEPTH_DONTCARE: u32 = 536870912u32;
 pub const PFD_DIRECT3D_ACCELERATED: u32 = 16384u32;
 pub const PFD_DOUBLEBUFFER: u32 = 1u32;
@@ -4783,6 +5029,12 @@ pub const R2_MERGEPENNOT: R2_MODE = R2_MODE(14i32);
 pub const R2_MERGEPEN: R2_MODE = R2_MODE(15i32);
 pub const R2_WHITE: R2_MODE = R2_MODE(16i32);
 pub const R2_LAST: R2_MODE = R2_MODE(16i32);
+impl ::core::marker::Copy for R2_MODE {}
+impl ::core::clone::Clone for R2_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct RASTERIZER_STATUS {
     pub nSize: i16,
@@ -4828,6 +5080,12 @@ pub const RDW_UPDATENOW: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(256u32);
 pub const RDW_ERASENOW: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(512u32);
 pub const RDW_FRAME: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(1024u32);
 pub const RDW_NOFRAME: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(2048u32);
+impl ::core::marker::Copy for REDRAW_WINDOW_FLAGS {}
+impl ::core::clone::Clone for REDRAW_WINDOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RELATIVE: u32 = 2u32;
 pub const RESTORE_CTM: u32 = 4100u32;
 #[repr(C)]
@@ -4895,6 +5153,12 @@ pub const RGN_DIFF: RGN_COMBINE_MODE = RGN_COMBINE_MODE(4i32);
 pub const RGN_COPY: RGN_COMBINE_MODE = RGN_COMBINE_MODE(5i32);
 pub const RGN_MIN: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
 pub const RGN_MAX: RGN_COMBINE_MODE = RGN_COMBINE_MODE(5i32);
+impl ::core::marker::Copy for RGN_COMBINE_MODE {}
+impl ::core::clone::Clone for RGN_COMBINE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RGN_ERROR: u32 = 0u32;
 #[repr(transparent)]
 pub struct ROP_CODE(pub u32);
@@ -4915,6 +5179,12 @@ pub const BLACKNESS: ROP_CODE = ROP_CODE(66u32);
 pub const WHITENESS: ROP_CODE = ROP_CODE(16711778u32);
 pub const NOMIRRORBITMAP: ROP_CODE = ROP_CODE(2147483648u32);
 pub const CAPTUREBLT: ROP_CODE = ROP_CODE(1073741824u32);
+impl ::core::marker::Copy for ROP_CODE {}
+impl ::core::clone::Clone for ROP_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RUSSIAN_CHARSET: u32 = 204u32;
 pub const SAVE_CTM: u32 = 4101u32;
 pub const SB_CONST_ALPHA: u32 = 1u32;
@@ -4962,6 +5232,12 @@ pub const DCB_ACCUMULATE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(2u32);
 pub const DCB_DISABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(8u32);
 pub const DCB_ENABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(4u32);
 pub const DCB_RESET: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(1u32);
+impl ::core::marker::Copy for SET_BOUNDS_RECT_FLAGS {}
+impl ::core::clone::Clone for SET_BOUNDS_RECT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SET_CLIP_BOX: u32 = 4108u32;
 pub const SET_MIRROR_MODE: u32 = 4110u32;
 pub const SET_POLY_MODE: u32 = 4104u32;
@@ -4989,6 +5265,12 @@ pub const STRETCH_DELETESCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3u32);
 pub const STRETCH_HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4u32);
 pub const STRETCH_ORSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2u32);
 pub const WHITEONBLACK: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2u32);
+impl ::core::marker::Copy for STRETCH_BLT_MODE {}
+impl ::core::clone::Clone for STRETCH_BLT_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYMBOL_CHARSET: u32 = 2u32;
 pub const SYSPAL_ERROR: u32 = 0u32;
 pub const SYSRGN: u32 = 4u32;
@@ -4997,6 +5279,12 @@ pub struct SYSTEM_PALETTE_USE(pub u32);
 pub const SYSPAL_NOSTATIC: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(2u32);
 pub const SYSPAL_NOSTATIC256: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(3u32);
 pub const SYSPAL_STATIC: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(1u32);
+impl ::core::marker::Copy for SYSTEM_PALETTE_USE {}
+impl ::core::clone::Clone for SYSTEM_PALETTE_USE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TC_CP_STROKE: u32 = 4u32;
 pub const TC_CR_90: u32 = 8u32;
 pub const TC_CR_ANY: u32 = 16u32;
@@ -5090,6 +5378,12 @@ pub const VTA_RIGHT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
 pub const VTA_CENTER: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(6u32);
 pub const VTA_BOTTOM: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(2u32);
 pub const VTA_TOP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
+impl ::core::marker::Copy for TEXT_ALIGN_OPTIONS {}
+impl ::core::clone::Clone for TEXT_ALIGN_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const THAI_CHARSET: u32 = 222u32;
 pub const TMPF_DEVICE: u32 = 8u32;
 pub const TMPF_FIXED_PITCH: u32 = 1u32;
@@ -5133,6 +5427,12 @@ pub const TTEMBED_EMBEDEUDC: TTEMBED_FLAGS = TTEMBED_FLAGS(32u32);
 pub const TTEMBED_RAW: TTEMBED_FLAGS = TTEMBED_FLAGS(0u32);
 pub const TTEMBED_SUBSET: TTEMBED_FLAGS = TTEMBED_FLAGS(1u32);
 pub const TTEMBED_TTCOMPRESSED: TTEMBED_FLAGS = TTEMBED_FLAGS(4u32);
+impl ::core::marker::Copy for TTEMBED_FLAGS {}
+impl ::core::clone::Clone for TTEMBED_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TTEMBED_SUBSETCANCEL: u32 = 4u32;
 pub const TTEMBED_VARIATIONSIMULATED: u32 = 1u32;
 pub const TTEMBED_WEBOBJECT: u32 = 128u32;
@@ -5167,6 +5467,12 @@ impl ::core::clone::Clone for TTLOADINFO {
 pub struct TTLOAD_EMBEDDED_FONT_STATUS(pub u32);
 pub const TTLOAD_FONT_SUBSETTED: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(1u32);
 pub const TTLOAD_FONT_IN_SYSSTARTUP: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(2u32);
+impl ::core::marker::Copy for TTLOAD_EMBEDDED_FONT_STATUS {}
+impl ::core::clone::Clone for TTLOAD_EMBEDDED_FONT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TTLOAD_EUDC_OVERWRITE: u32 = 2u32;
 pub const TTLOAD_EUDC_SET: u32 = 4u32;
 pub const TTLOAD_PRIVATE: u32 = 1u32;

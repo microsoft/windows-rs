@@ -29,6 +29,12 @@ impl AsyncStatus {
     pub const Error: Self = Self(3i32);
     pub const Started: Self = Self(0i32);
 }
+impl ::core::marker::Copy for AsyncStatus {}
+impl ::core::clone::Clone for AsyncStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DateTime {
     pub UniversalTime: i64,
@@ -162,6 +168,12 @@ impl PropertyType {
     pub const SizeArray: Self = Self(1042i32);
     pub const RectArray: Self = Self(1043i32);
     pub const OtherTypeArray: Self = Self(1044i32);
+}
+impl ::core::marker::Copy for PropertyType {}
+impl ::core::clone::Clone for PropertyType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 pub struct Rect {

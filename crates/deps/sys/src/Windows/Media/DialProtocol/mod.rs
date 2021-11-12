@@ -11,6 +11,12 @@ impl DialAppLaunchResult {
     pub const NotFound: Self = Self(2i32);
     pub const NetworkFailure: Self = Self(3i32);
 }
+impl ::core::marker::Copy for DialAppLaunchResult {}
+impl ::core::clone::Clone for DialAppLaunchResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DialAppState(pub i32);
 impl DialAppState {
@@ -18,6 +24,12 @@ impl DialAppState {
     pub const Stopped: Self = Self(1i32);
     pub const Running: Self = Self(2i32);
     pub const NetworkFailure: Self = Self(3i32);
+}
+impl ::core::marker::Copy for DialAppState {}
+impl ::core::clone::Clone for DialAppState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DialAppStateDetails(pub *mut ::core::ffi::c_void);
@@ -28,6 +40,12 @@ impl DialAppStopResult {
     pub const StopFailed: Self = Self(1i32);
     pub const OperationNotSupported: Self = Self(2i32);
     pub const NetworkFailure: Self = Self(3i32);
+}
+impl ::core::marker::Copy for DialAppStopResult {}
+impl ::core::clone::Clone for DialAppStopResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DialDevice(pub *mut ::core::ffi::c_void);
@@ -40,6 +58,12 @@ impl DialDeviceDisplayStatus {
     pub const Disconnecting: Self = Self(3i32);
     pub const Disconnected: Self = Self(4i32);
     pub const Error: Self = Self(5i32);
+}
+impl ::core::marker::Copy for DialDeviceDisplayStatus {}
+impl ::core::clone::Clone for DialDeviceDisplayStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DialDevicePicker(pub *mut ::core::ffi::c_void);

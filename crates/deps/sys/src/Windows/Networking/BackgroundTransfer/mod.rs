@@ -23,6 +23,12 @@ impl BackgroundTransferBehavior {
     pub const Parallel: Self = Self(0i32);
     pub const Serialized: Self = Self(1i32);
 }
+impl ::core::marker::Copy for BackgroundTransferBehavior {}
+impl ::core::clone::Clone for BackgroundTransferBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BackgroundTransferCompletionGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -35,6 +41,12 @@ impl BackgroundTransferCostPolicy {
     pub const Default: Self = Self(0i32);
     pub const UnrestrictedOnly: Self = Self(1i32);
     pub const Always: Self = Self(2i32);
+}
+impl ::core::marker::Copy for BackgroundTransferCostPolicy {}
+impl ::core::clone::Clone for BackgroundTransferCostPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 pub struct BackgroundTransferFileRange {
@@ -56,6 +68,12 @@ impl BackgroundTransferPriority {
     pub const High: Self = Self(1i32);
     pub const Low: Self = Self(2i32);
 }
+impl ::core::marker::Copy for BackgroundTransferPriority {}
+impl ::core::clone::Clone for BackgroundTransferPriority {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BackgroundTransferRangesDownloadedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -71,6 +89,12 @@ impl BackgroundTransferStatus {
     pub const Error: Self = Self(7i32);
     pub const PausedRecoverableWebErrorStatus: Self = Self(8i32);
     pub const PausedSystemPolicy: Self = Self(32i32);
+}
+impl ::core::marker::Copy for BackgroundTransferStatus {}
+impl ::core::clone::Clone for BackgroundTransferStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 pub struct BackgroundUploadProgress {

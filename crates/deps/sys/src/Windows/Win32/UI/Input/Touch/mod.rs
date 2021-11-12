@@ -44,6 +44,12 @@ pub const GID_ROTATE: GESTURECONFIG_ID = GESTURECONFIG_ID(5u32);
 pub const GID_TWOFINGERTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(6u32);
 pub const GID_PRESSANDTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
 pub const GID_ROLLOVER: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
+impl ::core::marker::Copy for GESTURECONFIG_ID {}
+impl ::core::clone::Clone for GESTURECONFIG_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GESTUREINFO {
@@ -120,6 +126,12 @@ pub const MANIPULATION_TRANSLATE_Y: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIP
 pub const MANIPULATION_SCALE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(4i32);
 pub const MANIPULATION_ROTATE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(8i32);
 pub const MANIPULATION_ALL: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(15i32);
+impl ::core::marker::Copy for MANIPULATION_PROCESSOR_MANIPULATIONS {}
+impl ::core::clone::Clone for MANIPULATION_PROCESSOR_MANIPULATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ManipulationProcessor: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1501384624,
     data2: 18429,
@@ -130,6 +142,12 @@ pub const ManipulationProcessor: ::windows_sys::core::GUID = ::windows_sys::GUID
 pub struct REGISTER_TOUCH_WINDOW_FLAGS(pub u32);
 pub const TWF_FINETOUCH: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(1u32);
 pub const TWF_WANTPALM: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(2u32);
+impl ::core::marker::Copy for REGISTER_TOUCH_WINDOW_FLAGS {}
+impl ::core::clone::Clone for REGISTER_TOUCH_WINDOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TOUCHEVENTF_FLAGS(pub u32);
 pub const TOUCHEVENTF_MOVE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(1u32);
@@ -140,6 +158,12 @@ pub const TOUCHEVENTF_PRIMARY: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(16u32);
 pub const TOUCHEVENTF_NOCOALESCE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(32u32);
 pub const TOUCHEVENTF_PEN: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(64u32);
 pub const TOUCHEVENTF_PALM: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(128u32);
+impl ::core::marker::Copy for TOUCHEVENTF_FLAGS {}
+impl ::core::clone::Clone for TOUCHEVENTF_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOUCHINPUT {
@@ -167,5 +191,11 @@ pub struct TOUCHINPUTMASKF_MASK(pub u32);
 pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(1u32);
 pub const TOUCHINPUTMASKF_EXTRAINFO: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(2u32);
 pub const TOUCHINPUTMASKF_CONTACTAREA: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(4u32);
+impl ::core::marker::Copy for TOUCHINPUTMASKF_MASK {}
+impl ::core::clone::Clone for TOUCHINPUTMASKF_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IManipulationEvents(pub *mut ::core::ffi::c_void);

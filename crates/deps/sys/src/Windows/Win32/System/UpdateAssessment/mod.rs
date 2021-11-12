@@ -51,10 +51,22 @@ pub const UpdateAssessmentStatus_NotLatestPausedQuality: UpdateAssessmentStatus 
 pub const UpdateAssessmentStatus_NotLatestManaged: UpdateAssessmentStatus = UpdateAssessmentStatus(9i32);
 pub const UpdateAssessmentStatus_NotLatestUnknown: UpdateAssessmentStatus = UpdateAssessmentStatus(10i32);
 pub const UpdateAssessmentStatus_NotLatestTargetedVersion: UpdateAssessmentStatus = UpdateAssessmentStatus(11i32);
+impl ::core::marker::Copy for UpdateAssessmentStatus {}
+impl ::core::clone::Clone for UpdateAssessmentStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UpdateImpactLevel(pub i32);
 pub const UpdateImpactLevel_None: UpdateImpactLevel = UpdateImpactLevel(0i32);
 pub const UpdateImpactLevel_Low: UpdateImpactLevel = UpdateImpactLevel(1i32);
 pub const UpdateImpactLevel_Medium: UpdateImpactLevel = UpdateImpactLevel(2i32);
 pub const UpdateImpactLevel_High: UpdateImpactLevel = UpdateImpactLevel(3i32);
+impl ::core::marker::Copy for UpdateImpactLevel {}
+impl ::core::clone::Clone for UpdateImpactLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WaaSAssessor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 160364657, data2: 64159, data3: 18095, data4: [137, 88, 192, 131, 81, 93, 124, 156] };

@@ -49,6 +49,12 @@ pub const CARET_RTL: CARET_FLAGS = CARET_FLAGS(2i32);
 pub const CARET_ITALIC: CARET_FLAGS = CARET_FLAGS(32i32);
 pub const CARET_NULL: CARET_FLAGS = CARET_FLAGS(64i32);
 pub const CARET_ROTATE90: CARET_FLAGS = CARET_FLAGS(128i32);
+impl ::core::marker::Copy for CARET_FLAGS {}
+impl ::core::clone::Clone for CARET_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub union CARET_INFO {
@@ -88,6 +94,12 @@ pub const CFE_EXTENDED: CFE_EFFECTS = CFE_EFFECTS(33554432u32);
 pub const CFE_MATHNOBUILDUP: CFE_EFFECTS = CFE_EFFECTS(134217728u32);
 pub const CFE_MATH: CFE_EFFECTS = CFE_EFFECTS(268435456u32);
 pub const CFE_MATHORDINARY: CFE_EFFECTS = CFE_EFFECTS(536870912u32);
+impl ::core::marker::Copy for CFE_EFFECTS {}
+impl ::core::clone::Clone for CFE_EFFECTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CFM_MASK(pub u32);
 pub const CFM_SUBSCRIPT: CFM_MASK = CFM_MASK(196608u32);
@@ -133,6 +145,12 @@ pub const CFM_MATHNOBUILDUP: CFM_MASK = CFM_MASK(134217728u32);
 pub const CFM_MATH: CFM_MASK = CFM_MASK(268435456u32);
 pub const CFM_MATHORDINARY: CFM_MASK = CFM_MASK(536870912u32);
 pub const CFM_ALLEFFECTS: CFM_MASK = CFM_MASK(2115207167u32);
+impl ::core::marker::Copy for CFM_MASK {}
+impl ::core::clone::Clone for CFM_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CHANGENOTIFY {
     pub dwChangeType: CHANGETYPE,
@@ -150,6 +168,12 @@ pub const CN_GENERIC: CHANGETYPE = CHANGETYPE(0i32);
 pub const CN_TEXTCHANGED: CHANGETYPE = CHANGETYPE(1i32);
 pub const CN_NEWUNDO: CHANGETYPE = CHANGETYPE(2i32);
 pub const CN_NEWREDO: CHANGETYPE = CHANGETYPE(4i32);
+impl ::core::marker::Copy for CHANGETYPE {}
+impl ::core::clone::Clone for CHANGETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHARFORMAT2A {
@@ -489,6 +513,12 @@ impl ::core::clone::Clone for ENDCOMPOSITIONNOTIFY {
 pub struct ENDCOMPOSITIONNOTIFY_CODE(pub u32);
 pub const ECN_ENDCOMPOSITION: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(1u32);
 pub const ECN_NEWTEXT: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(2u32);
+impl ::core::marker::Copy for ENDCOMPOSITIONNOTIFY_CODE {}
+impl ::core::clone::Clone for ENDCOMPOSITIONNOTIFY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENDROPFILES {
@@ -768,6 +798,12 @@ pub const GT_NOHIDDENTEXT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(8u32);
 pub const GT_RAWTEXT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(4u32);
 pub const GT_SELECTION: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(2u32);
 pub const GT_USECRLF: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(1u32);
+impl ::core::marker::Copy for GETTEXTEX_FLAGS {}
+impl ::core::clone::Clone for GETTEXTEX_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct GETTEXTLENGTHEX {
     pub flags: GETTEXTLENGTHEX_FLAGS,
@@ -787,6 +823,12 @@ pub const GTL_PRECISE: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(2u32);
 pub const GTL_CLOSE: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(4u32);
 pub const GTL_NUMCHARS: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(8u32);
 pub const GTL_NUMBYTES: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(16u32);
+impl ::core::marker::Copy for GETTEXTLENGTHEX_FLAGS {}
+impl ::core::clone::Clone for GETTEXTLENGTHEX_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(4))]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
@@ -819,6 +861,12 @@ impl ::core::clone::Clone for IMECOMPTEXT {
 #[repr(transparent)]
 pub struct IMECOMPTEXT_FLAGS(pub u32);
 pub const ICT_RESULTREADSTR: IMECOMPTEXT_FLAGS = IMECOMPTEXT_FLAGS(1u32);
+impl ::core::marker::Copy for IMECOMPTEXT_FLAGS {}
+impl ::core::clone::Clone for IMECOMPTEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMF_AUTOFONT: u32 = 2u32;
 pub const IMF_AUTOFONTSIZEADJUST: u32 = 16u32;
 pub const IMF_AUTOKEYBOARD: u32 = 1u32;
@@ -900,6 +948,12 @@ pub const khyphChangeBefore: KHYPH = KHYPH(3i32);
 pub const khyphDeleteBefore: KHYPH = KHYPH(4i32);
 pub const khyphChangeAfter: KHYPH = KHYPH(5i32);
 pub const khyphDelAndChange: KHYPH = KHYPH(6i32);
+impl ::core::marker::Copy for KHYPH {}
+impl ::core::clone::Clone for KHYPH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MANCODE(pub i32);
 pub const MBOLD: MANCODE = MANCODE(16i32);
@@ -918,6 +972,12 @@ pub const MTAIL: MANCODE = MANCODE(9i32);
 pub const MSTRCH: MANCODE = MANCODE(10i32);
 pub const MLOOP: MANCODE = MANCODE(11i32);
 pub const MOPENA: MANCODE = MANCODE(12i32);
+impl ::core::marker::Copy for MANCODE {}
+impl ::core::clone::Clone for MANCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_TABLE_CELLS: u32 = 63u32;
 pub const MAX_TAB_STOPS: u32 = 32u32;
 #[repr(C, packed(4))]
@@ -984,6 +1044,12 @@ pub const tomSuperscript: OBJECTTYPE = OBJECTTYPE(31i32);
 pub const tomUnderbar: OBJECTTYPE = OBJECTTYPE(32i32);
 pub const tomUpperLimit: OBJECTTYPE = OBJECTTYPE(33i32);
 pub const tomObjectMax: OBJECTTYPE = OBJECTTYPE(33i32);
+impl ::core::marker::Copy for OBJECTTYPE {}
+impl ::core::clone::Clone for OBJECTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OLEOP_DOVERB: u32 = 1u32;
 #[repr(C)]
 pub struct PARAFORMAT {
@@ -1043,6 +1109,12 @@ pub struct PARAFORMAT_ALIGNMENT(pub u16);
 pub const PFA_CENTER: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(3u16);
 pub const PFA_LEFT: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(1u16);
 pub const PFA_RIGHT: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(2u16);
+impl ::core::marker::Copy for PARAFORMAT_ALIGNMENT {}
+impl ::core::clone::Clone for PARAFORMAT_ALIGNMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PARAFORMAT_BORDERS(pub u16);
 pub const PARAFORMAT_BORDERS_LEFT: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(1u16);
@@ -1052,6 +1124,12 @@ pub const PARAFORMAT_BORDERS_BOTTOM: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(8u1
 pub const PARAFORMAT_BORDERS_INSIDE: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(16u16);
 pub const PARAFORMAT_BORDERS_OUTSIDE: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(32u16);
 pub const PARAFORMAT_BORDERS_AUTOCOLOR: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(64u16);
+impl ::core::marker::Copy for PARAFORMAT_BORDERS {}
+impl ::core::clone::Clone for PARAFORMAT_BORDERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PARAFORMAT_MASK(pub u32);
 pub const PFM_ALIGNMENT: PARAFORMAT_MASK = PARAFORMAT_MASK(8u32);
@@ -1062,6 +1140,12 @@ pub const PFM_RIGHTINDENT: PARAFORMAT_MASK = PARAFORMAT_MASK(2u32);
 pub const PFM_RTLPARA: PARAFORMAT_MASK = PARAFORMAT_MASK(65536u32);
 pub const PFM_STARTINDENT: PARAFORMAT_MASK = PARAFORMAT_MASK(1u32);
 pub const PFM_TABSTOPS: PARAFORMAT_MASK = PARAFORMAT_MASK(16u32);
+impl ::core::marker::Copy for PARAFORMAT_MASK {}
+impl ::core::clone::Clone for PARAFORMAT_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PARAFORMAT_NUMBERING_STYLE(pub u16);
 pub const PFNS_PAREN: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(0u16);
@@ -1070,6 +1154,12 @@ pub const PFNS_PERIOD: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(5
 pub const PFNS_PLAIN: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(768u16);
 pub const PFNS_NONUMBER: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(1024u16);
 pub const PFNS_NEWNUMBER: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(32768u16);
+impl ::core::marker::Copy for PARAFORMAT_NUMBERING_STYLE {}
+impl ::core::clone::Clone for PARAFORMAT_NUMBERING_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PARAFORMAT_SHADING_STYLE(pub u16);
 pub const PARAFORMAT_SHADING_STYLE_NONE: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(0u16);
@@ -1085,6 +1175,12 @@ pub const PARAFORMAT_SHADING_STYLE_LIGHT_DOWN_DIAG: PARAFORMAT_SHADING_STYLE = P
 pub const PARAFORMAT_SHADING_STYLE_LIGHT_UP_DIAG: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(10u16);
 pub const PARAFORMAT_SHADING_STYLE_LIGHT_GRID: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(11u16);
 pub const PARAFORMAT_SHADING_STYLE_LIGHT_TRELLIS: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(12u16);
+impl ::core::marker::Copy for PARAFORMAT_SHADING_STYLE {}
+impl ::core::clone::Clone for PARAFORMAT_SHADING_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PC_DELIMITER: u32 = 4u32;
 pub const PC_FOLLOWING: u32 = 1u32;
 pub const PC_LEADING: u32 = 2u32;
@@ -1188,6 +1284,12 @@ pub const REO_SELECTED: REOBJECT_FLAGS = REOBJECT_FLAGS(134217728u32);
 pub const REO_STATIC: REOBJECT_FLAGS = REOBJECT_FLAGS(1073741824u32);
 pub const REO_USEASBACKGROUND: REOBJECT_FLAGS = REOBJECT_FLAGS(1024u32);
 pub const REO_WRAPTEXTAROUND: REOBJECT_FLAGS = REOBJECT_FLAGS(512u32);
+impl ::core::marker::Copy for REOBJECT_FLAGS {}
+impl ::core::clone::Clone for REOBJECT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const REO_NULL: i32 = 0i32;
 pub const REO_READWRITEMASK: i32 = 2047i32;
 #[repr(C, packed(4))]
@@ -1244,6 +1346,12 @@ pub const SEL_OBJECT: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEX
 pub const SEL_MULTICHAR: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(4u16);
 pub const SEL_MULTIOBJECT: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(8u16);
 pub const GCM_RIGHTMOUSEDROP: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(32768u16);
+impl ::core::marker::Copy for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {}
+impl ::core::clone::Clone for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RICH_EDIT_GET_OBJECT_FLAGS(pub u32);
 pub const REO_GETOBJ_POLEOBJ: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(1u32);
@@ -1251,6 +1359,12 @@ pub const REO_GETOBJ_PSTG: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLA
 pub const REO_GETOBJ_POLESITE: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(4u32);
 pub const REO_GETOBJ_NO_INTERFACES: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(0u32);
 pub const REO_GETOBJ_ALL_INTERFACES: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(7u32);
+impl ::core::marker::Copy for RICH_EDIT_GET_OBJECT_FLAGS {}
+impl ::core::clone::Clone for RICH_EDIT_GET_OBJECT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RTO_DISABLEHANDLES: u32 = 2u32;
 pub const RTO_READINGMODE: u32 = 3u32;
 pub const RTO_SHOWHANDLES: u32 = 1u32;
@@ -1405,6 +1519,12 @@ pub const TM_SINGLELEVELUNDO: TEXTMODE = TEXTMODE(4i32);
 pub const TM_MULTILEVELUNDO: TEXTMODE = TEXTMODE(8i32);
 pub const TM_SINGLECODEPAGE: TEXTMODE = TEXTMODE(16i32);
 pub const TM_MULTICODEPAGE: TEXTMODE = TEXTMODE(32i32);
+impl ::core::marker::Copy for TEXTMODE {}
+impl ::core::clone::Clone for TEXTMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TEXTRANGEA {
@@ -1442,6 +1562,12 @@ pub const TXES_ISDIALOG: u32 = 1u32;
 pub struct TXTBACKSTYLE(pub i32);
 pub const TXTBACK_TRANSPARENT: TXTBACKSTYLE = TXTBACKSTYLE(0i32);
 pub const TXTBACK_OPAQUE: TXTBACKSTYLE = TXTBACKSTYLE(1i32);
+impl ::core::marker::Copy for TXTBACKSTYLE {}
+impl ::core::clone::Clone for TXTBACKSTYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TXTBIT_ADVANCEDINPUT: u32 = 536870912u32;
 pub const TXTBIT_ALLOWBEEP: u32 = 2048u32;
 pub const TXTBIT_AUTOWORDSEL: u32 = 128u32;
@@ -1478,6 +1604,12 @@ pub const TXTHITRESULT_NOHIT: TXTHITRESULT = TXTHITRESULT(0i32);
 pub const TXTHITRESULT_TRANSPARENT: TXTHITRESULT = TXTHITRESULT(1i32);
 pub const TXTHITRESULT_CLOSE: TXTHITRESULT = TXTHITRESULT(2i32);
 pub const TXTHITRESULT_HIT: TXTHITRESULT = TXTHITRESULT(3i32);
+impl ::core::marker::Copy for TXTHITRESULT {}
+impl ::core::clone::Clone for TXTHITRESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TXTNATURALSIZE(pub i32);
 pub const TXTNS_FITTOCONTENT2: TXTNATURALSIZE = TXTNATURALSIZE(0i32);
@@ -1487,10 +1619,22 @@ pub const TXTNS_FITTOCONTENT3: TXTNATURALSIZE = TXTNATURALSIZE(3i32);
 pub const TXTNS_FITTOCONTENTWSP: TXTNATURALSIZE = TXTNATURALSIZE(4i32);
 pub const TXTNS_INCLUDELASTLINE: TXTNATURALSIZE = TXTNATURALSIZE(1073741824i32);
 pub const TXTNS_EMU: TXTNATURALSIZE = TXTNATURALSIZE(-2147483648i32);
+impl ::core::marker::Copy for TXTNATURALSIZE {}
+impl ::core::clone::Clone for TXTNATURALSIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TXTVIEW(pub i32);
 pub const TXTVIEW_ACTIVE: TXTVIEW = TXTVIEW(0i32);
 pub const TXTVIEW_INACTIVE: TXTVIEW = TXTVIEW(-1i32);
+impl ::core::marker::Copy for TXTVIEW {}
+impl ::core::clone::Clone for TXTVIEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UNDONAMEID(pub i32);
 pub const UID_UNKNOWN: UNDONAMEID = UNDONAMEID(0i32);
@@ -1500,6 +1644,12 @@ pub const UID_DRAGDROP: UNDONAMEID = UNDONAMEID(3i32);
 pub const UID_CUT: UNDONAMEID = UNDONAMEID(4i32);
 pub const UID_PASTE: UNDONAMEID = UNDONAMEID(5i32);
 pub const UID_AUTOTABLE: UNDONAMEID = UNDONAMEID(6i32);
+impl ::core::marker::Copy for UNDONAMEID {}
+impl ::core::clone::Clone for UNDONAMEID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VM_NORMAL: u32 = 4u32;
 pub const VM_OUTLINE: u32 = 2u32;
 pub const VM_PAGE: u32 = 9u32;
@@ -2129,3 +2279,9 @@ pub const tomRowUpdate: tomConstants = tomConstants(1i32);
 pub const tomRowApplyDefault: tomConstants = tomConstants(0i32);
 pub const tomCellStructureChangeOnly: tomConstants = tomConstants(1i32);
 pub const tomRowHeightActual: tomConstants = tomConstants(2059i32);
+impl ::core::marker::Copy for tomConstants {}
+impl ::core::clone::Clone for tomConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -9,6 +9,12 @@ impl ByteOrder {
     pub const LittleEndian: Self = Self(0i32);
     pub const BigEndian: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ByteOrder {}
+impl ::core::clone::Clone for ByteOrder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DataReader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -27,6 +33,12 @@ impl FileOpenDisposition {
     pub const CreateNew: Self = Self(2i32);
     pub const CreateAlways: Self = Self(3i32);
     pub const TruncateExisting: Self = Self(4i32);
+}
+impl ::core::marker::Copy for FileOpenDisposition {}
+impl ::core::clone::Clone for FileOpenDisposition {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FileOutputStream(pub *mut ::core::ffi::c_void);
@@ -79,6 +91,12 @@ impl InputStreamOptions {
     pub const Partial: Self = Self(1u32);
     pub const ReadAhead: Self = Self(2u32);
 }
+impl ::core::marker::Copy for InputStreamOptions {}
+impl ::core::clone::Clone for InputStreamOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InputStreamOverStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -93,4 +111,10 @@ impl UnicodeEncoding {
     pub const Utf8: Self = Self(0i32);
     pub const Utf16LE: Self = Self(1i32);
     pub const Utf16BE: Self = Self(2i32);
+}
+impl ::core::marker::Copy for UnicodeEncoding {}
+impl ::core::clone::Clone for UnicodeEncoding {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

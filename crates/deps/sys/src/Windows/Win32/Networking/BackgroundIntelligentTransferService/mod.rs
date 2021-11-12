@@ -36,10 +36,22 @@ pub const BG_AUTH_SCHEME_DIGEST: BG_AUTH_SCHEME = BG_AUTH_SCHEME(2i32);
 pub const BG_AUTH_SCHEME_NTLM: BG_AUTH_SCHEME = BG_AUTH_SCHEME(3i32);
 pub const BG_AUTH_SCHEME_NEGOTIATE: BG_AUTH_SCHEME = BG_AUTH_SCHEME(4i32);
 pub const BG_AUTH_SCHEME_PASSPORT: BG_AUTH_SCHEME = BG_AUTH_SCHEME(5i32);
+impl ::core::marker::Copy for BG_AUTH_SCHEME {}
+impl ::core::clone::Clone for BG_AUTH_SCHEME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BG_AUTH_TARGET(pub i32);
 pub const BG_AUTH_TARGET_SERVER: BG_AUTH_TARGET = BG_AUTH_TARGET(1i32);
 pub const BG_AUTH_TARGET_PROXY: BG_AUTH_TARGET = BG_AUTH_TARGET(2i32);
+impl ::core::marker::Copy for BG_AUTH_TARGET {}
+impl ::core::clone::Clone for BG_AUTH_TARGET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BG_BASIC_CREDENTIALS {
@@ -64,6 +76,12 @@ pub const BG_CERT_STORE_LOCATION_USERS: BG_CERT_STORE_LOCATION = BG_CERT_STORE_L
 pub const BG_CERT_STORE_LOCATION_CURRENT_USER_GROUP_POLICY: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(5i32);
 pub const BG_CERT_STORE_LOCATION_LOCAL_MACHINE_GROUP_POLICY: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(6i32);
 pub const BG_CERT_STORE_LOCATION_LOCAL_MACHINE_ENTERPRISE: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(7i32);
+impl ::core::marker::Copy for BG_CERT_STORE_LOCATION {}
+impl ::core::clone::Clone for BG_CERT_STORE_LOCATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BG_COPY_FILE_ALL: u32 = 15u32;
 pub const BG_COPY_FILE_DACL: u32 = 4u32;
 pub const BG_COPY_FILE_GROUP: u32 = 2u32;
@@ -83,6 +101,12 @@ pub const BG_ERROR_CONTEXT_REMOTE_FILE: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(5i32
 pub const BG_ERROR_CONTEXT_GENERAL_TRANSPORT: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(6i32);
 pub const BG_ERROR_CONTEXT_REMOTE_APPLICATION: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(7i32);
 pub const BG_ERROR_CONTEXT_SERVER_CERTIFICATE_CALLBACK: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(8i32);
+impl ::core::marker::Copy for BG_ERROR_CONTEXT {}
+impl ::core::clone::Clone for BG_ERROR_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BG_E_APP_PACKAGE_NOT_FOUND: i32 = -2145386390i32;
 pub const BG_E_APP_PACKAGE_SCENARIO_NOT_SUPPORTED: i32 = -2145386389i32;
 pub const BG_E_BLOCKED_BY_BACKGROUND_ACCESS_POLICY: i32 = -2145386386i32;
@@ -265,6 +289,12 @@ pub const BG_JOB_PRIORITY_FOREGROUND: BG_JOB_PRIORITY = BG_JOB_PRIORITY(0i32);
 pub const BG_JOB_PRIORITY_HIGH: BG_JOB_PRIORITY = BG_JOB_PRIORITY(1i32);
 pub const BG_JOB_PRIORITY_NORMAL: BG_JOB_PRIORITY = BG_JOB_PRIORITY(2i32);
 pub const BG_JOB_PRIORITY_LOW: BG_JOB_PRIORITY = BG_JOB_PRIORITY(3i32);
+impl ::core::marker::Copy for BG_JOB_PRIORITY {}
+impl ::core::clone::Clone for BG_JOB_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct BG_JOB_PROGRESS {
     pub BytesTotal: u64,
@@ -284,6 +314,12 @@ pub const BG_JOB_PROXY_USAGE_PRECONFIG: BG_JOB_PROXY_USAGE = BG_JOB_PROXY_USAGE(
 pub const BG_JOB_PROXY_USAGE_NO_PROXY: BG_JOB_PROXY_USAGE = BG_JOB_PROXY_USAGE(1i32);
 pub const BG_JOB_PROXY_USAGE_OVERRIDE: BG_JOB_PROXY_USAGE = BG_JOB_PROXY_USAGE(2i32);
 pub const BG_JOB_PROXY_USAGE_AUTODETECT: BG_JOB_PROXY_USAGE = BG_JOB_PROXY_USAGE(3i32);
+impl ::core::marker::Copy for BG_JOB_PROXY_USAGE {}
+impl ::core::clone::Clone for BG_JOB_PROXY_USAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct BG_JOB_REPLY_PROGRESS {
     pub BytesTotal: u64,
@@ -306,6 +342,12 @@ pub const BG_JOB_STATE_TRANSIENT_ERROR: BG_JOB_STATE = BG_JOB_STATE(5i32);
 pub const BG_JOB_STATE_TRANSFERRED: BG_JOB_STATE = BG_JOB_STATE(6i32);
 pub const BG_JOB_STATE_ACKNOWLEDGED: BG_JOB_STATE = BG_JOB_STATE(7i32);
 pub const BG_JOB_STATE_CANCELLED: BG_JOB_STATE = BG_JOB_STATE(8i32);
+impl ::core::marker::Copy for BG_JOB_STATE {}
+impl ::core::clone::Clone for BG_JOB_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BG_JOB_TIMES {
@@ -326,6 +368,12 @@ pub struct BG_JOB_TYPE(pub i32);
 pub const BG_JOB_TYPE_DOWNLOAD: BG_JOB_TYPE = BG_JOB_TYPE(0i32);
 pub const BG_JOB_TYPE_UPLOAD: BG_JOB_TYPE = BG_JOB_TYPE(1i32);
 pub const BG_JOB_TYPE_UPLOAD_REPLY: BG_JOB_TYPE = BG_JOB_TYPE(2i32);
+impl ::core::marker::Copy for BG_JOB_TYPE {}
+impl ::core::clone::Clone for BG_JOB_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BG_NOTIFY_DISABLE: u32 = 4u32;
 pub const BG_NOTIFY_FILE_RANGES_TRANSFERRED: u32 = 32u32;
 pub const BG_NOTIFY_FILE_TRANSFERRED: u32 = 16u32;
@@ -346,6 +394,12 @@ pub const BG_S_UNABLE_TO_DELETE_FILES: i32 = 2097178i32;
 pub struct BG_TOKEN(pub u32);
 pub const BG_TOKEN_LOCAL_FILE: BG_TOKEN = BG_TOKEN(1u32);
 pub const BG_TOKEN_NETWORK: BG_TOKEN = BG_TOKEN(2u32);
+impl ::core::marker::Copy for BG_TOKEN {}
+impl ::core::clone::Clone for BG_TOKEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BITSExtensionSetupFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4022053736,
     data2: 29318,
@@ -365,6 +419,12 @@ pub const BITS_COST_STATE_USAGE_BASED: u32 = 64u32;
 #[repr(transparent)]
 pub struct BITS_FILE_PROPERTY_ID(pub i32);
 pub const BITS_FILE_PROPERTY_ID_HTTP_RESPONSE_HEADERS: BITS_FILE_PROPERTY_ID = BITS_FILE_PROPERTY_ID(1i32);
+impl ::core::marker::Copy for BITS_FILE_PROPERTY_ID {}
+impl ::core::clone::Clone for BITS_FILE_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union BITS_FILE_PROPERTY_VALUE {
@@ -386,6 +446,12 @@ pub const BITS_JOB_PROPERTY_MAX_DOWNLOAD_SIZE: BITS_JOB_PROPERTY_ID = BITS_JOB_P
 pub const BITS_JOB_PROPERTY_USE_STORED_CREDENTIALS: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(7i32);
 pub const BITS_JOB_PROPERTY_MINIMUM_NOTIFICATION_INTERVAL_MS: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(9i32);
 pub const BITS_JOB_PROPERTY_ON_DEMAND_MODE: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(10i32);
+impl ::core::marker::Copy for BITS_JOB_PROPERTY_ID {}
+impl ::core::clone::Clone for BITS_JOB_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union BITS_JOB_PROPERTY_VALUE {
@@ -408,6 +474,12 @@ pub const BITS_JOB_TRANSFER_POLICY_NOT_ROAMING: BITS_JOB_TRANSFER_POLICY = BITS_
 pub const BITS_JOB_TRANSFER_POLICY_NO_SURCHARGE: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483537i32);
 pub const BITS_JOB_TRANSFER_POLICY_STANDARD: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483545i32);
 pub const BITS_JOB_TRANSFER_POLICY_UNRESTRICTED: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483615i32);
+impl ::core::marker::Copy for BITS_JOB_TRANSFER_POLICY {}
+impl ::core::clone::Clone for BITS_JOB_TRANSFER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BITS_MC_FAILED_TO_START: i32 = -2145828856i32;
 pub const BITS_MC_FATAL_IGD_ERROR: i32 = -2145828855i32;
 pub const BITS_MC_FILE_DELETION_FAILED: i32 = -2145828863i32;
@@ -486,6 +558,12 @@ pub const GROUPPROP_PROGRESSPERCENT: GROUPPROP = GROUPPROP(9i32);
 pub const GROUPPROP_PROGRESSTIME: GROUPPROP = GROUPPROP(10i32);
 pub const GROUPPROP_DISPLAYNAME: GROUPPROP = GROUPPROP(11i32);
 pub const GROUPPROP_DESCRIPTION: GROUPPROP = GROUPPROP(12i32);
+impl ::core::marker::Copy for GROUPPROP {}
+impl ::core::clone::Clone for GROUPPROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBITSExtensionSetup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

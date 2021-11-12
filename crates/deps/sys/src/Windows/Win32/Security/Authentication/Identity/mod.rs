@@ -412,6 +412,12 @@ pub const ASC_REQ_EXTENDED_ERROR: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_S
 pub const ASC_REQ_REPLAY_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(4u32);
 pub const ASC_REQ_SEQUENCE_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(8u32);
 pub const ASC_REQ_STREAM: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(65536u32);
+impl ::core::marker::Copy for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {}
+impl ::core::clone::Clone for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ACCEPT_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut SecBufferDesc, param3: u32, param4: u32, param5: *mut super::super::Credentials::SecHandle, param6: *mut SecBufferDesc, param7: *mut u32, param8: *mut i64) -> i32;
 pub const ACCOUNT_ADJUST_PRIVILEGES: i32 = 2i32;
@@ -647,6 +653,12 @@ pub struct CRED_FETCH(pub i32);
 pub const CredFetchDefault: CRED_FETCH = CRED_FETCH(0i32);
 pub const CredFetchDPAPI: CRED_FETCH = CRED_FETCH(1i32);
 pub const CredFetchForced: CRED_FETCH = CRED_FETCH(2i32);
+impl ::core::marker::Copy for CRED_FETCH {}
+impl ::core::clone::Clone for CRED_FETCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRED_MARSHALED_TI_SIZE_SIZE: u32 = 12u32;
 pub const CYPHER_BLOCK_LENGTH: u32 = 8u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
@@ -686,6 +698,12 @@ pub const DOMAIN_PASSWORD_NO_CLEAR_CHANGE: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_P
 pub const DOMAIN_LOCKOUT_ADMINS: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(8u32);
 pub const DOMAIN_PASSWORD_STORE_CLEARTEXT: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(16u32);
 pub const DOMAIN_REFUSE_PASSWORD_CHANGE: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(32u32);
+impl ::core::marker::Copy for DOMAIN_PASSWORD_PROPERTIES {}
+impl ::core::clone::Clone for DOMAIN_PASSWORD_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_UNKNOWN_ADDRESS_TYPE: u32 = 0u32;
 pub const ENABLE_TLS_CLIENT_EARLY_START: u32 = 1u32;
 #[repr(C)]
@@ -711,6 +729,12 @@ pub struct EXPORT_SECURITY_CONTEXT_FLAGS(pub u32);
 pub const SECPKG_CONTEXT_EXPORT_RESET_NEW: EXPORT_SECURITY_CONTEXT_FLAGS = EXPORT_SECURITY_CONTEXT_FLAGS(1u32);
 pub const SECPKG_CONTEXT_EXPORT_DELETE_OLD: EXPORT_SECURITY_CONTEXT_FLAGS = EXPORT_SECURITY_CONTEXT_FLAGS(2u32);
 pub const SECPKG_CONTEXT_EXPORT_TO_KERNEL: EXPORT_SECURITY_CONTEXT_FLAGS = EXPORT_SECURITY_CONTEXT_FLAGS(4u32);
+impl ::core::marker::Copy for EXPORT_SECURITY_CONTEXT_FLAGS {}
+impl ::core::clone::Clone for EXPORT_SECURITY_CONTEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type EXPORT_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBuffer, param3: *mut *mut ::core::ffi::c_void) -> i32;
 #[repr(transparent)]
@@ -727,6 +751,12 @@ pub const NameServicePrincipal: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(10i3
 pub const NameDnsDomain: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(12i32);
 pub const NameGivenName: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(13i32);
 pub const NameSurname: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(14i32);
+impl ::core::marker::Copy for EXTENDED_NAME_FORMAT {}
+impl ::core::clone::Clone for EXTENDED_NAME_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const E_RM_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073415165i32 as _);
 pub const FACILITY_SL_ITF: u32 = 4u32;
 pub type FREE_CONTEXT_BUFFER_FN = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32;
@@ -837,6 +867,12 @@ pub const KERBEROS_VERSION: u32 = 5u32;
 pub struct KERB_ADDRESS_TYPE(pub u32);
 pub const DS_INET_ADDRESS: KERB_ADDRESS_TYPE = KERB_ADDRESS_TYPE(1u32);
 pub const DS_NETBIOS_ADDRESS: KERB_ADDRESS_TYPE = KERB_ADDRESS_TYPE(2u32);
+impl ::core::marker::Copy for KERB_ADDRESS_TYPE {}
+impl ::core::clone::Clone for KERB_ADDRESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
@@ -960,6 +996,12 @@ impl ::core::clone::Clone for KERB_CERTIFICATE_INFO {
 #[repr(transparent)]
 pub struct KERB_CERTIFICATE_INFO_TYPE(pub i32);
 pub const CertHashInfo: KERB_CERTIFICATE_INFO_TYPE = KERB_CERTIFICATE_INFO_TYPE(1i32);
+impl ::core::marker::Copy for KERB_CERTIFICATE_INFO_TYPE {}
+impl ::core::clone::Clone for KERB_CERTIFICATE_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KERB_CERTIFICATE_LOGON {
@@ -1140,6 +1182,12 @@ pub const KERB_ETYPE_DES_CBC_MD5: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(3i
 pub const KERB_ETYPE_NULL: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(0i32);
 pub const KERB_ETYPE_RC4_HMAC_NT: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(23i32);
 pub const KERB_ETYPE_RC4_MD4: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(-128i32);
+impl ::core::marker::Copy for KERB_CRYPTO_KEY_TYPE {}
+impl ::core::clone::Clone for KERB_CRYPTO_KEY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KERB_DECRYPT_FLAG_DEFAULT_KEY: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1324,6 +1372,12 @@ pub const KerbCertificateS4ULogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TY
 pub const KerbCertificateUnlockLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(15i32);
 pub const KerbNoElevationLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(83i32);
 pub const KerbLuidLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(84i32);
+impl ::core::marker::Copy for KERB_LOGON_SUBMIT_TYPE {}
+impl ::core::clone::Clone for KERB_LOGON_SUBMIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KERB_NET_ADDRESS {
@@ -1358,6 +1412,12 @@ pub struct KERB_PROFILE_BUFFER_TYPE(pub i32);
 pub const KerbInteractiveProfile: KERB_PROFILE_BUFFER_TYPE = KERB_PROFILE_BUFFER_TYPE(2i32);
 pub const KerbSmartCardProfile: KERB_PROFILE_BUFFER_TYPE = KERB_PROFILE_BUFFER_TYPE(4i32);
 pub const KerbTicketProfile: KERB_PROFILE_BUFFER_TYPE = KERB_PROFILE_BUFFER_TYPE(6i32);
+impl ::core::marker::Copy for KERB_PROFILE_BUFFER_TYPE {}
+impl ::core::clone::Clone for KERB_PROFILE_BUFFER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KERB_PROTOCOL_MESSAGE_TYPE(pub i32);
 pub const KerbDebugRequestMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(0i32);
@@ -1397,6 +1457,12 @@ pub const KerbQueryS4U2ProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROT
 pub const KerbRetrieveKeyTabMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(34i32);
 pub const KerbRefreshPolicyMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(35i32);
 pub const KerbPrintCloudKerberosDebugMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(36i32);
+impl ::core::marker::Copy for KERB_PROTOCOL_MESSAGE_TYPE {}
+impl ::core::clone::Clone for KERB_PROTOCOL_MESSAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KERB_PURGE_ALL_TICKETS: u32 = 1u32;
 #[repr(C)]
 pub struct KERB_PURGE_BINDING_CACHE_REQUEST {
@@ -1701,6 +1767,12 @@ pub struct KERB_REQUEST_FLAGS(pub u32);
 pub const KERB_REQUEST_ADD_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(1u32);
 pub const KERB_REQUEST_REPLACE_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(2u32);
 pub const KERB_REQUEST_REMOVE_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(4u32);
+impl ::core::marker::Copy for KERB_REQUEST_FLAGS {}
+impl ::core::clone::Clone for KERB_REQUEST_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
@@ -2037,6 +2109,12 @@ pub const KERB_TICKET_FLAGS_proxy: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(1342177
 pub const KERB_TICKET_FLAGS_renewable: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(8388608u32);
 pub const KERB_TICKET_FLAGS_reserved: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(2147483648u32);
 pub const KERB_TICKET_FLAGS_reserved1: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(1u32);
+impl ::core::marker::Copy for KERB_TICKET_FLAGS {}
+impl ::core::clone::Clone for KERB_TICKET_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KERB_TICKET_FLAGS_cname_in_pa_data: u32 = 262144u32;
 pub const KERB_TICKET_FLAGS_enc_pa_rep: u32 = 65536u32;
 pub const KERB_TICKET_FLAGS_name_canonicalize: u32 = 65536u32;
@@ -2123,6 +2201,12 @@ pub const KRB_NT_X500_PRINCIPAL: u32 = 6u32;
 pub struct KSEC_CONTEXT_TYPE(pub i32);
 pub const KSecPaged: KSEC_CONTEXT_TYPE = KSEC_CONTEXT_TYPE(0i32);
 pub const KSecNonPaged: KSEC_CONTEXT_TYPE = KSEC_CONTEXT_TYPE(1i32);
+impl ::core::marker::Copy for KSEC_CONTEXT_TYPE {}
+impl ::core::clone::Clone for KSEC_CONTEXT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct KSEC_LIST_ENTRY {
@@ -2216,6 +2300,12 @@ pub const TRUST_AUTH_TYPE_NONE: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORM
 pub const TRUST_AUTH_TYPE_NT4OWF: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORMATION_AUTH_TYPE(1u32);
 pub const TRUST_AUTH_TYPE_CLEAR: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORMATION_AUTH_TYPE(2u32);
 pub const TRUST_AUTH_TYPE_VERSION: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORMATION_AUTH_TYPE(3u32);
+impl ::core::marker::Copy for LSA_AUTH_INFORMATION_AUTH_TYPE {}
+impl ::core::clone::Clone for LSA_AUTH_INFORMATION_AUTH_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LSA_CALL_LICENSE_SERVER: u32 = 2147483648u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -2299,6 +2389,12 @@ pub struct LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(pub i32);
 pub const CollisionTdo: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(0i32);
 pub const CollisionXref: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(1i32);
 pub const CollisionOther: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(2i32);
+impl ::core::marker::Copy for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {}
+impl ::core::clone::Clone for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
@@ -2363,6 +2459,12 @@ pub const ForestTrustTopLevelName: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRU
 pub const ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(1i32);
 pub const ForestTrustDomainInfo: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(2i32);
 pub const ForestTrustRecordTypeLast: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(2i32);
+impl ::core::marker::Copy for LSA_FOREST_TRUST_RECORD_TYPE {}
+impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LSA_FOREST_TRUST_RECORD_TYPE_UNRECOGNIZED: u32 = 2147483648u32;
 pub const LSA_FTRECORD_DISABLED_REASONS: i32 = 65535i32;
 pub const LSA_GLOBAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
@@ -2384,6 +2486,12 @@ pub const LSA_LOOKUP_DISALLOW_CONNECTED_ACCOUNT_INTERNET_SID: u32 = 2147483648u3
 pub struct LSA_LOOKUP_DOMAIN_INFO_CLASS(pub i32);
 pub const AccountDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = LSA_LOOKUP_DOMAIN_INFO_CLASS(5i32);
 pub const DnsDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = LSA_LOOKUP_DOMAIN_INFO_CLASS(12i32);
+impl ::core::marker::Copy for LSA_LOOKUP_DOMAIN_INFO_CLASS {}
+impl ::core::clone::Clone for LSA_LOOKUP_DOMAIN_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LSA_LOOKUP_ISOLATED_AS_LOCAL: u32 = 2147483648u32;
 pub const LSA_LOOKUP_PREFER_INTERNET_NAMES: u32 = 1073741824u32;
 pub const LSA_MAXIMUM_ENUMERATION_LENGTH: u32 = 32000u32;
@@ -2511,6 +2619,12 @@ pub const LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORM
 pub const LsaTokenInformationV1: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(1i32);
 pub const LsaTokenInformationV2: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(2i32);
 pub const LsaTokenInformationV3: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(3i32);
+impl ::core::marker::Copy for LSA_TOKEN_INFORMATION_TYPE {}
+impl ::core::clone::Clone for LSA_TOKEN_INFORMATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LSA_TOKEN_INFORMATION_V1 {
@@ -2630,6 +2744,12 @@ pub const MAX_USER_RECORDS: u32 = 1000u32;
 pub struct MSV1_0(pub u32);
 pub const MSV1_0_PASSTHRU: MSV1_0 = MSV1_0(1u32);
 pub const MSV1_0_GUEST_LOGON: MSV1_0 = MSV1_0(2u32);
+impl ::core::marker::Copy for MSV1_0 {}
+impl ::core::clone::Clone for MSV1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MSV1_0_ALLOW_FORCE_GUEST: u32 = 8192u32;
 pub const MSV1_0_ALLOW_MSVCHAPV2: u32 = 65536u32;
 #[repr(transparent)]
@@ -2645,6 +2765,12 @@ pub const MsvAvTimestamp: MSV1_0_AVID = MSV1_0_AVID(7i32);
 pub const MsvAvRestrictions: MSV1_0_AVID = MSV1_0_AVID(8i32);
 pub const MsvAvTargetName: MSV1_0_AVID = MSV1_0_AVID(9i32);
 pub const MsvAvChannelBindings: MSV1_0_AVID = MSV1_0_AVID(10i32);
+impl ::core::marker::Copy for MSV1_0_AVID {}
+impl ::core::clone::Clone for MSV1_0_AVID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MSV1_0_AV_FLAG_FORCE_GUEST: u32 = 1u32;
 pub const MSV1_0_AV_FLAG_MIC_HANDSHAKE_MESSAGES: u32 = 2u32;
 pub const MSV1_0_AV_FLAG_UNVERIFIED_TARGET: u32 = 4u32;
@@ -2713,6 +2839,12 @@ pub const DeprecatedIUMCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_K
 pub const DomainUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(2i32);
 pub const LocalUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(3i32);
 pub const ExternallySuppliedCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(4i32);
+impl ::core::marker::Copy for MSV1_0_CREDENTIAL_KEY_TYPE {}
+impl ::core::clone::Clone for MSV1_0_CREDENTIAL_KEY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MSV1_0_CRED_CREDKEY_PRESENT: u32 = 8u32;
 pub const MSV1_0_CRED_REMOVED: u32 = 4u32;
 pub const MSV1_0_CRED_SHA_PRESENT: u32 = 16u32;
@@ -2834,6 +2966,12 @@ pub const MsV1_0S4ULogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(12
 pub const MsV1_0VirtualLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(82i32);
 pub const MsV1_0NoElevationLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(83i32);
 pub const MsV1_0LuidLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(84i32);
+impl ::core::marker::Copy for MSV1_0_LOGON_SUBMIT_TYPE {}
+impl ::core::clone::Clone for MSV1_0_LOGON_SUBMIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MSV1_0_MAX_AVL_SIZE: u32 = 64000u32;
 pub const MSV1_0_MAX_NTLM3_LIFE: u32 = 1800u32;
 pub const MSV1_0_MNS_LOGON: u32 = 16777216u32;
@@ -2894,6 +3032,12 @@ pub struct MSV1_0_PROFILE_BUFFER_TYPE(pub i32);
 pub const MsV1_0InteractiveProfile: MSV1_0_PROFILE_BUFFER_TYPE = MSV1_0_PROFILE_BUFFER_TYPE(2i32);
 pub const MsV1_0Lm20LogonProfile: MSV1_0_PROFILE_BUFFER_TYPE = MSV1_0_PROFILE_BUFFER_TYPE(3i32);
 pub const MsV1_0SmartCardProfile: MSV1_0_PROFILE_BUFFER_TYPE = MSV1_0_PROFILE_BUFFER_TYPE(4i32);
+impl ::core::marker::Copy for MSV1_0_PROFILE_BUFFER_TYPE {}
+impl ::core::clone::Clone for MSV1_0_PROFILE_BUFFER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSV1_0_PROTOCOL_MESSAGE_TYPE(pub i32);
 pub const MsV1_0Lm20ChallengeRequest: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(0i32);
@@ -2921,6 +3065,12 @@ pub const MsV1_0GetStrongCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PR
 pub const MsV1_0TransferCred: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(22i32);
 pub const MsV1_0ProvisionTbal: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(23i32);
 pub const MsV1_0DeleteTbalSecrets: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(24i32);
+impl ::core::marker::Copy for MSV1_0_PROTOCOL_MESSAGE_TYPE {}
+impl ::core::clone::Clone for MSV1_0_PROTOCOL_MESSAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 pub struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     pub Version: u32,
@@ -3099,6 +3249,12 @@ pub const MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CO
 pub const MSV1_0_TRY_GUEST_ACCOUNT_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(256u32);
 pub const MSV1_0_RETURN_PROFILE_PATH: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(512u32);
 pub const MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(1024u32);
+impl ::core::marker::Copy for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {}
+impl ::core::clone::Clone for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSV_SUB_AUTHENTICATION_FILTER(pub u32);
 pub const LOGON_GUEST: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(1u32);
@@ -3110,11 +3266,23 @@ pub const LOGON_SUBAUTH_SESSION_KEY: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUT
 pub const LOGON_SERVER_TRUST_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(128u32);
 pub const LOGON_PROFILE_PATH_RETURNED: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(1024u32);
 pub const LOGON_RESOURCE_GROUPS: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(512u32);
+impl ::core::marker::Copy for MSV_SUB_AUTHENTICATION_FILTER {}
+impl ::core::clone::Clone for MSV_SUB_AUTHENTICATION_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(pub u32);
 pub const MSV1_0_CRED_LM_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(1u32);
 pub const MSV1_0_CRED_NT_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(2u32);
 pub const MSV1_0_CRED_VERSION: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(0u32);
+impl ::core::marker::Copy for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {}
+impl ::core::clone::Clone for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NEGOTIATE_ALLOW_NTLM: u32 = 268435456u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3152,6 +3320,12 @@ pub const NegGetCallerName: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(1i32);
 pub const NegTransferCredentials: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(2i32);
 pub const NegMsgReserved1: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(3i32);
 pub const NegCallPackageMax: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(4i32);
+impl ::core::marker::Copy for NEGOTIATE_MESSAGES {}
+impl ::core::clone::Clone for NEGOTIATE_MESSAGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NEGOTIATE_NEG_NTLM: u32 = 536870912u32;
 #[repr(C)]
 pub struct NEGOTIATE_PACKAGE_PREFIX {
@@ -3237,6 +3411,12 @@ pub const NetlogonGenericInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON
 pub const NetlogonInteractiveTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(5i32);
 pub const NetlogonNetworkTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(6i32);
 pub const NetlogonServiceTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(7i32);
+impl ::core::marker::Copy for NETLOGON_LOGON_INFO_CLASS {}
+impl ::core::clone::Clone for NETLOGON_LOGON_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct NETLOGON_NETWORK_INFO {
@@ -3349,6 +3529,12 @@ impl ::core::clone::Clone for PKU2U_CREDUI_CONTEXT {
 #[repr(transparent)]
 pub struct PKU2U_LOGON_SUBMIT_TYPE(pub i32);
 pub const Pku2uCertificateS4ULogon: PKU2U_LOGON_SUBMIT_TYPE = PKU2U_LOGON_SUBMIT_TYPE(14i32);
+impl ::core::marker::Copy for PKU2U_LOGON_SUBMIT_TYPE {}
+impl ::core::clone::Clone for PKU2U_LOGON_SUBMIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PLSA_ADD_CREDENTIAL = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING, credentials: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS;
 #[cfg(feature = "Win32_Foundation")]
@@ -3687,6 +3873,12 @@ pub const AuditCategoryPolicyChange: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVEN
 pub const AuditCategoryAccountManagement: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(6i32);
 pub const AuditCategoryDirectoryServiceAccess: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(7i32);
 pub const AuditCategoryAccountLogon: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(8i32);
+impl ::core::marker::Copy for POLICY_AUDIT_EVENT_TYPE {}
+impl ::core::clone::Clone for POLICY_AUDIT_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const POLICY_AUDIT_EVENT_UNCHANGED: i32 = 0i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3804,6 +3996,12 @@ impl ::core::clone::Clone for POLICY_DOMAIN_EFS_INFO {
 pub struct POLICY_DOMAIN_INFORMATION_CLASS(pub i32);
 pub const PolicyDomainEfsInformation: POLICY_DOMAIN_INFORMATION_CLASS = POLICY_DOMAIN_INFORMATION_CLASS(2i32);
 pub const PolicyDomainKerberosTicketInformation: POLICY_DOMAIN_INFORMATION_CLASS = POLICY_DOMAIN_INFORMATION_CLASS(3i32);
+impl ::core::marker::Copy for POLICY_DOMAIN_INFORMATION_CLASS {}
+impl ::core::clone::Clone for POLICY_DOMAIN_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     pub AuthenticationOptions: u32,
@@ -3838,12 +4036,24 @@ pub const PolicyDnsDomainInformationInt: POLICY_INFORMATION_CLASS = POLICY_INFOR
 pub const PolicyLocalAccountDomainInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(14i32);
 pub const PolicyMachineAccountInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(15i32);
 pub const PolicyLastEntry: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(16i32);
+impl ::core::marker::Copy for POLICY_INFORMATION_CLASS {}
+impl ::core::clone::Clone for POLICY_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const POLICY_KERBEROS_VALIDATE_CLIENT: u32 = 128u32;
 pub const POLICY_LOOKUP_NAMES: i32 = 2048i32;
 #[repr(transparent)]
 pub struct POLICY_LSA_SERVER_ROLE(pub i32);
 pub const PolicyServerRoleBackup: POLICY_LSA_SERVER_ROLE = POLICY_LSA_SERVER_ROLE(2i32);
 pub const PolicyServerRolePrimary: POLICY_LSA_SERVER_ROLE = POLICY_LSA_SERVER_ROLE(3i32);
+impl ::core::marker::Copy for POLICY_LSA_SERVER_ROLE {}
+impl ::core::clone::Clone for POLICY_LSA_SERVER_ROLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct POLICY_LSA_SERVER_ROLE_INFO {
     pub LsaServerRole: POLICY_LSA_SERVER_ROLE,
@@ -3891,6 +4101,12 @@ pub const PolicyNotifyDomainKerberosTicketInformation: POLICY_NOTIFICATION_INFOR
 pub const PolicyNotifyMachineAccountPasswordInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(7i32);
 pub const PolicyNotifyGlobalSaclInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(8i32);
 pub const PolicyNotifyMax: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(9i32);
+impl ::core::marker::Copy for POLICY_NOTIFICATION_INFORMATION_CLASS {}
+impl ::core::clone::Clone for POLICY_NOTIFICATION_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_PD_ACCOUNT_INFO {
@@ -4084,6 +4300,12 @@ impl ::core::clone::Clone for SAM_REGISTER_MAPPING_TABLE {
 pub struct SASL_AUTHZID_STATE(pub i32);
 pub const Sasl_AuthZIDForbidden: SASL_AUTHZID_STATE = SASL_AUTHZID_STATE(0i32);
 pub const Sasl_AuthZIDProcessed: SASL_AUTHZID_STATE = SASL_AUTHZID_STATE(1i32);
+impl ::core::marker::Copy for SASL_AUTHZID_STATE {}
+impl ::core::clone::Clone for SASL_AUTHZID_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SASL_OPTION_AUTHZ_PROCESSING: u32 = 4u32;
 pub const SASL_OPTION_AUTHZ_STRING: u32 = 3u32;
 pub const SASL_OPTION_RECV_SIZE: u32 = 2u32;
@@ -4105,6 +4327,12 @@ impl ::core::clone::Clone for SCHANNEL_ALERT_TOKEN {
 pub struct SCHANNEL_ALERT_TOKEN_ALERT_TYPE(pub u32);
 pub const TLS1_ALERT_WARNING: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = SCHANNEL_ALERT_TOKEN_ALERT_TYPE(1u32);
 pub const TLS1_ALERT_FATAL: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = SCHANNEL_ALERT_TOKEN_ALERT_TYPE(2u32);
+impl ::core::marker::Copy for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {}
+impl ::core::clone::Clone for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCHANNEL_CERT_HASH {
     pub dwLength: u32,
@@ -4191,6 +4419,12 @@ pub const SCH_SEND_AUX_RECORD: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(2097152
 pub const SCH_SEND_ROOT_CERT: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(262144u32);
 pub const SCH_USE_STRONG_CRYPTO: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(4194304u32);
 pub const SCH_USE_PRESHAREDKEY_ONLY: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(8388608u32);
+impl ::core::marker::Copy for SCHANNEL_CRED_FLAGS {}
+impl ::core::clone::Clone for SCHANNEL_CRED_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCHANNEL_CRED_VERSION: u32 = 4u32;
 pub const SCHANNEL_RENEGOTIATE: u32 = 0u32;
 pub const SCHANNEL_SECRET_PRIVKEY: u32 = 2u32;
@@ -4211,6 +4445,12 @@ impl ::core::clone::Clone for SCHANNEL_SESSION_TOKEN {
 pub struct SCHANNEL_SESSION_TOKEN_FLAGS(pub u32);
 pub const SSL_SESSION_ENABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = SCHANNEL_SESSION_TOKEN_FLAGS(1u32);
 pub const SSL_SESSION_DISABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = SCHANNEL_SESSION_TOKEN_FLAGS(2u32);
+impl ::core::marker::Copy for SCHANNEL_SESSION_TOKEN_FLAGS {}
+impl ::core::clone::Clone for SCHANNEL_SESSION_TOKEN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCHANNEL_SHUTDOWN: u32 = 1u32;
 pub const SCH_ALLOW_NULL_ENCRYPTION: u32 = 33554432u32;
 #[repr(C)]
@@ -4407,6 +4647,12 @@ pub const SECPKG_ATTR_STREAM_SIZES: SECPKG_ATTR = SECPKG_ATTR(4u32);
 pub const SECPKG_ATTR_SUPPORTED_SIGNATURES: SECPKG_ATTR = SECPKG_ATTR(102u32);
 pub const SECPKG_ATTR_TARGET_INFORMATION: SECPKG_ATTR = SECPKG_ATTR(17u32);
 pub const SECPKG_ATTR_UNIQUE_BINDINGS: SECPKG_ATTR = SECPKG_ATTR(25u32);
+impl ::core::marker::Copy for SECPKG_ATTR {}
+impl ::core::clone::Clone for SECPKG_ATTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SECPKG_ATTR_APPLICATION_PROTOCOL: u32 = 35u32;
 pub const SECPKG_ATTR_AUTHENTICATION_ID: u32 = 20u32;
 pub const SECPKG_ATTR_CC_POLICY_RESULT: u32 = 97u32;
@@ -4428,6 +4674,12 @@ pub struct SECPKG_ATTR_LCT_STATUS(pub i32);
 pub const SecPkgAttrLastClientTokenYes: SECPKG_ATTR_LCT_STATUS = SECPKG_ATTR_LCT_STATUS(0i32);
 pub const SecPkgAttrLastClientTokenNo: SECPKG_ATTR_LCT_STATUS = SECPKG_ATTR_LCT_STATUS(1i32);
 pub const SecPkgAttrLastClientTokenMaybe: SECPKG_ATTR_LCT_STATUS = SECPKG_ATTR_LCT_STATUS(2i32);
+impl ::core::marker::Copy for SECPKG_ATTR_LCT_STATUS {}
+impl ::core::clone::Clone for SECPKG_ATTR_LCT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SECPKG_ATTR_LOCAL_CERT_INFO: u32 = 99u32;
 pub const SECPKG_ATTR_LOGOFF_TIME: u32 = 21u32;
 pub const SECPKG_ATTR_MAPPED_CRED_ATTR: u32 = 92u32;
@@ -4501,6 +4753,12 @@ pub const SecPkgCallPackagePinDcMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECP
 pub const SecPkgCallPackageUnpinAllDcsMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1025i32);
 pub const SecPkgCallPackageTransferCredMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1026i32);
 pub const SecPkgCallPackageMaxMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1026i32);
+impl ::core::marker::Copy for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {}
+impl ::core::clone::Clone for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
@@ -4596,6 +4854,12 @@ impl ::core::clone::Clone for SECPKG_CONTEXT_THUNKS {
 pub struct SECPKG_CRED(pub u32);
 pub const SECPKG_CRED_INBOUND: SECPKG_CRED = SECPKG_CRED(1u32);
 pub const SECPKG_CRED_OUTBOUND: SECPKG_CRED = SECPKG_CRED(2u32);
+impl ::core::marker::Copy for SECPKG_CRED {}
+impl ::core::clone::Clone for SECPKG_CRED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_CREDENTIAL {
@@ -4640,6 +4904,12 @@ pub const SecPkgCredClass_Ephemeral: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(10i32
 pub const SecPkgCredClass_PersistedGeneric: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(20i32);
 pub const SecPkgCredClass_PersistedSpecific: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(30i32);
 pub const SecPkgCredClass_Explicit: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(40i32);
+impl ::core::marker::Copy for SECPKG_CRED_CLASS {}
+impl ::core::clone::Clone for SECPKG_CRED_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SECPKG_CRED_DEFAULT: u32 = 4u32;
 pub const SECPKG_CRED_PROCESS_POLICY_ONLY: u32 = 32u32;
 pub const SECPKG_CRED_RESERVED: u32 = 4026531840u32;
@@ -4738,6 +5008,12 @@ pub const SecpkgWowClientDll: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDE
 pub const SecpkgExtraOids: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(5i32);
 pub const SecpkgMaxInfo: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(6i32);
 pub const SecpkgNego2Info: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(7i32);
+impl ::core::marker::Copy for SECPKG_EXTENDED_INFORMATION_CLASS {}
+impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SECPKG_EXTRA_OIDS {
     pub OidCount: u32,
@@ -4917,6 +5193,12 @@ pub const SecNameAlternateId: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(1i32);
 pub const SecNameFlat: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(2i32);
 pub const SecNameDN: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(3i32);
 pub const SecNameSPN: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(4i32);
+impl ::core::marker::Copy for SECPKG_NAME_TYPE {}
+impl ::core::clone::Clone for SECPKG_NAME_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SECPKG_NEGO2_INFO {
     pub AuthScheme: [u8; 16],
@@ -4939,6 +5221,12 @@ pub struct SECPKG_PACKAGE_CHANGE_TYPE(pub u32);
 pub const SECPKG_PACKAGE_CHANGE_LOAD: SECPKG_PACKAGE_CHANGE_TYPE = SECPKG_PACKAGE_CHANGE_TYPE(0u32);
 pub const SECPKG_PACKAGE_CHANGE_UNLOAD: SECPKG_PACKAGE_CHANGE_TYPE = SECPKG_PACKAGE_CHANGE_TYPE(1u32);
 pub const SECPKG_PACKAGE_CHANGE_SELECT: SECPKG_PACKAGE_CHANGE_TYPE = SECPKG_PACKAGE_CHANGE_TYPE(2u32);
+impl ::core::marker::Copy for SECPKG_PACKAGE_CHANGE_TYPE {}
+impl ::core::clone::Clone for SECPKG_PACKAGE_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_PARAMETERS {
@@ -5063,6 +5351,12 @@ impl ::core::clone::Clone for SECPKG_SERIALIZED_OID {
 #[repr(transparent)]
 pub struct SECPKG_SESSIONINFO_TYPE(pub i32);
 pub const SecSessionPrimaryCred: SECPKG_SESSIONINFO_TYPE = SECPKG_SESSIONINFO_TYPE(0i32);
+impl ::core::marker::Copy for SECPKG_SESSIONINFO_TYPE {}
+impl ::core::clone::Clone for SECPKG_SESSIONINFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SECPKG_SHORT_VECTOR {
     pub ShortArrayOffset: u32,
@@ -5264,6 +5558,12 @@ impl SECURITY_LOGON_TYPE {
     pub const CachedRemoteInteractive: Self = Self(12i32);
     pub const CachedUnlock: Self = Self(13i32);
 }
+impl ::core::marker::Copy for SECURITY_LOGON_TYPE {}
+impl ::core::clone::Clone for SECURITY_LOGON_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SECURITY_NATIVE_DREP: u32 = 16u32;
 pub const SECURITY_NETWORK_DREP: u32 = 0u32;
 #[repr(C)]
@@ -5285,6 +5585,12 @@ pub struct SECURITY_PACKAGE_OPTIONS_TYPE(pub u32);
 pub const SECPKG_OPTIONS_TYPE_UNKNOWN: SECURITY_PACKAGE_OPTIONS_TYPE = SECURITY_PACKAGE_OPTIONS_TYPE(0u32);
 pub const SECPKG_OPTIONS_TYPE_LSA: SECURITY_PACKAGE_OPTIONS_TYPE = SECURITY_PACKAGE_OPTIONS_TYPE(1u32);
 pub const SECPKG_OPTIONS_TYPE_SSPI: SECURITY_PACKAGE_OPTIONS_TYPE = SECURITY_PACKAGE_OPTIONS_TYPE(2u32);
+impl ::core::marker::Copy for SECURITY_PACKAGE_OPTIONS_TYPE {}
+impl ::core::clone::Clone for SECURITY_PACKAGE_OPTIONS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION: u32 = 1u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_2: u32 = 2u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_3: u32 = 3u32;
@@ -5334,11 +5640,23 @@ pub struct SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(pub i32);
 pub const SecApplicationProtocolNegotiationExt_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(0i32);
 pub const SecApplicationProtocolNegotiationExt_NPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(1i32);
 pub const SecApplicationProtocolNegotiationExt_ALPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(2i32);
+impl ::core::marker::Copy for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {}
+impl ::core::clone::Clone for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(pub i32);
 pub const SecApplicationProtocolNegotiationStatus_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(0i32);
 pub const SecApplicationProtocolNegotiationStatus_Success: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(1i32);
 pub const SecApplicationProtocolNegotiationStatus_SelectedClientOnly: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(2i32);
+impl ::core::marker::Copy for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {}
+impl ::core::clone::Clone for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SEC_CHANNEL_BINDINGS {
     pub dwInitiatorAddrType: u32,
@@ -5471,6 +5789,12 @@ pub struct SEC_TRAFFIC_SECRET_TYPE(pub i32);
 pub const SecTrafficSecret_None: SEC_TRAFFIC_SECRET_TYPE = SEC_TRAFFIC_SECRET_TYPE(0i32);
 pub const SecTrafficSecret_Client: SEC_TRAFFIC_SECRET_TYPE = SEC_TRAFFIC_SECRET_TYPE(1i32);
 pub const SecTrafficSecret_Server: SEC_TRAFFIC_SECRET_TYPE = SEC_TRAFFIC_SECRET_TYPE(2i32);
+impl ::core::marker::Copy for SEC_TRAFFIC_SECRET_TYPE {}
+impl ::core::clone::Clone for SEC_TRAFFIC_SECRET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SEC_WINNT_AUTH_IDENTITY32 {
     pub User: u32,
@@ -5760,6 +6084,12 @@ pub const SeAdtParmTypeClaims: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(32i
 pub const SeAdtParmTypeLogonIdAsSid: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(33i32);
 pub const SeAdtParmTypeMultiSzString: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(34i32);
 pub const SeAdtParmTypeLogonIdEx: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(35i32);
+impl ::core::marker::Copy for SE_ADT_PARAMETER_TYPE {}
+impl ::core::clone::Clone for SE_ADT_PARAMETER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: u32 = 16u32;
 pub const SE_ADT_POLICY_AUDIT_EVENT_TYPE_EX_BEGIN: u32 = 100u32;
 pub const SE_MAX_AUDIT_PARAMETERS: u32 = 32u32;
@@ -5772,6 +6102,12 @@ pub const SL_DATA_DWORD: SLDATATYPE = SLDATATYPE(4u32);
 pub const SL_DATA_BINARY: SLDATATYPE = SLDATATYPE(3u32);
 pub const SL_DATA_MULTI_SZ: SLDATATYPE = SLDATATYPE(7u32);
 pub const SL_DATA_SUM: SLDATATYPE = SLDATATYPE(100u32);
+impl ::core::marker::Copy for SLDATATYPE {}
+impl ::core::clone::Clone for SLDATATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SLIDTYPE(pub i32);
 pub const SL_ID_APPLICATION: SLIDTYPE = SLIDTYPE(0i32);
@@ -5783,6 +6119,12 @@ pub const SL_ID_ALL_LICENSES: SLIDTYPE = SLIDTYPE(5i32);
 pub const SL_ID_ALL_LICENSE_FILES: SLIDTYPE = SLIDTYPE(6i32);
 pub const SL_ID_STORE_TOKEN: SLIDTYPE = SLIDTYPE(7i32);
 pub const SL_ID_LAST: SLIDTYPE = SLIDTYPE(8i32);
+impl ::core::marker::Copy for SLIDTYPE {}
+impl ::core::clone::Clone for SLIDTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SLLICENSINGSTATUS(pub i32);
 pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = SLLICENSINGSTATUS(0i32);
@@ -5790,6 +6132,12 @@ pub const SL_LICENSING_STATUS_LICENSED: SLLICENSINGSTATUS = SLLICENSINGSTATUS(1i
 pub const SL_LICENSING_STATUS_IN_GRACE_PERIOD: SLLICENSINGSTATUS = SLLICENSINGSTATUS(2i32);
 pub const SL_LICENSING_STATUS_NOTIFICATION: SLLICENSINGSTATUS = SLLICENSINGSTATUS(3i32);
 pub const SL_LICENSING_STATUS_LAST: SLLICENSINGSTATUS = SLLICENSINGSTATUS(4i32);
+impl ::core::marker::Copy for SLLICENSINGSTATUS {}
+impl ::core::clone::Clone for SLLICENSINGSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SLREFERRALTYPE(pub i32);
 pub const SL_REFERRALTYPE_SKUID: SLREFERRALTYPE = SLREFERRALTYPE(0i32);
@@ -5797,6 +6145,12 @@ pub const SL_REFERRALTYPE_APPID: SLREFERRALTYPE = SLREFERRALTYPE(1i32);
 pub const SL_REFERRALTYPE_OVERRIDE_SKUID: SLREFERRALTYPE = SLREFERRALTYPE(2i32);
 pub const SL_REFERRALTYPE_OVERRIDE_APPID: SLREFERRALTYPE = SLREFERRALTYPE(3i32);
 pub const SL_REFERRALTYPE_BEST_MATCH: SLREFERRALTYPE = SLREFERRALTYPE(4i32);
+impl ::core::marker::Copy for SLREFERRALTYPE {}
+impl ::core::clone::Clone for SLREFERRALTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SL_ACTIVATION_INFO_HEADER {
     pub cbSize: u32,
@@ -5812,6 +6166,12 @@ impl ::core::clone::Clone for SL_ACTIVATION_INFO_HEADER {
 pub struct SL_ACTIVATION_TYPE(pub i32);
 pub const SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = SL_ACTIVATION_TYPE(0i32);
 pub const SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SL_ACTIVATION_TYPE = SL_ACTIVATION_TYPE(1i32);
+impl ::core::marker::Copy for SL_ACTIVATION_TYPE {}
+impl ::core::clone::Clone for SL_ACTIVATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SL_AD_ACTIVATION_INFO {
@@ -6119,6 +6479,12 @@ pub const SL_GEN_STATE_INVALID_LICENSE: SL_GENUINE_STATE = SL_GENUINE_STATE(1i32
 pub const SL_GEN_STATE_TAMPERED: SL_GENUINE_STATE = SL_GENUINE_STATE(2i32);
 pub const SL_GEN_STATE_OFFLINE: SL_GENUINE_STATE = SL_GENUINE_STATE(3i32);
 pub const SL_GEN_STATE_LAST: SL_GENUINE_STATE = SL_GENUINE_STATE(4i32);
+impl ::core::marker::Copy for SL_GENUINE_STATE {}
+impl ::core::clone::Clone for SL_GENUINE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SL_INTERNAL_ZONE: u32 = 57344u32;
 pub const SL_I_NONGENUINE_GRACE_PERIOD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074065509i32 as _);
 pub const SL_I_NONGENUINE_GRACE_PERIOD_2: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074065512i32 as _);
@@ -6377,6 +6743,12 @@ pub const SZ_ALG_MAX_SIZE: u32 = 64u32;
 pub struct SchGetExtensionsOptions(pub u32);
 pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = SchGetExtensionsOptions(0u32);
 pub const SCH_NO_RECORD_HEADER: SchGetExtensionsOptions = SchGetExtensionsOptions(1u32);
+impl ::core::marker::Copy for SchGetExtensionsOptions {}
+impl ::core::clone::Clone for SchGetExtensionsOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SecBuffer {
     pub cbBuffer: u32,
@@ -6408,6 +6780,12 @@ pub const SecService: SecDelegationType = SecDelegationType(1i32);
 pub const SecTree: SecDelegationType = SecDelegationType(2i32);
 pub const SecDirectory: SecDelegationType = SecDelegationType(3i32);
 pub const SecObject: SecDelegationType = SecDelegationType(4i32);
+impl ::core::marker::Copy for SecDelegationType {}
+impl ::core::clone::Clone for SecDelegationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SecPkgContext_AccessToken {
     pub AccessToken: *mut ::core::ffi::c_void,
@@ -7575,6 +7953,12 @@ pub const TLS_PARAMS_OPTIONAL: u32 = 1u32;
 #[repr(transparent)]
 pub struct TOKENBINDING_EXTENSION_FORMAT(pub i32);
 pub const TOKENBINDING_EXTENSION_FORMAT_UNDEFINED: TOKENBINDING_EXTENSION_FORMAT = TOKENBINDING_EXTENSION_FORMAT(0i32);
+impl ::core::marker::Copy for TOKENBINDING_EXTENSION_FORMAT {}
+impl ::core::clone::Clone for TOKENBINDING_EXTENSION_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TOKENBINDING_IDENTIFIER {
     pub keyType: u8,
@@ -7591,6 +7975,12 @@ pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PKCS: TOKENBINDING_KEY_PARAME
 pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PSS: TOKENBINDING_KEY_PARAMETERS_TYPE = TOKENBINDING_KEY_PARAMETERS_TYPE(1i32);
 pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ECDSAP256: TOKENBINDING_KEY_PARAMETERS_TYPE = TOKENBINDING_KEY_PARAMETERS_TYPE(2i32);
 pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ANYEXISTING: TOKENBINDING_KEY_PARAMETERS_TYPE = TOKENBINDING_KEY_PARAMETERS_TYPE(255i32);
+impl ::core::marker::Copy for TOKENBINDING_KEY_PARAMETERS_TYPE {}
+impl ::core::clone::Clone for TOKENBINDING_KEY_PARAMETERS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TOKENBINDING_KEY_TYPES {
     pub keyCount: u32,
@@ -7632,6 +8022,12 @@ impl ::core::clone::Clone for TOKENBINDING_RESULT_LIST {
 pub struct TOKENBINDING_TYPE(pub i32);
 pub const TOKENBINDING_TYPE_PROVIDED: TOKENBINDING_TYPE = TOKENBINDING_TYPE(0i32);
 pub const TOKENBINDING_TYPE_REFERRED: TOKENBINDING_TYPE = TOKENBINDING_TYPE(1i32);
+impl ::core::marker::Copy for TOKENBINDING_TYPE {}
+impl ::core::clone::Clone for TOKENBINDING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_CONTROLLERS_INFO {
@@ -7761,18 +8157,36 @@ pub const TRUST_ATTRIBUTE_FOREST_TRANSITIVE: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = T
 pub const TRUST_ATTRIBUTE_CROSS_ORGANIZATION: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(16u32);
 pub const TRUST_ATTRIBUTE_TREAT_AS_EXTERNAL: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(64u32);
 pub const TRUST_ATTRIBUTE_WITHIN_FOREST: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(32u32);
+impl ::core::marker::Copy for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {}
+impl ::core::clone::Clone for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TRUSTED_DOMAIN_TRUST_DIRECTION(pub u32);
 pub const TRUST_DIRECTION_DISABLED: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(0u32);
 pub const TRUST_DIRECTION_INBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(1u32);
 pub const TRUST_DIRECTION_OUTBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(2u32);
 pub const TRUST_DIRECTION_BIDIRECTIONAL: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(3u32);
+impl ::core::marker::Copy for TRUSTED_DOMAIN_TRUST_DIRECTION {}
+impl ::core::clone::Clone for TRUSTED_DOMAIN_TRUST_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TRUSTED_DOMAIN_TRUST_TYPE(pub u32);
 pub const TRUST_TYPE_DOWNLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(1u32);
 pub const TRUST_TYPE_UPLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(2u32);
 pub const TRUST_TYPE_MIT: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(3u32);
 pub const TRUST_TYPE_DCE: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(4u32);
+impl ::core::marker::Copy for TRUSTED_DOMAIN_TRUST_TYPE {}
+impl ::core::clone::Clone for TRUSTED_DOMAIN_TRUST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TRUSTED_INFORMATION_CLASS(pub i32);
 pub const TrustedDomainNameInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(1i32);
@@ -7788,6 +8202,12 @@ pub const TrustedDomainFullInformationInternal: TRUSTED_INFORMATION_CLASS = TRUS
 pub const TrustedDomainInformationEx2Internal: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(11i32);
 pub const TrustedDomainFullInformation2Internal: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(12i32);
 pub const TrustedDomainSupportedEncryptionTypes: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(13i32);
+impl ::core::marker::Copy for TRUSTED_INFORMATION_CLASS {}
+impl ::core::clone::Clone for TRUSTED_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_PASSWORD_INFO {
@@ -7947,9 +8367,21 @@ pub const TlsHashAlgorithm_Sha224: eTlsHashAlgorithm = eTlsHashAlgorithm(3i32);
 pub const TlsHashAlgorithm_Sha256: eTlsHashAlgorithm = eTlsHashAlgorithm(4i32);
 pub const TlsHashAlgorithm_Sha384: eTlsHashAlgorithm = eTlsHashAlgorithm(5i32);
 pub const TlsHashAlgorithm_Sha512: eTlsHashAlgorithm = eTlsHashAlgorithm(6i32);
+impl ::core::marker::Copy for eTlsHashAlgorithm {}
+impl ::core::clone::Clone for eTlsHashAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eTlsSignatureAlgorithm(pub i32);
 pub const TlsSignatureAlgorithm_Anonymous: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(0i32);
 pub const TlsSignatureAlgorithm_Rsa: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(1i32);
 pub const TlsSignatureAlgorithm_Dsa: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(2i32);
 pub const TlsSignatureAlgorithm_Ecdsa: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(3i32);
+impl ::core::marker::Copy for eTlsSignatureAlgorithm {}
+impl ::core::clone::Clone for eTlsSignatureAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

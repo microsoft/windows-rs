@@ -40,6 +40,12 @@ impl VoiceCommandCompletionReason {
     pub const AppLaunched: Self = Self(5i32);
     pub const Completed: Self = Self(6i32);
 }
+impl ::core::marker::Copy for VoiceCommandCompletionReason {}
+impl ::core::clone::Clone for VoiceCommandCompletionReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VoiceCommandConfirmationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -55,6 +61,12 @@ impl VoiceCommandContentTileType {
     pub const TitleWith68x92IconAndText: Self = Self(5i32);
     pub const TitleWith280x140Icon: Self = Self(6i32);
     pub const TitleWith280x140IconAndText: Self = Self(7i32);
+}
+impl ::core::marker::Copy for VoiceCommandContentTileType {}
+impl ::core::clone::Clone for VoiceCommandContentTileType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VoiceCommandDefinition(pub *mut ::core::ffi::c_void);

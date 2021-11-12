@@ -391,6 +391,12 @@ pub struct LOCKTYPE(pub i32);
 pub const LOCK_WRITE: LOCKTYPE = LOCKTYPE(1i32);
 pub const LOCK_EXCLUSIVE: LOCKTYPE = LOCKTYPE(2i32);
 pub const LOCK_ONLYONCE: LOCKTYPE = LOCKTYPE(4i32);
+impl ::core::marker::Copy for LOCKTYPE {}
+impl ::core::clone::Clone for LOCKTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct OLESTREAM {
     pub lpstbl: *mut OLESTREAMVTBL,
@@ -449,6 +455,12 @@ pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(6i32);
 pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(7i32);
 pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(8i32);
 pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(32767i32);
+impl ::core::marker::Copy for PIDMSI_STATUS_VALUE {}
+impl ::core::clone::Clone for PIDMSI_STATUS_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PIDMSI_SUPPLIER: i32 = 3i32;
 pub const PIDSI_APPNAME: i32 = 18i32;
 pub const PIDSI_AUTHOR: i32 = 4i32;
@@ -536,6 +548,12 @@ impl ::core::clone::Clone for PROPSPEC_0 {
 pub struct PROPSPEC_KIND(pub u32);
 pub const PRSPEC_LPWSTR: PROPSPEC_KIND = PROPSPEC_KIND(0u32);
 pub const PRSPEC_PROPID: PROPSPEC_KIND = PROPSPEC_KIND(1u32);
+impl ::core::marker::Copy for PROPSPEC_KIND {}
+impl ::core::clone::Clone for PROPSPEC_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPVARIANT {
@@ -690,6 +708,12 @@ pub struct STATFLAG(pub i32);
 pub const STATFLAG_DEFAULT: STATFLAG = STATFLAG(0i32);
 pub const STATFLAG_NONAME: STATFLAG = STATFLAG(1i32);
 pub const STATFLAG_NOOPEN: STATFLAG = STATFLAG(2i32);
+impl ::core::marker::Copy for STATFLAG {}
+impl ::core::clone::Clone for STATFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STATPROPSETSTG {
@@ -731,6 +755,12 @@ pub const STGC_OVERWRITE: STGC = STGC(1i32);
 pub const STGC_ONLYIFCURRENT: STGC = STGC(2i32);
 pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = STGC(4i32);
 pub const STGC_CONSOLIDATE: STGC = STGC(8i32);
+impl ::core::marker::Copy for STGC {}
+impl ::core::clone::Clone for STGC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STGFMT_ANY: u32 = 4u32;
 pub const STGFMT_DOCFILE: u32 = 5u32;
 pub const STGFMT_DOCUMENT: u32 = 0u32;
@@ -742,6 +772,12 @@ pub struct STGMOVE(pub i32);
 pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);
 pub const STGMOVE_COPY: STGMOVE = STGMOVE(1i32);
 pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2i32);
+impl ::core::marker::Copy for STGMOVE {}
+impl ::core::clone::Clone for STGMOVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STGM_CONVERT: i32 = 131072i32;
 pub const STGM_CREATE: i32 = 4096i32;
 pub const STGM_DELETEONRELEASE: i32 = 67108864i32;

@@ -49,6 +49,12 @@ impl ActivationKind {
     pub const PhoneCallActivation: Self = Self(1025i32);
     pub const VpnForeground: Self = Self(1026i32);
 }
+impl ::core::marker::Copy for ActivationKind {}
+impl ::core::clone::Clone for ActivationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ApplicationExecutionState(pub i32);
 impl ApplicationExecutionState {
@@ -57,6 +63,12 @@ impl ApplicationExecutionState {
     pub const Suspended: Self = Self(2i32);
     pub const Terminated: Self = Self(3i32);
     pub const ClosedByUser: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ApplicationExecutionState {}
+impl ::core::clone::Clone for ApplicationExecutionState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppointmentsProviderAddAppointmentActivatedEventArgs(pub *mut ::core::ffi::c_void);

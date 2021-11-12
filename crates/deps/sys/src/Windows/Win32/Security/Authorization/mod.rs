@@ -193,6 +193,12 @@ pub const DENY_ACCESS: ACCESS_MODE = ACCESS_MODE(3i32);
 pub const REVOKE_ACCESS: ACCESS_MODE = ACCESS_MODE(4i32);
 pub const SET_AUDIT_SUCCESS: ACCESS_MODE = ACCESS_MODE(5i32);
 pub const SET_AUDIT_FAILURE: ACCESS_MODE = ACCESS_MODE(6i32);
+impl ::core::marker::Copy for ACCESS_MODE {}
+impl ::core::clone::Clone for ACCESS_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ACTRL_ACCESSA {
@@ -263,6 +269,12 @@ pub const ACTRL_ACCESS_ALLOWED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_E
 pub const ACTRL_ACCESS_DENIED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(2u32);
 pub const ACTRL_AUDIT_SUCCESS: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(4u32);
 pub const ACTRL_AUDIT_FAILURE: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(8u32);
+impl ::core::marker::Copy for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {}
+impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ACTRL_ACCESS_ENTRY_LISTA {
@@ -612,12 +624,24 @@ pub const APT_Time: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(10i32);
 pub const APT_Int64: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(11i32);
 pub const APT_IpAddress: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(12i32);
 pub const APT_LogonIdWithSid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(13i32);
+impl ::core::marker::Copy for AUDIT_PARAM_TYPE {}
+impl ::core::clone::Clone for AUDIT_PARAM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AUDIT_TYPE_LEGACY: u32 = 1u32;
 pub const AUDIT_TYPE_WMI: u32 = 2u32;
 pub const AUTHZP_WPD_EVENT: u32 = 16u32;
 #[repr(transparent)]
 pub struct AUTHZ_ACCESS_CHECK_FLAGS(pub u32);
 pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: AUTHZ_ACCESS_CHECK_FLAGS = AUTHZ_ACCESS_CHECK_FLAGS(1u32);
+impl ::core::marker::Copy for AUTHZ_ACCESS_CHECK_FLAGS {}
+impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
     pub Value: isize,
@@ -676,6 +700,12 @@ pub const AuthzAuditEventInfoOperationType: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS 
 pub const AuthzAuditEventInfoObjectType: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(3i32);
 pub const AuthzAuditEventInfoObjectName: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(4i32);
 pub const AuthzAuditEventInfoAdditionalInfo: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(5i32);
+impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {}
+impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
     pub Value: isize,
@@ -765,16 +795,34 @@ pub const AuthzContextInfoUserClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CO
 pub const AuthzContextInfoDeviceClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(14i32);
 pub const AuthzContextInfoAppContainerSid: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(15i32);
 pub const AuthzContextInfoCapabilitySids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(16i32);
+impl ::core::marker::Copy for AUTHZ_CONTEXT_INFORMATION_CLASS {}
+impl ::core::clone::Clone for AUTHZ_CONTEXT_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
 #[repr(transparent)]
 pub struct AUTHZ_GENERATE_RESULTS(pub u32);
 pub const AUTHZ_GENERATE_SUCCESS_AUDIT: AUTHZ_GENERATE_RESULTS = AUTHZ_GENERATE_RESULTS(1u32);
 pub const AUTHZ_GENERATE_FAILURE_AUDIT: AUTHZ_GENERATE_RESULTS = AUTHZ_GENERATE_RESULTS(2u32);
+impl ::core::marker::Copy for AUTHZ_GENERATE_RESULTS {}
+impl ::core::clone::Clone for AUTHZ_GENERATE_RESULTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(pub u32);
 pub const AUTHZ_NO_SUCCESS_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(1u32);
 pub const AUTHZ_NO_FAILURE_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(2u32);
 pub const AUTHZ_NO_ALLOC_STRINGS: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(4u32);
+impl ::core::marker::Copy for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {}
+impl ::core::clone::Clone for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUTHZ_INIT_INFO {
@@ -816,6 +864,12 @@ pub struct AUTHZ_RESOURCE_MANAGER_FLAGS(pub u32);
 pub const AUTHZ_RM_FLAG_NO_AUDIT: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(1u32);
 pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(2u32);
 pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(4u32);
+impl ::core::marker::Copy for AUTHZ_RESOURCE_MANAGER_FLAGS {}
+impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct AUTHZ_RESOURCE_MANAGER_HANDLE {
     pub Value: isize,
@@ -879,6 +933,12 @@ pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FLAGS(pub u32);
 pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(1u32);
 pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(2u32);
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {}
+impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
@@ -911,6 +971,12 @@ pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL: AUTHZ_SECURITY_ATTRIBU
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(2i32);
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(3i32);
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(4i32);
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {}
+impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: u32 = 6u32;
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN: u32 = 4u32;
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64: u32 = 1u32;
@@ -969,6 +1035,12 @@ pub const AUTHZ_SID_OPERATION_REPLACE_ALL: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERA
 pub const AUTHZ_SID_OPERATION_ADD: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(2i32);
 pub const AUTHZ_SID_OPERATION_DELETE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(3i32);
 pub const AUTHZ_SID_OPERATION_REPLACE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(4i32);
+impl ::core::marker::Copy for AUTHZ_SID_OPERATION {}
+impl ::core::clone::Clone for AUTHZ_SID_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AUTHZ_SKIP_TOKEN_GROUPS: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1104,6 +1176,12 @@ pub const AZ_CLIENT_CONTEXT_SKIP_GROUP: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i
 pub const AZ_CLIENT_CONTEXT_SKIP_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
 pub const AZ_CLIENT_CONTEXT_GET_GROUP_RECURSIVE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
 pub const AZ_CLIENT_CONTEXT_GET_GROUPS_STORE_LEVEL_ONLY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+impl ::core::marker::Copy for AZ_PROP_CONSTANTS {}
+impl ::core::clone::Clone for AZ_PROP_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AzAuthorizationStore: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2998730585,
     data2: 42839,
@@ -1264,6 +1342,12 @@ pub const INHERITED_PARENT: u32 = 268435456u32;
 pub struct MULTIPLE_TRUSTEE_OPERATION(pub i32);
 pub const NO_MULTIPLE_TRUSTEE: MULTIPLE_TRUSTEE_OPERATION = MULTIPLE_TRUSTEE_OPERATION(0i32);
 pub const TRUSTEE_IS_IMPERSONATE: MULTIPLE_TRUSTEE_OPERATION = MULTIPLE_TRUSTEE_OPERATION(1i32);
+impl ::core::marker::Copy for MULTIPLE_TRUSTEE_OPERATION {}
+impl ::core::clone::Clone for MULTIPLE_TRUSTEE_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OBJECTS_AND_NAME_A {
@@ -1329,6 +1413,12 @@ pub const ProgressInvokeOnError: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(3i32)
 pub const ProgressCancelOperation: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(4i32);
 pub const ProgressRetryOperation: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(5i32);
 pub const ProgressInvokePrePostError: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(6i32);
+impl ::core::marker::Copy for PROG_INVOKE_SETTING {}
+impl ::core::clone::Clone for PROG_INVOKE_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SDDL_ALIAS_SIZE: u32 = 2u32;
 pub const SDDL_REVISION: u32 = 1u32;
 pub const SDDL_REVISION_1: u32 = 1u32;
@@ -1348,11 +1438,23 @@ pub const SE_PROVIDER_DEFINED_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(10i32);
 pub const SE_WMIGUID_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(11i32);
 pub const SE_REGISTRY_WOW64_32KEY: SE_OBJECT_TYPE = SE_OBJECT_TYPE(12i32);
 pub const SE_REGISTRY_WOW64_64KEY: SE_OBJECT_TYPE = SE_OBJECT_TYPE(13i32);
+impl ::core::marker::Copy for SE_OBJECT_TYPE {}
+impl ::core::clone::Clone for SE_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TREE_SEC_INFO(pub u32);
 pub const TREE_SEC_INFO_SET: TREE_SEC_INFO = TREE_SEC_INFO(1u32);
 pub const TREE_SEC_INFO_RESET: TREE_SEC_INFO = TREE_SEC_INFO(2u32);
 pub const TREE_SEC_INFO_RESET_KEEP_EXPLICIT: TREE_SEC_INFO = TREE_SEC_INFO(3u32);
+impl ::core::marker::Copy for TREE_SEC_INFO {}
+impl ::core::clone::Clone for TREE_SEC_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTEE_A {
@@ -1414,6 +1516,12 @@ pub const TRUSTEE_IS_NAME: TRUSTEE_FORM = TRUSTEE_FORM(1i32);
 pub const TRUSTEE_BAD_FORM: TRUSTEE_FORM = TRUSTEE_FORM(2i32);
 pub const TRUSTEE_IS_OBJECTS_AND_SID: TRUSTEE_FORM = TRUSTEE_FORM(3i32);
 pub const TRUSTEE_IS_OBJECTS_AND_NAME: TRUSTEE_FORM = TRUSTEE_FORM(4i32);
+impl ::core::marker::Copy for TRUSTEE_FORM {}
+impl ::core::clone::Clone for TRUSTEE_FORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TRUSTEE_TYPE(pub i32);
 pub const TRUSTEE_IS_UNKNOWN: TRUSTEE_TYPE = TRUSTEE_TYPE(0i32);
@@ -1425,6 +1533,12 @@ pub const TRUSTEE_IS_WELL_KNOWN_GROUP: TRUSTEE_TYPE = TRUSTEE_TYPE(5i32);
 pub const TRUSTEE_IS_DELETED: TRUSTEE_TYPE = TRUSTEE_TYPE(6i32);
 pub const TRUSTEE_IS_INVALID: TRUSTEE_TYPE = TRUSTEE_TYPE(7i32);
 pub const TRUSTEE_IS_COMPUTER: TRUSTEE_TYPE = TRUSTEE_TYPE(8i32);
+impl ::core::marker::Copy for TRUSTEE_TYPE {}
+impl ::core::clone::Clone for TRUSTEE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTEE_W {

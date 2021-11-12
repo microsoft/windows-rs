@@ -139,6 +139,12 @@ pub const DecodingSourceWbem: DECODING_SOURCE = DECODING_SOURCE(1i32);
 pub const DecodingSourceWPP: DECODING_SOURCE = DECODING_SOURCE(2i32);
 pub const DecodingSourceTlg: DECODING_SOURCE = DECODING_SOURCE(3i32);
 pub const DecodingSourceMax: DECODING_SOURCE = DECODING_SOURCE(4i32);
+impl ::core::marker::Copy for DECODING_SOURCE {}
+impl ::core::clone::Clone for DECODING_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DefaultTraceSecurityGuid: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 135381423,
     data2: 31239,
@@ -150,6 +156,12 @@ pub struct ENABLECALLBACK_ENABLED_STATE(pub u32);
 pub const EVENT_CONTROL_CODE_DISABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = ENABLECALLBACK_ENABLED_STATE(0u32);
 pub const EVENT_CONTROL_CODE_ENABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = ENABLECALLBACK_ENABLED_STATE(1u32);
 pub const EVENT_CONTROL_CODE_CAPTURE_STATE: ENABLECALLBACK_ENABLED_STATE = ENABLECALLBACK_ENABLED_STATE(2u32);
+impl ::core::marker::Copy for ENABLECALLBACK_ENABLED_STATE {}
+impl ::core::clone::Clone for ENABLECALLBACK_ENABLED_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct ENABLE_TRACE_PARAMETERS {
     pub Version: u32,
@@ -224,6 +236,12 @@ pub struct ETW_COMPRESSION_RESUMPTION_MODE(pub i32);
 pub const EtwCompressionModeRestart: ETW_COMPRESSION_RESUMPTION_MODE = ETW_COMPRESSION_RESUMPTION_MODE(0i32);
 pub const EtwCompressionModeNoDisable: ETW_COMPRESSION_RESUMPTION_MODE = ETW_COMPRESSION_RESUMPTION_MODE(1i32);
 pub const EtwCompressionModeNoRestart: ETW_COMPRESSION_RESUMPTION_MODE = ETW_COMPRESSION_RESUMPTION_MODE(2i32);
+impl ::core::marker::Copy for ETW_COMPRESSION_RESUMPTION_MODE {}
+impl ::core::clone::Clone for ETW_COMPRESSION_RESUMPTION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ETW_COUNTED_ANSISTRING_TYPE_VALUE: u32 = 109u32;
 pub const ETW_COUNTED_STRING_TYPE_VALUE: u32 = 104u32;
 pub const ETW_DATETIME_TYPE_VALUE: u32 = 119u32;
@@ -267,6 +285,12 @@ pub const EtwPmcOwnerFree: ETW_PMC_COUNTER_OWNER_TYPE = ETW_PMC_COUNTER_OWNER_TY
 pub const EtwPmcOwnerUntagged: ETW_PMC_COUNTER_OWNER_TYPE = ETW_PMC_COUNTER_OWNER_TYPE(1i32);
 pub const EtwPmcOwnerTagged: ETW_PMC_COUNTER_OWNER_TYPE = ETW_PMC_COUNTER_OWNER_TYPE(2i32);
 pub const EtwPmcOwnerTaggedWithSource: ETW_PMC_COUNTER_OWNER_TYPE = ETW_PMC_COUNTER_OWNER_TYPE(3i32);
+impl ::core::marker::Copy for ETW_PMC_COUNTER_OWNER_TYPE {}
+impl ::core::clone::Clone for ETW_PMC_COUNTER_OWNER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ETW_POINTER_TYPE_VALUE: u32 = 105u32;
 #[repr(transparent)]
 pub struct ETW_PROCESS_HANDLE_INFO_TYPE(pub i32);
@@ -274,11 +298,23 @@ pub const EtwQueryPartitionInformation: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCE
 pub const EtwQueryPartitionInformationV2: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCESS_HANDLE_INFO_TYPE(2i32);
 pub const EtwQueryLastDroppedTimes: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCESS_HANDLE_INFO_TYPE(3i32);
 pub const EtwQueryProcessHandleInfoMax: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCESS_HANDLE_INFO_TYPE(4i32);
+impl ::core::marker::Copy for ETW_PROCESS_HANDLE_INFO_TYPE {}
+impl ::core::clone::Clone for ETW_PROCESS_HANDLE_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ETW_PROVIDER_TRAIT_TYPE(pub i32);
 pub const EtwProviderTraitTypeGroup: ETW_PROVIDER_TRAIT_TYPE = ETW_PROVIDER_TRAIT_TYPE(1i32);
 pub const EtwProviderTraitDecodeGuid: ETW_PROVIDER_TRAIT_TYPE = ETW_PROVIDER_TRAIT_TYPE(2i32);
 pub const EtwProviderTraitTypeMax: ETW_PROVIDER_TRAIT_TYPE = ETW_PROVIDER_TRAIT_TYPE(3i32);
+impl ::core::marker::Copy for ETW_PROVIDER_TRAIT_TYPE {}
+impl ::core::clone::Clone for ETW_PROVIDER_TRAIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ETW_PTVECTOR_TYPE_VALUE: u32 = 117u32;
 pub const ETW_REDUCED_ANSISTRING_TYPE_VALUE: u32 = 113u32;
 pub const ETW_REDUCED_STRING_TYPE_VALUE: u32 = 114u32;
@@ -331,6 +367,12 @@ pub const EventSecuritySetSACL: EVENTSECURITYOPERATION = EVENTSECURITYOPERATION(
 pub const EventSecurityAddDACL: EVENTSECURITYOPERATION = EVENTSECURITYOPERATION(2i32);
 pub const EventSecurityAddSACL: EVENTSECURITYOPERATION = EVENTSECURITYOPERATION(3i32);
 pub const EventSecurityMax: EVENTSECURITYOPERATION = EVENTSECURITYOPERATION(4i32);
+impl ::core::marker::Copy for EVENTSECURITYOPERATION {}
+impl ::core::clone::Clone for EVENTSECURITYOPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EVENT_ACTIVITY_CTRL_CREATE_ID: u32 = 3u32;
 pub const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: u32 = 5u32;
 pub const EVENT_ACTIVITY_CTRL_GET_ID: u32 = 1u32;
@@ -527,6 +569,12 @@ pub const EventChannelInformation: EVENT_FIELD_TYPE = EVENT_FIELD_TYPE(2i32);
 pub const EventTaskInformation: EVENT_FIELD_TYPE = EVENT_FIELD_TYPE(3i32);
 pub const EventOpcodeInformation: EVENT_FIELD_TYPE = EVENT_FIELD_TYPE(4i32);
 pub const EventInformationMax: EVENT_FIELD_TYPE = EVENT_FIELD_TYPE(5i32);
+impl ::core::marker::Copy for EVENT_FIELD_TYPE {}
+impl ::core::clone::Clone for EVENT_FIELD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct EVENT_FILTER_DESCRIPTOR {
     pub Ptr: u64,
@@ -724,6 +772,12 @@ pub const EventProviderSetReserved1: EVENT_INFO_CLASS = EVENT_INFO_CLASS(1i32);
 pub const EventProviderSetTraits: EVENT_INFO_CLASS = EVENT_INFO_CLASS(2i32);
 pub const EventProviderUseDescriptorType: EVENT_INFO_CLASS = EVENT_INFO_CLASS(3i32);
 pub const MaxEventInfo: EVENT_INFO_CLASS = EVENT_INFO_CLASS(4i32);
+impl ::core::marker::Copy for EVENT_INFO_CLASS {}
+impl ::core::clone::Clone for EVENT_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct EVENT_INSTANCE_HEADER {
     pub Size: u16,
@@ -1035,6 +1089,12 @@ pub const EVENT_TRACE_CONTROL_FLUSH: EVENT_TRACE_CONTROL = EVENT_TRACE_CONTROL(3
 pub const EVENT_TRACE_CONTROL_QUERY: EVENT_TRACE_CONTROL = EVENT_TRACE_CONTROL(0u32);
 pub const EVENT_TRACE_CONTROL_STOP: EVENT_TRACE_CONTROL = EVENT_TRACE_CONTROL(1u32);
 pub const EVENT_TRACE_CONTROL_UPDATE: EVENT_TRACE_CONTROL = EVENT_TRACE_CONTROL(2u32);
+impl ::core::marker::Copy for EVENT_TRACE_CONTROL {}
+impl ::core::clone::Clone for EVENT_TRACE_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EVENT_TRACE_CONTROL_CONVERT_TO_REALTIME: u32 = 5u32;
 pub const EVENT_TRACE_CONTROL_INCREMENT_FILE: u32 = 4u32;
 pub const EVENT_TRACE_DELAY_OPEN_FILE_MODE: u32 = 512u32;
@@ -1073,6 +1133,12 @@ pub const EVENT_TRACE_FLAG_SYSTEMCALL: EVENT_TRACE_FLAG = EVENT_TRACE_FLAG(128u3
 pub const EVENT_TRACE_FLAG_THREAD: EVENT_TRACE_FLAG = EVENT_TRACE_FLAG(2u32);
 pub const EVENT_TRACE_FLAG_VAMAP: EVENT_TRACE_FLAG = EVENT_TRACE_FLAG(32768u32);
 pub const EVENT_TRACE_FLAG_VIRTUAL_ALLOC: EVENT_TRACE_FLAG = EVENT_TRACE_FLAG(16384u32);
+impl ::core::marker::Copy for EVENT_TRACE_FLAG {}
+impl ::core::clone::Clone for EVENT_TRACE_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EVENT_TRACE_FLAG_DEBUG_EVENTS: u32 = 4194304u32;
 pub const EVENT_TRACE_FLAG_ENABLE_RESERVE: u32 = 536870912u32;
 pub const EVENT_TRACE_FLAG_EXTENSION: u32 = 2147483648u32;
@@ -1564,10 +1630,22 @@ pub const EVENTMAP_INFO_FLAG_WBEM_VALUEMAP: MAP_FLAGS = MAP_FLAGS(8i32);
 pub const EVENTMAP_INFO_FLAG_WBEM_BITMAP: MAP_FLAGS = MAP_FLAGS(16i32);
 pub const EVENTMAP_INFO_FLAG_WBEM_FLAG: MAP_FLAGS = MAP_FLAGS(32i32);
 pub const EVENTMAP_INFO_FLAG_WBEM_NO_MAP: MAP_FLAGS = MAP_FLAGS(64i32);
+impl ::core::marker::Copy for MAP_FLAGS {}
+impl ::core::clone::Clone for MAP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MAP_VALUETYPE(pub i32);
 pub const EVENTMAP_ENTRY_VALUETYPE_ULONG: MAP_VALUETYPE = MAP_VALUETYPE(0i32);
 pub const EVENTMAP_ENTRY_VALUETYPE_STRING: MAP_VALUETYPE = MAP_VALUETYPE(1i32);
+impl ::core::marker::Copy for MAP_VALUETYPE {}
+impl ::core::clone::Clone for MAP_VALUETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_EVENT_DATA_DESCRIPTORS: u32 = 128u32;
 pub const MAX_EVENT_FILTERS_COUNT: u32 = 13u32;
 pub const MAX_EVENT_FILTER_DATA_SIZE: u32 = 1024u32;
@@ -1631,6 +1709,12 @@ pub const PAYLOADFIELD_DOESNTCONTAIN: PAYLOAD_OPERATOR = PAYLOAD_OPERATOR(21i32)
 pub const PAYLOADFIELD_IS: PAYLOAD_OPERATOR = PAYLOAD_OPERATOR(30i32);
 pub const PAYLOADFIELD_ISNOT: PAYLOAD_OPERATOR = PAYLOAD_OPERATOR(31i32);
 pub const PAYLOADFIELD_INVALID: PAYLOAD_OPERATOR = PAYLOAD_OPERATOR(32i32);
+impl ::core::marker::Copy for PAYLOAD_OPERATOR {}
+impl ::core::clone::Clone for PAYLOAD_OPERATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PENABLECALLBACK = unsafe extern "system" fn(sourceid: *const ::windows_sys::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void);
 pub type PEVENT_CALLBACK = unsafe extern "system" fn(pevent: *mut EVENT_TRACE);
 pub type PEVENT_RECORD_CALLBACK = unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD);
@@ -1678,6 +1762,12 @@ pub const PropertyParamFixedLength: PROPERTY_FLAGS = PROPERTY_FLAGS(16i32);
 pub const PropertyParamFixedCount: PROPERTY_FLAGS = PROPERTY_FLAGS(32i32);
 pub const PropertyHasTags: PROPERTY_FLAGS = PROPERTY_FLAGS(64i32);
 pub const PropertyHasCustomSchema: PROPERTY_FLAGS = PROPERTY_FLAGS(128i32);
+impl ::core::marker::Copy for PROPERTY_FLAGS {}
+impl ::core::clone::Clone for PROPERTY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PROVIDER_ENUMERATION_INFO {
     pub NumberOfProviders: u32,
@@ -1930,6 +2020,12 @@ pub const TDH_CONTEXT_WPP_GMT: TDH_CONTEXT_TYPE = TDH_CONTEXT_TYPE(2i32);
 pub const TDH_CONTEXT_POINTERSIZE: TDH_CONTEXT_TYPE = TDH_CONTEXT_TYPE(3i32);
 pub const TDH_CONTEXT_PDB_PATH: TDH_CONTEXT_TYPE = TDH_CONTEXT_TYPE(4i32);
 pub const TDH_CONTEXT_MAXIMUM: TDH_CONTEXT_TYPE = TDH_CONTEXT_TYPE(5i32);
+impl ::core::marker::Copy for TDH_CONTEXT_TYPE {}
+impl ::core::clone::Clone for TDH_CONTEXT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TDH_HANDLE {
     pub Value: isize,
@@ -1945,6 +2041,12 @@ pub struct TEMPLATE_FLAGS(pub i32);
 pub const TEMPLATE_EVENT_DATA: TEMPLATE_FLAGS = TEMPLATE_FLAGS(1i32);
 pub const TEMPLATE_USER_DATA: TEMPLATE_FLAGS = TEMPLATE_FLAGS(2i32);
 pub const TEMPLATE_CONTROL_GUID: TEMPLATE_FLAGS = TEMPLATE_FLAGS(4i32);
+impl ::core::marker::Copy for TEMPLATE_FLAGS {}
+impl ::core::clone::Clone for TEMPLATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TRACELOG_ACCESS_KERNEL_LOGGER: u32 = 256u32;
 pub const TRACELOG_ACCESS_REALTIME: u32 = 1024u32;
 pub const TRACELOG_CREATE_INPROC: u32 = 512u32;
@@ -2364,6 +2466,12 @@ pub const TRACE_MESSAGE_GUID: TRACE_MESSAGE_FLAGS = TRACE_MESSAGE_FLAGS(2u32);
 pub const TRACE_MESSAGE_SEQUENCE: TRACE_MESSAGE_FLAGS = TRACE_MESSAGE_FLAGS(1u32);
 pub const TRACE_MESSAGE_SYSTEMINFO: TRACE_MESSAGE_FLAGS = TRACE_MESSAGE_FLAGS(32u32);
 pub const TRACE_MESSAGE_TIMESTAMP: TRACE_MESSAGE_FLAGS = TRACE_MESSAGE_FLAGS(8u32);
+impl ::core::marker::Copy for TRACE_MESSAGE_FLAGS {}
+impl ::core::clone::Clone for TRACE_MESSAGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TRACE_MESSAGE_FLAG_MASK: u32 = 65535u32;
 pub const TRACE_MESSAGE_PERFORMANCE_TIMESTAMP: u32 = 16u32;
 pub const TRACE_MESSAGE_POINTER32: u32 = 64u32;
@@ -2448,6 +2556,12 @@ pub const TraceStackCachingInfo: TRACE_QUERY_INFO_CLASS = TRACE_QUERY_INFO_CLASS
 pub const TracePmcCounterOwners: TRACE_QUERY_INFO_CLASS = TRACE_QUERY_INFO_CLASS(25i32);
 pub const TraceUnifiedStackCachingInfo: TRACE_QUERY_INFO_CLASS = TRACE_QUERY_INFO_CLASS(26i32);
 pub const MaxTraceSetInfoClass: TRACE_QUERY_INFO_CLASS = TRACE_QUERY_INFO_CLASS(27i32);
+impl ::core::marker::Copy for TRACE_QUERY_INFO_CLASS {}
+impl ::core::clone::Clone for TRACE_QUERY_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRACE_STACK_CACHING_INFO {
@@ -2488,6 +2602,12 @@ pub const WMI_DISABLE_COLLECTION: WMIDPREQUESTCODE = WMIDPREQUESTCODE(7i32);
 pub const WMI_REGINFO: WMIDPREQUESTCODE = WMIDPREQUESTCODE(8i32);
 pub const WMI_EXECUTE_METHOD: WMIDPREQUESTCODE = WMIDPREQUESTCODE(9i32);
 pub const WMI_CAPTURE_STATE: WMIDPREQUESTCODE = WMIDPREQUESTCODE(10i32);
+impl ::core::marker::Copy for WMIDPREQUESTCODE {}
+impl ::core::clone::Clone for WMIDPREQUESTCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMIGUID_EXECUTE: u32 = 16u32;
 pub const WMIGUID_NOTIFICATION: u32 = 4u32;
 pub const WMIGUID_QUERY: u32 = 1u32;
@@ -2808,6 +2928,12 @@ pub const TDH_INTYPE_ANSICHAR: _TDH_IN_TYPE = _TDH_IN_TYPE(307i32);
 pub const TDH_INTYPE_SIZET: _TDH_IN_TYPE = _TDH_IN_TYPE(308i32);
 pub const TDH_INTYPE_HEXDUMP: _TDH_IN_TYPE = _TDH_IN_TYPE(309i32);
 pub const TDH_INTYPE_WBEMSID: _TDH_IN_TYPE = _TDH_IN_TYPE(310i32);
+impl ::core::marker::Copy for _TDH_IN_TYPE {}
+impl ::core::clone::Clone for _TDH_IN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _TDH_OUT_TYPE(pub i32);
 pub const TDH_OUTTYPE_NULL: _TDH_OUT_TYPE = _TDH_OUT_TYPE(0i32);
@@ -2851,3 +2977,9 @@ pub const TDH_OUTTYPE_CODE_POINTER: _TDH_OUT_TYPE = _TDH_OUT_TYPE(37i32);
 pub const TDH_OUTTYPE_DATETIME_UTC: _TDH_OUT_TYPE = _TDH_OUT_TYPE(38i32);
 pub const TDH_OUTTYPE_REDUCEDSTRING: _TDH_OUT_TYPE = _TDH_OUT_TYPE(300i32);
 pub const TDH_OUTTYPE_NOPRINT: _TDH_OUT_TYPE = _TDH_OUT_TYPE(301i32);
+impl ::core::marker::Copy for _TDH_OUT_TYPE {}
+impl ::core::clone::Clone for _TDH_OUT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

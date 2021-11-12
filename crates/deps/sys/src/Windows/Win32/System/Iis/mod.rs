@@ -135,12 +135,24 @@ pub const FTP_ACCESS_NONE: FTP_ACCESS = FTP_ACCESS(0i32);
 pub const FTP_ACCESS_READ: FTP_ACCESS = FTP_ACCESS(1i32);
 pub const FTP_ACCESS_WRITE: FTP_ACCESS = FTP_ACCESS(2i32);
 pub const FTP_ACCESS_READ_WRITE: FTP_ACCESS = FTP_ACCESS(3i32);
+impl ::core::marker::Copy for FTP_ACCESS {}
+impl ::core::clone::Clone for FTP_ACCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FTP_PROCESS_STATUS(pub i32);
 pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(0i32);
 pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(1i32);
 pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(2i32);
 pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(3i32);
+impl ::core::marker::Copy for FTP_PROCESS_STATUS {}
+impl ::core::clone::Clone for FTP_PROCESS_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1891485287,
     data2: 13234,
@@ -717,6 +729,12 @@ pub const HTTP_TRACE_TYPE_LPCWSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(31i32);
 pub const HTTP_TRACE_TYPE_LPCSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(30i32);
 pub const HTTP_TRACE_TYPE_LPCGUID: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(72i32);
 pub const HTTP_TRACE_TYPE_BOOL: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(11i32);
+impl ::core::marker::Copy for HTTP_TRACE_TYPE {}
+impl ::core::clone::Clone for HTTP_TRACE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADMEXT(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1478,6 +1496,12 @@ pub const BINARY_METADATA: METADATATYPES = METADATATYPES(3i32);
 pub const EXPANDSZ_METADATA: METADATATYPES = METADATATYPES(4i32);
 pub const MULTISZ_METADATA: METADATATYPES = METADATATYPES(5i32);
 pub const INVALID_END_METADATA: METADATATYPES = METADATATYPES(6i32);
+impl ::core::marker::Copy for METADATATYPES {}
+impl ::core::clone::Clone for METADATATYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const METADATA_DONT_EXPAND: u32 = 512u32;
 #[repr(C)]
 pub struct METADATA_GETALL_INTERNAL_RECORD {
@@ -1672,6 +1696,12 @@ pub const SF_NOTIFY_URL_MAP: u32 = 4096u32;
 pub struct SF_PROPERTY_IIS(pub i32);
 pub const SF_PROPERTY_SSL_CTXT: SF_PROPERTY_IIS = SF_PROPERTY_IIS(0i32);
 pub const SF_PROPERTY_INSTANCE_NUM_ID: SF_PROPERTY_IIS = SF_PROPERTY_IIS(1i32);
+impl ::core::marker::Copy for SF_PROPERTY_IIS {}
+impl ::core::clone::Clone for SF_PROPERTY_IIS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SF_REQ_TYPE(pub i32);
 pub const SF_REQ_SEND_RESPONSE_HEADER: SF_REQ_TYPE = SF_REQ_TYPE(0i32);
@@ -1683,6 +1713,12 @@ pub const SF_REQ_SET_CERTIFICATE_INFO: SF_REQ_TYPE = SF_REQ_TYPE(5i32);
 pub const SF_REQ_GET_PROPERTY: SF_REQ_TYPE = SF_REQ_TYPE(6i32);
 pub const SF_REQ_NORMALIZE_URL: SF_REQ_TYPE = SF_REQ_TYPE(7i32);
 pub const SF_REQ_DISABLE_NOTIFICATIONS: SF_REQ_TYPE = SF_REQ_TYPE(8i32);
+impl ::core::marker::Copy for SF_REQ_TYPE {}
+impl ::core::clone::Clone for SF_REQ_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SF_STATUS_TYPE(pub i32);
 pub const SF_STATUS_REQ_FINISHED: SF_STATUS_TYPE = SF_STATUS_TYPE(134217728i32);
@@ -1691,6 +1727,12 @@ pub const SF_STATUS_REQ_NEXT_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(13421
 pub const SF_STATUS_REQ_HANDLED_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(134217731i32);
 pub const SF_STATUS_REQ_ERROR: SF_STATUS_TYPE = SF_STATUS_TYPE(134217732i32);
 pub const SF_STATUS_REQ_READ_NEXT: SF_STATUS_TYPE = SF_STATUS_TYPE(134217733i32);
+impl ::core::marker::Copy for SF_STATUS_TYPE {}
+impl ::core::clone::Clone for SF_STATUS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SMTP_MD_ID_BEGIN_RESERVED: u32 = 36864u32;
 pub const SMTP_MD_ID_END_RESERVED: u32 = 40959u32;
 pub const USER_MD_ID_BASE_RESERVED: u32 = 65535u32;

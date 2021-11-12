@@ -45,6 +45,12 @@ pub struct DXCoreAdapterPreference(pub u32);
 pub const Hardware: DXCoreAdapterPreference = DXCoreAdapterPreference(0u32);
 pub const MinimumPower: DXCoreAdapterPreference = DXCoreAdapterPreference(1u32);
 pub const HighPerformance: DXCoreAdapterPreference = DXCoreAdapterPreference(2u32);
+impl ::core::marker::Copy for DXCoreAdapterPreference {}
+impl ::core::clone::Clone for DXCoreAdapterPreference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXCoreAdapterProperty(pub u32);
 pub const InstanceLuid: DXCoreAdapterProperty = DXCoreAdapterProperty(0u32);
@@ -62,10 +68,22 @@ pub const IsHardware: DXCoreAdapterProperty = DXCoreAdapterProperty(11u32);
 pub const IsIntegrated: DXCoreAdapterProperty = DXCoreAdapterProperty(12u32);
 pub const IsDetachable: DXCoreAdapterProperty = DXCoreAdapterProperty(13u32);
 pub const HardwareIDParts: DXCoreAdapterProperty = DXCoreAdapterProperty(14u32);
+impl ::core::marker::Copy for DXCoreAdapterProperty {}
+impl ::core::clone::Clone for DXCoreAdapterProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXCoreAdapterState(pub u32);
 pub const IsDriverUpdateInProgress: DXCoreAdapterState = DXCoreAdapterState(0u32);
 pub const AdapterMemoryBudget: DXCoreAdapterState = DXCoreAdapterState(1u32);
+impl ::core::marker::Copy for DXCoreAdapterState {}
+impl ::core::clone::Clone for DXCoreAdapterState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DXCoreHardwareID {
     pub vendorID: u32,
@@ -99,10 +117,22 @@ pub const AdapterListStale: DXCoreNotificationType = DXCoreNotificationType(0u32
 pub const AdapterNoLongerValid: DXCoreNotificationType = DXCoreNotificationType(1u32);
 pub const AdapterBudgetChange: DXCoreNotificationType = DXCoreNotificationType(2u32);
 pub const AdapterHardwareContentProtectionTeardown: DXCoreNotificationType = DXCoreNotificationType(3u32);
+impl ::core::marker::Copy for DXCoreNotificationType {}
+impl ::core::clone::Clone for DXCoreNotificationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXCoreSegmentGroup(pub u32);
 pub const Local: DXCoreSegmentGroup = DXCoreSegmentGroup(0u32);
 pub const NonLocal: DXCoreSegmentGroup = DXCoreSegmentGroup(1u32);
+impl ::core::marker::Copy for DXCoreSegmentGroup {}
+impl ::core::clone::Clone for DXCoreSegmentGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXCoreAdapter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

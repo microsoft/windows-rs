@@ -597,6 +597,12 @@ impl ::core::clone::Clone for IKE_AUTHENTICATION_INFORMATION_0 {
 #[repr(transparent)]
 pub struct IKE_AUTHENTICATION_METHOD(pub i32);
 pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = IKE_AUTHENTICATION_METHOD(1i32);
+impl ::core::marker::Copy for IKE_AUTHENTICATION_METHOD {}
+impl ::core::clone::Clone for IKE_AUTHENTICATION_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IKE_AUTHENTICATION_PRESHARED_KEY {
     pub SecurityFlags: u64,
@@ -658,6 +664,12 @@ pub struct ISCSI_AUTH_TYPES(pub i32);
 pub const ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(0i32);
 pub const ISCSI_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(1i32);
 pub const ISCSI_MUTUAL_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(2i32);
+impl ::core::marker::Copy for ISCSI_AUTH_TYPES {}
+impl ::core::clone::Clone for ISCSI_AUTH_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_CONNECTION_INFOA {
@@ -756,6 +768,12 @@ impl ::core::clone::Clone for ISCSI_DEVICE_ON_SESSIONW {
 pub struct ISCSI_DIGEST_TYPES(pub i32);
 pub const ISCSI_DIGEST_TYPE_NONE: ISCSI_DIGEST_TYPES = ISCSI_DIGEST_TYPES(0i32);
 pub const ISCSI_DIGEST_TYPE_CRC32C: ISCSI_DIGEST_TYPES = ISCSI_DIGEST_TYPES(1i32);
+impl ::core::marker::Copy for ISCSI_DIGEST_TYPES {}
+impl ::core::clone::Clone for ISCSI_DIGEST_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ISCSI_LOGIN_FLAG_ALLOW_PORTAL_HOPPING: u32 = 8u32;
 pub const ISCSI_LOGIN_FLAG_MULTIPATH_ENABLED: u32 = 2u32;
 pub const ISCSI_LOGIN_FLAG_REQUIRE_IPSEC: u32 = 1u32;
@@ -1212,12 +1230,24 @@ impl ::core::clone::Clone for MP_DEVICE_DATA_SET_RANGE {
 pub struct MP_STORAGE_DIAGNOSTIC_LEVEL(pub i32);
 pub const MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(0i32);
 pub const MpStorageDiagnosticLevelMax: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(1i32);
+impl ::core::marker::Copy for MP_STORAGE_DIAGNOSTIC_LEVEL {}
+impl ::core::clone::Clone for MP_STORAGE_DIAGNOSTIC_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
 pub const MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(0i32);
 pub const MpStorageDiagnosticTargetTypeMiniport: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(2i32);
 pub const MpStorageDiagnosticTargetTypeHbaFirmware: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(3i32);
 pub const MpStorageDiagnosticTargetTypeMax: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(4i32);
+impl ::core::marker::Copy for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {}
+impl ::core::clone::Clone for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NRB_FUNCTION_ADD_LBAS_PINNED_SET: u32 = 16u32;
 pub const NRB_FUNCTION_FLUSH_NVCACHE: u32 = 20u32;
 pub const NRB_FUNCTION_NVCACHE_INFO: u32 = 236u32;
@@ -1318,12 +1348,24 @@ pub const NvCacheStatusUnknown: NVCACHE_STATUS = NVCACHE_STATUS(0i32);
 pub const NvCacheStatusDisabling: NVCACHE_STATUS = NVCACHE_STATUS(1i32);
 pub const NvCacheStatusDisabled: NVCACHE_STATUS = NVCACHE_STATUS(2i32);
 pub const NvCacheStatusEnabled: NVCACHE_STATUS = NVCACHE_STATUS(3i32);
+impl ::core::marker::Copy for NVCACHE_STATUS {}
+impl ::core::clone::Clone for NVCACHE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NVCACHE_TYPE(pub i32);
 pub const NvCacheTypeUnknown: NVCACHE_TYPE = NVCACHE_TYPE(0i32);
 pub const NvCacheTypeNone: NVCACHE_TYPE = NVCACHE_TYPE(1i32);
 pub const NvCacheTypeWriteBack: NVCACHE_TYPE = NVCACHE_TYPE(2i32);
 pub const NvCacheTypeWriteThrough: NVCACHE_TYPE = NVCACHE_TYPE(3i32);
+impl ::core::marker::Copy for NVCACHE_TYPE {}
+impl ::core::clone::Clone for NVCACHE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct NV_FEATURE_PARAMETER {
     pub NVPowerModeEnabled: u16,
@@ -1386,6 +1428,12 @@ pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CAC
 pub const NVSEPWriteCacheTypeNone: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(1i32);
 pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(2i32);
 pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(3i32);
+impl ::core::marker::Copy for NV_SEP_WRITE_CACHE_TYPE {}
+impl ::core::clone::Clone for NV_SEP_WRITE_CACHE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PDUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn() -> i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1916,6 +1964,12 @@ pub const ScsiRawInterfaceGuid: ::windows_sys::core::GUID = ::windows_sys::GUID 
 #[repr(transparent)]
 pub struct TARGETPROTOCOLTYPE(pub i32);
 pub const ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = TARGETPROTOCOLTYPE(0i32);
+impl ::core::marker::Copy for TARGETPROTOCOLTYPE {}
+impl ::core::clone::Clone for TARGETPROTOCOLTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TARGET_INFORMATION_CLASS(pub i32);
 pub const ProtocolType: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(0i32);
@@ -1926,6 +1980,12 @@ pub const PersistentTargetMappings: TARGET_INFORMATION_CLASS = TARGET_INFORMATIO
 pub const InitiatorName: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(5i32);
 pub const TargetFlags: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(6i32);
 pub const LoginOptions: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(7i32);
+impl ::core::marker::Copy for TARGET_INFORMATION_CLASS {}
+impl ::core::clone::Clone for TARGET_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WmiScsiAddressGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1408590607, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };
 #[repr(C)]
 pub struct _ADAPTER_OBJECT(pub u8);

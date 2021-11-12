@@ -20,12 +20,24 @@ impl CortanaPermission {
     pub const Personalization: Self = Self(9i32);
     pub const PhoneCall: Self = Self(10i32);
 }
+impl ::core::marker::Copy for CortanaPermission {}
+impl ::core::clone::Clone for CortanaPermission {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CortanaPermissionsChangeResult(pub i32);
 impl CortanaPermissionsChangeResult {
     pub const Success: Self = Self(0i32);
     pub const Unavailable: Self = Self(1i32);
     pub const DisabledByPolicy: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CortanaPermissionsChangeResult {}
+impl ::core::clone::Clone for CortanaPermissionsChangeResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CortanaPermissionsManager(pub *mut ::core::ffi::c_void);

@@ -46,6 +46,12 @@ pub const SENSGUID_SUBSCRIBER_WININET: ::windows_sys::core::GUID = ::windows_sys
 pub struct SENS_CONNECTION_TYPE(pub u32);
 pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0u32);
 pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(1u32);
+impl ::core::marker::Copy for SENS_CONNECTION_TYPE {}
+impl ::core::clone::Clone for SENS_CONNECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SENS_QOCINFO {
     pub dwSize: u32,

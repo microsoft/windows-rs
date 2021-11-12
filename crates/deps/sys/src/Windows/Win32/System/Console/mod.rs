@@ -297,6 +297,12 @@ pub const ENABLE_WRAP_AT_EOL_OUTPUT: CONSOLE_MODE = CONSOLE_MODE(2u32);
 pub const ENABLE_VIRTUAL_TERMINAL_PROCESSING: CONSOLE_MODE = CONSOLE_MODE(4u32);
 pub const DISABLE_NEWLINE_AUTO_RETURN: CONSOLE_MODE = CONSOLE_MODE(8u32);
 pub const ENABLE_LVB_GRID_WORLDWIDE: CONSOLE_MODE = CONSOLE_MODE(16u32);
+impl ::core::marker::Copy for CONSOLE_MODE {}
+impl ::core::clone::Clone for CONSOLE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CONSOLE_MOUSE_DOWN: u32 = 8u32;
 pub const CONSOLE_MOUSE_SELECTION: u32 = 4u32;
 pub const CONSOLE_NO_SELECTION: u32 = 0u32;
@@ -539,6 +545,12 @@ pub struct STD_HANDLE(pub u32);
 pub const STD_INPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967286u32);
 pub const STD_OUTPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967285u32);
 pub const STD_ERROR_HANDLE: STD_HANDLE = STD_HANDLE(4294967284u32);
+impl ::core::marker::Copy for STD_HANDLE {}
+impl ::core::clone::Clone for STD_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
 #[repr(C)]
 pub struct WINDOW_BUFFER_SIZE_RECORD {

@@ -435,6 +435,12 @@ impl ::core::clone::Clone for AAL_PARAMETERS_IE_0 {
 pub struct AAL_TYPE(pub i32);
 pub const AALTYPE_5: AAL_TYPE = AAL_TYPE(5i32);
 pub const AALTYPE_USER: AAL_TYPE = AAL_TYPE(16i32);
+impl ::core::marker::Copy for AAL_TYPE {}
+impl ::core::clone::Clone for AAL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADDRINFOA {
@@ -859,6 +865,12 @@ pub const CONTROL_CHANNEL_TRIGGER_STATUS_POLICY_ERROR: CONTROL_CHANNEL_TRIGGER_S
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_SYSTEM_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = CONTROL_CHANNEL_TRIGGER_STATUS(4i32);
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED: CONTROL_CHANNEL_TRIGGER_STATUS = CONTROL_CHANNEL_TRIGGER_STATUS(5i32);
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_SERVICE_UNAVAILABLE: CONTROL_CHANNEL_TRIGGER_STATUS = CONTROL_CHANNEL_TRIGGER_STATUS(6i32);
+impl ::core::marker::Copy for CONTROL_CHANNEL_TRIGGER_STATUS {}
+impl ::core::clone::Clone for CONTROL_CHANNEL_TRIGGER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CSADDR_INFO {
@@ -1298,6 +1310,12 @@ pub const IPPROTO_RESERVED_IPSEC: IPPROTO = IPPROTO(258i32);
 pub const IPPROTO_RESERVED_IPSECOFFLOAD: IPPROTO = IPPROTO(259i32);
 pub const IPPROTO_RESERVED_WNV: IPPROTO = IPPROTO(260i32);
 pub const IPPROTO_RESERVED_MAX: IPPROTO = IPPROTO(261i32);
+impl ::core::marker::Copy for IPPROTO {}
+impl ::core::clone::Clone for IPPROTO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IPPROTO_IP: u32 = 0u32;
 pub const IPPROTO_RM: u32 = 113u32;
 pub const IPV6_ADD_IFLIST: u32 = 29u32;
@@ -1834,6 +1852,12 @@ pub const MSG_WAITALL: u32 = 8u32;
 pub struct MULTICAST_MODE_TYPE(pub i32);
 pub const MCAST_INCLUDE: MULTICAST_MODE_TYPE = MULTICAST_MODE_TYPE(0i32);
 pub const MCAST_EXCLUDE: MULTICAST_MODE_TYPE = MULTICAST_MODE_TYPE(1i32);
+impl ::core::marker::Copy for MULTICAST_MODE_TYPE {}
+impl ::core::clone::Clone for MULTICAST_MODE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct NAPI_DOMAIN_DESCRIPTION_BLOB {
     pub AuthLevel: u32,
@@ -1866,10 +1890,22 @@ pub struct NAPI_PROVIDER_LEVEL(pub i32);
 pub const ProviderLevel_None: NAPI_PROVIDER_LEVEL = NAPI_PROVIDER_LEVEL(0i32);
 pub const ProviderLevel_Secondary: NAPI_PROVIDER_LEVEL = NAPI_PROVIDER_LEVEL(1i32);
 pub const ProviderLevel_Primary: NAPI_PROVIDER_LEVEL = NAPI_PROVIDER_LEVEL(2i32);
+impl ::core::marker::Copy for NAPI_PROVIDER_LEVEL {}
+impl ::core::clone::Clone for NAPI_PROVIDER_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NAPI_PROVIDER_TYPE(pub i32);
 pub const ProviderType_Application: NAPI_PROVIDER_TYPE = NAPI_PROVIDER_TYPE(1i32);
 pub const ProviderType_Service: NAPI_PROVIDER_TYPE = NAPI_PROVIDER_TYPE(2i32);
+impl ::core::marker::Copy for NAPI_PROVIDER_TYPE {}
+impl ::core::clone::Clone for NAPI_PROVIDER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NETBIOS_GROUP_NAME: u32 = 1u32;
 pub const NETBIOS_NAME_LENGTH: u32 = 16u32;
 pub const NETBIOS_TYPE_QUICK_GROUP: u32 = 3u32;
@@ -2052,18 +2088,36 @@ pub const NLA_INTERFACE: NLA_BLOB_DATA_TYPE = NLA_BLOB_DATA_TYPE(1i32);
 pub const NLA_802_1X_LOCATION: NLA_BLOB_DATA_TYPE = NLA_BLOB_DATA_TYPE(2i32);
 pub const NLA_CONNECTIVITY: NLA_BLOB_DATA_TYPE = NLA_BLOB_DATA_TYPE(3i32);
 pub const NLA_ICS: NLA_BLOB_DATA_TYPE = NLA_BLOB_DATA_TYPE(4i32);
+impl ::core::marker::Copy for NLA_BLOB_DATA_TYPE {}
+impl ::core::clone::Clone for NLA_BLOB_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NLA_CONNECTIVITY_TYPE(pub i32);
 pub const NLA_NETWORK_AD_HOC: NLA_CONNECTIVITY_TYPE = NLA_CONNECTIVITY_TYPE(0i32);
 pub const NLA_NETWORK_MANAGED: NLA_CONNECTIVITY_TYPE = NLA_CONNECTIVITY_TYPE(1i32);
 pub const NLA_NETWORK_UNMANAGED: NLA_CONNECTIVITY_TYPE = NLA_CONNECTIVITY_TYPE(2i32);
 pub const NLA_NETWORK_UNKNOWN: NLA_CONNECTIVITY_TYPE = NLA_CONNECTIVITY_TYPE(3i32);
+impl ::core::marker::Copy for NLA_CONNECTIVITY_TYPE {}
+impl ::core::clone::Clone for NLA_CONNECTIVITY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NLA_FRIENDLY_NAME: u32 = 2u32;
 #[repr(transparent)]
 pub struct NLA_INTERNET(pub i32);
 pub const NLA_INTERNET_UNKNOWN: NLA_INTERNET = NLA_INTERNET(0i32);
 pub const NLA_INTERNET_NO: NLA_INTERNET = NLA_INTERNET(1i32);
 pub const NLA_INTERNET_YES: NLA_INTERNET = NLA_INTERNET(2i32);
+impl ::core::marker::Copy for NLA_INTERNET {}
+impl ::core::clone::Clone for NLA_INTERNET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NL_ADDRESS_TYPE(pub i32);
 pub const NlatUnspecified: NL_ADDRESS_TYPE = NL_ADDRESS_TYPE(0i32);
@@ -2072,11 +2126,23 @@ pub const NlatAnycast: NL_ADDRESS_TYPE = NL_ADDRESS_TYPE(2i32);
 pub const NlatMulticast: NL_ADDRESS_TYPE = NL_ADDRESS_TYPE(3i32);
 pub const NlatBroadcast: NL_ADDRESS_TYPE = NL_ADDRESS_TYPE(4i32);
 pub const NlatInvalid: NL_ADDRESS_TYPE = NL_ADDRESS_TYPE(5i32);
+impl ::core::marker::Copy for NL_ADDRESS_TYPE {}
+impl ::core::clone::Clone for NL_ADDRESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NL_BANDWIDTH_FLAG(pub i32);
 pub const NlbwDisabled: NL_BANDWIDTH_FLAG = NL_BANDWIDTH_FLAG(0i32);
 pub const NlbwEnabled: NL_BANDWIDTH_FLAG = NL_BANDWIDTH_FLAG(1i32);
 pub const NlbwUnchanged: NL_BANDWIDTH_FLAG = NL_BANDWIDTH_FLAG(-1i32);
+impl ::core::marker::Copy for NL_BANDWIDTH_FLAG {}
+impl ::core::clone::Clone for NL_BANDWIDTH_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NL_BANDWIDTH_INFORMATION {
@@ -2104,6 +2170,12 @@ pub const IpDadStateTentative: NL_DAD_STATE = NL_DAD_STATE(1i32);
 pub const IpDadStateDuplicate: NL_DAD_STATE = NL_DAD_STATE(2i32);
 pub const IpDadStateDeprecated: NL_DAD_STATE = NL_DAD_STATE(3i32);
 pub const IpDadStatePreferred: NL_DAD_STATE = NL_DAD_STATE(4i32);
+impl ::core::marker::Copy for NL_DAD_STATE {}
+impl ::core::clone::Clone for NL_DAD_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NL_INTERFACE_NETWORK_CATEGORY_STATE(pub i32);
 pub const NlincCategoryUnknown: NL_INTERFACE_NETWORK_CATEGORY_STATE = NL_INTERFACE_NETWORK_CATEGORY_STATE(0i32);
@@ -2111,6 +2183,12 @@ pub const NlincPublic: NL_INTERFACE_NETWORK_CATEGORY_STATE = NL_INTERFACE_NETWOR
 pub const NlincPrivate: NL_INTERFACE_NETWORK_CATEGORY_STATE = NL_INTERFACE_NETWORK_CATEGORY_STATE(2i32);
 pub const NlincDomainAuthenticated: NL_INTERFACE_NETWORK_CATEGORY_STATE = NL_INTERFACE_NETWORK_CATEGORY_STATE(3i32);
 pub const NlincCategoryStateMax: NL_INTERFACE_NETWORK_CATEGORY_STATE = NL_INTERFACE_NETWORK_CATEGORY_STATE(4i32);
+impl ::core::marker::Copy for NL_INTERFACE_NETWORK_CATEGORY_STATE {}
+impl ::core::clone::Clone for NL_INTERFACE_NETWORK_CATEGORY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct NL_INTERFACE_OFFLOAD_ROD {
     pub _bitfield: u8,
@@ -2127,6 +2205,12 @@ pub const LinkLocalAlwaysOff: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = NL_LINK_LOCAL_ADD
 pub const LinkLocalDelayed: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = NL_LINK_LOCAL_ADDRESS_BEHAVIOR(1i32);
 pub const LinkLocalAlwaysOn: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = NL_LINK_LOCAL_ADDRESS_BEHAVIOR(2i32);
 pub const LinkLocalUnchanged: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = NL_LINK_LOCAL_ADDRESS_BEHAVIOR(-1i32);
+impl ::core::marker::Copy for NL_LINK_LOCAL_ADDRESS_BEHAVIOR {}
+impl ::core::clone::Clone for NL_LINK_LOCAL_ADDRESS_BEHAVIOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NL_NEIGHBOR_STATE(pub i32);
 pub const NlnsUnreachable: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(0i32);
@@ -2137,6 +2221,12 @@ pub const NlnsStale: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(4i32);
 pub const NlnsReachable: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(5i32);
 pub const NlnsPermanent: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(6i32);
 pub const NlnsMaximum: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(7i32);
+impl ::core::marker::Copy for NL_NEIGHBOR_STATE {}
+impl ::core::clone::Clone for NL_NEIGHBOR_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NL_NETWORK_CATEGORY(pub i32);
 pub const NetworkCategoryPublic: NL_NETWORK_CATEGORY = NL_NETWORK_CATEGORY(0i32);
@@ -2144,12 +2234,24 @@ pub const NetworkCategoryPrivate: NL_NETWORK_CATEGORY = NL_NETWORK_CATEGORY(1i32
 pub const NetworkCategoryDomainAuthenticated: NL_NETWORK_CATEGORY = NL_NETWORK_CATEGORY(2i32);
 pub const NetworkCategoryUnchanged: NL_NETWORK_CATEGORY = NL_NETWORK_CATEGORY(-1i32);
 pub const NetworkCategoryUnknown: NL_NETWORK_CATEGORY = NL_NETWORK_CATEGORY(-1i32);
+impl ::core::marker::Copy for NL_NETWORK_CATEGORY {}
+impl ::core::clone::Clone for NL_NETWORK_CATEGORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NL_NETWORK_CONNECTIVITY_COST_HINT(pub i32);
 pub const NetworkConnectivityCostHintUnknown: NL_NETWORK_CONNECTIVITY_COST_HINT = NL_NETWORK_CONNECTIVITY_COST_HINT(0i32);
 pub const NetworkConnectivityCostHintUnrestricted: NL_NETWORK_CONNECTIVITY_COST_HINT = NL_NETWORK_CONNECTIVITY_COST_HINT(1i32);
 pub const NetworkConnectivityCostHintFixed: NL_NETWORK_CONNECTIVITY_COST_HINT = NL_NETWORK_CONNECTIVITY_COST_HINT(2i32);
 pub const NetworkConnectivityCostHintVariable: NL_NETWORK_CONNECTIVITY_COST_HINT = NL_NETWORK_CONNECTIVITY_COST_HINT(3i32);
+impl ::core::marker::Copy for NL_NETWORK_CONNECTIVITY_COST_HINT {}
+impl ::core::clone::Clone for NL_NETWORK_CONNECTIVITY_COST_HINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NL_NETWORK_CONNECTIVITY_HINT {
@@ -2175,6 +2277,12 @@ pub const NetworkConnectivityLevelHintLocalAccess: NL_NETWORK_CONNECTIVITY_LEVEL
 pub const NetworkConnectivityLevelHintInternetAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = NL_NETWORK_CONNECTIVITY_LEVEL_HINT(3i32);
 pub const NetworkConnectivityLevelHintConstrainedInternetAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = NL_NETWORK_CONNECTIVITY_LEVEL_HINT(4i32);
 pub const NetworkConnectivityLevelHintHidden: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = NL_NETWORK_CONNECTIVITY_LEVEL_HINT(5i32);
+impl ::core::marker::Copy for NL_NETWORK_CONNECTIVITY_LEVEL_HINT {}
+impl ::core::clone::Clone for NL_NETWORK_CONNECTIVITY_LEVEL_HINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NL_PATH_BANDWIDTH_ROD {
@@ -2198,12 +2306,24 @@ pub const IpPrefixOriginWellKnown: NL_PREFIX_ORIGIN = NL_PREFIX_ORIGIN(2i32);
 pub const IpPrefixOriginDhcp: NL_PREFIX_ORIGIN = NL_PREFIX_ORIGIN(3i32);
 pub const IpPrefixOriginRouterAdvertisement: NL_PREFIX_ORIGIN = NL_PREFIX_ORIGIN(4i32);
 pub const IpPrefixOriginUnchanged: NL_PREFIX_ORIGIN = NL_PREFIX_ORIGIN(16i32);
+impl ::core::marker::Copy for NL_PREFIX_ORIGIN {}
+impl ::core::clone::Clone for NL_PREFIX_ORIGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NL_ROUTER_DISCOVERY_BEHAVIOR(pub i32);
 pub const RouterDiscoveryDisabled: NL_ROUTER_DISCOVERY_BEHAVIOR = NL_ROUTER_DISCOVERY_BEHAVIOR(0i32);
 pub const RouterDiscoveryEnabled: NL_ROUTER_DISCOVERY_BEHAVIOR = NL_ROUTER_DISCOVERY_BEHAVIOR(1i32);
 pub const RouterDiscoveryDhcp: NL_ROUTER_DISCOVERY_BEHAVIOR = NL_ROUTER_DISCOVERY_BEHAVIOR(2i32);
 pub const RouterDiscoveryUnchanged: NL_ROUTER_DISCOVERY_BEHAVIOR = NL_ROUTER_DISCOVERY_BEHAVIOR(-1i32);
+impl ::core::marker::Copy for NL_ROUTER_DISCOVERY_BEHAVIOR {}
+impl ::core::clone::Clone for NL_ROUTER_DISCOVERY_BEHAVIOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NL_ROUTE_ORIGIN(pub i32);
 pub const NlroManual: NL_ROUTE_ORIGIN = NL_ROUTE_ORIGIN(0i32);
@@ -2211,6 +2331,12 @@ pub const NlroWellKnown: NL_ROUTE_ORIGIN = NL_ROUTE_ORIGIN(1i32);
 pub const NlroDHCP: NL_ROUTE_ORIGIN = NL_ROUTE_ORIGIN(2i32);
 pub const NlroRouterAdvertisement: NL_ROUTE_ORIGIN = NL_ROUTE_ORIGIN(3i32);
 pub const Nlro6to4: NL_ROUTE_ORIGIN = NL_ROUTE_ORIGIN(4i32);
+impl ::core::marker::Copy for NL_ROUTE_ORIGIN {}
+impl ::core::clone::Clone for NL_ROUTE_ORIGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NL_ROUTE_PROTOCOL(pub i32);
 pub const RouteProtocolOther: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(1i32);
@@ -2276,6 +2402,12 @@ pub const MIB_IPPROTO_NT_STATIC: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10006i32)
 pub const PROTO_IP_NT_STATIC: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10006i32);
 pub const MIB_IPPROTO_NT_STATIC_NON_DOD: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10007i32);
 pub const PROTO_IP_NT_STATIC_NON_DOD: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10007i32);
+impl ::core::marker::Copy for NL_ROUTE_PROTOCOL {}
+impl ::core::clone::Clone for NL_ROUTE_PROTOCOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NL_SUFFIX_ORIGIN(pub i32);
 pub const NlsoOther: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(0i32);
@@ -2291,6 +2423,12 @@ pub const IpSuffixOriginDhcp: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(3i32);
 pub const IpSuffixOriginLinkLayerAddress: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(4i32);
 pub const IpSuffixOriginRandom: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(5i32);
 pub const IpSuffixOriginUnchanged: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(16i32);
+impl ::core::marker::Copy for NL_SUFFIX_ORIGIN {}
+impl ::core::clone::Clone for NL_SUFFIX_ORIGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NSPROTO_IPX: u32 = 1000u32;
 pub const NSPROTO_SPX: u32 = 1256u32;
 pub const NSPROTO_SPXII: u32 = 1257u32;
@@ -2466,6 +2604,12 @@ pub const IP_PMTUDISC_DO: PMTUD_STATE = PMTUD_STATE(1i32);
 pub const IP_PMTUDISC_DONT: PMTUD_STATE = PMTUD_STATE(2i32);
 pub const IP_PMTUDISC_PROBE: PMTUD_STATE = PMTUD_STATE(3i32);
 pub const IP_PMTUDISC_MAX: PMTUD_STATE = PMTUD_STATE(4i32);
+impl ::core::marker::Copy for PMTUD_STATE {}
+impl ::core::clone::Clone for PMTUD_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const POLLERR: u32 = 1u32;
 pub const POLLHUP: u32 = 2u32;
 pub const POLLNVAL: u32 = 4u32;
@@ -2566,6 +2710,12 @@ pub const IE_CallingPartySubaddress: Q2931_IE_TYPE = Q2931_IE_TYPE(8i32);
 pub const IE_Cause: Q2931_IE_TYPE = Q2931_IE_TYPE(9i32);
 pub const IE_QOSClass: Q2931_IE_TYPE = Q2931_IE_TYPE(10i32);
 pub const IE_TransitNetworkSelection: Q2931_IE_TYPE = Q2931_IE_TYPE(11i32);
+impl ::core::marker::Copy for Q2931_IE_TYPE {}
+impl ::core::clone::Clone for Q2931_IE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QOS_CLASS0: u32 = 0u32;
 pub const QOS_CLASS1: u32 = 1u32;
 pub const QOS_CLASS2: u32 = 2u32;
@@ -2588,6 +2738,12 @@ pub const RCVALL_OFF: RCVALL_VALUE = RCVALL_VALUE(0i32);
 pub const RCVALL_ON: RCVALL_VALUE = RCVALL_VALUE(1i32);
 pub const RCVALL_SOCKETLEVELONLY: RCVALL_VALUE = RCVALL_VALUE(2i32);
 pub const RCVALL_IPLEVEL: RCVALL_VALUE = RCVALL_VALUE(3i32);
+impl ::core::marker::Copy for RCVALL_VALUE {}
+impl ::core::clone::Clone for RCVALL_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const REAL_TIME_NOTIFICATION_CAPABILITY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1801027994, data2: 23726, data3: 18733, data4: [169, 1, 42, 60, 44, 80, 22, 79] };
 pub const REAL_TIME_NOTIFICATION_CAPABILITY_EX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1749277187, data2: 5450, data3: 17942, data4: [165, 8, 68, 55, 18, 149, 249, 107] };
 #[repr(C)]
@@ -2635,6 +2791,12 @@ pub const RESOURCEDISPLAYTYPE_GROUP: RESOURCE_DISPLAY_TYPE = RESOURCE_DISPLAY_TY
 pub const RESOURCEDISPLAYTYPE_SERVER: RESOURCE_DISPLAY_TYPE = RESOURCE_DISPLAY_TYPE(2u32);
 pub const RESOURCEDISPLAYTYPE_SHARE: RESOURCE_DISPLAY_TYPE = RESOURCE_DISPLAY_TYPE(3u32);
 pub const RESOURCEDISPLAYTYPE_TREE: RESOURCE_DISPLAY_TYPE = RESOURCE_DISPLAY_TYPE(10u32);
+impl ::core::marker::Copy for RESOURCE_DISPLAY_TYPE {}
+impl ::core::clone::Clone for RESOURCE_DISPLAY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RESULT_IS_ADDED: u32 = 16u32;
 pub const RESULT_IS_ALIAS: u32 = 1u32;
 pub const RESULT_IS_CHANGED: u32 = 32u32;
@@ -2774,6 +2936,12 @@ impl ::core::clone::Clone for RIO_NOTIFICATION_COMPLETION_0_1 {
 pub struct RIO_NOTIFICATION_COMPLETION_TYPE(pub i32);
 pub const RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = RIO_NOTIFICATION_COMPLETION_TYPE(1i32);
 pub const RIO_IOCP_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = RIO_NOTIFICATION_COMPLETION_TYPE(2i32);
+impl ::core::marker::Copy for RIO_NOTIFICATION_COMPLETION_TYPE {}
+impl ::core::clone::Clone for RIO_NOTIFICATION_COMPLETION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct RIO_RQ_t(pub u8);
 pub const RM_ADD_RECEIVE_IF: u32 = 1008u32;
@@ -2925,6 +3093,12 @@ pub const ScopeLevelSite: SCOPE_LEVEL = SCOPE_LEVEL(5i32);
 pub const ScopeLevelOrganization: SCOPE_LEVEL = SCOPE_LEVEL(8i32);
 pub const ScopeLevelGlobal: SCOPE_LEVEL = SCOPE_LEVEL(14i32);
 pub const ScopeLevelCount: SCOPE_LEVEL = SCOPE_LEVEL(16i32);
+impl ::core::marker::Copy for SCOPE_LEVEL {}
+impl ::core::clone::Clone for SCOPE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SD_BOTH: u32 = 2u32;
 pub const SD_RECEIVE: u32 = 0u32;
 pub const SD_SEND: u32 = 1u32;
@@ -2937,6 +3111,12 @@ pub const SENDER_MAX_LATE_JOINER_PERCENTAGE: u32 = 75u32;
 pub struct SEND_FLAGS(pub u32);
 pub const MSG_DONTROUTE: SEND_FLAGS = SEND_FLAGS(4u32);
 pub const MSG_OOB: SEND_FLAGS = SEND_FLAGS(1u32);
+impl ::core::marker::Copy for SEND_FLAGS {}
+impl ::core::clone::Clone for SEND_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SERVICE_ADDRESS {
     pub dwAddressType: u32,
@@ -3128,6 +3308,12 @@ pub const SERVICE_DEREGISTER: SET_SERVICE_OPERATION = SET_SERVICE_OPERATION(2u32
 pub const SERVICE_FLUSH: SET_SERVICE_OPERATION = SET_SERVICE_OPERATION(3u32);
 pub const SERVICE_ADD_TYPE: SET_SERVICE_OPERATION = SET_SERVICE_OPERATION(4u32);
 pub const SERVICE_DELETE_TYPE: SET_SERVICE_OPERATION = SET_SERVICE_OPERATION(5u32);
+impl ::core::marker::Copy for SET_SERVICE_OPERATION {}
+impl ::core::clone::Clone for SET_SERVICE_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SET_SERVICE_PARTIAL_SUCCESS: u32 = 1u32;
 pub const SG_CONSTRAINED_GROUP: u32 = 2u32;
 pub const SG_UNCONSTRAINED_GROUP: u32 = 1u32;
@@ -3360,6 +3546,12 @@ pub const SocketPriorityHintVeryLow: SOCKET_PRIORITY_HINT = SOCKET_PRIORITY_HINT
 pub const SocketPriorityHintLow: SOCKET_PRIORITY_HINT = SOCKET_PRIORITY_HINT(1i32);
 pub const SocketPriorityHintNormal: SOCKET_PRIORITY_HINT = SOCKET_PRIORITY_HINT(2i32);
 pub const SocketMaximumPriorityHintType: SOCKET_PRIORITY_HINT = SOCKET_PRIORITY_HINT(3i32);
+impl ::core::marker::Copy for SOCKET_PRIORITY_HINT {}
+impl ::core::clone::Clone for SOCKET_PRIORITY_HINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct SOCKET_PROCESSOR_AFFINITY {
@@ -3384,6 +3576,12 @@ pub const SOCKET_SECURITY_PROTOCOL_DEFAULT: SOCKET_SECURITY_PROTOCOL = SOCKET_SE
 pub const SOCKET_SECURITY_PROTOCOL_IPSEC: SOCKET_SECURITY_PROTOCOL = SOCKET_SECURITY_PROTOCOL(1i32);
 pub const SOCKET_SECURITY_PROTOCOL_IPSEC2: SOCKET_SECURITY_PROTOCOL = SOCKET_SECURITY_PROTOCOL(2i32);
 pub const SOCKET_SECURITY_PROTOCOL_INVALID: SOCKET_SECURITY_PROTOCOL = SOCKET_SECURITY_PROTOCOL(3i32);
+impl ::core::marker::Copy for SOCKET_SECURITY_PROTOCOL {}
+impl ::core::clone::Clone for SOCKET_SECURITY_PROTOCOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SOCKET_SECURITY_QUERY_INFO {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
@@ -3486,6 +3684,12 @@ pub const SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION: u32 = 1u32;
 #[repr(transparent)]
 pub struct SOCKET_USAGE_TYPE(pub i32);
 pub const SYSTEM_CRITICAL_SOCKET: SOCKET_USAGE_TYPE = SOCKET_USAGE_TYPE(1i32);
+impl ::core::marker::Copy for SOCKET_USAGE_TYPE {}
+impl ::core::clone::Clone for SOCKET_USAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SOCK_DGRAM: u16 = 2u16;
 pub const SOCK_NOTIFY_EVENT_ERR: u32 = 64u32;
 pub const SOCK_NOTIFY_EVENT_HANGUP: u32 = 4u32;
@@ -3590,6 +3794,12 @@ pub const TCPSTATE_CLOSING: TCPSTATE = TCPSTATE(8i32);
 pub const TCPSTATE_LAST_ACK: TCPSTATE = TCPSTATE(9i32);
 pub const TCPSTATE_TIME_WAIT: TCPSTATE = TCPSTATE(10i32);
 pub const TCPSTATE_MAX: TCPSTATE = TCPSTATE(11i32);
+impl ::core::marker::Copy for TCPSTATE {}
+impl ::core::clone::Clone for TCPSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TCP_ACK_FREQUENCY_PARAMETERS {
     pub TcpDelayedAckFrequency: u8,
@@ -3617,6 +3827,12 @@ pub const TCP_ICW_LEVEL_AGGRESSIVE: TCP_ICW_LEVEL = TCP_ICW_LEVEL(3i32);
 pub const TCP_ICW_LEVEL_EXPERIMENTAL: TCP_ICW_LEVEL = TCP_ICW_LEVEL(4i32);
 pub const TCP_ICW_LEVEL_COMPAT: TCP_ICW_LEVEL = TCP_ICW_LEVEL(254i32);
 pub const TCP_ICW_LEVEL_MAX: TCP_ICW_LEVEL = TCP_ICW_LEVEL(255i32);
+impl ::core::marker::Copy for TCP_ICW_LEVEL {}
+impl ::core::clone::Clone for TCP_ICW_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TCP_ICW_PARAMETERS {
     pub Level: TCP_ICW_LEVEL,
@@ -4126,6 +4342,12 @@ pub const NSP_NOTIFY_HWND: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(1i32);
 pub const NSP_NOTIFY_EVENT: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(2i32);
 pub const NSP_NOTIFY_PORT: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(3i32);
 pub const NSP_NOTIFY_APC: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(4i32);
+impl ::core::marker::Copy for WSACOMPLETIONTYPE {}
+impl ::core::clone::Clone for WSACOMPLETIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WSADESCRIPTION_LEN: u32 = 256u32;
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -4175,11 +4397,23 @@ impl ::core::clone::Clone for WSAData {
 pub struct WSAECOMPARATOR(pub i32);
 pub const COMP_EQUAL: WSAECOMPARATOR = WSAECOMPARATOR(0i32);
 pub const COMP_NOTLESS: WSAECOMPARATOR = WSAECOMPARATOR(1i32);
+impl ::core::marker::Copy for WSAECOMPARATOR {}
+impl ::core::clone::Clone for WSAECOMPARATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WSAESETSERVICEOP(pub i32);
 pub const RNRSERVICE_REGISTER: WSAESETSERVICEOP = WSAESETSERVICEOP(0i32);
 pub const RNRSERVICE_DEREGISTER: WSAESETSERVICEOP = WSAESETSERVICEOP(1i32);
 pub const RNRSERVICE_DELETE: WSAESETSERVICEOP = WSAESETSERVICEOP(2i32);
+impl ::core::marker::Copy for WSAESETSERVICEOP {}
+impl ::core::clone::Clone for WSAESETSERVICEOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSAMSG {
@@ -4597,6 +4831,12 @@ pub struct WSA_COMPATIBILITY_BEHAVIOR_ID(pub i32);
 pub const WsaBehaviorAll: WSA_COMPATIBILITY_BEHAVIOR_ID = WSA_COMPATIBILITY_BEHAVIOR_ID(0i32);
 pub const WsaBehaviorReceiveBuffering: WSA_COMPATIBILITY_BEHAVIOR_ID = WSA_COMPATIBILITY_BEHAVIOR_ID(1i32);
 pub const WsaBehaviorAutoTuning: WSA_COMPATIBILITY_BEHAVIOR_ID = WSA_COMPATIBILITY_BEHAVIOR_ID(2i32);
+impl ::core::marker::Copy for WSA_COMPATIBILITY_BEHAVIOR_ID {}
+impl ::core::clone::Clone for WSA_COMPATIBILITY_BEHAVIOR_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WSA_COMPATIBILITY_MODE {
     pub BehaviorId: WSA_COMPATIBILITY_BEHAVIOR_ID,
@@ -4708,6 +4948,12 @@ pub const WSA_QOS_ESHAPERATEOBJ: WSA_ERROR = WSA_ERROR(11030i32);
 pub const WSA_QOS_RESERVED_PETYPE: WSA_ERROR = WSA_ERROR(11031i32);
 pub const WSA_SECURE_HOST_NOT_FOUND: WSA_ERROR = WSA_ERROR(11032i32);
 pub const WSA_IPSEC_NAME_POLICY_ERROR: WSA_ERROR = WSA_ERROR(11033i32);
+impl ::core::marker::Copy for WSA_ERROR {}
+impl ::core::clone::Clone for WSA_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WSA_FLAG_ACCESS_SYSTEM_SECURITY: u32 = 64u32;
 pub const WSA_FLAG_MULTIPOINT_C_LEAF: u32 = 4u32;
 pub const WSA_FLAG_MULTIPOINT_C_ROOT: u32 = 2u32;
@@ -4736,6 +4982,12 @@ impl ::core::clone::Clone for WSC_PROVIDER_AUDIT_INFO {
 pub struct WSC_PROVIDER_INFO_TYPE(pub i32);
 pub const ProviderInfoLspCategories: WSC_PROVIDER_INFO_TYPE = WSC_PROVIDER_INFO_TYPE(0i32);
 pub const ProviderInfoAudit: WSC_PROVIDER_INFO_TYPE = WSC_PROVIDER_INFO_TYPE(1i32);
+impl ::core::marker::Copy for WSC_PROVIDER_INFO_TYPE {}
+impl ::core::clone::Clone for WSC_PROVIDER_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WSK_SO_BASE: u32 = 16384u32;
 pub const WSPDESCRIPTION_LEN: u32 = 255u32;
 #[repr(C)]
@@ -5127,6 +5379,12 @@ impl ::core::clone::Clone for cmsghdr {
 pub struct eWINDOW_ADVANCE_METHOD(pub i32);
 pub const E_WINDOW_ADVANCE_BY_TIME: eWINDOW_ADVANCE_METHOD = eWINDOW_ADVANCE_METHOD(1i32);
 pub const E_WINDOW_USE_AS_DATA_CACHE: eWINDOW_ADVANCE_METHOD = eWINDOW_ADVANCE_METHOD(2i32);
+impl ::core::marker::Copy for eWINDOW_ADVANCE_METHOD {}
+impl ::core::clone::Clone for eWINDOW_ADVANCE_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct fd_set {
     pub fd_count: u32,

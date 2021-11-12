@@ -18,11 +18,23 @@ impl BluetoothAddressType {
     pub const Random: Self = Self(1i32);
     pub const Unspecified: Self = Self(2i32);
 }
+impl ::core::marker::Copy for BluetoothAddressType {}
+impl ::core::clone::Clone for BluetoothAddressType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BluetoothCacheMode(pub i32);
 impl BluetoothCacheMode {
     pub const Cached: Self = Self(0i32);
     pub const Uncached: Self = Self(1i32);
+}
+impl ::core::marker::Copy for BluetoothCacheMode {}
+impl ::core::clone::Clone for BluetoothCacheMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BluetoothClassOfDevice(pub *mut ::core::ffi::c_void);
@@ -31,6 +43,12 @@ pub struct BluetoothConnectionStatus(pub i32);
 impl BluetoothConnectionStatus {
     pub const Disconnected: Self = Self(0i32);
     pub const Connected: Self = Self(1i32);
+}
+impl ::core::marker::Copy for BluetoothConnectionStatus {}
+impl ::core::clone::Clone for BluetoothConnectionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BluetoothDevice(pub *mut ::core::ffi::c_void);
@@ -49,6 +67,12 @@ impl BluetoothError {
     pub const DisabledByUser: Self = Self(7i32);
     pub const ConsentRequired: Self = Self(8i32);
     pub const TransportNotSupported: Self = Self(9i32);
+}
+impl ::core::marker::Copy for BluetoothError {}
+impl ::core::clone::Clone for BluetoothError {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BluetoothLEAppearance(pub *mut ::core::ffi::c_void);
@@ -72,6 +96,12 @@ impl BluetoothLEPreferredConnectionParametersRequestStatus {
     pub const DeviceNotAvailable: Self = Self(2i32);
     pub const AccessDenied: Self = Self(3i32);
 }
+impl ::core::marker::Copy for BluetoothLEPreferredConnectionParametersRequestStatus {}
+impl ::core::clone::Clone for BluetoothLEPreferredConnectionParametersRequestStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BluetoothMajorClass(pub i32);
 impl BluetoothMajorClass {
@@ -85,6 +115,12 @@ impl BluetoothMajorClass {
     pub const Wearable: Self = Self(7i32);
     pub const Toy: Self = Self(8i32);
     pub const Health: Self = Self(9i32);
+}
+impl ::core::marker::Copy for BluetoothMajorClass {}
+impl ::core::clone::Clone for BluetoothMajorClass {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BluetoothMinorClass(pub i32);
@@ -161,6 +197,12 @@ impl BluetoothMinorClass {
     pub const HealthGenericHealthManager: Self = Self(14i32);
     pub const HealthPersonalMobilityDevice: Self = Self(15i32);
 }
+impl ::core::marker::Copy for BluetoothMinorClass {}
+impl ::core::clone::Clone for BluetoothMinorClass {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BluetoothServiceCapabilities(pub u32);
 impl BluetoothServiceCapabilities {
@@ -174,6 +216,12 @@ impl BluetoothServiceCapabilities {
     pub const AudioService: Self = Self(256u32);
     pub const TelephoneService: Self = Self(512u32);
     pub const InformationService: Self = Self(1024u32);
+}
+impl ::core::marker::Copy for BluetoothServiceCapabilities {}
+impl ::core::clone::Clone for BluetoothServiceCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BluetoothSignalStrengthFilter(pub *mut ::core::ffi::c_void);

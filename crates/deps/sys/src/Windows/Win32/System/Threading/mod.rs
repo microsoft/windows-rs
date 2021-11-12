@@ -600,11 +600,23 @@ pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
 pub struct CREATE_EVENT(pub u32);
 pub const CREATE_EVENT_INITIAL_SET: CREATE_EVENT = CREATE_EVENT(2u32);
 pub const CREATE_EVENT_MANUAL_RESET: CREATE_EVENT = CREATE_EVENT(1u32);
+impl ::core::marker::Copy for CREATE_EVENT {}
+impl ::core::clone::Clone for CREATE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CREATE_MUTEX_INITIAL_OWNER: u32 = 1u32;
 #[repr(transparent)]
 pub struct CREATE_PROCESS_LOGON_FLAGS(pub u32);
 pub const LOGON_WITH_PROFILE: CREATE_PROCESS_LOGON_FLAGS = CREATE_PROCESS_LOGON_FLAGS(1u32);
 pub const LOGON_NETCREDENTIALS_ONLY: CREATE_PROCESS_LOGON_FLAGS = CREATE_PROCESS_LOGON_FLAGS(2u32);
+impl ::core::marker::Copy for CREATE_PROCESS_LOGON_FLAGS {}
+impl ::core::clone::Clone for CREATE_PROCESS_LOGON_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: u32 = 2u32;
 pub const CREATE_WAITABLE_TIMER_MANUAL_RESET: u32 = 1u32;
 #[repr(transparent)]
@@ -613,6 +625,12 @@ pub const GR_GDIOBJECTS: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(0u32)
 pub const GR_GDIOBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(2u32);
 pub const GR_USEROBJECTS: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(1u32);
 pub const GR_USEROBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(4u32);
+impl ::core::marker::Copy for GET_GUI_RESOURCES_FLAGS {}
+impl ::core::clone::Clone for GET_GUI_RESOURCES_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INIT_ONCE_ASYNC: u32 = 2u32;
 pub const INIT_ONCE_CHECK_ONLY: u32 = 1u32;
 pub const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
@@ -649,6 +667,12 @@ pub struct MACHINE_ATTRIBUTES(pub u32);
 pub const UserEnabled: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(1u32);
 pub const KernelEnabled: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(2u32);
 pub const Wow64Container: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(4u32);
+impl ::core::marker::Copy for MACHINE_ATTRIBUTES {}
+impl ::core::clone::Clone for MACHINE_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MEMORY_PRIORITY(pub u32);
 pub const MEMORY_PRIORITY_VERY_LOW: MEMORY_PRIORITY = MEMORY_PRIORITY(1u32);
@@ -656,6 +680,12 @@ pub const MEMORY_PRIORITY_LOW: MEMORY_PRIORITY = MEMORY_PRIORITY(2u32);
 pub const MEMORY_PRIORITY_MEDIUM: MEMORY_PRIORITY = MEMORY_PRIORITY(3u32);
 pub const MEMORY_PRIORITY_BELOW_NORMAL: MEMORY_PRIORITY = MEMORY_PRIORITY(4u32);
 pub const MEMORY_PRIORITY_NORMAL: MEMORY_PRIORITY = MEMORY_PRIORITY(5u32);
+impl ::core::marker::Copy for MEMORY_PRIORITY {}
+impl ::core::clone::Clone for MEMORY_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MEMORY_PRIORITY_INFORMATION {
     pub MemoryPriority: MEMORY_PRIORITY,
@@ -733,6 +763,12 @@ pub const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1u32;
 pub struct POWER_REQUEST_CONTEXT_FLAGS(pub u32);
 pub const POWER_REQUEST_CONTEXT_DETAILED_STRING: POWER_REQUEST_CONTEXT_FLAGS = POWER_REQUEST_CONTEXT_FLAGS(2u32);
 pub const POWER_REQUEST_CONTEXT_SIMPLE_STRING: POWER_REQUEST_CONTEXT_FLAGS = POWER_REQUEST_CONTEXT_FLAGS(1u32);
+impl ::core::marker::Copy for POWER_REQUEST_CONTEXT_FLAGS {}
+impl ::core::clone::Clone for POWER_REQUEST_CONTEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PPS_POST_PROCESS_INIT_ROUTINE = unsafe extern "system" fn();
 pub const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1u32;
 #[repr(transparent)]
@@ -742,6 +778,12 @@ pub const ProcessDebugPort: PROCESSINFOCLASS = PROCESSINFOCLASS(7i32);
 pub const ProcessWow64Information: PROCESSINFOCLASS = PROCESSINFOCLASS(26i32);
 pub const ProcessImageFileName: PROCESSINFOCLASS = PROCESSINFOCLASS(27i32);
 pub const ProcessBreakOnTermination: PROCESSINFOCLASS = PROCESSINFOCLASS(29i32);
+impl ::core::marker::Copy for PROCESSINFOCLASS {}
+impl ::core::clone::Clone for PROCESSINFOCLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROCESSOR_FEATURE_ID(pub u32);
 pub const PF_ARM_64BIT_LOADSTORE_ATOMIC: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(25u32);
@@ -772,6 +814,12 @@ pub const PF_ARM_V8_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEA
 pub const PF_ARM_V8_CRYPTO_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(30u32);
 pub const PF_ARM_V8_CRC32_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(31u32);
 pub const PF_ARM_V81_ATOMIC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(34u32);
+impl ::core::marker::Copy for PROCESSOR_FEATURE_ID {}
+impl ::core::clone::Clone for PROCESSOR_FEATURE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROCESS_ACCESS_RIGHTS(pub u32);
 pub const PROCESS_TERMINATE: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(1u32);
@@ -795,10 +843,22 @@ pub const PROCESS_WRITE_DAC: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(26214
 pub const PROCESS_WRITE_OWNER: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(524288u32);
 pub const PROCESS_SYNCHRONIZE: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(1048576u32);
 pub const PROCESS_STANDARD_RIGHTS_REQUIRED: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(983040u32);
+impl ::core::marker::Copy for PROCESS_ACCESS_RIGHTS {}
+impl ::core::clone::Clone for PROCESS_ACCESS_RIGHTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(pub u32);
 pub const PROCESS_AFFINITY_DISABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(0u32);
 pub const PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(1u32);
+impl ::core::marker::Copy for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {}
+impl ::core::clone::Clone for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PROCESS_BASIC_INFORMATION {
@@ -849,11 +909,23 @@ pub const PROFILE_USER: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(26843545
 pub const PROFILE_KERNEL: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(536870912u32);
 pub const PROFILE_SERVER: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(1073741824u32);
 pub const CREATE_IGNORE_SYSTEM_DEFAULT: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(2147483648u32);
+impl ::core::marker::Copy for PROCESS_CREATION_FLAGS {}
+impl ::core::clone::Clone for PROCESS_CREATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROCESS_DEP_FLAGS(pub u32);
 pub const PROCESS_DEP_ENABLE: PROCESS_DEP_FLAGS = PROCESS_DEP_FLAGS(1u32);
 pub const PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION: PROCESS_DEP_FLAGS = PROCESS_DEP_FLAGS(2u32);
 pub const PROCESS_DEP_NONE: PROCESS_DEP_FLAGS = PROCESS_DEP_FLAGS(0u32);
+impl ::core::marker::Copy for PROCESS_DEP_FLAGS {}
+impl ::core::clone::Clone for PROCESS_DEP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     pub TargetAddress: usize,
@@ -932,6 +1004,12 @@ pub const ProcessProtectionLevelInfo: PROCESS_INFORMATION_CLASS = PROCESS_INFORM
 pub const ProcessLeapSecondInfo: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(8i32);
 pub const ProcessMachineTypeInfo: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(9i32);
 pub const ProcessInformationClassMax: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(10i32);
+impl ::core::marker::Copy for PROCESS_INFORMATION_CLASS {}
+impl ::core::clone::Clone for PROCESS_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PROCESS_LEAP_SECOND_INFO {
     pub Flags: u32,
@@ -974,6 +1052,12 @@ impl ::core::clone::Clone for PROCESS_MEMORY_EXHAUSTION_INFO {
 pub struct PROCESS_MEMORY_EXHAUSTION_TYPE(pub i32);
 pub const PMETypeFailFastOnCommitFailure: PROCESS_MEMORY_EXHAUSTION_TYPE = PROCESS_MEMORY_EXHAUSTION_TYPE(0i32);
 pub const PMETypeMax: PROCESS_MEMORY_EXHAUSTION_TYPE = PROCESS_MEMORY_EXHAUSTION_TYPE(1i32);
+impl ::core::marker::Copy for PROCESS_MEMORY_EXHAUSTION_TYPE {}
+impl ::core::clone::Clone for PROCESS_MEMORY_EXHAUSTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROCESS_MITIGATION_POLICY(pub i32);
 pub const ProcessDEPPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(0i32);
@@ -994,10 +1078,22 @@ pub const ProcessSideChannelIsolationPolicy: PROCESS_MITIGATION_POLICY = PROCESS
 pub const ProcessUserShadowStackPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(15i32);
 pub const ProcessRedirectionTrustPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(16i32);
 pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(17i32);
+impl ::core::marker::Copy for PROCESS_MITIGATION_POLICY {}
+impl ::core::clone::Clone for PROCESS_MITIGATION_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROCESS_NAME_FORMAT(pub u32);
 pub const PROCESS_NAME_WIN32: PROCESS_NAME_FORMAT = PROCESS_NAME_FORMAT(0u32);
 pub const PROCESS_NAME_NATIVE: PROCESS_NAME_FORMAT = PROCESS_NAME_FORMAT(1u32);
+impl ::core::marker::Copy for PROCESS_NAME_FORMAT {}
+impl ::core::clone::Clone for PROCESS_NAME_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROCESS_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
 pub const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
 pub const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: u32 = 4u32;
@@ -1025,6 +1121,12 @@ pub const PROTECTION_LEVEL_CODEGEN_LIGHT: PROCESS_PROTECTION_LEVEL = PROCESS_PRO
 pub const PROTECTION_LEVEL_AUTHENTICODE: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(7u32);
 pub const PROTECTION_LEVEL_PPL_APP: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(8u32);
 pub const PROTECTION_LEVEL_NONE: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(4294967294u32);
+impl ::core::marker::Copy for PROCESS_PROTECTION_LEVEL {}
+impl ::core::clone::Clone for PROCESS_PROTECTION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PROCESS_PROTECTION_LEVEL_INFORMATION {
     pub ProtectionLevel: PROCESS_PROTECTION_LEVEL,
@@ -1059,6 +1161,12 @@ pub type PTP_WORK_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBAC
 pub struct QUEUE_USER_APC_FLAGS(pub i32);
 pub const QUEUE_USER_APC_FLAGS_NONE: QUEUE_USER_APC_FLAGS = QUEUE_USER_APC_FLAGS(0i32);
 pub const QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = QUEUE_USER_APC_FLAGS(1i32);
+impl ::core::marker::Copy for QUEUE_USER_APC_FLAGS {}
+impl ::core::clone::Clone for QUEUE_USER_APC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REASON_CONTEXT {
@@ -1194,6 +1302,12 @@ pub const UmsThreadTeb: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(4i
 pub const UmsThreadIsSuspended: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(5i32);
 pub const UmsThreadIsTerminated: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(6i32);
 pub const UmsThreadMaxInfoClass: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(7i32);
+impl ::core::marker::Copy for RTL_UMS_THREAD_INFO_CLASS {}
+impl ::core::clone::Clone for RTL_UMS_THREAD_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RTL_USER_PROCESS_PARAMETERS {
@@ -1314,6 +1428,12 @@ pub const STARTF_USEPOSITION: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(4u32);
 pub const STARTF_USESHOWWINDOW: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(1u32);
 pub const STARTF_USESIZE: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(2u32);
 pub const STARTF_USESTDHANDLES: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(256u32);
+impl ::core::marker::Copy for STARTUPINFOW_FLAGS {}
+impl ::core::clone::Clone for STARTUPINFOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: u32 = 2u32;
 pub const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: u32 = 4u32;
 pub const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1u32;
@@ -1321,6 +1441,12 @@ pub const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1u32;
 pub struct THREADINFOCLASS(pub i32);
 pub const ThreadIsIoPending: THREADINFOCLASS = THREADINFOCLASS(16i32);
 pub const ThreadNameInformation: THREADINFOCLASS = THREADINFOCLASS(38i32);
+impl ::core::marker::Copy for THREADINFOCLASS {}
+impl ::core::clone::Clone for THREADINFOCLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct THREAD_ACCESS_RIGHTS(pub u32);
 pub const THREAD_TERMINATE: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(1u32);
@@ -1342,11 +1468,23 @@ pub const THREAD_WRITE_DAC: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(262144u3
 pub const THREAD_WRITE_OWNER: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(524288u32);
 pub const THREAD_SYNCHRONIZE: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(1048576u32);
 pub const THREAD_STANDARD_RIGHTS_REQUIRED: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(983040u32);
+impl ::core::marker::Copy for THREAD_ACCESS_RIGHTS {}
+impl ::core::clone::Clone for THREAD_ACCESS_RIGHTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct THREAD_CREATION_FLAGS(pub u32);
 pub const THREAD_CREATE_RUN_IMMEDIATELY: THREAD_CREATION_FLAGS = THREAD_CREATION_FLAGS(0u32);
 pub const THREAD_CREATE_SUSPENDED: THREAD_CREATION_FLAGS = THREAD_CREATION_FLAGS(4u32);
 pub const STACK_SIZE_PARAM_IS_A_RESERVATION: THREAD_CREATION_FLAGS = THREAD_CREATION_FLAGS(65536u32);
+impl ::core::marker::Copy for THREAD_CREATION_FLAGS {}
+impl ::core::clone::Clone for THREAD_CREATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct THREAD_INFORMATION_CLASS(pub i32);
 pub const ThreadMemoryPriority: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(0i32);
@@ -1354,6 +1492,12 @@ pub const ThreadAbsoluteCpuPriority: THREAD_INFORMATION_CLASS = THREAD_INFORMATI
 pub const ThreadDynamicCodePolicy: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(2i32);
 pub const ThreadPowerThrottling: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(3i32);
 pub const ThreadInformationClassMax: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(4i32);
+impl ::core::marker::Copy for THREAD_INFORMATION_CLASS {}
+impl ::core::clone::Clone for THREAD_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
 pub const THREAD_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
 #[repr(C)]
@@ -1381,6 +1525,12 @@ pub const THREAD_PRIORITY_MIN: THREAD_PRIORITY = THREAD_PRIORITY(-2i32);
 pub const THREAD_PRIORITY_LOWEST: THREAD_PRIORITY = THREAD_PRIORITY(-2i32);
 pub const THREAD_PRIORITY_NORMAL: THREAD_PRIORITY = THREAD_PRIORITY(0i32);
 pub const THREAD_PRIORITY_TIME_CRITICAL: THREAD_PRIORITY = THREAD_PRIORITY(15i32);
+impl ::core::marker::Copy for THREAD_PRIORITY {}
+impl ::core::clone::Clone for THREAD_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TP_CALLBACK_ENVIRON_V3 {
     pub Version: u32,
@@ -1431,6 +1581,12 @@ pub const TP_CALLBACK_PRIORITY_NORMAL: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORI
 pub const TP_CALLBACK_PRIORITY_LOW: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(2i32);
 pub const TP_CALLBACK_PRIORITY_INVALID: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(3i32);
 pub const TP_CALLBACK_PRIORITY_COUNT: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(3i32);
+impl ::core::marker::Copy for TP_CALLBACK_PRIORITY {}
+impl ::core::clone::Clone for TP_CALLBACK_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TP_IO(pub u8);
 #[repr(C)]
@@ -1523,3 +1679,9 @@ pub const WT_EXECUTELONGFUNCTION: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(16u3
 pub const WT_EXECUTEONLYONCE: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(8u32);
 pub const WT_TRANSFER_IMPERSONATION: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(256u32);
 pub const WT_EXECUTEINTIMERTHREAD: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(32u32);
+impl ::core::marker::Copy for WORKER_THREAD_FLAGS {}
+impl ::core::clone::Clone for WORKER_THREAD_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

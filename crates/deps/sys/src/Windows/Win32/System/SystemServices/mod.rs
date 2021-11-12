@@ -49,6 +49,12 @@ pub const AccessReasonNoSD: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(7340032i32);
 pub const AccessReasonNoGrant: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(8388608i32);
 pub const AccessReasonTrustLabel: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(9437184i32);
 pub const AccessReasonFilterAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(10485760i32);
+impl ::core::marker::Copy for ACCESS_REASON_TYPE {}
+impl ::core::clone::Clone for ACCESS_REASON_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACCESS_REASON_TYPE_MASK: u32 = 16711680u32;
 pub const ACCESS_SYSTEM_SECURITY: u32 = 16777216u32;
 pub const ACL_REVISION1: u32 = 1u32;
@@ -70,6 +76,12 @@ pub const ActivationContextManifestResourceName: ACTIVATION_CONTEXT_INFO_CLASS =
 pub const MaxActivationContextInfoClass: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(8i32);
 pub const AssemblyDetailedInformationInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(3i32);
 pub const FileInformationInAssemblyOfAssemblyInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(4i32);
+impl ::core::marker::Copy for ACTIVATION_CONTEXT_INFO_CLASS {}
+impl ::core::clone::Clone for ACTIVATION_CONTEXT_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACTIVATION_CONTEXT_PATH_TYPE_ASSEMBLYREF: u32 = 4u32;
 pub const ACTIVATION_CONTEXT_PATH_TYPE_NONE: u32 = 1u32;
 pub const ACTIVATION_CONTEXT_PATH_TYPE_URL: u32 = 3u32;
@@ -93,6 +105,12 @@ pub const ALERT_SYSTEM_WARNING: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(2u32);
 pub const ALERT_SYSTEM_ERROR: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(3u32);
 pub const ALERT_SYSTEM_QUERY: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(4u32);
 pub const ALERT_SYSTEM_CRITICAL: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(5u32);
+impl ::core::marker::Copy for ALERT_SYSTEM_SEV {}
+impl ::core::clone::Clone for ALERT_SYSTEM_SEV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ALL_POWERSCHEMES_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1755441502, data2: 5098, data3: 16865, data4: [128, 17, 12, 73, 108, 164, 144, 176] };
 pub const ALL_PROCESSOR_GROUPS: u32 = 65535u32;
 #[repr(C)]
@@ -210,6 +228,12 @@ pub const APPCOMMAND_MEDIA_CHANNEL_UP: APPCOMMAND_ID = APPCOMMAND_ID(51u32);
 pub const APPCOMMAND_MEDIA_CHANNEL_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(52u32);
 pub const APPCOMMAND_DELETE: APPCOMMAND_ID = APPCOMMAND_ID(53u32);
 pub const APPCOMMAND_DWM_FLIP3D: APPCOMMAND_ID = APPCOMMAND_ID(54u32);
+impl ::core::marker::Copy for APPCOMMAND_ID {}
+impl ::core::clone::Clone for APPCOMMAND_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct APPLICATIONLAUNCH_SETTING_VALUE {
     pub ActivationTime: i64,
@@ -229,11 +253,23 @@ pub const PdataCrUnchained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(0i32);
 pub const PdataCrUnchainedSavedLr: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(1i32);
 pub const PdataCrChainedWithPac: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(2i32);
 pub const PdataCrChained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(3i32);
+impl ::core::marker::Copy for ARM64_FNPDATA_CR {}
+impl ::core::clone::Clone for ARM64_FNPDATA_CR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ARM64_FNPDATA_FLAGS(pub i32);
 pub const PdataRefToFullXdata: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(0i32);
 pub const PdataPackedUnwindFunction: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(1i32);
 pub const PdataPackedUnwindFragment: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(2i32);
+impl ::core::marker::Copy for ARM64_FNPDATA_FLAGS {}
+impl ::core::clone::Clone for ARM64_FNPDATA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ARM64_MAX_BREAKPOINTS: u32 = 8u32;
 pub const ARM64_MAX_WATCHPOINTS: u32 = 2u32;
 pub const ARM64_MULT_INTRINSICS_SUPPORTED: u32 = 1u32;
@@ -253,6 +289,12 @@ pub const ASSERT_BREAKPOINT: u32 = 524291u32;
 pub struct ATF_FLAGS(pub u32);
 pub const ATF_TIMEOUTON: ATF_FLAGS = ATF_FLAGS(1u32);
 pub const ATF_ONOFFFEEDBACK: ATF_FLAGS = ATF_FLAGS(2u32);
+impl ::core::marker::Copy for ATF_FLAGS {}
+impl ::core::clone::Clone for ATF_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AUDIT_ALLOW_NO_PRIVILEGE: u32 = 1u32;
 #[repr(C)]
 pub struct AtlThunkData_t(pub u8);
@@ -285,6 +327,12 @@ pub const CFU_UNDERLINEDOUBLE: CFE_UNDERLINE = CFE_UNDERLINE(3u32);
 pub const CFU_UNDERLINEWORD: CFE_UNDERLINE = CFE_UNDERLINE(2u32);
 pub const CFU_UNDERLINE: CFE_UNDERLINE = CFE_UNDERLINE(1u32);
 pub const CFU_UNDERLINENONE: CFE_UNDERLINE = CFE_UNDERLINE(0u32);
+impl ::core::marker::Copy for CFE_UNDERLINE {}
+impl ::core::clone::Clone for CFE_UNDERLINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID: u32 = 4u32;
 pub const CFG_CALL_TARGET_CONVERT_XFG_TO_CFG: u32 = 16u32;
 pub const CFG_CALL_TARGET_PROCESSED: u32 = 2u32;
@@ -301,6 +349,12 @@ pub const CC_ENABLETEMPLATE: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(32u32);
 pub const CC_ENABLETEMPLATEHANDLE: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(64u32);
 pub const CC_SOLIDCOLOR: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(128u32);
 pub const CC_ANYCOLOR: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(256u32);
+impl ::core::marker::Copy for CHOOSECOLOR_FLAGS {}
+impl ::core::clone::Clone for CHOOSECOLOR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
 pub const CLAIM_SECURITY_ATTRIBUTE_CUSTOM_FLAGS: u32 = 4294901760u32;
@@ -334,12 +388,24 @@ pub const CF_PRIVATEFIRST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(512u32);
 pub const CF_PRIVATELAST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(767u32);
 pub const CF_GDIOBJFIRST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(768u32);
 pub const CF_GDIOBJLAST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(1023u32);
+impl ::core::marker::Copy for CLIPBOARD_FORMATS {}
+impl ::core::clone::Clone for CLIPBOARD_FORMATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CM_ERROR_CONTROL_TYPE(pub i32);
 pub const IgnoreError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(0i32);
 pub const NormalError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(1i32);
 pub const SevereError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(2i32);
 pub const CriticalError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(3i32);
+impl ::core::marker::Copy for CM_ERROR_CONTROL_TYPE {}
+impl ::core::clone::Clone for CM_ERROR_CONTROL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CM_SERVICE_LOAD_TYPE(pub i32);
 pub const BootLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(0i32);
@@ -347,6 +413,12 @@ pub const SystemLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(1i32);
 pub const AutoLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(2i32);
 pub const DemandLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(3i32);
 pub const DisableLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(4i32);
+impl ::core::marker::Copy for CM_SERVICE_LOAD_TYPE {}
+impl ::core::clone::Clone for CM_SERVICE_LOAD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32u32;
 pub const CM_SERVICE_NETWORK_BOOT_LOAD: u32 = 1u32;
 #[repr(transparent)]
@@ -357,6 +429,12 @@ pub const Win32ServiceOwnProcess: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(16
 pub const Win32ServiceShareProcess: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(32i32);
 pub const AdapterType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(4i32);
 pub const RecognizerType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(8i32);
+impl ::core::marker::Copy for CM_SERVICE_NODE_TYPE {}
+impl ::core::clone::Clone for CM_SERVICE_NODE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CM_SERVICE_RAM_DISK_BOOT_LOAD: u32 = 256u32;
 pub const CM_SERVICE_SD_DISK_BOOT_LOAD: u32 = 8u32;
 pub const CM_SERVICE_USB3_DISK_BOOT_LOAD: u32 = 16u32;
@@ -1078,6 +1156,12 @@ pub const DBT_DEVTYP_HANDLE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_D
 pub const DBT_DEVTYP_OEM: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(0u32);
 pub const DBT_DEVTYP_PORT: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(3u32);
 pub const DBT_DEVTYP_VOLUME: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(2u32);
+impl ::core::marker::Copy for DEV_BROADCAST_HDR_DEVICE_TYPE {}
+impl ::core::clone::Clone for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DEV_BROADCAST_NET {
     pub dbcn_size: u32,
@@ -1153,6 +1237,12 @@ impl ::core::clone::Clone for DEV_BROADCAST_VOLUME {
 pub struct DEV_BROADCAST_VOLUME_FLAGS(pub u16);
 pub const DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(1u16);
 pub const DBTF_NET: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(2u16);
+impl ::core::marker::Copy for DEV_BROADCAST_VOLUME_FLAGS {}
+impl ::core::clone::Clone for DEV_BROADCAST_VOLUME_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIAGNOSTIC_REASON_DETAILED_STRING: u32 = 2u32;
 pub const DIAGNOSTIC_REASON_NOT_SPECIFIED: u32 = 2147483648u32;
 pub const DIAGNOSTIC_REASON_SIMPLE_STRING: u32 = 1u32;
@@ -1328,6 +1418,12 @@ pub struct ENLISTMENT_INFORMATION_CLASS(pub i32);
 pub const EnlistmentBasicInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(0i32);
 pub const EnlistmentRecoveryInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(1i32);
 pub const EnlistmentCrmInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(2i32);
+impl ::core::marker::Copy for ENLISTMENT_INFORMATION_CLASS {}
+impl ::core::clone::Clone for ENLISTMENT_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ENLISTMENT_QUERY_INFORMATION: u32 = 1u32;
 pub const ENLISTMENT_RECOVER: u32 = 4u32;
 pub const ENLISTMENT_SET_INFORMATION: u32 = 2u32;
@@ -1513,6 +1609,12 @@ pub const GC_ROTATE: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
 pub const GC_TWOFINGERTAP: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
 pub const GC_PRESSANDTAP: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
 pub const GC_ROLLOVER: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
+impl ::core::marker::Copy for GESTURECONFIG_FLAGS {}
+impl ::core::clone::Clone for GESTURECONFIG_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GUID_ACDC_POWER_SOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1564383833,
     data2: 59861,
@@ -2358,6 +2460,12 @@ pub const HiberFileBucket16GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(4i3
 pub const HiberFileBucket32GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(5i32);
 pub const HiberFileBucketUnlimited: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(6i32);
 pub const HiberFileBucketMax: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(7i32);
+impl ::core::marker::Copy for HIBERFILE_BUCKET_SIZE {}
+impl ::core::clone::Clone for HIBERFILE_BUCKET_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HIBERFILE_TYPE_FULL: u32 = 2u32;
 pub const HIBERFILE_TYPE_MAX: u32 = 3u32;
 pub const HIBERFILE_TYPE_NONE: u32 = 0u32;
@@ -2371,6 +2479,12 @@ pub const IGP_SENTENCE: IGP_ID = IGP_ID(12u32);
 pub const IGP_UI: IGP_ID = IGP_ID(16u32);
 pub const IGP_SETCOMPSTR: IGP_ID = IGP_ID(20u32);
 pub const IGP_SELECT: IGP_ID = IGP_ID(24u32);
+impl ::core::marker::Copy for IGP_ID {}
+impl ::core::clone::Clone for IGP_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(4))]
 pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u64,
@@ -2696,6 +2810,12 @@ impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_TOKEN_DEF {
 #[repr(transparent)]
 pub struct IMAGE_AUX_SYMBOL_TYPE(pub i32);
 pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = IMAGE_AUX_SYMBOL_TYPE(1i32);
+impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_TYPE {}
+impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IMAGE_BASE_RELOCATION {
     pub VirtualAddress: u32,
@@ -3177,6 +3297,12 @@ pub const ImagePolicyEntryTypeAnsiString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY
 pub const ImagePolicyEntryTypeUnicodeString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(11i32);
 pub const ImagePolicyEntryTypeOverride: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(12i32);
 pub const ImagePolicyEntryTypeMaximum: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(13i32);
+impl ::core::marker::Copy for IMAGE_POLICY_ENTRY_TYPE {}
+impl ::core::clone::Clone for IMAGE_POLICY_ENTRY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAGE_POLICY_ID(pub i32);
 pub const ImagePolicyIdNone: IMAGE_POLICY_ID = IMAGE_POLICY_ID(0i32);
@@ -3192,6 +3318,12 @@ pub const ImagePolicyIdDeviceId: IMAGE_POLICY_ID = IMAGE_POLICY_ID(9i32);
 pub const ImagePolicyIdCapability: IMAGE_POLICY_ID = IMAGE_POLICY_ID(10i32);
 pub const ImagePolicyIdScenarioId: IMAGE_POLICY_ID = IMAGE_POLICY_ID(11i32);
 pub const ImagePolicyIdMaximum: IMAGE_POLICY_ID = IMAGE_POLICY_ID(12i32);
+impl ::core::marker::Copy for IMAGE_POLICY_ID {}
+impl ::core::clone::Clone for IMAGE_POLICY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGE_POLICY_METADATA {
@@ -3942,11 +4074,23 @@ pub const IMPORT_OBJECT_NAME: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(
 pub const IMPORT_OBJECT_NAME_NO_PREFIX: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(2i32);
 pub const IMPORT_OBJECT_NAME_UNDECORATE: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(3i32);
 pub const IMPORT_OBJECT_NAME_EXPORTAS: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(4i32);
+impl ::core::marker::Copy for IMPORT_OBJECT_NAME_TYPE {}
+impl ::core::clone::Clone for IMPORT_OBJECT_NAME_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPORT_OBJECT_TYPE(pub i32);
 pub const IMPORT_OBJECT_CODE: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(0i32);
 pub const IMPORT_OBJECT_DATA: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(1i32);
 pub const IMPORT_OBJECT_CONST: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(2i32);
+impl ::core::marker::Copy for IMPORT_OBJECT_TYPE {}
+impl ::core::clone::Clone for IMPORT_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INITIAL_CPSR: u32 = 16u32;
 pub const INITIAL_FPCSR: u32 = 639u32;
 pub const INITIAL_FPSCR: u32 = 0u32;
@@ -4260,6 +4404,12 @@ pub const KTMOBJECT_TRANSACTION_MANAGER: KTMOBJECT_TYPE = KTMOBJECT_TYPE(1i32);
 pub const KTMOBJECT_RESOURCE_MANAGER: KTMOBJECT_TYPE = KTMOBJECT_TYPE(2i32);
 pub const KTMOBJECT_ENLISTMENT: KTMOBJECT_TYPE = KTMOBJECT_TYPE(3i32);
 pub const KTMOBJECT_INVALID: KTMOBJECT_TYPE = KTMOBJECT_TYPE(4i32);
+impl ::core::marker::Copy for KTMOBJECT_TYPE {}
+impl ::core::clone::Clone for KTMOBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LANG_AFRIKAANS: u32 = 54u32;
 pub const LANG_ALBANIAN: u32 = 28u32;
 pub const LANG_ALSATIAN: u32 = 132u32;
@@ -4633,6 +4783,12 @@ pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_D
 pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(2i32);
 pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(3i32);
 pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(4i32);
+impl ::core::marker::Copy for MEM_DEDICATED_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for MEM_DEDICATED_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MEM_DIFFERENT_IMAGE_BASE_OK: u32 = 8388608u32;
 pub const MEM_EXTENDED_PARAMETER_EC_CODE: u32 = 64u32;
 pub const MEM_EXTENDED_PARAMETER_GRAPHICS: u32 = 1u32;
@@ -4651,6 +4807,12 @@ pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PAR
 pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(2i32);
 pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(3i32);
 pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(4i32);
+impl ::core::marker::Copy for MEM_SECTION_EXTENDED_PARAMETER_TYPE {}
+impl ::core::clone::Clone for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MEM_TOP_DOWN: u32 = 1048576u32;
 pub const MEM_WRITE_WATCH: u32 = 2097152u32;
 pub const MESSAGE_RESOURCE_UNICODE: u32 = 1u32;
@@ -4664,6 +4826,12 @@ pub struct MONITOR_DISPLAY_STATE(pub i32);
 pub const PowerMonitorOff: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(0i32);
 pub const PowerMonitorOn: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(1i32);
 pub const PowerMonitorDim: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(2i32);
+impl ::core::marker::Copy for MONITOR_DISPLAY_STATE {}
+impl ::core::clone::Clone for MONITOR_DISPLAY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MS_PPM_SOFTWARE_ALL: u32 = 1u32;
 pub const MUTANT_QUERY_STATE: u32 = 1u32;
 pub const NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
@@ -4950,11 +5118,23 @@ pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUE
 pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(53i32);
 pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(54i32);
 pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55i32);
+impl ::core::marker::Copy for POWER_MONITOR_REQUEST_REASON {}
+impl ::core::clone::Clone for POWER_MONITOR_REQUEST_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
 pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(0i32);
 pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(1i32);
 pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(2i32);
+impl ::core::marker::Copy for POWER_MONITOR_REQUEST_TYPE {}
+impl ::core::clone::Clone for POWER_MONITOR_REQUEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POWER_PLATFORM_INFORMATION {
@@ -5045,6 +5225,12 @@ pub const ALTITUDE_PROVISIONING: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE
 pub const ALTITUDE_OEM_CUSTOMIZATION: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(4i32);
 pub const ALTITUDE_INTERNAL_OVERRIDE: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(5i32);
 pub const ALTITUDE_OS_DEFAULT: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(6i32);
+impl ::core::marker::Copy for POWER_SETTING_ALTITUDE {}
+impl ::core::clone::Clone for POWER_SETTING_ALTITUDE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const POWER_SETTING_VALUE_VERSION: u32 = 1u32;
 pub const POWER_SYSTEM_MAXIMUM: u32 = 7u32;
 pub const POWER_USER_NOTIFY_FORCED_SHUTDOWN: u32 = 32u32;
@@ -5063,6 +5249,12 @@ pub struct POWER_USER_PRESENCE_TYPE(pub i32);
 pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(0i32);
 pub const UserPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(1i32);
 pub const UserUnknown: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(255i32);
+impl ::core::marker::Copy for POWER_USER_PRESENCE_TYPE {}
+impl ::core::clone::Clone for POWER_USER_PRESENCE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PO_THROTTLE_ADAPTIVE: u32 = 3u32;
 pub const PO_THROTTLE_CONSTANT: u32 = 1u32;
 pub const PO_THROTTLE_DEGRADE: u32 = 2u32;
@@ -6294,6 +6486,12 @@ pub const RESOURCEMANAGER_GET_NOTIFICATION: u32 = 16u32;
 pub struct RESOURCEMANAGER_INFORMATION_CLASS(pub i32);
 pub const ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(0i32);
 pub const ResourceManagerCompletionInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(1i32);
+impl ::core::marker::Copy for RESOURCEMANAGER_INFORMATION_CLASS {}
+impl ::core::clone::Clone for RESOURCEMANAGER_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RESOURCEMANAGER_QUERY_INFORMATION: u32 = 1u32;
 pub const RESOURCEMANAGER_RECOVER: u32 = 4u32;
 pub const RESOURCEMANAGER_REGISTER_PROTOCOL: u32 = 32u32;
@@ -6330,6 +6528,12 @@ pub struct RTL_UMS_SCHEDULER_REASON(pub i32);
 pub const UmsSchedulerStartup: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(0i32);
 pub const UmsSchedulerThreadBlocked: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(1i32);
 pub const UmsSchedulerThreadYield: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(2i32);
+impl ::core::marker::Copy for RTL_UMS_SCHEDULER_REASON {}
+impl ::core::clone::Clone for RTL_UMS_SCHEDULER_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RTL_UMS_VERSION: u32 = 256u32;
 pub const RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: u32 = 1u32;
 pub const RUNTIME_FUNCTION_INDIRECT: u32 = 1u32;
@@ -6451,6 +6655,12 @@ pub const COR_VTABLE_CALL_MOST_DERIVED: ReplacesCorHdrNumericDefines = ReplacesC
 pub const IMAGE_COR_EATJ_THUNK_SIZE: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(32i32);
 pub const MAX_CLASS_NAME: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1024i32);
 pub const MAX_PACKAGE_NAME: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1024i32);
+impl ::core::marker::Copy for ReplacesCorHdrNumericDefines {}
+impl ::core::clone::Clone for ReplacesCorHdrNumericDefines {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SCOPE_TABLE_AMD64 {
     pub Count: u32,
@@ -6616,6 +6826,12 @@ pub const SECTION_MAP_READ: SECTION_FLAGS = SECTION_FLAGS(4u32);
 pub const SECTION_MAP_EXECUTE: SECTION_FLAGS = SECTION_FLAGS(8u32);
 pub const SECTION_EXTEND_SIZE: SECTION_FLAGS = SECTION_FLAGS(16u32);
 pub const SECTION_MAP_EXECUTE_EXPLICIT: SECTION_FLAGS = SECTION_FLAGS(32u32);
+impl ::core::marker::Copy for SECTION_FLAGS {}
+impl ::core::clone::Clone for SECTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SECURITY_ANONYMOUS_LOGON_RID: i32 = 7i32;
 pub const SECURITY_APPPOOL_ID_BASE_RID: i32 = 82i32;
 pub const SECURITY_APPPOOL_ID_RID_COUNT: i32 = 6i32;
@@ -6809,6 +7025,12 @@ pub const SERVERSILO_STARTED: SERVERSILO_STATE = SERVERSILO_STATE(1i32);
 pub const SERVERSILO_SHUTTING_DOWN: SERVERSILO_STATE = SERVERSILO_STATE(2i32);
 pub const SERVERSILO_TERMINATING: SERVERSILO_STATE = SERVERSILO_STATE(3i32);
 pub const SERVERSILO_TERMINATED: SERVERSILO_STATE = SERVERSILO_STATE(4i32);
+impl ::core::marker::Copy for SERVERSILO_STATE {}
+impl ::core::clone::Clone for SERVERSILO_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_INTERACTIVE_PROCESS: u32 = 256u32;
 pub const SERVICE_PKG_SERVICE: u32 = 512u32;
 pub const SERVICE_USERSERVICE_INSTANCE: u32 = 128u32;
@@ -6842,11 +7064,23 @@ pub const SeImageSignatureCatalogNotCached: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_S
 pub const SeImageSignatureCatalogHint: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(5i32);
 pub const SeImageSignaturePackageCatalog: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(6i32);
 pub const SeImageSignaturePplMitigated: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(7i32);
+impl ::core::marker::Copy for SE_IMAGE_SIGNATURE_TYPE {}
+impl ::core::clone::Clone for SE_IMAGE_SIGNATURE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SE_LEARNING_MODE_DATA_TYPE(pub i32);
 pub const SeLearningModeInvalidType: SE_LEARNING_MODE_DATA_TYPE = SE_LEARNING_MODE_DATA_TYPE(0i32);
 pub const SeLearningModeSettings: SE_LEARNING_MODE_DATA_TYPE = SE_LEARNING_MODE_DATA_TYPE(1i32);
 pub const SeLearningModeMax: SE_LEARNING_MODE_DATA_TYPE = SE_LEARNING_MODE_DATA_TYPE(2i32);
+impl ::core::marker::Copy for SE_LEARNING_MODE_DATA_TYPE {}
+impl ::core::clone::Clone for SE_LEARNING_MODE_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SE_LEARNING_MODE_FLAG_PERMISSIVE: u32 = 1u32;
 pub const SE_OWNER_DEFAULTED: u32 = 1u32;
 pub const SE_RM_CONTROL_VALID: u32 = 16384u32;
@@ -7262,12 +7496,24 @@ pub struct SharedVirtualDiskHandleState(pub i32);
 pub const SharedVirtualDiskHandleStateNone: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(0i32);
 pub const SharedVirtualDiskHandleStateFileShared: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(1i32);
 pub const SharedVirtualDiskHandleStateHandleShared: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(3i32);
+impl ::core::marker::Copy for SharedVirtualDiskHandleState {}
+impl ::core::clone::Clone for SharedVirtualDiskHandleState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SharedVirtualDiskSupportType(pub i32);
 pub const SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(0i32);
 pub const SharedVirtualDisksSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(1i32);
 pub const SharedVirtualDiskSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(3i32);
 pub const SharedVirtualDiskCDPSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(7i32);
+impl ::core::marker::Copy for SharedVirtualDiskSupportType {}
+impl ::core::clone::Clone for SharedVirtualDiskSupportType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TAPE_CHECK_FOR_DRIVE_PROBLEM: i32 = 2i32;
 #[repr(C)]
 pub struct TAPE_CREATE_PARTITION {
@@ -7315,6 +7561,12 @@ pub const TapeDriveTimetoClean: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYP
 pub const TapeDriveCleanDriveNow: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(11i32);
 pub const TapeDriveMediaLifeExpired: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(12i32);
 pub const TapeDriveSnappedTape: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(13i32);
+impl ::core::marker::Copy for TAPE_DRIVE_PROBLEM_TYPE {}
+impl ::core::clone::Clone for TAPE_DRIVE_PROBLEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TAPE_DRIVE_REPORT_SMKS: u32 = 524288u32;
 pub const TAPE_DRIVE_RESERVED_BIT: u32 = 2147483648u32;
 pub const TAPE_DRIVE_SELECT: u32 = 2u32;
@@ -7378,6 +7630,12 @@ pub const TAPE_DRIVE_WRITE_LONG_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 
 pub const TAPE_DRIVE_WRITE_MARK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2415919104u32);
 pub const TAPE_DRIVE_WRITE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2164260864u32);
 pub const TAPE_DRIVE_WRITE_SHORT_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2214592512u32);
+impl ::core::marker::Copy for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {}
+impl ::core::clone::Clone for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_GET_MEDIA_PARAMETERS {
@@ -7507,6 +7765,12 @@ pub const TransactionManagerLogPathInformation: TRANSACTIONMANAGER_INFORMATION_C
 pub const TransactionManagerRecoveryInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(4i32);
 pub const TransactionManagerOnlineProbeInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(3i32);
 pub const TransactionManagerOldestTransactionInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(5i32);
+impl ::core::marker::Copy for TRANSACTIONMANAGER_INFORMATION_CLASS {}
+impl ::core::clone::Clone for TRANSACTIONMANAGER_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     pub LogPathLength: u32,
@@ -7609,6 +7873,12 @@ pub const TransactionEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = TRAN
 pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(3i32);
 pub const TransactionBindInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(4i32);
 pub const TransactionDTCPrivateInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(5i32);
+impl ::core::marker::Copy for TRANSACTION_INFORMATION_CLASS {}
+impl ::core::clone::Clone for TRANSACTION_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TRANSACTION_LIST_ENTRY {
     pub UOW: ::windows_sys::core::GUID,
@@ -7655,6 +7925,12 @@ pub struct TRANSACTION_STATE(pub i32);
 pub const TransactionStateNormal: TRANSACTION_STATE = TRANSACTION_STATE(1i32);
 pub const TransactionStateIndoubt: TRANSACTION_STATE = TRANSACTION_STATE(2i32);
 pub const TransactionStateCommittedNotify: TRANSACTION_STATE = TRANSACTION_STATE(3i32);
+impl ::core::marker::Copy for TRANSACTION_STATE {}
+impl ::core::clone::Clone for TRANSACTION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     pub SuperiorEnlistmentPair: TRANSACTION_ENLISTMENT_PAIR,
@@ -7695,6 +7971,12 @@ pub const PowerUserNotPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(1
 pub const PowerUserInactive: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(2i32);
 pub const PowerUserMaximum: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(3i32);
 pub const PowerUserInvalid: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(3i32);
+impl ::core::marker::Copy for USER_ACTIVITY_PRESENCE {}
+impl ::core::clone::Clone for USER_ACTIVITY_PRESENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VALID_INHERIT_FLAGS: u32 = 31u32;
 pub const VBS_BASIC_PAGE_MEASURED_DATA: u32 = 1u32;
 pub const VBS_BASIC_PAGE_SYSTEM_CALL: u32 = 5u32;

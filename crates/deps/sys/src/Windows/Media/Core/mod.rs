@@ -11,12 +11,24 @@ impl AudioDecoderDegradation {
     pub const DownmixTo6Channels: Self = Self(2i32);
     pub const DownmixTo8Channels: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AudioDecoderDegradation {}
+impl ::core::clone::Clone for AudioDecoderDegradation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AudioDecoderDegradationReason(pub i32);
 impl AudioDecoderDegradationReason {
     pub const None: Self = Self(0i32);
     pub const LicensingRequirement: Self = Self(1i32);
     pub const SpatialAudioNotSupported: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AudioDecoderDegradationReason {}
+impl ::core::clone::Clone for AudioDecoderDegradationReason {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AudioStreamDescriptor(pub *mut ::core::ffi::c_void);
@@ -34,6 +46,12 @@ impl CodecCategory {
     pub const Encoder: Self = Self(0i32);
     pub const Decoder: Self = Self(1i32);
 }
+impl ::core::marker::Copy for CodecCategory {}
+impl ::core::clone::Clone for CodecCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CodecInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -41,6 +59,12 @@ pub struct CodecKind(pub i32);
 impl CodecKind {
     pub const Audio: Self = Self(0i32);
     pub const Video: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CodecKind {}
+impl ::core::clone::Clone for CodecKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CodecQuery(pub *mut ::core::ffi::c_void);
@@ -60,6 +84,12 @@ impl FaceDetectionMode {
     pub const HighPerformance: Self = Self(0i32);
     pub const Balanced: Self = Self(1i32);
     pub const HighQuality: Self = Self(2i32);
+}
+impl ::core::marker::Copy for FaceDetectionMode {}
+impl ::core::clone::Clone for FaceDetectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct HighDynamicRangeControl(pub *mut ::core::ffi::c_void);
@@ -301,6 +331,12 @@ impl MediaDecoderStatus {
     pub const UnsupportedEncoderProperties: Self = Self(2i32);
     pub const Degraded: Self = Self(3i32);
 }
+impl ::core::marker::Copy for MediaDecoderStatus {}
+impl ::core::clone::Clone for MediaDecoderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -318,6 +354,12 @@ impl MediaSourceState {
     pub const Failed: Self = Self(3i32);
     pub const Closed: Self = Self(4i32);
 }
+impl ::core::marker::Copy for MediaSourceState {}
+impl ::core::clone::Clone for MediaSourceState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaSourceStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -325,6 +367,12 @@ pub struct MediaSourceStatus(pub i32);
 impl MediaSourceStatus {
     pub const FullySupported: Self = Self(0i32);
     pub const Unknown: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MediaSourceStatus {}
+impl ::core::clone::Clone for MediaSourceStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MediaStreamSample(pub *mut ::core::ffi::c_void);
@@ -347,6 +395,12 @@ impl MediaStreamSourceClosedReason {
     pub const UnsupportedEncodingFormat: Self = Self(5i32);
     pub const MissingSampleRequestedEventHandler: Self = Self(6i32);
 }
+impl ::core::marker::Copy for MediaStreamSourceClosedReason {}
+impl ::core::clone::Clone for MediaStreamSourceClosedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaStreamSourceClosedRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -360,6 +414,12 @@ impl MediaStreamSourceErrorStatus {
     pub const UnspecifiedNetworkError: Self = Self(5i32);
     pub const DecodeError: Self = Self(6i32);
     pub const UnsupportedMediaFormat: Self = Self(7i32);
+}
+impl ::core::marker::Copy for MediaStreamSourceErrorStatus {}
+impl ::core::clone::Clone for MediaStreamSourceErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MediaStreamSourceSampleRenderedEventArgs(pub *mut ::core::ffi::c_void);
@@ -388,11 +448,23 @@ impl MediaTrackKind {
     pub const Video: Self = Self(1i32);
     pub const TimedMetadata: Self = Self(2i32);
 }
+impl ::core::marker::Copy for MediaTrackKind {}
+impl ::core::clone::Clone for MediaTrackKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MseAppendMode(pub i32);
 impl MseAppendMode {
     pub const Segments: Self = Self(0i32);
     pub const Sequence: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MseAppendMode {}
+impl ::core::clone::Clone for MseAppendMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MseEndOfStreamStatus(pub i32);
@@ -402,12 +474,24 @@ impl MseEndOfStreamStatus {
     pub const DecodeError: Self = Self(2i32);
     pub const UnknownError: Self = Self(3i32);
 }
+impl ::core::marker::Copy for MseEndOfStreamStatus {}
+impl ::core::clone::Clone for MseEndOfStreamStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MseReadyState(pub i32);
 impl MseReadyState {
     pub const Closed: Self = Self(0i32);
     pub const Open: Self = Self(1i32);
     pub const Ended: Self = Self(2i32);
+}
+impl ::core::marker::Copy for MseReadyState {}
+impl ::core::clone::Clone for MseReadyState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MseSourceBuffer(pub *mut ::core::ffi::c_void);
@@ -442,6 +526,12 @@ impl SceneAnalysisRecommendation {
     pub const Hdr: Self = Self(1i32);
     pub const LowLight: Self = Self(2i32);
 }
+impl ::core::marker::Copy for SceneAnalysisRecommendation {}
+impl ::core::clone::Clone for SceneAnalysisRecommendation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SceneAnalyzedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -458,6 +548,12 @@ impl TimedMetadataKind {
     pub const ImageSubtitle: Self = Self(6i32);
     pub const Speech: Self = Self(7i32);
 }
+impl ::core::marker::Copy for TimedMetadataKind {}
+impl ::core::clone::Clone for TimedMetadataKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TimedMetadataStreamDescriptor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -472,6 +568,12 @@ impl TimedMetadataTrackErrorCode {
     pub const NetworkError: Self = Self(2i32);
     pub const InternalError: Self = Self(3i32);
 }
+impl ::core::marker::Copy for TimedMetadataTrackErrorCode {}
+impl ::core::clone::Clone for TimedMetadataTrackErrorCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TimedMetadataTrackFailedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -482,6 +584,12 @@ impl TimedTextBoutenPosition {
     pub const Before: Self = Self(0i32);
     pub const After: Self = Self(1i32);
     pub const Outside: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TimedTextBoutenPosition {}
+impl ::core::clone::Clone for TimedTextBoutenPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TimedTextBoutenType(pub i32);
@@ -495,6 +603,12 @@ impl TimedTextBoutenType {
     pub const FilledSesame: Self = Self(6i32);
     pub const OpenSesame: Self = Self(7i32);
 }
+impl ::core::marker::Copy for TimedTextBoutenType {}
+impl ::core::clone::Clone for TimedTextBoutenType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TimedTextCue(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -503,6 +617,12 @@ impl TimedTextDisplayAlignment {
     pub const Before: Self = Self(0i32);
     pub const After: Self = Self(1i32);
     pub const Center: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TimedTextDisplayAlignment {}
+impl ::core::clone::Clone for TimedTextDisplayAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 pub struct TimedTextDouble {
@@ -521,12 +641,24 @@ impl TimedTextFlowDirection {
     pub const LeftToRight: Self = Self(0i32);
     pub const RightToLeft: Self = Self(1i32);
 }
+impl ::core::marker::Copy for TimedTextFlowDirection {}
+impl ::core::clone::Clone for TimedTextFlowDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TimedTextFontStyle(pub i32);
 impl TimedTextFontStyle {
     pub const Normal: Self = Self(0i32);
     pub const Oblique: Self = Self(1i32);
     pub const Italic: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TimedTextFontStyle {}
+impl ::core::clone::Clone for TimedTextFontStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TimedTextLine(pub *mut ::core::ffi::c_void);
@@ -536,6 +668,12 @@ impl TimedTextLineAlignment {
     pub const Start: Self = Self(0i32);
     pub const End: Self = Self(1i32);
     pub const Center: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TimedTextLineAlignment {}
+impl ::core::clone::Clone for TimedTextLineAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 pub struct TimedTextPadding {
@@ -577,12 +715,24 @@ impl TimedTextRubyAlign {
     pub const SpaceBetween: Self = Self(4i32);
     pub const WithBase: Self = Self(5i32);
 }
+impl ::core::marker::Copy for TimedTextRubyAlign {}
+impl ::core::clone::Clone for TimedTextRubyAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TimedTextRubyPosition(pub i32);
 impl TimedTextRubyPosition {
     pub const Before: Self = Self(0i32);
     pub const After: Self = Self(1i32);
     pub const Outside: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TimedTextRubyPosition {}
+impl ::core::clone::Clone for TimedTextRubyPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TimedTextRubyReserve(pub i32);
@@ -593,11 +743,23 @@ impl TimedTextRubyReserve {
     pub const Both: Self = Self(3i32);
     pub const Outside: Self = Self(4i32);
 }
+impl ::core::marker::Copy for TimedTextRubyReserve {}
+impl ::core::clone::Clone for TimedTextRubyReserve {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TimedTextScrollMode(pub i32);
 impl TimedTextScrollMode {
     pub const Popon: Self = Self(0i32);
     pub const Rollup: Self = Self(1i32);
+}
+impl ::core::marker::Copy for TimedTextScrollMode {}
+impl ::core::clone::Clone for TimedTextScrollMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(C)]
 pub struct TimedTextSize {
@@ -625,17 +787,35 @@ impl TimedTextUnit {
     pub const Pixels: Self = Self(0i32);
     pub const Percentage: Self = Self(1i32);
 }
+impl ::core::marker::Copy for TimedTextUnit {}
+impl ::core::clone::Clone for TimedTextUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TimedTextWeight(pub i32);
 impl TimedTextWeight {
     pub const Normal: Self = Self(400i32);
     pub const Bold: Self = Self(700i32);
 }
+impl ::core::marker::Copy for TimedTextWeight {}
+impl ::core::clone::Clone for TimedTextWeight {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TimedTextWrapping(pub i32);
 impl TimedTextWrapping {
     pub const NoWrap: Self = Self(0i32);
     pub const Wrap: Self = Self(1i32);
+}
+impl ::core::marker::Copy for TimedTextWrapping {}
+impl ::core::clone::Clone for TimedTextWrapping {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TimedTextWritingMode(pub i32);
@@ -647,6 +827,12 @@ impl TimedTextWritingMode {
     pub const LeftRight: Self = Self(4i32);
     pub const RightLeft: Self = Self(5i32);
     pub const TopBottom: Self = Self(6i32);
+}
+impl ::core::marker::Copy for TimedTextWritingMode {}
+impl ::core::clone::Clone for TimedTextWritingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VideoStabilizationEffect(pub *mut ::core::ffi::c_void);
@@ -660,6 +846,12 @@ impl VideoStabilizationEffectEnabledChangedReason {
     pub const Programmatic: Self = Self(0i32);
     pub const PixelRateTooHigh: Self = Self(1i32);
     pub const RunningSlowly: Self = Self(2i32);
+}
+impl ::core::marker::Copy for VideoStabilizationEffectEnabledChangedReason {}
+impl ::core::clone::Clone for VideoStabilizationEffectEnabledChangedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VideoStreamDescriptor(pub *mut ::core::ffi::c_void);

@@ -1386,6 +1386,12 @@ pub struct ACENUMOPTION(pub i32);
 pub const ACEO_NONE: ACENUMOPTION = ACENUMOPTION(0i32);
 pub const ACEO_MOSTRECENTFIRST: ACENUMOPTION = ACENUMOPTION(1i32);
 pub const ACEO_FIRSTUNUSED: ACENUMOPTION = ACENUMOPTION(65536i32);
+impl ::core::marker::Copy for ACENUMOPTION {}
+impl ::core::clone::Clone for ACENUMOPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ACTIVATEOPTIONS(pub i32);
 pub const AO_NONE: ACTIVATEOPTIONS = ACTIVATEOPTIONS(0i32);
@@ -1393,12 +1399,24 @@ pub const AO_DESIGNMODE: ACTIVATEOPTIONS = ACTIVATEOPTIONS(1i32);
 pub const AO_NOERRORUI: ACTIVATEOPTIONS = ACTIVATEOPTIONS(2i32);
 pub const AO_NOSPLASHSCREEN: ACTIVATEOPTIONS = ACTIVATEOPTIONS(4i32);
 pub const AO_PRELAUNCH: ACTIVATEOPTIONS = ACTIVATEOPTIONS(33554432i32);
+impl ::core::marker::Copy for ACTIVATEOPTIONS {}
+impl ::core::clone::Clone for ACTIVATEOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ADDURL_SILENT: u32 = 1u32;
 #[repr(transparent)]
 pub struct ADJACENT_DISPLAY_EDGES(pub i32);
 pub const ADE_NONE: ADJACENT_DISPLAY_EDGES = ADJACENT_DISPLAY_EDGES(0i32);
 pub const ADE_LEFT: ADJACENT_DISPLAY_EDGES = ADJACENT_DISPLAY_EDGES(1i32);
 pub const ADE_RIGHT: ADJACENT_DISPLAY_EDGES = ADJACENT_DISPLAY_EDGES(2i32);
+impl ::core::marker::Copy for ADJACENT_DISPLAY_EDGES {}
+impl ::core::clone::Clone for ADJACENT_DISPLAY_EDGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AD_APPLY_BUFFERED_REFRESH: u32 = 16u32;
 pub const AD_APPLY_DYNAMICREFRESH: u32 = 32u32;
 pub const AD_APPLY_FORCE: u32 = 8u32;
@@ -1412,6 +1430,12 @@ pub const AD_GETWP_LAST_APPLIED: u32 = 2u32;
 pub struct AHE_TYPE(pub i32);
 pub const AHE_DESKTOP: AHE_TYPE = AHE_TYPE(0i32);
 pub const AHE_IMMERSIVE: AHE_TYPE = AHE_TYPE(1i32);
+impl ::core::marker::Copy for AHE_TYPE {}
+impl ::core::clone::Clone for AHE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AHTYPE(pub i32);
 pub const AHTYPE_UNDEFINED: AHTYPE = AHTYPE(0i32);
@@ -1422,6 +1446,12 @@ pub const AHTYPE_PROGID: AHTYPE = AHTYPE(64i32);
 pub const AHTYPE_APPLICATION: AHTYPE = AHTYPE(128i32);
 pub const AHTYPE_CLASS_APPLICATION: AHTYPE = AHTYPE(256i32);
 pub const AHTYPE_ANY_PROGID: AHTYPE = AHTYPE(512i32);
+impl ::core::marker::Copy for AHTYPE {}
+impl ::core::clone::Clone for AHTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APPACTIONFLAGS(pub i32);
 pub const APPACTION_INSTALL: APPACTIONFLAGS = APPACTIONFLAGS(1i32);
@@ -1433,6 +1463,12 @@ pub const APPACTION_CANGETSIZE: APPACTIONFLAGS = APPACTIONFLAGS(32i32);
 pub const APPACTION_MODIFYREMOVE: APPACTIONFLAGS = APPACTIONFLAGS(128i32);
 pub const APPACTION_ADDLATER: APPACTIONFLAGS = APPACTIONFLAGS(256i32);
 pub const APPACTION_UNSCHEDULE: APPACTIONFLAGS = APPACTIONFLAGS(512i32);
+impl ::core::marker::Copy for APPACTIONFLAGS {}
+impl ::core::clone::Clone for APPACTIONFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -1508,6 +1544,12 @@ impl ::core::clone::Clone for APPCATEGORYINFOLIST {
 pub struct APPDOCLISTTYPE(pub i32);
 pub const ADLT_RECENT: APPDOCLISTTYPE = APPDOCLISTTYPE(0i32);
 pub const ADLT_FREQUENT: APPDOCLISTTYPE = APPDOCLISTTYPE(1i32);
+impl ::core::marker::Copy for APPDOCLISTTYPE {}
+impl ::core::clone::Clone for APPDOCLISTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct APPINFODATA {
@@ -1560,6 +1602,12 @@ pub const AIM_COMMENTS: APPINFODATAFLAGS = APPINFODATAFLAGS(32768i32);
 pub const AIM_IMAGE: APPINFODATAFLAGS = APPINFODATAFLAGS(131072i32);
 pub const AIM_READMEURL: APPINFODATAFLAGS = APPINFODATAFLAGS(262144i32);
 pub const AIM_UPDATEINFOURL: APPINFODATAFLAGS = APPINFODATAFLAGS(524288i32);
+impl ::core::marker::Copy for APPINFODATAFLAGS {}
+impl ::core::clone::Clone for APPINFODATAFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type APPLET_PROC = unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32;
 #[repr(transparent)]
@@ -1567,10 +1615,22 @@ pub struct APPLICATION_VIEW_MIN_WIDTH(pub i32);
 pub const AVMW_DEFAULT: APPLICATION_VIEW_MIN_WIDTH = APPLICATION_VIEW_MIN_WIDTH(0i32);
 pub const AVMW_320: APPLICATION_VIEW_MIN_WIDTH = APPLICATION_VIEW_MIN_WIDTH(1i32);
 pub const AVMW_500: APPLICATION_VIEW_MIN_WIDTH = APPLICATION_VIEW_MIN_WIDTH(2i32);
+impl ::core::marker::Copy for APPLICATION_VIEW_MIN_WIDTH {}
+impl ::core::clone::Clone for APPLICATION_VIEW_MIN_WIDTH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APPLICATION_VIEW_ORIENTATION(pub i32);
 pub const AVO_LANDSCAPE: APPLICATION_VIEW_ORIENTATION = APPLICATION_VIEW_ORIENTATION(0i32);
 pub const AVO_PORTRAIT: APPLICATION_VIEW_ORIENTATION = APPLICATION_VIEW_ORIENTATION(1i32);
+impl ::core::marker::Copy for APPLICATION_VIEW_ORIENTATION {}
+impl ::core::clone::Clone for APPLICATION_VIEW_ORIENTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APPLICATION_VIEW_SIZE_PREFERENCE(pub i32);
 pub const AVSP_DEFAULT: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(0i32);
@@ -1580,12 +1640,24 @@ pub const AVSP_USE_MORE: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZ
 pub const AVSP_USE_MINIMUM: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(4i32);
 pub const AVSP_USE_NONE: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(5i32);
 pub const AVSP_CUSTOM: APPLICATION_VIEW_SIZE_PREFERENCE = APPLICATION_VIEW_SIZE_PREFERENCE(6i32);
+impl ::core::marker::Copy for APPLICATION_VIEW_SIZE_PREFERENCE {}
+impl ::core::clone::Clone for APPLICATION_VIEW_SIZE_PREFERENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APPLICATION_VIEW_STATE(pub i32);
 pub const AVS_FULLSCREEN_LANDSCAPE: APPLICATION_VIEW_STATE = APPLICATION_VIEW_STATE(0i32);
 pub const AVS_FILLED: APPLICATION_VIEW_STATE = APPLICATION_VIEW_STATE(1i32);
 pub const AVS_SNAPPED: APPLICATION_VIEW_STATE = APPLICATION_VIEW_STATE(2i32);
 pub const AVS_FULLSCREEN_PORTRAIT: APPLICATION_VIEW_STATE = APPLICATION_VIEW_STATE(3i32);
+impl ::core::marker::Copy for APPLICATION_VIEW_STATE {}
+impl ::core::clone::Clone for APPLICATION_VIEW_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const APPNAMEBUFFERLEN: u32 = 40u32;
 pub const ARCONTENT_AUDIOCD: u32 = 4u32;
 pub const ARCONTENT_AUTOPLAYMUSIC: u32 = 256u32;
@@ -1624,6 +1696,12 @@ pub const ASSOCCLASS_FOLDER: ASSOCCLASS = ASSOCCLASS(8i32);
 pub const ASSOCCLASS_STAR: ASSOCCLASS = ASSOCCLASS(9i32);
 pub const ASSOCCLASS_FIXED_PROGID_STR: ASSOCCLASS = ASSOCCLASS(10i32);
 pub const ASSOCCLASS_PROTOCOL_STR: ASSOCCLASS = ASSOCCLASS(11i32);
+impl ::core::marker::Copy for ASSOCCLASS {}
+impl ::core::clone::Clone for ASSOCCLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ASSOCDATA(pub i32);
 pub const ASSOCDATA_MSIDESCRIPTOR: ASSOCDATA = ASSOCDATA(1i32);
@@ -1633,9 +1711,21 @@ pub const ASSOCDATA_HASPERUSERASSOC: ASSOCDATA = ASSOCDATA(4i32);
 pub const ASSOCDATA_EDITFLAGS: ASSOCDATA = ASSOCDATA(5i32);
 pub const ASSOCDATA_VALUE: ASSOCDATA = ASSOCDATA(6i32);
 pub const ASSOCDATA_MAX: ASSOCDATA = ASSOCDATA(7i32);
+impl ::core::marker::Copy for ASSOCDATA {}
+impl ::core::clone::Clone for ASSOCDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ASSOCENUM(pub i32);
 pub const ASSOCENUM_NONE: ASSOCENUM = ASSOCENUM(0i32);
+impl ::core::marker::Copy for ASSOCENUM {}
+impl ::core::clone::Clone for ASSOCENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ASSOCF_APP_TO_APP: i32 = 65536i32;
 pub const ASSOCF_IGNOREBASECLASS: i32 = 512i32;
 pub const ASSOCF_INIT_BYEXENAME: i32 = 2i32;
@@ -1696,12 +1786,24 @@ pub struct ASSOCIATIONLEVEL(pub i32);
 pub const AL_MACHINE: ASSOCIATIONLEVEL = ASSOCIATIONLEVEL(0i32);
 pub const AL_EFFECTIVE: ASSOCIATIONLEVEL = ASSOCIATIONLEVEL(1i32);
 pub const AL_USER: ASSOCIATIONLEVEL = ASSOCIATIONLEVEL(2i32);
+impl ::core::marker::Copy for ASSOCIATIONLEVEL {}
+impl ::core::clone::Clone for ASSOCIATIONLEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ASSOCIATIONTYPE(pub i32);
 pub const AT_FILEEXTENSION: ASSOCIATIONTYPE = ASSOCIATIONTYPE(0i32);
 pub const AT_URLPROTOCOL: ASSOCIATIONTYPE = ASSOCIATIONTYPE(1i32);
 pub const AT_STARTMENUCLIENT: ASSOCIATIONTYPE = ASSOCIATIONTYPE(2i32);
 pub const AT_MIMETYPE: ASSOCIATIONTYPE = ASSOCIATIONTYPE(3i32);
+impl ::core::marker::Copy for ASSOCIATIONTYPE {}
+impl ::core::clone::Clone for ASSOCIATIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ASSOCKEY(pub i32);
 pub const ASSOCKEY_SHELLEXECCLASS: ASSOCKEY = ASSOCKEY(1i32);
@@ -1709,6 +1811,12 @@ pub const ASSOCKEY_APP: ASSOCKEY = ASSOCKEY(2i32);
 pub const ASSOCKEY_CLASS: ASSOCKEY = ASSOCKEY(3i32);
 pub const ASSOCKEY_BASECLASS: ASSOCKEY = ASSOCKEY(4i32);
 pub const ASSOCKEY_MAX: ASSOCKEY = ASSOCKEY(5i32);
+impl ::core::marker::Copy for ASSOCKEY {}
+impl ::core::clone::Clone for ASSOCKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ASSOCSTR(pub i32);
 pub const ASSOCSTR_COMMAND: ASSOCSTR = ASSOCSTR(1i32);
@@ -1735,21 +1843,45 @@ pub const ASSOCSTR_APPID: ASSOCSTR = ASSOCSTR(21i32);
 pub const ASSOCSTR_APPPUBLISHER: ASSOCSTR = ASSOCSTR(22i32);
 pub const ASSOCSTR_APPICONREFERENCE: ASSOCSTR = ASSOCSTR(23i32);
 pub const ASSOCSTR_MAX: ASSOCSTR = ASSOCSTR(24i32);
+impl ::core::marker::Copy for ASSOCSTR {}
+impl ::core::clone::Clone for ASSOCSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ASSOC_FILTER(pub i32);
 pub const ASSOC_FILTER_NONE: ASSOC_FILTER = ASSOC_FILTER(0i32);
 pub const ASSOC_FILTER_RECOMMENDED: ASSOC_FILTER = ASSOC_FILTER(1i32);
+impl ::core::marker::Copy for ASSOC_FILTER {}
+impl ::core::clone::Clone for ASSOC_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ATTACHMENT_ACTION(pub i32);
 pub const ATTACHMENT_ACTION_CANCEL: ATTACHMENT_ACTION = ATTACHMENT_ACTION(0i32);
 pub const ATTACHMENT_ACTION_SAVE: ATTACHMENT_ACTION = ATTACHMENT_ACTION(1i32);
 pub const ATTACHMENT_ACTION_EXEC: ATTACHMENT_ACTION = ATTACHMENT_ACTION(2i32);
+impl ::core::marker::Copy for ATTACHMENT_ACTION {}
+impl ::core::clone::Clone for ATTACHMENT_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ATTACHMENT_PROMPT(pub i32);
 pub const ATTACHMENT_PROMPT_NONE: ATTACHMENT_PROMPT = ATTACHMENT_PROMPT(0i32);
 pub const ATTACHMENT_PROMPT_SAVE: ATTACHMENT_PROMPT = ATTACHMENT_PROMPT(1i32);
 pub const ATTACHMENT_PROMPT_EXEC: ATTACHMENT_PROMPT = ATTACHMENT_PROMPT(2i32);
 pub const ATTACHMENT_PROMPT_EXEC_OR_SAVE: ATTACHMENT_PROMPT = ATTACHMENT_PROMPT(3i32);
+impl ::core::marker::Copy for ATTACHMENT_PROMPT {}
+impl ::core::clone::Clone for ATTACHMENT_PROMPT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AUTOCOMPLETELISTOPTIONS(pub i32);
 pub const ACLO_NONE: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(0i32);
@@ -1760,6 +1892,12 @@ pub const ACLO_FAVORITES: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(8i32
 pub const ACLO_FILESYSONLY: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(16i32);
 pub const ACLO_FILESYSDIRS: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(32i32);
 pub const ACLO_VIRTUALNAMESPACE: AUTOCOMPLETELISTOPTIONS = AUTOCOMPLETELISTOPTIONS(64i32);
+impl ::core::marker::Copy for AUTOCOMPLETELISTOPTIONS {}
+impl ::core::clone::Clone for AUTOCOMPLETELISTOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AUTOCOMPLETEOPTIONS(pub i32);
 pub const ACO_NONE: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(0i32);
@@ -1772,6 +1910,12 @@ pub const ACO_UPDOWNKEYDROPSLIST: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(32i3
 pub const ACO_RTLREADING: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(64i32);
 pub const ACO_WORD_FILTER: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(128i32);
 pub const ACO_NOPREFIXFILTERING: AUTOCOMPLETEOPTIONS = AUTOCOMPLETEOPTIONS(256i32);
+impl ::core::marker::Copy for AUTOCOMPLETEOPTIONS {}
+impl ::core::clone::Clone for AUTOCOMPLETEOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUTO_SCROLL_DATA {
@@ -1872,6 +2016,12 @@ impl ::core::clone::Clone for BANDINFOSFB {
 pub struct BANDSITECID(pub i32);
 pub const BSID_BANDADDED: BANDSITECID = BANDSITECID(0i32);
 pub const BSID_BANDREMOVED: BANDSITECID = BANDSITECID(1i32);
+impl ::core::marker::Copy for BANDSITECID {}
+impl ::core::clone::Clone for BANDSITECID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct BANDSITEINFO {
     pub dwMask: u32,
@@ -1907,6 +2057,12 @@ pub const BNE_Closed: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(2i32
 pub const BNE_Dismissed: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(3i32);
 pub const BNE_Button1Clicked: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(4i32);
 pub const BNE_Button2Clicked: BANNER_NOTIFICATION_EVENT = BANNER_NOTIFICATION_EVENT(5i32);
+impl ::core::marker::Copy for BANNER_NOTIFICATION_EVENT {}
+impl ::core::clone::Clone for BANNER_NOTIFICATION_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct BASEBROWSERDATALH {
@@ -2083,6 +2239,12 @@ pub struct BNSTATE(pub i32);
 pub const BNS_NORMAL: BNSTATE = BNSTATE(0i32);
 pub const BNS_BEGIN_NAVIGATE: BNSTATE = BNSTATE(1i32);
 pub const BNS_NAVIGATE: BNSTATE = BNSTATE(2i32);
+impl ::core::marker::Copy for BNSTATE {}
+impl ::core::clone::Clone for BNSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct BROWSEINFOA {
@@ -2191,6 +2353,12 @@ pub const navReserved4: BrowserNavConstants = BrowserNavConstants(268435456i32);
 pub const navReserved5: BrowserNavConstants = BrowserNavConstants(536870912i32);
 pub const navReserved6: BrowserNavConstants = BrowserNavConstants(1073741824i32);
 pub const navReserved7: BrowserNavConstants = BrowserNavConstants(-2147483648i32);
+impl ::core::marker::Copy for BrowserNavConstants {}
+impl ::core::clone::Clone for BrowserNavConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 pub struct CABINETSTATE {
     pub cLength: u16,
@@ -2218,6 +2386,12 @@ pub const CATINFO_NOHEADERCOUNT: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(32i32);
 pub const CATINFO_SUBSETTED: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(64i32);
 pub const CATINFO_SEPARATE_IMAGES: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(128i32);
 pub const CATINFO_SHOWEMPTY: CATEGORYINFO_FLAGS = CATEGORYINFO_FLAGS(256i32);
+impl ::core::marker::Copy for CATEGORYINFO_FLAGS {}
+impl ::core::clone::Clone for CATEGORYINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CATEGORY_INFO {
     pub cif: CATEGORYINFO_FLAGS,
@@ -2252,6 +2426,12 @@ pub const CATID_SearchableApplication: ::windows_sys::core::GUID = ::windows_sys
 pub struct CATSORT_FLAGS(pub i32);
 pub const CATSORT_DEFAULT: CATSORT_FLAGS = CATSORT_FLAGS(0i32);
 pub const CATSORT_NAME: CATSORT_FLAGS = CATSORT_FLAGS(1i32);
+impl ::core::marker::Copy for CATSORT_FLAGS {}
+impl ::core::clone::Clone for CATSORT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CDB2GVF_ADDSHIELD: u32 = 64u32;
 pub const CDB2GVF_ALLOWPREVIEWPANE: u32 = 4u32;
 pub const CDB2GVF_ISFILESAVE: u32 = 2u32;
@@ -2271,6 +2451,12 @@ pub struct CDBURNINGEXTENSIONRET(pub i32);
 pub const CDBE_RET_DEFAULT: CDBURNINGEXTENSIONRET = CDBURNINGEXTENSIONRET(0i32);
 pub const CDBE_RET_DONTRUNOTHEREXTS: CDBURNINGEXTENSIONRET = CDBURNINGEXTENSIONRET(1i32);
 pub const CDBE_RET_STOPWIZARD: CDBURNINGEXTENSIONRET = CDBURNINGEXTENSIONRET(2i32);
+impl ::core::marker::Copy for CDBURNINGEXTENSIONRET {}
+impl ::core::clone::Clone for CDBURNINGEXTENSIONRET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CDBurn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4226517509, data2: 48878, data3: 17474, data4: [128, 78, 64, 157, 108, 69, 21, 233] };
 #[repr(transparent)]
 pub struct CDCONTROLSTATEF(pub i32);
@@ -2278,6 +2464,12 @@ pub const CDCS_INACTIVE: CDCONTROLSTATEF = CDCONTROLSTATEF(0i32);
 pub const CDCS_ENABLED: CDCONTROLSTATEF = CDCONTROLSTATEF(1i32);
 pub const CDCS_VISIBLE: CDCONTROLSTATEF = CDCONTROLSTATEF(2i32);
 pub const CDCS_ENABLEDVISIBLE: CDCONTROLSTATEF = CDCONTROLSTATEF(3i32);
+impl ::core::marker::Copy for CDCONTROLSTATEF {}
+impl ::core::clone::Clone for CDCONTROLSTATEF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CGID_DefView: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1257275152, data2: 53809, data3: 4560, data4: [185, 66, 0, 160, 201, 3, 18, 225] };
 pub const CGID_Explorer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136400, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
 pub const CGID_ExplorerBarDoc: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136403, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
@@ -2475,6 +2667,12 @@ impl ::core::clone::Clone for CM_COLUMNINFO {
 pub struct CM_ENUM_FLAGS(pub i32);
 pub const CM_ENUM_ALL: CM_ENUM_FLAGS = CM_ENUM_FLAGS(1i32);
 pub const CM_ENUM_VISIBLE: CM_ENUM_FLAGS = CM_ENUM_FLAGS(2i32);
+impl ::core::marker::Copy for CM_ENUM_FLAGS {}
+impl ::core::clone::Clone for CM_ENUM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CM_MASK(pub i32);
 pub const CM_MASK_WIDTH: CM_MASK = CM_MASK(1i32);
@@ -2482,10 +2680,22 @@ pub const CM_MASK_DEFAULTWIDTH: CM_MASK = CM_MASK(2i32);
 pub const CM_MASK_IDEALWIDTH: CM_MASK = CM_MASK(4i32);
 pub const CM_MASK_NAME: CM_MASK = CM_MASK(8i32);
 pub const CM_MASK_STATE: CM_MASK = CM_MASK(16i32);
+impl ::core::marker::Copy for CM_MASK {}
+impl ::core::clone::Clone for CM_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CM_SET_WIDTH_VALUE(pub i32);
 pub const CM_WIDTH_USEDEFAULT: CM_SET_WIDTH_VALUE = CM_SET_WIDTH_VALUE(-1i32);
 pub const CM_WIDTH_AUTOSIZE: CM_SET_WIDTH_VALUE = CM_SET_WIDTH_VALUE(-2i32);
+impl ::core::marker::Copy for CM_SET_WIDTH_VALUE {}
+impl ::core::clone::Clone for CM_SET_WIDTH_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CM_STATE(pub i32);
 pub const CM_STATE_NONE: CM_STATE = CM_STATE(0i32);
@@ -2493,6 +2703,12 @@ pub const CM_STATE_VISIBLE: CM_STATE = CM_STATE(1i32);
 pub const CM_STATE_FIXEDWIDTH: CM_STATE = CM_STATE(2i32);
 pub const CM_STATE_NOSORTBYFOLDERNESS: CM_STATE = CM_STATE(4i32);
 pub const CM_STATE_ALWAYSVISIBLE: CM_STATE = CM_STATE(8i32);
+impl ::core::marker::Copy for CM_STATE {}
+impl ::core::clone::Clone for CM_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const COMPONENT_DEFAULT_LEFT: u32 = 65535u32;
 pub const COMPONENT_DEFAULT_TOP: u32 = 65535u32;
 pub const COMPONENT_TOP: u32 = 1073741823u32;
@@ -2693,11 +2909,23 @@ pub const CPVIEW_CLASSIC: CPVIEW = CPVIEW(0i32);
 pub const CPVIEW_ALLITEMS: CPVIEW = CPVIEW(0i32);
 pub const CPVIEW_CATEGORY: CPVIEW = CPVIEW(1i32);
 pub const CPVIEW_HOME: CPVIEW = CPVIEW(1i32);
+impl ::core::marker::Copy for CPVIEW {}
+impl ::core::clone::Clone for CPVIEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS(pub i32);
 pub const CPAO_NONE: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS(0i32);
 pub const CPAO_EMPTY_LOCAL: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS(1i32);
 pub const CPAO_EMPTY_CONNECTED: CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS(2i32);
+impl ::core::marker::Copy for CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS {}
+impl ::core::clone::Clone for CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(pub i32);
 pub const CPCFO_NONE: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(0i32);
@@ -2706,6 +2934,12 @@ pub const CPCFO_IS_EMAIL_ADDRESS: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS =
 pub const CPCFO_ENABLE_TOUCH_KEYBOARD_AUTO_INVOKE: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(4i32);
 pub const CPCFO_NUMBERS_ONLY: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(8i32);
 pub const CPCFO_SHOW_ENGLISH_KEYBOARD: CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS(16i32);
+impl ::core::marker::Copy for CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS {}
+impl ::core::clone::Clone for CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
     pub ulAuthenticationPackage: u32,
@@ -2741,12 +2975,24 @@ pub const CPFIS_NONE: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = CREDENTIAL_P
 pub const CPFIS_READONLY: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE(1i32);
 pub const CPFIS_DISABLED: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE(2i32);
 pub const CPFIS_FOCUSED: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE(3i32);
+impl ::core::marker::Copy for CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE {}
+impl ::core::clone::Clone for CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CREDENTIAL_PROVIDER_FIELD_STATE(pub i32);
 pub const CPFS_HIDDEN: CREDENTIAL_PROVIDER_FIELD_STATE = CREDENTIAL_PROVIDER_FIELD_STATE(0i32);
 pub const CPFS_DISPLAY_IN_SELECTED_TILE: CREDENTIAL_PROVIDER_FIELD_STATE = CREDENTIAL_PROVIDER_FIELD_STATE(1i32);
 pub const CPFS_DISPLAY_IN_DESELECTED_TILE: CREDENTIAL_PROVIDER_FIELD_STATE = CREDENTIAL_PROVIDER_FIELD_STATE(2i32);
 pub const CPFS_DISPLAY_IN_BOTH: CREDENTIAL_PROVIDER_FIELD_STATE = CREDENTIAL_PROVIDER_FIELD_STATE(3i32);
+impl ::core::marker::Copy for CREDENTIAL_PROVIDER_FIELD_STATE {}
+impl ::core::clone::Clone for CREDENTIAL_PROVIDER_FIELD_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CREDENTIAL_PROVIDER_FIELD_TYPE(pub i32);
 pub const CPFT_INVALID: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(0i32);
@@ -2759,12 +3005,24 @@ pub const CPFT_TILE_IMAGE: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_
 pub const CPFT_CHECKBOX: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(7i32);
 pub const CPFT_COMBOBOX: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(8i32);
 pub const CPFT_SUBMIT_BUTTON: CREDENTIAL_PROVIDER_FIELD_TYPE = CREDENTIAL_PROVIDER_FIELD_TYPE(9i32);
+impl ::core::marker::Copy for CREDENTIAL_PROVIDER_FIELD_TYPE {}
+impl ::core::clone::Clone for CREDENTIAL_PROVIDER_FIELD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(pub i32);
 pub const CPGSR_NO_CREDENTIAL_NOT_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(0i32);
 pub const CPGSR_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(1i32);
 pub const CPGSR_RETURN_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(2i32);
 pub const CPGSR_RETURN_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE(3i32);
+impl ::core::marker::Copy for CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE {}
+impl ::core::clone::Clone for CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CREDENTIAL_PROVIDER_NO_DEFAULT: u32 = 4294967295u32;
 #[repr(transparent)]
 pub struct CREDENTIAL_PROVIDER_STATUS_ICON(pub i32);
@@ -2772,6 +3030,12 @@ pub const CPSI_NONE: CREDENTIAL_PROVIDER_STATUS_ICON = CREDENTIAL_PROVIDER_STATU
 pub const CPSI_ERROR: CREDENTIAL_PROVIDER_STATUS_ICON = CREDENTIAL_PROVIDER_STATUS_ICON(1i32);
 pub const CPSI_WARNING: CREDENTIAL_PROVIDER_STATUS_ICON = CREDENTIAL_PROVIDER_STATUS_ICON(2i32);
 pub const CPSI_SUCCESS: CREDENTIAL_PROVIDER_STATUS_ICON = CREDENTIAL_PROVIDER_STATUS_ICON(3i32);
+impl ::core::marker::Copy for CREDENTIAL_PROVIDER_STATUS_ICON {}
+impl ::core::clone::Clone for CREDENTIAL_PROVIDER_STATUS_ICON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CREDENTIAL_PROVIDER_USAGE_SCENARIO(pub i32);
 pub const CPUS_INVALID: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(0i32);
@@ -2780,6 +3044,12 @@ pub const CPUS_UNLOCK_WORKSTATION: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTI
 pub const CPUS_CHANGE_PASSWORD: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(3i32);
 pub const CPUS_CREDUI: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(4i32);
 pub const CPUS_PLAP: CREDENTIAL_PROVIDER_USAGE_SCENARIO = CREDENTIAL_PROVIDER_USAGE_SCENARIO(5i32);
+impl ::core::marker::Copy for CREDENTIAL_PROVIDER_USAGE_SCENARIO {}
+impl ::core::clone::Clone for CREDENTIAL_PROVIDER_USAGE_SCENARIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct CSFV {
@@ -2884,6 +3154,12 @@ pub struct CommandStateChangeConstants(pub i32);
 pub const CSC_UPDATECOMMANDS: CommandStateChangeConstants = CommandStateChangeConstants(-1i32);
 pub const CSC_NAVIGATEFORWARD: CommandStateChangeConstants = CommandStateChangeConstants(1i32);
 pub const CSC_NAVIGATEBACK: CommandStateChangeConstants = CommandStateChangeConstants(2i32);
+impl ::core::marker::Copy for CommandStateChangeConstants {}
+impl ::core::clone::Clone for CommandStateChangeConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ConflictFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 681146540, data2: 41217, data3: 17217, data4: [168, 23, 33, 235, 167, 253, 4, 109] };
 #[repr(C, packed(1))]
 pub struct DATABLOCK_HEADER {
@@ -2903,6 +3179,12 @@ pub const DOGIF_TRAVERSE_LINK: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(1
 pub const DOGIF_NO_HDROP: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(2i32);
 pub const DOGIF_NO_URL: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(4i32);
 pub const DOGIF_ONLY_IF_ONE: DATAOBJ_GET_ITEM_FLAGS = DATAOBJ_GET_ITEM_FLAGS(8i32);
+impl ::core::marker::Copy for DATAOBJ_GET_ITEM_FLAGS {}
+impl ::core::clone::Clone for DATAOBJ_GET_ITEM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DBCID_CLSIDOFBAR: i32 = 2i32;
 pub const DBCID_EMPTY: i32 = 0i32;
 pub const DBCID_GETBAR: i32 = 4i32;
@@ -2945,6 +3227,12 @@ pub struct DEFAULTSAVEFOLDERTYPE(pub i32);
 pub const DSFT_DETECT: DEFAULTSAVEFOLDERTYPE = DEFAULTSAVEFOLDERTYPE(1i32);
 pub const DSFT_PRIVATE: DEFAULTSAVEFOLDERTYPE = DEFAULTSAVEFOLDERTYPE(2i32);
 pub const DSFT_PUBLIC: DEFAULTSAVEFOLDERTYPE = DEFAULTSAVEFOLDERTYPE(3i32);
+impl ::core::marker::Copy for DEFAULTSAVEFOLDERTYPE {}
+impl ::core::clone::Clone for DEFAULTSAVEFOLDERTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEFAULT_FOLDER_MENU_RESTRICTIONS(pub i32);
 pub const DFMR_DEFAULT: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(0i32);
@@ -2958,6 +3246,12 @@ pub const DFMR_USE_SPECIFIED_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_F
 pub const DFMR_NO_ASYNC_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(1024i32);
 pub const DFMR_NO_NATIVECPU_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(2048i32);
 pub const DFMR_NO_NONWOW_VERBS: DEFAULT_FOLDER_MENU_RESTRICTIONS = DEFAULT_FOLDER_MENU_RESTRICTIONS(4096i32);
+impl ::core::marker::Copy for DEFAULT_FOLDER_MENU_RESTRICTIONS {}
+impl ::core::clone::Clone for DEFAULT_FOLDER_MENU_RESTRICTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 pub struct DEFCONTEXTMENU {
@@ -2983,6 +3277,12 @@ impl ::core::clone::Clone for DEFCONTEXTMENU {
 pub struct DEF_SHARE_ID(pub i32);
 pub const DEFSHAREID_USERS: DEF_SHARE_ID = DEF_SHARE_ID(1i32);
 pub const DEFSHAREID_PUBLIC: DEF_SHARE_ID = DEF_SHARE_ID(2i32);
+impl ::core::marker::Copy for DEF_SHARE_ID {}
+impl ::core::clone::Clone for DEF_SHARE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 pub struct DELEGATEITEMID {
     pub cbSize: u16,
@@ -3006,6 +3306,12 @@ pub const DBID_DELAYINIT: DESKBANDCID = DESKBANDCID(4i32);
 pub const DBID_FINISHINIT: DESKBANDCID = DESKBANDCID(5i32);
 pub const DBID_SETWINDOWTHEME: DESKBANDCID = DESKBANDCID(6i32);
 pub const DBID_PERMITAUTOHIDE: DESKBANDCID = DESKBANDCID(7i32);
+impl ::core::marker::Copy for DESKBANDCID {}
+impl ::core::clone::Clone for DESKBANDCID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DESKBANDINFO {
@@ -3030,14 +3336,32 @@ impl ::core::clone::Clone for DESKBANDINFO {
 pub struct DESKTOP_SLIDESHOW_DIRECTION(pub i32);
 pub const DSD_FORWARD: DESKTOP_SLIDESHOW_DIRECTION = DESKTOP_SLIDESHOW_DIRECTION(0i32);
 pub const DSD_BACKWARD: DESKTOP_SLIDESHOW_DIRECTION = DESKTOP_SLIDESHOW_DIRECTION(1i32);
+impl ::core::marker::Copy for DESKTOP_SLIDESHOW_DIRECTION {}
+impl ::core::clone::Clone for DESKTOP_SLIDESHOW_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DESKTOP_SLIDESHOW_OPTIONS(pub i32);
 pub const DSO_SHUFFLEIMAGES: DESKTOP_SLIDESHOW_OPTIONS = DESKTOP_SLIDESHOW_OPTIONS(1i32);
+impl ::core::marker::Copy for DESKTOP_SLIDESHOW_OPTIONS {}
+impl ::core::clone::Clone for DESKTOP_SLIDESHOW_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DESKTOP_SLIDESHOW_STATE(pub i32);
 pub const DSS_ENABLED: DESKTOP_SLIDESHOW_STATE = DESKTOP_SLIDESHOW_STATE(1i32);
 pub const DSS_SLIDESHOW: DESKTOP_SLIDESHOW_STATE = DESKTOP_SLIDESHOW_STATE(2i32);
 pub const DSS_DISABLED_BY_REMOTE_SESSION: DESKTOP_SLIDESHOW_STATE = DESKTOP_SLIDESHOW_STATE(4i32);
+impl ::core::marker::Copy for DESKTOP_SLIDESHOW_STATE {}
+impl ::core::clone::Clone for DESKTOP_SLIDESHOW_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DESKTOP_WALLPAPER_POSITION(pub i32);
 pub const DWPOS_CENTER: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(0i32);
@@ -3046,6 +3370,12 @@ pub const DWPOS_STRETCH: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION
 pub const DWPOS_FIT: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(3i32);
 pub const DWPOS_FILL: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(4i32);
 pub const DWPOS_SPAN: DESKTOP_WALLPAPER_POSITION = DESKTOP_WALLPAPER_POSITION(5i32);
+impl ::core::marker::Copy for DESKTOP_WALLPAPER_POSITION {}
+impl ::core::clone::Clone for DESKTOP_WALLPAPER_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct DETAILSINFO {
@@ -3099,6 +3429,12 @@ pub const DFM_CMD_PASTELINK: DFM_CMD = DFM_CMD(-10i32);
 pub const DFM_CMD_PASTESPECIAL: DFM_CMD = DFM_CMD(-11i32);
 pub const DFM_CMD_MODALPROP: DFM_CMD = DFM_CMD(-12i32);
 pub const DFM_CMD_RENAME: DFM_CMD = DFM_CMD(-13i32);
+impl ::core::marker::Copy for DFM_CMD {}
+impl ::core::clone::Clone for DFM_CMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DFM_MESSAGE_ID(pub i32);
 pub const DFM_MERGECONTEXTMENU: DFM_MESSAGE_ID = DFM_MESSAGE_ID(1i32);
@@ -3117,6 +3453,12 @@ pub const DFM_GETVERBW: DFM_MESSAGE_ID = DFM_MESSAGE_ID(15i32);
 pub const DFM_GETVERBA: DFM_MESSAGE_ID = DFM_MESSAGE_ID(16i32);
 pub const DFM_MERGECONTEXTMENU_BOTTOM: DFM_MESSAGE_ID = DFM_MESSAGE_ID(17i32);
 pub const DFM_MODIFYQCMFLAGS: DFM_MESSAGE_ID = DFM_MESSAGE_ID(18i32);
+impl ::core::marker::Copy for DFM_MESSAGE_ID {}
+impl ::core::clone::Clone for DFM_MESSAGE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DISPID_BEGINDRAG: u32 = 204u32;
 pub const DISPID_CHECKSTATECHANGED: u32 = 209u32;
 pub const DISPID_COLUMNSCHANGED: u32 = 212u32;
@@ -3160,6 +3502,12 @@ pub const DISPID_WORDWHEELEDITED: u32 = 219u32;
 pub struct DISPLAY_DEVICE_TYPE(pub i32);
 pub const DEVICE_PRIMARY: DISPLAY_DEVICE_TYPE = DISPLAY_DEVICE_TYPE(0i32);
 pub const DEVICE_IMMERSIVE: DISPLAY_DEVICE_TYPE = DISPLAY_DEVICE_TYPE(1i32);
+impl ::core::marker::Copy for DISPLAY_DEVICE_TYPE {}
+impl ::core::clone::Clone for DISPLAY_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DLG_SCRNSAVECONFIGURE: u32 = 2003u32;
 pub type DLLGETVERSIONPROC = unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
@@ -3312,9 +3660,21 @@ pub const DROPIMAGE_LINK: DROPIMAGETYPE = DROPIMAGETYPE(4i32);
 pub const DROPIMAGE_LABEL: DROPIMAGETYPE = DROPIMAGETYPE(6i32);
 pub const DROPIMAGE_WARNING: DROPIMAGETYPE = DROPIMAGETYPE(7i32);
 pub const DROPIMAGE_NOIMAGE: DROPIMAGETYPE = DROPIMAGETYPE(8i32);
+impl ::core::marker::Copy for DROPIMAGETYPE {}
+impl ::core::clone::Clone for DROPIMAGETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DSH_FLAGS(pub i32);
 pub const DSH_ALLOWDROPDESCRIPTIONTEXT: DSH_FLAGS = DSH_FLAGS(1i32);
+impl ::core::marker::Copy for DSH_FLAGS {}
+impl ::core::clone::Clone for DSH_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DShellFolderViewEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -3371,11 +3731,23 @@ pub struct EC_HOST_UI_MODE(pub i32);
 pub const ECHUIM_DESKTOP: EC_HOST_UI_MODE = EC_HOST_UI_MODE(0i32);
 pub const ECHUIM_IMMERSIVE: EC_HOST_UI_MODE = EC_HOST_UI_MODE(1i32);
 pub const ECHUIM_SYSTEM_LAUNCHER: EC_HOST_UI_MODE = EC_HOST_UI_MODE(2i32);
+impl ::core::marker::Copy for EC_HOST_UI_MODE {}
+impl ::core::clone::Clone for EC_HOST_UI_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EDGE_GESTURE_KIND(pub i32);
 pub const EGK_TOUCH: EDGE_GESTURE_KIND = EDGE_GESTURE_KIND(0i32);
 pub const EGK_KEYBOARD: EDGE_GESTURE_KIND = EDGE_GESTURE_KIND(1i32);
 pub const EGK_MOUSE: EDGE_GESTURE_KIND = EDGE_GESTURE_KIND(2i32);
+impl ::core::marker::Copy for EDGE_GESTURE_KIND {}
+impl ::core::clone::Clone for EDGE_GESTURE_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EP_AdvQueryPane: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3035224971, data2: 13498, data3: 19513, data4: [181, 204, 22, 161, 189, 44, 65, 28] };
 pub const EP_Commands: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3648280680,
@@ -3412,6 +3784,12 @@ pub struct EXPLORER_BROWSER_FILL_FLAGS(pub i32);
 pub const EBF_NONE: EXPLORER_BROWSER_FILL_FLAGS = EXPLORER_BROWSER_FILL_FLAGS(0i32);
 pub const EBF_SELECTFROMDATAOBJECT: EXPLORER_BROWSER_FILL_FLAGS = EXPLORER_BROWSER_FILL_FLAGS(256i32);
 pub const EBF_NODROPTARGET: EXPLORER_BROWSER_FILL_FLAGS = EXPLORER_BROWSER_FILL_FLAGS(512i32);
+impl ::core::marker::Copy for EXPLORER_BROWSER_FILL_FLAGS {}
+impl ::core::clone::Clone for EXPLORER_BROWSER_FILL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EXPLORER_BROWSER_OPTIONS(pub i32);
 pub const EBO_NONE: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(0i32);
@@ -3423,6 +3801,12 @@ pub const EBO_NOWRAPPERWINDOW: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIO
 pub const EBO_HTMLSHAREPOINTVIEW: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(32i32);
 pub const EBO_NOBORDER: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(64i32);
 pub const EBO_NOPERSISTVIEWSTATE: EXPLORER_BROWSER_OPTIONS = EXPLORER_BROWSER_OPTIONS(128i32);
+impl ::core::marker::Copy for EXPLORER_BROWSER_OPTIONS {}
+impl ::core::clone::Clone for EXPLORER_BROWSER_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EXP_DARWIN_ID_SIG: u32 = 2684354566u32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
@@ -3578,16 +3962,34 @@ pub const FCW_TREE: u32 = 3u32;
 pub struct FDAP(pub i32);
 pub const FDAP_BOTTOM: FDAP = FDAP(0i32);
 pub const FDAP_TOP: FDAP = FDAP(1i32);
+impl ::core::marker::Copy for FDAP {}
+impl ::core::clone::Clone for FDAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FDE_OVERWRITE_RESPONSE(pub i32);
 pub const FDEOR_DEFAULT: FDE_OVERWRITE_RESPONSE = FDE_OVERWRITE_RESPONSE(0i32);
 pub const FDEOR_ACCEPT: FDE_OVERWRITE_RESPONSE = FDE_OVERWRITE_RESPONSE(1i32);
 pub const FDEOR_REFUSE: FDE_OVERWRITE_RESPONSE = FDE_OVERWRITE_RESPONSE(2i32);
+impl ::core::marker::Copy for FDE_OVERWRITE_RESPONSE {}
+impl ::core::clone::Clone for FDE_OVERWRITE_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FDE_SHAREVIOLATION_RESPONSE(pub i32);
 pub const FDESVR_DEFAULT: FDE_SHAREVIOLATION_RESPONSE = FDE_SHAREVIOLATION_RESPONSE(0i32);
 pub const FDESVR_ACCEPT: FDE_SHAREVIOLATION_RESPONSE = FDE_SHAREVIOLATION_RESPONSE(1i32);
 pub const FDESVR_REFUSE: FDE_SHAREVIOLATION_RESPONSE = FDE_SHAREVIOLATION_RESPONSE(2i32);
+impl ::core::marker::Copy for FDE_SHAREVIOLATION_RESPONSE {}
+impl ::core::clone::Clone for FDE_SHAREVIOLATION_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FDTF_LONGDATE: u32 = 4u32;
 pub const FDTF_LONGTIME: u32 = 8u32;
 pub const FDTF_LTRDATE: u32 = 256u32;
@@ -3608,10 +4010,22 @@ pub const FD_FILESIZE: FD_FLAGS = FD_FLAGS(64i32);
 pub const FD_PROGRESSUI: FD_FLAGS = FD_FLAGS(16384i32);
 pub const FD_LINKUI: FD_FLAGS = FD_FLAGS(32768i32);
 pub const FD_UNICODE: FD_FLAGS = FD_FLAGS(-2147483648i32);
+impl ::core::marker::Copy for FD_FLAGS {}
+impl ::core::clone::Clone for FD_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FFFP_MODE(pub i32);
 pub const FFFP_EXACTMATCH: FFFP_MODE = FFFP_MODE(0i32);
 pub const FFFP_NEARESTPARENTMATCH: FFFP_MODE = FFFP_MODE(1i32);
+impl ::core::marker::Copy for FFFP_MODE {}
+impl ::core::clone::Clone for FFFP_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILEDESCRIPTORA {
@@ -3709,6 +4123,12 @@ pub const FTA_AlwaysUnsafe: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(1310
 pub const FTA_NoRecentDocs: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(1048576i32);
 pub const FTA_SafeForElevation: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(2097152i32);
 pub const FTA_AlwaysUseDirectInvoke: FILETYPEATTRIBUTEFLAGS = FILETYPEATTRIBUTEFLAGS(4194304i32);
+impl ::core::marker::Copy for FILETYPEATTRIBUTEFLAGS {}
+impl ::core::clone::Clone for FILETYPEATTRIBUTEFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 pub struct FILE_ATTRIBUTES_ARRAY {
     pub cItems: u32,
@@ -3726,11 +4146,23 @@ impl ::core::clone::Clone for FILE_ATTRIBUTES_ARRAY {
 pub struct FILE_OPERATION_FLAGS2(pub i32);
 pub const FOF2_NONE: FILE_OPERATION_FLAGS2 = FILE_OPERATION_FLAGS2(0i32);
 pub const FOF2_MERGEFOLDERSONCOLLISION: FILE_OPERATION_FLAGS2 = FILE_OPERATION_FLAGS2(1i32);
+impl ::core::marker::Copy for FILE_OPERATION_FLAGS2 {}
+impl ::core::clone::Clone for FILE_OPERATION_FLAGS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FILE_USAGE_TYPE(pub i32);
 pub const FUT_PLAYING: FILE_USAGE_TYPE = FILE_USAGE_TYPE(0i32);
 pub const FUT_EDITING: FILE_USAGE_TYPE = FILE_USAGE_TYPE(1i32);
 pub const FUT_GENERIC: FILE_USAGE_TYPE = FILE_USAGE_TYPE(2i32);
+impl ::core::marker::Copy for FILE_USAGE_TYPE {}
+impl ::core::clone::Clone for FILE_USAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FLYOUT_PLACEMENT(pub i32);
 pub const FP_DEFAULT: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(0i32);
@@ -3738,6 +4170,12 @@ pub const FP_ABOVE: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(1i32);
 pub const FP_BELOW: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(2i32);
 pub const FP_LEFT: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(3i32);
 pub const FP_RIGHT: FLYOUT_PLACEMENT = FLYOUT_PLACEMENT(4i32);
+impl ::core::marker::Copy for FLYOUT_PLACEMENT {}
+impl ::core::clone::Clone for FLYOUT_PLACEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FMTID_Briefcase: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 848136993, data2: 30505, data3: 19452, data4: [149, 76, 144, 43, 50, 157, 86, 176] };
 pub const FMTID_CustomImageProperties: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2127399694,
@@ -3840,6 +4278,12 @@ pub const FWF_NOBROWSERVIEWSTATE: FOLDERFLAGS = FOLDERFLAGS(268435456i32);
 pub const FWF_SUBSETGROUPS: FOLDERFLAGS = FOLDERFLAGS(536870912i32);
 pub const FWF_USESEARCHFOLDER: FOLDERFLAGS = FOLDERFLAGS(1073741824i32);
 pub const FWF_ALLOWRTLREADING: FOLDERFLAGS = FOLDERFLAGS(-2147483648i32);
+impl ::core::marker::Copy for FOLDERFLAGS {}
+impl ::core::clone::Clone for FOLDERFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FOLDERID_AccountPictures: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 9216177, data2: 21940, data3: 19542, data4: [184, 168, 77, 228, 178, 153, 211, 190] };
 pub const FOLDERID_AddNewPrograms: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3730954609, data2: 24252, data3: 20226, data4: [163, 169, 108, 130, 137, 94, 92, 4] };
 pub const FOLDERID_AdminTools: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -4352,6 +4796,12 @@ pub const FLVM_ICONS: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(3i32);
 pub const FLVM_LIST: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(4i32);
 pub const FLVM_CONTENT: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(5i32);
 pub const FLVM_LAST: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(5i32);
+impl ::core::marker::Copy for FOLDERLOGICALVIEWMODE {}
+impl ::core::clone::Clone for FOLDERLOGICALVIEWMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct FOLDERSETDATA {
     pub _fs: FOLDERSETTINGS,
@@ -4524,6 +4974,12 @@ pub const FVM_TILE: FOLDERVIEWMODE = FOLDERVIEWMODE(6i32);
 pub const FVM_THUMBSTRIP: FOLDERVIEWMODE = FOLDERVIEWMODE(7i32);
 pub const FVM_CONTENT: FOLDERVIEWMODE = FOLDERVIEWMODE(8i32);
 pub const FVM_LAST: FOLDERVIEWMODE = FOLDERVIEWMODE(8i32);
+impl ::core::marker::Copy for FOLDERVIEWMODE {}
+impl ::core::clone::Clone for FOLDERVIEWMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FOLDERVIEWOPTIONS(pub i32);
 pub const FVO_DEFAULT: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(0i32);
@@ -4533,10 +4989,22 @@ pub const FVO_CUSTOMORDERING: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(4i32);
 pub const FVO_SUPPORTHYPERLINKS: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(8i32);
 pub const FVO_NOANIMATIONS: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(16i32);
 pub const FVO_NOSCROLLTIPS: FOLDERVIEWOPTIONS = FOLDERVIEWOPTIONS(32i32);
+impl ::core::marker::Copy for FOLDERVIEWOPTIONS {}
+impl ::core::clone::Clone for FOLDERVIEWOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FOLDER_ENUM_MODE(pub i32);
 pub const FEM_VIEWRESULT: FOLDER_ENUM_MODE = FOLDER_ENUM_MODE(0i32);
 pub const FEM_NAVIGATION: FOLDER_ENUM_MODE = FOLDER_ENUM_MODE(1i32);
+impl ::core::marker::Copy for FOLDER_ENUM_MODE {}
+impl ::core::clone::Clone for FOLDER_ENUM_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FO_COPY: u32 = 2u32;
 pub const FO_DELETE: u32 = 3u32;
 pub const FO_MOVE: u32 = 1u32;
@@ -4550,6 +5018,12 @@ pub const FVSIF_RECT: u32 = 1u32;
 #[repr(transparent)]
 pub struct FVTEXTTYPE(pub i32);
 pub const FVST_EMPTYTEXT: FVTEXTTYPE = FVTEXTTYPE(0i32);
+impl ::core::marker::Copy for FVTEXTTYPE {}
+impl ::core::clone::Clone for FVTEXTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FileOpenDialog: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3692845724,
     data2: 59530,
@@ -4708,6 +5182,12 @@ pub const HLBWIF_FRAMEWNDMAXIMIZED: HLBWIF_FLAGS = HLBWIF_FLAGS(4u32);
 pub const HLBWIF_DOCWNDMAXIMIZED: HLBWIF_FLAGS = HLBWIF_FLAGS(8u32);
 pub const HLBWIF_HASWEBTOOLBARINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(16u32);
 pub const HLBWIF_WEBTOOLBARHIDDEN: HLBWIF_FLAGS = HLBWIF_FLAGS(32u32);
+impl ::core::marker::Copy for HLBWIF_FLAGS {}
+impl ::core::clone::Clone for HLBWIF_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HLBWINFO {
@@ -4732,6 +5212,12 @@ pub const HLFNAMEF_TRYCACHE: HLFNAMEF = HLFNAMEF(1u32);
 pub const HLFNAMEF_TRYPRETTYTARGET: HLFNAMEF = HLFNAMEF(2u32);
 pub const HLFNAMEF_TRYFULLTARGET: HLFNAMEF = HLFNAMEF(4u32);
 pub const HLFNAMEF_TRYWIN95SHORTCUT: HLFNAMEF = HLFNAMEF(8u32);
+impl ::core::marker::Copy for HLFNAMEF {}
+impl ::core::clone::Clone for HLFNAMEF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HLID_INFO(pub u32);
 pub const HLID_INVALID: HLID_INFO = HLID_INFO(0u32);
@@ -4740,22 +5226,52 @@ pub const HLID_NEXT: HLID_INFO = HLID_INFO(4294967294u32);
 pub const HLID_CURRENT: HLID_INFO = HLID_INFO(4294967293u32);
 pub const HLID_STACKBOTTOM: HLID_INFO = HLID_INFO(4294967292u32);
 pub const HLID_STACKTOP: HLID_INFO = HLID_INFO(4294967291u32);
+impl ::core::marker::Copy for HLID_INFO {}
+impl ::core::clone::Clone for HLID_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HLINKGETREF(pub i32);
 pub const HLINKGETREF_DEFAULT: HLINKGETREF = HLINKGETREF(0i32);
 pub const HLINKGETREF_ABSOLUTE: HLINKGETREF = HLINKGETREF(1i32);
 pub const HLINKGETREF_RELATIVE: HLINKGETREF = HLINKGETREF(2i32);
+impl ::core::marker::Copy for HLINKGETREF {}
+impl ::core::clone::Clone for HLINKGETREF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HLINKMISC(pub i32);
 pub const HLINKMISC_RELATIVE: HLINKMISC = HLINKMISC(1i32);
+impl ::core::marker::Copy for HLINKMISC {}
+impl ::core::clone::Clone for HLINKMISC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HLINKSETF(pub i32);
 pub const HLINKSETF_TARGET: HLINKSETF = HLINKSETF(1i32);
 pub const HLINKSETF_LOCATION: HLINKSETF = HLINKSETF(2i32);
+impl ::core::marker::Copy for HLINKSETF {}
+impl ::core::clone::Clone for HLINKSETF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HLINKWHICHMK(pub i32);
 pub const HLINKWHICHMK_CONTAINER: HLINKWHICHMK = HLINKWHICHMK(1i32);
 pub const HLINKWHICHMK_BASE: HLINKWHICHMK = HLINKWHICHMK(2i32);
+impl ::core::marker::Copy for HLINKWHICHMK {}
+impl ::core::clone::Clone for HLINKWHICHMK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HLINK_E_FIRST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221248i32 as _);
 pub const HLINK_S_DONTHIDE: i32 = 262400i32;
 pub const HLINK_S_FIRST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262400i32 as _);
@@ -4781,6 +5297,12 @@ pub const HLNF_NAVIGATINGBACK: HLNF = HLNF(4u32);
 pub const HLNF_NAVIGATINGFORWARD: HLNF = HLNF(8u32);
 pub const HLNF_NAVIGATINGTOSTACKITEM: HLNF = HLNF(16u32);
 pub const HLNF_CREATENOHISTORY: HLNF = HLNF(32u32);
+impl ::core::marker::Copy for HLNF {}
+impl ::core::clone::Clone for HLNF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HLNF_ALLOW_AUTONAVIGATE: u32 = 536870912u32;
 pub const HLNF_CALLERUNTRUSTED: u32 = 2097152u32;
 pub const HLNF_DISABLEWINDOWRESTRICTIONS: u32 = 8388608u32;
@@ -4793,6 +5315,12 @@ pub const HLNF_UNTRUSTEDFORDOWNLOAD: u32 = 33554432u32;
 pub struct HLQF_INFO(pub i32);
 pub const HLQF_ISVALID: HLQF_INFO = HLQF_INFO(1i32);
 pub const HLQF_ISCURRENT: HLQF_INFO = HLQF_INFO(2i32);
+impl ::core::marker::Copy for HLQF_INFO {}
+impl ::core::clone::Clone for HLQF_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HLTBINFO {
@@ -4814,6 +5342,12 @@ pub const HLTB_DOCKEDTOP: HLTB_INFO = HLTB_INFO(1i32);
 pub const HLTB_DOCKEDRIGHT: HLTB_INFO = HLTB_INFO(2i32);
 pub const HLTB_DOCKEDBOTTOM: HLTB_INFO = HLTB_INFO(3i32);
 pub const HLTB_FLOATING: HLTB_INFO = HLTB_INFO(4i32);
+impl ::core::marker::Copy for HLTB_INFO {}
+impl ::core::clone::Clone for HLTB_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HOMEGROUPSHARINGCHOICES(pub i32);
 pub const HGSC_NONE: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(0i32);
@@ -4822,6 +5356,12 @@ pub const HGSC_PICTURESLIBRARY: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICE
 pub const HGSC_VIDEOSLIBRARY: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(4i32);
 pub const HGSC_DOCUMENTSLIBRARY: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(8i32);
 pub const HGSC_PRINTERS: HOMEGROUPSHARINGCHOICES = HOMEGROUPSHARINGCHOICES(16i32);
+impl ::core::marker::Copy for HOMEGROUPSHARINGCHOICES {}
+impl ::core::clone::Clone for HOMEGROUPSHARINGCHOICES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HPSXA {
     pub Value: isize,
@@ -5052,12 +5592,24 @@ pub const IENamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::GUI
 #[repr(transparent)]
 pub struct IEPDNFLAGS(pub i32);
 pub const IEPDN_BINDINGUI: IEPDNFLAGS = IEPDNFLAGS(1i32);
+impl ::core::marker::Copy for IEPDNFLAGS {}
+impl ::core::clone::Clone for IEPDNFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESHORTCUTFLAGS(pub i32);
 pub const IESHORTCUT_NEWBROWSER: IESHORTCUTFLAGS = IESHORTCUTFLAGS(1i32);
 pub const IESHORTCUT_OPENNEWTAB: IESHORTCUTFLAGS = IESHORTCUTFLAGS(2i32);
 pub const IESHORTCUT_FORCENAVIGATE: IESHORTCUTFLAGS = IESHORTCUTFLAGS(4i32);
 pub const IESHORTCUT_BACKGROUNDTAB: IESHORTCUTFLAGS = IESHORTCUTFLAGS(8i32);
+impl ::core::marker::Copy for IESHORTCUTFLAGS {}
+impl ::core::clone::Clone for IESHORTCUTFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumACString(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -5771,10 +6323,22 @@ pub const KF_CATEGORY_VIRTUAL: KF_CATEGORY = KF_CATEGORY(1i32);
 pub const KF_CATEGORY_FIXED: KF_CATEGORY = KF_CATEGORY(2i32);
 pub const KF_CATEGORY_COMMON: KF_CATEGORY = KF_CATEGORY(3i32);
 pub const KF_CATEGORY_PERUSER: KF_CATEGORY = KF_CATEGORY(4i32);
+impl ::core::marker::Copy for KF_CATEGORY {}
+impl ::core::clone::Clone for KF_CATEGORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KNOWNDESTCATEGORY(pub i32);
 pub const KDC_FREQUENT: KNOWNDESTCATEGORY = KNOWNDESTCATEGORY(1i32);
 pub const KDC_RECENT: KNOWNDESTCATEGORY = KNOWNDESTCATEGORY(2i32);
+impl ::core::marker::Copy for KNOWNDESTCATEGORY {}
+impl ::core::clone::Clone for KNOWNDESTCATEGORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KNOWNFOLDER_DEFINITION {
@@ -5818,6 +6382,12 @@ pub const KF_FLAG_DEFAULT_PATH: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(1024i32);
 pub const KF_FLAG_NOT_PARENT_RELATIVE: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(512i32);
 pub const KF_FLAG_SIMPLE_IDLIST: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(256i32);
 pub const KF_FLAG_ALIAS_ONLY: KNOWN_FOLDER_FLAG = KNOWN_FOLDER_FLAG(-2147483648i32);
+impl ::core::marker::Copy for KNOWN_FOLDER_FLAG {}
+impl ::core::clone::Clone for KNOWN_FOLDER_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KnownFolderManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1307625264,
     data2: 57245,
@@ -5829,20 +6399,44 @@ pub struct LIBRARYFOLDERFILTER(pub i32);
 pub const LFF_FORCEFILESYSTEM: LIBRARYFOLDERFILTER = LIBRARYFOLDERFILTER(1i32);
 pub const LFF_STORAGEITEMS: LIBRARYFOLDERFILTER = LIBRARYFOLDERFILTER(2i32);
 pub const LFF_ALLITEMS: LIBRARYFOLDERFILTER = LIBRARYFOLDERFILTER(3i32);
+impl ::core::marker::Copy for LIBRARYFOLDERFILTER {}
+impl ::core::clone::Clone for LIBRARYFOLDERFILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LIBRARYMANAGEDIALOGOPTIONS(pub i32);
 pub const LMD_DEFAULT: LIBRARYMANAGEDIALOGOPTIONS = LIBRARYMANAGEDIALOGOPTIONS(0i32);
 pub const LMD_ALLOWUNINDEXABLENETWORKLOCATIONS: LIBRARYMANAGEDIALOGOPTIONS = LIBRARYMANAGEDIALOGOPTIONS(1i32);
+impl ::core::marker::Copy for LIBRARYMANAGEDIALOGOPTIONS {}
+impl ::core::clone::Clone for LIBRARYMANAGEDIALOGOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LIBRARYOPTIONFLAGS(pub i32);
 pub const LOF_DEFAULT: LIBRARYOPTIONFLAGS = LIBRARYOPTIONFLAGS(0i32);
 pub const LOF_PINNEDTONAVPANE: LIBRARYOPTIONFLAGS = LIBRARYOPTIONFLAGS(1i32);
 pub const LOF_MASK_ALL: LIBRARYOPTIONFLAGS = LIBRARYOPTIONFLAGS(1i32);
+impl ::core::marker::Copy for LIBRARYOPTIONFLAGS {}
+impl ::core::clone::Clone for LIBRARYOPTIONFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LIBRARYSAVEFLAGS(pub i32);
 pub const LSF_FAILIFTHERE: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(0i32);
 pub const LSF_OVERRIDEEXISTING: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(1i32);
 pub const LSF_MAKEUNIQUENAME: LIBRARYSAVEFLAGS = LIBRARYSAVEFLAGS(2i32);
+impl ::core::marker::Copy for LIBRARYSAVEFLAGS {}
+impl ::core::clone::Clone for LIBRARYSAVEFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927231i32 as _);
 pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927232i32 as _);
 pub const LINK_E_DELETE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927485i32 as _);
@@ -5862,6 +6456,12 @@ pub const MAX_SYNCMGR_PROGRESSTEXT: u32 = 260u32;
 #[repr(transparent)]
 pub struct MENUBANDHANDLERCID(pub i32);
 pub const MBHANDCID_PIDLSELECT: MENUBANDHANDLERCID = MENUBANDHANDLERCID(0i32);
+impl ::core::marker::Copy for MENUBANDHANDLERCID {}
+impl ::core::clone::Clone for MENUBANDHANDLERCID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MENUPOPUPPOPUPFLAGS(pub i32);
 pub const MPPF_SETFOCUS: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(1i32);
@@ -5878,6 +6478,12 @@ pub const MPPF_BOTTOM: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(-2147483648i32)
 pub const MPPF_POS_MASK: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(-536870912i32);
 pub const MPPF_ALIGN_LEFT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(33554432i32);
 pub const MPPF_ALIGN_RIGHT: MENUPOPUPPOPUPFLAGS = MENUPOPUPPOPUPFLAGS(67108864i32);
+impl ::core::marker::Copy for MENUPOPUPPOPUPFLAGS {}
+impl ::core::clone::Clone for MENUPOPUPPOPUPFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MENUPOPUPSELECT(pub i32);
 pub const MPOS_EXECUTE: MENUPOPUPSELECT = MENUPOPUPSELECT(0i32);
@@ -5886,21 +6492,45 @@ pub const MPOS_CANCELLEVEL: MENUPOPUPSELECT = MENUPOPUPSELECT(2i32);
 pub const MPOS_SELECTLEFT: MENUPOPUPSELECT = MENUPOPUPSELECT(3i32);
 pub const MPOS_SELECTRIGHT: MENUPOPUPSELECT = MENUPOPUPSELECT(4i32);
 pub const MPOS_CHILDTRACKING: MENUPOPUPSELECT = MENUPOPUPSELECT(5i32);
+impl ::core::marker::Copy for MENUPOPUPSELECT {}
+impl ::core::clone::Clone for MENUPOPUPSELECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MERGE_UPDATE_STATUS(pub i32);
 pub const MUS_COMPLETE: MERGE_UPDATE_STATUS = MERGE_UPDATE_STATUS(0i32);
 pub const MUS_USERINPUTNEEDED: MERGE_UPDATE_STATUS = MERGE_UPDATE_STATUS(1i32);
 pub const MUS_FAILED: MERGE_UPDATE_STATUS = MERGE_UPDATE_STATUS(2i32);
+impl ::core::marker::Copy for MERGE_UPDATE_STATUS {}
+impl ::core::clone::Clone for MERGE_UPDATE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MM_FLAGS(pub u32);
 pub const MM_ADDSEPARATOR: MM_FLAGS = MM_FLAGS(1u32);
 pub const MM_SUBMENUSHAVEIDS: MM_FLAGS = MM_FLAGS(2u32);
 pub const MM_DONTREMOVESEPS: MM_FLAGS = MM_FLAGS(4u32);
+impl ::core::marker::Copy for MM_FLAGS {}
+impl ::core::clone::Clone for MM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MONITOR_APP_VISIBILITY(pub i32);
 pub const MAV_UNKNOWN: MONITOR_APP_VISIBILITY = MONITOR_APP_VISIBILITY(0i32);
 pub const MAV_NO_APP_VISIBLE: MONITOR_APP_VISIBILITY = MONITOR_APP_VISIBILITY(1i32);
 pub const MAV_APP_VISIBLE: MONITOR_APP_VISIBILITY = MONITOR_APP_VISIBILITY(2i32);
+impl ::core::marker::Copy for MONITOR_APP_VISIBILITY {}
+impl ::core::clone::Clone for MONITOR_APP_VISIBILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MULTIKEYHELPA {
@@ -5954,10 +6584,22 @@ pub const NSWF_DONT_SORT: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(4096i32);
 pub const NSWF_USE_TRANSFER_MEDIUM: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(8192i32);
 pub const NSWF_DONT_TRAVERSE_STREAM_JUNCTIONS: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(16384i32);
 pub const NSWF_ANY_IMPLIES_ALL: NAMESPACEWALKFLAG = NAMESPACEWALKFLAG(32768i32);
+impl ::core::marker::Copy for NAMESPACEWALKFLAG {}
+impl ::core::clone::Clone for NAMESPACEWALKFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NATIVE_DISPLAY_ORIENTATION(pub i32);
 pub const NDO_LANDSCAPE: NATIVE_DISPLAY_ORIENTATION = NATIVE_DISPLAY_ORIENTATION(0i32);
 pub const NDO_PORTRAIT: NATIVE_DISPLAY_ORIENTATION = NATIVE_DISPLAY_ORIENTATION(1i32);
+impl ::core::marker::Copy for NATIVE_DISPLAY_ORIENTATION {}
+impl ::core::clone::Clone for NATIVE_DISPLAY_ORIENTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCM_DISPLAYERRORTIP: u32 = 1028u32;
 pub const NCM_GETADDRESS: u32 = 1025u32;
 pub const NCM_GETALLOWTYPE: u32 = 1027u32;
@@ -6262,6 +6904,12 @@ pub const NIF_INFO: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(16u32);
 pub const NIF_GUID: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(32u32);
 pub const NIF_REALTIME: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(64u32);
 pub const NIF_SHOWTIP: NOTIFY_ICON_DATA_FLAGS = NOTIFY_ICON_DATA_FLAGS(128u32);
+impl ::core::marker::Copy for NOTIFY_ICON_DATA_FLAGS {}
+impl ::core::clone::Clone for NOTIFY_ICON_DATA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NOTIFY_ICON_MESSAGE(pub u32);
 pub const NIM_ADD: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(0u32);
@@ -6269,6 +6917,12 @@ pub const NIM_MODIFY: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(1u32);
 pub const NIM_DELETE: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(2u32);
 pub const NIM_SETFOCUS: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(3u32);
 pub const NIM_SETVERSION: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(4u32);
+impl ::core::marker::Copy for NOTIFY_ICON_MESSAGE {}
+impl ::core::clone::Clone for NOTIFY_ICON_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NPCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1037483712, data2: 33171, data3: 20478, data4: [174, 37, 224, 142, 57, 234, 64, 99] };
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WNet"))]
@@ -6310,6 +6964,12 @@ pub struct NSTCFOLDERCAPABILITIES(pub i32);
 pub const NSTCFC_NONE: NSTCFOLDERCAPABILITIES = NSTCFOLDERCAPABILITIES(0i32);
 pub const NSTCFC_PINNEDITEMFILTERING: NSTCFOLDERCAPABILITIES = NSTCFOLDERCAPABILITIES(1i32);
 pub const NSTCFC_DELAY_REGISTER_NOTIFY: NSTCFOLDERCAPABILITIES = NSTCFOLDERCAPABILITIES(2i32);
+impl ::core::marker::Copy for NSTCFOLDERCAPABILITIES {}
+impl ::core::clone::Clone for NSTCFOLDERCAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NSTCGNI(pub i32);
 pub const NSTCGNI_NEXT: NSTCGNI = NSTCGNI(0i32);
@@ -6320,6 +6980,12 @@ pub const NSTCGNI_PARENT: NSTCGNI = NSTCGNI(4i32);
 pub const NSTCGNI_CHILD: NSTCGNI = NSTCGNI(5i32);
 pub const NSTCGNI_FIRSTVISIBLE: NSTCGNI = NSTCGNI(6i32);
 pub const NSTCGNI_LASTVISIBLE: NSTCGNI = NSTCGNI(7i32);
+impl ::core::marker::Copy for NSTCGNI {}
+impl ::core::clone::Clone for NSTCGNI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NSTCSTYLE2(pub i32);
 pub const NSTCS2_DEFAULT: NSTCSTYLE2 = NSTCSTYLE2(0i32);
@@ -6329,6 +6995,12 @@ pub const NSTCS2_DISPLAYPADDING: NSTCSTYLE2 = NSTCSTYLE2(4i32);
 pub const NSTCS2_DISPLAYPINNEDONLY: NSTCSTYLE2 = NSTCSTYLE2(8i32);
 pub const NTSCS2_NOSINGLETONAUTOEXPAND: NSTCSTYLE2 = NSTCSTYLE2(16i32);
 pub const NTSCS2_NEVERINSERTNONENUMERATED: NSTCSTYLE2 = NSTCSTYLE2(32i32);
+impl ::core::marker::Copy for NSTCSTYLE2 {}
+impl ::core::clone::Clone for NSTCSTYLE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 pub struct NT_CONSOLE_PROPS {
@@ -6392,6 +7064,12 @@ pub const NWMF_FORCETAB: NWMF = NWMF(131072i32);
 pub const NWMF_SUGGESTWINDOW: NWMF = NWMF(262144i32);
 pub const NWMF_SUGGESTTAB: NWMF = NWMF(524288i32);
 pub const NWMF_INACTIVETAB: NWMF = NWMF(1048576i32);
+impl ::core::marker::Copy for NWMF {}
+impl ::core::clone::Clone for NWMF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2919580178,
     data2: 13621,
@@ -6415,6 +7093,12 @@ pub const NetworkPlaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1
 #[repr(transparent)]
 pub struct NewProcessCauseConstants(pub i32);
 pub const ProtectedModeRedirect: NewProcessCauseConstants = NewProcessCauseConstants(1i32);
+impl ::core::marker::Copy for NewProcessCauseConstants {}
+impl ::core::clone::Clone for NewProcessCauseConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OFASI_EDIT: u32 = 1u32;
 pub const OFASI_OPENDESKTOP: u32 = 2u32;
 pub const OFFLINE_STATUS_INCOMPLETE: u32 = 4u32;
@@ -6450,6 +7134,12 @@ pub const OAIF_FORCE_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(8u32)
 pub const OAIF_HIDE_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(32u32);
 pub const OAIF_URL_PROTOCOL: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(64u32);
 pub const OAIF_FILE_IS_URI: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(128u32);
+impl ::core::marker::Copy for OPEN_AS_INFO_FLAGS {}
+impl ::core::clone::Clone for OPEN_AS_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -6568,6 +7258,12 @@ pub const OS_TABLETPC: OS = OS(33u32);
 pub const OS_SERVERADMINUI: OS = OS(34u32);
 pub const OS_MEDIACENTER: OS = OS(35u32);
 pub const OS_APPLIANCE: OS = OS(36u32);
+impl ::core::marker::Copy for OS {}
+impl ::core::clone::Clone for OS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OfflineFolderStatus(pub i32);
 pub const OFS_INACTIVE: OfflineFolderStatus = OfflineFolderStatus(-1i32);
@@ -6575,6 +7271,12 @@ pub const OFS_ONLINE: OfflineFolderStatus = OfflineFolderStatus(0i32);
 pub const OFS_OFFLINE: OfflineFolderStatus = OfflineFolderStatus(1i32);
 pub const OFS_SERVERBACK: OfflineFolderStatus = OfflineFolderStatus(2i32);
 pub const OFS_DIRTYCACHE: OfflineFolderStatus = OfflineFolderStatus(3i32);
+impl ::core::marker::Copy for OfflineFolderStatus {}
+impl ::core::clone::Clone for OfflineFolderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OnexCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 128583814, data2: 52365, data3: 19993, data4: [164, 16, 28, 117, 175, 104, 110, 98] };
 pub const OnexPlapSmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 868773078, data2: 28767, data3: 19361, data4: [154, 219, 103, 7, 11, 131, 119, 117] };
 pub const OpenControlPanel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 107097477, data2: 26710, data3: 17504, data4: [141, 225, 168, 25, 33, 180, 28, 75] };
@@ -6585,6 +7287,12 @@ pub const PES_RUNNING: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(1i32);
 pub const PES_SUSPENDING: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(2i32);
 pub const PES_SUSPENDED: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(3i32);
 pub const PES_TERMINATED: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(4i32);
+impl ::core::marker::Copy for PACKAGE_EXECUTION_STATE {}
+impl ::core::clone::Clone for PACKAGE_EXECUTION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PANE_NAVIGATION: u32 = 5u32;
 pub const PANE_NONE: u32 = 4294967295u32;
 pub const PANE_OFFLINE: u32 = 2u32;
@@ -6644,6 +7352,12 @@ pub const PATHCCH_DO_NOT_NORMALIZE_SEGMENTS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(8
 pub const PATHCCH_ENSURE_IS_EXTENDED_LENGTH_PATH: PATHCCH_OPTIONS = PATHCCH_OPTIONS(16i32);
 pub const PATHCCH_ENSURE_TRAILING_SLASH: PATHCCH_OPTIONS = PATHCCH_OPTIONS(32i32);
 pub const PATHCCH_CANONICALIZE_SLASHES: PATHCCH_OPTIONS = PATHCCH_OPTIONS(64i32);
+impl ::core::marker::Copy for PATHCCH_OPTIONS {}
+impl ::core::clone::Clone for PATHCCH_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PCS_RET(pub u32);
 pub const PCS_FATAL: PCS_RET = PCS_RET(2147483648u32);
@@ -6651,6 +7365,12 @@ pub const PCS_REPLACEDCHAR: PCS_RET = PCS_RET(1u32);
 pub const PCS_REMOVEDCHAR: PCS_RET = PCS_RET(2u32);
 pub const PCS_TRUNCATED: PCS_RET = PCS_RET(4u32);
 pub const PCS_PATHTOOLONG: PCS_RET = PCS_RET(8u32);
+impl ::core::marker::Copy for PCS_RET {}
+impl ::core::clone::Clone for PCS_RET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PDTIMER_PAUSE: u32 = 2u32;
 pub const PDTIMER_RESET: u32 = 1u32;
 pub const PDTIMER_RESUME: u32 = 3u32;
@@ -6695,17 +7415,35 @@ pub const PIDISF_RECENTLYCHANGED: PIDISF_FLAGS = PIDISF_FLAGS(1i32);
 pub const PIDISF_CACHEDSTICKY: PIDISF_FLAGS = PIDISF_FLAGS(2i32);
 pub const PIDISF_CACHEIMAGES: PIDISF_FLAGS = PIDISF_FLAGS(16i32);
 pub const PIDISF_FOLLOWALLLINKS: PIDISF_FLAGS = PIDISF_FLAGS(32i32);
+impl ::core::marker::Copy for PIDISF_FLAGS {}
+impl ::core::clone::Clone for PIDISF_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PIDISM_OPTIONS(pub i32);
 pub const PIDISM_GLOBAL: PIDISM_OPTIONS = PIDISM_OPTIONS(0i32);
 pub const PIDISM_WATCH: PIDISM_OPTIONS = PIDISM_OPTIONS(1i32);
 pub const PIDISM_DONTWATCH: PIDISM_OPTIONS = PIDISM_OPTIONS(2i32);
+impl ::core::marker::Copy for PIDISM_OPTIONS {}
+impl ::core::clone::Clone for PIDISM_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PIDISR_INFO(pub i32);
 pub const PIDISR_UP_TO_DATE: PIDISR_INFO = PIDISR_INFO(0i32);
 pub const PIDISR_NEEDS_ADD: PIDISR_INFO = PIDISR_INFO(1i32);
 pub const PIDISR_NEEDS_UPDATE: PIDISR_INFO = PIDISR_INFO(2i32);
 pub const PIDISR_NEEDS_DELETE: PIDISR_INFO = PIDISR_INFO(3i32);
+impl ::core::marker::Copy for PIDISR_INFO {}
+impl ::core::clone::Clone for PIDISR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PIDSI_ALBUM: u32 = 4u32;
 pub const PIDSI_ARTIST: u32 = 2u32;
 pub const PIDSI_COMMENT: u32 = 6u32;
@@ -6755,6 +7493,12 @@ pub const PID_INTSITE_TRACKING: PID_INTSITE = PID_INTSITE(19i32);
 pub const PID_INTSITE_ICONINDEX: PID_INTSITE = PID_INTSITE(20i32);
 pub const PID_INTSITE_ICONFILE: PID_INTSITE = PID_INTSITE(21i32);
 pub const PID_INTSITE_ROAMED: PID_INTSITE = PID_INTSITE(34i32);
+impl ::core::marker::Copy for PID_INTSITE {}
+impl ::core::clone::Clone for PID_INTSITE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PID_IS(pub i32);
 pub const PID_IS_URL: PID_IS = PID_IS(2i32);
@@ -6769,6 +7513,12 @@ pub const PID_IS_AUTHOR: PID_IS = PID_IS(11i32);
 pub const PID_IS_DESCRIPTION: PID_IS = PID_IS(12i32);
 pub const PID_IS_COMMENT: PID_IS = PID_IS(13i32);
 pub const PID_IS_ROAMED: PID_IS = PID_IS(15i32);
+impl ::core::marker::Copy for PID_IS {}
+impl ::core::clone::Clone for PID_IS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PID_LINK_TARGET: u32 = 2u32;
 pub const PID_LINK_TARGET_TYPE: u32 = 3u32;
 pub const PID_MISC_ACCESSCOUNT: u32 = 3u32;
@@ -6830,6 +7580,12 @@ pub const PRF_TRYPROGRAMEXTENSIONS: PRF_FLAGS = PRF_FLAGS(3i32);
 pub const PRF_FIRSTDIRDEF: PRF_FLAGS = PRF_FLAGS(4i32);
 pub const PRF_DONTFINDLNK: PRF_FLAGS = PRF_FLAGS(8i32);
 pub const PRF_REQUIREABSOLUTE: PRF_FLAGS = PRF_FLAGS(16i32);
+impl ::core::marker::Copy for PRF_FLAGS {}
+impl ::core::clone::Clone for PRF_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRINTACTION_DOCUMENTDEFAULTS: u32 = 6u32;
 pub const PRINTACTION_NETINSTALL: u32 = 2u32;
 pub const PRINTACTION_NETINSTALLLINK: u32 = 3u32;
@@ -6913,6 +7669,12 @@ pub const PAI_ASSIGNEDTIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(2i32);
 pub const PAI_PUBLISHEDTIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(4i32);
 pub const PAI_SCHEDULEDTIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(8i32);
 pub const PAI_EXPIRETIME: PUBAPPINFOFLAGS = PUBAPPINFOFLAGS(16i32);
+impl ::core::marker::Copy for PUBAPPINFOFLAGS {}
+impl ::core::clone::Clone for PUBAPPINFOFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PackageDebugSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2981020015, data2: 9091, data3: 18514, data4: [176, 233, 143, 11, 29, 198, 107, 77] };
 pub const PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1622642312,
@@ -6996,6 +7758,12 @@ pub const QITIPF_USESLOWTIP: QITIPF_FLAGS = QITIPF_FLAGS(8i32);
 pub const QITIPF_SINGLELINE: QITIPF_FLAGS = QITIPF_FLAGS(16i32);
 pub const QIF_CACHED: QITIPF_FLAGS = QITIPF_FLAGS(1i32);
 pub const QIF_DONTEXPANDFOLDER: QITIPF_FLAGS = QITIPF_FLAGS(2i32);
+impl ::core::marker::Copy for QITIPF_FLAGS {}
+impl ::core::clone::Clone for QITIPF_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct QUERY_USER_NOTIFICATION_STATE(pub i32);
 pub const QUNS_NOT_PRESENT: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(1i32);
@@ -7005,6 +7773,12 @@ pub const QUNS_PRESENTATION_MODE: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOT
 pub const QUNS_ACCEPTS_NOTIFICATIONS: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(5i32);
 pub const QUNS_QUIET_TIME: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(6i32);
 pub const QUNS_APP: QUERY_USER_NOTIFICATION_STATE = QUERY_USER_NOTIFICATION_STATE(7i32);
+impl ::core::marker::Copy for QUERY_USER_NOTIFICATION_STATE {}
+impl ::core::clone::Clone for QUERY_USER_NOTIFICATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QueryCancelAutoPlay: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 857675624,
     data2: 1449,
@@ -7183,11 +7957,23 @@ pub const REST_NODISCONNECT: RESTRICTIONS = RESTRICTIONS(1090519041i32);
 pub const REST_NOSECURITY: RESTRICTIONS = RESTRICTIONS(1090519042i32);
 pub const REST_NOFILEASSOCIATE: RESTRICTIONS = RESTRICTIONS(1090519043i32);
 pub const REST_ALLOWCOMMENTTOGGLE: RESTRICTIONS = RESTRICTIONS(1090519044i32);
+impl ::core::marker::Copy for RESTRICTIONS {}
+impl ::core::clone::Clone for RESTRICTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RefreshConstants(pub i32);
 pub const REFRESH_NORMAL: RefreshConstants = RefreshConstants(0i32);
 pub const REFRESH_IFEXPIRED: RefreshConstants = RefreshConstants(1i32);
 pub const REFRESH_COMPLETELY: RefreshConstants = RefreshConstants(3i32);
+impl ::core::marker::Copy for RefreshConstants {}
+impl ::core::clone::Clone for RefreshConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SBSP_ABSOLUTE: u32 = 0u32;
 pub const SBSP_ACTIVATE_NOFOCUS: u32 = 524288u32;
 pub const SBSP_ALLOW_AUTONAVIGATE: u32 = 65536u32;
@@ -7221,6 +8007,12 @@ pub struct SCALE_CHANGE_FLAGS(pub u32);
 pub const SCF_VALUE_NONE: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(0u32);
 pub const SCF_SCALE: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(1u32);
 pub const SCF_PHYSICAL: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(2u32);
+impl ::core::marker::Copy for SCALE_CHANGE_FLAGS {}
+impl ::core::clone::Clone for SCALE_CHANGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCHEME_CREATE: u32 = 128u32;
 pub const SCHEME_DISPLAY: u32 = 1u32;
 pub const SCHEME_DONOTUSE: u32 = 64u32;
@@ -7233,6 +8025,12 @@ pub const SCHEME_UPDATE: u32 = 32u32;
 pub struct SCNRT_STATUS(pub i32);
 pub const SCNRT_ENABLE: SCNRT_STATUS = SCNRT_STATUS(0i32);
 pub const SCNRT_DISABLE: SCNRT_STATUS = SCNRT_STATUS(1i32);
+impl ::core::marker::Copy for SCNRT_STATUS {}
+impl ::core::clone::Clone for SCNRT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCRM_VERIFYPW: u32 = 32768u32;
 #[repr(transparent)]
 pub struct SECURELOCKCODE(pub i32);
@@ -7252,6 +8050,12 @@ pub const SECURELOCK_SUGGEST_SECURE40BIT: SECURELOCKCODE = SECURELOCKCODE(10i32)
 pub const SECURELOCK_SUGGEST_SECURE56BIT: SECURELOCKCODE = SECURELOCKCODE(11i32);
 pub const SECURELOCK_SUGGEST_FORTEZZA: SECURELOCKCODE = SECURELOCKCODE(12i32);
 pub const SECURELOCK_SUGGEST_SECURE128BIT: SECURELOCKCODE = SECURELOCKCODE(13i32);
+impl ::core::marker::Copy for SECURELOCKCODE {}
+impl ::core::clone::Clone for SECURELOCKCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SEE_MASK_ASYNCOK: u32 = 1048576u32;
 pub const SEE_MASK_CLASSKEY: u32 = 3u32;
 pub const SEE_MASK_CLASSNAME: u32 = 1u32;
@@ -7291,6 +8095,12 @@ pub const SFBID_PIDLCHANGED: i32 = 0i32;
 pub struct SFBS_FLAGS(pub i32);
 pub const SFBS_FLAGS_ROUND_TO_NEAREST_DISPLAYED_DIGIT: SFBS_FLAGS = SFBS_FLAGS(1i32);
 pub const SFBS_FLAGS_TRUNCATE_UNDISPLAYED_DECIMAL_DIGITS: SFBS_FLAGS = SFBS_FLAGS(2i32);
+impl ::core::marker::Copy for SFBS_FLAGS {}
+impl ::core::clone::Clone for SFBS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SFGAO_BROWSABLE: i32 = 134217728i32;
 pub const SFGAO_CANCOPY: u32 = 1u32;
 pub const SFGAO_CANDELETE: i32 = 32i32;
@@ -7371,6 +8181,12 @@ pub const SFVM_GETZONE: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(58i32);
 pub const SFVM_GETPANE: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(59i32);
 pub const SFVM_GETHELPTOPIC: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(63i32);
 pub const SFVM_GETANIMATION: SFVM_MESSAGE_ID = SFVM_MESSAGE_ID(68i32);
+impl ::core::marker::Copy for SFVM_MESSAGE_ID {}
+impl ::core::clone::Clone for SFVM_MESSAGE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct SFVM_PROPPAGE_DATA {
@@ -7399,6 +8215,12 @@ pub struct SFVS_SELECT(pub i32);
 pub const SFVS_SELECT_NONE: SFVS_SELECT = SFVS_SELECT(0i32);
 pub const SFVS_SELECT_ALLITEMS: SFVS_SELECT = SFVS_SELECT(1i32);
 pub const SFVS_SELECT_INVERT: SFVS_SELECT = SFVS_SELECT(2i32);
+impl ::core::marker::Copy for SFVS_SELECT {}
+impl ::core::clone::Clone for SFVS_SELECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SFV_CREATE {
     pub cbSize: u32,
@@ -7448,6 +8270,12 @@ pub const SHARD_APPIDINFOIDLIST: SHARD = SHARD(5i32);
 pub const SHARD_LINK: SHARD = SHARD(6i32);
 pub const SHARD_APPIDINFOLINK: SHARD = SHARD(7i32);
 pub const SHARD_SHELLITEM: SHARD = SHARD(8i32);
+impl ::core::marker::Copy for SHARD {}
+impl ::core::clone::Clone for SHARD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARDAPPIDINFO {
@@ -7499,6 +8327,12 @@ pub const SHARE_ROLE_CO_OWNER: SHARE_ROLE = SHARE_ROLE(2i32);
 pub const SHARE_ROLE_OWNER: SHARE_ROLE = SHARE_ROLE(3i32);
 pub const SHARE_ROLE_CUSTOM: SHARE_ROLE = SHARE_ROLE(4i32);
 pub const SHARE_ROLE_MIXED: SHARE_ROLE = SHARE_ROLE(5i32);
+impl ::core::marker::Copy for SHARE_ROLE {}
+impl ::core::clone::Clone for SHARE_ROLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SHCDF_UPDATEITEM: u32 = 1u32;
 pub const SHCIDS_ALLFIELDS: i32 = -2147483648i32;
 pub const SHCIDS_BITMASK: i32 = -65536i32;
@@ -7534,6 +8368,12 @@ pub const SHCNE_DISKEVENTS: SHCNE_ID = SHCNE_ID(145439u32);
 pub const SHCNE_GLOBALEVENTS: SHCNE_ID = SHCNE_ID(201687520u32);
 pub const SHCNE_ALLEVENTS: SHCNE_ID = SHCNE_ID(2147483647u32);
 pub const SHCNE_INTERRUPT: SHCNE_ID = SHCNE_ID(2147483648u32);
+impl ::core::marker::Copy for SHCNE_ID {}
+impl ::core::clone::Clone for SHCNE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHCNF_FLAGS(pub u32);
 pub const SHCNF_IDLIST: SHCNF_FLAGS = SHCNF_FLAGS(0u32);
@@ -7548,12 +8388,24 @@ pub const SHCNF_FLUSHNOWAIT: SHCNF_FLAGS = SHCNF_FLAGS(12288u32);
 pub const SHCNF_NOTIFYRECURSIVE: SHCNF_FLAGS = SHCNF_FLAGS(65536u32);
 pub const SHCNF_PATH: SHCNF_FLAGS = SHCNF_FLAGS(5u32);
 pub const SHCNF_PRINTER: SHCNF_FLAGS = SHCNF_FLAGS(6u32);
+impl ::core::marker::Copy for SHCNF_FLAGS {}
+impl ::core::clone::Clone for SHCNF_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHCNRF_SOURCE(pub i32);
 pub const SHCNRF_InterruptLevel: SHCNRF_SOURCE = SHCNRF_SOURCE(1i32);
 pub const SHCNRF_ShellLevel: SHCNRF_SOURCE = SHCNRF_SOURCE(2i32);
 pub const SHCNRF_RecursiveInterrupt: SHCNRF_SOURCE = SHCNRF_SOURCE(4096i32);
 pub const SHCNRF_NewDelivery: SHCNRF_SOURCE = SHCNRF_SOURCE(32768i32);
+impl ::core::marker::Copy for SHCNRF_SOURCE {}
+impl ::core::clone::Clone for SHCNRF_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHCOLUMNDATA {
@@ -7749,6 +8601,12 @@ pub const SHDID_COMPUTER_AUDIO: SHDID_ID = SHDID_ID(19i32);
 pub const SHDID_COMPUTER_SHAREDDOCS: SHDID_ID = SHDID_ID(20i32);
 pub const SHDID_MOBILE_DEVICE: SHDID_ID = SHDID_ID(21i32);
 pub const SHDID_REMOTE_DESKTOP_DRIVE: SHDID_ID = SHDID_ID(22i32);
+impl ::core::marker::Copy for SHDID_ID {}
+impl ::core::clone::Clone for SHDID_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct SHDRAGIMAGE {
@@ -7771,6 +8629,12 @@ pub const SBSC_HIDE: SHELLBROWSERSHOWCONTROL = SHELLBROWSERSHOWCONTROL(0i32);
 pub const SBSC_SHOW: SHELLBROWSERSHOWCONTROL = SHELLBROWSERSHOWCONTROL(1i32);
 pub const SBSC_TOGGLE: SHELLBROWSERSHOWCONTROL = SHELLBROWSERSHOWCONTROL(2i32);
 pub const SBSC_QUERY: SHELLBROWSERSHOWCONTROL = SHELLBROWSERSHOWCONTROL(3i32);
+impl ::core::marker::Copy for SHELLBROWSERSHOWCONTROL {}
+impl ::core::clone::Clone for SHELLBROWSERSHOWCONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -8037,11 +8901,23 @@ pub const SLDF_KEEP_LOCAL_IDLIST_FOR_UNC_TARGET: SHELL_LINK_DATA_FLAGS = SHELL_L
 pub const SLDF_PERSIST_VOLUME_ID_RELATIVE: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(134217728i32);
 pub const SLDF_VALID: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(268433407i32);
 pub const SLDF_RESERVED: SHELL_LINK_DATA_FLAGS = SHELL_LINK_DATA_FLAGS(-2147483648i32);
+impl ::core::marker::Copy for SHELL_LINK_DATA_FLAGS {}
+impl ::core::clone::Clone for SHELL_LINK_DATA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHELL_UI_COMPONENT(pub i32);
 pub const SHELL_UI_COMPONENT_TASKBARS: SHELL_UI_COMPONENT = SHELL_UI_COMPONENT(0i32);
 pub const SHELL_UI_COMPONENT_NOTIFICATIONAREA: SHELL_UI_COMPONENT = SHELL_UI_COMPONENT(1i32);
 pub const SHELL_UI_COMPONENT_DESKBAND: SHELL_UI_COMPONENT = SHELL_UI_COMPONENT(2i32);
+impl ::core::marker::Copy for SHELL_UI_COMPONENT {}
+impl ::core::clone::Clone for SHELL_UI_COMPONENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SHERB_NOCONFIRMATION: u32 = 1u32;
 pub const SHERB_NOPROGRESSUI: u32 = 2u32;
 pub const SHERB_NOSOUND: u32 = 4u32;
@@ -8220,16 +9096,34 @@ impl ::core::clone::Clone for SHFILEOPSTRUCTW {
 #[repr(transparent)]
 pub struct SHFMT_ID(pub u32);
 pub const SHFMT_ID_DEFAULT: SHFMT_ID = SHFMT_ID(65535u32);
+impl ::core::marker::Copy for SHFMT_ID {}
+impl ::core::clone::Clone for SHFMT_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHFMT_OPT(pub i32);
 pub const SHFMT_OPT_NONE: SHFMT_OPT = SHFMT_OPT(0i32);
 pub const SHFMT_OPT_FULL: SHFMT_OPT = SHFMT_OPT(1i32);
 pub const SHFMT_OPT_SYSONLY: SHFMT_OPT = SHFMT_OPT(2i32);
+impl ::core::marker::Copy for SHFMT_OPT {}
+impl ::core::clone::Clone for SHFMT_OPT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHFMT_RET(pub u32);
 pub const SHFMT_ERROR: SHFMT_RET = SHFMT_RET(4294967295u32);
 pub const SHFMT_CANCEL: SHFMT_RET = SHFMT_RET(4294967294u32);
 pub const SHFMT_NOFORMAT: SHFMT_RET = SHFMT_RET(4294967293u32);
+impl ::core::marker::Copy for SHFMT_RET {}
+impl ::core::clone::Clone for SHFMT_RET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHFOLDERCUSTOMSETTINGS {
@@ -8262,6 +9156,12 @@ pub struct SHGDFIL_FORMAT(pub i32);
 pub const SHGDFIL_FINDDATA: SHGDFIL_FORMAT = SHGDFIL_FORMAT(1i32);
 pub const SHGDFIL_NETRESOURCE: SHGDFIL_FORMAT = SHGDFIL_FORMAT(2i32);
 pub const SHGDFIL_DESCRIPTIONID: SHGDFIL_FORMAT = SHGDFIL_FORMAT(3i32);
+impl ::core::marker::Copy for SHGDFIL_FORMAT {}
+impl ::core::clone::Clone for SHGDFIL_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHGFI_FLAGS(pub i32);
 pub const SHGFI_ADDOVERLAYS: SHGFI_FLAGS = SHGFI_FLAGS(32i32);
@@ -8282,10 +9182,22 @@ pub const SHGFI_SMALLICON: SHGFI_FLAGS = SHGFI_FLAGS(1i32);
 pub const SHGFI_SYSICONINDEX: SHGFI_FLAGS = SHGFI_FLAGS(16384i32);
 pub const SHGFI_TYPENAME: SHGFI_FLAGS = SHGFI_FLAGS(1024i32);
 pub const SHGFI_USEFILEATTRIBUTES: SHGFI_FLAGS = SHGFI_FLAGS(16i32);
+impl ::core::marker::Copy for SHGFI_FLAGS {}
+impl ::core::clone::Clone for SHGFI_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHGFP_TYPE(pub i32);
 pub const SHGFP_TYPE_CURRENT: SHGFP_TYPE = SHGFP_TYPE(0i32);
 pub const SHGFP_TYPE_DEFAULT: SHGFP_TYPE = SHGFP_TYPE(1i32);
+impl ::core::marker::Copy for SHGFP_TYPE {}
+impl ::core::clone::Clone for SHGFP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHGLOBALCOUNTER(pub i32);
 pub const GLOBALCOUNTER_SEARCHMANAGER: SHGLOBALCOUNTER = SHGLOBALCOUNTER(0i32);
@@ -8348,6 +9260,12 @@ pub const GLOBALCOUNTER_USERINFOCHANGED: SHGLOBALCOUNTER = SHGLOBALCOUNTER(56i32
 pub const GLOBALCOUNTER_SYNC_ENGINE_INFORMATION_CACHE_MACHINEWIDE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(57i32);
 pub const GLOBALCOUNTER_BANNERS_DATAMODEL_CACHE_MACHINEWIDE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(58i32);
 pub const GLOBALCOUNTER_MAXIMUMVALUE: SHGLOBALCOUNTER = SHGLOBALCOUNTER(59i32);
+impl ::core::marker::Copy for SHGLOBALCOUNTER {}
+impl ::core::clone::Clone for SHGLOBALCOUNTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SHGNLI_NOLNK: u64 = 8u64;
 pub const SHGNLI_NOLOCNAME: u64 = 16u64;
 pub const SHGNLI_NOUNIQUE: u64 = 4u64;
@@ -8456,6 +9374,12 @@ pub struct SHOP_TYPE(pub i32);
 pub const SHOP_PRINTERNAME: SHOP_TYPE = SHOP_TYPE(1i32);
 pub const SHOP_FILEPATH: SHOP_TYPE = SHOP_TYPE(2i32);
 pub const SHOP_VOLUMEGUID: SHOP_TYPE = SHOP_TYPE(4i32);
+impl ::core::marker::Copy for SHOP_TYPE {}
+impl ::core::clone::Clone for SHOP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SHPPFW_ASKDIRCREATE: u32 = 2u32;
 pub const SHPPFW_DIRCREATE: u32 = 1u32;
 pub const SHPPFW_IGNOREFILENAME: u32 = 4u32;
@@ -8504,12 +9428,24 @@ pub const SHREGDEL_DEFAULT: SHREGDEL_FLAGS = SHREGDEL_FLAGS(0i32);
 pub const SHREGDEL_HKCU: SHREGDEL_FLAGS = SHREGDEL_FLAGS(1i32);
 pub const SHREGDEL_HKLM: SHREGDEL_FLAGS = SHREGDEL_FLAGS(16i32);
 pub const SHREGDEL_BOTH: SHREGDEL_FLAGS = SHREGDEL_FLAGS(17i32);
+impl ::core::marker::Copy for SHREGDEL_FLAGS {}
+impl ::core::clone::Clone for SHREGDEL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHREGENUM_FLAGS(pub i32);
 pub const SHREGENUM_DEFAULT: SHREGENUM_FLAGS = SHREGENUM_FLAGS(0i32);
 pub const SHREGENUM_HKCU: SHREGENUM_FLAGS = SHREGENUM_FLAGS(1i32);
 pub const SHREGENUM_HKLM: SHREGENUM_FLAGS = SHREGENUM_FLAGS(16i32);
 pub const SHREGENUM_BOTH: SHREGENUM_FLAGS = SHREGENUM_FLAGS(17i32);
+impl ::core::marker::Copy for SHREGENUM_FLAGS {}
+impl ::core::clone::Clone for SHREGENUM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SHREGSET_FORCE_HKCU: u32 = 2u32;
 pub const SHREGSET_FORCE_HKLM: u32 = 8u32;
 pub const SHREGSET_HKCU: u32 = 1u32;
@@ -8610,6 +9546,12 @@ pub const SIID_MEDIABDR: SHSTOCKICONID = SHSTOCKICONID(138i32);
 pub const SIID_MEDIABDRE: SHSTOCKICONID = SHSTOCKICONID(139i32);
 pub const SIID_CLUSTEREDDRIVE: SHSTOCKICONID = SHSTOCKICONID(140i32);
 pub const SIID_MAX_ICONS: SHSTOCKICONID = SHSTOCKICONID(181i32);
+impl ::core::marker::Copy for SHSTOCKICONID {}
+impl ::core::clone::Clone for SHSTOCKICONID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -8657,6 +9599,12 @@ pub const SIATTRIBFLAGS_OR: SIATTRIBFLAGS = SIATTRIBFLAGS(2i32);
 pub const SIATTRIBFLAGS_APPCOMPAT: SIATTRIBFLAGS = SIATTRIBFLAGS(3i32);
 pub const SIATTRIBFLAGS_MASK: SIATTRIBFLAGS = SIATTRIBFLAGS(3i32);
 pub const SIATTRIBFLAGS_ALLITEMS: SIATTRIBFLAGS = SIATTRIBFLAGS(16384i32);
+impl ::core::marker::Copy for SIATTRIBFLAGS {}
+impl ::core::clone::Clone for SIATTRIBFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SID_CommandsPropertyBag: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1845768784,
     data2: 17430,
@@ -8728,6 +9676,12 @@ pub const SIGDN_URL: SIGDN = SIGDN(-2147057664i32);
 pub const SIGDN_PARENTRELATIVEFORADDRESSBAR: SIGDN = SIGDN(-2146975743i32);
 pub const SIGDN_PARENTRELATIVE: SIGDN = SIGDN(-2146959359i32);
 pub const SIGDN_PARENTRELATIVEFORUI: SIGDN = SIGDN(-2146877439i32);
+impl ::core::marker::Copy for SIGDN {}
+impl ::core::clone::Clone for SIGDN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SIIGBF(pub i32);
 pub const SIIGBF_RESIZETOFIT: SIIGBF = SIIGBF(0i32);
@@ -8740,6 +9694,12 @@ pub const SIIGBF_CROPTOSQUARE: SIIGBF = SIIGBF(32i32);
 pub const SIIGBF_WIDETHUMBNAILS: SIIGBF = SIIGBF(64i32);
 pub const SIIGBF_ICONBACKGROUND: SIIGBF = SIIGBF(128i32);
 pub const SIIGBF_SCALEUP: SIIGBF = SIIGBF(256i32);
+impl ::core::marker::Copy for SIIGBF {}
+impl ::core::clone::Clone for SIIGBF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SIOM_ICONINDEX: u32 = 2u32;
 pub const SIOM_OVERLAYINDEX: u32 = 1u32;
 pub const SIOM_RESERVED_DEFAULT: u32 = 3u32;
@@ -8752,6 +9712,12 @@ pub const SLGP_SHORTPATH: SLGP_FLAGS = SLGP_FLAGS(1i32);
 pub const SLGP_UNCPRIORITY: SLGP_FLAGS = SLGP_FLAGS(2i32);
 pub const SLGP_RAWPATH: SLGP_FLAGS = SLGP_FLAGS(4i32);
 pub const SLGP_RELATIVEPRIORITY: SLGP_FLAGS = SLGP_FLAGS(8i32);
+impl ::core::marker::Copy for SLGP_FLAGS {}
+impl ::core::clone::Clone for SLGP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SLOWAPPINFO {
@@ -8785,6 +9751,12 @@ pub const SLR_KNOWNFOLDER: SLR_FLAGS = SLR_FLAGS(1024i32);
 pub const SLR_MACHINE_IN_LOCAL_TARGET: SLR_FLAGS = SLR_FLAGS(2048i32);
 pub const SLR_UPDATE_MACHINE_AND_SID: SLR_FLAGS = SLR_FLAGS(4096i32);
 pub const SLR_NO_OBJECT_ID: SLR_FLAGS = SLR_FLAGS(8192i32);
+impl ::core::marker::Copy for SLR_FLAGS {}
+impl ::core::clone::Clone for SLR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SMAE_CONTRACTED: u32 = 2u32;
 pub const SMAE_EXPANDED: u32 = 1u32;
 pub const SMAE_USER: u32 = 4u32;
@@ -8885,15 +9857,33 @@ pub const SMIF_DEMOTED: SMINFOFLAGS = SMINFOFLAGS(1024i32);
 pub const SMIF_ALTSTATE: SMINFOFLAGS = SMINFOFLAGS(2048i32);
 pub const SMIF_DRAGNDROP: SMINFOFLAGS = SMINFOFLAGS(4096i32);
 pub const SMIF_NEW: SMINFOFLAGS = SMINFOFLAGS(8192i32);
+impl ::core::marker::Copy for SMINFOFLAGS {}
+impl ::core::clone::Clone for SMINFOFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SMINFOMASK(pub i32);
 pub const SMIM_TYPE: SMINFOMASK = SMINFOMASK(1i32);
 pub const SMIM_FLAGS: SMINFOMASK = SMINFOMASK(2i32);
 pub const SMIM_ICON: SMINFOMASK = SMINFOMASK(4i32);
+impl ::core::marker::Copy for SMINFOMASK {}
+impl ::core::clone::Clone for SMINFOMASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SMINFOTYPE(pub i32);
 pub const SMIT_SEPARATOR: SMINFOTYPE = SMINFOTYPE(1i32);
 pub const SMIT_STRING: SMINFOTYPE = SMINFOTYPE(2i32);
+impl ::core::marker::Copy for SMINFOTYPE {}
+impl ::core::clone::Clone for SMINFOTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SMINIT_AUTOEXPAND: u32 = 256u32;
 pub const SMINIT_AUTOTOOLTIP: u32 = 512u32;
 pub const SMINIT_CACHED: u32 = 16u32;
@@ -8926,10 +9916,22 @@ impl ::core::clone::Clone for SORTCOLUMN {
 pub struct SORTDIRECTION(pub i32);
 pub const SORT_DESCENDING: SORTDIRECTION = SORTDIRECTION(-1i32);
 pub const SORT_ASCENDING: SORTDIRECTION = SORTDIRECTION(1i32);
+impl ::core::marker::Copy for SORTDIRECTION {}
+impl ::core::clone::Clone for SORTDIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SORT_ORDER_TYPE(pub i32);
 pub const SOT_DEFAULT: SORT_ORDER_TYPE = SORT_ORDER_TYPE(0i32);
 pub const SOT_IGNORE_FOLDERNESS: SORT_ORDER_TYPE = SORT_ORDER_TYPE(1i32);
+impl ::core::marker::Copy for SORT_ORDER_TYPE {}
+impl ::core::clone::Clone for SORT_ORDER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SPACTION(pub i32);
 pub const SPACTION_NONE: SPACTION = SPACTION(0i32);
@@ -8946,6 +9948,12 @@ pub const SPACTION_DELETING: SPACTION = SPACTION(10i32);
 pub const SPACTION_RENAMING: SPACTION = SPACTION(11i32);
 pub const SPACTION_FORMATTING: SPACTION = SPACTION(12i32);
 pub const SPACTION_COPY_MOVING: SPACTION = SPACTION(13i32);
+impl ::core::marker::Copy for SPACTION {}
+impl ::core::clone::Clone for SPACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SPMODE_BROWSER: u32 = 8u32;
 pub const SPMODE_DBMON: u32 = 8192u32;
 pub const SPMODE_DEBUGBREAK: u32 = 512u32;
@@ -8966,6 +9974,12 @@ pub const SPMODE_TEST: u32 = 4u32;
 pub struct SPTEXT(pub i32);
 pub const SPTEXT_ACTIONDESCRIPTION: SPTEXT = SPTEXT(1i32);
 pub const SPTEXT_ACTIONDETAIL: SPTEXT = SPTEXT(2i32);
+impl ::core::marker::Copy for SPTEXT {}
+impl ::core::clone::Clone for SPTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SRRF_NOEXPAND: u32 = 268435456u32;
 pub const SRRF_NOVIRT: u32 = 1073741824u32;
 pub const SRRF_RM_ANY: u32 = 0u32;
@@ -9010,6 +10024,12 @@ pub const SSF_AUTOCHECKSELECT: SSF_MASK = SSF_MASK(8388608u32);
 pub const SSF_ICONSONLY: SSF_MASK = SSF_MASK(16777216u32);
 pub const SSF_SHOWTYPEOVERLAY: SSF_MASK = SSF_MASK(33554432u32);
 pub const SSF_SHOWSTATUSBAR: SSF_MASK = SSF_MASK(67108864u32);
+impl ::core::marker::Copy for SSF_MASK {}
+impl ::core::clone::Clone for SSF_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SSM_CLEAR: u32 = 0u32;
 pub const SSM_REFRESH: u32 = 2u32;
 pub const SSM_SET: u32 = 1u32;
@@ -9023,6 +10043,12 @@ pub const STGOP_REMOVE: STGOP = STGOP(5i32);
 pub const STGOP_RENAME: STGOP = STGOP(6i32);
 pub const STGOP_APPLYPROPERTIES: STGOP = STGOP(8i32);
 pub const STGOP_NEW: STGOP = STGOP(10i32);
+impl ::core::marker::Copy for STGOP {}
+impl ::core::clone::Clone for STGOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STIF_DEFAULT: i32 = 0i32;
 pub const STIF_SUPPORT_HEX: i32 = 1i32;
 #[repr(transparent)]
@@ -9030,6 +10056,12 @@ pub struct STORAGE_PROVIDER_FILE_FLAGS(pub i32);
 pub const SPFF_NONE: STORAGE_PROVIDER_FILE_FLAGS = STORAGE_PROVIDER_FILE_FLAGS(0i32);
 pub const SPFF_DOWNLOAD_BY_DEFAULT: STORAGE_PROVIDER_FILE_FLAGS = STORAGE_PROVIDER_FILE_FLAGS(1i32);
 pub const SPFF_CREATED_ON_THIS_DEVICE: STORAGE_PROVIDER_FILE_FLAGS = STORAGE_PROVIDER_FILE_FLAGS(2i32);
+impl ::core::marker::Copy for STORAGE_PROVIDER_FILE_FLAGS {}
+impl ::core::clone::Clone for STORAGE_PROVIDER_FILE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STORE_E_NEWER_VERSION_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927484i32 as _);
 #[repr(transparent)]
 pub struct STPFLAG(pub i32);
@@ -9038,6 +10070,12 @@ pub const STPF_USEAPPTHUMBNAILALWAYS: STPFLAG = STPFLAG(1i32);
 pub const STPF_USEAPPTHUMBNAILWHENACTIVE: STPFLAG = STPFLAG(2i32);
 pub const STPF_USEAPPPEEKALWAYS: STPFLAG = STPFLAG(4i32);
 pub const STPF_USEAPPPEEKWHENACTIVE: STPFLAG = STPFLAG(8i32);
+impl ::core::marker::Copy for STPFLAG {}
+impl ::core::clone::Clone for STPFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type SUBCLASSPROC = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT;
 #[repr(C)]
@@ -9065,9 +10103,21 @@ pub const SVUIA_DEACTIVATE: SVUIA_STATUS = SVUIA_STATUS(0i32);
 pub const SVUIA_ACTIVATE_NOFOCUS: SVUIA_STATUS = SVUIA_STATUS(1i32);
 pub const SVUIA_ACTIVATE_FOCUS: SVUIA_STATUS = SVUIA_STATUS(2i32);
 pub const SVUIA_INPLACEACTIVATE: SVUIA_STATUS = SVUIA_STATUS(3i32);
+impl ::core::marker::Copy for SVUIA_STATUS {}
+impl ::core::clone::Clone for SVUIA_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGRERRORFLAGS(pub i32);
 pub const SYNCMGRERRORFLAG_ENABLEJUMPTEXT: SYNCMGRERRORFLAGS = SYNCMGRERRORFLAGS(1i32);
+impl ::core::marker::Copy for SYNCMGRERRORFLAGS {}
+impl ::core::clone::Clone for SYNCMGRERRORFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGRFLAG(pub i32);
 pub const SYNCMGRFLAG_CONNECT: SYNCMGRFLAG = SYNCMGRFLAG(1i32);
@@ -9079,12 +10129,24 @@ pub const SYNCMGRFLAG_SCHEDULED: SYNCMGRFLAG = SYNCMGRFLAG(6i32);
 pub const SYNCMGRFLAG_EVENTMASK: SYNCMGRFLAG = SYNCMGRFLAG(255i32);
 pub const SYNCMGRFLAG_SETTINGS: SYNCMGRFLAG = SYNCMGRFLAG(256i32);
 pub const SYNCMGRFLAG_MAYBOTHERUSER: SYNCMGRFLAG = SYNCMGRFLAG(512i32);
+impl ::core::marker::Copy for SYNCMGRFLAG {}
+impl ::core::clone::Clone for SYNCMGRFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGRHANDLERFLAGS(pub i32);
 pub const SYNCMGRHANDLER_HASPROPERTIES: SYNCMGRHANDLERFLAGS = SYNCMGRHANDLERFLAGS(1i32);
 pub const SYNCMGRHANDLER_MAYESTABLISHCONNECTION: SYNCMGRHANDLERFLAGS = SYNCMGRHANDLERFLAGS(2i32);
 pub const SYNCMGRHANDLER_ALWAYSLISTHANDLER: SYNCMGRHANDLERFLAGS = SYNCMGRHANDLERFLAGS(4i32);
 pub const SYNCMGRHANDLER_HIDDEN: SYNCMGRHANDLERFLAGS = SYNCMGRHANDLERFLAGS(8i32);
+impl ::core::marker::Copy for SYNCMGRHANDLERFLAGS {}
+impl ::core::clone::Clone for SYNCMGRHANDLERFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYNCMGRHANDLERFLAG_MASK: u32 = 15u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -9106,6 +10168,12 @@ impl ::core::clone::Clone for SYNCMGRHANDLERINFO {
 pub struct SYNCMGRINVOKEFLAGS(pub i32);
 pub const SYNCMGRINVOKE_STARTSYNC: SYNCMGRINVOKEFLAGS = SYNCMGRINVOKEFLAGS(2i32);
 pub const SYNCMGRINVOKE_MINIMIZED: SYNCMGRINVOKEFLAGS = SYNCMGRINVOKEFLAGS(4i32);
+impl ::core::marker::Copy for SYNCMGRINVOKEFLAGS {}
+impl ::core::clone::Clone for SYNCMGRINVOKEFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct SYNCMGRITEM {
@@ -9133,10 +10201,22 @@ pub const SYNCMGRITEM_ROAMINGUSER: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(4i32);
 pub const SYNCMGRITEM_LASTUPDATETIME: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(8i32);
 pub const SYNCMGRITEM_MAYDELETEITEM: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(16i32);
 pub const SYNCMGRITEM_HIDDEN: SYNCMGRITEMFLAGS = SYNCMGRITEMFLAGS(32i32);
+impl ::core::marker::Copy for SYNCMGRITEMFLAGS {}
+impl ::core::clone::Clone for SYNCMGRITEMFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGRITEMSTATE(pub i32);
 pub const SYNCMGRITEMSTATE_UNCHECKED: SYNCMGRITEMSTATE = SYNCMGRITEMSTATE(0i32);
 pub const SYNCMGRITEMSTATE_CHECKED: SYNCMGRITEMSTATE = SYNCMGRITEMSTATE(1i32);
+impl ::core::marker::Copy for SYNCMGRITEMSTATE {}
+impl ::core::clone::Clone for SYNCMGRITEMSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYNCMGRITEM_ITEMFLAGMASK: u32 = 127u32;
 #[repr(C)]
 pub struct SYNCMGRLOGERRORINFO {
@@ -9161,6 +10241,12 @@ pub const SYNCMGRLOGLEVEL_INFORMATION: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(1i32);
 pub const SYNCMGRLOGLEVEL_WARNING: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(2i32);
 pub const SYNCMGRLOGLEVEL_ERROR: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(3i32);
 pub const SYNCMGRLOGLEVEL_LOGLEVELMAX: SYNCMGRLOGLEVEL = SYNCMGRLOGLEVEL(3i32);
+impl ::core::marker::Copy for SYNCMGRLOGLEVEL {}
+impl ::core::clone::Clone for SYNCMGRLOGLEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYNCMGRPROGRESSITEM {
@@ -9188,6 +10274,12 @@ pub struct SYNCMGRREGISTERFLAGS(pub i32);
 pub const SYNCMGRREGISTERFLAG_CONNECT: SYNCMGRREGISTERFLAGS = SYNCMGRREGISTERFLAGS(1i32);
 pub const SYNCMGRREGISTERFLAG_PENDINGDISCONNECT: SYNCMGRREGISTERFLAGS = SYNCMGRREGISTERFLAGS(2i32);
 pub const SYNCMGRREGISTERFLAG_IDLE: SYNCMGRREGISTERFLAGS = SYNCMGRREGISTERFLAGS(4i32);
+impl ::core::marker::Copy for SYNCMGRREGISTERFLAGS {}
+impl ::core::clone::Clone for SYNCMGRREGISTERFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYNCMGRREGISTERFLAGS_MASK: u32 = 7u32;
 #[repr(transparent)]
 pub struct SYNCMGRSTATUS(pub i32);
@@ -9201,12 +10293,24 @@ pub const SYNCMGRSTATUS_PAUSED: SYNCMGRSTATUS = SYNCMGRSTATUS(6i32);
 pub const SYNCMGRSTATUS_RESUMING: SYNCMGRSTATUS = SYNCMGRSTATUS(7i32);
 pub const SYNCMGRSTATUS_UPDATING_INDETERMINATE: SYNCMGRSTATUS = SYNCMGRSTATUS(8i32);
 pub const SYNCMGRSTATUS_DELETED: SYNCMGRSTATUS = SYNCMGRSTATUS(256i32);
+impl ::core::marker::Copy for SYNCMGRSTATUS {}
+impl ::core::clone::Clone for SYNCMGRSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_CANCEL_REQUEST(pub i32);
 pub const SYNCMGR_CR_NONE: SYNCMGR_CANCEL_REQUEST = SYNCMGR_CANCEL_REQUEST(0i32);
 pub const SYNCMGR_CR_CANCEL_ITEM: SYNCMGR_CANCEL_REQUEST = SYNCMGR_CANCEL_REQUEST(1i32);
 pub const SYNCMGR_CR_CANCEL_ALL: SYNCMGR_CANCEL_REQUEST = SYNCMGR_CANCEL_REQUEST(2i32);
 pub const SYNCMGR_CR_MAX: SYNCMGR_CANCEL_REQUEST = SYNCMGR_CANCEL_REQUEST(2i32);
+impl ::core::marker::Copy for SYNCMGR_CANCEL_REQUEST {}
+impl ::core::clone::Clone for SYNCMGR_CANCEL_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct SYNCMGR_CONFLICT_ID_INFO {
@@ -9225,6 +10329,12 @@ impl ::core::clone::Clone for SYNCMGR_CONFLICT_ID_INFO {
 pub struct SYNCMGR_CONFLICT_ITEM_TYPE(pub i32);
 pub const SYNCMGR_CIT_UPDATED: SYNCMGR_CONFLICT_ITEM_TYPE = SYNCMGR_CONFLICT_ITEM_TYPE(1i32);
 pub const SYNCMGR_CIT_DELETED: SYNCMGR_CONFLICT_ITEM_TYPE = SYNCMGR_CONFLICT_ITEM_TYPE(2i32);
+impl ::core::marker::Copy for SYNCMGR_CONFLICT_ITEM_TYPE {}
+impl ::core::clone::Clone for SYNCMGR_CONFLICT_ITEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_CONTROL_FLAGS(pub i32);
 pub const SYNCMGR_CF_NONE: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(0i32);
@@ -9232,16 +10342,34 @@ pub const SYNCMGR_CF_NOWAIT: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(0i32)
 pub const SYNCMGR_CF_WAIT: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(1i32);
 pub const SYNCMGR_CF_NOUI: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(2i32);
 pub const SYNCMGR_CF_VALID: SYNCMGR_CONTROL_FLAGS = SYNCMGR_CONTROL_FLAGS(3i32);
+impl ::core::marker::Copy for SYNCMGR_CONTROL_FLAGS {}
+impl ::core::clone::Clone for SYNCMGR_CONTROL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_EVENT_FLAGS(pub i32);
 pub const SYNCMGR_EF_NONE: SYNCMGR_EVENT_FLAGS = SYNCMGR_EVENT_FLAGS(0i32);
 pub const SYNCMGR_EF_VALID: SYNCMGR_EVENT_FLAGS = SYNCMGR_EVENT_FLAGS(0i32);
+impl ::core::marker::Copy for SYNCMGR_EVENT_FLAGS {}
+impl ::core::clone::Clone for SYNCMGR_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_EVENT_LEVEL(pub i32);
 pub const SYNCMGR_EL_INFORMATION: SYNCMGR_EVENT_LEVEL = SYNCMGR_EVENT_LEVEL(1i32);
 pub const SYNCMGR_EL_WARNING: SYNCMGR_EVENT_LEVEL = SYNCMGR_EVENT_LEVEL(2i32);
 pub const SYNCMGR_EL_ERROR: SYNCMGR_EVENT_LEVEL = SYNCMGR_EVENT_LEVEL(3i32);
 pub const SYNCMGR_EL_MAX: SYNCMGR_EVENT_LEVEL = SYNCMGR_EVENT_LEVEL(3i32);
+impl ::core::marker::Copy for SYNCMGR_EVENT_LEVEL {}
+impl ::core::clone::Clone for SYNCMGR_EVENT_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_HANDLER_CAPABILITIES(pub i32);
 pub const SYNCMGR_HCM_NONE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(0i32);
@@ -9256,6 +10384,12 @@ pub const SYNCMGR_HCM_QUERY_BEFORE_DEACTIVATE: SYNCMGR_HANDLER_CAPABILITIES = SY
 pub const SYNCMGR_HCM_QUERY_BEFORE_ENABLE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(4194304i32);
 pub const SYNCMGR_HCM_QUERY_BEFORE_DISABLE: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(8388608i32);
 pub const SYNCMGR_HCM_VALID_MASK: SYNCMGR_HANDLER_CAPABILITIES = SYNCMGR_HANDLER_CAPABILITIES(15925271i32);
+impl ::core::marker::Copy for SYNCMGR_HANDLER_CAPABILITIES {}
+impl ::core::clone::Clone for SYNCMGR_HANDLER_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_HANDLER_POLICIES(pub i32);
 pub const SYNCMGR_HPM_NONE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(0i32);
@@ -9274,6 +10408,12 @@ pub const SYNCMGR_HPM_DISABLE_SCHEDULE: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDL
 pub const SYNCMGR_HPM_HIDDEN_BY_DEFAULT: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(65536i32);
 pub const SYNCMGR_HPM_BACKGROUND_SYNC_ONLY: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(48i32);
 pub const SYNCMGR_HPM_VALID_MASK: SYNCMGR_HANDLER_POLICIES = SYNCMGR_HANDLER_POLICIES(77631i32);
+impl ::core::marker::Copy for SYNCMGR_HANDLER_POLICIES {}
+impl ::core::clone::Clone for SYNCMGR_HANDLER_POLICIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_HANDLER_TYPE(pub i32);
 pub const SYNCMGR_HT_UNSPECIFIED: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(0i32);
@@ -9284,6 +10424,12 @@ pub const SYNCMGR_HT_SERVICE: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(4i32);
 pub const SYNCMGR_HT_COMPUTER: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(5i32);
 pub const SYNCMGR_HT_MIN: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(0i32);
 pub const SYNCMGR_HT_MAX: SYNCMGR_HANDLER_TYPE = SYNCMGR_HANDLER_TYPE(5i32);
+impl ::core::marker::Copy for SYNCMGR_HANDLER_TYPE {}
+impl ::core::clone::Clone for SYNCMGR_HANDLER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_ITEM_CAPABILITIES(pub i32);
 pub const SYNCMGR_ICM_NONE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(0i32);
@@ -9296,6 +10442,12 @@ pub const SYNCMGR_ICM_QUERY_BEFORE_ENABLE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_I
 pub const SYNCMGR_ICM_QUERY_BEFORE_DISABLE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(2097152i32);
 pub const SYNCMGR_ICM_QUERY_BEFORE_DELETE: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(4194304i32);
 pub const SYNCMGR_ICM_VALID_MASK: SYNCMGR_ITEM_CAPABILITIES = SYNCMGR_ITEM_CAPABILITIES(7405591i32);
+impl ::core::marker::Copy for SYNCMGR_ITEM_CAPABILITIES {}
+impl ::core::clone::Clone for SYNCMGR_ITEM_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_ITEM_POLICIES(pub i32);
 pub const SYNCMGR_IPM_NONE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(0i32);
@@ -9311,6 +10463,12 @@ pub const SYNCMGR_IPM_DISABLE_BROWSE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLIC
 pub const SYNCMGR_IPM_DISABLE_DELETE: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(512i32);
 pub const SYNCMGR_IPM_HIDDEN_BY_DEFAULT: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(65536i32);
 pub const SYNCMGR_IPM_VALID_MASK: SYNCMGR_ITEM_POLICIES = SYNCMGR_ITEM_POLICIES(66303i32);
+impl ::core::marker::Copy for SYNCMGR_ITEM_POLICIES {}
+impl ::core::clone::Clone for SYNCMGR_ITEM_POLICIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYNCMGR_OBJECTID_BrowseContent: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1472968068,
     data2: 59828,
@@ -9360,11 +10518,23 @@ pub const SYNCMGR_PC_KEEP_MULTIPLE: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER
 pub const SYNCMGR_PC_KEEP_RECENT: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(3i32);
 pub const SYNCMGR_PC_REMOVE_FROM_SYNC_SET: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(4i32);
 pub const SYNCMGR_PC_SKIP: SYNCMGR_PRESENTER_CHOICE = SYNCMGR_PRESENTER_CHOICE(5i32);
+impl ::core::marker::Copy for SYNCMGR_PRESENTER_CHOICE {}
+impl ::core::clone::Clone for SYNCMGR_PRESENTER_CHOICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_PRESENTER_NEXT_STEP(pub i32);
 pub const SYNCMGR_PNS_CONTINUE: SYNCMGR_PRESENTER_NEXT_STEP = SYNCMGR_PRESENTER_NEXT_STEP(0i32);
 pub const SYNCMGR_PNS_DEFAULT: SYNCMGR_PRESENTER_NEXT_STEP = SYNCMGR_PRESENTER_NEXT_STEP(1i32);
 pub const SYNCMGR_PNS_CANCEL: SYNCMGR_PRESENTER_NEXT_STEP = SYNCMGR_PRESENTER_NEXT_STEP(2i32);
+impl ::core::marker::Copy for SYNCMGR_PRESENTER_NEXT_STEP {}
+impl ::core::clone::Clone for SYNCMGR_PRESENTER_NEXT_STEP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_PROGRESS_STATUS(pub i32);
 pub const SYNCMGR_PS_UPDATING: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(1i32);
@@ -9374,6 +10544,12 @@ pub const SYNCMGR_PS_FAILED: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(4
 pub const SYNCMGR_PS_CANCELED: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(5i32);
 pub const SYNCMGR_PS_DISCONNECTED: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(6i32);
 pub const SYNCMGR_PS_MAX: SYNCMGR_PROGRESS_STATUS = SYNCMGR_PROGRESS_STATUS(6i32);
+impl ::core::marker::Copy for SYNCMGR_PROGRESS_STATUS {}
+impl ::core::clone::Clone for SYNCMGR_PROGRESS_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_RESOLUTION_ABILITIES(pub i32);
 pub const SYNCMGR_RA_KEEPOTHER: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(1i32);
@@ -9382,22 +10558,46 @@ pub const SYNCMGR_RA_REMOVEFROMSYNCSET: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_R
 pub const SYNCMGR_RA_KEEP_SINGLE: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(8i32);
 pub const SYNCMGR_RA_KEEP_MULTIPLE: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(16i32);
 pub const SYNCMGR_RA_VALID: SYNCMGR_RESOLUTION_ABILITIES = SYNCMGR_RESOLUTION_ABILITIES(31i32);
+impl ::core::marker::Copy for SYNCMGR_RESOLUTION_ABILITIES {}
+impl ::core::clone::Clone for SYNCMGR_RESOLUTION_ABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_RESOLUTION_FEEDBACK(pub i32);
 pub const SYNCMGR_RF_CONTINUE: SYNCMGR_RESOLUTION_FEEDBACK = SYNCMGR_RESOLUTION_FEEDBACK(0i32);
 pub const SYNCMGR_RF_REFRESH: SYNCMGR_RESOLUTION_FEEDBACK = SYNCMGR_RESOLUTION_FEEDBACK(1i32);
 pub const SYNCMGR_RF_CANCEL: SYNCMGR_RESOLUTION_FEEDBACK = SYNCMGR_RESOLUTION_FEEDBACK(2i32);
+impl ::core::marker::Copy for SYNCMGR_RESOLUTION_FEEDBACK {}
+impl ::core::clone::Clone for SYNCMGR_RESOLUTION_FEEDBACK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_SYNC_CONTROL_FLAGS(pub i32);
 pub const SYNCMGR_SCF_NONE: SYNCMGR_SYNC_CONTROL_FLAGS = SYNCMGR_SYNC_CONTROL_FLAGS(0i32);
 pub const SYNCMGR_SCF_IGNORE_IF_ALREADY_SYNCING: SYNCMGR_SYNC_CONTROL_FLAGS = SYNCMGR_SYNC_CONTROL_FLAGS(1i32);
 pub const SYNCMGR_SCF_VALID: SYNCMGR_SYNC_CONTROL_FLAGS = SYNCMGR_SYNC_CONTROL_FLAGS(1i32);
+impl ::core::marker::Copy for SYNCMGR_SYNC_CONTROL_FLAGS {}
+impl ::core::clone::Clone for SYNCMGR_SYNC_CONTROL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNCMGR_UPDATE_REASON(pub i32);
 pub const SYNCMGR_UR_ADDED: SYNCMGR_UPDATE_REASON = SYNCMGR_UPDATE_REASON(0i32);
 pub const SYNCMGR_UR_CHANGED: SYNCMGR_UPDATE_REASON = SYNCMGR_UPDATE_REASON(1i32);
 pub const SYNCMGR_UR_REMOVED: SYNCMGR_UPDATE_REASON = SYNCMGR_UPDATE_REASON(2i32);
 pub const SYNCMGR_UR_MAX: SYNCMGR_UPDATE_REASON = SYNCMGR_UPDATE_REASON(2i32);
+impl ::core::marker::Copy for SYNCMGR_UPDATE_REASON {}
+impl ::core::clone::Clone for SYNCMGR_UPDATE_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const S_SYNCMGR_CANCELALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262660i32 as _);
 pub const S_SYNCMGR_CANCELITEM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262659i32 as _);
 pub const S_SYNCMGR_ENUMITEMS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262673i32 as _);
@@ -9420,6 +10620,12 @@ pub const secureLockIconSecure40Bit: SecureLockIconConstants = SecureLockIconCon
 pub const secureLockIconSecure56Bit: SecureLockIconConstants = SecureLockIconConstants(4i32);
 pub const secureLockIconSecureFortezza: SecureLockIconConstants = SecureLockIconConstants(5i32);
 pub const secureLockIconSecure128Bit: SecureLockIconConstants = SecureLockIconConstants(6i32);
+impl ::core::marker::Copy for SecureLockIconConstants {}
+impl ::core::clone::Clone for SecureLockIconConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SelectedItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2414024402,
     data2: 3666,
@@ -9455,6 +10661,12 @@ pub const SFVVO_SHOWSYSFILES: ShellFolderViewOptions = ShellFolderViewOptions(32
 pub const SFVVO_WIN95CLASSIC: ShellFolderViewOptions = ShellFolderViewOptions(64i32);
 pub const SFVVO_DOUBLECLICKINWEBVIEW: ShellFolderViewOptions = ShellFolderViewOptions(128i32);
 pub const SFVVO_DESKTOPHTML: ShellFolderViewOptions = ShellFolderViewOptions(512i32);
+impl ::core::marker::Copy for ShellFolderViewOptions {}
+impl ::core::clone::Clone for ShellFolderViewOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ShellImageDataFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1726276859,
     data2: 62341,
@@ -9511,12 +10723,24 @@ pub const ssfMYPICTURES: ShellSpecialFolderConstants = ShellSpecialFolderConstan
 pub const ssfPROFILE: ShellSpecialFolderConstants = ShellSpecialFolderConstants(40i32);
 pub const ssfSYSTEMx86: ShellSpecialFolderConstants = ShellSpecialFolderConstants(41i32);
 pub const ssfPROGRAMFILESx86: ShellSpecialFolderConstants = ShellSpecialFolderConstants(48i32);
+impl ::core::marker::Copy for ShellSpecialFolderConstants {}
+impl ::core::clone::Clone for ShellSpecialFolderConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ShellUIHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1688947639, data2: 4382, data3: 4561, data4: [143, 121, 0, 192, 79, 194, 251, 225] };
 #[repr(transparent)]
 pub struct ShellWindowFindWindowOptions(pub i32);
 pub const SWFO_NEEDDISPATCH: ShellWindowFindWindowOptions = ShellWindowFindWindowOptions(1i32);
 pub const SWFO_INCLUDEPENDING: ShellWindowFindWindowOptions = ShellWindowFindWindowOptions(2i32);
 pub const SWFO_COOKIEPASSED: ShellWindowFindWindowOptions = ShellWindowFindWindowOptions(4i32);
+impl ::core::marker::Copy for ShellWindowFindWindowOptions {}
+impl ::core::clone::Clone for ShellWindowFindWindowOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ShellWindowTypeConstants(pub i32);
 pub const SWC_EXPLORER: ShellWindowTypeConstants = ShellWindowTypeConstants(0i32);
@@ -9524,6 +10748,12 @@ pub const SWC_BROWSER: ShellWindowTypeConstants = ShellWindowTypeConstants(1i32)
 pub const SWC_3RDPARTY: ShellWindowTypeConstants = ShellWindowTypeConstants(2i32);
 pub const SWC_CALLBACK: ShellWindowTypeConstants = ShellWindowTypeConstants(4i32);
 pub const SWC_DESKTOP: ShellWindowTypeConstants = ShellWindowTypeConstants(8i32);
+impl ::core::marker::Copy for ShellWindowTypeConstants {}
+impl ::core::clone::Clone for ShellWindowTypeConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ShellWindows: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2610977138, data2: 63144, data3: 4559, data4: [164, 66, 0, 160, 201, 10, 143, 57] };
 pub const ShowInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 520383167,
@@ -9617,6 +10847,12 @@ pub const TBPF_INDETERMINATE: TBPFLAG = TBPFLAG(1i32);
 pub const TBPF_NORMAL: TBPFLAG = TBPFLAG(2i32);
 pub const TBPF_ERROR: TBPFLAG = TBPFLAG(4i32);
 pub const TBPF_PAUSED: TBPFLAG = TBPFLAG(8i32);
+impl ::core::marker::Copy for TBPFLAG {}
+impl ::core::clone::Clone for TBPFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const THBN_CLICKED: u32 = 6144u32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -9644,17 +10880,35 @@ pub const THBF_DISMISSONCLICK: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(2i32);
 pub const THBF_NOBACKGROUND: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(4i32);
 pub const THBF_HIDDEN: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(8i32);
 pub const THBF_NONINTERACTIVE: THUMBBUTTONFLAGS = THUMBBUTTONFLAGS(16i32);
+impl ::core::marker::Copy for THUMBBUTTONFLAGS {}
+impl ::core::clone::Clone for THUMBBUTTONFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct THUMBBUTTONMASK(pub i32);
 pub const THB_BITMAP: THUMBBUTTONMASK = THUMBBUTTONMASK(1i32);
 pub const THB_ICON: THUMBBUTTONMASK = THUMBBUTTONMASK(2i32);
 pub const THB_TOOLTIP: THUMBBUTTONMASK = THUMBBUTTONMASK(4i32);
 pub const THB_FLAGS: THUMBBUTTONMASK = THUMBBUTTONMASK(8i32);
+impl ::core::marker::Copy for THUMBBUTTONMASK {}
+impl ::core::clone::Clone for THUMBBUTTONMASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TITLEBARNAMELEN: u32 = 40u32;
 #[repr(transparent)]
 pub struct TI_FLAGS(pub i32);
 pub const TI_BITMAP: TI_FLAGS = TI_FLAGS(1i32);
 pub const TI_JPEG: TI_FLAGS = TI_FLAGS(2i32);
+impl ::core::marker::Copy for TI_FLAGS {}
+impl ::core::clone::Clone for TI_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TLENUMF(pub i32);
 pub const TLEF_RELATIVE_INCLUDE_CURRENT: TLENUMF = TLENUMF(1i32);
@@ -9664,6 +10918,12 @@ pub const TLEF_INCLUDE_UNINVOKEABLE: TLENUMF = TLENUMF(64i32);
 pub const TLEF_ABSOLUTE: TLENUMF = TLENUMF(49i32);
 pub const TLEF_EXCLUDE_SUBFRAME_ENTRIES: TLENUMF = TLENUMF(128i32);
 pub const TLEF_EXCLUDE_ABOUT_PAGES: TLENUMF = TLENUMF(256i32);
+impl ::core::marker::Copy for TLENUMF {}
+impl ::core::clone::Clone for TLENUMF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TLMENUF_BACK: u32 = 16u32;
 pub const TLMENUF_FORE: u32 = 32u32;
 pub const TLMENUF_INCLUDECURRENT: u32 = 1u32;
@@ -9700,6 +10960,12 @@ pub const ExtractIfNotCached: ThumbnailStreamCacheOptions = ThumbnailStreamCache
 pub const ReturnOnlyIfCached: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(1i32);
 pub const ResizeThumbnail: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(2i32);
 pub const AllowSmallerSize: ThumbnailStreamCacheOptions = ThumbnailStreamCacheOptions(4i32);
+impl ::core::marker::Copy for ThumbnailStreamCacheOptions {}
+impl ::core::clone::Clone for ThumbnailStreamCacheOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TimeCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1001656719,
     data2: 56829,
@@ -9718,6 +10984,12 @@ pub const TrayDeskBand: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub struct UNDOCK_REASON(pub i32);
 pub const UR_RESOLUTION_CHANGE: UNDOCK_REASON = UNDOCK_REASON(0i32);
 pub const UR_MONITOR_DISCONNECT: UNDOCK_REASON = UNDOCK_REASON(1i32);
+impl ::core::marker::Copy for UNDOCK_REASON {}
+impl ::core::clone::Clone for UNDOCK_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct URLIS(pub i32);
 pub const URLIS_URL: URLIS = URLIS(0i32);
@@ -9727,6 +10999,12 @@ pub const URLIS_FILEURL: URLIS = URLIS(3i32);
 pub const URLIS_APPLIABLE: URLIS = URLIS(4i32);
 pub const URLIS_DIRECTORY: URLIS = URLIS(5i32);
 pub const URLIS_HASQUERY: URLIS = URLIS(6i32);
+impl ::core::marker::Copy for URLIS {}
+impl ::core::clone::Clone for URLIS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const URL_APPLY_DEFAULT: u32 = 1u32;
 pub const URL_APPLY_FORCEAPPLY: u32 = 8u32;
 pub const URL_APPLY_GUESSFILE: u32 = 4u32;
@@ -9757,6 +11035,12 @@ pub const URL_PART_USERNAME: URL_PART = URL_PART(3i32);
 pub const URL_PART_PASSWORD: URL_PART = URL_PART(4i32);
 pub const URL_PART_PORT: URL_PART = URL_PART(5i32);
 pub const URL_PART_QUERY: URL_PART = URL_PART(6i32);
+impl ::core::marker::Copy for URL_PART {}
+impl ::core::clone::Clone for URL_PART {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const URL_PARTFLAG_KEEPSCHEME: u32 = 1u32;
 pub const URL_PLUGGABLE_PROTOCOL: u32 = 1073741824u32;
 #[repr(transparent)]
@@ -9790,6 +11074,12 @@ pub const URL_SCHEME_SEARCH_MS: URL_SCHEME = URL_SCHEME(24i32);
 pub const URL_SCHEME_SEARCH: URL_SCHEME = URL_SCHEME(25i32);
 pub const URL_SCHEME_KNOWNFOLDER: URL_SCHEME = URL_SCHEME(26i32);
 pub const URL_SCHEME_MAXVALUE: URL_SCHEME = URL_SCHEME(27i32);
+impl ::core::marker::Copy for URL_SCHEME {}
+impl ::core::clone::Clone for URL_SCHEME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const URL_UNESCAPE: u32 = 268435456u32;
 pub const URL_UNESCAPE_AS_UTF8: u32 = 262144u32;
 pub const URL_UNESCAPE_HIGH_ANSI_ONLY: u32 = 4194304u32;
@@ -9812,6 +11102,12 @@ pub const VALIDATEUNC_NOUI: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(2i32);
 pub const VALIDATEUNC_PRINT: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(4i32);
 pub const VALIDATEUNC_PERSIST: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(8i32);
 pub const VALIDATEUNC_VALID: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(15i32);
+impl ::core::marker::Copy for VALIDATEUNC_OPTION {}
+impl ::core::clone::Clone for VALIDATEUNC_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VID_Content: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 818070580, data2: 2185, data3: 19597, data4: [152, 93, 169, 247, 24, 48, 176, 169] };
 pub const VID_Details: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 327055104, data2: 13683, data3: 4559, data4: [174, 105, 8, 0, 43, 46, 18, 98] };
 pub const VID_LargeIcons: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5755104, data2: 13683, data3: 4559, data4: [174, 105, 8, 0, 43, 46, 18, 98] };
@@ -9847,10 +11143,22 @@ pub const VPCF_BACKGROUND: VPCOLORFLAGS = VPCOLORFLAGS(2i32);
 pub const VPCF_SORTCOLUMN: VPCOLORFLAGS = VPCOLORFLAGS(3i32);
 pub const VPCF_SUBTEXT: VPCOLORFLAGS = VPCOLORFLAGS(4i32);
 pub const VPCF_TEXTBACKGROUND: VPCOLORFLAGS = VPCOLORFLAGS(5i32);
+impl ::core::marker::Copy for VPCOLORFLAGS {}
+impl ::core::clone::Clone for VPCOLORFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VPWATERMARKFLAGS(pub i32);
 pub const VPWF_DEFAULT: VPWATERMARKFLAGS = VPWATERMARKFLAGS(0i32);
 pub const VPWF_ALPHABLEND: VPWATERMARKFLAGS = VPWATERMARKFLAGS(1i32);
+impl ::core::marker::Copy for VPWATERMARKFLAGS {}
+impl ::core::clone::Clone for VPWATERMARKFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VaultProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1345796560,
     data2: 19550,
@@ -9890,11 +11198,23 @@ pub struct WTS_ALPHATYPE(pub i32);
 pub const WTSAT_UNKNOWN: WTS_ALPHATYPE = WTS_ALPHATYPE(0i32);
 pub const WTSAT_RGB: WTS_ALPHATYPE = WTS_ALPHATYPE(1i32);
 pub const WTSAT_ARGB: WTS_ALPHATYPE = WTS_ALPHATYPE(2i32);
+impl ::core::marker::Copy for WTS_ALPHATYPE {}
+impl ::core::clone::Clone for WTS_ALPHATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WTS_CACHEFLAGS(pub i32);
 pub const WTS_DEFAULT: WTS_CACHEFLAGS = WTS_CACHEFLAGS(0i32);
 pub const WTS_LOWQUALITY: WTS_CACHEFLAGS = WTS_CACHEFLAGS(1i32);
 pub const WTS_CACHED: WTS_CACHEFLAGS = WTS_CACHEFLAGS(2i32);
+impl ::core::marker::Copy for WTS_CACHEFLAGS {}
+impl ::core::clone::Clone for WTS_CACHEFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WTS_CONTEXTFLAGS(pub i32);
 pub const WTSCF_DEFAULT: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(0i32);
@@ -9902,6 +11222,12 @@ pub const WTSCF_APPSTYLE: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(1i32);
 pub const WTSCF_SQUARE: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(2i32);
 pub const WTSCF_WIDE: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(4i32);
 pub const WTSCF_FAST: WTS_CONTEXTFLAGS = WTS_CONTEXTFLAGS(8i32);
+impl ::core::marker::Copy for WTS_CONTEXTFLAGS {}
+impl ::core::clone::Clone for WTS_CONTEXTFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WTS_E_DATAFILEUNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147175932i32 as _);
 pub const WTS_E_EXTRACTIONBLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147175930i32 as _);
 pub const WTS_E_EXTRACTIONPENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147175931i32 as _);
@@ -9929,6 +11255,12 @@ pub const WTS_APPSTYLE: WTS_FLAGS = WTS_FLAGS(8192i32);
 pub const WTS_WIDETHUMBNAILS: WTS_FLAGS = WTS_FLAGS(16384i32);
 pub const WTS_IDEALCACHESIZEONLY: WTS_FLAGS = WTS_FLAGS(32768i32);
 pub const WTS_SCALEUP: WTS_FLAGS = WTS_FLAGS(65536i32);
+impl ::core::marker::Copy for WTS_FLAGS {}
+impl ::core::clone::Clone for WTS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WTS_THUMBNAILID {
     pub rgbKey: [u8; 16],
@@ -9979,11 +11311,23 @@ pub const BFO_PREFER_IEPROCESS: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(3276
 pub const BFO_SHOW_NAVIGATION_CANCELLED: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(65536i32);
 pub const BFO_USE_IE_STATUSBAR: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(131072i32);
 pub const BFO_QUERY_ALL: _BROWSERFRAMEOPTIONS = _BROWSERFRAMEOPTIONS(-1i32);
+impl ::core::marker::Copy for _BROWSERFRAMEOPTIONS {}
+impl ::core::clone::Clone for _BROWSERFRAMEOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _CDBE_ACTIONS(pub i32);
 pub const CDBE_TYPE_MUSIC: _CDBE_ACTIONS = _CDBE_ACTIONS(1i32);
 pub const CDBE_TYPE_DATA: _CDBE_ACTIONS = _CDBE_ACTIONS(2i32);
 pub const CDBE_TYPE_ALL: _CDBE_ACTIONS = _CDBE_ACTIONS(-1i32);
+impl ::core::marker::Copy for _CDBE_ACTIONS {}
+impl ::core::clone::Clone for _CDBE_ACTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _EXPCMDFLAGS(pub i32);
 pub const ECF_DEFAULT: _EXPCMDFLAGS = _EXPCMDFLAGS(0i32);
@@ -9997,6 +11341,12 @@ pub const ECF_SEPARATORAFTER: _EXPCMDFLAGS = _EXPCMDFLAGS(64i32);
 pub const ECF_ISDROPDOWN: _EXPCMDFLAGS = _EXPCMDFLAGS(128i32);
 pub const ECF_TOGGLEABLE: _EXPCMDFLAGS = _EXPCMDFLAGS(256i32);
 pub const ECF_AUTOMENUICONS: _EXPCMDFLAGS = _EXPCMDFLAGS(512i32);
+impl ::core::marker::Copy for _EXPCMDFLAGS {}
+impl ::core::clone::Clone for _EXPCMDFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _EXPCMDSTATE(pub i32);
 pub const ECS_ENABLED: _EXPCMDSTATE = _EXPCMDSTATE(0i32);
@@ -10005,6 +11355,12 @@ pub const ECS_HIDDEN: _EXPCMDSTATE = _EXPCMDSTATE(2i32);
 pub const ECS_CHECKBOX: _EXPCMDSTATE = _EXPCMDSTATE(4i32);
 pub const ECS_CHECKED: _EXPCMDSTATE = _EXPCMDSTATE(8i32);
 pub const ECS_RADIOCHECK: _EXPCMDSTATE = _EXPCMDSTATE(16i32);
+impl ::core::marker::Copy for _EXPCMDSTATE {}
+impl ::core::clone::Clone for _EXPCMDSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _EXPLORERPANESTATE(pub i32);
 pub const EPS_DONTCARE: _EXPLORERPANESTATE = _EXPLORERPANESTATE(0i32);
@@ -10013,9 +11369,21 @@ pub const EPS_DEFAULT_OFF: _EXPLORERPANESTATE = _EXPLORERPANESTATE(2i32);
 pub const EPS_STATEMASK: _EXPLORERPANESTATE = _EXPLORERPANESTATE(65535i32);
 pub const EPS_INITIALSTATE: _EXPLORERPANESTATE = _EXPLORERPANESTATE(65536i32);
 pub const EPS_FORCE: _EXPLORERPANESTATE = _EXPLORERPANESTATE(131072i32);
+impl ::core::marker::Copy for _EXPLORERPANESTATE {}
+impl ::core::clone::Clone for _EXPLORERPANESTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _EXPPS(pub i32);
 pub const EXPPS_FILETYPES: _EXPPS = _EXPPS(1i32);
+impl ::core::marker::Copy for _EXPPS {}
+impl ::core::clone::Clone for _EXPPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _FILEOPENDIALOGOPTIONS(pub i32);
 pub const FOS_OVERWRITEPROMPT: _FILEOPENDIALOGOPTIONS = _FILEOPENDIALOGOPTIONS(2i32);
@@ -10041,6 +11409,12 @@ pub const FOS_FORCESHOWHIDDEN: _FILEOPENDIALOGOPTIONS = _FILEOPENDIALOGOPTIONS(2
 pub const FOS_DEFAULTNOMINIMODE: _FILEOPENDIALOGOPTIONS = _FILEOPENDIALOGOPTIONS(536870912i32);
 pub const FOS_FORCEPREVIEWPANEON: _FILEOPENDIALOGOPTIONS = _FILEOPENDIALOGOPTIONS(1073741824i32);
 pub const FOS_SUPPORTSTREAMABLEITEMS: _FILEOPENDIALOGOPTIONS = _FILEOPENDIALOGOPTIONS(-2147483648i32);
+impl ::core::marker::Copy for _FILEOPENDIALOGOPTIONS {}
+impl ::core::clone::Clone for _FILEOPENDIALOGOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _HLSHORTCUTF__NOREDEF10(pub i32);
 pub const HLSHORTCUTF_DEFAULT: _HLSHORTCUTF__NOREDEF10 = _HLSHORTCUTF__NOREDEF10(0i32);
@@ -10048,15 +11422,33 @@ pub const HLSHORTCUTF_DONTACTUALLYCREATE: _HLSHORTCUTF__NOREDEF10 = _HLSHORTCUTF
 pub const HLSHORTCUTF_USEFILENAMEFROMFRIENDLYNAME: _HLSHORTCUTF__NOREDEF10 = _HLSHORTCUTF__NOREDEF10(2i32);
 pub const HLSHORTCUTF_USEUNIQUEFILENAME: _HLSHORTCUTF__NOREDEF10 = _HLSHORTCUTF__NOREDEF10(4i32);
 pub const HLSHORTCUTF_MAYUSEEXISTINGSHORTCUT: _HLSHORTCUTF__NOREDEF10 = _HLSHORTCUTF__NOREDEF10(8i32);
+impl ::core::marker::Copy for _HLSHORTCUTF__NOREDEF10 {}
+impl ::core::clone::Clone for _HLSHORTCUTF__NOREDEF10 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _HLSR_NOREDEF10(pub i32);
 pub const HLSR_HOME: _HLSR_NOREDEF10 = _HLSR_NOREDEF10(0i32);
 pub const HLSR_SEARCHPAGE: _HLSR_NOREDEF10 = _HLSR_NOREDEF10(1i32);
 pub const HLSR_HISTORYFOLDER: _HLSR_NOREDEF10 = _HLSR_NOREDEF10(2i32);
+impl ::core::marker::Copy for _HLSR_NOREDEF10 {}
+impl ::core::clone::Clone for _HLSR_NOREDEF10 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _HLTRANSLATEF_NOREDEF10(pub i32);
 pub const HLTRANSLATEF_DEFAULT: _HLTRANSLATEF_NOREDEF10 = _HLTRANSLATEF_NOREDEF10(0i32);
 pub const HLTRANSLATEF_DONTAPPLYDEFAULTPREFIX: _HLTRANSLATEF_NOREDEF10 = _HLTRANSLATEF_NOREDEF10(1i32);
+impl ::core::marker::Copy for _HLTRANSLATEF_NOREDEF10 {}
+impl ::core::clone::Clone for _HLTRANSLATEF_NOREDEF10 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _KF_DEFINITION_FLAGS(pub i32);
 pub const KFDF_LOCAL_REDIRECT_ONLY: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(2i32);
@@ -10065,6 +11457,12 @@ pub const KFDF_PRECREATE: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(8i32);
 pub const KFDF_STREAM: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(16i32);
 pub const KFDF_PUBLISHEXPANDEDPATH: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(32i32);
 pub const KFDF_NO_REDIRECT_UI: _KF_DEFINITION_FLAGS = _KF_DEFINITION_FLAGS(64i32);
+impl ::core::marker::Copy for _KF_DEFINITION_FLAGS {}
+impl ::core::clone::Clone for _KF_DEFINITION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _KF_REDIRECTION_CAPABILITIES(pub i32);
 pub const KF_REDIRECTION_CAPABILITIES_ALLOW_ALL: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(255i32);
@@ -10073,6 +11471,12 @@ pub const KF_REDIRECTION_CAPABILITIES_DENY_ALL: _KF_REDIRECTION_CAPABILITIES = _
 pub const KF_REDIRECTION_CAPABILITIES_DENY_POLICY_REDIRECTED: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(256i32);
 pub const KF_REDIRECTION_CAPABILITIES_DENY_POLICY: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(512i32);
 pub const KF_REDIRECTION_CAPABILITIES_DENY_PERMISSIONS: _KF_REDIRECTION_CAPABILITIES = _KF_REDIRECTION_CAPABILITIES(1024i32);
+impl ::core::marker::Copy for _KF_REDIRECTION_CAPABILITIES {}
+impl ::core::clone::Clone for _KF_REDIRECTION_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _KF_REDIRECT_FLAGS(pub i32);
 pub const KF_REDIRECT_USER_EXCLUSIVE: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(1i32);
@@ -10086,15 +11490,33 @@ pub const KF_REDIRECT_PIN: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(128i32);
 pub const KF_REDIRECT_COPY_CONTENTS: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(512i32);
 pub const KF_REDIRECT_DEL_SOURCE_CONTENTS: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(1024i32);
 pub const KF_REDIRECT_EXCLUDE_ALL_KNOWN_SUBFOLDERS: _KF_REDIRECT_FLAGS = _KF_REDIRECT_FLAGS(2048i32);
+impl ::core::marker::Copy for _KF_REDIRECT_FLAGS {}
+impl ::core::clone::Clone for _KF_REDIRECT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _NMCII_FLAGS(pub i32);
 pub const NMCII_NONE: _NMCII_FLAGS = _NMCII_FLAGS(0i32);
 pub const NMCII_ITEMS: _NMCII_FLAGS = _NMCII_FLAGS(1i32);
 pub const NMCII_FOLDERS: _NMCII_FLAGS = _NMCII_FLAGS(2i32);
+impl ::core::marker::Copy for _NMCII_FLAGS {}
+impl ::core::clone::Clone for _NMCII_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _NMCSAEI_FLAGS(pub i32);
 pub const NMCSAEI_SELECT: _NMCSAEI_FLAGS = _NMCSAEI_FLAGS(0i32);
 pub const NMCSAEI_EDIT: _NMCSAEI_FLAGS = _NMCSAEI_FLAGS(1i32);
+impl ::core::marker::Copy for _NMCSAEI_FLAGS {}
+impl ::core::clone::Clone for _NMCSAEI_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _NSTCECLICKTYPE(pub i32);
 pub const NSTCECT_LBUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(1i32);
@@ -10102,6 +11524,12 @@ pub const NSTCECT_MBUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(2i32);
 pub const NSTCECT_RBUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(3i32);
 pub const NSTCECT_BUTTON: _NSTCECLICKTYPE = _NSTCECLICKTYPE(3i32);
 pub const NSTCECT_DBLCLICK: _NSTCECLICKTYPE = _NSTCECLICKTYPE(4i32);
+impl ::core::marker::Copy for _NSTCECLICKTYPE {}
+impl ::core::clone::Clone for _NSTCECLICKTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _NSTCEHITTEST(pub i32);
 pub const NSTCEHT_NOWHERE: _NSTCEHITTEST = _NSTCEHITTEST(1i32);
@@ -10113,6 +11541,12 @@ pub const NSTCEHT_ONITEMRIGHT: _NSTCEHITTEST = _NSTCEHITTEST(32i32);
 pub const NSTCEHT_ONITEMSTATEICON: _NSTCEHITTEST = _NSTCEHITTEST(64i32);
 pub const NSTCEHT_ONITEM: _NSTCEHITTEST = _NSTCEHITTEST(70i32);
 pub const NSTCEHT_ONITEMTABBUTTON: _NSTCEHITTEST = _NSTCEHITTEST(4096i32);
+impl ::core::marker::Copy for _NSTCEHITTEST {}
+impl ::core::clone::Clone for _NSTCEHITTEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _NSTCITEMSTATE(pub i32);
 pub const NSTCIS_NONE: _NSTCITEMSTATE = _NSTCITEMSTATE(0i32);
@@ -10121,11 +11555,23 @@ pub const NSTCIS_EXPANDED: _NSTCITEMSTATE = _NSTCITEMSTATE(2i32);
 pub const NSTCIS_BOLD: _NSTCITEMSTATE = _NSTCITEMSTATE(4i32);
 pub const NSTCIS_DISABLED: _NSTCITEMSTATE = _NSTCITEMSTATE(8i32);
 pub const NSTCIS_SELECTEDNOEXPAND: _NSTCITEMSTATE = _NSTCITEMSTATE(16i32);
+impl ::core::marker::Copy for _NSTCITEMSTATE {}
+impl ::core::clone::Clone for _NSTCITEMSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _NSTCROOTSTYLE(pub i32);
 pub const NSTCRS_VISIBLE: _NSTCROOTSTYLE = _NSTCROOTSTYLE(0i32);
 pub const NSTCRS_HIDDEN: _NSTCROOTSTYLE = _NSTCROOTSTYLE(1i32);
 pub const NSTCRS_EXPANDED: _NSTCROOTSTYLE = _NSTCROOTSTYLE(2i32);
+impl ::core::marker::Copy for _NSTCROOTSTYLE {}
+impl ::core::clone::Clone for _NSTCROOTSTYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _NSTCSTYLE(pub i32);
 pub const NSTCS_HASEXPANDOS: _NSTCSTYLE = _NSTCSTYLE(1i32);
@@ -10158,6 +11604,12 @@ pub const NSTCS_ALLOWJUNCTIONS: _NSTCSTYLE = _NSTCSTYLE(268435456i32);
 pub const NSTCS_SHOWTABSBUTTON: _NSTCSTYLE = _NSTCSTYLE(536870912i32);
 pub const NSTCS_SHOWDELETEBUTTON: _NSTCSTYLE = _NSTCSTYLE(1073741824i32);
 pub const NSTCS_SHOWREFRESHBUTTON: _NSTCSTYLE = _NSTCSTYLE(-2147483648i32);
+impl ::core::marker::Copy for _NSTCSTYLE {}
+impl ::core::clone::Clone for _NSTCSTYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _OPPROGDLGF(pub i32);
 pub const OPPROGDLG_DEFAULT: _OPPROGDLGF = _OPPROGDLGF(0i32);
@@ -10167,6 +11619,12 @@ pub const OPPROGDLG_DONTDISPLAYSOURCEPATH: _OPPROGDLGF = _OPPROGDLGF(512i32);
 pub const OPPROGDLG_DONTDISPLAYDESTPATH: _OPPROGDLGF = _OPPROGDLGF(1024i32);
 pub const OPPROGDLG_NOMULTIDAYESTIMATES: _OPPROGDLGF = _OPPROGDLGF(2048i32);
 pub const OPPROGDLG_DONTDISPLAYLOCATIONS: _OPPROGDLGF = _OPPROGDLGF(4096i32);
+impl ::core::marker::Copy for _OPPROGDLGF {}
+impl ::core::clone::Clone for _OPPROGDLGF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _PDMODE(pub i32);
 pub const PDM_DEFAULT: _PDMODE = _PDMODE(0i32);
@@ -10175,6 +11633,12 @@ pub const PDM_PREFLIGHT: _PDMODE = _PDMODE(2i32);
 pub const PDM_UNDOING: _PDMODE = _PDMODE(4i32);
 pub const PDM_ERRORSBLOCKING: _PDMODE = _PDMODE(8i32);
 pub const PDM_INDETERMINATE: _PDMODE = _PDMODE(16i32);
+impl ::core::marker::Copy for _PDMODE {}
+impl ::core::clone::Clone for _PDMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _SHCONTF(pub i32);
 pub const SHCONTF_CHECKING_FOR_CHILDREN: _SHCONTF = _SHCONTF(16i32);
@@ -10190,6 +11654,12 @@ pub const SHCONTF_FASTITEMS: _SHCONTF = _SHCONTF(8192i32);
 pub const SHCONTF_FLATLIST: _SHCONTF = _SHCONTF(16384i32);
 pub const SHCONTF_ENABLE_ASYNC: _SHCONTF = _SHCONTF(32768i32);
 pub const SHCONTF_INCLUDESUPERHIDDEN: _SHCONTF = _SHCONTF(65536i32);
+impl ::core::marker::Copy for _SHCONTF {}
+impl ::core::clone::Clone for _SHCONTF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _SHGDNF(pub i32);
 pub const SHGDN_NORMAL: _SHGDNF = _SHGDNF(0i32);
@@ -10197,12 +11667,24 @@ pub const SHGDN_INFOLDER: _SHGDNF = _SHGDNF(1i32);
 pub const SHGDN_FOREDITING: _SHGDNF = _SHGDNF(4096i32);
 pub const SHGDN_FORADDRESSBAR: _SHGDNF = _SHGDNF(16384i32);
 pub const SHGDN_FORPARSING: _SHGDNF = _SHGDNF(32768i32);
+impl ::core::marker::Copy for _SHGDNF {}
+impl ::core::clone::Clone for _SHGDNF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _SICHINTF(pub i32);
 pub const SICHINT_DISPLAY: _SICHINTF = _SICHINTF(0i32);
 pub const SICHINT_ALLFIELDS: _SICHINTF = _SICHINTF(-2147483648i32);
 pub const SICHINT_CANONICAL: _SICHINTF = _SICHINTF(268435456i32);
 pub const SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL: _SICHINTF = _SICHINTF(536870912i32);
+impl ::core::marker::Copy for _SICHINTF {}
+impl ::core::clone::Clone for _SICHINTF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _SPBEGINF(pub i32);
 pub const SPBEGINF_NORMAL: _SPBEGINF = _SPBEGINF(0i32);
@@ -10210,17 +11692,35 @@ pub const SPBEGINF_AUTOTIME: _SPBEGINF = _SPBEGINF(2i32);
 pub const SPBEGINF_NOPROGRESSBAR: _SPBEGINF = _SPBEGINF(16i32);
 pub const SPBEGINF_MARQUEEPROGRESS: _SPBEGINF = _SPBEGINF(32i32);
 pub const SPBEGINF_NOCANCELBUTTON: _SPBEGINF = _SPBEGINF(64i32);
+impl ::core::marker::Copy for _SPBEGINF {}
+impl ::core::clone::Clone for _SPBEGINF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _SPINITF(pub i32);
 pub const SPINITF_NORMAL: _SPINITF = _SPINITF(0i32);
 pub const SPINITF_MODAL: _SPINITF = _SPINITF(1i32);
 pub const SPINITF_NOMINIMIZE: _SPINITF = _SPINITF(8i32);
+impl ::core::marker::Copy for _SPINITF {}
+impl ::core::clone::Clone for _SPINITF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _SV3CVW3_FLAGS(pub i32);
 pub const SV3CVW3_DEFAULT: _SV3CVW3_FLAGS = _SV3CVW3_FLAGS(0i32);
 pub const SV3CVW3_NONINTERACTIVE: _SV3CVW3_FLAGS = _SV3CVW3_FLAGS(1i32);
 pub const SV3CVW3_FORCEVIEWMODE: _SV3CVW3_FLAGS = _SV3CVW3_FLAGS(2i32);
 pub const SV3CVW3_FORCEFOLDERFLAGS: _SV3CVW3_FLAGS = _SV3CVW3_FLAGS(4i32);
+impl ::core::marker::Copy for _SV3CVW3_FLAGS {}
+impl ::core::clone::Clone for _SV3CVW3_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _SVGIO(pub i32);
 pub const SVGIO_BACKGROUND: _SVGIO = _SVGIO(0i32);
@@ -10229,6 +11729,12 @@ pub const SVGIO_ALLVIEW: _SVGIO = _SVGIO(2i32);
 pub const SVGIO_CHECKED: _SVGIO = _SVGIO(3i32);
 pub const SVGIO_TYPE_MASK: _SVGIO = _SVGIO(15i32);
 pub const SVGIO_FLAG_VIEWORDER: _SVGIO = _SVGIO(-2147483648i32);
+impl ::core::marker::Copy for _SVGIO {}
+impl ::core::clone::Clone for _SVGIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _SVSIF(pub i32);
 pub const SVSI_DESELECT: _SVSIF = _SVSIF(0i32);
@@ -10244,12 +11750,24 @@ pub const SVSI_CHECK: _SVSIF = _SVSIF(256i32);
 pub const SVSI_CHECK2: _SVSIF = _SVSIF(512i32);
 pub const SVSI_KEYBOARDSELECT: _SVSIF = _SVSIF(1025i32);
 pub const SVSI_NOTAKEFOCUS: _SVSIF = _SVSIF(1073741824i32);
+impl ::core::marker::Copy for _SVSIF {}
+impl ::core::clone::Clone for _SVSIF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _TRANSFER_ADVISE_STATE(pub i32);
 pub const TS_NONE: _TRANSFER_ADVISE_STATE = _TRANSFER_ADVISE_STATE(0i32);
 pub const TS_PERFORMING: _TRANSFER_ADVISE_STATE = _TRANSFER_ADVISE_STATE(1i32);
 pub const TS_PREPARING: _TRANSFER_ADVISE_STATE = _TRANSFER_ADVISE_STATE(2i32);
 pub const TS_INDETERMINATE: _TRANSFER_ADVISE_STATE = _TRANSFER_ADVISE_STATE(4i32);
+impl ::core::marker::Copy for _TRANSFER_ADVISE_STATE {}
+impl ::core::clone::Clone for _TRANSFER_ADVISE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _TRANSFER_SOURCE_FLAGS(pub i32);
 pub const TSF_NORMAL: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(0i32);
@@ -10266,6 +11784,12 @@ pub const TSF_COPY_HARD_LINK: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(25
 pub const TSF_COPY_LOCALIZED_NAME: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(512i32);
 pub const TSF_MOVE_AS_COPY_DELETE: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(1024i32);
 pub const TSF_SUSPEND_SHELLEVENTS: _TRANSFER_SOURCE_FLAGS = _TRANSFER_SOURCE_FLAGS(2048i32);
+impl ::core::marker::Copy for _TRANSFER_SOURCE_FLAGS {}
+impl ::core::clone::Clone for _TRANSFER_SOURCE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct iurl_invokecommand_flags(pub i32);
 pub const IURL_INVOKECOMMAND_FL_ALLOW_UI: iurl_invokecommand_flags = iurl_invokecommand_flags(1i32);
@@ -10273,21 +11797,51 @@ pub const IURL_INVOKECOMMAND_FL_USE_DEFAULT_VERB: iurl_invokecommand_flags = iur
 pub const IURL_INVOKECOMMAND_FL_DDEWAIT: iurl_invokecommand_flags = iurl_invokecommand_flags(4i32);
 pub const IURL_INVOKECOMMAND_FL_ASYNCOK: iurl_invokecommand_flags = iurl_invokecommand_flags(8i32);
 pub const IURL_INVOKECOMMAND_FL_LOG_USAGE: iurl_invokecommand_flags = iurl_invokecommand_flags(16i32);
+impl ::core::marker::Copy for iurl_invokecommand_flags {}
+impl ::core::clone::Clone for iurl_invokecommand_flags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct iurl_seturl_flags(pub i32);
 pub const IURL_SETURL_FL_GUESS_PROTOCOL: iurl_seturl_flags = iurl_seturl_flags(1i32);
 pub const IURL_SETURL_FL_USE_DEFAULT_PROTOCOL: iurl_seturl_flags = iurl_seturl_flags(2i32);
+impl ::core::marker::Copy for iurl_seturl_flags {}
+impl ::core::clone::Clone for iurl_seturl_flags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct mimeassociationdialog_in_flags(pub i32);
 pub const MIMEASSOCDLG_FL_REGISTER_ASSOC: mimeassociationdialog_in_flags = mimeassociationdialog_in_flags(1i32);
+impl ::core::marker::Copy for mimeassociationdialog_in_flags {}
+impl ::core::clone::Clone for mimeassociationdialog_in_flags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct translateurl_in_flags(pub i32);
 pub const TRANSLATEURL_FL_GUESS_PROTOCOL: translateurl_in_flags = translateurl_in_flags(1i32);
 pub const TRANSLATEURL_FL_USE_DEFAULT_PROTOCOL: translateurl_in_flags = translateurl_in_flags(2i32);
+impl ::core::marker::Copy for translateurl_in_flags {}
+impl ::core::clone::Clone for translateurl_in_flags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct urlassociationdialog_in_flags(pub i32);
 pub const URLASSOCDLG_FL_USE_DEFAULT_NAME: urlassociationdialog_in_flags = urlassociationdialog_in_flags(1i32);
 pub const URLASSOCDLG_FL_REGISTER_ASSOC: urlassociationdialog_in_flags = urlassociationdialog_in_flags(2i32);
+impl ::core::marker::Copy for urlassociationdialog_in_flags {}
+impl ::core::clone::Clone for urlassociationdialog_in_flags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct urlinvokecommandinfoA {

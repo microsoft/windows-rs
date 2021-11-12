@@ -126,6 +126,12 @@ pub struct CH_DESCRIPTION_TYPE(pub i32);
 pub const ch_description_type_logical: CH_DESCRIPTION_TYPE = CH_DESCRIPTION_TYPE(1i32);
 pub const ch_description_type_center_frequency: CH_DESCRIPTION_TYPE = CH_DESCRIPTION_TYPE(2i32);
 pub const ch_description_type_phy_specific: CH_DESCRIPTION_TYPE = CH_DESCRIPTION_TYPE(3i32);
+impl ::core::marker::Copy for CH_DESCRIPTION_TYPE {}
+impl ::core::clone::Clone for CH_DESCRIPTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_InfraCast_AccessPointBssid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
@@ -380,6 +386,12 @@ pub const dot11_AC_param_BK: DOT11_AC_PARAM = DOT11_AC_PARAM(1i32);
 pub const dot11_AC_param_VI: DOT11_AC_PARAM = DOT11_AC_PARAM(2i32);
 pub const dot11_AC_param_VO: DOT11_AC_PARAM = DOT11_AC_PARAM(3i32);
 pub const dot11_AC_param_max: DOT11_AC_PARAM = DOT11_AC_PARAM(4i32);
+impl ::core::marker::Copy for DOT11_AC_PARAM {}
+impl ::core::clone::Clone for DOT11_AC_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ADDITIONAL_IE {
@@ -403,17 +415,35 @@ pub struct DOT11_ADHOC_AUTH_ALGORITHM(pub i32);
 pub const DOT11_ADHOC_AUTH_ALGO_INVALID: DOT11_ADHOC_AUTH_ALGORITHM = DOT11_ADHOC_AUTH_ALGORITHM(-1i32);
 pub const DOT11_ADHOC_AUTH_ALGO_80211_OPEN: DOT11_ADHOC_AUTH_ALGORITHM = DOT11_ADHOC_AUTH_ALGORITHM(1i32);
 pub const DOT11_ADHOC_AUTH_ALGO_RSNA_PSK: DOT11_ADHOC_AUTH_ALGORITHM = DOT11_ADHOC_AUTH_ALGORITHM(7i32);
+impl ::core::marker::Copy for DOT11_ADHOC_AUTH_ALGORITHM {}
+impl ::core::clone::Clone for DOT11_ADHOC_AUTH_ALGORITHM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_ADHOC_CIPHER_ALGORITHM(pub i32);
 pub const DOT11_ADHOC_CIPHER_ALGO_INVALID: DOT11_ADHOC_CIPHER_ALGORITHM = DOT11_ADHOC_CIPHER_ALGORITHM(-1i32);
 pub const DOT11_ADHOC_CIPHER_ALGO_NONE: DOT11_ADHOC_CIPHER_ALGORITHM = DOT11_ADHOC_CIPHER_ALGORITHM(0i32);
 pub const DOT11_ADHOC_CIPHER_ALGO_CCMP: DOT11_ADHOC_CIPHER_ALGORITHM = DOT11_ADHOC_CIPHER_ALGORITHM(4i32);
 pub const DOT11_ADHOC_CIPHER_ALGO_WEP: DOT11_ADHOC_CIPHER_ALGORITHM = DOT11_ADHOC_CIPHER_ALGORITHM(257i32);
+impl ::core::marker::Copy for DOT11_ADHOC_CIPHER_ALGORITHM {}
+impl ::core::clone::Clone for DOT11_ADHOC_CIPHER_ALGORITHM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_ADHOC_CONNECT_FAIL_REASON(pub i32);
 pub const DOT11_ADHOC_CONNECT_FAIL_DOMAIN_MISMATCH: DOT11_ADHOC_CONNECT_FAIL_REASON = DOT11_ADHOC_CONNECT_FAIL_REASON(0i32);
 pub const DOT11_ADHOC_CONNECT_FAIL_PASSPHRASE_MISMATCH: DOT11_ADHOC_CONNECT_FAIL_REASON = DOT11_ADHOC_CONNECT_FAIL_REASON(1i32);
 pub const DOT11_ADHOC_CONNECT_FAIL_OTHER: DOT11_ADHOC_CONNECT_FAIL_REASON = DOT11_ADHOC_CONNECT_FAIL_REASON(2i32);
+impl ::core::marker::Copy for DOT11_ADHOC_CONNECT_FAIL_REASON {}
+impl ::core::clone::Clone for DOT11_ADHOC_CONNECT_FAIL_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_ADHOC_NETWORK_CONNECTION_STATUS(pub i32);
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_INVALID: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = DOT11_ADHOC_NETWORK_CONNECTION_STATUS(0i32);
@@ -421,6 +451,12 @@ pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_DISCONNECTED: DOT11_ADHOC_NETWOR
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTING: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = DOT11_ADHOC_NETWORK_CONNECTION_STATUS(12i32);
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = DOT11_ADHOC_NETWORK_CONNECTION_STATUS(13i32);
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_FORMED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = DOT11_ADHOC_NETWORK_CONNECTION_STATUS(14i32);
+impl ::core::marker::Copy for DOT11_ADHOC_NETWORK_CONNECTION_STATUS {}
+impl ::core::clone::Clone for DOT11_ADHOC_NETWORK_CONNECTION_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
@@ -448,6 +484,12 @@ pub const dot11_ANQP_query_result_advertisement_protocol_not_supported_on_remote
 pub const dot11_ANQP_query_result_gas_protocol_failure: DOT11_ANQP_QUERY_RESULT = DOT11_ANQP_QUERY_RESULT(5i32);
 pub const dot11_ANQP_query_result_advertisement_server_not_responding: DOT11_ANQP_QUERY_RESULT = DOT11_ANQP_QUERY_RESULT(6i32);
 pub const dot11_ANQP_query_result_access_issues: DOT11_ANQP_QUERY_RESULT = DOT11_ANQP_QUERY_RESULT(7i32);
+impl ::core::marker::Copy for DOT11_ANQP_QUERY_RESULT {}
+impl ::core::clone::Clone for DOT11_ANQP_QUERY_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DOT11_AP_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
@@ -581,6 +623,12 @@ pub const dot11_assoc_state_zero: DOT11_ASSOCIATION_STATE = DOT11_ASSOCIATION_ST
 pub const dot11_assoc_state_unauth_unassoc: DOT11_ASSOCIATION_STATE = DOT11_ASSOCIATION_STATE(1i32);
 pub const dot11_assoc_state_auth_unassoc: DOT11_ASSOCIATION_STATE = DOT11_ASSOCIATION_STATE(2i32);
 pub const dot11_assoc_state_auth_assoc: DOT11_ASSOCIATION_STATE = DOT11_ASSOCIATION_STATE(3i32);
+impl ::core::marker::Copy for DOT11_ASSOCIATION_STATE {}
+impl ::core::clone::Clone for DOT11_ASSOCIATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_ASSOC_ERROR_SOURCE_OS: u32 = 0u32;
 pub const DOT11_ASSOC_ERROR_SOURCE_OTHER: u32 = 255u32;
 pub const DOT11_ASSOC_ERROR_SOURCE_REMOTE: u32 = 1u32;
@@ -601,6 +649,12 @@ pub const DOT11_AUTH_ALGO_OWE: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(10i32
 pub const DOT11_AUTH_ALGO_WPA3_ENT: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(11i32);
 pub const DOT11_AUTH_ALGO_IHV_START: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(-2147483648i32);
 pub const DOT11_AUTH_ALGO_IHV_END: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(-1i32);
+impl ::core::marker::Copy for DOT11_AUTH_ALGORITHM {}
+impl ::core::clone::Clone for DOT11_AUTH_ALGORITHM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_AUTH_ALGORITHM_LIST {
@@ -686,6 +740,12 @@ pub struct DOT11_BAND(pub i32);
 pub const dot11_band_2p4g: DOT11_BAND = DOT11_BAND(1i32);
 pub const dot11_band_4p9g: DOT11_BAND = DOT11_BAND(2i32);
 pub const dot11_band_5g: DOT11_BAND = DOT11_BAND(3i32);
+impl ::core::marker::Copy for DOT11_BAND {}
+impl ::core::clone::Clone for DOT11_BAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DOT11_BSSID_CANDIDATE {
     pub BSSID: [u8; 6],
@@ -784,6 +844,12 @@ pub struct DOT11_BSS_TYPE(pub i32);
 pub const dot11_BSS_type_infrastructure: DOT11_BSS_TYPE = DOT11_BSS_TYPE(1i32);
 pub const dot11_BSS_type_independent: DOT11_BSS_TYPE = DOT11_BSS_TYPE(2i32);
 pub const dot11_BSS_type_any: DOT11_BSS_TYPE = DOT11_BSS_TYPE(3i32);
+impl ::core::marker::Copy for DOT11_BSS_TYPE {}
+impl ::core::clone::Clone for DOT11_BSS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_BYTE_ARRAY {
@@ -862,6 +928,12 @@ pub const DOT11_CIPHER_ALGO_RSN_USE_GROUP: DOT11_CIPHER_ALGORITHM = DOT11_CIPHER
 pub const DOT11_CIPHER_ALGO_WEP: DOT11_CIPHER_ALGORITHM = DOT11_CIPHER_ALGORITHM(257i32);
 pub const DOT11_CIPHER_ALGO_IHV_START: DOT11_CIPHER_ALGORITHM = DOT11_CIPHER_ALGORITHM(-2147483648i32);
 pub const DOT11_CIPHER_ALGO_IHV_END: DOT11_CIPHER_ALGORITHM = DOT11_CIPHER_ALGORITHM(-1i32);
+impl ::core::marker::Copy for DOT11_CIPHER_ALGORITHM {}
+impl ::core::clone::Clone for DOT11_CIPHER_ALGORITHM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_CIPHER_ALGORITHM_LIST {
@@ -1111,6 +1183,12 @@ pub struct DOT11_DIRECTION(pub i32);
 pub const DOT11_DIR_INBOUND: DOT11_DIRECTION = DOT11_DIRECTION(1i32);
 pub const DOT11_DIR_OUTBOUND: DOT11_DIRECTION = DOT11_DIRECTION(2i32);
 pub const DOT11_DIR_BOTH: DOT11_DIRECTION = DOT11_DIRECTION(3i32);
+impl ::core::marker::Copy for DOT11_DIRECTION {}
+impl ::core::clone::Clone for DOT11_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_DISASSOCIATE_PEER_REQUEST {
@@ -1180,11 +1258,23 @@ pub const dot11_diversity_support_unknown: DOT11_DIVERSITY_SUPPORT = DOT11_DIVER
 pub const dot11_diversity_support_fixedlist: DOT11_DIVERSITY_SUPPORT = DOT11_DIVERSITY_SUPPORT(1i32);
 pub const dot11_diversity_support_notsupported: DOT11_DIVERSITY_SUPPORT = DOT11_DIVERSITY_SUPPORT(2i32);
 pub const dot11_diversity_support_dynamic: DOT11_DIVERSITY_SUPPORT = DOT11_DIVERSITY_SUPPORT(3i32);
+impl ::core::marker::Copy for DOT11_DIVERSITY_SUPPORT {}
+impl ::core::clone::Clone for DOT11_DIVERSITY_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_DS_INFO(pub i32);
 pub const DOT11_DS_CHANGED: DOT11_DS_INFO = DOT11_DS_INFO(0i32);
 pub const DOT11_DS_UNCHANGED: DOT11_DS_INFO = DOT11_DS_INFO(1i32);
 pub const DOT11_DS_UNKNOWN: DOT11_DS_INFO = DOT11_DS_INFO(2i32);
+impl ::core::marker::Copy for DOT11_DS_INFO {}
+impl ::core::clone::Clone for DOT11_DS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_ENCAP_802_1H: u32 = 2u32;
 #[repr(C)]
 pub struct DOT11_ENCAP_ENTRY {
@@ -1476,6 +1566,12 @@ pub struct DOT11_HOP_ALGO_ADOPTED(pub i32);
 pub const dot11_hop_algo_current: DOT11_HOP_ALGO_ADOPTED = DOT11_HOP_ALGO_ADOPTED(0i32);
 pub const dot11_hop_algo_hop_index: DOT11_HOP_ALGO_ADOPTED = DOT11_HOP_ALGO_ADOPTED(1i32);
 pub const dot11_hop_algo_hcc: DOT11_HOP_ALGO_ADOPTED = DOT11_HOP_ALGO_ADOPTED(2i32);
+impl ::core::marker::Copy for DOT11_HOP_ALGO_ADOPTED {}
+impl ::core::clone::Clone for DOT11_HOP_ALGO_ADOPTED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
@@ -1764,6 +1860,12 @@ pub struct DOT11_KEY_DIRECTION(pub i32);
 pub const dot11_key_direction_both: DOT11_KEY_DIRECTION = DOT11_KEY_DIRECTION(1i32);
 pub const dot11_key_direction_inbound: DOT11_KEY_DIRECTION = DOT11_KEY_DIRECTION(2i32);
 pub const dot11_key_direction_outbound: DOT11_KEY_DIRECTION = DOT11_KEY_DIRECTION(3i32);
+impl ::core::marker::Copy for DOT11_KEY_DIRECTION {}
+impl ::core::clone::Clone for DOT11_KEY_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DOT11_LINK_QUALITY_ENTRY {
     pub PeerMacAddr: [u8; 6],
@@ -1882,6 +1984,12 @@ pub const dot11_manufacturing_callback_self_test_complete: DOT11_MANUFACTURING_C
 pub const dot11_manufacturing_callback_sleep_complete: DOT11_MANUFACTURING_CALLBACK_TYPE = DOT11_MANUFACTURING_CALLBACK_TYPE(2i32);
 pub const dot11_manufacturing_callback_IHV_start: DOT11_MANUFACTURING_CALLBACK_TYPE = DOT11_MANUFACTURING_CALLBACK_TYPE(-2147483648i32);
 pub const dot11_manufacturing_callback_IHV_end: DOT11_MANUFACTURING_CALLBACK_TYPE = DOT11_MANUFACTURING_CALLBACK_TYPE(-1i32);
+impl ::core::marker::Copy for DOT11_MANUFACTURING_CALLBACK_TYPE {}
+impl ::core::clone::Clone for DOT11_MANUFACTURING_CALLBACK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     pub Dot11Band: DOT11_BAND,
@@ -1967,6 +2075,12 @@ pub struct DOT11_MANUFACTURING_SELF_TEST_TYPE(pub i32);
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = DOT11_MANUFACTURING_SELF_TEST_TYPE(1i32);
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_RF_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = DOT11_MANUFACTURING_SELF_TEST_TYPE(2i32);
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_BT_COEXISTENCE: DOT11_MANUFACTURING_SELF_TEST_TYPE = DOT11_MANUFACTURING_SELF_TEST_TYPE(3i32);
+impl ::core::marker::Copy for DOT11_MANUFACTURING_SELF_TEST_TYPE {}
+impl ::core::clone::Clone for DOT11_MANUFACTURING_SELF_TEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DOT11_MANUFACTURING_TEST {
     pub dot11ManufacturingTestType: DOT11_MANUFACTURING_TEST_TYPE,
@@ -2032,6 +2146,12 @@ pub const dot11_manufacturing_test_sleep: DOT11_MANUFACTURING_TEST_TYPE = DOT11_
 pub const dot11_manufacturing_test_awake: DOT11_MANUFACTURING_TEST_TYPE = DOT11_MANUFACTURING_TEST_TYPE(9i32);
 pub const dot11_manufacturing_test_IHV_start: DOT11_MANUFACTURING_TEST_TYPE = DOT11_MANUFACTURING_TEST_TYPE(-2147483648i32);
 pub const dot11_manufacturing_test_IHV_end: DOT11_MANUFACTURING_TEST_TYPE = DOT11_MANUFACTURING_TEST_TYPE(-1i32);
+impl ::core::marker::Copy for DOT11_MANUFACTURING_TEST_TYPE {}
+impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_MAX_CHANNEL_HINTS: u32 = 4u32;
 pub const DOT11_MAX_NUM_DEFAULT_KEY: u32 = 4u32;
 pub const DOT11_MAX_NUM_DEFAULT_KEY_MFP: u32 = 6u32;
@@ -2196,6 +2316,12 @@ pub const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u32 = 1u32;
 pub struct DOT11_OFFLOAD_TYPE(pub i32);
 pub const dot11_offload_type_wep: DOT11_OFFLOAD_TYPE = DOT11_OFFLOAD_TYPE(1i32);
 pub const dot11_offload_type_auth: DOT11_OFFLOAD_TYPE = DOT11_OFFLOAD_TYPE(2i32);
+impl ::core::marker::Copy for DOT11_OFFLOAD_TYPE {}
+impl ::core::clone::Clone for DOT11_OFFLOAD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DOT11_OI {
     pub OILength: u16,
@@ -2481,6 +2607,12 @@ pub const dot11_phy_type_dmg: DOT11_PHY_TYPE = DOT11_PHY_TYPE(9i32);
 pub const dot11_phy_type_he: DOT11_PHY_TYPE = DOT11_PHY_TYPE(10i32);
 pub const dot11_phy_type_IHV_start: DOT11_PHY_TYPE = DOT11_PHY_TYPE(-2147483648i32);
 pub const dot11_phy_type_IHV_end: DOT11_PHY_TYPE = DOT11_PHY_TYPE(-1i32);
+impl ::core::marker::Copy for DOT11_PHY_TYPE {}
+impl ::core::clone::Clone for DOT11_PHY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_PHY_TYPE_INFO {
@@ -2633,6 +2765,12 @@ pub struct DOT11_POWER_MODE(pub i32);
 pub const dot11_power_mode_unknown: DOT11_POWER_MODE = DOT11_POWER_MODE(0i32);
 pub const dot11_power_mode_active: DOT11_POWER_MODE = DOT11_POWER_MODE(1i32);
 pub const dot11_power_mode_powersave: DOT11_POWER_MODE = DOT11_POWER_MODE(2i32);
+impl ::core::marker::Copy for DOT11_POWER_MODE {}
+impl ::core::clone::Clone for DOT11_POWER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_POWER_MODE_REASON(pub i32);
 pub const dot11_power_mode_reason_no_change: DOT11_POWER_MODE_REASON = DOT11_POWER_MODE_REASON(0i32);
@@ -2641,6 +2779,12 @@ pub const dot11_power_mode_reason_legacy_WFD_device: DOT11_POWER_MODE_REASON = D
 pub const dot11_power_mode_reason_compliant_AP: DOT11_POWER_MODE_REASON = DOT11_POWER_MODE_REASON(3i32);
 pub const dot11_power_mode_reason_compliant_WFD_device: DOT11_POWER_MODE_REASON = DOT11_POWER_MODE_REASON(4i32);
 pub const dot11_power_mode_reason_others: DOT11_POWER_MODE_REASON = DOT11_POWER_MODE_REASON(5i32);
+impl ::core::marker::Copy for DOT11_POWER_MODE_REASON {}
+impl ::core::clone::Clone for DOT11_POWER_MODE_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_POWER_SAVE_LEVEL_FAST_PSP: u32 = 2u32;
 pub const DOT11_POWER_SAVE_LEVEL_MAX_PSP: u32 = 1u32;
 pub const DOT11_POWER_SAVING_FAST_PSP: u32 = 8u32;
@@ -2763,6 +2907,12 @@ pub struct DOT11_RADIO_STATE(pub i32);
 pub const dot11_radio_state_unknown: DOT11_RADIO_STATE = DOT11_RADIO_STATE(0i32);
 pub const dot11_radio_state_on: DOT11_RADIO_STATE = DOT11_RADIO_STATE(1i32);
 pub const dot11_radio_state_off: DOT11_RADIO_STATE = DOT11_RADIO_STATE(2i32);
+impl ::core::marker::Copy for DOT11_RADIO_STATE {}
+impl ::core::clone::Clone for DOT11_RADIO_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DOT11_RATE_SET {
     pub uRateSetLength: u32,
@@ -3063,6 +3213,12 @@ pub struct DOT11_RESET_TYPE(pub i32);
 pub const dot11_reset_type_phy: DOT11_RESET_TYPE = DOT11_RESET_TYPE(1i32);
 pub const dot11_reset_type_mac: DOT11_RESET_TYPE = DOT11_RESET_TYPE(2i32);
 pub const dot11_reset_type_phy_and_mac: DOT11_RESET_TYPE = DOT11_RESET_TYPE(3i32);
+impl ::core::marker::Copy for DOT11_RESET_TYPE {}
+impl ::core::clone::Clone for DOT11_RESET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ROAMING_COMPLETION_PARAMETERS {
@@ -3164,6 +3320,12 @@ pub const dot11_scan_type_active: DOT11_SCAN_TYPE = DOT11_SCAN_TYPE(1i32);
 pub const dot11_scan_type_passive: DOT11_SCAN_TYPE = DOT11_SCAN_TYPE(2i32);
 pub const dot11_scan_type_auto: DOT11_SCAN_TYPE = DOT11_SCAN_TYPE(3i32);
 pub const dot11_scan_type_forced: DOT11_SCAN_TYPE = DOT11_SCAN_TYPE(-2147483648i32);
+impl ::core::marker::Copy for DOT11_SCAN_TYPE {}
+impl ::core::clone::Clone for DOT11_SCAN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_SEND_CONTEXT_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -3577,6 +3739,12 @@ pub struct DOT11_TEMP_TYPE(pub i32);
 pub const dot11_temp_type_unknown: DOT11_TEMP_TYPE = DOT11_TEMP_TYPE(0i32);
 pub const dot11_temp_type_1: DOT11_TEMP_TYPE = DOT11_TEMP_TYPE(1i32);
 pub const dot11_temp_type_2: DOT11_TEMP_TYPE = DOT11_TEMP_TYPE(2i32);
+impl ::core::marker::Copy for DOT11_TEMP_TYPE {}
+impl ::core::clone::Clone for DOT11_TEMP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
@@ -3610,6 +3778,12 @@ impl ::core::clone::Clone for DOT11_UPDATE_IE {
 pub struct DOT11_UPDATE_IE_OP(pub i32);
 pub const dot11_update_ie_op_create_replace: DOT11_UPDATE_IE_OP = DOT11_UPDATE_IE_OP(1i32);
 pub const dot11_update_ie_op_delete: DOT11_UPDATE_IE_OP = DOT11_UPDATE_IE_OP(2i32);
+impl ::core::marker::Copy for DOT11_UPDATE_IE_OP {}
+impl ::core::clone::Clone for DOT11_UPDATE_IE_OP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DOT11_VENUEINFO {
     pub VenueGroup: u8,
@@ -4007,6 +4181,12 @@ pub const dot11_wfd_discover_type_find_only: DOT11_WFD_DISCOVER_TYPE = DOT11_WFD
 pub const dot11_wfd_discover_type_auto: DOT11_WFD_DISCOVER_TYPE = DOT11_WFD_DISCOVER_TYPE(3i32);
 pub const dot11_wfd_discover_type_scan_social_channels: DOT11_WFD_DISCOVER_TYPE = DOT11_WFD_DISCOVER_TYPE(4i32);
 pub const dot11_wfd_discover_type_forced: DOT11_WFD_DISCOVER_TYPE = DOT11_WFD_DISCOVER_TYPE(-2147483648i32);
+impl ::core::marker::Copy for DOT11_WFD_DISCOVER_TYPE {}
+impl ::core::clone::Clone for DOT11_WFD_DISCOVER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DOT11_WFD_GO_INTENT {
     pub _bitfield: u8,
@@ -4132,6 +4312,12 @@ pub struct DOT11_WFD_SCAN_TYPE(pub i32);
 pub const dot11_wfd_scan_type_active: DOT11_WFD_SCAN_TYPE = DOT11_WFD_SCAN_TYPE(1i32);
 pub const dot11_wfd_scan_type_passive: DOT11_WFD_SCAN_TYPE = DOT11_WFD_SCAN_TYPE(2i32);
 pub const dot11_wfd_scan_type_auto: DOT11_WFD_SCAN_TYPE = DOT11_WFD_SCAN_TYPE(3i32);
+impl ::core::marker::Copy for DOT11_WFD_SCAN_TYPE {}
+impl ::core::clone::Clone for DOT11_WFD_SCAN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
@@ -4253,6 +4439,12 @@ pub const DOT11_WPS_CONFIG_METHOD_NFC_INTERFACE: DOT11_WPS_CONFIG_METHOD = DOT11
 pub const DOT11_WPS_CONFIG_METHOD_PUSHBUTTON: DOT11_WPS_CONFIG_METHOD = DOT11_WPS_CONFIG_METHOD(128i32);
 pub const DOT11_WPS_CONFIG_METHOD_KEYPAD: DOT11_WPS_CONFIG_METHOD = DOT11_WPS_CONFIG_METHOD(256i32);
 pub const DOT11_WPS_CONFIG_METHOD_WFDS_DEFAULT: DOT11_WPS_CONFIG_METHOD = DOT11_WPS_CONFIG_METHOD(4096i32);
+impl ::core::marker::Copy for DOT11_WPS_CONFIG_METHOD {}
+impl ::core::clone::Clone for DOT11_WPS_CONFIG_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DOT11_WPS_DEVICE_NAME {
     pub uDeviceNameLength: u32,
@@ -4277,6 +4469,12 @@ pub const DOT11_WPS_PASSWORD_ID_NFC_CONNECTION_HANDOVER: DOT11_WPS_DEVICE_PASSWO
 pub const DOT11_WPS_PASSWORD_ID_WFD_SERVICES: DOT11_WPS_DEVICE_PASSWORD_ID = DOT11_WPS_DEVICE_PASSWORD_ID(8i32);
 pub const DOT11_WPS_PASSWORD_ID_OOB_RANGE_MIN: DOT11_WPS_DEVICE_PASSWORD_ID = DOT11_WPS_DEVICE_PASSWORD_ID(16i32);
 pub const DOT11_WPS_PASSWORD_ID_OOB_RANGE_MAX: DOT11_WPS_DEVICE_PASSWORD_ID = DOT11_WPS_DEVICE_PASSWORD_ID(65535i32);
+impl ::core::marker::Copy for DOT11_WPS_DEVICE_PASSWORD_ID {}
+impl ::core::clone::Clone for DOT11_WPS_DEVICE_PASSWORD_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WPS_MAX_MODEL_NAME_LENGTH: u32 = 32u32;
 pub const DOT11_WPS_MAX_MODEL_NUMBER_LENGTH: u32 = 32u32;
 pub const DOT11_WPS_MAX_PASSKEY_LENGTH: u32 = 8u32;
@@ -4588,6 +4786,12 @@ pub const OneXAuthIdentityUser: ONEX_AUTH_IDENTITY = ONEX_AUTH_IDENTITY(2i32);
 pub const OneXAuthIdentityExplicitUser: ONEX_AUTH_IDENTITY = ONEX_AUTH_IDENTITY(3i32);
 pub const OneXAuthIdentityGuest: ONEX_AUTH_IDENTITY = ONEX_AUTH_IDENTITY(4i32);
 pub const OneXAuthIdentityInvalid: ONEX_AUTH_IDENTITY = ONEX_AUTH_IDENTITY(5i32);
+impl ::core::marker::Copy for ONEX_AUTH_IDENTITY {}
+impl ::core::clone::Clone for ONEX_AUTH_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ONEX_AUTH_PARAMS {
@@ -4622,6 +4826,12 @@ pub const OneXRestartReasonOneXUserChanged: ONEX_AUTH_RESTART_REASON = ONEX_AUTH
 pub const OneXRestartReasonQuarantineStateChanged: ONEX_AUTH_RESTART_REASON = ONEX_AUTH_RESTART_REASON(6i32);
 pub const OneXRestartReasonAltCredsTrial: ONEX_AUTH_RESTART_REASON = ONEX_AUTH_RESTART_REASON(7i32);
 pub const OneXRestartReasonInvalid: ONEX_AUTH_RESTART_REASON = ONEX_AUTH_RESTART_REASON(8i32);
+impl ::core::marker::Copy for ONEX_AUTH_RESTART_REASON {}
+impl ::core::clone::Clone for ONEX_AUTH_RESTART_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ONEX_AUTH_STATUS(pub i32);
 pub const OneXAuthNotStarted: ONEX_AUTH_STATUS = ONEX_AUTH_STATUS(0i32);
@@ -4630,6 +4840,12 @@ pub const OneXAuthNoAuthenticatorFound: ONEX_AUTH_STATUS = ONEX_AUTH_STATUS(2i32
 pub const OneXAuthSuccess: ONEX_AUTH_STATUS = ONEX_AUTH_STATUS(3i32);
 pub const OneXAuthFailure: ONEX_AUTH_STATUS = ONEX_AUTH_STATUS(4i32);
 pub const OneXAuthInvalid: ONEX_AUTH_STATUS = ONEX_AUTH_STATUS(5i32);
+impl ::core::marker::Copy for ONEX_AUTH_STATUS {}
+impl ::core::clone::Clone for ONEX_AUTH_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 pub struct ONEX_EAP_ERROR {
@@ -4656,6 +4872,12 @@ pub struct ONEX_EAP_METHOD_BACKEND_SUPPORT(pub i32);
 pub const OneXEapMethodBackendSupportUnknown: ONEX_EAP_METHOD_BACKEND_SUPPORT = ONEX_EAP_METHOD_BACKEND_SUPPORT(0i32);
 pub const OneXEapMethodBackendSupported: ONEX_EAP_METHOD_BACKEND_SUPPORT = ONEX_EAP_METHOD_BACKEND_SUPPORT(1i32);
 pub const OneXEapMethodBackendUnsupported: ONEX_EAP_METHOD_BACKEND_SUPPORT = ONEX_EAP_METHOD_BACKEND_SUPPORT(2i32);
+impl ::core::marker::Copy for ONEX_EAP_METHOD_BACKEND_SUPPORT {}
+impl ::core::clone::Clone for ONEX_EAP_METHOD_BACKEND_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ONEX_NOTIFICATION_TYPE(pub i32);
 pub const OneXPublicNotificationBase: ONEX_NOTIFICATION_TYPE = ONEX_NOTIFICATION_TYPE(0i32);
@@ -4663,6 +4885,12 @@ pub const OneXNotificationTypeResultUpdate: ONEX_NOTIFICATION_TYPE = ONEX_NOTIFI
 pub const OneXNotificationTypeAuthRestarted: ONEX_NOTIFICATION_TYPE = ONEX_NOTIFICATION_TYPE(2i32);
 pub const OneXNotificationTypeEventInvalid: ONEX_NOTIFICATION_TYPE = ONEX_NOTIFICATION_TYPE(3i32);
 pub const OneXNumNotifications: ONEX_NOTIFICATION_TYPE = ONEX_NOTIFICATION_TYPE(3i32);
+impl ::core::marker::Copy for ONEX_NOTIFICATION_TYPE {}
+impl ::core::clone::Clone for ONEX_NOTIFICATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ONEX_REASON_CODE(pub i32);
 pub const ONEX_REASON_CODE_SUCCESS: ONEX_REASON_CODE = ONEX_REASON_CODE(0i32);
@@ -4687,6 +4915,12 @@ pub const ONEX_UI_CANCELLED: ONEX_REASON_CODE = ONEX_REASON_CODE(327697i32);
 pub const ONEX_PROFILE_INVALID_EXPLICIT_CREDENTIALS: ONEX_REASON_CODE = ONEX_REASON_CODE(327698i32);
 pub const ONEX_PROFILE_EXPIRED_EXPLICIT_CREDENTIALS: ONEX_REASON_CODE = ONEX_REASON_CODE(327699i32);
 pub const ONEX_UI_NOT_PERMITTED: ONEX_REASON_CODE = ONEX_REASON_CODE(327700i32);
+impl ::core::marker::Copy for ONEX_REASON_CODE {}
+impl ::core::clone::Clone for ONEX_REASON_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ONEX_RESULT_UPDATE_DATA {
@@ -4781,10 +5015,22 @@ pub const WFD_ROLE_TYPE_DEVICE: WFD_ROLE_TYPE = WFD_ROLE_TYPE(1i32);
 pub const WFD_ROLE_TYPE_GROUP_OWNER: WFD_ROLE_TYPE = WFD_ROLE_TYPE(2i32);
 pub const WFD_ROLE_TYPE_CLIENT: WFD_ROLE_TYPE = WFD_ROLE_TYPE(4i32);
 pub const WFD_ROLE_TYPE_MAX: WFD_ROLE_TYPE = WFD_ROLE_TYPE(5i32);
+impl ::core::marker::Copy for WFD_ROLE_TYPE {}
+impl ::core::clone::Clone for WFD_ROLE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_ADHOC_NETWORK_STATE(pub i32);
 pub const wlan_adhoc_network_state_formed: WLAN_ADHOC_NETWORK_STATE = WLAN_ADHOC_NETWORK_STATE(0i32);
 pub const wlan_adhoc_network_state_connected: WLAN_ADHOC_NETWORK_STATE = WLAN_ADHOC_NETWORK_STATE(1i32);
+impl ::core::marker::Copy for WLAN_ADHOC_NETWORK_STATE {}
+impl ::core::clone::Clone for WLAN_ADHOC_NETWORK_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WLAN_API_VERSION: u32 = 2u32;
 pub const WLAN_API_VERSION_1_0: u32 = 1u32;
 pub const WLAN_API_VERSION_2_0: u32 = 2u32;
@@ -4826,6 +5072,12 @@ pub const wlan_autoconf_opcode_allow_explicit_creds: WLAN_AUTOCONF_OPCODE = WLAN
 pub const wlan_autoconf_opcode_block_period: WLAN_AUTOCONF_OPCODE = WLAN_AUTOCONF_OPCODE(5i32);
 pub const wlan_autoconf_opcode_allow_virtual_station_extensibility: WLAN_AUTOCONF_OPCODE = WLAN_AUTOCONF_OPCODE(6i32);
 pub const wlan_autoconf_opcode_end: WLAN_AUTOCONF_OPCODE = WLAN_AUTOCONF_OPCODE(7i32);
+impl ::core::marker::Copy for WLAN_AUTOCONF_OPCODE {}
+impl ::core::clone::Clone for WLAN_AUTOCONF_OPCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_AVAILABLE_NETWORK {
@@ -4996,6 +5248,12 @@ pub const wlan_connection_mode_discovery_secure: WLAN_CONNECTION_MODE = WLAN_CON
 pub const wlan_connection_mode_discovery_unsecure: WLAN_CONNECTION_MODE = WLAN_CONNECTION_MODE(3i32);
 pub const wlan_connection_mode_auto: WLAN_CONNECTION_MODE = WLAN_CONNECTION_MODE(4i32);
 pub const wlan_connection_mode_invalid: WLAN_CONNECTION_MODE = WLAN_CONNECTION_MODE(5i32);
+impl ::core::marker::Copy for WLAN_CONNECTION_MODE {}
+impl ::core::clone::Clone for WLAN_CONNECTION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_CONNECTION_NOTIFICATION_DATA {
@@ -5020,6 +5278,12 @@ impl ::core::clone::Clone for WLAN_CONNECTION_NOTIFICATION_DATA {
 pub struct WLAN_CONNECTION_NOTIFICATION_FLAGS(pub u32);
 pub const WLAN_CONNECTION_NOTIFICATION_ADHOC_NETWORK_FORMED: WLAN_CONNECTION_NOTIFICATION_FLAGS = WLAN_CONNECTION_NOTIFICATION_FLAGS(1u32);
 pub const WLAN_CONNECTION_NOTIFICATION_CONSOLE_USER_PROFILE: WLAN_CONNECTION_NOTIFICATION_FLAGS = WLAN_CONNECTION_NOTIFICATION_FLAGS(4u32);
+impl ::core::marker::Copy for WLAN_CONNECTION_NOTIFICATION_FLAGS {}
+impl ::core::clone::Clone for WLAN_CONNECTION_NOTIFICATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct WLAN_CONNECTION_PARAMETERS {
@@ -5103,6 +5367,12 @@ pub const wlan_filter_list_type_gp_permit: WLAN_FILTER_LIST_TYPE = WLAN_FILTER_L
 pub const wlan_filter_list_type_gp_deny: WLAN_FILTER_LIST_TYPE = WLAN_FILTER_LIST_TYPE(1i32);
 pub const wlan_filter_list_type_user_permit: WLAN_FILTER_LIST_TYPE = WLAN_FILTER_LIST_TYPE(2i32);
 pub const wlan_filter_list_type_user_deny: WLAN_FILTER_LIST_TYPE = WLAN_FILTER_LIST_TYPE(3i32);
+impl ::core::marker::Copy for WLAN_FILTER_LIST_TYPE {}
+impl ::core::clone::Clone for WLAN_FILTER_LIST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     pub hostedNetworkSSID: DOT11_SSID,
@@ -5131,16 +5401,34 @@ pub struct WLAN_HOSTED_NETWORK_NOTIFICATION_CODE(pub i32);
 pub const wlan_hosted_network_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = WLAN_HOSTED_NETWORK_NOTIFICATION_CODE(4096i32);
 pub const wlan_hosted_network_peer_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = WLAN_HOSTED_NETWORK_NOTIFICATION_CODE(4097i32);
 pub const wlan_hosted_network_radio_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = WLAN_HOSTED_NETWORK_NOTIFICATION_CODE(4098i32);
+impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {}
+impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_HOSTED_NETWORK_OPCODE(pub i32);
 pub const wlan_hosted_network_opcode_connection_settings: WLAN_HOSTED_NETWORK_OPCODE = WLAN_HOSTED_NETWORK_OPCODE(0i32);
 pub const wlan_hosted_network_opcode_security_settings: WLAN_HOSTED_NETWORK_OPCODE = WLAN_HOSTED_NETWORK_OPCODE(1i32);
 pub const wlan_hosted_network_opcode_station_profile: WLAN_HOSTED_NETWORK_OPCODE = WLAN_HOSTED_NETWORK_OPCODE(2i32);
 pub const wlan_hosted_network_opcode_enable: WLAN_HOSTED_NETWORK_OPCODE = WLAN_HOSTED_NETWORK_OPCODE(3i32);
+impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_OPCODE {}
+impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_OPCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_HOSTED_NETWORK_PEER_AUTH_STATE(pub i32);
 pub const wlan_hosted_network_peer_state_invalid: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = WLAN_HOSTED_NETWORK_PEER_AUTH_STATE(0i32);
 pub const wlan_hosted_network_peer_state_authenticated: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = WLAN_HOSTED_NETWORK_PEER_AUTH_STATE(1i32);
+impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {}
+impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WLAN_HOSTED_NETWORK_PEER_STATE {
     pub PeerMacAddress: [u8; 6],
@@ -5194,6 +5482,12 @@ pub const wlan_hosted_network_reason_device_change: WLAN_HOSTED_NETWORK_REASON =
 pub const wlan_hosted_network_reason_properties_change: WLAN_HOSTED_NETWORK_REASON = WLAN_HOSTED_NETWORK_REASON(26i32);
 pub const wlan_hosted_network_reason_virtual_station_blocking_use: WLAN_HOSTED_NETWORK_REASON = WLAN_HOSTED_NETWORK_REASON(27i32);
 pub const wlan_hosted_network_reason_service_available_on_virtual_station: WLAN_HOSTED_NETWORK_REASON = WLAN_HOSTED_NETWORK_REASON(28i32);
+impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_REASON {}
+impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     pub dot11AuthAlgo: DOT11_AUTH_ALGORITHM,
@@ -5210,6 +5504,12 @@ pub struct WLAN_HOSTED_NETWORK_STATE(pub i32);
 pub const wlan_hosted_network_unavailable: WLAN_HOSTED_NETWORK_STATE = WLAN_HOSTED_NETWORK_STATE(0i32);
 pub const wlan_hosted_network_idle: WLAN_HOSTED_NETWORK_STATE = WLAN_HOSTED_NETWORK_STATE(1i32);
 pub const wlan_hosted_network_active: WLAN_HOSTED_NETWORK_STATE = WLAN_HOSTED_NETWORK_STATE(2i32);
+impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_STATE {}
+impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WLAN_HOSTED_NETWORK_STATE_CHANGE {
     pub OldState: WLAN_HOSTED_NETWORK_STATE,
@@ -5242,6 +5542,12 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_STATUS {
 pub struct WLAN_IHV_CONTROL_TYPE(pub i32);
 pub const wlan_ihv_control_type_service: WLAN_IHV_CONTROL_TYPE = WLAN_IHV_CONTROL_TYPE(0i32);
 pub const wlan_ihv_control_type_driver: WLAN_IHV_CONTROL_TYPE = WLAN_IHV_CONTROL_TYPE(1i32);
+impl ::core::marker::Copy for WLAN_IHV_CONTROL_TYPE {}
+impl ::core::clone::Clone for WLAN_IHV_CONTROL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_INTERFACE_CAPABILITY {
@@ -5294,11 +5600,23 @@ pub const wlan_interface_state_disconnected: WLAN_INTERFACE_STATE = WLAN_INTERFA
 pub const wlan_interface_state_associating: WLAN_INTERFACE_STATE = WLAN_INTERFACE_STATE(5i32);
 pub const wlan_interface_state_discovering: WLAN_INTERFACE_STATE = WLAN_INTERFACE_STATE(6i32);
 pub const wlan_interface_state_authenticating: WLAN_INTERFACE_STATE = WLAN_INTERFACE_STATE(7i32);
+impl ::core::marker::Copy for WLAN_INTERFACE_STATE {}
+impl ::core::clone::Clone for WLAN_INTERFACE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_INTERFACE_TYPE(pub i32);
 pub const wlan_interface_type_emulated_802_11: WLAN_INTERFACE_TYPE = WLAN_INTERFACE_TYPE(0i32);
 pub const wlan_interface_type_native_802_11: WLAN_INTERFACE_TYPE = WLAN_INTERFACE_TYPE(1i32);
 pub const wlan_interface_type_invalid: WLAN_INTERFACE_TYPE = WLAN_INTERFACE_TYPE(2i32);
+impl ::core::marker::Copy for WLAN_INTERFACE_TYPE {}
+impl ::core::clone::Clone for WLAN_INTERFACE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_INTF_OPCODE(pub i32);
 pub const wlan_intf_opcode_autoconf_start: WLAN_INTF_OPCODE = WLAN_INTF_OPCODE(0i32);
@@ -5329,6 +5647,12 @@ pub const wlan_intf_opcode_security_start: WLAN_INTF_OPCODE = WLAN_INTF_OPCODE(5
 pub const wlan_intf_opcode_security_end: WLAN_INTF_OPCODE = WLAN_INTF_OPCODE(805306367i32);
 pub const wlan_intf_opcode_ihv_start: WLAN_INTF_OPCODE = WLAN_INTF_OPCODE(805306368i32);
 pub const wlan_intf_opcode_ihv_end: WLAN_INTF_OPCODE = WLAN_INTF_OPCODE(1073741823i32);
+impl ::core::marker::Copy for WLAN_INTF_OPCODE {}
+impl ::core::clone::Clone for WLAN_INTF_OPCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WLAN_MAC_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
@@ -5405,6 +5729,12 @@ pub const wlan_notification_acm_profile_blocked: WLAN_NOTIFICATION_ACM = WLAN_NO
 pub const wlan_notification_acm_scan_list_refresh: WLAN_NOTIFICATION_ACM = WLAN_NOTIFICATION_ACM(26i32);
 pub const wlan_notification_acm_operational_state_change: WLAN_NOTIFICATION_ACM = WLAN_NOTIFICATION_ACM(27i32);
 pub const wlan_notification_acm_end: WLAN_NOTIFICATION_ACM = WLAN_NOTIFICATION_ACM(28i32);
+impl ::core::marker::Copy for WLAN_NOTIFICATION_ACM {}
+impl ::core::clone::Clone for WLAN_NOTIFICATION_ACM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WLAN_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *mut L2_NOTIFICATION_DATA, param1: *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WLAN_NOTIFICATION_MSM(pub i32);
@@ -5426,10 +5756,22 @@ pub const wlan_notification_msm_adapter_operation_mode_change: WLAN_NOTIFICATION
 pub const wlan_notification_msm_link_degraded: WLAN_NOTIFICATION_MSM = WLAN_NOTIFICATION_MSM(15i32);
 pub const wlan_notification_msm_link_improved: WLAN_NOTIFICATION_MSM = WLAN_NOTIFICATION_MSM(16i32);
 pub const wlan_notification_msm_end: WLAN_NOTIFICATION_MSM = WLAN_NOTIFICATION_MSM(17i32);
+impl ::core::marker::Copy for WLAN_NOTIFICATION_MSM {}
+impl ::core::clone::Clone for WLAN_NOTIFICATION_MSM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_NOTIFICATION_SECURITY(pub i32);
 pub const wlan_notification_security_start: WLAN_NOTIFICATION_SECURITY = WLAN_NOTIFICATION_SECURITY(0i32);
 pub const wlan_notification_security_end: WLAN_NOTIFICATION_SECURITY = WLAN_NOTIFICATION_SECURITY(1i32);
+impl ::core::marker::Copy for WLAN_NOTIFICATION_SECURITY {}
+impl ::core::clone::Clone for WLAN_NOTIFICATION_SECURITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WLAN_NOTIFICATION_SOURCE_ACM: u32 = 8u32;
 pub const WLAN_NOTIFICATION_SOURCE_ALL: u32 = 65535u32;
 pub const WLAN_NOTIFICATION_SOURCE_DEVICE_SERVICE: u32 = 2048u32;
@@ -5445,6 +5787,12 @@ pub const wlan_opcode_value_type_query_only: WLAN_OPCODE_VALUE_TYPE = WLAN_OPCOD
 pub const wlan_opcode_value_type_set_by_group_policy: WLAN_OPCODE_VALUE_TYPE = WLAN_OPCODE_VALUE_TYPE(1i32);
 pub const wlan_opcode_value_type_set_by_user: WLAN_OPCODE_VALUE_TYPE = WLAN_OPCODE_VALUE_TYPE(2i32);
 pub const wlan_opcode_value_type_invalid: WLAN_OPCODE_VALUE_TYPE = WLAN_OPCODE_VALUE_TYPE(3i32);
+impl ::core::marker::Copy for WLAN_OPCODE_VALUE_TYPE {}
+impl ::core::clone::Clone for WLAN_OPCODE_VALUE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_OPERATIONAL_STATE(pub i32);
 pub const wlan_operational_state_unknown: WLAN_OPERATIONAL_STATE = WLAN_OPERATIONAL_STATE(0i32);
@@ -5452,6 +5800,12 @@ pub const wlan_operational_state_off: WLAN_OPERATIONAL_STATE = WLAN_OPERATIONAL_
 pub const wlan_operational_state_on: WLAN_OPERATIONAL_STATE = WLAN_OPERATIONAL_STATE(2i32);
 pub const wlan_operational_state_going_off: WLAN_OPERATIONAL_STATE = WLAN_OPERATIONAL_STATE(3i32);
 pub const wlan_operational_state_going_on: WLAN_OPERATIONAL_STATE = WLAN_OPERATIONAL_STATE(4i32);
+impl ::core::marker::Copy for WLAN_OPERATIONAL_STATE {}
+impl ::core::clone::Clone for WLAN_OPERATIONAL_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WLAN_PHY_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
@@ -5498,6 +5852,12 @@ pub const wlan_power_setting_low_saving: WLAN_POWER_SETTING = WLAN_POWER_SETTING
 pub const wlan_power_setting_medium_saving: WLAN_POWER_SETTING = WLAN_POWER_SETTING(2i32);
 pub const wlan_power_setting_maximum_saving: WLAN_POWER_SETTING = WLAN_POWER_SETTING(3i32);
 pub const wlan_power_setting_invalid: WLAN_POWER_SETTING = WLAN_POWER_SETTING(4i32);
+impl ::core::marker::Copy for WLAN_POWER_SETTING {}
+impl ::core::clone::Clone for WLAN_POWER_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WLAN_PROFILE_CONNECTION_MODE_AUTO: u32 = 131072u32;
 pub const WLAN_PROFILE_CONNECTION_MODE_SET_BY_CLIENT: u32 = 65536u32;
 pub const WLAN_PROFILE_GET_PLAINTEXT_KEY: u32 = 4u32;
@@ -5757,6 +6117,12 @@ pub const wlan_secure_hosted_network_elevated_access: WLAN_SECURABLE_OBJECT = WL
 pub const wlan_secure_virtual_station_extensibility: WLAN_SECURABLE_OBJECT = WLAN_SECURABLE_OBJECT(15i32);
 pub const wlan_secure_wfd_elevated_access: WLAN_SECURABLE_OBJECT = WLAN_SECURABLE_OBJECT(16i32);
 pub const WLAN_SECURABLE_OBJECT_COUNT: WLAN_SECURABLE_OBJECT = WLAN_SECURABLE_OBJECT(17i32);
+impl ::core::marker::Copy for WLAN_SECURABLE_OBJECT {}
+impl ::core::clone::Clone for WLAN_SECURABLE_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_SECURITY_ATTRIBUTES {
@@ -5776,6 +6142,12 @@ impl ::core::clone::Clone for WLAN_SECURITY_ATTRIBUTES {
 #[repr(transparent)]
 pub struct WLAN_SET_EAPHOST_FLAGS(pub u32);
 pub const WLAN_SET_EAPHOST_DATA_ALL_USERS: WLAN_SET_EAPHOST_FLAGS = WLAN_SET_EAPHOST_FLAGS(1u32);
+impl ::core::marker::Copy for WLAN_SET_EAPHOST_FLAGS {}
+impl ::core::clone::Clone for WLAN_SET_EAPHOST_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WLAN_STATISTICS {
     pub ullFourWayHandshakeFailures: u64,
@@ -5799,6 +6171,12 @@ pub struct WL_DISPLAY_PAGES(pub i32);
 pub const WLConnectionPage: WL_DISPLAY_PAGES = WL_DISPLAY_PAGES(0i32);
 pub const WLSecurityPage: WL_DISPLAY_PAGES = WL_DISPLAY_PAGES(1i32);
 pub const WLAdvPage: WL_DISPLAY_PAGES = WL_DISPLAY_PAGES(2i32);
+impl ::core::marker::Copy for WL_DISPLAY_PAGES {}
+impl ::core::clone::Clone for WL_DISPLAY_PAGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _DOT11_WME_AC_PARAMTERS_LIST {
     pub uNumOfEntries: u32,

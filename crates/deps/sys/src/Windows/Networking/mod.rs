@@ -25,6 +25,12 @@ impl DomainNameType {
     pub const Suffix: Self = Self(0i32);
     pub const FullyQualified: Self = Self(1i32);
 }
+impl ::core::marker::Copy for DomainNameType {}
+impl ::core::clone::Clone for DomainNameType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EndpointPair(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -35,6 +41,12 @@ impl HostNameSortOptions {
     pub const None: Self = Self(0u32);
     pub const OptimizeForLongConnections: Self = Self(2u32);
 }
+impl ::core::marker::Copy for HostNameSortOptions {}
+impl ::core::clone::Clone for HostNameSortOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HostNameType(pub i32);
 impl HostNameType {
@@ -42,6 +54,12 @@ impl HostNameType {
     pub const Ipv4: Self = Self(1i32);
     pub const Ipv6: Self = Self(2i32);
     pub const Bluetooth: Self = Self(3i32);
+}
+impl ::core::marker::Copy for HostNameType {}
+impl ::core::clone::Clone for HostNameType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IEndpointPair(pub *mut ::core::ffi::c_void);

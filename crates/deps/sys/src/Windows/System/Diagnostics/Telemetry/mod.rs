@@ -18,3 +18,9 @@ impl PlatformTelemetryRegistrationStatus {
     pub const SettingsOutOfRange: Self = Self(1i32);
     pub const UnknownFailure: Self = Self(2i32);
 }
+impl ::core::marker::Copy for PlatformTelemetryRegistrationStatus {}
+impl ::core::clone::Clone for PlatformTelemetryRegistrationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

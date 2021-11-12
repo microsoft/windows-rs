@@ -12,6 +12,12 @@ impl AltitudeReferenceSystem {
     pub const Geoid: Self = Self(3i32);
     pub const Surface: Self = Self(4i32);
 }
+impl ::core::marker::Copy for AltitudeReferenceSystem {}
+impl ::core::clone::Clone for AltitudeReferenceSystem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct BasicGeoposition {
     pub Latitude: f64,
@@ -41,6 +47,12 @@ impl GeolocationAccessStatus {
     pub const Allowed: Self = Self(1i32);
     pub const Denied: Self = Self(2i32);
 }
+impl ::core::marker::Copy for GeolocationAccessStatus {}
+impl ::core::clone::Clone for GeolocationAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Geolocator(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -56,6 +68,12 @@ impl GeoshapeType {
     pub const Geocircle: Self = Self(1i32);
     pub const Geopath: Self = Self(2i32);
     pub const GeoboundingBox: Self = Self(3i32);
+}
+impl ::core::marker::Copy for GeoshapeType {}
+impl ::core::clone::Clone for GeoshapeType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct Geovisit(pub *mut ::core::ffi::c_void);
@@ -137,6 +155,12 @@ impl PositionAccuracy {
     pub const Default: Self = Self(0i32);
     pub const High: Self = Self(1i32);
 }
+impl ::core::marker::Copy for PositionAccuracy {}
+impl ::core::clone::Clone for PositionAccuracy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PositionChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -150,6 +174,12 @@ impl PositionSource {
     pub const Default: Self = Self(5i32);
     pub const Obfuscated: Self = Self(6i32);
 }
+impl ::core::marker::Copy for PositionSource {}
+impl ::core::clone::Clone for PositionSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PositionStatus(pub i32);
 impl PositionStatus {
@@ -159,6 +189,12 @@ impl PositionStatus {
     pub const Disabled: Self = Self(3i32);
     pub const NotInitialized: Self = Self(4i32);
     pub const NotAvailable: Self = Self(5i32);
+}
+impl ::core::marker::Copy for PositionStatus {}
+impl ::core::clone::Clone for PositionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct StatusChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -170,6 +206,12 @@ impl VisitMonitoringScope {
     pub const Venue: Self = Self(0i32);
     pub const City: Self = Self(1i32);
 }
+impl ::core::marker::Copy for VisitMonitoringScope {}
+impl ::core::clone::Clone for VisitMonitoringScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VisitStateChange(pub i32);
 impl VisitStateChange {
@@ -177,4 +219,10 @@ impl VisitStateChange {
     pub const Arrived: Self = Self(1i32);
     pub const Departed: Self = Self(2i32);
     pub const OtherMovement: Self = Self(3i32);
+}
+impl ::core::marker::Copy for VisitStateChange {}
+impl ::core::clone::Clone for VisitStateChange {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

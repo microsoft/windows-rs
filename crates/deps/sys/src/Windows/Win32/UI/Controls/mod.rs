@@ -429,11 +429,23 @@ pub struct BGTYPE(pub i32);
 pub const BT_IMAGEFILE: BGTYPE = BGTYPE(0i32);
 pub const BT_BORDERFILL: BGTYPE = BGTYPE(1i32);
 pub const BT_NONE: BGTYPE = BGTYPE(2i32);
+impl ::core::marker::Copy for BGTYPE {}
+impl ::core::clone::Clone for BGTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BORDERTYPE(pub i32);
 pub const BT_RECT: BORDERTYPE = BORDERTYPE(0i32);
 pub const BT_ROUNDRECT: BORDERTYPE = BORDERTYPE(1i32);
 pub const BT_ELLIPSE: BORDERTYPE = BORDERTYPE(2i32);
+impl ::core::marker::Copy for BORDERTYPE {}
+impl ::core::clone::Clone for BORDERTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct BP_ANIMATIONPARAMS {
     pub cbSize: u32,
@@ -453,12 +465,24 @@ pub const BPAS_NONE: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(0i32);
 pub const BPAS_LINEAR: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(1i32);
 pub const BPAS_CUBIC: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(2i32);
 pub const BPAS_SINE: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(3i32);
+impl ::core::marker::Copy for BP_ANIMATIONSTYLE {}
+impl ::core::clone::Clone for BP_ANIMATIONSTYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BP_BUFFERFORMAT(pub i32);
 pub const BPBF_COMPATIBLEBITMAP: BP_BUFFERFORMAT = BP_BUFFERFORMAT(0i32);
 pub const BPBF_DIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(1i32);
 pub const BPBF_TOPDOWNDIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(2i32);
 pub const BPBF_TOPDOWNMONODIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(3i32);
+impl ::core::marker::Copy for BP_BUFFERFORMAT {}
+impl ::core::clone::Clone for BP_BUFFERFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct BP_PAINTPARAMS {
@@ -480,6 +504,12 @@ pub struct BP_PAINTPARAMS_FLAGS(pub u32);
 pub const BPPF_ERASE: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(1u32);
 pub const BPPF_NOCLIP: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(2u32);
 pub const BPPF_NONCLIENT: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(4u32);
+impl ::core::marker::Copy for BP_PAINTPARAMS_FLAGS {}
+impl ::core::clone::Clone for BP_PAINTPARAMS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BST_DROPDOWNPUSHED: u32 = 1024u32;
 pub const BST_HOT: u32 = 512u32;
 pub const BS_COMMANDLINK: i32 = 14i32;
@@ -517,6 +547,12 @@ pub const BUTTON_IMAGELIST_ALIGN_RIGHT: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIS
 pub const BUTTON_IMAGELIST_ALIGN_TOP: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(2u32);
 pub const BUTTON_IMAGELIST_ALIGN_BOTTOM: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(3u32);
 pub const BUTTON_IMAGELIST_ALIGN_CENTER: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(4u32);
+impl ::core::marker::Copy for BUTTON_IMAGELIST_ALIGN {}
+impl ::core::clone::Clone for BUTTON_IMAGELIST_ALIGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BUTTON_SPLITINFO {
@@ -737,11 +773,23 @@ pub const CDRF_SKIPPOSTPAINT: u32 = 256u32;
 #[repr(transparent)]
 pub struct CLOCKPARTS(pub i32);
 pub const CLP_TIME: CLOCKPARTS = CLOCKPARTS(1i32);
+impl ::core::marker::Copy for CLOCKPARTS {}
+impl ::core::clone::Clone for CLOCKPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLOCKSTATES(pub i32);
 pub const CLS_NORMAL: CLOCKSTATES = CLOCKSTATES(1i32);
 pub const CLS_HOT: CLOCKSTATES = CLOCKSTATES(2i32);
 pub const CLS_PRESSED: CLOCKSTATES = CLOCKSTATES(3i32);
+impl ::core::marker::Copy for CLOCKSTATES {}
+impl ::core::clone::Clone for CLOCKSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLR_DEFAULT: i32 = -16777216i32;
 pub const CLR_HILIGHT: i32 = -16777216i32;
 pub const CLR_NONE: i32 = -1i32;
@@ -838,6 +886,12 @@ pub const STATE_SYSTEM_PRESSED: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_
 pub const STATE_SYSTEM_FOCUSABLE: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(1048576u32);
 pub const STATE_SYSTEM_OFFSCREEN: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(65536u32);
 pub const STATE_SYSTEM_UNAVAILABLE: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(1u32);
+impl ::core::marker::Copy for COMBOBOXINFO_BUTTON_STATE {}
+impl ::core::clone::Clone for COMBOBOXINFO_BUTTON_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMBOBOX_EX_ITEM_FLAGS(pub u32);
 pub const CBEIF_DI_SETITEM: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(268435456u32);
@@ -847,6 +901,12 @@ pub const CBEIF_LPARAM: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(32u32);
 pub const CBEIF_OVERLAY: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(8u32);
 pub const CBEIF_SELECTEDIMAGE: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(4u32);
 pub const CBEIF_TEXT: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(1u32);
+impl ::core::marker::Copy for COMBOBOX_EX_ITEM_FLAGS {}
+impl ::core::clone::Clone for COMBOBOX_EX_ITEM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const COMCTL32_VERSION: u32 = 6u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -873,6 +933,12 @@ pub struct CONTENTALIGNMENT(pub i32);
 pub const CA_LEFT: CONTENTALIGNMENT = CONTENTALIGNMENT(0i32);
 pub const CA_CENTER: CONTENTALIGNMENT = CONTENTALIGNMENT(1i32);
 pub const CA_RIGHT: CONTENTALIGNMENT = CONTENTALIGNMENT(2i32);
+impl ::core::marker::Copy for CONTENTALIGNMENT {}
+impl ::core::clone::Clone for CONTENTALIGNMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DATETIMEPICKERINFO {
@@ -917,6 +983,12 @@ pub struct DLG_BUTTON_CHECK_STATE(pub u32);
 pub const BST_CHECKED: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(1u32);
 pub const BST_INDETERMINATE: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(2u32);
 pub const BST_UNCHECKED: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(0u32);
+impl ::core::marker::Copy for DLG_BUTTON_CHECK_STATE {}
+impl ::core::clone::Clone for DLG_BUTTON_CHECK_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DLG_DIR_LIST_FILE_TYPE(pub u32);
 pub const DDL_ARCHIVE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(32u32);
@@ -928,6 +1000,12 @@ pub const DDL_READONLY: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(1u32);
 pub const DDL_READWRITE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(0u32);
 pub const DDL_SYSTEM: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(4u32);
 pub const DDL_POSTMSGS: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(8192u32);
+impl ::core::marker::Copy for DLG_DIR_LIST_FILE_TYPE {}
+impl ::core::clone::Clone for DLG_DIR_LIST_FILE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DL_COPYCURSOR: u32 = 2u32;
 pub const DL_CURSORSET: u32 = 0u32;
 pub const DL_MOVECURSOR: u32 = 3u32;
@@ -937,6 +1015,12 @@ pub struct DPAMM_MESSAGE(pub u32);
 pub const DPAMM_MERGE: DPAMM_MESSAGE = DPAMM_MESSAGE(1u32);
 pub const DPAMM_DELETE: DPAMM_MESSAGE = DPAMM_MESSAGE(2u32);
 pub const DPAMM_INSERT: DPAMM_MESSAGE = DPAMM_MESSAGE(3u32);
+impl ::core::marker::Copy for DPAMM_MESSAGE {}
+impl ::core::clone::Clone for DPAMM_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DPAM_INTERSECT: u32 = 8u32;
 pub const DPAM_NORMAL: u32 = 2u32;
 pub const DPAM_SORTED: u32 = 1u32;
@@ -978,6 +1062,12 @@ pub const DL_BEGINDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICAT
 pub const DL_CANCELDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1160u32);
 pub const DL_DRAGGING: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1158u32);
 pub const DL_DROPPED: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1159u32);
+impl ::core::marker::Copy for DRAGLISTINFO_NOTIFICATION_FLAGS {}
+impl ::core::clone::Clone for DRAGLISTINFO_NOTIFICATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DRAWITEMSTRUCT {
@@ -1008,11 +1098,23 @@ pub const ODT_LISTVIEW: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(102u32
 pub const ODT_MENU: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(1u32);
 pub const ODT_STATIC: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(5u32);
 pub const ODT_TAB: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(101u32);
+impl ::core::marker::Copy for DRAWITEMSTRUCT_CTL_TYPE {}
+impl ::core::clone::Clone for DRAWITEMSTRUCT_CTL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DRAW_THEME_PARENT_BACKGROUND_FLAGS(pub u32);
 pub const DTPB_WINDOWDC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(1u32);
 pub const DTPB_USECTLCOLORSTATIC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(2u32);
 pub const DTPB_USEERASEBKGND: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(4u32);
+impl ::core::marker::Copy for DRAW_THEME_PARENT_BACKGROUND_FLAGS {}
+impl ::core::clone::Clone for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSA_APPEND: u32 = 2147483647u32;
 pub const DSA_ERR: i32 = -1i32;
 #[repr(C)]
@@ -1101,10 +1203,22 @@ pub const EC_ENDOFLINE_DETECTFROMCONTENT: EC_ENDOFLINE = EC_ENDOFLINE(0i32);
 pub const EC_ENDOFLINE_CRLF: EC_ENDOFLINE = EC_ENDOFLINE(1i32);
 pub const EC_ENDOFLINE_CR: EC_ENDOFLINE = EC_ENDOFLINE(2i32);
 pub const EC_ENDOFLINE_LF: EC_ENDOFLINE = EC_ENDOFLINE(3i32);
+impl ::core::marker::Copy for EC_ENDOFLINE {}
+impl ::core::clone::Clone for EC_ENDOFLINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EC_SEARCHWEB_ENTRYPOINT(pub i32);
 pub const EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EC_SEARCHWEB_ENTRYPOINT = EC_SEARCHWEB_ENTRYPOINT(0i32);
 pub const EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU: EC_SEARCHWEB_ENTRYPOINT = EC_SEARCHWEB_ENTRYPOINT(1i32);
+impl ::core::marker::Copy for EC_SEARCHWEB_ENTRYPOINT {}
+impl ::core::clone::Clone for EC_SEARCHWEB_ENTRYPOINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EDITBALLOONTIP {
@@ -1130,6 +1244,12 @@ pub const TTI_WARNING: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(2u32);
 pub const TTI_INFO_LARGE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(4u32);
 pub const TTI_WARNING_LARGE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(5u32);
 pub const TTI_ERROR_LARGE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(6u32);
+impl ::core::marker::Copy for EDITBALLOONTIP_ICON {}
+impl ::core::clone::Clone for EDITBALLOONTIP_ICON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type EDITWORDBREAKPROCA = unsafe extern "system" fn(lpch: super::super::Foundation::PSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32;
 #[cfg(feature = "Win32_Foundation")]
@@ -1137,6 +1257,12 @@ pub type EDITWORDBREAKPROCW = unsafe extern "system" fn(lpch: super::super::Foun
 #[repr(transparent)]
 pub struct EMPTYMARKUPPARTS(pub i32);
 pub const EMP_MARKUPTEXT: EMPTYMARKUPPARTS = EMPTYMARKUPPARTS(1i32);
+impl ::core::marker::Copy for EMPTYMARKUPPARTS {}
+impl ::core::clone::Clone for EMPTYMARKUPPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EM_CANUNDO: u32 = 198u32;
 pub const EM_CHARFROMPOS: u32 = 215u32;
 pub const EM_EMPTYUNDOBUFFER: u32 = 205u32;
@@ -1208,6 +1334,12 @@ pub const ESB_DISABLE_RIGHT: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS
 pub const ESB_DISABLE_RTDN: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
 pub const ESB_DISABLE_UP: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
 pub const ESB_ENABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(0u32);
+impl ::core::marker::Copy for ENABLE_SCROLL_BAR_ARROWS {}
+impl ::core::clone::Clone for ENABLE_SCROLL_BAR_ARROWS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ES_EX_ALLOWEOL_CR: i32 = 1i32;
 pub const ES_EX_ALLOWEOL_LF: i32 = 2i32;
 pub const ES_EX_CONVERT_EOL_ON_PASTE: i32 = 4i32;
@@ -1230,6 +1362,12 @@ pub const FEEDBACK_TOUCH_PRESSANDHOLD: FEEDBACK_TYPE = FEEDBACK_TYPE(9i32);
 pub const FEEDBACK_TOUCH_RIGHTTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(10i32);
 pub const FEEDBACK_GESTURE_PRESSANDTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(11i32);
 pub const FEEDBACK_MAX: FEEDBACK_TYPE = FEEDBACK_TYPE(-1i32);
+impl ::core::marker::Copy for FEEDBACK_TYPE {}
+impl ::core::clone::Clone for FEEDBACK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FILEOPENORD: u32 = 1536u32;
 #[repr(transparent)]
 pub struct FILLTYPE(pub i32);
@@ -1238,6 +1376,12 @@ pub const FT_VERTGRADIENT: FILLTYPE = FILLTYPE(1i32);
 pub const FT_HORZGRADIENT: FILLTYPE = FILLTYPE(2i32);
 pub const FT_RADIALGRADIENT: FILLTYPE = FILLTYPE(3i32);
 pub const FT_TILEIMAGE: FILLTYPE = FILLTYPE(4i32);
+impl ::core::marker::Copy for FILLTYPE {}
+impl ::core::clone::Clone for FILLTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FINDDLGORD: u32 = 1540u32;
 pub const FONTDLGORD: u32 = 1542u32;
 pub const FORMATDLGORD30: u32 = 1544u32;
@@ -1255,16 +1399,34 @@ pub struct GET_THEME_BITMAP_FLAGS(pub u32);
 pub const GBF_DIRECT: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(1u32);
 pub const GBF_COPY: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(2u32);
 pub const GBF_VALIDBITS: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(3u32);
+impl ::core::marker::Copy for GET_THEME_BITMAP_FLAGS {}
+impl ::core::clone::Clone for GET_THEME_BITMAP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GLYPHFONTSIZINGTYPE(pub i32);
 pub const GFST_NONE: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(0i32);
 pub const GFST_SIZE: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(1i32);
 pub const GFST_DPI: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(2i32);
+impl ::core::marker::Copy for GLYPHFONTSIZINGTYPE {}
+impl ::core::clone::Clone for GLYPHFONTSIZINGTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GLYPHTYPE(pub i32);
 pub const GT_NONE: GLYPHTYPE = GLYPHTYPE(0i32);
 pub const GT_IMAGEGLYPH: GLYPHTYPE = GLYPHTYPE(1i32);
 pub const GT_FONTGLYPH: GLYPHTYPE = GLYPHTYPE(2i32);
+impl ::core::marker::Copy for GLYPHTYPE {}
+impl ::core::clone::Clone for GLYPHTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GMR_DAYSTATE: u32 = 1u32;
 pub const GMR_VISIBLE: u32 = 0u32;
 #[repr(transparent)]
@@ -1275,6 +1437,12 @@ pub const MCGCB_SELECTEDHOT: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES
 pub const MCGCB_SELECTEDNOTFOCUSED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(4i32);
 pub const MCGCB_TODAY: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(5i32);
 pub const MCGCB_TODAYSELECTED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(6i32);
+impl ::core::marker::Copy for GRIDCELLBACKGROUNDSTATES {}
+impl ::core::clone::Clone for GRIDCELLBACKGROUNDSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GRIDCELLSTATES(pub i32);
 pub const MCGC_HOT: GRIDCELLSTATES = GRIDCELLSTATES(1i32);
@@ -1284,6 +1452,12 @@ pub const MCGC_TODAY: GRIDCELLSTATES = GRIDCELLSTATES(4i32);
 pub const MCGC_TODAYSELECTED: GRIDCELLSTATES = GRIDCELLSTATES(5i32);
 pub const MCGC_SELECTED: GRIDCELLSTATES = GRIDCELLSTATES(6i32);
 pub const MCGC_SELECTEDHOT: GRIDCELLSTATES = GRIDCELLSTATES(7i32);
+impl ::core::marker::Copy for GRIDCELLSTATES {}
+impl ::core::clone::Clone for GRIDCELLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GRIDCELLUPPERSTATES(pub i32);
 pub const MCGCU_HOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(1i32);
@@ -1291,11 +1465,23 @@ pub const MCGCU_HASSTATE: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(2i32);
 pub const MCGCU_HASSTATEHOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(3i32);
 pub const MCGCU_SELECTED: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(4i32);
 pub const MCGCU_SELECTEDHOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(5i32);
+impl ::core::marker::Copy for GRIDCELLUPPERSTATES {}
+impl ::core::clone::Clone for GRIDCELLUPPERSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HALIGN(pub i32);
 pub const HA_LEFT: HALIGN = HALIGN(0i32);
 pub const HA_CENTER: HALIGN = HALIGN(1i32);
 pub const HA_RIGHT: HALIGN = HALIGN(2i32);
+impl ::core::marker::Copy for HALIGN {}
+impl ::core::clone::Clone for HALIGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HDFT_HASNOVALUE: u32 = 32768u32;
 pub const HDFT_ISDATE: u32 = 2u32;
 pub const HDFT_ISNUMBER: u32 = 1u32;
@@ -1393,6 +1579,12 @@ pub const HDI_DI_SETITEM: HDI_MASK = HDI_MASK(64u32);
 pub const HDI_ORDER: HDI_MASK = HDI_MASK(128u32);
 pub const HDI_FILTER: HDI_MASK = HDI_MASK(256u32);
 pub const HDI_STATE: HDI_MASK = HDI_MASK(512u32);
+impl ::core::marker::Copy for HDI_MASK {}
+impl ::core::clone::Clone for HDI_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct HDLAYOUT {
@@ -1506,6 +1698,12 @@ pub struct HEADER_CONTROL_NOTIFICATION_BUTTON(pub u32);
 pub const HEADER_CONTROL_NOTIFICATION_BUTTON_LEFT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(0u32);
 pub const HEADER_CONTROL_NOTIFICATION_BUTTON_RIGHT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(1u32);
 pub const HEADER_CONTROL_NOTIFICATION_BUTTON_MIDDLE: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(2u32);
+impl ::core::marker::Copy for HEADER_CONTROL_NOTIFICATION_BUTTON {}
+impl ::core::clone::Clone for HEADER_CONTROL_NOTIFICATION_BUTTON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HHT_ABOVE: u32 = 256u32;
 pub const HHT_BELOW: u32 = 512u32;
 pub const HHT_NOWHERE: u32 = 1u32;
@@ -1593,6 +1791,12 @@ pub const HTTB_SYSTEMSIZINGMARGINS: u32 = 512u32;
 pub struct HYPERLINKSTATES(pub i32);
 pub const HLS_NORMALTEXT: HYPERLINKSTATES = HYPERLINKSTATES(1i32);
 pub const HLS_LINKTEXT: HYPERLINKSTATES = HYPERLINKSTATES(2i32);
+impl ::core::marker::Copy for HYPERLINKSTATES {}
+impl ::core::clone::Clone for HYPERLINKSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICONEFFECT(pub i32);
 pub const ICE_NONE: ICONEFFECT = ICONEFFECT(0i32);
@@ -1600,6 +1804,12 @@ pub const ICE_GLOW: ICONEFFECT = ICONEFFECT(1i32);
 pub const ICE_SHADOW: ICONEFFECT = ICONEFFECT(2i32);
 pub const ICE_PULSE: ICONEFFECT = ICONEFFECT(3i32);
 pub const ICE_ALPHA: ICONEFFECT = ICONEFFECT(4i32);
+impl ::core::marker::Copy for ICONEFFECT {}
+impl ::core::clone::Clone for ICONEFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IDB_HIST_DISABLED: u32 = 14u32;
 pub const IDB_HIST_HOT: u32 = 13u32;
 pub const IDB_HIST_LARGE_COLOR: u32 = 9u32;
@@ -1674,6 +1884,12 @@ impl ::core::clone::Clone for IMAGEINFO {
 pub struct IMAGELAYOUT(pub i32);
 pub const IL_VERTICAL: IMAGELAYOUT = IMAGELAYOUT(0i32);
 pub const IL_HORIZONTAL: IMAGELAYOUT = IMAGELAYOUT(1i32);
+impl ::core::marker::Copy for IMAGELAYOUT {}
+impl ::core::clone::Clone for IMAGELAYOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct IMAGELISTDRAWPARAMS {
@@ -1731,15 +1947,33 @@ pub const ILC_MIRROR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(8192u3
 pub const ILC_PERITEMMIRROR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(32768u32);
 pub const ILC_ORIGINALSIZE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(65536u32);
 pub const ILC_HIGHQUALITYSCALE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(131072u32);
+impl ::core::marker::Copy for IMAGELIST_CREATION_FLAGS {}
+impl ::core::clone::Clone for IMAGELIST_CREATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAGESELECTTYPE(pub i32);
 pub const IST_NONE: IMAGESELECTTYPE = IMAGESELECTTYPE(0i32);
 pub const IST_SIZE: IMAGESELECTTYPE = IMAGESELECTTYPE(1i32);
 pub const IST_DPI: IMAGESELECTTYPE = IMAGESELECTTYPE(2i32);
+impl ::core::marker::Copy for IMAGESELECTTYPE {}
+impl ::core::clone::Clone for IMAGESELECTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAGE_LIST_COPY_FLAGS(pub u32);
 pub const ILCF_MOVE: IMAGE_LIST_COPY_FLAGS = IMAGE_LIST_COPY_FLAGS(0u32);
 pub const ILCF_SWAP: IMAGE_LIST_COPY_FLAGS = IMAGE_LIST_COPY_FLAGS(1u32);
+impl ::core::marker::Copy for IMAGE_LIST_COPY_FLAGS {}
+impl ::core::clone::Clone for IMAGE_LIST_COPY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAGE_LIST_DRAW_STYLE(pub u32);
 pub const ILD_BLEND: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
@@ -1748,10 +1982,22 @@ pub const ILD_FOCUS: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(2u32);
 pub const ILD_MASK: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(16u32);
 pub const ILD_NORMAL: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(0u32);
 pub const ILD_SELECTED: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
+impl ::core::marker::Copy for IMAGE_LIST_DRAW_STYLE {}
+impl ::core::clone::Clone for IMAGE_LIST_DRAW_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAGE_LIST_ITEM_FLAGS(pub u32);
 pub const ILIF_ALPHA: IMAGE_LIST_ITEM_FLAGS = IMAGE_LIST_ITEM_FLAGS(1u32);
 pub const ILIF_LOWQUALITY: IMAGE_LIST_ITEM_FLAGS = IMAGE_LIST_ITEM_FLAGS(2u32);
+impl ::core::marker::Copy for IMAGE_LIST_ITEM_FLAGS {}
+impl ::core::clone::Clone for IMAGE_LIST_ITEM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INFOTIPSIZE: u32 = 1024u32;
 #[repr(C)]
 pub struct INITCOMMONCONTROLSEX {
@@ -1783,6 +2029,12 @@ pub const ICC_TREEVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_
 pub const ICC_UPDOWN_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(16u32);
 pub const ICC_USEREX_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(512u32);
 pub const ICC_WIN95_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(255u32);
+impl ::core::marker::Copy for INITCOMMONCONTROLSEX_ICC {}
+impl ::core::clone::Clone for INITCOMMONCONTROLSEX_ICC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct INTLIST {
     pub iValueCount: i32,
@@ -1826,6 +2078,12 @@ pub const LIF_URL: u32 = 8u32;
 #[repr(transparent)]
 pub struct LINKPARTS(pub i32);
 pub const LP_HYPERLINK: LINKPARTS = LINKPARTS(1i32);
+impl ::core::marker::Copy for LINKPARTS {}
+impl ::core::clone::Clone for LINKPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LIS_DEFAULTCOLORS: u32 = 16u32;
 pub const LIS_ENABLED: u32 = 2u32;
 pub const LIS_FOCUSED: u32 = 1u32;
@@ -1856,6 +2114,12 @@ pub struct LOGOFFBUTTONSSTATES(pub i32);
 pub const SPLS_NORMAL: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(1i32);
 pub const SPLS_HOT: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(2i32);
 pub const SPLS_PRESSED: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(3i32);
+impl ::core::marker::Copy for LOGOFFBUTTONSSTATES {}
+impl ::core::clone::Clone for LOGOFFBUTTONSSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNADDPROPSHEETPAGES = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: LPFNSVADDPROPSHEETPAGE, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1991,6 +2255,12 @@ pub const LVCFMT_FIXED_WIDTH: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(256u32);
 pub const LVCFMT_NO_DPI_SCALE: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(262144u32);
 pub const LVCFMT_FIXED_RATIO: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(524288u32);
 pub const LVCFMT_SPLITBUTTON: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(16777216u32);
+impl ::core::marker::Copy for LVCOLUMNW_FORMAT {}
+impl ::core::clone::Clone for LVCOLUMNW_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LVCOLUMNW_MASK(pub u32);
 pub const LVCF_FMT: LVCOLUMNW_MASK = LVCOLUMNW_MASK(1u32);
@@ -2002,6 +2272,12 @@ pub const LVCF_ORDER: LVCOLUMNW_MASK = LVCOLUMNW_MASK(32u32);
 pub const LVCF_MINWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(64u32);
 pub const LVCF_DEFAULTWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(128u32);
 pub const LVCF_IDEALWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(256u32);
+impl ::core::marker::Copy for LVCOLUMNW_MASK {}
+impl ::core::clone::Clone for LVCOLUMNW_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LVFF_ITEMCOUNT: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -2045,6 +2321,12 @@ pub const LVFI_STRING: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(2u32);
 pub const LVFI_SUBSTRING: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(4u32);
 pub const LVFI_WRAP: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(32u32);
 pub const LVFI_NEARESTXY: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(64u32);
+impl ::core::marker::Copy for LVFINDINFOW_FLAGS {}
+impl ::core::clone::Clone for LVFINDINFOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LVFIS_FOCUSED: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -2084,6 +2366,12 @@ impl ::core::clone::Clone for LVFOOTERITEM {
 pub struct LVFOOTERITEM_MASK(pub u32);
 pub const LVFIF_TEXT: LVFOOTERITEM_MASK = LVFOOTERITEM_MASK(1u32);
 pub const LVFIF_STATE: LVFOOTERITEM_MASK = LVFOOTERITEM_MASK(2u32);
+impl ::core::marker::Copy for LVFOOTERITEM_MASK {}
+impl ::core::clone::Clone for LVFOOTERITEM_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LVGA_FOOTER_CENTER: u32 = 16u32;
 pub const LVGA_FOOTER_LEFT: u32 = 8u32;
 pub const LVGA_FOOTER_RIGHT: u32 = 32u32;
@@ -2170,6 +2458,12 @@ pub const LVGF_NONE: LVGROUP_MASK = LVGROUP_MASK(0u32);
 pub const LVGF_HEADER: LVGROUP_MASK = LVGROUP_MASK(1u32);
 pub const LVGF_FOOTER: LVGROUP_MASK = LVGROUP_MASK(2u32);
 pub const LVGF_STATE: LVGROUP_MASK = LVGROUP_MASK(4u32);
+impl ::core::marker::Copy for LVGROUP_MASK {}
+impl ::core::clone::Clone for LVGROUP_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LVGS_COLLAPSED: u32 = 1u32;
 pub const LVGS_COLLAPSIBLE: u32 = 8u32;
 pub const LVGS_FOCUSED: u32 = 16u32;
@@ -2215,6 +2509,12 @@ pub const LVHT_EX_GROUP_SUBSETLINK: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(33
 pub const LVHT_EX_GROUP: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(4076863488u32);
 pub const LVHT_EX_ONCONTENTS: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(67108864u32);
 pub const LVHT_EX_FOOTER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(134217728u32);
+impl ::core::marker::Copy for LVHITTESTINFO_FLAGS {}
+impl ::core::clone::Clone for LVHITTESTINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LVIF_COLFMT: u32 = 65536u32;
 pub const LVIF_COLUMNS: u32 = 512u32;
 pub const LVIF_DI_SETITEM: u32 = 4096u32;
@@ -2297,6 +2597,12 @@ impl ::core::clone::Clone for LVITEMA {
 pub struct LVITEMA_GROUP_ID(pub i32);
 pub const I_GROUPIDCALLBACK: LVITEMA_GROUP_ID = LVITEMA_GROUP_ID(-1i32);
 pub const I_GROUPIDNONE: LVITEMA_GROUP_ID = LVITEMA_GROUP_ID(-2i32);
+impl ::core::marker::Copy for LVITEMA_GROUP_ID {}
+impl ::core::clone::Clone for LVITEMA_GROUP_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct LVITEMINDEX {
     pub iItem: i32,
@@ -2620,6 +2926,12 @@ impl ::core::clone::Clone for LVTILEVIEWINFO {
 #[repr(transparent)]
 pub struct LVTILEVIEWINFO_FLAGS(pub u32);
 pub const LVTVIF_EXTENDED: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(4u32);
+impl ::core::marker::Copy for LVTILEVIEWINFO_FLAGS {}
+impl ::core::clone::Clone for LVTILEVIEWINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LVTVIF_AUTOSIZE: u32 = 0u32;
 pub const LVTVIF_FIXEDHEIGHT: u32 = 2u32;
 pub const LVTVIF_FIXEDSIZE: u32 = 3u32;
@@ -2657,6 +2969,12 @@ impl ::core::clone::Clone for MARGINS {
 pub struct MARKUPTEXTSTATES(pub i32);
 pub const EMT_NORMALTEXT: MARKUPTEXTSTATES = MARKUPTEXTSTATES(1i32);
 pub const EMT_LINKTEXT: MARKUPTEXTSTATES = MARKUPTEXTSTATES(2i32);
+impl ::core::marker::Copy for MARKUPTEXTSTATES {}
+impl ::core::clone::Clone for MARKUPTEXTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAXPROPPAGES: u32 = 100u32;
 pub const MAX_INTLIST_COUNT: u32 = 402u32;
 pub const MAX_LINKID_TEXT: u32 = 48u32;
@@ -2691,6 +3009,12 @@ pub struct MCGRIDINFO_FLAGS(pub u32);
 pub const MCGIF_DATE: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(1u32);
 pub const MCGIF_RECT: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(2u32);
 pub const MCGIF_NAME: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(4u32);
+impl ::core::marker::Copy for MCGRIDINFO_FLAGS {}
+impl ::core::clone::Clone for MCGRIDINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MCGRIDINFO_PART(pub u32);
 pub const MCGIP_CALENDARCONTROL: MCGRIDINFO_PART = MCGRIDINFO_PART(0u32);
@@ -2702,6 +3026,12 @@ pub const MCGIP_CALENDARHEADER: MCGRIDINFO_PART = MCGRIDINFO_PART(5u32);
 pub const MCGIP_CALENDARBODY: MCGRIDINFO_PART = MCGRIDINFO_PART(6u32);
 pub const MCGIP_CALENDARROW: MCGRIDINFO_PART = MCGRIDINFO_PART(7u32);
 pub const MCGIP_CALENDARCELL: MCGRIDINFO_PART = MCGRIDINFO_PART(8u32);
+impl ::core::marker::Copy for MCGRIDINFO_PART {}
+impl ::core::clone::Clone for MCGRIDINFO_PART {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCHITTESTINFO {
@@ -2802,6 +3132,12 @@ impl ::core::clone::Clone for MEASUREITEMSTRUCT {
 pub struct MENUBANDPARTS(pub i32);
 pub const MDP_NEWAPPBUTTON: MENUBANDPARTS = MENUBANDPARTS(1i32);
 pub const MDP_SEPERATOR: MENUBANDPARTS = MENUBANDPARTS(2i32);
+impl ::core::marker::Copy for MENUBANDPARTS {}
+impl ::core::clone::Clone for MENUBANDPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MENUBANDSTATES(pub i32);
 pub const MDS_NORMAL: MENUBANDSTATES = MENUBANDSTATES(1i32);
@@ -2810,6 +3146,12 @@ pub const MDS_PRESSED: MENUBANDSTATES = MENUBANDSTATES(3i32);
 pub const MDS_DISABLED: MENUBANDSTATES = MENUBANDSTATES(4i32);
 pub const MDS_CHECKED: MENUBANDSTATES = MENUBANDSTATES(5i32);
 pub const MDS_HOTCHECKED: MENUBANDSTATES = MENUBANDSTATES(6i32);
+impl ::core::marker::Copy for MENUBANDSTATES {}
+impl ::core::clone::Clone for MENUBANDSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MONTHCALPARTS(pub i32);
 pub const MC_BACKGROUND: MONTHCALPARTS = MONTHCALPARTS(1i32);
@@ -2823,16 +3165,34 @@ pub const MC_TRAILINGGRIDCELL: MONTHCALPARTS = MONTHCALPARTS(8i32);
 pub const MC_TRAILINGGRIDCELLUPPER: MONTHCALPARTS = MONTHCALPARTS(9i32);
 pub const MC_NAVNEXT: MONTHCALPARTS = MONTHCALPARTS(10i32);
 pub const MC_NAVPREV: MONTHCALPARTS = MONTHCALPARTS(11i32);
+impl ::core::marker::Copy for MONTHCALPARTS {}
+impl ::core::clone::Clone for MONTHCALPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MOREPROGRAMSARROWBACKSTATES(pub i32);
 pub const SPSB_NORMAL: MOREPROGRAMSARROWBACKSTATES = MOREPROGRAMSARROWBACKSTATES(1i32);
 pub const SPSB_HOT: MOREPROGRAMSARROWBACKSTATES = MOREPROGRAMSARROWBACKSTATES(2i32);
 pub const SPSB_PRESSED: MOREPROGRAMSARROWBACKSTATES = MOREPROGRAMSARROWBACKSTATES(3i32);
+impl ::core::marker::Copy for MOREPROGRAMSARROWBACKSTATES {}
+impl ::core::clone::Clone for MOREPROGRAMSARROWBACKSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MOREPROGRAMSARROWSTATES(pub i32);
 pub const SPS_NORMAL: MOREPROGRAMSARROWSTATES = MOREPROGRAMSARROWSTATES(1i32);
 pub const SPS_HOT: MOREPROGRAMSARROWSTATES = MOREPROGRAMSARROWSTATES(2i32);
 pub const SPS_PRESSED: MOREPROGRAMSARROWSTATES = MOREPROGRAMSARROWSTATES(3i32);
+impl ::core::marker::Copy for MOREPROGRAMSARROWSTATES {}
+impl ::core::clone::Clone for MOREPROGRAMSARROWSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MOREPROGRAMSTABSTATES(pub i32);
 pub const SPMPT_NORMAL: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(1i32);
@@ -2840,6 +3200,12 @@ pub const SPMPT_HOT: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(2i32);
 pub const SPMPT_SELECTED: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(3i32);
 pub const SPMPT_DISABLED: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(4i32);
 pub const SPMPT_FOCUSED: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(5i32);
+impl ::core::marker::Copy for MOREPROGRAMSTABSTATES {}
+impl ::core::clone::Clone for MOREPROGRAMSTABSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MSGF_COMMCTRL_BEGINDRAG: u32 = 16896u32;
 pub const MSGF_COMMCTRL_DRAGSELECT: u32 = 16898u32;
 pub const MSGF_COMMCTRL_SIZEHEADER: u32 = 16897u32;
@@ -2851,12 +3217,24 @@ pub const MCNN_NORMAL: NAVNEXTSTATES = NAVNEXTSTATES(1i32);
 pub const MCNN_HOT: NAVNEXTSTATES = NAVNEXTSTATES(2i32);
 pub const MCNN_PRESSED: NAVNEXTSTATES = NAVNEXTSTATES(3i32);
 pub const MCNN_DISABLED: NAVNEXTSTATES = NAVNEXTSTATES(4i32);
+impl ::core::marker::Copy for NAVNEXTSTATES {}
+impl ::core::clone::Clone for NAVNEXTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NAVPREVSTATES(pub i32);
 pub const MCNP_NORMAL: NAVPREVSTATES = NAVPREVSTATES(1i32);
 pub const MCNP_HOT: NAVPREVSTATES = NAVPREVSTATES(2i32);
 pub const MCNP_PRESSED: NAVPREVSTATES = NAVPREVSTATES(3i32);
 pub const MCNP_DISABLED: NAVPREVSTATES = NAVPREVSTATES(4i32);
+impl ::core::marker::Copy for NAVPREVSTATES {}
+impl ::core::clone::Clone for NAVPREVSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NEWFILEOPENORD: u32 = 1547u32;
 pub const NEWFILEOPENV2ORD: u32 = 1552u32;
 pub const NEWFILEOPENV3ORD: u32 = 1553u32;
@@ -3032,6 +3410,12 @@ pub const CDDS_ITEMPOSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(
 pub const CDDS_ITEMPREERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65539u32);
 pub const CDDS_ITEMPREPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65537u32);
 pub const CDDS_SUBITEM: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(131072u32);
+impl ::core::marker::Copy for NMCUSTOMDRAW_DRAW_STAGE {}
+impl ::core::clone::Clone for NMCUSTOMDRAW_DRAW_STAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMCUSTOMSPLITRECTINFO {
@@ -3455,11 +3839,23 @@ pub struct NMLVCUSTOMDRAW_ALIGN(pub u32);
 pub const LVGA_HEADER_CENTER: NMLVCUSTOMDRAW_ALIGN = NMLVCUSTOMDRAW_ALIGN(2u32);
 pub const LVGA_HEADER_LEFT: NMLVCUSTOMDRAW_ALIGN = NMLVCUSTOMDRAW_ALIGN(1u32);
 pub const LVGA_HEADER_RIGHT: NMLVCUSTOMDRAW_ALIGN = NMLVCUSTOMDRAW_ALIGN(4u32);
+impl ::core::marker::Copy for NMLVCUSTOMDRAW_ALIGN {}
+impl ::core::clone::Clone for NMLVCUSTOMDRAW_ALIGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NMLVCUSTOMDRAW_ITEM_TYPE(pub u32);
 pub const LVCDI_ITEM: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(0u32);
 pub const LVCDI_GROUP: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(1u32);
 pub const LVCDI_ITEMSLIST: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(2u32);
+impl ::core::marker::Copy for NMLVCUSTOMDRAW_ITEM_TYPE {}
+impl ::core::clone::Clone for NMLVCUSTOMDRAW_ITEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVDISPINFOA {
@@ -3506,6 +3902,12 @@ impl ::core::clone::Clone for NMLVEMPTYMARKUP {
 #[repr(transparent)]
 pub struct NMLVEMPTYMARKUP_FLAGS(pub u32);
 pub const EMF_CENTERED: NMLVEMPTYMARKUP_FLAGS = NMLVEMPTYMARKUP_FLAGS(1u32);
+impl ::core::marker::Copy for NMLVEMPTYMARKUP_FLAGS {}
+impl ::core::clone::Clone for NMLVEMPTYMARKUP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVFINDITEMA {
@@ -3692,6 +4094,12 @@ impl ::core::clone::Clone for NMPGCALCSIZE {
 pub struct NMPGCALCSIZE_FLAGS(pub u32);
 pub const PGF_CALCHEIGHT: NMPGCALCSIZE_FLAGS = NMPGCALCSIZE_FLAGS(2u32);
 pub const PGF_CALCWIDTH: NMPGCALCSIZE_FLAGS = NMPGCALCSIZE_FLAGS(1u32);
+impl ::core::marker::Copy for NMPGCALCSIZE_FLAGS {}
+impl ::core::clone::Clone for NMPGCALCSIZE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMPGHOTITEM {
@@ -3733,12 +4141,24 @@ pub const PGF_SCROLLDOWN: NMPGSCROLL_DIR = NMPGSCROLL_DIR(2u32);
 pub const PGF_SCROLLLEFT: NMPGSCROLL_DIR = NMPGSCROLL_DIR(4u32);
 pub const PGF_SCROLLRIGHT: NMPGSCROLL_DIR = NMPGSCROLL_DIR(8u32);
 pub const PGF_SCROLLUP: NMPGSCROLL_DIR = NMPGSCROLL_DIR(1u32);
+impl ::core::marker::Copy for NMPGSCROLL_DIR {}
+impl ::core::clone::Clone for NMPGSCROLL_DIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NMPGSCROLL_KEYS(pub u16);
 pub const PGK_NONE: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(0u16);
 pub const PGK_SHIFT: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(1u16);
 pub const PGK_CONTROL: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(2u16);
 pub const PGK_MENU: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(4u16);
+impl ::core::marker::Copy for NMPGSCROLL_KEYS {}
+impl ::core::clone::Clone for NMPGSCROLL_KEYS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMRBAUTOSIZE {
@@ -3846,6 +4266,12 @@ pub struct NMREBAR_MASK_FLAGS(pub u32);
 pub const RBNM_ID: NMREBAR_MASK_FLAGS = NMREBAR_MASK_FLAGS(1u32);
 pub const RBNM_LPARAM: NMREBAR_MASK_FLAGS = NMREBAR_MASK_FLAGS(4u32);
 pub const RBNM_STYLE: NMREBAR_MASK_FLAGS = NMREBAR_MASK_FLAGS(2u32);
+impl ::core::marker::Copy for NMREBAR_MASK_FLAGS {}
+impl ::core::clone::Clone for NMREBAR_MASK_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMSEARCHWEB {
@@ -3946,6 +4372,12 @@ pub struct NMTBDISPINFOW_MASK(pub u32);
 pub const TBNF_IMAGE: NMTBDISPINFOW_MASK = NMTBDISPINFOW_MASK(1u32);
 pub const TBNF_TEXT: NMTBDISPINFOW_MASK = NMTBDISPINFOW_MASK(2u32);
 pub const TBNF_DI_SETITEM: NMTBDISPINFOW_MASK = NMTBDISPINFOW_MASK(268435456u32);
+impl ::core::marker::Copy for NMTBDISPINFOW_MASK {}
+impl ::core::clone::Clone for NMTBDISPINFOW_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTBGETINFOTIPA {
@@ -4008,6 +4440,12 @@ pub const HICF_MOUSE: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(1u32);
 pub const HICF_OTHER: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(0u32);
 pub const HICF_RESELECT: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(64u32);
 pub const HICF_TOGGLEDROPDOWN: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(256u32);
+impl ::core::marker::Copy for NMTBHOTITEM_FLAGS {}
+impl ::core::clone::Clone for NMTBHOTITEM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTBRESTORE {
@@ -4433,6 +4871,12 @@ pub const OT_LEFTOFLASTBUTTON: OFFSETTYPE = OFFSETTYPE(10i32);
 pub const OT_RIGHTOFLASTBUTTON: OFFSETTYPE = OFFSETTYPE(11i32);
 pub const OT_ABOVELASTBUTTON: OFFSETTYPE = OFFSETTYPE(12i32);
 pub const OT_BELOWLASTBUTTON: OFFSETTYPE = OFFSETTYPE(13i32);
+impl ::core::marker::Copy for OFFSETTYPE {}
+impl ::core::clone::Clone for OFFSETTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPENBOXSTATES(pub i32);
 pub const SPOB_NORMAL: OPENBOXSTATES = OPENBOXSTATES(1i32);
@@ -4440,16 +4884,34 @@ pub const SPOB_HOT: OPENBOXSTATES = OPENBOXSTATES(2i32);
 pub const SPOB_SELECTED: OPENBOXSTATES = OPENBOXSTATES(3i32);
 pub const SPOB_DISABLED: OPENBOXSTATES = OPENBOXSTATES(4i32);
 pub const SPOB_FOCUSED: OPENBOXSTATES = OPENBOXSTATES(5i32);
+impl ::core::marker::Copy for OPENBOXSTATES {}
+impl ::core::clone::Clone for OPENBOXSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPEN_THEME_DATA_FLAGS(pub u32);
 pub const OTD_FORCE_RECT_SIZING: OPEN_THEME_DATA_FLAGS = OPEN_THEME_DATA_FLAGS(1u32);
 pub const OTD_NONCLIENT: OPEN_THEME_DATA_FLAGS = OPEN_THEME_DATA_FLAGS(2u32);
+impl ::core::marker::Copy for OPEN_THEME_DATA_FLAGS {}
+impl ::core::clone::Clone for OPEN_THEME_DATA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PAGEPARTS(pub i32);
 pub const PGRP_UP: PAGEPARTS = PAGEPARTS(1i32);
 pub const PGRP_DOWN: PAGEPARTS = PAGEPARTS(2i32);
 pub const PGRP_UPHORZ: PAGEPARTS = PAGEPARTS(3i32);
 pub const PGRP_DOWNHORZ: PAGEPARTS = PAGEPARTS(4i32);
+impl ::core::marker::Copy for PAGEPARTS {}
+impl ::core::clone::Clone for PAGEPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PAGESETUPDLGORD: u32 = 1546u32;
 pub const PAGESETUPDLGORDMOTIF: u32 = 1550u32;
 pub const PBM_DELTAPOS: u32 = 1027u32;
@@ -4550,6 +5012,12 @@ pub const POINTER_DEVICE_CURSOR_TYPE_UNKNOWN: POINTER_DEVICE_CURSOR_TYPE = POINT
 pub const POINTER_DEVICE_CURSOR_TYPE_TIP: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(1i32);
 pub const POINTER_DEVICE_CURSOR_TYPE_ERASER: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(2i32);
 pub const POINTER_DEVICE_CURSOR_TYPE_MAX: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(-1i32);
+impl ::core::marker::Copy for POINTER_DEVICE_CURSOR_TYPE {}
+impl ::core::clone::Clone for POINTER_DEVICE_CURSOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct POINTER_DEVICE_INFO {
@@ -4593,11 +5061,23 @@ pub const POINTER_DEVICE_TYPE_EXTERNAL_PEN: POINTER_DEVICE_TYPE = POINTER_DEVICE
 pub const POINTER_DEVICE_TYPE_TOUCH: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(3i32);
 pub const POINTER_DEVICE_TYPE_TOUCH_PAD: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(4i32);
 pub const POINTER_DEVICE_TYPE_MAX: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(-1i32);
+impl ::core::marker::Copy for POINTER_DEVICE_TYPE {}
+impl ::core::clone::Clone for POINTER_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct POINTER_FEEDBACK_MODE(pub i32);
 pub const POINTER_FEEDBACK_DEFAULT: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(1i32);
 pub const POINTER_FEEDBACK_INDIRECT: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(2i32);
 pub const POINTER_FEEDBACK_NONE: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(3i32);
+impl ::core::marker::Copy for POINTER_FEEDBACK_MODE {}
+impl ::core::clone::Clone for POINTER_FEEDBACK_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct POINTER_TYPE_INFO {
@@ -4634,6 +5114,12 @@ pub const PO_PART: PROPERTYORIGIN = PROPERTYORIGIN(1i32);
 pub const PO_CLASS: PROPERTYORIGIN = PROPERTYORIGIN(2i32);
 pub const PO_GLOBAL: PROPERTYORIGIN = PROPERTYORIGIN(3i32);
 pub const PO_NOTFOUND: PROPERTYORIGIN = PROPERTYORIGIN(4i32);
+impl ::core::marker::Copy for PROPERTYORIGIN {}
+impl ::core::clone::Clone for PROPERTYORIGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERA_V1 {
@@ -5442,6 +5928,12 @@ pub const PSPCB_ADDREF: PSPCB_MESSAGE = PSPCB_MESSAGE(0u32);
 pub const PSPCB_CREATE: PSPCB_MESSAGE = PSPCB_MESSAGE(2u32);
 pub const PSPCB_RELEASE: PSPCB_MESSAGE = PSPCB_MESSAGE(1u32);
 pub const PSPCB_SI_INITDIALOG: PSPCB_MESSAGE = PSPCB_MESSAGE(1025u32);
+impl ::core::marker::Copy for PSPCB_MESSAGE {}
+impl ::core::clone::Clone for PSPCB_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PSP_DEFAULT: u32 = 0u32;
 pub const PSP_DLGINDIRECT: u32 = 1u32;
 pub const PSP_HASHELP: u32 = 32u32;
@@ -5692,6 +6184,12 @@ pub struct SIZINGTYPE(pub i32);
 pub const ST_TRUESIZE: SIZINGTYPE = SIZINGTYPE(0i32);
 pub const ST_STRETCH: SIZINGTYPE = SIZINGTYPE(1i32);
 pub const ST_TILE: SIZINGTYPE = SIZINGTYPE(2i32);
+impl ::core::marker::Copy for SIZINGTYPE {}
+impl ::core::clone::Clone for SIZINGTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SOFTWAREEXPLORERSTATES(pub i32);
 pub const SPSE_NORMAL: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(1i32);
@@ -5699,6 +6197,12 @@ pub const SPSE_HOT: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(2i32);
 pub const SPSE_SELECTED: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(3i32);
 pub const SPSE_DISABLED: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(4i32);
 pub const SPSE_FOCUSED: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(5i32);
+impl ::core::marker::Copy for SOFTWAREEXPLORERSTATES {}
+impl ::core::clone::Clone for SOFTWAREEXPLORERSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STARTPANELPARTS(pub i32);
 pub const SPP_USERPANE: STARTPANELPARTS = STARTPANELPARTS(1i32);
@@ -5720,9 +6224,21 @@ pub const SPP_SEARCHVIEW: STARTPANELPARTS = STARTPANELPARTS(16i32);
 pub const SPP_MOREPROGRAMSARROWBACK: STARTPANELPARTS = STARTPANELPARTS(17i32);
 pub const SPP_TOPMATCH: STARTPANELPARTS = STARTPANELPARTS(18i32);
 pub const SPP_LOGOFFSPLITBUTTONDROPDOWN: STARTPANELPARTS = STARTPANELPARTS(19i32);
+impl ::core::marker::Copy for STARTPANELPARTS {}
+impl ::core::clone::Clone for STARTPANELPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STATICPARTS(pub i32);
 pub const STAT_TEXT: STATICPARTS = STATICPARTS(1i32);
+impl ::core::marker::Copy for STATICPARTS {}
+impl ::core::clone::Clone for STATICPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STD_COPY: u32 = 1u32;
 pub const STD_CUT: u32 = 0u32;
 pub const STD_DELETE: u32 = 5u32;
@@ -5743,6 +6259,12 @@ pub struct TASKBANDPARTS(pub i32);
 pub const TDP_GROUPCOUNT: TASKBANDPARTS = TASKBANDPARTS(1i32);
 pub const TDP_FLASHBUTTON: TASKBANDPARTS = TASKBANDPARTS(2i32);
 pub const TDP_FLASHBUTTONGROUPMENU: TASKBANDPARTS = TASKBANDPARTS(3i32);
+impl ::core::marker::Copy for TASKBANDPARTS {}
+impl ::core::clone::Clone for TASKBANDPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASKBARPARTS(pub i32);
 pub const TBP_BACKGROUNDBOTTOM: TASKBARPARTS = TASKBARPARTS(1i32);
@@ -5753,6 +6275,12 @@ pub const TBP_SIZINGBARBOTTOM: TASKBARPARTS = TASKBARPARTS(5i32);
 pub const TBP_SIZINGBARRIGHT: TASKBARPARTS = TASKBARPARTS(6i32);
 pub const TBP_SIZINGBARTOP: TASKBARPARTS = TASKBARPARTS(7i32);
 pub const TBP_SIZINGBARLEFT: TASKBARPARTS = TASKBARPARTS(8i32);
+impl ::core::marker::Copy for TASKBARPARTS {}
+impl ::core::clone::Clone for TASKBARPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct TASKDIALOGCONFIG {
@@ -5835,12 +6363,24 @@ pub const TDCBF_NO_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BU
 pub const TDCBF_CANCEL_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(8i32);
 pub const TDCBF_RETRY_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(16i32);
 pub const TDCBF_CLOSE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(32i32);
+impl ::core::marker::Copy for TASKDIALOG_COMMON_BUTTON_FLAGS {}
+impl ::core::clone::Clone for TASKDIALOG_COMMON_BUTTON_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASKDIALOG_ELEMENTS(pub i32);
 pub const TDE_CONTENT: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(0i32);
 pub const TDE_EXPANDED_INFORMATION: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(1i32);
 pub const TDE_FOOTER: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(2i32);
 pub const TDE_MAIN_INSTRUCTION: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(3i32);
+impl ::core::marker::Copy for TASKDIALOG_ELEMENTS {}
+impl ::core::clone::Clone for TASKDIALOG_ELEMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASKDIALOG_FLAGS(pub i32);
 pub const TDF_ENABLE_HYPERLINKS: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(1i32);
@@ -5861,10 +6401,22 @@ pub const TDF_NO_DEFAULT_RADIO_BUTTON: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(16384
 pub const TDF_CAN_BE_MINIMIZED: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(32768i32);
 pub const TDF_NO_SET_FOREGROUND: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(65536i32);
 pub const TDF_SIZE_TO_CONTENT: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(16777216i32);
+impl ::core::marker::Copy for TASKDIALOG_FLAGS {}
+impl ::core::clone::Clone for TASKDIALOG_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASKDIALOG_ICON_ELEMENTS(pub i32);
 pub const TDIE_ICON_MAIN: TASKDIALOG_ICON_ELEMENTS = TASKDIALOG_ICON_ELEMENTS(0i32);
 pub const TDIE_ICON_FOOTER: TASKDIALOG_ICON_ELEMENTS = TASKDIALOG_ICON_ELEMENTS(1i32);
+impl ::core::marker::Copy for TASKDIALOG_ICON_ELEMENTS {}
+impl ::core::clone::Clone for TASKDIALOG_ICON_ELEMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASKDIALOG_MESSAGES(pub i32);
 pub const TDM_NAVIGATE_PAGE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1125i32);
@@ -5882,6 +6434,12 @@ pub const TDM_CLICK_VERIFICATION: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1137
 pub const TDM_UPDATE_ELEMENT_TEXT: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1138i32);
 pub const TDM_SET_BUTTON_ELEVATION_REQUIRED_STATE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1139i32);
 pub const TDM_UPDATE_ICON: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1140i32);
+impl ::core::marker::Copy for TASKDIALOG_MESSAGES {}
+impl ::core::clone::Clone for TASKDIALOG_MESSAGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASKDIALOG_NOTIFICATIONS(pub i32);
 pub const TDN_CREATED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(0i32);
@@ -5895,6 +6453,12 @@ pub const TDN_DIALOG_CONSTRUCTED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICA
 pub const TDN_VERIFICATION_CLICKED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(8i32);
 pub const TDN_HELP: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(9i32);
 pub const TDN_EXPANDO_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(10i32);
+impl ::core::marker::Copy for TASKDIALOG_NOTIFICATIONS {}
+impl ::core::clone::Clone for TASKDIALOG_NOTIFICATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TA_CUBIC_BEZIER {
     pub header: TA_TIMINGFUNCTION,
@@ -5917,6 +6481,12 @@ pub const TAP_STAGGERDELAY: TA_PROPERTY = TA_PROPERTY(2i32);
 pub const TAP_STAGGERDELAYCAP: TA_PROPERTY = TA_PROPERTY(3i32);
 pub const TAP_STAGGERDELAYFACTOR: TA_PROPERTY = TA_PROPERTY(4i32);
 pub const TAP_ZORDER: TA_PROPERTY = TA_PROPERTY(5i32);
+impl ::core::marker::Copy for TA_PROPERTY {}
+impl ::core::clone::Clone for TA_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TA_PROPERTY_FLAG(pub u32);
 pub const TAPF_NONE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(0u32);
@@ -5925,6 +6495,12 @@ pub const TAPF_ISRTLAWARE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(2u32);
 pub const TAPF_ALLOWCOLLECTION: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(4u32);
 pub const TAPF_HASBACKGROUND: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(8u32);
 pub const TAPF_HASPERSPECTIVE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(16u32);
+impl ::core::marker::Copy for TA_PROPERTY_FLAG {}
+impl ::core::clone::Clone for TA_PROPERTY_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TA_TIMINGFUNCTION {
     pub eTimingFunctionType: TA_TIMINGFUNCTION_TYPE,
@@ -5939,6 +6515,12 @@ impl ::core::clone::Clone for TA_TIMINGFUNCTION {
 pub struct TA_TIMINGFUNCTION_TYPE(pub i32);
 pub const TTFT_UNDEFINED: TA_TIMINGFUNCTION_TYPE = TA_TIMINGFUNCTION_TYPE(0i32);
 pub const TTFT_CUBIC_BEZIER: TA_TIMINGFUNCTION_TYPE = TA_TIMINGFUNCTION_TYPE(1i32);
+impl ::core::marker::Copy for TA_TIMINGFUNCTION_TYPE {}
+impl ::core::clone::Clone for TA_TIMINGFUNCTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TA_TRANSFORM {
     pub eTransformType: TA_TRANSFORM_TYPE,
@@ -5993,6 +6575,12 @@ pub const TATF_NONE: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(0i32);
 pub const TATF_TARGETVALUES_USER: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(1i32);
 pub const TATF_HASINITIALVALUES: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(2i32);
 pub const TATF_HASORIGINVALUES: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(4i32);
+impl ::core::marker::Copy for TA_TRANSFORM_FLAG {}
+impl ::core::clone::Clone for TA_TRANSFORM_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TA_TRANSFORM_OPACITY {
     pub header: TA_TRANSFORM,
@@ -6011,6 +6599,12 @@ pub const TATT_TRANSLATE_2D: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(0i32);
 pub const TATT_SCALE_2D: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(1i32);
 pub const TATT_OPACITY: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(2i32);
 pub const TATT_CLIP: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(3i32);
+impl ::core::marker::Copy for TA_TRANSFORM_TYPE {}
+impl ::core::clone::Clone for TA_TRANSFORM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TBADDBITMAP {
@@ -6118,6 +6712,12 @@ pub const TBIF_SIZE: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(64u32);
 pub const TBIF_STATE: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(4u32);
 pub const TBIF_STYLE: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(8u32);
 pub const TBIF_TEXT: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(2u32);
+impl ::core::marker::Copy for TBBUTTONINFOW_MASK {}
+impl ::core::clone::Clone for TBBUTTONINFOW_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TBCDRF_BLENDICON: u32 = 2097152u32;
 pub const TBCDRF_HILITEHOTTRACK: u32 = 131072u32;
 pub const TBCDRF_NOBACKGROUND: u32 = 4194304u32;
@@ -6148,6 +6748,12 @@ pub struct TBINSERTMARK_FLAGS(pub u32);
 pub const TBIMHT_NONE: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(0u32);
 pub const TBIMHT_AFTER: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(1u32);
 pub const TBIMHT_BACKGROUND: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(2u32);
+impl ::core::marker::Copy for TBINSERTMARK_FLAGS {}
+impl ::core::clone::Clone for TBINSERTMARK_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TBMETRICS {
     pub cbSize: u32,
@@ -6442,6 +7048,12 @@ pub const TCHT_NOWHERE: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(1u32);
 pub const TCHT_ONITEM: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(6u32);
 pub const TCHT_ONITEMICON: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(2u32);
 pub const TCHT_ONITEMLABEL: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(4u32);
+impl ::core::marker::Copy for TCHITTESTINFO_FLAGS {}
+impl ::core::clone::Clone for TCHITTESTINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TCIS_BUTTONPRESSED: u32 = 1u32;
 pub const TCIS_HIGHLIGHTED: u32 = 2u32;
 #[repr(C)]
@@ -6488,6 +7100,12 @@ pub const TCIF_RTLREADING: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(4u32);
 pub const TCIF_TEXT: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(1u32);
 pub const TCIF_PARAM: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(8u32);
 pub const TCIF_STATE: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(16u32);
+impl ::core::marker::Copy for TCITEMHEADERA_MASK {}
+impl ::core::clone::Clone for TCITEMHEADERA_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCITEMHEADERW {
@@ -6588,11 +7206,23 @@ pub struct TEXTSHADOWTYPE(pub i32);
 pub const TST_NONE: TEXTSHADOWTYPE = TEXTSHADOWTYPE(0i32);
 pub const TST_SINGLE: TEXTSHADOWTYPE = TEXTSHADOWTYPE(1i32);
 pub const TST_CONTINUOUS: TEXTSHADOWTYPE = TEXTSHADOWTYPE(2i32);
+impl ::core::marker::Copy for TEXTSHADOWTYPE {}
+impl ::core::clone::Clone for TEXTSHADOWTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct THEMESIZE(pub i32);
 pub const TS_MIN: THEMESIZE = THEMESIZE(0i32);
 pub const TS_TRUE: THEMESIZE = THEMESIZE(1i32);
 pub const TS_DRAW: THEMESIZE = THEMESIZE(2i32);
+impl ::core::marker::Copy for THEMESIZE {}
+impl ::core::clone::Clone for THEMESIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct THEME_PROPERTY_SYMBOL_ID(pub u32);
 pub const TMT_RESERVEDLOW: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(0u32);
@@ -6852,6 +7482,12 @@ pub const TMT_SCALEDBACKGROUND: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL
 pub const TMT_ATLASIMAGE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(8000u32);
 pub const TMT_ATLASINPUTIMAGE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(8001u32);
 pub const TMT_ATLASRECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(8002u32);
+impl ::core::marker::Copy for THEME_PROPERTY_SYMBOL_ID {}
+impl ::core::clone::Clone for THEME_PROPERTY_SYMBOL_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOUCH_HIT_TESTING_INPUT {
@@ -6892,6 +7528,12 @@ pub const MCTGC_TODAY: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(4i32);
 pub const MCTGC_TODAYSELECTED: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(5i32);
 pub const MCTGC_SELECTED: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(6i32);
 pub const MCTGC_SELECTEDHOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(7i32);
+impl ::core::marker::Copy for TRAILINGGRIDCELLSTATES {}
+impl ::core::clone::Clone for TRAILINGGRIDCELLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TRAILINGGRIDCELLUPPERSTATES(pub i32);
 pub const MCTGCU_HOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(1i32);
@@ -6899,15 +7541,33 @@ pub const MCTGCU_HASSTATE: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERST
 pub const MCTGCU_HASSTATEHOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(3i32);
 pub const MCTGCU_SELECTED: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(4i32);
 pub const MCTGCU_SELECTEDHOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(5i32);
+impl ::core::marker::Copy for TRAILINGGRIDCELLUPPERSTATES {}
+impl ::core::clone::Clone for TRAILINGGRIDCELLUPPERSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TRAYNOTIFYPARTS(pub i32);
 pub const TNP_BACKGROUND: TRAYNOTIFYPARTS = TRAYNOTIFYPARTS(1i32);
 pub const TNP_ANIMBACKGROUND: TRAYNOTIFYPARTS = TRAYNOTIFYPARTS(2i32);
+impl ::core::marker::Copy for TRAYNOTIFYPARTS {}
+impl ::core::clone::Clone for TRAYNOTIFYPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TRUESIZESCALINGTYPE(pub i32);
 pub const TSST_NONE: TRUESIZESCALINGTYPE = TRUESIZESCALINGTYPE(0i32);
 pub const TSST_SIZE: TRUESIZESCALINGTYPE = TRUESIZESCALINGTYPE(1i32);
 pub const TSST_DPI: TRUESIZESCALINGTYPE = TRUESIZESCALINGTYPE(2i32);
+impl ::core::marker::Copy for TRUESIZESCALINGTYPE {}
+impl ::core::clone::Clone for TRUESIZESCALINGTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TTDT_AUTOMATIC: u32 = 0u32;
 pub const TTDT_AUTOPOP: u32 = 2u32;
 pub const TTDT_INITIAL: u32 = 3u32;
@@ -7074,6 +7734,12 @@ pub const TTF_RTLREADING: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(4u32);
 pub const TTF_SUBCLASS: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(16u32);
 pub const TTF_TRACK: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(32u32);
 pub const TTF_TRANSPARENT: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(256u32);
+impl ::core::marker::Copy for TTTOOLINFO_FLAGS {}
+impl ::core::clone::Clone for TTTOOLINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TVCDRF_NOIMAGES: u32 = 65536u32;
 pub const TVC_BYKEYBOARD: u32 = 2u32;
 pub const TVC_BYMOUSE: u32 = 1u32;
@@ -7139,6 +7805,12 @@ pub const TVHT_ONITEMRIGHT: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(32u32);
 pub const TVHT_ONITEMSTATEICON: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(64u32);
 pub const TVHT_TOLEFT: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(2048u32);
 pub const TVHT_TORIGHT: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(1024u32);
+impl ::core::marker::Copy for TVHITTESTINFO_FLAGS {}
+impl ::core::clone::Clone for TVHITTESTINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TVINSERTSTRUCTA {
@@ -7288,9 +7960,21 @@ pub const I_ZERO: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(0i32);
 pub const I_ONE_OR_MORE: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(1i32);
 pub const I_CHILDRENCALLBACK: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(-1i32);
 pub const I_CHILDRENAUTO: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(-2i32);
+impl ::core::marker::Copy for TVITEMEXW_CHILDREN {}
+impl ::core::clone::Clone for TVITEMEXW_CHILDREN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TVITEMPART(pub i32);
 pub const TVGIPR_BUTTON: TVITEMPART = TVITEMPART(1i32);
+impl ::core::marker::Copy for TVITEMPART {}
+impl ::core::clone::Clone for TVITEMPART {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TVITEMW {
@@ -7326,6 +8010,12 @@ pub const TVIF_TEXT: TVITEM_MASK = TVITEM_MASK(1u32);
 pub const TVIF_EXPANDEDIMAGE: TVITEM_MASK = TVITEM_MASK(512u32);
 pub const TVIF_INTEGRAL: TVITEM_MASK = TVITEM_MASK(128u32);
 pub const TVIF_STATEEX: TVITEM_MASK = TVITEM_MASK(256u32);
+impl ::core::marker::Copy for TVITEM_MASK {}
+impl ::core::clone::Clone for TVITEM_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TVI_FIRST: HTREEITEM = HTREEITEM(-65535i32 as _);
 pub const TVI_LAST: HTREEITEM = HTREEITEM(-65534i32 as _);
 pub const TVI_ROOT: HTREEITEM = HTREEITEM(-65536i32 as _);
@@ -7503,6 +8193,12 @@ pub struct VALIGN(pub i32);
 pub const VA_TOP: VALIGN = VALIGN(0i32);
 pub const VA_CENTER: VALIGN = VALIGN(1i32);
 pub const VA_BOTTOM: VALIGN = VALIGN(2i32);
+impl ::core::marker::Copy for VALIGN {}
+impl ::core::clone::Clone for VALIGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIEW_DETAILS: u32 = 3u32;
 pub const VIEW_LARGEICONS: u32 = 0u32;
 pub const VIEW_LIST: u32 = 2u32;
@@ -7519,6 +8215,12 @@ pub const VIEW_VIEWMENU: u32 = 12u32;
 #[repr(transparent)]
 pub struct WINDOWTHEMEATTRIBUTETYPE(pub i32);
 pub const WTA_NONCLIENT: WINDOWTHEMEATTRIBUTETYPE = WINDOWTHEMEATTRIBUTETYPE(1i32);
+impl ::core::marker::Copy for WINDOWTHEMEATTRIBUTETYPE {}
+impl ::core::clone::Clone for WINDOWTHEMEATTRIBUTETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WIZ_BODYCX: u32 = 184u32;
 pub const WIZ_BODYX: u32 = 92u32;
 pub const WIZ_CXBMP: u32 = 80u32;
@@ -7537,6 +8239,12 @@ pub const WB_MOVEWORDLEFT: WORD_BREAK_ACTION = WORD_BREAK_ACTION(4u32);
 pub const WB_MOVEWORDRIGHT: WORD_BREAK_ACTION = WORD_BREAK_ACTION(5u32);
 pub const WB_RIGHT: WORD_BREAK_ACTION = WORD_BREAK_ACTION(1u32);
 pub const WB_RIGHTBREAK: WORD_BREAK_ACTION = WORD_BREAK_ACTION(7u32);
+impl ::core::marker::Copy for WORD_BREAK_ACTION {}
+impl ::core::clone::Clone for WORD_BREAK_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WSB_PROP(pub i32);
 pub const WSB_PROP_CXHSCROLL: WSB_PROP = WSB_PROP(2i32);
@@ -7551,6 +8259,12 @@ pub const WSB_PROP_PALETTE: WSB_PROP = WSB_PROP(2048i32);
 pub const WSB_PROP_VBKGCOLOR: WSB_PROP = WSB_PROP(64i32);
 pub const WSB_PROP_VSTYLE: WSB_PROP = WSB_PROP(256i32);
 pub const WSB_PROP_WINSTYLE: WSB_PROP = WSB_PROP(1024i32);
+impl ::core::marker::Copy for WSB_PROP {}
+impl ::core::clone::Clone for WSB_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WSB_PROP_MASK: i32 = 4095i32;
 #[repr(C)]
 pub struct WTA_OPTIONS {
@@ -7571,3 +8285,9 @@ pub const WTNCA_NOSYSMENU: u32 = 4u32;
 pub struct _LI_METRIC(pub i32);
 pub const LIM_SMALL: _LI_METRIC = _LI_METRIC(0i32);
 pub const LIM_LARGE: _LI_METRIC = _LI_METRIC(1i32);
+impl ::core::marker::Copy for _LI_METRIC {}
+impl ::core::clone::Clone for _LI_METRIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

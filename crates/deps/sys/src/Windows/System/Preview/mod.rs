@@ -11,6 +11,12 @@ impl HingeState {
     pub const Convex: Self = Self(4i32);
     pub const Full: Self = Self(5i32);
 }
+impl ::core::marker::Copy for HingeState {}
+impl ::core::clone::Clone for HingeState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITwoPanelHingedDevicePosturePreview(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

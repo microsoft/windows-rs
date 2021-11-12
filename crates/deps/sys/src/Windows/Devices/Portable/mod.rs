@@ -16,3 +16,9 @@ impl ServiceDeviceType {
     pub const SmsService: Self = Self(5i32);
     pub const TasksService: Self = Self(6i32);
 }
+impl ::core::marker::Copy for ServiceDeviceType {}
+impl ::core::clone::Clone for ServiceDeviceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -783,6 +783,12 @@ extern "system" {
 #[repr(transparent)]
 pub struct ACTIVATEFLAGS(pub i32);
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = ACTIVATEFLAGS(1i32);
+impl ::core::marker::Copy for ACTIVATEFLAGS {}
+impl ::core::clone::Clone for ACTIVATEFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACTIVEOBJECT_STRONG: u32 = 0u32;
 pub const ACTIVEOBJECT_WEAK: u32 = 1u32;
 #[repr(C)]
@@ -814,11 +820,23 @@ impl ::core::clone::Clone for AspectInfo {
 #[repr(transparent)]
 pub struct AspectInfoFlag(pub i32);
 pub const DVASPECTINFOFLAG_CANOPTIMIZE: AspectInfoFlag = AspectInfoFlag(1i32);
+impl ::core::marker::Copy for AspectInfoFlag {}
+impl ::core::clone::Clone for AspectInfoFlag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BINDSPEED(pub i32);
 pub const BINDSPEED_INDEFINITE: BINDSPEED = BINDSPEED(1i32);
 pub const BINDSPEED_MODERATE: BINDSPEED = BINDSPEED(2i32);
 pub const BINDSPEED_IMMEDIATE: BINDSPEED = BINDSPEED(3i32);
+impl ::core::marker::Copy for BINDSPEED {}
+impl ::core::clone::Clone for BINDSPEED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BZ_DISABLECANCELBUTTON: i32 = 1i32;
 pub const BZ_DISABLERETRYBUTTON: i32 = 4i32;
 pub const BZ_DISABLESWITCHTOBUTTON: i32 = 2i32;
@@ -878,6 +896,12 @@ pub const CHANGEKIND_GENERAL: CHANGEKIND = CHANGEKIND(4i32);
 pub const CHANGEKIND_INVALIDATE: CHANGEKIND = CHANGEKIND(5i32);
 pub const CHANGEKIND_CHANGEFAILED: CHANGEKIND = CHANGEKIND(6i32);
 pub const CHANGEKIND_MAX: CHANGEKIND = CHANGEKIND(7i32);
+impl ::core::marker::Copy for CHANGEKIND {}
+impl ::core::clone::Clone for CHANGEKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CIF_SELECTCURRENT: i32 = 2i32;
 pub const CIF_SELECTDEFAULT: i32 = 4i32;
 pub const CIF_SELECTFROMFILE: i32 = 8i32;
@@ -935,6 +959,12 @@ pub const CTL_E_ILLEGALFUNCTIONCALL: i32 = -2146828283i32;
 pub struct CTRLINFO(pub i32);
 pub const CTRLINFO_EATS_RETURN: CTRLINFO = CTRLINFO(1i32);
 pub const CTRLINFO_EATS_ESCAPE: CTRLINFO = CTRLINFO(2i32);
+impl ::core::marker::Copy for CTRLINFO {}
+impl ::core::clone::Clone for CTRLINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DD_DEFDRAGDELAY: u32 = 200u32;
 pub const DD_DEFDRAGMINDIST: u32 = 2u32;
 pub const DD_DEFSCROLLDELAY: u32 = 50u32;
@@ -944,6 +974,12 @@ pub const DD_DEFSCROLLINTERVAL: u32 = 50u32;
 pub struct DISCARDCACHE(pub i32);
 pub const DISCARDCACHE_SAVEIFDIRTY: DISCARDCACHE = DISCARDCACHE(0i32);
 pub const DISCARDCACHE_NOSAVE: DISCARDCACHE = DISCARDCACHE(1i32);
+impl ::core::marker::Copy for DISCARDCACHE {}
+impl ::core::clone::Clone for DISCARDCACHE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DISPATCH_CONSTRUCT: u32 = 16384u32;
 pub const DISPATCH_METHOD: u32 = 1u32;
 pub const DISPATCH_PROPERTYGET: u32 = 2u32;
@@ -1072,6 +1108,12 @@ pub const DOCMISC_CANCREATEMULTIPLEVIEWS: DOCMISC = DOCMISC(1i32);
 pub const DOCMISC_SUPPORTCOMPLEXRECTANGLES: DOCMISC = DOCMISC(2i32);
 pub const DOCMISC_CANTOPENEDIT: DOCMISC = DOCMISC(4i32);
 pub const DOCMISC_NOFILESUPPORT: DOCMISC = DOCMISC(8i32);
+impl ::core::marker::Copy for DOCMISC {}
+impl ::core::clone::Clone for DOCMISC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DROPEFFECT_COPY: u32 = 1u32;
 pub const DROPEFFECT_LINK: u32 = 4u32;
 pub const DROPEFFECT_MOVE: u32 = 2u32;
@@ -1081,6 +1123,12 @@ pub const DROPEFFECT_SCROLL: u32 = 2147483648u32;
 pub struct DVASPECT2(pub i32);
 pub const DVASPECT_OPAQUE: DVASPECT2 = DVASPECT2(16i32);
 pub const DVASPECT_TRANSPARENT: DVASPECT2 = DVASPECT2(32i32);
+impl ::core::marker::Copy for DVASPECT2 {}
+impl ::core::clone::Clone for DVASPECT2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ELF_DISABLECANCELLINK: i32 = 16i32;
 pub const ELF_DISABLECHANGESOURCE: i32 = 8i32;
 pub const ELF_DISABLEOPENSOURCE: i32 = 4i32;
@@ -1100,6 +1148,12 @@ pub const GC_WCH_FREVERSEDIR: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FL
 pub const GC_WCH_FONLYAFTER: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(268435456u32);
 pub const GC_WCH_FONLYBEFORE: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(536870912u32);
 pub const GC_WCH_FSELECTED: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(1073741824u32);
+impl ::core::marker::Copy for ENUM_CONTROLS_WHICH_FLAGS {}
+impl ::core::clone::Clone for ENUM_CONTROLS_WHICH_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ExtentInfo {
@@ -1119,6 +1173,12 @@ impl ::core::clone::Clone for ExtentInfo {
 pub struct ExtentMode(pub i32);
 pub const DVEXTENT_CONTENT: ExtentMode = ExtentMode(0i32);
 pub const DVEXTENT_INTEGRAL: ExtentMode = ExtentMode(1i32);
+impl ::core::marker::Copy for ExtentMode {}
+impl ::core::clone::Clone for ExtentMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FADF_AUTO: u32 = 1u32;
 pub const FADF_BSTR: u32 = 256u32;
 pub const FADF_DISPATCH: u32 = 1024u32;
@@ -1166,10 +1226,22 @@ pub const FUNCFLAG_FUIDEFAULT: FUNCFLAGS = FUNCFLAGS(512i32);
 pub const FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = FUNCFLAGS(1024i32);
 pub const FUNCFLAG_FREPLACEABLE: FUNCFLAGS = FUNCFLAGS(2048i32);
 pub const FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = FUNCFLAGS(4096i32);
+impl ::core::marker::Copy for FUNCFLAGS {}
+impl ::core::clone::Clone for FUNCFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GC_WCH_SIBLING: i32 = 1i32;
 #[repr(transparent)]
 pub struct GUIDKIND(pub i32);
 pub const GUIDKIND_DEFAULT_SOURCE_DISP_IID: GUIDKIND = GUIDKIND(1i32);
+impl ::core::marker::Copy for GUIDKIND {}
+impl ::core::clone::Clone for GUIDKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GUID_CHECKVALUEEXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536076, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
 pub const GUID_COLOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536065, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
 pub const GUID_FONTBOLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536079, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
@@ -1196,6 +1268,12 @@ pub const HITRESULT_OUTSIDE: HITRESULT = HITRESULT(0i32);
 pub const HITRESULT_TRANSPARENT: HITRESULT = HITRESULT(1i32);
 pub const HITRESULT_CLOSE: HITRESULT = HITRESULT(2i32);
 pub const HITRESULT_HIT: HITRESULT = HITRESULT(3i32);
+impl ::core::marker::Copy for HITRESULT {}
+impl ::core::clone::Clone for HITRESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAdviseSinkEx(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1385,6 +1463,12 @@ pub struct IFontEventsDisp(pub *mut ::core::ffi::c_void);
 pub struct IGNOREMIME(pub i32);
 pub const IGNOREMIME_PROMPT: IGNOREMIME = IGNOREMIME(1i32);
 pub const IGNOREMIME_TEXT: IGNOREMIME = IGNOREMIME(2i32);
+impl ::core::marker::Copy for IGNOREMIME {}
+impl ::core::clone::Clone for IGNOREMIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetOleObject(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1566,6 +1650,12 @@ pub const LIBFLAG_FRESTRICTED: LIBFLAGS = LIBFLAGS(1i32);
 pub const LIBFLAG_FCONTROL: LIBFLAGS = LIBFLAGS(2i32);
 pub const LIBFLAG_FHIDDEN: LIBFLAGS = LIBFLAGS(4i32);
 pub const LIBFLAG_FHASDISKIMAGE: LIBFLAGS = LIBFLAGS(8i32);
+impl ::core::marker::Copy for LIBFLAGS {}
+impl ::core::clone::Clone for LIBFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LICINFO {
@@ -1596,6 +1686,12 @@ pub const MEDIAPLAYBACK_RESUME: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(0i32);
 pub const MEDIAPLAYBACK_PAUSE: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(1i32);
 pub const MEDIAPLAYBACK_PAUSE_AND_SUSPEND: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(2i32);
 pub const MEDIAPLAYBACK_RESUME_FROM_SUSPEND: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(3i32);
+impl ::core::marker::Copy for MEDIAPLAYBACK_STATE {}
+impl ::core::clone::Clone for MEDIAPLAYBACK_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MEMBERID_NIL: i32 = -1i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1630,6 +1726,12 @@ pub const MULTICLASSINFO_GETTYPEINFO: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAG
 pub const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(2u32);
 pub const MULTICLASSINFO_GETIIDPRIMARY: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(4u32);
 pub const MULTICLASSINFO_GETIIDSOURCE: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(8u32);
+impl ::core::marker::Copy for MULTICLASSINFO_FLAGS {}
+impl ::core::clone::Clone for MULTICLASSINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct NUMPARSE {
     pub cDig: i32,
@@ -1730,6 +1832,12 @@ pub struct OLECLOSE(pub i32);
 pub const OLECLOSE_SAVEIFDIRTY: OLECLOSE = OLECLOSE(0i32);
 pub const OLECLOSE_NOSAVE: OLECLOSE = OLECLOSE(1i32);
 pub const OLECLOSE_PROMPTSAVE: OLECLOSE = OLECLOSE(2i32);
+impl ::core::marker::Copy for OLECLOSE {}
+impl ::core::clone::Clone for OLECLOSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct OLECMD {
     pub cmdID: u32,
@@ -1761,6 +1869,12 @@ pub const OLECMDEXECOPT_DODEFAULT: OLECMDEXECOPT = OLECMDEXECOPT(0i32);
 pub const OLECMDEXECOPT_PROMPTUSER: OLECMDEXECOPT = OLECMDEXECOPT(1i32);
 pub const OLECMDEXECOPT_DONTPROMPTUSER: OLECMDEXECOPT = OLECMDEXECOPT(2i32);
 pub const OLECMDEXECOPT_SHOWHELP: OLECMDEXECOPT = OLECMDEXECOPT(3i32);
+impl ::core::marker::Copy for OLECMDEXECOPT {}
+impl ::core::clone::Clone for OLECMDEXECOPT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLECMDF(pub i32);
 pub const OLECMDF_SUPPORTED: OLECMDF = OLECMDF(1i32);
@@ -1769,6 +1883,12 @@ pub const OLECMDF_LATCHED: OLECMDF = OLECMDF(4i32);
 pub const OLECMDF_NINCHED: OLECMDF = OLECMDF(8i32);
 pub const OLECMDF_INVISIBLE: OLECMDF = OLECMDF(16i32);
 pub const OLECMDF_DEFHIDEONCTXTMENU: OLECMDF = OLECMDF(32i32);
+impl ::core::marker::Copy for OLECMDF {}
+impl ::core::clone::Clone for OLECMDF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLECMDID(pub i32);
 pub const OLECMDID_OPEN: OLECMDID = OLECMDID(1i32);
@@ -1854,6 +1974,12 @@ pub const OLECMDID_SCROLLCOMPLETE: OLECMDID = OLECMDID(82i32);
 pub const OLECMDID_ONBEFOREUNLOAD: OLECMDID = OLECMDID(83i32);
 pub const OLECMDID_SHOWMESSAGE_BLOCKABLE: OLECMDID = OLECMDID(84i32);
 pub const OLECMDID_SHOWTASKDLG_BLOCKABLE: OLECMDID = OLECMDID(85i32);
+impl ::core::marker::Copy for OLECMDID {}
+impl ::core::clone::Clone for OLECMDID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLECMDID_BROWSERSTATEFLAG(pub i32);
 pub const OLECMDIDF_BROWSERSTATE_EXTENSIONSOFF: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(1i32);
@@ -1863,12 +1989,24 @@ pub const OLECMDIDF_BROWSERSTATE_RESET: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BRO
 pub const OLECMDIDF_BROWSERSTATE_REQUIRESACTIVEX: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(16i32);
 pub const OLECMDIDF_BROWSERSTATE_DESKTOPHTMLDIALOG: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(32i32);
 pub const OLECMDIDF_BROWSERSTATE_BLOCKEDVERSION: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(64i32);
+impl ::core::marker::Copy for OLECMDID_BROWSERSTATEFLAG {}
+impl ::core::clone::Clone for OLECMDID_BROWSERSTATEFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLECMDID_OPTICAL_ZOOMFLAG(pub i32);
 pub const OLECMDIDF_OPTICAL_ZOOM_NOPERSIST: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(1i32);
 pub const OLECMDIDF_OPTICAL_ZOOM_NOLAYOUT: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(16i32);
 pub const OLECMDIDF_OPTICAL_ZOOM_NOTRANSIENT: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(32i32);
 pub const OLECMDIDF_OPTICAL_ZOOM_RELOADFORNEWTAB: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(64i32);
+impl ::core::marker::Copy for OLECMDID_OPTICAL_ZOOMFLAG {}
+impl ::core::clone::Clone for OLECMDID_OPTICAL_ZOOMFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLECMDID_PAGEACTIONFLAG(pub i32);
 pub const OLECMDIDF_PAGEACTION_FILEDOWNLOAD: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1i32);
@@ -1904,6 +2042,12 @@ pub const OLECMDIDF_PAGEACTION_EXTENSION_COMPAT_BLOCKED: OLECMDID_PAGEACTIONFLAG
 pub const OLECMDIDF_PAGEACTION_NORESETACTIVEX: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(536870912i32);
 pub const OLECMDIDF_PAGEACTION_GENERIC_STATE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1073741824i32);
 pub const OLECMDIDF_PAGEACTION_RESET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(-2147483648i32);
+impl ::core::marker::Copy for OLECMDID_PAGEACTIONFLAG {}
+impl ::core::clone::Clone for OLECMDID_PAGEACTIONFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLECMDID_REFRESHFLAG(pub i32);
 pub const OLECMDIDF_REFRESH_NORMAL: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(0i32);
@@ -1929,18 +2073,36 @@ pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNRESTRICTED: OLECMDID_REFRESHF
 pub const OLECMDIDF_REFRESH_PAGEACTION_MIXEDCONTENT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(33554432i32);
 pub const OLECMDIDF_REFRESH_PAGEACTION_INVALID_CERT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(67108864i32);
 pub const OLECMDIDF_REFRESH_PAGEACTION_ALLOW_VERSION: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(134217728i32);
+impl ::core::marker::Copy for OLECMDID_REFRESHFLAG {}
+impl ::core::clone::Clone for OLECMDID_REFRESHFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLECMDID_VIEWPORT_MODE_FLAG(pub i32);
 pub const OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(1i32);
 pub const OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(2i32);
 pub const OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH_VALID: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(65536i32);
 pub const OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM_VALID: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(131072i32);
+impl ::core::marker::Copy for OLECMDID_VIEWPORT_MODE_FLAG {}
+impl ::core::clone::Clone for OLECMDID_VIEWPORT_MODE_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLECMDID_WINDOWSTATE_FLAG(pub i32);
 pub const OLECMDIDF_WINDOWSTATE_USERVISIBLE: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(1i32);
 pub const OLECMDIDF_WINDOWSTATE_ENABLED: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(2i32);
 pub const OLECMDIDF_WINDOWSTATE_USERVISIBLE_VALID: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(65536i32);
 pub const OLECMDIDF_WINDOWSTATE_ENABLED_VALID: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(131072i32);
+impl ::core::marker::Copy for OLECMDID_WINDOWSTATE_FLAG {}
+impl ::core::clone::Clone for OLECMDID_WINDOWSTATE_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct OLECMDTEXT {
     pub cmdtextf: u32,
@@ -1959,6 +2121,12 @@ pub struct OLECMDTEXTF(pub i32);
 pub const OLECMDTEXTF_NONE: OLECMDTEXTF = OLECMDTEXTF(0i32);
 pub const OLECMDTEXTF_NAME: OLECMDTEXTF = OLECMDTEXTF(1i32);
 pub const OLECMDTEXTF_STATUS: OLECMDTEXTF = OLECMDTEXTF(2i32);
+impl ::core::marker::Copy for OLECMDTEXTF {}
+impl ::core::clone::Clone for OLECMDTEXTF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OLECMD_TASKDLGID_ONBEFOREUNLOAD: u32 = 1u32;
 #[repr(transparent)]
 pub struct OLECONTF(pub i32);
@@ -1967,18 +2135,36 @@ pub const OLECONTF_LINKS: OLECONTF = OLECONTF(2i32);
 pub const OLECONTF_OTHERS: OLECONTF = OLECONTF(4i32);
 pub const OLECONTF_ONLYUSER: OLECONTF = OLECONTF(8i32);
 pub const OLECONTF_ONLYIFRUNNING: OLECONTF = OLECONTF(16i32);
+impl ::core::marker::Copy for OLECONTF {}
+impl ::core::clone::Clone for OLECONTF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OLECREATE_LEAVERUNNING: u32 = 1u32;
 #[repr(transparent)]
 pub struct OLEDCFLAGS(pub i32);
 pub const OLEDC_NODRAW: OLEDCFLAGS = OLEDCFLAGS(1i32);
 pub const OLEDC_PAINTBKGND: OLEDCFLAGS = OLEDCFLAGS(2i32);
 pub const OLEDC_OFFSCREEN: OLEDCFLAGS = OLEDCFLAGS(4i32);
+impl ::core::marker::Copy for OLEDCFLAGS {}
+impl ::core::clone::Clone for OLEDCFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLEGETMONIKER(pub i32);
 pub const OLEGETMONIKER_ONLYIFTHERE: OLEGETMONIKER = OLEGETMONIKER(1i32);
 pub const OLEGETMONIKER_FORCEASSIGN: OLEGETMONIKER = OLEGETMONIKER(2i32);
 pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = OLEGETMONIKER(3i32);
 pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = OLEGETMONIKER(4i32);
+impl ::core::marker::Copy for OLEGETMONIKER {}
+impl ::core::clone::Clone for OLEGETMONIKER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OLEIVERB_DISCARDUNDOSTATE: i32 = -6i32;
 pub const OLEIVERB_HIDE: i32 = -3i32;
 pub const OLEIVERB_INPLACEACTIVATE: i32 = -5i32;
@@ -1990,6 +2176,12 @@ pub const OLEIVERB_UIACTIVATE: i32 = -4i32;
 #[repr(transparent)]
 pub struct OLELINKBIND(pub i32);
 pub const OLELINKBIND_EVENIFCLASSDIFF: OLELINKBIND = OLELINKBIND(1i32);
+impl ::core::marker::Copy for OLELINKBIND {}
+impl ::core::clone::Clone for OLELINKBIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLEMISC(pub i32);
 pub const OLEMISC_RECOMPOSEONRESIZE: OLEMISC = OLEMISC(1i32);
@@ -2014,12 +2206,24 @@ pub const OLEMISC_IMEMODE: OLEMISC = OLEMISC(262144i32);
 pub const OLEMISC_IGNOREACTIVATEWHENVISIBLE: OLEMISC = OLEMISC(524288i32);
 pub const OLEMISC_WANTSTOMENUMERGE: OLEMISC = OLEMISC(1048576i32);
 pub const OLEMISC_SUPPORTSMULTILEVELUNDO: OLEMISC = OLEMISC(2097152i32);
+impl ::core::marker::Copy for OLEMISC {}
+impl ::core::clone::Clone for OLEMISC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLERENDER(pub i32);
 pub const OLERENDER_NONE: OLERENDER = OLERENDER(0i32);
 pub const OLERENDER_DRAW: OLERENDER = OLERENDER(1i32);
 pub const OLERENDER_FORMAT: OLERENDER = OLERENDER(2i32);
 pub const OLERENDER_ASIS: OLERENDER = OLERENDER(3i32);
+impl ::core::marker::Copy for OLERENDER {}
+impl ::core::clone::Clone for OLERENDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 pub struct OLEUIBUSYA {
@@ -2522,6 +2726,12 @@ pub const OLEUIPASTE_LINKTYPE5: OLEUIPASTEFLAG = OLEUIPASTEFLAG(16i32);
 pub const OLEUIPASTE_LINKTYPE6: OLEUIPASTEFLAG = OLEUIPASTEFLAG(32i32);
 pub const OLEUIPASTE_LINKTYPE7: OLEUIPASTEFLAG = OLEUIPASTEFLAG(64i32);
 pub const OLEUIPASTE_LINKTYPE8: OLEUIPASTEFLAG = OLEUIPASTEFLAG(128i32);
+impl ::core::marker::Copy for OLEUIPASTEFLAG {}
+impl ::core::clone::Clone for OLEUIPASTEFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct OLEUIPASTESPECIALA {
@@ -2715,6 +2925,12 @@ pub const OLEUI_VPERR_METAPICTINVALID: u32 = 131u32;
 pub struct OLEUPDATE(pub i32);
 pub const OLEUPDATE_ALWAYS: OLEUPDATE = OLEUPDATE(1i32);
 pub const OLEUPDATE_ONCALL: OLEUPDATE = OLEUPDATE(3i32);
+impl ::core::marker::Copy for OLEUPDATE {}
+impl ::core::clone::Clone for OLEUPDATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OLEVERB {
@@ -2735,17 +2951,35 @@ impl ::core::clone::Clone for OLEVERB {
 pub struct OLEVERBATTRIB(pub i32);
 pub const OLEVERBATTRIB_NEVERDIRTIES: OLEVERBATTRIB = OLEVERBATTRIB(1i32);
 pub const OLEVERBATTRIB_ONCONTAINERMENU: OLEVERBATTRIB = OLEVERBATTRIB(2i32);
+impl ::core::marker::Copy for OLEVERBATTRIB {}
+impl ::core::clone::Clone for OLEVERBATTRIB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OLEVERB_PRIMARY: u32 = 0u32;
 #[repr(transparent)]
 pub struct OLEWHICHMK(pub i32);
 pub const OLEWHICHMK_CONTAINER: OLEWHICHMK = OLEWHICHMK(1i32);
 pub const OLEWHICHMK_OBJREL: OLEWHICHMK = OLEWHICHMK(2i32);
 pub const OLEWHICHMK_OBJFULL: OLEWHICHMK = OLEWHICHMK(3i32);
+impl ::core::marker::Copy for OLEWHICHMK {}
+impl ::core::clone::Clone for OLEWHICHMK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLE_TRISTATE(pub i32);
 pub const triUnchecked: OLE_TRISTATE = OLE_TRISTATE(0i32);
 pub const triChecked: OLE_TRISTATE = OLE_TRISTATE(1i32);
 pub const triGray: OLE_TRISTATE = OLE_TRISTATE(2i32);
+impl ::core::marker::Copy for OLE_TRISTATE {}
+impl ::core::clone::Clone for OLE_TRISTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OPF_DISABLECONVERT: i32 = 8i32;
 pub const OPF_NOFILLDEFAULT: i32 = 2i32;
 pub const OPF_OBJECTISLINK: i32 = 1i32;
@@ -2769,6 +3003,12 @@ pub const PAGEACTION_UI_DEFAULT: PAGEACTION_UI = PAGEACTION_UI(0i32);
 pub const PAGEACTION_UI_MODAL: PAGEACTION_UI = PAGEACTION_UI(1i32);
 pub const PAGEACTION_UI_MODELESS: PAGEACTION_UI = PAGEACTION_UI(2i32);
 pub const PAGEACTION_UI_SILENT: PAGEACTION_UI = PAGEACTION_UI(3i32);
+impl ::core::marker::Copy for PAGEACTION_UI {}
+impl ::core::clone::Clone for PAGEACTION_UI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PAGERANGE {
     pub nFromPage: i32,
@@ -2947,6 +3187,12 @@ pub struct POINTERINACTIVE(pub i32);
 pub const POINTERINACTIVE_ACTIVATEONENTRY: POINTERINACTIVE = POINTERINACTIVE(1i32);
 pub const POINTERINACTIVE_DEACTIVATEONLEAVE: POINTERINACTIVE = POINTERINACTIVE(2i32);
 pub const POINTERINACTIVE_ACTIVATEONDRAG: POINTERINACTIVE = POINTERINACTIVE(4i32);
+impl ::core::marker::Copy for POINTERINACTIVE {}
+impl ::core::clone::Clone for POINTERINACTIVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct POINTF {
     pub x: f32,
@@ -2967,6 +3213,12 @@ pub const PRINTFLAG_RECOMPOSETODEVICE: PRINTFLAG = PRINTFLAG(8u32);
 pub const PRINTFLAG_DONTACTUALLYPRINT: PRINTFLAG = PRINTFLAG(16u32);
 pub const PRINTFLAG_FORCEPROPERTIES: PRINTFLAG = PRINTFLAG(32u32);
 pub const PRINTFLAG_PRINTTOFILE: PRINTFLAG = PRINTFLAG(64u32);
+impl ::core::marker::Copy for PRINTFLAG {}
+impl ::core::clone::Clone for PRINTFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROPBAG2_TYPE(pub i32);
 pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = PROPBAG2_TYPE(0i32);
@@ -2976,6 +3228,12 @@ pub const PROPBAG2_TYPE_OBJECT: PROPBAG2_TYPE = PROPBAG2_TYPE(3i32);
 pub const PROPBAG2_TYPE_STREAM: PROPBAG2_TYPE = PROPBAG2_TYPE(4i32);
 pub const PROPBAG2_TYPE_STORAGE: PROPBAG2_TYPE = PROPBAG2_TYPE(5i32);
 pub const PROPBAG2_TYPE_MONIKER: PROPBAG2_TYPE = PROPBAG2_TYPE(6i32);
+impl ::core::marker::Copy for PROPBAG2_TYPE {}
+impl ::core::clone::Clone for PROPBAG2_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPPAGEINFO {
@@ -2999,6 +3257,12 @@ pub struct PROPPAGESTATUS(pub i32);
 pub const PROPPAGESTATUS_DIRTY: PROPPAGESTATUS = PROPPAGESTATUS(1i32);
 pub const PROPPAGESTATUS_VALIDATE: PROPPAGESTATUS = PROPPAGESTATUS(2i32);
 pub const PROPPAGESTATUS_CLEAN: PROPPAGESTATUS = PROPPAGESTATUS(4i32);
+impl ::core::marker::Copy for PROPPAGESTATUS {}
+impl ::core::clone::Clone for PROPPAGESTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PSF_CHECKDISPLAYASICON: i32 = 8i32;
 pub const PSF_DISABLEDISPLAYASICON: i32 = 16i32;
 pub const PSF_HIDECHANGEICON: i32 = 32i32;
@@ -3012,6 +3276,12 @@ pub const PS_MAXLINKTYPES: u32 = 8u32;
 pub struct PictureAttributes(pub i32);
 pub const PICTURE_SCALABLE: PictureAttributes = PictureAttributes(1i32);
 pub const PICTURE_TRANSPARENT: PictureAttributes = PictureAttributes(2i32);
+impl ::core::marker::Copy for PictureAttributes {}
+impl ::core::clone::Clone for PictureAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub struct QACONTAINER {
@@ -3050,6 +3320,12 @@ pub const QACONTAINER_UIDEAD: QACONTAINERFLAGS = QACONTAINERFLAGS(16i32);
 pub const QACONTAINER_AUTOCLIP: QACONTAINERFLAGS = QACONTAINERFLAGS(32i32);
 pub const QACONTAINER_MESSAGEREFLECT: QACONTAINERFLAGS = QACONTAINERFLAGS(64i32);
 pub const QACONTAINER_SUPPORTSMNEMONICS: QACONTAINERFLAGS = QACONTAINERFLAGS(128i32);
+impl ::core::marker::Copy for QACONTAINERFLAGS {}
+impl ::core::clone::Clone for QACONTAINERFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct QACONTROL {
     pub cbSize: u32,
@@ -3072,11 +3348,23 @@ pub const READYSTATE_LOADING: READYSTATE = READYSTATE(1i32);
 pub const READYSTATE_LOADED: READYSTATE = READYSTATE(2i32);
 pub const READYSTATE_INTERACTIVE: READYSTATE = READYSTATE(3i32);
 pub const READYSTATE_COMPLETE: READYSTATE = READYSTATE(4i32);
+impl ::core::marker::Copy for READYSTATE {}
+impl ::core::clone::Clone for READYSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REGKIND(pub i32);
 pub const REGKIND_DEFAULT: REGKIND = REGKIND(0i32);
 pub const REGKIND_REGISTER: REGKIND = REGKIND(1i32);
 pub const REGKIND_NONE: REGKIND = REGKIND(2i32);
+impl ::core::marker::Copy for REGKIND {}
+impl ::core::clone::Clone for REGKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SELFREG_E_CLASS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
 pub const SELFREG_E_FIRST: i32 = -2147220992i32;
 pub const SELFREG_E_LAST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220977i32 as _);
@@ -3096,6 +3384,12 @@ pub const SF_DISPATCH: SF_TYPE = SF_TYPE(9i32);
 pub const SF_VARIANT: SF_TYPE = SF_TYPE(12i32);
 pub const SF_RECORD: SF_TYPE = SF_TYPE(36i32);
 pub const SF_HAVEIID: SF_TYPE = SF_TYPE(32781i32);
+impl ::core::marker::Copy for SF_TYPE {}
+impl ::core::clone::Clone for SF_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SID_GetCaller: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1192741952, data2: 48313, data3: 4560, data4: [147, 54, 0, 160, 201, 13, 202, 169] };
 pub const SID_ProvideRuntimeContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1956971532, data2: 56588, data3: 18672, data4: [172, 133, 25, 76, 50, 89, 24, 10] };
 pub const SID_VariantConversion: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 521147521, data2: 48333, data3: 4560, data4: [147, 54, 0, 160, 201, 13, 202, 169] };
@@ -3123,12 +3417,24 @@ pub const TYPEFLAG_FREPLACEABLE: TYPEFLAGS = TYPEFLAGS(2048i32);
 pub const TYPEFLAG_FDISPATCHABLE: TYPEFLAGS = TYPEFLAGS(4096i32);
 pub const TYPEFLAG_FREVERSEBIND: TYPEFLAGS = TYPEFLAGS(8192i32);
 pub const TYPEFLAG_FPROXY: TYPEFLAGS = TYPEFLAGS(16384i32);
+impl ::core::marker::Copy for TYPEFLAGS {}
+impl ::core::clone::Clone for TYPEFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UASFLAGS(pub i32);
 pub const UAS_NORMAL: UASFLAGS = UASFLAGS(0i32);
 pub const UAS_BLOCKED: UASFLAGS = UASFLAGS(1i32);
 pub const UAS_NOPARENTENABLE: UASFLAGS = UASFLAGS(2i32);
 pub const UAS_MASK: UASFLAGS = UASFLAGS(3i32);
+impl ::core::marker::Copy for UASFLAGS {}
+impl ::core::clone::Clone for UASFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UDATE {
@@ -3154,11 +3460,23 @@ pub const UPDFCACHE_NODATACACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(1u32);
 pub const UPDFCACHE_ONSAVECACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2u32);
 pub const UPDFCACHE_ONSTOPCACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(4u32);
 pub const UPDFCACHE_IFBLANKORONSAVECACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(18u32);
+impl ::core::marker::Copy for UPDFCACHE_FLAGS {}
+impl ::core::clone::Clone for UPDFCACHE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct USERCLASSTYPE(pub i32);
 pub const USERCLASSTYPE_FULL: USERCLASSTYPE = USERCLASSTYPE(1i32);
 pub const USERCLASSTYPE_SHORT: USERCLASSTYPE = USERCLASSTYPE(2i32);
 pub const USERCLASSTYPE_APPNAME: USERCLASSTYPE = USERCLASSTYPE(3i32);
+impl ::core::marker::Copy for USERCLASSTYPE {}
+impl ::core::clone::Clone for USERCLASSTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VARCMP_EQ: u32 = 1u32;
 pub const VARCMP_GT: u32 = 2u32;
 pub const VARCMP_LT: u32 = 0u32;
@@ -3217,6 +3535,12 @@ pub const VT_RESERVED: VARENUM = VARENUM(32768i32);
 pub const VT_ILLEGAL: VARENUM = VARENUM(65535i32);
 pub const VT_ILLEGALMASKED: VARENUM = VARENUM(4095i32);
 pub const VT_TYPEMASK: VARENUM = VARENUM(4095i32);
+impl ::core::marker::Copy for VARENUM {}
+impl ::core::clone::Clone for VARENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VARFLAGS(pub i32);
 pub const VARFLAG_FREADONLY: VARFLAGS = VARFLAGS(1i32);
@@ -3232,6 +3556,12 @@ pub const VARFLAG_FUIDEFAULT: VARFLAGS = VARFLAGS(512i32);
 pub const VARFLAG_FNONBROWSABLE: VARFLAGS = VARFLAGS(1024i32);
 pub const VARFLAG_FREPLACEABLE: VARFLAGS = VARFLAGS(2048i32);
 pub const VARFLAG_FIMMEDIATEBIND: VARFLAGS = VARFLAGS(4096i32);
+impl ::core::marker::Copy for VARFLAGS {}
+impl ::core::clone::Clone for VARFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VARIANT_ALPHABOOL: u32 = 2u32;
 pub const VARIANT_CALENDAR_GREGORIAN: u32 = 64u32;
 pub const VARIANT_CALENDAR_HIJRI: u32 = 8u32;
@@ -3248,6 +3578,12 @@ pub const VIEWSTATUS_DVASPECTOPAQUE: VIEWSTATUS = VIEWSTATUS(4i32);
 pub const VIEWSTATUS_DVASPECTTRANSPARENT: VIEWSTATUS = VIEWSTATUS(8i32);
 pub const VIEWSTATUS_SURFACE: VIEWSTATUS = VIEWSTATUS(16i32);
 pub const VIEWSTATUS_3DSURFACE: VIEWSTATUS = VIEWSTATUS(32i32);
+impl ::core::marker::Copy for VIEWSTATUS {}
+impl ::core::clone::Clone for VIEWSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VPF_DISABLERELATIVE: i32 = 2i32;
 pub const VPF_DISABLESCALE: i32 = 4i32;
 pub const VPF_SELECTRELATIVE: i32 = 1i32;
@@ -3262,6 +3598,12 @@ pub const WIN32: u32 = 100u32;
 pub struct WPCSETTING(pub i32);
 pub const WPCSETTING_LOGGING_ENABLED: WPCSETTING = WPCSETTING(1i32);
 pub const WPCSETTING_FILEDOWNLOAD_BLOCKED: WPCSETTING = WPCSETTING(2i32);
+impl ::core::marker::Copy for WPCSETTING {}
+impl ::core::clone::Clone for WPCSETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XFORMCOORDS(pub i32);
 pub const XFORMCOORDS_POSITION: XFORMCOORDS = XFORMCOORDS(1i32);
@@ -3269,6 +3611,12 @@ pub const XFORMCOORDS_SIZE: XFORMCOORDS = XFORMCOORDS(2i32);
 pub const XFORMCOORDS_HIMETRICTOCONTAINER: XFORMCOORDS = XFORMCOORDS(4i32);
 pub const XFORMCOORDS_CONTAINERTOHIMETRIC: XFORMCOORDS = XFORMCOORDS(8i32);
 pub const XFORMCOORDS_EVENTCOMPAT: XFORMCOORDS = XFORMCOORDS(16i32);
+impl ::core::marker::Copy for XFORMCOORDS {}
+impl ::core::clone::Clone for XFORMCOORDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _wireBRECORD {
     pub fFlags: u32,

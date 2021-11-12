@@ -14,6 +14,12 @@ impl ClosedCaptionColor {
     pub const Magenta: Self = Self(7i32);
     pub const Cyan: Self = Self(8i32);
 }
+impl ::core::marker::Copy for ClosedCaptionColor {}
+impl ::core::clone::Clone for ClosedCaptionColor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ClosedCaptionEdgeEffect(pub i32);
 impl ClosedCaptionEdgeEffect {
@@ -24,6 +30,12 @@ impl ClosedCaptionEdgeEffect {
     pub const Uniform: Self = Self(4i32);
     pub const DropShadow: Self = Self(5i32);
 }
+impl ::core::marker::Copy for ClosedCaptionEdgeEffect {}
+impl ::core::clone::Clone for ClosedCaptionEdgeEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ClosedCaptionOpacity(pub i32);
 impl ClosedCaptionOpacity {
@@ -33,6 +45,12 @@ impl ClosedCaptionOpacity {
     pub const TwentyFivePercent: Self = Self(3i32);
     pub const ZeroPercent: Self = Self(4i32);
 }
+impl ::core::marker::Copy for ClosedCaptionOpacity {}
+impl ::core::clone::Clone for ClosedCaptionOpacity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ClosedCaptionSize(pub i32);
 impl ClosedCaptionSize {
@@ -41,6 +59,12 @@ impl ClosedCaptionSize {
     pub const OneHundredPercent: Self = Self(2i32);
     pub const OneHundredFiftyPercent: Self = Self(3i32);
     pub const TwoHundredPercent: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ClosedCaptionSize {}
+impl ::core::clone::Clone for ClosedCaptionSize {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ClosedCaptionStyle(pub i32);
@@ -53,6 +77,12 @@ impl ClosedCaptionStyle {
     pub const Casual: Self = Self(5i32);
     pub const Cursive: Self = Self(6i32);
     pub const SmallCapitals: Self = Self(7i32);
+}
+impl ::core::marker::Copy for ClosedCaptionStyle {}
+impl ::core::clone::Clone for ClosedCaptionStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IClosedCaptionPropertiesStatics(pub *mut ::core::ffi::c_void);

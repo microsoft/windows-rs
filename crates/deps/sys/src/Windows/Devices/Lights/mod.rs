@@ -34,6 +34,12 @@ impl LampArrayKind {
     pub const Furniture: Self = Self(9i32);
     pub const Art: Self = Self(10i32);
 }
+impl ::core::marker::Copy for LampArrayKind {}
+impl ::core::clone::Clone for LampArrayKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LampAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -48,4 +54,10 @@ impl LampPurposes {
     pub const Status: Self = Self(8u32);
     pub const Illumination: Self = Self(16u32);
     pub const Presentation: Self = Self(32u32);
+}
+impl ::core::marker::Copy for LampPurposes {}
+impl ::core::clone::Clone for LampPurposes {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

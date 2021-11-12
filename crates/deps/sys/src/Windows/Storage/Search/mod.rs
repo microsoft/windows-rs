@@ -11,6 +11,12 @@ impl CommonFileQuery {
     pub const OrderBySearchRank: Self = Self(4i32);
     pub const OrderByDate: Self = Self(5i32);
 }
+impl ::core::marker::Copy for CommonFileQuery {}
+impl ::core::clone::Clone for CommonFileQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CommonFolderQuery(pub i32);
 impl CommonFolderQuery {
@@ -28,6 +34,12 @@ impl CommonFolderQuery {
     pub const GroupByAuthor: Self = Self(110i32);
     pub const GroupByType: Self = Self(111i32);
 }
+impl ::core::marker::Copy for CommonFolderQuery {}
+impl ::core::clone::Clone for CommonFolderQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContentIndexer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -39,11 +51,23 @@ impl DateStackOption {
     pub const Year: Self = Self(1i32);
     pub const Month: Self = Self(2i32);
 }
+impl ::core::marker::Copy for DateStackOption {}
+impl ::core::clone::Clone for DateStackOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FolderDepth(pub i32);
 impl FolderDepth {
     pub const Shallow: Self = Self(0i32);
     pub const Deep: Self = Self(1i32);
+}
+impl ::core::marker::Copy for FolderDepth {}
+impl ::core::clone::Clone for FolderDepth {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IContentIndexer(pub *mut ::core::ffi::c_void);
@@ -89,6 +113,12 @@ impl IndexedState {
     pub const PartiallyIndexed: Self = Self(2i32);
     pub const FullyIndexed: Self = Self(3i32);
 }
+impl ::core::marker::Copy for IndexedState {}
+impl ::core::clone::Clone for IndexedState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IndexerOption(pub i32);
 impl IndexerOption {
@@ -96,6 +126,12 @@ impl IndexerOption {
     pub const OnlyUseIndexer: Self = Self(1i32);
     pub const DoNotUseIndexer: Self = Self(2i32);
     pub const OnlyUseIndexerAndOptimizeForIndexedProperties: Self = Self(3i32);
+}
+impl ::core::marker::Copy for IndexerOption {}
+impl ::core::clone::Clone for IndexerOption {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct QueryOptions(pub *mut ::core::ffi::c_void);

@@ -668,6 +668,12 @@ pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_UNKNOWN: ACTCTX_COMPATIBILITY_ELEMEN
 pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_OS: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = ACTCTX_COMPATIBILITY_ELEMENT_TYPE(1i32);
 pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MITIGATION: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = ACTCTX_COMPATIBILITY_ELEMENT_TYPE(2i32);
 pub const ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MAXVERSIONTESTED: ACTCTX_COMPATIBILITY_ELEMENT_TYPE = ACTCTX_COMPATIBILITY_ELEMENT_TYPE(3i32);
+impl ::core::marker::Copy for ACTCTX_COMPATIBILITY_ELEMENT_TYPE {}
+impl ::core::clone::Clone for ACTCTX_COMPATIBILITY_ELEMENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ACTCTX_REQUESTED_RUN_LEVEL(pub i32);
 pub const ACTCTX_RUN_LEVEL_UNSPECIFIED: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(0i32);
@@ -675,6 +681,12 @@ pub const ACTCTX_RUN_LEVEL_AS_INVOKER: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUE
 pub const ACTCTX_RUN_LEVEL_HIGHEST_AVAILABLE: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(2i32);
 pub const ACTCTX_RUN_LEVEL_REQUIRE_ADMIN: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(3i32);
 pub const ACTCTX_RUN_LEVEL_NUMBERS: ACTCTX_REQUESTED_RUN_LEVEL = ACTCTX_REQUESTED_RUN_LEVEL(4i32);
+impl ::core::marker::Copy for ACTCTX_REQUESTED_RUN_LEVEL {}
+impl ::core::clone::Clone for ACTCTX_REQUESTED_RUN_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 pub struct ACTCTX_SECTION_KEYED_DATA {
@@ -792,6 +804,12 @@ impl ::core::clone::Clone for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
 pub struct ADVERTISEFLAGS(pub i32);
 pub const ADVERTISEFLAGS_MACHINEASSIGN: ADVERTISEFLAGS = ADVERTISEFLAGS(0i32);
 pub const ADVERTISEFLAGS_USERASSIGN: ADVERTISEFLAGS = ADVERTISEFLAGS(1i32);
+impl ::core::marker::Copy for ADVERTISEFLAGS {}
+impl ::core::clone::Clone for ADVERTISEFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const APPLY_OPTION_FAIL_IF_CLOSE: u32 = 2u32;
 pub const APPLY_OPTION_FAIL_IF_EXACT: u32 = 1u32;
 pub const APPLY_OPTION_TEST_ONLY: u32 = 4u32;
@@ -804,6 +822,12 @@ pub const ASM_BINDF_RFS_MODULE_CHECK: ASM_BIND_FLAGS = ASM_BIND_FLAGS(4u32);
 pub const ASM_BINDF_BINPATH_PROBE_ONLY: ASM_BIND_FLAGS = ASM_BIND_FLAGS(8u32);
 pub const ASM_BINDF_SHARED_BINPATH_HINT: ASM_BIND_FLAGS = ASM_BIND_FLAGS(16u32);
 pub const ASM_BINDF_PARENT_ASM_HINT: ASM_BIND_FLAGS = ASM_BIND_FLAGS(32u32);
+impl ::core::marker::Copy for ASM_BIND_FLAGS {}
+impl ::core::clone::Clone for ASM_BIND_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ASM_CMP_FLAGS(pub i32);
 pub const ASM_CMPF_NAME: ASM_CMP_FLAGS = ASM_CMP_FLAGS(1i32);
@@ -816,6 +840,12 @@ pub const ASM_CMPF_CULTURE: ASM_CMP_FLAGS = ASM_CMP_FLAGS(64i32);
 pub const ASM_CMPF_CUSTOM: ASM_CMP_FLAGS = ASM_CMP_FLAGS(128i32);
 pub const ASM_CMPF_ALL: ASM_CMP_FLAGS = ASM_CMP_FLAGS(255i32);
 pub const ASM_CMPF_DEFAULT: ASM_CMP_FLAGS = ASM_CMP_FLAGS(256i32);
+impl ::core::marker::Copy for ASM_CMP_FLAGS {}
+impl ::core::clone::Clone for ASM_CMP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ASM_DISPLAY_FLAGS(pub i32);
 pub const ASM_DISPLAYF_VERSION: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(1i32);
@@ -825,6 +855,12 @@ pub const ASM_DISPLAYF_PUBLIC_KEY: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(8i32);
 pub const ASM_DISPLAYF_CUSTOM: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(16i32);
 pub const ASM_DISPLAYF_PROCESSORARCHITECTURE: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(32i32);
 pub const ASM_DISPLAYF_LANGUAGEID: ASM_DISPLAY_FLAGS = ASM_DISPLAY_FLAGS(64i32);
+impl ::core::marker::Copy for ASM_DISPLAY_FLAGS {}
+impl ::core::clone::Clone for ASM_DISPLAY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ASM_NAME(pub i32);
 pub const ASM_NAME_PUBLIC_KEY: ASM_NAME = ASM_NAME(0i32);
@@ -848,6 +884,12 @@ pub const ASM_NAME_CUSTOM: ASM_NAME = ASM_NAME(17i32);
 pub const ASM_NAME_NULL_CUSTOM: ASM_NAME = ASM_NAME(18i32);
 pub const ASM_NAME_MVID: ASM_NAME = ASM_NAME(19i32);
 pub const ASM_NAME_MAX_PARAMS: ASM_NAME = ASM_NAME(20i32);
+impl ::core::marker::Copy for ASM_NAME {}
+impl ::core::clone::Clone for ASM_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ASSEMBLYINFO_FLAG_INSTALLED: u32 = 1u32;
 pub const ASSEMBLYINFO_FLAG_PAYLOADRESIDENT: u32 = 2u32;
 #[repr(C)]
@@ -902,6 +944,12 @@ impl ::core::clone::Clone for COMPATIBILITY_CONTEXT_ELEMENT {
 pub struct CREATE_ASM_NAME_OBJ_FLAGS(pub i32);
 pub const CANOF_PARSE_DISPLAY_NAME: CREATE_ASM_NAME_OBJ_FLAGS = CREATE_ASM_NAME_OBJ_FLAGS(1i32);
 pub const CANOF_SET_DEFAULT_VALUES: CREATE_ASM_NAME_OBJ_FLAGS = CREATE_ASM_NAME_OBJ_FLAGS(2i32);
+impl ::core::marker::Copy for CREATE_ASM_NAME_OBJ_FLAGS {}
+impl ::core::clone::Clone for CREATE_ASM_NAME_OBJ_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEFAULT_DISK_ID: u32 = 2u32;
 pub const DEFAULT_FILE_SEQUENCE_START: u32 = 2u32;
 pub const DEFAULT_MINIMUM_REQUIRED_MSI_VERSION: u32 = 100u32;
@@ -1200,6 +1248,12 @@ pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_UNINSTALLED: IASSEMBLYCACHE_UNINS
 pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_STILL_IN_USE: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(2u32);
 pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_ALREADY_UNINSTALLED: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(3u32);
 pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_DELETE_PENDING: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(4u32);
+impl ::core::marker::Copy for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {}
+impl ::core::clone::Clone for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAssemblyCache(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1253,15 +1307,33 @@ pub const INSTALLFEATUREATTRIBUTE_FOLLOWPARENT: INSTALLFEATUREATTRIBUTE = INSTAL
 pub const INSTALLFEATUREATTRIBUTE_FAVORADVERTISE: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(8i32);
 pub const INSTALLFEATUREATTRIBUTE_DISALLOWADVERTISE: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(16i32);
 pub const INSTALLFEATUREATTRIBUTE_NOUNSUPPORTEDADVERTISE: INSTALLFEATUREATTRIBUTE = INSTALLFEATUREATTRIBUTE(32i32);
+impl ::core::marker::Copy for INSTALLFEATUREATTRIBUTE {}
+impl ::core::clone::Clone for INSTALLFEATUREATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INSTALLLEVEL(pub i32);
 pub const INSTALLLEVEL_DEFAULT: INSTALLLEVEL = INSTALLLEVEL(0i32);
 pub const INSTALLLEVEL_MINIMUM: INSTALLLEVEL = INSTALLLEVEL(1i32);
 pub const INSTALLLEVEL_MAXIMUM: INSTALLLEVEL = INSTALLLEVEL(65535i32);
+impl ::core::marker::Copy for INSTALLLEVEL {}
+impl ::core::clone::Clone for INSTALLLEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INSTALLLOGATTRIBUTES(pub i32);
 pub const INSTALLLOGATTRIBUTES_APPEND: INSTALLLOGATTRIBUTES = INSTALLLOGATTRIBUTES(1i32);
 pub const INSTALLLOGATTRIBUTES_FLUSHEACHLINE: INSTALLLOGATTRIBUTES = INSTALLLOGATTRIBUTES(2i32);
+impl ::core::marker::Copy for INSTALLLOGATTRIBUTES {}
+impl ::core::clone::Clone for INSTALLLOGATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INSTALLMESSAGE(pub i32);
 pub const INSTALLMESSAGE_FATALEXIT: INSTALLMESSAGE = INSTALLMESSAGE(0i32);
@@ -1283,6 +1355,12 @@ pub const INSTALLMESSAGE_PERFORMANCE: INSTALLMESSAGE = INSTALLMESSAGE(251658240i
 pub const INSTALLMESSAGE_RMFILESINUSE: INSTALLMESSAGE = INSTALLMESSAGE(419430400i32);
 pub const INSTALLMESSAGE_INSTALLSTART: INSTALLMESSAGE = INSTALLMESSAGE(436207616i32);
 pub const INSTALLMESSAGE_INSTALLEND: INSTALLMESSAGE = INSTALLMESSAGE(452984832i32);
+impl ::core::marker::Copy for INSTALLMESSAGE {}
+impl ::core::clone::Clone for INSTALLMESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INSTALLMESSAGE_TYPEMASK: i32 = -16777216i32;
 #[repr(transparent)]
 pub struct INSTALLMODE(pub i32);
@@ -1291,6 +1369,12 @@ pub const INSTALLMODE_NOSOURCERESOLUTION: INSTALLMODE = INSTALLMODE(-3i32);
 pub const INSTALLMODE_NODETECTION: INSTALLMODE = INSTALLMODE(-2i32);
 pub const INSTALLMODE_EXISTING: INSTALLMODE = INSTALLMODE(-1i32);
 pub const INSTALLMODE_DEFAULT: INSTALLMODE = INSTALLMODE(0i32);
+impl ::core::marker::Copy for INSTALLMODE {}
+impl ::core::clone::Clone for INSTALLMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INSTALLOGMODE(pub i32);
 pub const INSTALLLOGMODE_FATALEXIT: INSTALLOGMODE = INSTALLOGMODE(1i32);
@@ -1316,6 +1400,12 @@ pub const INSTALLLOGMODE_FILESINUSE: INSTALLOGMODE = INSTALLOGMODE(32i32);
 pub const INSTALLLOGMODE_RMFILESINUSE: INSTALLOGMODE = INSTALLOGMODE(33554432i32);
 pub const INSTALLLOGMODE_INSTALLSTART: INSTALLOGMODE = INSTALLOGMODE(67108864i32);
 pub const INSTALLLOGMODE_INSTALLEND: INSTALLOGMODE = INSTALLOGMODE(134217728i32);
+impl ::core::marker::Copy for INSTALLOGMODE {}
+impl ::core::clone::Clone for INSTALLOGMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INSTALLSTATE(pub i32);
 pub const INSTALLSTATE_NOTUSED: INSTALLSTATE = INSTALLSTATE(-7i32);
@@ -1332,11 +1422,23 @@ pub const INSTALLSTATE_ABSENT: INSTALLSTATE = INSTALLSTATE(2i32);
 pub const INSTALLSTATE_LOCAL: INSTALLSTATE = INSTALLSTATE(3i32);
 pub const INSTALLSTATE_SOURCE: INSTALLSTATE = INSTALLSTATE(4i32);
 pub const INSTALLSTATE_DEFAULT: INSTALLSTATE = INSTALLSTATE(5i32);
+impl ::core::marker::Copy for INSTALLSTATE {}
+impl ::core::clone::Clone for INSTALLSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INSTALLTYPE(pub i32);
 pub const INSTALLTYPE_DEFAULT: INSTALLTYPE = INSTALLTYPE(0i32);
 pub const INSTALLTYPE_NETWORK_IMAGE: INSTALLTYPE = INSTALLTYPE(1i32);
 pub const INSTALLTYPE_SINGLE_INSTANCE: INSTALLTYPE = INSTALLTYPE(2i32);
+impl ::core::marker::Copy for INSTALLTYPE {}
+impl ::core::clone::Clone for INSTALLTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INSTALLUILEVEL(pub i32);
 pub const INSTALLUILEVEL_NOCHANGE: INSTALLUILEVEL = INSTALLUILEVEL(0i32);
@@ -1350,6 +1452,12 @@ pub const INSTALLUILEVEL_PROGRESSONLY: INSTALLUILEVEL = INSTALLUILEVEL(64i32);
 pub const INSTALLUILEVEL_HIDECANCEL: INSTALLUILEVEL = INSTALLUILEVEL(32i32);
 pub const INSTALLUILEVEL_SOURCERESONLY: INSTALLUILEVEL = INSTALLUILEVEL(256i32);
 pub const INSTALLUILEVEL_UACONLY: INSTALLUILEVEL = INSTALLUILEVEL(512i32);
+impl ::core::marker::Copy for INSTALLUILEVEL {}
+impl ::core::clone::Clone for INSTALLUILEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type INSTALLUI_HANDLERA = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PSTR) -> i32;
 #[cfg(feature = "Win32_Foundation")]
@@ -1427,36 +1535,78 @@ pub const MAX_GUID_CHARS: u32 = 38u32;
 #[repr(transparent)]
 pub struct MSIADVERTISEOPTIONFLAGS(pub i32);
 pub const MSIADVERTISEOPTIONFLAGS_INSTANCE: MSIADVERTISEOPTIONFLAGS = MSIADVERTISEOPTIONFLAGS(1i32);
+impl ::core::marker::Copy for MSIADVERTISEOPTIONFLAGS {}
+impl ::core::clone::Clone for MSIADVERTISEOPTIONFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSIARCHITECTUREFLAGS(pub i32);
 pub const MSIARCHITECTUREFLAGS_X86: MSIARCHITECTUREFLAGS = MSIARCHITECTUREFLAGS(1i32);
 pub const MSIARCHITECTUREFLAGS_IA64: MSIARCHITECTUREFLAGS = MSIARCHITECTUREFLAGS(2i32);
 pub const MSIARCHITECTUREFLAGS_AMD64: MSIARCHITECTUREFLAGS = MSIARCHITECTUREFLAGS(4i32);
 pub const MSIARCHITECTUREFLAGS_ARM: MSIARCHITECTUREFLAGS = MSIARCHITECTUREFLAGS(8i32);
+impl ::core::marker::Copy for MSIARCHITECTUREFLAGS {}
+impl ::core::clone::Clone for MSIARCHITECTUREFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSIASSEMBLYINFO(pub u32);
 pub const MSIASSEMBLYINFO_NETASSEMBLY: MSIASSEMBLYINFO = MSIASSEMBLYINFO(0u32);
 pub const MSIASSEMBLYINFO_WIN32ASSEMBLY: MSIASSEMBLYINFO = MSIASSEMBLYINFO(1u32);
+impl ::core::marker::Copy for MSIASSEMBLYINFO {}
+impl ::core::clone::Clone for MSIASSEMBLYINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSICODE(pub i32);
 pub const MSICODE_PRODUCT: MSICODE = MSICODE(0i32);
 pub const MSICODE_PATCH: MSICODE = MSICODE(1073741824i32);
+impl ::core::marker::Copy for MSICODE {}
+impl ::core::clone::Clone for MSICODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSICOLINFO(pub i32);
 pub const MSICOLINFO_NAMES: MSICOLINFO = MSICOLINFO(0i32);
 pub const MSICOLINFO_TYPES: MSICOLINFO = MSICOLINFO(1i32);
+impl ::core::marker::Copy for MSICOLINFO {}
+impl ::core::clone::Clone for MSICOLINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSICONDITION(pub i32);
 pub const MSICONDITION_FALSE: MSICONDITION = MSICONDITION(0i32);
 pub const MSICONDITION_TRUE: MSICONDITION = MSICONDITION(1i32);
 pub const MSICONDITION_NONE: MSICONDITION = MSICONDITION(2i32);
 pub const MSICONDITION_ERROR: MSICONDITION = MSICONDITION(3i32);
+impl ::core::marker::Copy for MSICONDITION {}
+impl ::core::clone::Clone for MSICONDITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSICOSTTREE(pub i32);
 pub const MSICOSTTREE_SELFONLY: MSICOSTTREE = MSICOSTTREE(0i32);
 pub const MSICOSTTREE_CHILDREN: MSICOSTTREE = MSICOSTTREE(1i32);
 pub const MSICOSTTREE_PARENTS: MSICOSTTREE = MSICOSTTREE(2i32);
 pub const MSICOSTTREE_RESERVED: MSICOSTTREE = MSICOSTTREE(3i32);
+impl ::core::marker::Copy for MSICOSTTREE {}
+impl ::core::clone::Clone for MSICOSTTREE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSIDBERROR(pub i32);
 pub const MSIDBERROR_INVALIDARG: MSIDBERROR = MSIDBERROR(-3i32);
@@ -1492,11 +1642,23 @@ pub const MSIDBERROR_BADCABINET: MSIDBERROR = MSIDBERROR(26i32);
 pub const MSIDBERROR_BADSHORTCUT: MSIDBERROR = MSIDBERROR(27i32);
 pub const MSIDBERROR_STRINGOVERFLOW: MSIDBERROR = MSIDBERROR(28i32);
 pub const MSIDBERROR_BADLOCALIZEATTRIB: MSIDBERROR = MSIDBERROR(29i32);
+impl ::core::marker::Copy for MSIDBERROR {}
+impl ::core::clone::Clone for MSIDBERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSIDBSTATE(pub i32);
 pub const MSIDBSTATE_ERROR: MSIDBSTATE = MSIDBSTATE(-1i32);
 pub const MSIDBSTATE_READ: MSIDBSTATE = MSIDBSTATE(0i32);
 pub const MSIDBSTATE_WRITE: MSIDBSTATE = MSIDBSTATE(1i32);
+impl ::core::marker::Copy for MSIDBSTATE {}
+impl ::core::clone::Clone for MSIDBSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MSIFILEHASHINFO {
     pub dwFileHashInfoSize: u32,
@@ -1527,6 +1689,12 @@ pub const MSIINSTALLCONTEXT_USERUNMANAGED: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT
 pub const MSIINSTALLCONTEXT_MACHINE: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(4i32);
 pub const MSIINSTALLCONTEXT_ALL: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(7i32);
 pub const MSIINSTALLCONTEXT_ALLUSERMANAGED: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(8i32);
+impl ::core::marker::Copy for MSIINSTALLCONTEXT {}
+impl ::core::clone::Clone for MSIINSTALLCONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSIMODIFY(pub i32);
 pub const MSIMODIFY_SEEK: MSIMODIFY = MSIMODIFY(-1i32);
@@ -1542,14 +1710,32 @@ pub const MSIMODIFY_VALIDATE: MSIMODIFY = MSIMODIFY(8i32);
 pub const MSIMODIFY_VALIDATE_NEW: MSIMODIFY = MSIMODIFY(9i32);
 pub const MSIMODIFY_VALIDATE_FIELD: MSIMODIFY = MSIMODIFY(10i32);
 pub const MSIMODIFY_VALIDATE_DELETE: MSIMODIFY = MSIMODIFY(11i32);
+impl ::core::marker::Copy for MSIMODIFY {}
+impl ::core::clone::Clone for MSIMODIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSIOPENPACKAGEFLAGS(pub i32);
 pub const MSIOPENPACKAGEFLAGS_IGNOREMACHINESTATE: MSIOPENPACKAGEFLAGS = MSIOPENPACKAGEFLAGS(1i32);
+impl ::core::marker::Copy for MSIOPENPACKAGEFLAGS {}
+impl ::core::clone::Clone for MSIOPENPACKAGEFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSIPATCHDATATYPE(pub i32);
 pub const MSIPATCH_DATATYPE_PATCHFILE: MSIPATCHDATATYPE = MSIPATCHDATATYPE(0i32);
 pub const MSIPATCH_DATATYPE_XMLPATH: MSIPATCHDATATYPE = MSIPATCHDATATYPE(1i32);
 pub const MSIPATCH_DATATYPE_XMLBLOB: MSIPATCHDATATYPE = MSIPATCHDATATYPE(2i32);
+impl ::core::marker::Copy for MSIPATCHDATATYPE {}
+impl ::core::clone::Clone for MSIPATCHDATATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MSIPATCHSEQUENCEINFOA {
@@ -1590,6 +1776,12 @@ pub const MSIPATCHSTATE_SUPERSEDED: MSIPATCHSTATE = MSIPATCHSTATE(2i32);
 pub const MSIPATCHSTATE_OBSOLETED: MSIPATCHSTATE = MSIPATCHSTATE(4i32);
 pub const MSIPATCHSTATE_REGISTERED: MSIPATCHSTATE = MSIPATCHSTATE(8i32);
 pub const MSIPATCHSTATE_ALL: MSIPATCHSTATE = MSIPATCHSTATE(15i32);
+impl ::core::marker::Copy for MSIPATCHSTATE {}
+impl ::core::clone::Clone for MSIPATCHSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSIRUNMODE(pub i32);
 pub const MSIRUNMODE_ADMIN: MSIRUNMODE = MSIRUNMODE(0i32);
@@ -1611,20 +1803,44 @@ pub const MSIRUNMODE_RESERVED15: MSIRUNMODE = MSIRUNMODE(15i32);
 pub const MSIRUNMODE_SCHEDULED: MSIRUNMODE = MSIRUNMODE(16i32);
 pub const MSIRUNMODE_ROLLBACK: MSIRUNMODE = MSIRUNMODE(17i32);
 pub const MSIRUNMODE_COMMIT: MSIRUNMODE = MSIRUNMODE(18i32);
+impl ::core::marker::Copy for MSIRUNMODE {}
+impl ::core::clone::Clone for MSIRUNMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSISOURCETYPE(pub i32);
 pub const MSISOURCETYPE_UNKNOWN: MSISOURCETYPE = MSISOURCETYPE(0i32);
 pub const MSISOURCETYPE_NETWORK: MSISOURCETYPE = MSISOURCETYPE(1i32);
 pub const MSISOURCETYPE_URL: MSISOURCETYPE = MSISOURCETYPE(2i32);
 pub const MSISOURCETYPE_MEDIA: MSISOURCETYPE = MSISOURCETYPE(4i32);
+impl ::core::marker::Copy for MSISOURCETYPE {}
+impl ::core::clone::Clone for MSISOURCETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSITRANSACTION(pub i32);
 pub const MSITRANSACTION_CHAIN_EMBEDDEDUI: MSITRANSACTION = MSITRANSACTION(1i32);
 pub const MSITRANSACTION_JOIN_EXISTING_EMBEDDEDUI: MSITRANSACTION = MSITRANSACTION(2i32);
+impl ::core::marker::Copy for MSITRANSACTION {}
+impl ::core::clone::Clone for MSITRANSACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSITRANSACTIONSTATE(pub u32);
 pub const MSITRANSACTIONSTATE_ROLLBACK: MSITRANSACTIONSTATE = MSITRANSACTIONSTATE(0u32);
 pub const MSITRANSACTIONSTATE_COMMIT: MSITRANSACTIONSTATE = MSITRANSACTIONSTATE(1u32);
+impl ::core::marker::Copy for MSITRANSACTIONSTATE {}
+impl ::core::clone::Clone for MSITRANSACTIONSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSITRANSFORM_ERROR(pub i32);
 pub const MSITRANSFORM_ERROR_ADDEXISTINGROW: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(1i32);
@@ -1635,6 +1851,12 @@ pub const MSITRANSFORM_ERROR_UPDATEMISSINGROW: MSITRANSFORM_ERROR = MSITRANSFORM
 pub const MSITRANSFORM_ERROR_CHANGECODEPAGE: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(32i32);
 pub const MSITRANSFORM_ERROR_VIEWTRANSFORM: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(256i32);
 pub const MSITRANSFORM_ERROR_NONE: MSITRANSFORM_ERROR = MSITRANSFORM_ERROR(0i32);
+impl ::core::marker::Copy for MSITRANSFORM_ERROR {}
+impl ::core::clone::Clone for MSITRANSFORM_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSITRANSFORM_VALIDATE(pub i32);
 pub const MSITRANSFORM_VALIDATE_LANGUAGE: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(1i32);
@@ -1649,6 +1871,12 @@ pub const MSITRANSFORM_VALIDATE_NEWEQUALBASEVERSION: MSITRANSFORM_VALIDATE = MSI
 pub const MSITRANSFORM_VALIDATE_NEWGREATEREQUALBASEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(512i32);
 pub const MSITRANSFORM_VALIDATE_NEWGREATERBASEVERSION: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(1024i32);
 pub const MSITRANSFORM_VALIDATE_UPGRADECODE: MSITRANSFORM_VALIDATE = MSITRANSFORM_VALIDATE(2048i32);
+impl ::core::marker::Copy for MSITRANSFORM_VALIDATE {}
+impl ::core::clone::Clone for MSITRANSFORM_VALIDATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
 pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
 pub const MsmMerge: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 182298672, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
@@ -1660,6 +1888,12 @@ pub const PACKMAN_RUNTIME_XNA: PACKMAN_RUNTIME = PACKMAN_RUNTIME(3i32);
 pub const PACKMAN_RUNTIME_MODERN_NATIVE: PACKMAN_RUNTIME = PACKMAN_RUNTIME(4i32);
 pub const PACKMAN_RUNTIME_JUPITER: PACKMAN_RUNTIME = PACKMAN_RUNTIME(5i32);
 pub const PACKMAN_RUNTIME_INVALID: PACKMAN_RUNTIME = PACKMAN_RUNTIME(6i32);
+impl ::core::marker::Copy for PACKMAN_RUNTIME {}
+impl ::core::clone::Clone for PACKMAN_RUNTIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PATCH_IGNORE_RANGE {
     pub OffsetInOldFile: u32,
@@ -1882,11 +2116,23 @@ pub const PM_ACTIVATION_POLICY_MULTISESSION: PM_ACTIVATION_POLICY = PM_ACTIVATIO
 pub const PM_ACTIVATION_POLICY_REPLACE_IGNOREFOREGROUND: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(5i32);
 pub const PM_ACTIVATION_POLICY_UNKNOWN: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(6i32);
 pub const PM_ACTIVATION_POLICY_INVALID: PM_ACTIVATION_POLICY = PM_ACTIVATION_POLICY(7i32);
+impl ::core::marker::Copy for PM_ACTIVATION_POLICY {}
+impl ::core::clone::Clone for PM_ACTIVATION_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_APPLICATION_HUBTYPE(pub i32);
 pub const PM_APPLICATION_HUBTYPE_NONMUSIC: PM_APPLICATION_HUBTYPE = PM_APPLICATION_HUBTYPE(0i32);
 pub const PM_APPLICATION_HUBTYPE_MUSIC: PM_APPLICATION_HUBTYPE = PM_APPLICATION_HUBTYPE(1i32);
 pub const PM_APPLICATION_HUBTYPE_INVALID: PM_APPLICATION_HUBTYPE = PM_APPLICATION_HUBTYPE(2i32);
+impl ::core::marker::Copy for PM_APPLICATION_HUBTYPE {}
+impl ::core::clone::Clone for PM_APPLICATION_HUBTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_APPLICATION_INSTALL_TYPE(pub i32);
 pub const PM_APPLICATION_INSTALL_NORMAL: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(0i32);
@@ -1895,6 +2141,12 @@ pub const PM_APPLICATION_INSTALL_PA: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATIO
 pub const PM_APPLICATION_INSTALL_DEBUG: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(3i32);
 pub const PM_APPLICATION_INSTALL_ENTERPRISE: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(4i32);
 pub const PM_APPLICATION_INSTALL_INVALID: PM_APPLICATION_INSTALL_TYPE = PM_APPLICATION_INSTALL_TYPE(5i32);
+impl ::core::marker::Copy for PM_APPLICATION_INSTALL_TYPE {}
+impl ::core::clone::Clone for PM_APPLICATION_INSTALL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_APPLICATION_STATE(pub i32);
 pub const PM_APPLICATION_STATE_MIN: PM_APPLICATION_STATE = PM_APPLICATION_STATE(0i32);
@@ -1910,11 +2162,23 @@ pub const PM_APPLICATION_STATE_DISABLED_BACKING_UP: PM_APPLICATION_STATE = PM_AP
 pub const PM_APPLICATION_STATE_DISABLED_MDIL_BINDING: PM_APPLICATION_STATE = PM_APPLICATION_STATE(10i32);
 pub const PM_APPLICATION_STATE_MAX: PM_APPLICATION_STATE = PM_APPLICATION_STATE(10i32);
 pub const PM_APPLICATION_STATE_INVALID: PM_APPLICATION_STATE = PM_APPLICATION_STATE(11i32);
+impl ::core::marker::Copy for PM_APPLICATION_STATE {}
+impl ::core::clone::Clone for PM_APPLICATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_APP_GENRE(pub i32);
 pub const PM_APP_GENRE_GAMES: PM_APP_GENRE = PM_APP_GENRE(0i32);
 pub const PM_APP_GENRE_OTHER: PM_APP_GENRE = PM_APP_GENRE(1i32);
 pub const PM_APP_GENRE_INVALID: PM_APP_GENRE = PM_APP_GENRE(2i32);
+impl ::core::marker::Copy for PM_APP_GENRE {}
+impl ::core::clone::Clone for PM_APP_GENRE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PM_BSATASKID {
@@ -1954,6 +2218,12 @@ pub const PM_APP_FILTER_PINABLEONKIDZONE: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTE
 pub const PM_APP_FILTER_ALL_INCLUDE_MODERN: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(6i32);
 pub const PM_APP_FILTER_FRAMEWORK: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(7i32);
 pub const PM_APP_FILTER_MAX: PM_ENUM_APP_FILTER = PM_ENUM_APP_FILTER(8i32);
+impl ::core::marker::Copy for PM_ENUM_APP_FILTER {}
+impl ::core::clone::Clone for PM_ENUM_APP_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_ENUM_BSA_FILTER(pub i32);
 pub const PM_ENUM_BSA_FILTER_ALL: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(26i32);
@@ -1962,11 +2232,23 @@ pub const PM_ENUM_BSA_FILTER_BY_PRODUCTID: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILT
 pub const PM_ENUM_BSA_FILTER_BY_PERIODIC: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(29i32);
 pub const PM_ENUM_BSA_FILTER_BY_ALL_LAUNCHONBOOT: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(30i32);
 pub const PM_ENUM_BSA_FILTER_MAX: PM_ENUM_BSA_FILTER = PM_ENUM_BSA_FILTER(31i32);
+impl ::core::marker::Copy for PM_ENUM_BSA_FILTER {}
+impl ::core::clone::Clone for PM_ENUM_BSA_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_ENUM_BW_FILTER(pub i32);
 pub const PM_ENUM_BW_FILTER_BOOTWORKER_ALL: PM_ENUM_BW_FILTER = PM_ENUM_BW_FILTER(31i32);
 pub const PM_ENUM_BW_FILTER_BY_TASKID: PM_ENUM_BW_FILTER = PM_ENUM_BW_FILTER(32i32);
 pub const PM_ENUM_BW_FILTER_MAX: PM_ENUM_BW_FILTER = PM_ENUM_BW_FILTER(33i32);
+impl ::core::marker::Copy for PM_ENUM_BW_FILTER {}
+impl ::core::clone::Clone for PM_ENUM_BW_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_ENUM_EXTENSION_FILTER(pub i32);
 pub const PM_ENUM_EXTENSION_FILTER_BY_CONSUMER: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(17i32);
@@ -1980,6 +2262,12 @@ pub const PM_ENUM_EXTENSION_FILTER_FILEOPENPICKER_ALL: PM_ENUM_EXTENSION_FILTER 
 pub const PM_ENUM_EXTENSION_FILTER_FILESAVEPICKER_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(24i32);
 pub const PM_ENUM_EXTENSION_FILTER_CACHEDFILEUPDATER_ALL: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(25i32);
 pub const PM_ENUM_EXTENSION_FILTER_MAX: PM_ENUM_EXTENSION_FILTER = PM_ENUM_EXTENSION_FILTER(26i32);
+impl ::core::marker::Copy for PM_ENUM_EXTENSION_FILTER {}
+impl ::core::clone::Clone for PM_ENUM_EXTENSION_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PM_ENUM_FILTER {
@@ -2029,6 +2317,12 @@ pub const PM_TASK_FILTER_DEHYD_SUPRESSING: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FI
 pub const PM_TASK_FILTER_APP_TASK_TYPE: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(15i32);
 pub const PM_TASK_FILTER_BGEXECUTION: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(16i32);
 pub const PM_TASK_FILTER_MAX: PM_ENUM_TASK_FILTER = PM_ENUM_TASK_FILTER(17i32);
+impl ::core::marker::Copy for PM_ENUM_TASK_FILTER {}
+impl ::core::clone::Clone for PM_ENUM_TASK_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_ENUM_TILE_FILTER(pub i32);
 pub const PM_TILE_FILTER_APPLIST: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(8i32);
@@ -2036,6 +2330,12 @@ pub const PM_TILE_FILTER_PINNED: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(9i32)
 pub const PM_TILE_FILTER_HUBTYPE: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(10i32);
 pub const PM_TILE_FILTER_APP_ALL: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(11i32);
 pub const PM_TILE_FILTER_MAX: PM_ENUM_TILE_FILTER = PM_ENUM_TILE_FILTER(12i32);
+impl ::core::marker::Copy for PM_ENUM_TILE_FILTER {}
+impl ::core::clone::Clone for PM_ENUM_TILE_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PM_EXTENSIONCONSUMER {
@@ -2091,12 +2391,24 @@ pub const PM_LIVETILE_RECURRENCE_TYPE_INSTANT: PM_LIVETILE_RECURRENCE_TYPE = PM_
 pub const PM_LIVETILE_RECURRENCE_TYPE_ONETIME: PM_LIVETILE_RECURRENCE_TYPE = PM_LIVETILE_RECURRENCE_TYPE(1i32);
 pub const PM_LIVETILE_RECURRENCE_TYPE_INTERVAL: PM_LIVETILE_RECURRENCE_TYPE = PM_LIVETILE_RECURRENCE_TYPE(2i32);
 pub const PM_LIVETILE_RECURRENCE_TYPE_MAX: PM_LIVETILE_RECURRENCE_TYPE = PM_LIVETILE_RECURRENCE_TYPE(2i32);
+impl ::core::marker::Copy for PM_LIVETILE_RECURRENCE_TYPE {}
+impl ::core::clone::Clone for PM_LIVETILE_RECURRENCE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_LOGO_SIZE(pub i32);
 pub const PM_LOGO_SIZE_SMALL: PM_LOGO_SIZE = PM_LOGO_SIZE(0i32);
 pub const PM_LOGO_SIZE_MEDIUM: PM_LOGO_SIZE = PM_LOGO_SIZE(1i32);
 pub const PM_LOGO_SIZE_LARGE: PM_LOGO_SIZE = PM_LOGO_SIZE(2i32);
 pub const PM_LOGO_SIZE_INVALID: PM_LOGO_SIZE = PM_LOGO_SIZE(3i32);
+impl ::core::marker::Copy for PM_LOGO_SIZE {}
+impl ::core::clone::Clone for PM_LOGO_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PM_STARTAPPBLOB {
@@ -2152,6 +2464,12 @@ pub const PM_STARTTILE_TYPE_SECONDARY: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(2i3
 pub const PM_STARTTILE_TYPE_APPLIST: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(3i32);
 pub const PM_STARTTILE_TYPE_APPLISTPRIMARY: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(4i32);
 pub const PM_STARTTILE_TYPE_INVALID: PM_STARTTILE_TYPE = PM_STARTTILE_TYPE(5i32);
+impl ::core::marker::Copy for PM_STARTTILE_TYPE {}
+impl ::core::clone::Clone for PM_STARTTILE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_TASK_TRANSITION(pub i32);
 pub const PM_TASK_TRANSITION_DEFAULT: PM_TASK_TRANSITION = PM_TASK_TRANSITION(0i32);
@@ -2162,6 +2480,12 @@ pub const PM_TASK_TRANSITION_SWIVEL: PM_TASK_TRANSITION = PM_TASK_TRANSITION(4i3
 pub const PM_TASK_TRANSITION_READERBOARD: PM_TASK_TRANSITION = PM_TASK_TRANSITION(5i32);
 pub const PM_TASK_TRANSITION_CUSTOM: PM_TASK_TRANSITION = PM_TASK_TRANSITION(6i32);
 pub const PM_TASK_TRANSITION_INVALID: PM_TASK_TRANSITION = PM_TASK_TRANSITION(7i32);
+impl ::core::marker::Copy for PM_TASK_TRANSITION {}
+impl ::core::clone::Clone for PM_TASK_TRANSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_TASK_TYPE(pub i32);
 pub const PM_TASK_TYPE_NORMAL: PM_TASK_TYPE = PM_TASK_TYPE(0i32);
@@ -2170,6 +2494,12 @@ pub const PM_TASK_TYPE_SETTINGS: PM_TASK_TYPE = PM_TASK_TYPE(2i32);
 pub const PM_TASK_TYPE_BACKGROUNDSERVICEAGENT: PM_TASK_TYPE = PM_TASK_TYPE(3i32);
 pub const PM_TASK_TYPE_BACKGROUNDWORKER: PM_TASK_TYPE = PM_TASK_TYPE(4i32);
 pub const PM_TASK_TYPE_INVALID: PM_TASK_TYPE = PM_TASK_TYPE(5i32);
+impl ::core::marker::Copy for PM_TASK_TYPE {}
+impl ::core::clone::Clone for PM_TASK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_TILE_HUBTYPE(pub i32);
 pub const PM_TILE_HUBTYPE_MUSIC: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(1i32);
@@ -2181,6 +2511,12 @@ pub const PM_TILE_HUBTYPE_LOCKSCREEN: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(16777216
 pub const PM_TILE_HUBTYPE_KIDZONE: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(33554432i32);
 pub const PM_TILE_HUBTYPE_CACHED: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(67108864i32);
 pub const PM_TILE_HUBTYPE_INVALID: PM_TILE_HUBTYPE = PM_TILE_HUBTYPE(67108865i32);
+impl ::core::marker::Copy for PM_TILE_HUBTYPE {}
+impl ::core::clone::Clone for PM_TILE_HUBTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_TILE_SIZE(pub i32);
 pub const PM_TILE_SIZE_SMALL: PM_TILE_SIZE = PM_TILE_SIZE(0i32);
@@ -2189,6 +2525,12 @@ pub const PM_TILE_SIZE_LARGE: PM_TILE_SIZE = PM_TILE_SIZE(2i32);
 pub const PM_TILE_SIZE_SQUARE310X310: PM_TILE_SIZE = PM_TILE_SIZE(3i32);
 pub const PM_TILE_SIZE_TALL150X310: PM_TILE_SIZE = PM_TILE_SIZE(4i32);
 pub const PM_TILE_SIZE_INVALID: PM_TILE_SIZE = PM_TILE_SIZE(5i32);
+impl ::core::marker::Copy for PM_TILE_SIZE {}
+impl ::core::clone::Clone for PM_TILE_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PM_UPDATEINFO {
@@ -2244,6 +2586,12 @@ impl ::core::clone::Clone for PROTECTED_FILE_DATA {
 #[repr(transparent)]
 pub struct QUERYASMINFO_FLAGS(pub u32);
 pub const QUERYASMINFO_FLAG_VALIDATE: QUERYASMINFO_FLAGS = QUERYASMINFO_FLAGS(1u32);
+impl ::core::marker::Copy for QUERYASMINFO_FLAGS {}
+impl ::core::clone::Clone for QUERYASMINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REINSTALLMODE(pub i32);
 pub const REINSTALLMODE_REPAIR: REINSTALLMODE = REINSTALLMODE(1i32);
@@ -2257,12 +2605,24 @@ pub const REINSTALLMODE_MACHINEDATA: REINSTALLMODE = REINSTALLMODE(128i32);
 pub const REINSTALLMODE_USERDATA: REINSTALLMODE = REINSTALLMODE(256i32);
 pub const REINSTALLMODE_SHORTCUT: REINSTALLMODE = REINSTALLMODE(512i32);
 pub const REINSTALLMODE_PACKAGE: REINSTALLMODE = REINSTALLMODE(1024i32);
+impl ::core::marker::Copy for REINSTALLMODE {}
+impl ::core::clone::Clone for REINSTALLMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RESULTTYPES(pub i32);
 pub const ieUnknown: RESULTTYPES = RESULTTYPES(0i32);
 pub const ieError: RESULTTYPES = RESULTTYPES(1i32);
 pub const ieWarning: RESULTTYPES = RESULTTYPES(2i32);
 pub const ieInfo: RESULTTYPES = RESULTTYPES(3i32);
+impl ::core::marker::Copy for RESULTTYPES {}
+impl ::core::clone::Clone for RESULTTYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCRIPTFLAGS(pub i32);
 pub const SCRIPTFLAGS_CACHEINFO: SCRIPTFLAGS = SCRIPTFLAGS(1i32);
@@ -2274,6 +2634,12 @@ pub const SCRIPTFLAGS_REGDATA_CLASSINFO: SCRIPTFLAGS = SCRIPTFLAGS(128i32);
 pub const SCRIPTFLAGS_REGDATA_EXTENSIONINFO: SCRIPTFLAGS = SCRIPTFLAGS(256i32);
 pub const SCRIPTFLAGS_REGDATA_APPINFO: SCRIPTFLAGS = SCRIPTFLAGS(384i32);
 pub const SCRIPTFLAGS_REGDATA: SCRIPTFLAGS = SCRIPTFLAGS(416i32);
+impl ::core::marker::Copy for SCRIPTFLAGS {}
+impl ::core::clone::Clone for SCRIPTFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SFC_DISABLE_ASK: u32 = 1u32;
 pub const SFC_DISABLE_NOPOPUPS: u32 = 4u32;
 pub const SFC_DISABLE_NORMAL: u32 = 0u32;
@@ -2297,6 +2663,12 @@ pub const ieStatusShutdown: STATUSTYPES = STATUSTYPES(7i32);
 pub const ieStatusSuccess: STATUSTYPES = STATUSTYPES(8i32);
 pub const ieStatusFail: STATUSTYPES = STATUSTYPES(9i32);
 pub const ieStatusCancel: STATUSTYPES = STATUSTYPES(10i32);
+impl ::core::marker::Copy for STATUSTYPES {}
+impl ::core::clone::Clone for STATUSTYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STREAM_FORMAT_COMPLIB_MANIFEST: u32 = 1u32;
 pub const STREAM_FORMAT_COMPLIB_MODULE: u32 = 0u32;
 pub const STREAM_FORMAT_WIN32_MANIFEST: u32 = 4u32;
@@ -2361,6 +2733,12 @@ pub const TILE_TEMPLATE_SEARCH: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(57i32);
 pub const TILE_TEMPLATE_TILEFLYOUT01: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(58i32);
 pub const TILE_TEMPLATE_FOLDER: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(59i32);
 pub const TILE_TEMPLATE_ALL: TILE_TEMPLATE_TYPE = TILE_TEMPLATE_TYPE(100i32);
+impl ::core::marker::Copy for TILE_TEMPLATE_TYPE {}
+impl ::core::clone::Clone for TILE_TEMPLATE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TXTLOG_BACKUP: u32 = 128u32;
 pub const TXTLOG_CMI: u32 = 268435456u32;
 pub const TXTLOG_COPYFILES: u32 = 8u32;
@@ -2406,6 +2784,12 @@ pub const USERINFOSTATE_INVALIDARG: USERINFOSTATE = USERINFOSTATE(-2i32);
 pub const USERINFOSTATE_UNKNOWN: USERINFOSTATE = USERINFOSTATE(-1i32);
 pub const USERINFOSTATE_ABSENT: USERINFOSTATE = USERINFOSTATE(0i32);
 pub const USERINFOSTATE_PRESENT: USERINFOSTATE = USERINFOSTATE(1i32);
+impl ::core::marker::Copy for USERINFOSTATE {}
+impl ::core::clone::Clone for USERINFOSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WARN_BAD_MAJOR_VERSION: u32 = 3222294792u32;
 pub const WARN_BASE: u32 = 3222294785u32;
 pub const WARN_EQUAL_FILE_VERSION: u32 = 3222294794u32;
@@ -2439,9 +2823,21 @@ pub const cchMaxInteger: i32 = 12i32;
 pub struct msidbAssemblyAttributes(pub i32);
 pub const msidbAssemblyAttributesURT: msidbAssemblyAttributes = msidbAssemblyAttributes(0i32);
 pub const msidbAssemblyAttributesWin32: msidbAssemblyAttributes = msidbAssemblyAttributes(1i32);
+impl ::core::marker::Copy for msidbAssemblyAttributes {}
+impl ::core::clone::Clone for msidbAssemblyAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbClassAttributes(pub i32);
 pub const msidbClassAttributesRelativePath: msidbClassAttributes = msidbClassAttributes(1i32);
+impl ::core::marker::Copy for msidbClassAttributes {}
+impl ::core::clone::Clone for msidbClassAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbComponentAttributes(pub i32);
 pub const msidbComponentAttributesLocalOnly: msidbComponentAttributes = msidbComponentAttributes(0i32);
@@ -2457,6 +2853,12 @@ pub const msidbComponentAttributes64bit: msidbComponentAttributes = msidbCompone
 pub const msidbComponentAttributesDisableRegistryReflection: msidbComponentAttributes = msidbComponentAttributes(512i32);
 pub const msidbComponentAttributesUninstallOnSupersedence: msidbComponentAttributes = msidbComponentAttributes(1024i32);
 pub const msidbComponentAttributesShared: msidbComponentAttributes = msidbComponentAttributes(2048i32);
+impl ::core::marker::Copy for msidbComponentAttributes {}
+impl ::core::clone::Clone for msidbComponentAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbControlAttributes(pub i32);
 pub const msidbControlAttributesVisible: msidbControlAttributes = msidbControlAttributes(1i32);
@@ -2495,6 +2897,12 @@ pub const msidbControlAttributesIconSize32: msidbControlAttributes = msidbContro
 pub const msidbControlAttributesIconSize48: msidbControlAttributes = msidbControlAttributes(6291456i32);
 pub const msidbControlAttributesElevationShield: msidbControlAttributes = msidbControlAttributes(8388608i32);
 pub const msidbControlAttributesHasBorder: msidbControlAttributes = msidbControlAttributes(16777216i32);
+impl ::core::marker::Copy for msidbControlAttributes {}
+impl ::core::clone::Clone for msidbControlAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbCustomActionType(pub i32);
 pub const msidbCustomActionTypeDll: msidbCustomActionType = msidbCustomActionType(1i32);
@@ -2520,6 +2928,12 @@ pub const msidbCustomActionTypeTSAware: msidbCustomActionType = msidbCustomActio
 pub const msidbCustomActionType64BitScript: msidbCustomActionType = msidbCustomActionType(4096i32);
 pub const msidbCustomActionTypeHideTarget: msidbCustomActionType = msidbCustomActionType(8192i32);
 pub const msidbCustomActionTypePatchUninstall: msidbCustomActionType = msidbCustomActionType(32768i32);
+impl ::core::marker::Copy for msidbCustomActionType {}
+impl ::core::clone::Clone for msidbCustomActionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbDialogAttributes(pub i32);
 pub const msidbDialogAttributesVisible: msidbDialogAttributes = msidbDialogAttributes(1i32);
@@ -2534,10 +2948,22 @@ pub const msidbDialogAttributesRightAligned: msidbDialogAttributes = msidbDialog
 pub const msidbDialogAttributesLeftScroll: msidbDialogAttributes = msidbDialogAttributes(512i32);
 pub const msidbDialogAttributesBiDi: msidbDialogAttributes = msidbDialogAttributes(896i32);
 pub const msidbDialogAttributesError: msidbDialogAttributes = msidbDialogAttributes(65536i32);
+impl ::core::marker::Copy for msidbDialogAttributes {}
+impl ::core::clone::Clone for msidbDialogAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbEmbeddedUIAttributes(pub i32);
 pub const msidbEmbeddedUI: msidbEmbeddedUIAttributes = msidbEmbeddedUIAttributes(1i32);
 pub const msidbEmbeddedHandlesBasic: msidbEmbeddedUIAttributes = msidbEmbeddedUIAttributes(2i32);
+impl ::core::marker::Copy for msidbEmbeddedUIAttributes {}
+impl ::core::clone::Clone for msidbEmbeddedUIAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbFeatureAttributes(pub i32);
 pub const msidbFeatureAttributesFavorLocal: msidbFeatureAttributes = msidbFeatureAttributes(0i32);
@@ -2547,6 +2973,12 @@ pub const msidbFeatureAttributesFavorAdvertise: msidbFeatureAttributes = msidbFe
 pub const msidbFeatureAttributesDisallowAdvertise: msidbFeatureAttributes = msidbFeatureAttributes(8i32);
 pub const msidbFeatureAttributesUIDisallowAbsent: msidbFeatureAttributes = msidbFeatureAttributes(16i32);
 pub const msidbFeatureAttributesNoUnsupportedAdvertise: msidbFeatureAttributes = msidbFeatureAttributes(32i32);
+impl ::core::marker::Copy for msidbFeatureAttributes {}
+impl ::core::clone::Clone for msidbFeatureAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbFileAttributes(pub i32);
 pub const msidbFileAttributesReadOnly: msidbFileAttributes = msidbFileAttributes(1i32);
@@ -2563,6 +2995,12 @@ pub const msidbFileAttributesPatchAdded: msidbFileAttributes = msidbFileAttribut
 pub const msidbFileAttributesNoncompressed: msidbFileAttributes = msidbFileAttributes(8192i32);
 pub const msidbFileAttributesCompressed: msidbFileAttributes = msidbFileAttributes(16384i32);
 pub const msidbFileAttributesReserved4: msidbFileAttributes = msidbFileAttributes(32768i32);
+impl ::core::marker::Copy for msidbFileAttributes {}
+impl ::core::clone::Clone for msidbFileAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbIniFileAction(pub i32);
 pub const msidbIniFileActionAddLine: msidbIniFileAction = msidbIniFileAction(0i32);
@@ -2570,38 +3008,86 @@ pub const msidbIniFileActionCreateLine: msidbIniFileAction = msidbIniFileAction(
 pub const msidbIniFileActionRemoveLine: msidbIniFileAction = msidbIniFileAction(2i32);
 pub const msidbIniFileActionAddTag: msidbIniFileAction = msidbIniFileAction(3i32);
 pub const msidbIniFileActionRemoveTag: msidbIniFileAction = msidbIniFileAction(4i32);
+impl ::core::marker::Copy for msidbIniFileAction {}
+impl ::core::clone::Clone for msidbIniFileAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbLocatorType(pub i32);
 pub const msidbLocatorTypeDirectory: msidbLocatorType = msidbLocatorType(0i32);
 pub const msidbLocatorTypeFileName: msidbLocatorType = msidbLocatorType(1i32);
 pub const msidbLocatorTypeRawValue: msidbLocatorType = msidbLocatorType(2i32);
 pub const msidbLocatorType64bit: msidbLocatorType = msidbLocatorType(16i32);
+impl ::core::marker::Copy for msidbLocatorType {}
+impl ::core::clone::Clone for msidbLocatorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbMoveFileOptions(pub i32);
 pub const msidbMoveFileOptionsMove: msidbMoveFileOptions = msidbMoveFileOptions(1i32);
+impl ::core::marker::Copy for msidbMoveFileOptions {}
+impl ::core::clone::Clone for msidbMoveFileOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbODBCDataSourceRegistration(pub i32);
 pub const msidbODBCDataSourceRegistrationPerMachine: msidbODBCDataSourceRegistration = msidbODBCDataSourceRegistration(0i32);
 pub const msidbODBCDataSourceRegistrationPerUser: msidbODBCDataSourceRegistration = msidbODBCDataSourceRegistration(1i32);
+impl ::core::marker::Copy for msidbODBCDataSourceRegistration {}
+impl ::core::clone::Clone for msidbODBCDataSourceRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbPatchAttributes(pub i32);
 pub const msidbPatchAttributesNonVital: msidbPatchAttributes = msidbPatchAttributes(1i32);
+impl ::core::marker::Copy for msidbPatchAttributes {}
+impl ::core::clone::Clone for msidbPatchAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbRegistryRoot(pub i32);
 pub const msidbRegistryRootClassesRoot: msidbRegistryRoot = msidbRegistryRoot(0i32);
 pub const msidbRegistryRootCurrentUser: msidbRegistryRoot = msidbRegistryRoot(1i32);
 pub const msidbRegistryRootLocalMachine: msidbRegistryRoot = msidbRegistryRoot(2i32);
 pub const msidbRegistryRootUsers: msidbRegistryRoot = msidbRegistryRoot(3i32);
+impl ::core::marker::Copy for msidbRegistryRoot {}
+impl ::core::clone::Clone for msidbRegistryRoot {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbRemoveFileInstallMode(pub i32);
 pub const msidbRemoveFileInstallModeOnInstall: msidbRemoveFileInstallMode = msidbRemoveFileInstallMode(1i32);
 pub const msidbRemoveFileInstallModeOnRemove: msidbRemoveFileInstallMode = msidbRemoveFileInstallMode(2i32);
 pub const msidbRemoveFileInstallModeOnBoth: msidbRemoveFileInstallMode = msidbRemoveFileInstallMode(3i32);
+impl ::core::marker::Copy for msidbRemoveFileInstallMode {}
+impl ::core::clone::Clone for msidbRemoveFileInstallMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbServiceConfigEvent(pub i32);
 pub const msidbServiceConfigEventInstall: msidbServiceConfigEvent = msidbServiceConfigEvent(1i32);
 pub const msidbServiceConfigEventUninstall: msidbServiceConfigEvent = msidbServiceConfigEvent(2i32);
 pub const msidbServiceConfigEventReinstall: msidbServiceConfigEvent = msidbServiceConfigEvent(4i32);
+impl ::core::marker::Copy for msidbServiceConfigEvent {}
+impl ::core::clone::Clone for msidbServiceConfigEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbServiceControlEvent(pub i32);
 pub const msidbServiceControlEventStart: msidbServiceControlEvent = msidbServiceControlEvent(1i32);
@@ -2610,21 +3096,45 @@ pub const msidbServiceControlEventDelete: msidbServiceControlEvent = msidbServic
 pub const msidbServiceControlEventUninstallStart: msidbServiceControlEvent = msidbServiceControlEvent(16i32);
 pub const msidbServiceControlEventUninstallStop: msidbServiceControlEvent = msidbServiceControlEvent(32i32);
 pub const msidbServiceControlEventUninstallDelete: msidbServiceControlEvent = msidbServiceControlEvent(128i32);
+impl ::core::marker::Copy for msidbServiceControlEvent {}
+impl ::core::clone::Clone for msidbServiceControlEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbServiceInstallErrorControl(pub i32);
 pub const msidbServiceInstallErrorControlVital: msidbServiceInstallErrorControl = msidbServiceInstallErrorControl(32768i32);
+impl ::core::marker::Copy for msidbServiceInstallErrorControl {}
+impl ::core::clone::Clone for msidbServiceInstallErrorControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbSumInfoSourceType(pub i32);
 pub const msidbSumInfoSourceTypeSFN: msidbSumInfoSourceType = msidbSumInfoSourceType(1i32);
 pub const msidbSumInfoSourceTypeCompressed: msidbSumInfoSourceType = msidbSumInfoSourceType(2i32);
 pub const msidbSumInfoSourceTypeAdminImage: msidbSumInfoSourceType = msidbSumInfoSourceType(4i32);
 pub const msidbSumInfoSourceTypeLUAPackage: msidbSumInfoSourceType = msidbSumInfoSourceType(8i32);
+impl ::core::marker::Copy for msidbSumInfoSourceType {}
+impl ::core::clone::Clone for msidbSumInfoSourceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbTextStyleStyleBits(pub i32);
 pub const msidbTextStyleStyleBitsBold: msidbTextStyleStyleBits = msidbTextStyleStyleBits(1i32);
 pub const msidbTextStyleStyleBitsItalic: msidbTextStyleStyleBits = msidbTextStyleStyleBits(2i32);
 pub const msidbTextStyleStyleBitsUnderline: msidbTextStyleStyleBits = msidbTextStyleStyleBits(4i32);
 pub const msidbTextStyleStyleBitsStrike: msidbTextStyleStyleBits = msidbTextStyleStyleBits(8i32);
+impl ::core::marker::Copy for msidbTextStyleStyleBits {}
+impl ::core::clone::Clone for msidbTextStyleStyleBits {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msidbUpgradeAttributes(pub i32);
 pub const msidbUpgradeAttributesMigrateFeatures: msidbUpgradeAttributes = msidbUpgradeAttributes(1i32);
@@ -2633,11 +3143,23 @@ pub const msidbUpgradeAttributesIgnoreRemoveFailure: msidbUpgradeAttributes = ms
 pub const msidbUpgradeAttributesVersionMinInclusive: msidbUpgradeAttributes = msidbUpgradeAttributes(256i32);
 pub const msidbUpgradeAttributesVersionMaxInclusive: msidbUpgradeAttributes = msidbUpgradeAttributes(512i32);
 pub const msidbUpgradeAttributesLanguagesExclusive: msidbUpgradeAttributes = msidbUpgradeAttributes(1024i32);
+impl ::core::marker::Copy for msidbUpgradeAttributes {}
+impl ::core::clone::Clone for msidbUpgradeAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msifiFastInstallBits(pub i32);
 pub const msifiFastInstallNoSR: msifiFastInstallBits = msifiFastInstallBits(1i32);
 pub const msifiFastInstallQuickCosting: msifiFastInstallBits = msifiFastInstallBits(2i32);
 pub const msifiFastInstallLessPrgMsg: msifiFastInstallBits = msifiFastInstallBits(4i32);
+impl ::core::marker::Copy for msifiFastInstallBits {}
+impl ::core::clone::Clone for msifiFastInstallBits {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msirbRebootReason(pub i32);
 pub const msirbRebootUndeterminedReason: msirbRebootReason = msirbRebootReason(0i32);
@@ -2645,10 +3167,22 @@ pub const msirbRebootInUseFilesReason: msirbRebootReason = msirbRebootReason(1i3
 pub const msirbRebootScheduleRebootReason: msirbRebootReason = msirbRebootReason(2i32);
 pub const msirbRebootForceRebootReason: msirbRebootReason = msirbRebootReason(3i32);
 pub const msirbRebootCustomActionReason: msirbRebootReason = msirbRebootReason(4i32);
+impl ::core::marker::Copy for msirbRebootReason {}
+impl ::core::clone::Clone for msirbRebootReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msirbRebootType(pub i32);
 pub const msirbRebootImmediate: msirbRebootType = msirbRebootType(1i32);
 pub const msirbRebootDeferred: msirbRebootType = msirbRebootType(2i32);
+impl ::core::marker::Copy for msirbRebootType {}
+impl ::core::clone::Clone for msirbRebootType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct msmErrorType(pub i32);
 pub const msmErrorLanguageUnsupported: msmErrorType = msmErrorType(1i32);
@@ -2659,3 +3193,9 @@ pub const msmErrorResequenceMerge: msmErrorType = msmErrorType(5i32);
 pub const msmErrorFileCreate: msmErrorType = msmErrorType(6i32);
 pub const msmErrorDirCreate: msmErrorType = msmErrorType(7i32);
 pub const msmErrorFeatureRequired: msmErrorType = msmErrorType(8i32);
+impl ::core::marker::Copy for msmErrorType {}
+impl ::core::clone::Clone for msmErrorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

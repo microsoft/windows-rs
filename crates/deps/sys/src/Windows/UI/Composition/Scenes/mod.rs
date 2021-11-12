@@ -66,6 +66,12 @@ impl SceneAlphaMode {
     pub const AlphaTest: Self = Self(1i32);
     pub const Blend: Self = Self(2i32);
 }
+impl ::core::marker::Copy for SceneAlphaMode {}
+impl ::core::clone::Clone for SceneAlphaMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SceneAttributeSemantic(pub i32);
 impl SceneAttributeSemantic {
@@ -77,6 +83,12 @@ impl SceneAttributeSemantic {
     pub const Color: Self = Self(5i32);
     pub const Tangent: Self = Self(6i32);
 }
+impl ::core::marker::Copy for SceneAttributeSemantic {}
+impl ::core::clone::Clone for SceneAttributeSemantic {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SceneBoundingBox(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -87,6 +99,12 @@ pub struct SceneComponentCollection(pub *mut ::core::ffi::c_void);
 pub struct SceneComponentType(pub i32);
 impl SceneComponentType {
     pub const MeshRendererComponent: Self = Self(0i32);
+}
+impl ::core::marker::Copy for SceneComponentType {}
+impl ::core::clone::Clone for SceneComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SceneMaterial(pub *mut ::core::ffi::c_void);
@@ -122,4 +140,10 @@ impl SceneWrappingMode {
     pub const ClampToEdge: Self = Self(0i32);
     pub const MirroredRepeat: Self = Self(1i32);
     pub const Repeat: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SceneWrappingMode {}
+impl ::core::clone::Clone for SceneWrappingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

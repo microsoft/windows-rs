@@ -47,6 +47,12 @@ impl LampArrayEffectCompletionBehavior {
     pub const ClearState: Self = Self(0i32);
     pub const KeepState: Self = Self(1i32);
 }
+impl ::core::marker::Copy for LampArrayEffectCompletionBehavior {}
+impl ::core::clone::Clone for LampArrayEffectCompletionBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LampArrayEffectPlaylist(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -55,11 +61,23 @@ impl LampArrayEffectStartMode {
     pub const Sequential: Self = Self(0i32);
     pub const Simultaneous: Self = Self(1i32);
 }
+impl ::core::marker::Copy for LampArrayEffectStartMode {}
+impl ::core::clone::Clone for LampArrayEffectStartMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LampArrayRepetitionMode(pub i32);
 impl LampArrayRepetitionMode {
     pub const Occurrences: Self = Self(0i32);
     pub const Forever: Self = Self(1i32);
+}
+impl ::core::marker::Copy for LampArrayRepetitionMode {}
+impl ::core::clone::Clone for LampArrayRepetitionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct LampArraySolidEffect(pub *mut ::core::ffi::c_void);

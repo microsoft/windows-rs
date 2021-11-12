@@ -14,5 +14,11 @@ impl WalletItemAppAssociation {
     pub const AppInstalled: Self = Self(1i32);
     pub const AppNotInstalled: Self = Self(2i32);
 }
+impl ::core::marker::Copy for WalletItemAppAssociation {}
+impl ::core::clone::Clone for WalletItemAppAssociation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WalletItemSystemStore(pub *mut ::core::ffi::c_void);

@@ -81,6 +81,12 @@ impl MediaFrameReaderAcquisitionMode {
     pub const Realtime: Self = Self(0i32);
     pub const Buffered: Self = Self(1i32);
 }
+impl ::core::marker::Copy for MediaFrameReaderAcquisitionMode {}
+impl ::core::clone::Clone for MediaFrameReaderAcquisitionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaFrameReaderStartStatus(pub i32);
 impl MediaFrameReaderStartStatus {
@@ -89,6 +95,12 @@ impl MediaFrameReaderStartStatus {
     pub const DeviceNotAvailable: Self = Self(2i32);
     pub const OutputFormatNotSupported: Self = Self(3i32);
     pub const ExclusiveControlNotAvailable: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MediaFrameReaderStartStatus {}
+impl ::core::clone::Clone for MediaFrameReaderStartStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MediaFrameReference(pub *mut ::core::ffi::c_void);
@@ -108,6 +120,12 @@ impl MediaFrameSourceGetPropertyStatus {
     pub const MaxPropertyValueSizeTooSmall: Self = Self(4i32);
     pub const MaxPropertyValueSizeRequired: Self = Self(5i32);
 }
+impl ::core::marker::Copy for MediaFrameSourceGetPropertyStatus {}
+impl ::core::clone::Clone for MediaFrameSourceGetPropertyStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaFrameSourceGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -123,6 +141,12 @@ impl MediaFrameSourceKind {
     pub const Image: Self = Self(5i32);
     pub const Metadata: Self = Self(6i32);
 }
+impl ::core::marker::Copy for MediaFrameSourceKind {}
+impl ::core::clone::Clone for MediaFrameSourceKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaFrameSourceSetPropertyStatus(pub i32);
 impl MediaFrameSourceSetPropertyStatus {
@@ -132,6 +156,12 @@ impl MediaFrameSourceSetPropertyStatus {
     pub const InvalidValue: Self = Self(3i32);
     pub const DeviceNotAvailable: Self = Self(4i32);
     pub const NotInControl: Self = Self(5i32);
+}
+impl ::core::marker::Copy for MediaFrameSourceSetPropertyStatus {}
+impl ::core::clone::Clone for MediaFrameSourceSetPropertyStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameArrivedEventArgs(pub *mut ::core::ffi::c_void);
@@ -145,6 +175,12 @@ impl MultiSourceMediaFrameReaderStartStatus {
     pub const InsufficientResources: Self = Self(2i32);
     pub const DeviceNotAvailable: Self = Self(3i32);
     pub const UnknownFailure: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MultiSourceMediaFrameReaderStartStatus {}
+impl ::core::clone::Clone for MultiSourceMediaFrameReaderStartStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameReference(pub *mut ::core::ffi::c_void);

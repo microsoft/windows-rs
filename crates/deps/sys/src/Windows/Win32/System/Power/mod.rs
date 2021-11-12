@@ -263,6 +263,12 @@ pub const BatteryChargingSourceType_AC: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_C
 pub const BatteryChargingSourceType_USB: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(2i32);
 pub const BatteryChargingSourceType_Wireless: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(3i32);
 pub const BatteryChargingSourceType_Max: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(4i32);
+impl ::core::marker::Copy for BATTERY_CHARGING_SOURCE_TYPE {}
+impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BATTERY_CLASS_MAJOR_VERSION: u32 = 1u32;
 pub const BATTERY_CLASS_MINOR_VERSION: u32 = 0u32;
 pub const BATTERY_CLASS_MINOR_VERSION_1: u32 = 1u32;
@@ -328,6 +334,12 @@ pub const BatteryManufactureDate: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUER
 pub const BatteryManufactureName: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(6i32);
 pub const BatteryUniqueID: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(7i32);
 pub const BatterySerialNumber: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(8i32);
+impl ::core::marker::Copy for BATTERY_QUERY_INFORMATION_LEVEL {}
+impl ::core::clone::Clone for BATTERY_QUERY_INFORMATION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct BATTERY_REPORTING_SCALE {
     pub Granularity: u32,
@@ -365,6 +377,12 @@ pub const BatteryDischarge: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMAT
 pub const BatteryChargingSource: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(3i32);
 pub const BatteryChargerId: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(4i32);
 pub const BatteryChargerStatus: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(5i32);
+impl ::core::marker::Copy for BATTERY_SET_INFORMATION_LEVEL {}
+impl ::core::clone::Clone for BATTERY_SET_INFORMATION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BATTERY_STATIC_DATA_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 98690147, data2: 58594, data3: 20137, data4: [128, 203, 155, 212, 179, 202, 6, 85] };
 #[repr(C)]
 pub struct BATTERY_STATUS {
@@ -479,6 +497,12 @@ pub const PowerDeviceD1: DEVICE_POWER_STATE = DEVICE_POWER_STATE(2i32);
 pub const PowerDeviceD2: DEVICE_POWER_STATE = DEVICE_POWER_STATE(3i32);
 pub const PowerDeviceD3: DEVICE_POWER_STATE = DEVICE_POWER_STATE(4i32);
 pub const PowerDeviceMaximum: DEVICE_POWER_STATE = DEVICE_POWER_STATE(5i32);
+impl ::core::marker::Copy for DEVICE_POWER_STATE {}
+impl ::core::clone::Clone for DEVICE_POWER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EFFECTIVE_POWER_MODE(pub i32);
 pub const EffectivePowerModeBatterySaver: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(0i32);
@@ -488,6 +512,12 @@ pub const EffectivePowerModeHighPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_PO
 pub const EffectivePowerModeMaxPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(4i32);
 pub const EffectivePowerModeGameMode: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(5i32);
 pub const EffectivePowerModeMixedReality: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(6i32);
+impl ::core::marker::Copy for EFFECTIVE_POWER_MODE {}
+impl ::core::clone::Clone for EFFECTIVE_POWER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type EFFECTIVE_POWER_MODE_CALLBACK = unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::core::ffi::c_void);
 pub const EFFECTIVE_POWER_MODE_V1: u32 = 1u32;
 pub const EFFECTIVE_POWER_MODE_V2: u32 = 2u32;
@@ -527,6 +557,12 @@ impl ::core::clone::Clone for EMI_MEASUREMENT_DATA_V2 {
 #[repr(transparent)]
 pub struct EMI_MEASUREMENT_UNIT(pub i32);
 pub const EmiMeasurementUnitPicowattHours: EMI_MEASUREMENT_UNIT = EMI_MEASUREMENT_UNIT(0i32);
+impl ::core::marker::Copy for EMI_MEASUREMENT_UNIT {}
+impl ::core::clone::Clone for EMI_MEASUREMENT_UNIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct EMI_METADATA_SIZE {
     pub MetadataSize: u32,
@@ -586,6 +622,12 @@ pub const ES_CONTINUOUS: EXECUTION_STATE = EXECUTION_STATE(2147483648u32);
 pub const ES_DISPLAY_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(2u32);
 pub const ES_SYSTEM_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(1u32);
 pub const ES_USER_PRESENT: EXECUTION_STATE = EXECUTION_STATE(4u32);
+impl ::core::marker::Copy for EXECUTION_STATE {}
+impl ::core::clone::Clone for EXECUTION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EnableMultiBatteryDisplay: u32 = 2u32;
 pub const EnablePasswordLogon: u32 = 4u32;
 pub const EnableSysTrayBatteryMeter: u32 = 1u32;
@@ -720,6 +762,12 @@ pub const IOCTL_THERMAL_SET_PASSIVE_LIMIT: u32 = 2719884u32;
 pub struct LATENCY_TIME(pub i32);
 pub const LT_DONT_CARE: LATENCY_TIME = LATENCY_TIME(0i32);
 pub const LT_LOWEST_LATENCY: LATENCY_TIME = LATENCY_TIME(1i32);
+impl ::core::marker::Copy for LATENCY_TIME {}
+impl ::core::clone::Clone for LATENCY_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MACHINE_POWER_POLICY {
     pub Revision: u32,
@@ -792,6 +840,12 @@ pub const PowerActionShutdownReset: POWER_ACTION = POWER_ACTION(5i32);
 pub const PowerActionShutdownOff: POWER_ACTION = POWER_ACTION(6i32);
 pub const PowerActionWarmEject: POWER_ACTION = POWER_ACTION(7i32);
 pub const PowerActionDisplayOff: POWER_ACTION = POWER_ACTION(8i32);
+impl ::core::marker::Copy for POWER_ACTION {}
+impl ::core::clone::Clone for POWER_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct POWER_ACTION_POLICY {
     pub Action: POWER_ACTION,
@@ -812,6 +866,12 @@ pub const POWER_LEVEL_USER_NOTIFY_SOUND: POWER_ACTION_POLICY_EVENT_CODE = POWER_
 pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(1u32);
 pub const POWER_USER_NOTIFY_BUTTON: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(8u32);
 pub const POWER_USER_NOTIFY_SHUTDOWN: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(16u32);
+impl ::core::marker::Copy for POWER_ACTION_POLICY_EVENT_CODE {}
+impl ::core::clone::Clone for POWER_ACTION_POLICY_EVENT_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
 #[repr(transparent)]
@@ -844,6 +904,12 @@ pub const ACCESS_DC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR
 pub const ACCESS_PROFILE: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(25i32);
 pub const ACCESS_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(26i32);
 pub const ACCESS_ACTIVE_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(27i32);
+impl ::core::marker::Copy for POWER_DATA_ACCESSOR {}
+impl ::core::clone::Clone for POWER_DATA_ACCESSOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct POWER_INFORMATION_LEVEL(pub i32);
 pub const SystemPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(0i32);
@@ -944,6 +1010,12 @@ pub const UpdateBlackBoxRecorder: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LE
 pub const SessionAllowExternalDmaDevices: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(95i32);
 pub const SendSuspendResumeNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(96i32);
 pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(97i32);
+impl ::core::marker::Copy for POWER_INFORMATION_LEVEL {}
+impl ::core::clone::Clone for POWER_INFORMATION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct POWER_PLATFORM_ROLE(pub i32);
 pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(0i32);
@@ -956,10 +1028,22 @@ pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(6i3
 pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(7i32);
 pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(8i32);
 pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(9i32);
+impl ::core::marker::Copy for POWER_PLATFORM_ROLE {}
+impl ::core::clone::Clone for POWER_PLATFORM_ROLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct POWER_PLATFORM_ROLE_VERSION(pub u32);
 pub const POWER_PLATFORM_ROLE_V1: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(1u32);
 pub const POWER_PLATFORM_ROLE_V2: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(2u32);
+impl ::core::marker::Copy for POWER_PLATFORM_ROLE_VERSION {}
+impl ::core::clone::Clone for POWER_PLATFORM_ROLE_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POWER_POLICY {
@@ -980,11 +1064,23 @@ pub const PowerRequestDisplayRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(0
 pub const PowerRequestSystemRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(1i32);
 pub const PowerRequestAwayModeRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(2i32);
 pub const PowerRequestExecutionRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(3i32);
+impl ::core::marker::Copy for POWER_REQUEST_TYPE {}
+impl ::core::clone::Clone for POWER_REQUEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(pub u32);
 pub const DEVICE_NOTIFY_SERVICE_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(1u32);
 pub const DEVICE_NOTIFY_CALLBACK: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(2u32);
 pub const DEVICE_NOTIFY_WINDOW_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(0u32);
+impl ::core::marker::Copy for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {}
+impl ::core::clone::Clone for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PROCESSOR_NUMBER_PKEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1462028317, data2: 54703, data3: 19487, data4: [161, 3, 160, 110, 40, 242, 4, 198] },
@@ -1139,6 +1235,12 @@ pub const PoAc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(0i32);
 pub const PoDc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(1i32);
 pub const PoHot: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(2i32);
 pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(3i32);
+impl ::core::marker::Copy for SYSTEM_POWER_CONDITION {}
+impl ::core::clone::Clone for SYSTEM_POWER_CONDITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_POWER_LEVEL {
@@ -1206,6 +1308,12 @@ pub const PowerSystemSleeping3: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(4i32);
 pub const PowerSystemHibernate: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(5i32);
 pub const PowerSystemShutdown: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(6i32);
 pub const PowerSystemMaximum: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(7i32);
+impl ::core::marker::Copy for SYSTEM_POWER_STATE {}
+impl ::core::clone::Clone for SYSTEM_POWER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SYSTEM_POWER_STATUS {
     pub ACLineStatus: u8,
@@ -1316,6 +1424,12 @@ pub struct USB_CHARGER_PORT(pub i32);
 pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = USB_CHARGER_PORT(0i32);
 pub const UsbChargerPort_TypeC: USB_CHARGER_PORT = USB_CHARGER_PORT(1i32);
 pub const UsbChargerPort_Max: USB_CHARGER_PORT = USB_CHARGER_PORT(2i32);
+impl ::core::marker::Copy for USB_CHARGER_PORT {}
+impl ::core::clone::Clone for USB_CHARGER_PORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USER_POWER_POLICY {

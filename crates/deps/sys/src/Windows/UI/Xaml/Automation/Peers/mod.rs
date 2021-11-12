@@ -8,6 +8,12 @@ impl AccessibilityView {
     pub const Control: Self = Self(1i32);
     pub const Content: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AccessibilityView {}
+impl ::core::clone::Clone for AccessibilityView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppBarAutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -61,6 +67,12 @@ impl AutomationControlType {
     pub const SemanticZoom: Self = Self(39i32);
     pub const AppBar: Self = Self(40i32);
 }
+impl ::core::marker::Copy for AutomationControlType {}
+impl ::core::clone::Clone for AutomationControlType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationEvents(pub i32);
 impl AutomationEvents {
@@ -95,6 +107,12 @@ impl AutomationEvents {
     pub const TextEditTextChanged: Self = Self(28i32);
     pub const LayoutInvalidated: Self = Self(29i32);
 }
+impl ::core::marker::Copy for AutomationEvents {}
+impl ::core::clone::Clone for AutomationEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationHeadingLevel(pub i32);
 impl AutomationHeadingLevel {
@@ -109,6 +127,12 @@ impl AutomationHeadingLevel {
     pub const Level8: Self = Self(8i32);
     pub const Level9: Self = Self(9i32);
 }
+impl ::core::marker::Copy for AutomationHeadingLevel {}
+impl ::core::clone::Clone for AutomationHeadingLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationLandmarkType(pub i32);
 impl AutomationLandmarkType {
@@ -119,12 +143,24 @@ impl AutomationLandmarkType {
     pub const Navigation: Self = Self(4i32);
     pub const Search: Self = Self(5i32);
 }
+impl ::core::marker::Copy for AutomationLandmarkType {}
+impl ::core::clone::Clone for AutomationLandmarkType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationLiveSetting(pub i32);
 impl AutomationLiveSetting {
     pub const Off: Self = Self(0i32);
     pub const Polite: Self = Self(1i32);
     pub const Assertive: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AutomationLiveSetting {}
+impl ::core::clone::Clone for AutomationLiveSetting {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AutomationNavigationDirection(pub i32);
@@ -135,6 +171,12 @@ impl AutomationNavigationDirection {
     pub const FirstChild: Self = Self(3i32);
     pub const LastChild: Self = Self(4i32);
 }
+impl ::core::marker::Copy for AutomationNavigationDirection {}
+impl ::core::clone::Clone for AutomationNavigationDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationNotificationKind(pub i32);
 impl AutomationNotificationKind {
@@ -143,6 +185,12 @@ impl AutomationNotificationKind {
     pub const ActionCompleted: Self = Self(2i32);
     pub const ActionAborted: Self = Self(3i32);
     pub const Other: Self = Self(4i32);
+}
+impl ::core::marker::Copy for AutomationNotificationKind {}
+impl ::core::clone::Clone for AutomationNotificationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AutomationNotificationProcessing(pub i32);
@@ -153,12 +201,24 @@ impl AutomationNotificationProcessing {
     pub const MostRecent: Self = Self(3i32);
     pub const CurrentThenMostRecent: Self = Self(4i32);
 }
+impl ::core::marker::Copy for AutomationNotificationProcessing {}
+impl ::core::clone::Clone for AutomationNotificationProcessing {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationOrientation(pub i32);
 impl AutomationOrientation {
     pub const None: Self = Self(0i32);
     pub const Horizontal: Self = Self(1i32);
     pub const Vertical: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AutomationOrientation {}
+impl ::core::clone::Clone for AutomationOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AutomationPeer(pub *mut ::core::ffi::c_void);
@@ -173,6 +233,12 @@ impl AutomationStructureChangeType {
     pub const ChildrenBulkAdded: Self = Self(3i32);
     pub const ChildrenBulkRemoved: Self = Self(4i32);
     pub const ChildrenReordered: Self = Self(5i32);
+}
+impl ::core::marker::Copy for AutomationStructureChangeType {}
+impl ::core::clone::Clone for AutomationStructureChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ButtonAutomationPeer(pub *mut ::core::ffi::c_void);
@@ -703,6 +769,12 @@ impl PatternInterface {
     pub const SynchronizedInput: Self = Self(31i32);
     pub const TextEdit: Self = Self(32i32);
     pub const CustomNavigation: Self = Self(33i32);
+}
+impl ::core::marker::Copy for PatternInterface {}
+impl ::core::clone::Clone for PatternInterface {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PersonPictureAutomationPeer(pub *mut ::core::ffi::c_void);

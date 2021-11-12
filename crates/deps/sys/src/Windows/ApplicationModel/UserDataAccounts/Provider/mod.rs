@@ -22,11 +22,23 @@ impl UserDataAccountProviderOperationKind {
     pub const Settings: Self = Self(1i32);
     pub const ResolveErrors: Self = Self(2i32);
 }
+impl ::core::marker::Copy for UserDataAccountProviderOperationKind {}
+impl ::core::clone::Clone for UserDataAccountProviderOperationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataAccountProviderPartnerAccountKind(pub i32);
 impl UserDataAccountProviderPartnerAccountKind {
     pub const Exchange: Self = Self(0i32);
     pub const PopOrImap: Self = Self(1i32);
+}
+impl ::core::marker::Copy for UserDataAccountProviderPartnerAccountKind {}
+impl ::core::clone::Clone for UserDataAccountProviderPartnerAccountKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UserDataAccountProviderResolveErrorsOperation(pub *mut ::core::ffi::c_void);

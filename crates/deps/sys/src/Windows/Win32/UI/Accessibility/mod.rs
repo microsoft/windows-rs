@@ -211,6 +211,12 @@ pub const ANRUS_ON_SCREEN_KEYBOARD_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY
 pub const ANRUS_TOUCH_MODIFICATION_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(2u32);
 pub const ANRUS_PRIORITY_AUDIO_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(4u32);
 pub const ANRUS_PRIORITY_AUDIO_ACTIVE_NODUCK: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(8u32);
+impl ::core::marker::Copy for ACC_UTILITY_STATE_FLAGS {}
+impl ::core::clone::Clone for ACC_UTILITY_STATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16u32;
 pub const AcceleratorKey_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1363699167, data2: 9559, data3: 19641, data4: [174, 237, 108, 237, 8, 76, 229, 44] };
 pub const AccessKey_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -224,6 +230,12 @@ pub struct ActiveEnd(pub i32);
 pub const ActiveEnd_None: ActiveEnd = ActiveEnd(0i32);
 pub const ActiveEnd_Start: ActiveEnd = ActiveEnd(1i32);
 pub const ActiveEnd_End: ActiveEnd = ActiveEnd(2i32);
+impl ::core::marker::Copy for ActiveEnd {}
+impl ::core::clone::Clone for ActiveEnd {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ActiveTextPositionChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2780864156,
     data2: 51069,
@@ -240,10 +252,22 @@ pub const AnimationStyle_MarchingBlackAnts: AnimationStyle = AnimationStyle(4i32
 pub const AnimationStyle_MarchingRedAnts: AnimationStyle = AnimationStyle(5i32);
 pub const AnimationStyle_Shimmer: AnimationStyle = AnimationStyle(6i32);
 pub const AnimationStyle_Other: AnimationStyle = AnimationStyle(-1i32);
+impl ::core::marker::Copy for AnimationStyle {}
+impl ::core::clone::Clone for AnimationStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AnnoScope(pub i32);
 pub const ANNO_THIS: AnnoScope = AnnoScope(0i32);
 pub const ANNO_CONTAINER: AnnoScope = AnnoScope(1i32);
+impl ::core::marker::Copy for AnnoScope {}
+impl ::core::clone::Clone for AnnoScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AnnotationObjects_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 822677704, data2: 31854, data3: 20256, data4: [190, 205, 74, 175, 109, 25, 17, 86] };
 pub const AnnotationType_AdvancedProofingIssue: i32 = 60020i32;
 pub const AnnotationType_Author: i32 = 60019i32;
@@ -410,6 +434,12 @@ pub struct AsyncContentLoadedState(pub i32);
 pub const AsyncContentLoadedState_Beginning: AsyncContentLoadedState = AsyncContentLoadedState(0i32);
 pub const AsyncContentLoadedState_Progress: AsyncContentLoadedState = AsyncContentLoadedState(1i32);
 pub const AsyncContentLoadedState_Completed: AsyncContentLoadedState = AsyncContentLoadedState(2i32);
+impl ::core::marker::Copy for AsyncContentLoadedState {}
+impl ::core::clone::Clone for AsyncContentLoadedState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AsyncContentLoaded_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1608442140,
     data2: 54010,
@@ -420,6 +450,12 @@ pub const AsyncContentLoaded_Event_GUID: ::windows_sys::core::GUID = ::windows_s
 pub struct AutomationElementMode(pub i32);
 pub const AutomationElementMode_None: AutomationElementMode = AutomationElementMode(0i32);
 pub const AutomationElementMode_Full: AutomationElementMode = AutomationElementMode(1i32);
+impl ::core::marker::Copy for AutomationElementMode {}
+impl ::core::clone::Clone for AutomationElementMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AutomationFocusChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3062505239,
     data2: 62989,
@@ -438,6 +474,12 @@ pub const AutomationIdentifierType_LandmarkType: AutomationIdentifierType = Auto
 pub const AutomationIdentifierType_Annotation: AutomationIdentifierType = AutomationIdentifierType(6i32);
 pub const AutomationIdentifierType_Changes: AutomationIdentifierType = AutomationIdentifierType(7i32);
 pub const AutomationIdentifierType_Style: AutomationIdentifierType = AutomationIdentifierType(8i32);
+impl ::core::marker::Copy for AutomationIdentifierType {}
+impl ::core::clone::Clone for AutomationIdentifierType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AutomationPropertyChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 623377313, data2: 36218, data3: 17968, data4: [164, 204, 230, 99, 21, 148, 47, 82] };
 pub const BoundingRectangle_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2076174514,
@@ -454,6 +496,12 @@ pub const BulletStyle_HollowSquareBullet: BulletStyle = BulletStyle(3i32);
 pub const BulletStyle_FilledSquareBullet: BulletStyle = BulletStyle(4i32);
 pub const BulletStyle_DashBullet: BulletStyle = BulletStyle(5i32);
 pub const BulletStyle_Other: BulletStyle = BulletStyle(-1i32);
+impl ::core::marker::Copy for BulletStyle {}
+impl ::core::clone::Clone for BulletStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Button_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1517871977,
     data2: 50849,
@@ -496,15 +544,33 @@ pub const CapStyle_PetiteCaps: CapStyle = CapStyle(4i32);
 pub const CapStyle_Unicase: CapStyle = CapStyle(5i32);
 pub const CapStyle_Titling: CapStyle = CapStyle(6i32);
 pub const CapStyle_Other: CapStyle = CapStyle(-1i32);
+impl ::core::marker::Copy for CapStyle {}
+impl ::core::clone::Clone for CapStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CaretBidiMode(pub i32);
 pub const CaretBidiMode_LTR: CaretBidiMode = CaretBidiMode(0i32);
 pub const CaretBidiMode_RTL: CaretBidiMode = CaretBidiMode(1i32);
+impl ::core::marker::Copy for CaretBidiMode {}
+impl ::core::clone::Clone for CaretBidiMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CaretPosition(pub i32);
 pub const CaretPosition_Unknown: CaretPosition = CaretPosition(0i32);
 pub const CaretPosition_EndOfLine: CaretPosition = CaretPosition(1i32);
 pub const CaretPosition_BeginningOfLine: CaretPosition = CaretPosition(2i32);
+impl ::core::marker::Copy for CaretPosition {}
+impl ::core::clone::Clone for CaretPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CenterPoint_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 212864008, data2: 21516, data3: 20187, data4: [148, 69, 38, 53, 158, 166, 151, 133] };
 pub const Changes_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2113038100,
@@ -530,6 +596,12 @@ pub const ClickablePoint_Property_GUID: ::windows_sys::core::GUID = ::windows_sy
 pub struct CoalesceEventsOptions(pub i32);
 pub const CoalesceEventsOptions_Disabled: CoalesceEventsOptions = CoalesceEventsOptions(0i32);
 pub const CoalesceEventsOptions_Enabled: CoalesceEventsOptions = CoalesceEventsOptions(1i32);
+impl ::core::marker::Copy for CoalesceEventsOptions {}
+impl ::core::clone::Clone for CoalesceEventsOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ComboBox_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1422606956,
     data2: 12083,
@@ -544,10 +616,22 @@ pub const ConditionType_Property: ConditionType = ConditionType(2i32);
 pub const ConditionType_And: ConditionType = ConditionType(3i32);
 pub const ConditionType_Or: ConditionType = ConditionType(4i32);
 pub const ConditionType_Not: ConditionType = ConditionType(5i32);
+impl ::core::marker::Copy for ConditionType {}
+impl ::core::clone::Clone for ConditionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ConnectionRecoveryBehaviorOptions(pub i32);
 pub const ConnectionRecoveryBehaviorOptions_Disabled: ConnectionRecoveryBehaviorOptions = ConnectionRecoveryBehaviorOptions(0i32);
 pub const ConnectionRecoveryBehaviorOptions_Enabled: ConnectionRecoveryBehaviorOptions = ConnectionRecoveryBehaviorOptions(1i32);
+impl ::core::marker::Copy for ConnectionRecoveryBehaviorOptions {}
+impl ::core::clone::Clone for ConnectionRecoveryBehaviorOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ControlType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3396816874,
     data2: 10412,
@@ -613,6 +697,12 @@ pub const DockPosition_Bottom: DockPosition = DockPosition(2i32);
 pub const DockPosition_Right: DockPosition = DockPosition(3i32);
 pub const DockPosition_Fill: DockPosition = DockPosition(4i32);
 pub const DockPosition_None: DockPosition = DockPosition(5i32);
+impl ::core::marker::Copy for DockPosition {}
+impl ::core::clone::Clone for DockPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Dock_DockPosition_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1835528238,
     data2: 49328,
@@ -693,12 +783,24 @@ pub const EventArgsType_Changes: EventArgsType = EventArgsType(6i32);
 pub const EventArgsType_Notification: EventArgsType = EventArgsType(7i32);
 pub const EventArgsType_ActiveTextPositionChanged: EventArgsType = EventArgsType(8i32);
 pub const EventArgsType_StructuredMarkup: EventArgsType = EventArgsType(9i32);
+impl ::core::marker::Copy for EventArgsType {}
+impl ::core::clone::Clone for EventArgsType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ExpandCollapseState(pub i32);
 pub const ExpandCollapseState_Collapsed: ExpandCollapseState = ExpandCollapseState(0i32);
 pub const ExpandCollapseState_Expanded: ExpandCollapseState = ExpandCollapseState(1i32);
 pub const ExpandCollapseState_PartiallyExpanded: ExpandCollapseState = ExpandCollapseState(2i32);
 pub const ExpandCollapseState_LeafNode: ExpandCollapseState = ExpandCollapseState(3i32);
+impl ::core::marker::Copy for ExpandCollapseState {}
+impl ::core::clone::Clone for ExpandCollapseState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ExpandCollapse_ExpandCollapseState_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 660229192, data2: 34215, data3: 20329, data4: [171, 160, 175, 21, 118, 16, 0, 43] };
 pub const ExpandCollapse_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2919624610,
@@ -748,6 +850,12 @@ pub const FillType_Color: FillType = FillType(1i32);
 pub const FillType_Gradient: FillType = FillType(2i32);
 pub const FillType_Picture: FillType = FillType(3i32);
 pub const FillType_Pattern: FillType = FillType(4i32);
+impl ::core::marker::Copy for FillType {}
+impl ::core::clone::Clone for FillType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FillType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3338433764,
     data2: 36025,
@@ -760,6 +868,12 @@ pub const FlowDirections_Default: FlowDirections = FlowDirections(0i32);
 pub const FlowDirections_RightToLeft: FlowDirections = FlowDirections(1i32);
 pub const FlowDirections_BottomToTop: FlowDirections = FlowDirections(2i32);
 pub const FlowDirections_Vertical: FlowDirections = FlowDirections(4i32);
+impl ::core::marker::Copy for FlowDirections {}
+impl ::core::clone::Clone for FlowDirections {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FlowsFrom_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 96896079, data2: 6622, data3: 18680, data4: [149, 250, 136, 13, 91, 15, 214, 21] };
 pub const FlowsTo_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3841146144,
@@ -849,6 +963,12 @@ pub const HCF_HOTKEYSOUND: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(16u32);
 pub const HCF_INDICATOR: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(32u32);
 pub const HCF_HOTKEYAVAILABLE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(64u32);
 pub const HCF_OPTION_NOTHEMECHANGE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(4096u32);
+impl ::core::marker::Copy for HIGHCONTRASTW_FLAGS {}
+impl ::core::clone::Clone for HIGHCONTRASTW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HUIAEVENT {
     pub Value: isize,
@@ -930,6 +1050,12 @@ pub const HorizontalTextAlignment_Left: HorizontalTextAlignment = HorizontalText
 pub const HorizontalTextAlignment_Centered: HorizontalTextAlignment = HorizontalTextAlignment(1i32);
 pub const HorizontalTextAlignment_Right: HorizontalTextAlignment = HorizontalTextAlignment(2i32);
 pub const HorizontalTextAlignment_Justified: HorizontalTextAlignment = HorizontalTextAlignment(3i32);
+impl ::core::marker::Copy for HorizontalTextAlignment {}
+impl ::core::clone::Clone for HorizontalTextAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3871191102,
     data2: 2337,
@@ -1522,6 +1648,12 @@ pub struct LiveSetting(pub i32);
 pub const Off: LiveSetting = LiveSetting(0i32);
 pub const Polite: LiveSetting = LiveSetting(1i32);
 pub const Assertive: LiveSetting = LiveSetting(2i32);
+impl ::core::marker::Copy for LiveSetting {}
+impl ::core::clone::Clone for LiveSetting {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LiveSetting_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3240873358, data2: 10894, data3: 18768, data4: [138, 231, 54, 37, 17, 29, 88, 235] };
 pub const LocalizedControlType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2271428687, data2: 41405, data3: 17706, data4: [137, 196, 63, 1, 211, 131, 56, 6] };
 pub const LocalizedLandmarkType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -1600,6 +1732,12 @@ pub const NavigateDirection_NextSibling: NavigateDirection = NavigateDirection(1
 pub const NavigateDirection_PreviousSibling: NavigateDirection = NavigateDirection(2i32);
 pub const NavigateDirection_FirstChild: NavigateDirection = NavigateDirection(3i32);
 pub const NavigateDirection_LastChild: NavigateDirection = NavigateDirection(4i32);
+impl ::core::marker::Copy for NavigateDirection {}
+impl ::core::clone::Clone for NavigateDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NewNativeWindowHandle_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1368830779,
     data2: 14346,
@@ -1611,6 +1749,12 @@ pub struct NormalizeState(pub i32);
 pub const NormalizeState_None: NormalizeState = NormalizeState(0i32);
 pub const NormalizeState_View: NormalizeState = NormalizeState(1i32);
 pub const NormalizeState_Custom: NormalizeState = NormalizeState(2i32);
+impl ::core::marker::Copy for NormalizeState {}
+impl ::core::clone::Clone for NormalizeState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NotificationKind(pub i32);
 pub const NotificationKind_ItemAdded: NotificationKind = NotificationKind(0i32);
@@ -1618,6 +1762,12 @@ pub const NotificationKind_ItemRemoved: NotificationKind = NotificationKind(1i32
 pub const NotificationKind_ActionCompleted: NotificationKind = NotificationKind(2i32);
 pub const NotificationKind_ActionAborted: NotificationKind = NotificationKind(3i32);
 pub const NotificationKind_Other: NotificationKind = NotificationKind(4i32);
+impl ::core::marker::Copy for NotificationKind {}
+impl ::core::clone::Clone for NotificationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NotificationProcessing(pub i32);
 pub const NotificationProcessing_ImportantAll: NotificationProcessing = NotificationProcessing(0i32);
@@ -1625,6 +1775,12 @@ pub const NotificationProcessing_ImportantMostRecent: NotificationProcessing = N
 pub const NotificationProcessing_All: NotificationProcessing = NotificationProcessing(2i32);
 pub const NotificationProcessing_MostRecent: NotificationProcessing = NotificationProcessing(3i32);
 pub const NotificationProcessing_CurrentThenMostRecent: NotificationProcessing = NotificationProcessing(4i32);
+impl ::core::marker::Copy for NotificationProcessing {}
+impl ::core::clone::Clone for NotificationProcessing {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Notification_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1925554935, data2: 38792, data3: 18447, data4: [184, 235, 77, 238, 0, 246, 24, 111] };
 pub const ObjectModel_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1040493822, data2: 2300, data3: 18412, data4: [150, 188, 53, 63, 163, 179, 74, 167] };
 pub const OptimizeForVisualContent_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -1638,6 +1794,12 @@ pub struct OrientationType(pub i32);
 pub const OrientationType_None: OrientationType = OrientationType(0i32);
 pub const OrientationType_Horizontal: OrientationType = OrientationType(1i32);
 pub const OrientationType_Vertical: OrientationType = OrientationType(2i32);
+impl ::core::marker::Copy for OrientationType {}
+impl ::core::clone::Clone for OrientationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Orientation_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2686381666,
     data2: 14468,
@@ -1652,6 +1814,12 @@ pub const OutlineStyles_Outline: OutlineStyles = OutlineStyles(1i32);
 pub const OutlineStyles_Shadow: OutlineStyles = OutlineStyles(2i32);
 pub const OutlineStyles_Engraved: OutlineStyles = OutlineStyles(4i32);
 pub const OutlineStyles_Embossed: OutlineStyles = OutlineStyles(8i32);
+impl ::core::marker::Copy for OutlineStyles {}
+impl ::core::clone::Clone for OutlineStyles {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OutlineThickness_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 333872327, data2: 56002, data3: 18568, data4: [189, 211, 55, 92, 98, 250, 150, 24] };
 pub const PROPID_ACC_DEFAULTACTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 403441451, data2: 49791, data3: 17351, data4: [153, 34, 246, 53, 98, 164, 99, 43] };
 pub const PROPID_ACC_DESCRIPTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1296621540, data2: 48447, data3: 18719, data4: [166, 72, 73, 45, 111, 32, 197, 136] };
@@ -1732,6 +1900,12 @@ pub struct PropertyConditionFlags(pub i32);
 pub const PropertyConditionFlags_None: PropertyConditionFlags = PropertyConditionFlags(0i32);
 pub const PropertyConditionFlags_IgnoreCase: PropertyConditionFlags = PropertyConditionFlags(1i32);
 pub const PropertyConditionFlags_MatchSubstring: PropertyConditionFlags = PropertyConditionFlags(2i32);
+impl ::core::marker::Copy for PropertyConditionFlags {}
+impl ::core::clone::Clone for PropertyConditionFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ProviderDescription_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3701829770,
     data2: 49515,
@@ -1749,11 +1923,23 @@ pub const ProviderOptions_UseComThreading: ProviderOptions = ProviderOptions(32i
 pub const ProviderOptions_RefuseNonClientSupport: ProviderOptions = ProviderOptions(64i32);
 pub const ProviderOptions_HasNativeIAccessible: ProviderOptions = ProviderOptions(128i32);
 pub const ProviderOptions_UseClientCoordinates: ProviderOptions = ProviderOptions(256i32);
+impl ::core::marker::Copy for ProviderOptions {}
+impl ::core::clone::Clone for ProviderOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProviderType(pub i32);
 pub const ProviderType_BaseHwnd: ProviderType = ProviderType(0i32);
 pub const ProviderType_Proxy: ProviderType = ProviderType(1i32);
 pub const ProviderType_NonClientArea: ProviderType = ProviderType(2i32);
+impl ::core::marker::Copy for ProviderType {}
+impl ::core::clone::Clone for ProviderType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ROLE_SYSTEM_ALERT: u32 = 8u32;
 pub const ROLE_SYSTEM_ANIMATION: u32 = 54u32;
 pub const ROLE_SYSTEM_APPLICATION: u32 = 14u32;
@@ -1847,6 +2033,12 @@ pub struct RowOrColumnMajor(pub i32);
 pub const RowOrColumnMajor_RowMajor: RowOrColumnMajor = RowOrColumnMajor(0i32);
 pub const RowOrColumnMajor_ColumnMajor: RowOrColumnMajor = RowOrColumnMajor(1i32);
 pub const RowOrColumnMajor_Indeterminate: RowOrColumnMajor = RowOrColumnMajor(2i32);
+impl ::core::marker::Copy for RowOrColumnMajor {}
+impl ::core::clone::Clone for RowOrColumnMajor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RuntimeId_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2745101306,
     data2: 32698,
@@ -1903,6 +2095,12 @@ pub struct SERIALKEYS_FLAGS(pub u32);
 pub const SERKF_AVAILABLE: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(2u32);
 pub const SERKF_INDICATOR: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(4u32);
 pub const SERKF_SERIALKEYSON: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(1u32);
+impl ::core::marker::Copy for SERIALKEYS_FLAGS {}
+impl ::core::clone::Clone for SERIALKEYS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SID_ControlElementProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4101578088, data2: 57940, data3: 19363, data4: [154, 83, 38, 165, 197, 73, 121, 70] };
 pub const SID_IsUIAutomationObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3111115653,
@@ -1963,12 +2161,24 @@ pub struct SOUNDSENTRY_FLAGS(pub u32);
 pub const SSF_SOUNDSENTRYON: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(1u32);
 pub const SSF_AVAILABLE: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(2u32);
 pub const SSF_INDICATOR: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(4u32);
+impl ::core::marker::Copy for SOUNDSENTRY_FLAGS {}
+impl ::core::clone::Clone for SOUNDSENTRY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SOUNDSENTRY_TEXT_EFFECT(pub u32);
 pub const SSTF_BORDER: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(2u32);
 pub const SSTF_CHARS: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(1u32);
 pub const SSTF_DISPLAY: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(3u32);
 pub const SSTF_NONE: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(0u32);
+impl ::core::marker::Copy for SOUNDSENTRY_TEXT_EFFECT {}
+impl ::core::clone::Clone for SOUNDSENTRY_TEXT_EFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SOUNDSENTRY_WINDOWS_EFFECT(pub u32);
 pub const SSWF_CUSTOM: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(4u32);
@@ -1976,10 +2186,22 @@ pub const SSWF_DISPLAY: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(
 pub const SSWF_NONE: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(0u32);
 pub const SSWF_TITLE: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(1u32);
 pub const SSWF_WINDOW: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(2u32);
+impl ::core::marker::Copy for SOUNDSENTRY_WINDOWS_EFFECT {}
+impl ::core::clone::Clone for SOUNDSENTRY_WINDOWS_EFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SOUND_SENTRY_GRAPHICS_EFFECT(pub u32);
 pub const SSGF_DISPLAY: SOUND_SENTRY_GRAPHICS_EFFECT = SOUND_SENTRY_GRAPHICS_EFFECT(3u32);
 pub const SSGF_NONE: SOUND_SENTRY_GRAPHICS_EFFECT = SOUND_SENTRY_GRAPHICS_EFFECT(0u32);
+impl ::core::marker::Copy for SOUND_SENTRY_GRAPHICS_EFFECT {}
+impl ::core::clone::Clone for SOUND_SENTRY_GRAPHICS_EFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STATE_SYSTEM_HASPOPUP: u32 = 1073741824u32;
 pub const STATE_SYSTEM_NORMAL: u32 = 0u32;
 #[repr(C)]
@@ -2020,6 +2242,12 @@ pub const SKF_RCTLLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(524288u32);
 pub const SKF_RSHIFTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(131072u32);
 pub const SKF_LWINLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(4194304u32);
 pub const SKF_RWINLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(8388608u32);
+impl ::core::marker::Copy for STICKYKEYS_FLAGS {}
+impl ::core::clone::Clone for STICKYKEYS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SayAsInterpretAs(pub i32);
 pub const SayAsInterpretAs_None: SayAsInterpretAs = SayAsInterpretAs(0i32);
@@ -2049,6 +2277,12 @@ pub const SayAsInterpretAs_Time_HoursMinutesSeconds12: SayAsInterpretAs = SayAsI
 pub const SayAsInterpretAs_Time_HoursMinutes12: SayAsInterpretAs = SayAsInterpretAs(24i32);
 pub const SayAsInterpretAs_Time_HoursMinutesSeconds24: SayAsInterpretAs = SayAsInterpretAs(25i32);
 pub const SayAsInterpretAs_Time_HoursMinutes24: SayAsInterpretAs = SayAsInterpretAs(26i32);
+impl ::core::marker::Copy for SayAsInterpretAs {}
+impl ::core::clone::Clone for SayAsInterpretAs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ScrollAmount(pub i32);
 pub const ScrollAmount_LargeDecrement: ScrollAmount = ScrollAmount(0i32);
@@ -2056,6 +2290,12 @@ pub const ScrollAmount_SmallDecrement: ScrollAmount = ScrollAmount(1i32);
 pub const ScrollAmount_NoAmount: ScrollAmount = ScrollAmount(2i32);
 pub const ScrollAmount_LargeIncrement: ScrollAmount = ScrollAmount(3i32);
 pub const ScrollAmount_SmallIncrement: ScrollAmount = ScrollAmount(4i32);
+impl ::core::marker::Copy for ScrollAmount {}
+impl ::core::clone::Clone for ScrollAmount {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ScrollBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3673377590, data2: 20581, data3: 18758, data4: [178, 47, 146, 89, 95, 192, 117, 26] };
 pub const ScrollItem_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1167183877, data2: 43011, data3: 19804, data4: [180, 213, 141, 40, 0, 249, 6, 167] };
 pub const Scroll_HorizontalScrollPercent_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -2192,6 +2432,12 @@ pub const StructureChangeType_ChildrenInvalidated: StructureChangeType = Structu
 pub const StructureChangeType_ChildrenBulkAdded: StructureChangeType = StructureChangeType(3i32);
 pub const StructureChangeType_ChildrenBulkRemoved: StructureChangeType = StructureChangeType(4i32);
 pub const StructureChangeType_ChildrenReordered: StructureChangeType = StructureChangeType(5i32);
+impl ::core::marker::Copy for StructureChangeType {}
+impl ::core::clone::Clone for StructureChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const StructureChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1503099233,
     data2: 16093,
@@ -2324,6 +2570,12 @@ pub struct SupportedTextSelection(pub i32);
 pub const SupportedTextSelection_None: SupportedTextSelection = SupportedTextSelection(0i32);
 pub const SupportedTextSelection_Single: SupportedTextSelection = SupportedTextSelection(1i32);
 pub const SupportedTextSelection_Multiple: SupportedTextSelection = SupportedTextSelection(2i32);
+impl ::core::marker::Copy for SupportedTextSelection {}
+impl ::core::clone::Clone for SupportedTextSelection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SynchronizedInputType(pub i32);
 pub const SynchronizedInputType_KeyUp: SynchronizedInputType = SynchronizedInputType(1i32);
@@ -2332,6 +2584,12 @@ pub const SynchronizedInputType_LeftMouseUp: SynchronizedInputType = Synchronize
 pub const SynchronizedInputType_LeftMouseDown: SynchronizedInputType = SynchronizedInputType(8i32);
 pub const SynchronizedInputType_RightMouseUp: SynchronizedInputType = SynchronizedInputType(16i32);
 pub const SynchronizedInputType_RightMouseDown: SynchronizedInputType = SynchronizedInputType(32i32);
+impl ::core::marker::Copy for SynchronizedInputType {}
+impl ::core::clone::Clone for SynchronizedInputType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SynchronizedInput_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 96635046, data2: 50299, data3: 18571, data4: [182, 83, 51, 151, 122, 85, 27, 139] };
 pub const SystemAlert_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3530642525,
@@ -2407,6 +2665,12 @@ pub const TextDecorationLineStyle_ThickDashDotDot: TextDecorationLineStyle = Tex
 pub const TextDecorationLineStyle_ThickDot: TextDecorationLineStyle = TextDecorationLineStyle(17i32);
 pub const TextDecorationLineStyle_ThickLongDash: TextDecorationLineStyle = TextDecorationLineStyle(18i32);
 pub const TextDecorationLineStyle_Other: TextDecorationLineStyle = TextDecorationLineStyle(-1i32);
+impl ::core::marker::Copy for TextDecorationLineStyle {}
+impl ::core::clone::Clone for TextDecorationLineStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TextEditChangeType(pub i32);
 pub const TextEditChangeType_None: TextEditChangeType = TextEditChangeType(0i32);
@@ -2414,6 +2678,12 @@ pub const TextEditChangeType_AutoCorrect: TextEditChangeType = TextEditChangeTyp
 pub const TextEditChangeType_Composition: TextEditChangeType = TextEditChangeType(2i32);
 pub const TextEditChangeType_CompositionFinalized: TextEditChangeType = TextEditChangeType(3i32);
 pub const TextEditChangeType_AutoComplete: TextEditChangeType = TextEditChangeType(4i32);
+impl ::core::marker::Copy for TextEditChangeType {}
+impl ::core::clone::Clone for TextEditChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TextEdit_ConversionTargetChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 864600451, data2: 60751, data3: 19595, data4: [155, 170, 54, 77, 81, 216, 132, 127] };
 pub const TextEdit_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1777598345, data2: 23289, data3: 19573, data4: [147, 64, 242, 222, 41, 46, 69, 145] };
 pub const TextEdit_TextChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -2426,6 +2696,12 @@ pub const TextEdit_TextChanged_Event_GUID: ::windows_sys::core::GUID = ::windows
 pub struct TextPatternRangeEndpoint(pub i32);
 pub const TextPatternRangeEndpoint_Start: TextPatternRangeEndpoint = TextPatternRangeEndpoint(0i32);
 pub const TextPatternRangeEndpoint_End: TextPatternRangeEndpoint = TextPatternRangeEndpoint(1i32);
+impl ::core::marker::Copy for TextPatternRangeEndpoint {}
+impl ::core::clone::Clone for TextPatternRangeEndpoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TextUnit(pub i32);
 pub const TextUnit_Character: TextUnit = TextUnit(0i32);
@@ -2435,6 +2711,12 @@ pub const TextUnit_Line: TextUnit = TextUnit(3i32);
 pub const TextUnit_Paragraph: TextUnit = TextUnit(4i32);
 pub const TextUnit_Page: TextUnit = TextUnit(5i32);
 pub const TextUnit_Document: TextUnit = TextUnit(6i32);
+impl ::core::marker::Copy for TextUnit {}
+impl ::core::clone::Clone for TextUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Text_AfterParagraphSpacing_Attribute_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1485617976,
     data2: 58927,
@@ -2643,6 +2925,12 @@ pub struct ToggleState(pub i32);
 pub const ToggleState_Off: ToggleState = ToggleState(0i32);
 pub const ToggleState_On: ToggleState = ToggleState(1i32);
 pub const ToggleState_Indeterminate: ToggleState = ToggleState(2i32);
+impl ::core::marker::Copy for ToggleState {}
+impl ::core::clone::Clone for ToggleState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Toggle_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 188847968, data2: 58100, data3: 17407, data4: [140, 95, 148, 87, 200, 43, 86, 233] };
 pub const Toggle_ToggleState_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2990333010,
@@ -2708,11 +2996,23 @@ pub const TreeScope_Descendants: TreeScope = TreeScope(4i32);
 pub const TreeScope_Parent: TreeScope = TreeScope(8i32);
 pub const TreeScope_Ancestors: TreeScope = TreeScope(16i32);
 pub const TreeScope_Subtree: TreeScope = TreeScope(7i32);
+impl ::core::marker::Copy for TreeScope {}
+impl ::core::clone::Clone for TreeScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TreeTraversalOptions(pub i32);
 pub const TreeTraversalOptions_Default: TreeTraversalOptions = TreeTraversalOptions(0i32);
 pub const TreeTraversalOptions_PostOrder: TreeTraversalOptions = TreeTraversalOptions(1i32);
 pub const TreeTraversalOptions_LastToFirstOrder: TreeTraversalOptions = TreeTraversalOptions(2i32);
+impl ::core::marker::Copy for TreeTraversalOptions {}
+impl ::core::clone::Clone for TreeTraversalOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Tree_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1969304732,
     data2: 53825,
@@ -3183,6 +3483,12 @@ pub const UIAutomationType_OutDoubleArray: UIAutomationType = UIAutomationType(1
 pub const UIAutomationType_OutPointArray: UIAutomationType = UIAutomationType(196613i32);
 pub const UIAutomationType_OutRectArray: UIAutomationType = UIAutomationType(196614i32);
 pub const UIAutomationType_OutElementArray: UIAutomationType = UIAutomationType(196615i32);
+impl ::core::marker::Copy for UIAutomationType {}
+impl ::core::clone::Clone for UIAutomationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UiaAndOrCondition {
     pub ConditionType: ConditionType,
@@ -3431,6 +3737,12 @@ pub const VisualEffects_Reflection: VisualEffects = VisualEffects(2i32);
 pub const VisualEffects_Glow: VisualEffects = VisualEffects(4i32);
 pub const VisualEffects_SoftEdges: VisualEffects = VisualEffects(8i32);
 pub const VisualEffects_Bevel: VisualEffects = VisualEffects(16i32);
+impl ::core::marker::Copy for VisualEffects {}
+impl ::core::clone::Clone for VisualEffects {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VisualEffects_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3860497765,
     data2: 43737,
@@ -3446,11 +3758,23 @@ pub const WindowInteractionState_Closing: WindowInteractionState = WindowInterac
 pub const WindowInteractionState_ReadyForUserInteraction: WindowInteractionState = WindowInteractionState(2i32);
 pub const WindowInteractionState_BlockedByModalWindow: WindowInteractionState = WindowInteractionState(3i32);
 pub const WindowInteractionState_NotResponding: WindowInteractionState = WindowInteractionState(4i32);
+impl ::core::marker::Copy for WindowInteractionState {}
+impl ::core::clone::Clone for WindowInteractionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WindowVisualState(pub i32);
 pub const WindowVisualState_Normal: WindowVisualState = WindowVisualState(0i32);
 pub const WindowVisualState_Maximized: WindowVisualState = WindowVisualState(1i32);
 pub const WindowVisualState_Minimized: WindowVisualState = WindowVisualState(2i32);
+impl ::core::marker::Copy for WindowVisualState {}
+impl ::core::clone::Clone for WindowVisualState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Window_CanMaximize_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1694496063,
     data2: 25437,
@@ -3498,3 +3822,9 @@ pub const ZoomUnit_LargeDecrement: ZoomUnit = ZoomUnit(1i32);
 pub const ZoomUnit_SmallDecrement: ZoomUnit = ZoomUnit(2i32);
 pub const ZoomUnit_LargeIncrement: ZoomUnit = ZoomUnit(3i32);
 pub const ZoomUnit_SmallIncrement: ZoomUnit = ZoomUnit(4i32);
+impl ::core::marker::Copy for ZoomUnit {}
+impl ::core::clone::Clone for ZoomUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

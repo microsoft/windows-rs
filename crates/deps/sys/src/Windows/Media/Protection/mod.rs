@@ -17,12 +17,24 @@ impl GraphicsTrustStatus {
     pub const DriverSigningFailure: Self = Self(4i32);
     pub const UnknownFailure: Self = Self(5i32);
 }
+impl ::core::marker::Copy for GraphicsTrustStatus {}
+impl ::core::clone::Clone for GraphicsTrustStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HdcpProtection(pub i32);
 impl HdcpProtection {
     pub const Off: Self = Self(0i32);
     pub const On: Self = Self(1i32);
     pub const OnWithTypeEnforcement: Self = Self(2i32);
+}
+impl ::core::marker::Copy for HdcpProtection {}
+impl ::core::clone::Clone for HdcpProtection {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct HdcpSession(pub *mut ::core::ffi::c_void);
@@ -33,6 +45,12 @@ impl HdcpSetProtectionResult {
     pub const TimedOut: Self = Self(1i32);
     pub const NotSupported: Self = Self(2i32);
     pub const UnknownFailure: Self = Self(3i32);
+}
+impl ::core::marker::Copy for HdcpSetProtectionResult {}
+impl ::core::clone::Clone for HdcpSetProtectionResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IComponentLoadFailedEventArgs(pub *mut ::core::ffi::c_void);
@@ -75,6 +93,12 @@ impl ProtectionCapabilityResult {
     pub const Maybe: Self = Self(1i32);
     pub const Probably: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ProtectionCapabilityResult {}
+impl ::core::clone::Clone for ProtectionCapabilityResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RebootNeededEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -85,6 +109,12 @@ impl RenewalStatus {
     pub const UserCancelled: Self = Self(2i32);
     pub const AppComponentsMayNeedUpdating: Self = Self(3i32);
     pub const NoComponentsFound: Self = Self(4i32);
+}
+impl ::core::marker::Copy for RenewalStatus {}
+impl ::core::clone::Clone for RenewalStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RevocationAndRenewalInformation(pub *mut ::core::ffi::c_void);
@@ -108,6 +138,12 @@ impl RevocationAndRenewalReasons {
     pub const BootDriverVerificationFailed: Self = Self(1048576u32);
     pub const ComponentSignedWithTestCertificate: Self = Self(16777216u32);
     pub const EncryptionFailure: Self = Self(268435456u32);
+}
+impl ::core::marker::Copy for RevocationAndRenewalReasons {}
+impl ::core::clone::Clone for RevocationAndRenewalReasons {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ServiceRequestedEventArgs(pub *mut ::core::ffi::c_void);

@@ -497,10 +497,22 @@ pub struct FEEDS_BACKGROUNDSYNC_ACTION(pub i32);
 pub const FBSA_DISABLE: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(0i32);
 pub const FBSA_ENABLE: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(1i32);
 pub const FBSA_RUNNOW: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(2i32);
+impl ::core::marker::Copy for FEEDS_BACKGROUNDSYNC_ACTION {}
+impl ::core::clone::Clone for FEEDS_BACKGROUNDSYNC_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FEEDS_BACKGROUNDSYNC_STATUS(pub i32);
 pub const FBSS_DISABLED: FEEDS_BACKGROUNDSYNC_STATUS = FEEDS_BACKGROUNDSYNC_STATUS(0i32);
 pub const FBSS_ENABLED: FEEDS_BACKGROUNDSYNC_STATUS = FEEDS_BACKGROUNDSYNC_STATUS(1i32);
+impl ::core::marker::Copy for FEEDS_BACKGROUNDSYNC_STATUS {}
+impl ::core::clone::Clone for FEEDS_BACKGROUNDSYNC_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FEEDS_DOWNLOAD_ERROR(pub i32);
 pub const FDE_NONE: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(0i32);
@@ -519,6 +531,12 @@ pub const FDE_DOWNLOAD_SIZE_LIMIT_EXCEEDED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOA
 pub const FDE_ACCESS_DENIED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(13i32);
 pub const FDE_AUTH_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(14i32);
 pub const FDE_INVALID_AUTH: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(15i32);
+impl ::core::marker::Copy for FEEDS_DOWNLOAD_ERROR {}
+impl ::core::clone::Clone for FEEDS_DOWNLOAD_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FEEDS_DOWNLOAD_STATUS(pub i32);
 pub const FDS_NONE: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(0i32);
@@ -526,49 +544,109 @@ pub const FDS_PENDING: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(1i32);
 pub const FDS_DOWNLOADING: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(2i32);
 pub const FDS_DOWNLOADED: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(3i32);
 pub const FDS_DOWNLOAD_FAILED: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(4i32);
+impl ::core::marker::Copy for FEEDS_DOWNLOAD_STATUS {}
+impl ::core::clone::Clone for FEEDS_DOWNLOAD_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FEEDS_ERROR_CODE(pub i32);
 pub const FEC_E_ERRORBASE: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479168i32);
 pub const FEC_E_INVALIDMSXMLPROPERTY: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479168i32);
 pub const FEC_E_DOWNLOADSIZELIMITEXCEEDED: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479167i32);
+impl ::core::marker::Copy for FEEDS_ERROR_CODE {}
+impl ::core::clone::Clone for FEEDS_ERROR_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FEEDS_EVENTS_ITEM_COUNT_FLAGS(pub i32);
 pub const FEICF_READ_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = FEEDS_EVENTS_ITEM_COUNT_FLAGS(1i32);
 pub const FEICF_UNREAD_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = FEEDS_EVENTS_ITEM_COUNT_FLAGS(2i32);
+impl ::core::marker::Copy for FEEDS_EVENTS_ITEM_COUNT_FLAGS {}
+impl ::core::clone::Clone for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FEEDS_EVENTS_MASK(pub i32);
 pub const FEM_FOLDEREVENTS: FEEDS_EVENTS_MASK = FEEDS_EVENTS_MASK(1i32);
 pub const FEM_FEEDEVENTS: FEEDS_EVENTS_MASK = FEEDS_EVENTS_MASK(2i32);
+impl ::core::marker::Copy for FEEDS_EVENTS_MASK {}
+impl ::core::clone::Clone for FEEDS_EVENTS_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FEEDS_EVENTS_SCOPE(pub i32);
 pub const FES_ALL: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(0i32);
 pub const FES_SELF_ONLY: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(1i32);
 pub const FES_SELF_AND_CHILDREN_ONLY: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(2i32);
+impl ::core::marker::Copy for FEEDS_EVENTS_SCOPE {}
+impl ::core::clone::Clone for FEEDS_EVENTS_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FEEDS_SYNC_SETTING(pub i32);
 pub const FSS_DEFAULT: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(0i32);
 pub const FSS_INTERVAL: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(1i32);
 pub const FSS_MANUAL: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(2i32);
 pub const FSS_SUGGESTED: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(3i32);
+impl ::core::marker::Copy for FEEDS_SYNC_SETTING {}
+impl ::core::clone::Clone for FEEDS_SYNC_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FEEDS_XML_FILTER_FLAGS(pub i32);
 pub const FXFF_ALL: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(0i32);
 pub const FXFF_UNREAD: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(1i32);
 pub const FXFF_READ: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(2i32);
+impl ::core::marker::Copy for FEEDS_XML_FILTER_FLAGS {}
+impl ::core::clone::Clone for FEEDS_XML_FILTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FEEDS_XML_INCLUDE_FLAGS(pub i32);
 pub const FXIF_NONE: FEEDS_XML_INCLUDE_FLAGS = FEEDS_XML_INCLUDE_FLAGS(0i32);
 pub const FXIF_CF_EXTENSIONS: FEEDS_XML_INCLUDE_FLAGS = FEEDS_XML_INCLUDE_FLAGS(1i32);
+impl ::core::marker::Copy for FEEDS_XML_INCLUDE_FLAGS {}
+impl ::core::clone::Clone for FEEDS_XML_INCLUDE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FEEDS_XML_SORT_ORDER(pub i32);
 pub const FXSO_NONE: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(0i32);
 pub const FXSO_ASCENDING: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(1i32);
 pub const FXSO_DESCENDING: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(2i32);
+impl ::core::marker::Copy for FEEDS_XML_SORT_ORDER {}
+impl ::core::clone::Clone for FEEDS_XML_SORT_ORDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FEEDS_XML_SORT_PROPERTY(pub i32);
 pub const FXSP_NONE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(0i32);
 pub const FXSP_PUBDATE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(1i32);
 pub const FXSP_DOWNLOADTIME: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(2i32);
+impl ::core::marker::Copy for FEEDS_XML_SORT_PROPERTY {}
+impl ::core::clone::Clone for FEEDS_XML_SORT_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FeedFolderWatcher: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 672137709,
     data2: 30565,
@@ -818,6 +896,12 @@ pub struct PlayerState(pub i32);
 pub const stop_state: PlayerState = PlayerState(0i32);
 pub const pause_state: PlayerState = PlayerState(1i32);
 pub const play_state: PlayerState = PlayerState(2i32);
+impl ::core::marker::Copy for PlayerState {}
+impl ::core::clone::Clone for PlayerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SA_BUFFER_SIZE: u32 = 1024u32;
 pub const SUBSCRIPTION_CAP_ALLOWCDBURN: u32 = 2u32;
 pub const SUBSCRIPTION_CAP_ALLOWPDATRANSFER: u32 = 4u32;
@@ -847,10 +931,22 @@ pub struct WMPAccountType(pub i32);
 pub const wmpatBuyOnly: WMPAccountType = WMPAccountType(1i32);
 pub const wmpatSubscription: WMPAccountType = WMPAccountType(2i32);
 pub const wmpatJanus: WMPAccountType = WMPAccountType(3i32);
+impl ::core::marker::Copy for WMPAccountType {}
+impl ::core::clone::Clone for WMPAccountType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPBurnFormat(pub i32);
 pub const wmpbfAudioCD: WMPBurnFormat = WMPBurnFormat(0i32);
 pub const wmpbfDataCD: WMPBurnFormat = WMPBurnFormat(1i32);
+impl ::core::marker::Copy for WMPBurnFormat {}
+impl ::core::clone::Clone for WMPBurnFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPBurnState(pub i32);
 pub const wmpbsUnknown: WMPBurnState = WMPBurnState(0i32);
@@ -863,6 +959,12 @@ pub const wmpbsBurning: WMPBurnState = WMPBurnState(6i32);
 pub const wmpbsStopped: WMPBurnState = WMPBurnState(7i32);
 pub const wmpbsErasing: WMPBurnState = WMPBurnState(8i32);
 pub const wmpbsDownloading: WMPBurnState = WMPBurnState(9i32);
+impl ::core::marker::Copy for WMPBurnState {}
+impl ::core::clone::Clone for WMPBurnState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMPCOREEVENT_BASE: u32 = 5000u32;
 pub const WMPCOREEVENT_CDROM_BASE: u32 = 5700u32;
 pub const WMPCOREEVENT_CONTENT_BASE: u32 = 5300u32;
@@ -880,6 +982,12 @@ pub const wmpcnLicenseUpdated: WMPCallbackNotification = WMPCallbackNotification
 pub const wmpcnNewCatalogAvailable: WMPCallbackNotification = WMPCallbackNotification(4i32);
 pub const wmpcnNewPluginAvailable: WMPCallbackNotification = WMPCallbackNotification(5i32);
 pub const wmpcnDisableRadioSkipping: WMPCallbackNotification = WMPCallbackNotification(6i32);
+impl ::core::marker::Copy for WMPCallbackNotification {}
+impl ::core::clone::Clone for WMPCallbackNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WMPContextMenuInfo {
@@ -904,12 +1012,24 @@ pub const wmpdsPartnershipAnother: WMPDeviceStatus = WMPDeviceStatus(3i32);
 pub const wmpdsManualDevice: WMPDeviceStatus = WMPDeviceStatus(4i32);
 pub const wmpdsNewDevice: WMPDeviceStatus = WMPDeviceStatus(5i32);
 pub const wmpdsLast: WMPDeviceStatus = WMPDeviceStatus(6i32);
+impl ::core::marker::Copy for WMPDeviceStatus {}
+impl ::core::clone::Clone for WMPDeviceStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPFolderScanState(pub i32);
 pub const wmpfssUnknown: WMPFolderScanState = WMPFolderScanState(0i32);
 pub const wmpfssScanning: WMPFolderScanState = WMPFolderScanState(1i32);
 pub const wmpfssUpdating: WMPFolderScanState = WMPFolderScanState(2i32);
 pub const wmpfssStopped: WMPFolderScanState = WMPFolderScanState(3i32);
+impl ::core::marker::Copy for WMPFolderScanState {}
+impl ::core::clone::Clone for WMPFolderScanState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMPGC_FLAGS_ALLOW_PREROLL: u32 = 1u32;
 pub const WMPGC_FLAGS_DISABLE_PLUGINS: u32 = 8u32;
 pub const WMPGC_FLAGS_IGNORE_AV_SYNC: u32 = 4u32;
@@ -924,6 +1044,12 @@ pub const wmpltLocal: WMPLibraryType = WMPLibraryType(2i32);
 pub const wmpltRemote: WMPLibraryType = WMPLibraryType(3i32);
 pub const wmpltDisc: WMPLibraryType = WMPLibraryType(4i32);
 pub const wmpltPortableDevice: WMPLibraryType = WMPLibraryType(5i32);
+impl ::core::marker::Copy for WMPLibraryType {}
+impl ::core::clone::Clone for WMPLibraryType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMPOCXEVENT_BASE: u32 = 6500u32;
 #[repr(transparent)]
 pub struct WMPOpenState(pub i32);
@@ -949,12 +1075,24 @@ pub const wmposBeginIndividualization: WMPOpenState = WMPOpenState(18i32);
 pub const wmposEndIndividualization: WMPOpenState = WMPOpenState(19i32);
 pub const wmposMediaWaiting: WMPOpenState = WMPOpenState(20i32);
 pub const wmposOpeningUnknownURL: WMPOpenState = WMPOpenState(21i32);
+impl ::core::marker::Copy for WMPOpenState {}
+impl ::core::clone::Clone for WMPOpenState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPPartnerNotification(pub i32);
 pub const wmpsnBackgroundProcessingBegin: WMPPartnerNotification = WMPPartnerNotification(1i32);
 pub const wmpsnBackgroundProcessingEnd: WMPPartnerNotification = WMPPartnerNotification(2i32);
 pub const wmpsnCatalogDownloadFailure: WMPPartnerNotification = WMPPartnerNotification(3i32);
 pub const wmpsnCatalogDownloadComplete: WMPPartnerNotification = WMPPartnerNotification(4i32);
+impl ::core::marker::Copy for WMPPartnerNotification {}
+impl ::core::clone::Clone for WMPPartnerNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPPlayState(pub i32);
 pub const wmppsUndefined: WMPPlayState = WMPPlayState(0i32);
@@ -970,6 +1108,12 @@ pub const wmppsTransitioning: WMPPlayState = WMPPlayState(9i32);
 pub const wmppsReady: WMPPlayState = WMPPlayState(10i32);
 pub const wmppsReconnecting: WMPPlayState = WMPPlayState(11i32);
 pub const wmppsLast: WMPPlayState = WMPPlayState(12i32);
+impl ::core::marker::Copy for WMPPlayState {}
+impl ::core::clone::Clone for WMPPlayState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPPlaylistChangeEventType(pub i32);
 pub const wmplcUnknown: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(0i32);
@@ -984,26 +1128,56 @@ pub const wmplcNameChange: WMPPlaylistChangeEventType = WMPPlaylistChangeEventTy
 pub const wmplcMorph: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(9i32);
 pub const wmplcSort: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(10i32);
 pub const wmplcLast: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(11i32);
+impl ::core::marker::Copy for WMPPlaylistChangeEventType {}
+impl ::core::clone::Clone for WMPPlaylistChangeEventType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPPlugin_Caps(pub i32);
 pub const WMPPlugin_Caps_CannotConvertFormats: WMPPlugin_Caps = WMPPlugin_Caps(1i32);
+impl ::core::marker::Copy for WMPPlugin_Caps {}
+impl ::core::clone::Clone for WMPPlugin_Caps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMPRemoteMediaServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3744674931, data2: 11511, data3: 19426, data4: [144, 127, 154, 173, 86, 97, 54, 79] };
 #[repr(transparent)]
 pub struct WMPRipState(pub i32);
 pub const wmprsUnknown: WMPRipState = WMPRipState(0i32);
 pub const wmprsRipping: WMPRipState = WMPRipState(1i32);
 pub const wmprsStopped: WMPRipState = WMPRipState(2i32);
+impl ::core::marker::Copy for WMPRipState {}
+impl ::core::clone::Clone for WMPRipState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPServices_StreamState(pub i32);
 pub const WMPServices_StreamState_Stop: WMPServices_StreamState = WMPServices_StreamState(0i32);
 pub const WMPServices_StreamState_Pause: WMPServices_StreamState = WMPServices_StreamState(1i32);
 pub const WMPServices_StreamState_Play: WMPServices_StreamState = WMPServices_StreamState(2i32);
+impl ::core::marker::Copy for WMPServices_StreamState {}
+impl ::core::clone::Clone for WMPServices_StreamState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPStreamingType(pub i32);
 pub const wmpstUnknown: WMPStreamingType = WMPStreamingType(0i32);
 pub const wmpstMusic: WMPStreamingType = WMPStreamingType(1i32);
 pub const wmpstVideo: WMPStreamingType = WMPStreamingType(2i32);
 pub const wmpstRadio: WMPStreamingType = WMPStreamingType(3i32);
+impl ::core::marker::Copy for WMPStreamingType {}
+impl ::core::clone::Clone for WMPStreamingType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPStringCollectionChangeEventType(pub i32);
 pub const wmpsccetUnknown: WMPStringCollectionChangeEventType = WMPStringCollectionChangeEventType(0i32);
@@ -1013,6 +1187,12 @@ pub const wmpsccetDelete: WMPStringCollectionChangeEventType = WMPStringCollecti
 pub const wmpsccetClear: WMPStringCollectionChangeEventType = WMPStringCollectionChangeEventType(4i32);
 pub const wmpsccetBeginUpdates: WMPStringCollectionChangeEventType = WMPStringCollectionChangeEventType(5i32);
 pub const wmpsccetEndUpdates: WMPStringCollectionChangeEventType = WMPStringCollectionChangeEventType(6i32);
+impl ::core::marker::Copy for WMPStringCollectionChangeEventType {}
+impl ::core::clone::Clone for WMPStringCollectionChangeEventType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPSubscriptionDownloadState(pub i32);
 pub const wmpsdlsDownloading: WMPSubscriptionDownloadState = WMPSubscriptionDownloadState(0i32);
@@ -1020,12 +1200,24 @@ pub const wmpsdlsPaused: WMPSubscriptionDownloadState = WMPSubscriptionDownloadS
 pub const wmpsdlsProcessing: WMPSubscriptionDownloadState = WMPSubscriptionDownloadState(2i32);
 pub const wmpsdlsCompleted: WMPSubscriptionDownloadState = WMPSubscriptionDownloadState(3i32);
 pub const wmpsdlsCancelled: WMPSubscriptionDownloadState = WMPSubscriptionDownloadState(4i32);
+impl ::core::marker::Copy for WMPSubscriptionDownloadState {}
+impl ::core::clone::Clone for WMPSubscriptionDownloadState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPSubscriptionServiceEvent(pub i32);
 pub const wmpsseCurrentBegin: WMPSubscriptionServiceEvent = WMPSubscriptionServiceEvent(1i32);
 pub const wmpsseCurrentEnd: WMPSubscriptionServiceEvent = WMPSubscriptionServiceEvent(2i32);
 pub const wmpsseFullBegin: WMPSubscriptionServiceEvent = WMPSubscriptionServiceEvent(3i32);
 pub const wmpsseFullEnd: WMPSubscriptionServiceEvent = WMPSubscriptionServiceEvent(4i32);
+impl ::core::marker::Copy for WMPSubscriptionServiceEvent {}
+impl ::core::clone::Clone for WMPSubscriptionServiceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPSyncState(pub i32);
 pub const wmpssUnknown: WMPSyncState = WMPSyncState(0i32);
@@ -1033,22 +1225,46 @@ pub const wmpssSynchronizing: WMPSyncState = WMPSyncState(1i32);
 pub const wmpssStopped: WMPSyncState = WMPSyncState(2i32);
 pub const wmpssEstimating: WMPSyncState = WMPSyncState(3i32);
 pub const wmpssLast: WMPSyncState = WMPSyncState(4i32);
+impl ::core::marker::Copy for WMPSyncState {}
+impl ::core::clone::Clone for WMPSyncState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPTaskType(pub i32);
 pub const wmpttBrowse: WMPTaskType = WMPTaskType(1i32);
 pub const wmpttSync: WMPTaskType = WMPTaskType(2i32);
 pub const wmpttBurn: WMPTaskType = WMPTaskType(3i32);
 pub const wmpttCurrent: WMPTaskType = WMPTaskType(4i32);
+impl ::core::marker::Copy for WMPTaskType {}
+impl ::core::clone::Clone for WMPTaskType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPTemplateSize(pub i32);
 pub const wmptsSmall: WMPTemplateSize = WMPTemplateSize(0i32);
 pub const wmptsMedium: WMPTemplateSize = WMPTemplateSize(1i32);
 pub const wmptsLarge: WMPTemplateSize = WMPTemplateSize(2i32);
+impl ::core::marker::Copy for WMPTemplateSize {}
+impl ::core::clone::Clone for WMPTemplateSize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPTransactionType(pub i32);
 pub const wmpttNoTransaction: WMPTransactionType = WMPTransactionType(0i32);
 pub const wmpttDownload: WMPTransactionType = WMPTransactionType(1i32);
 pub const wmpttBuy: WMPTransactionType = WMPTransactionType(2i32);
+impl ::core::marker::Copy for WMPTransactionType {}
+impl ::core::clone::Clone for WMPTransactionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMPUE_EC_USER: u32 = 33024u32;
 pub const WMP_MDRT_FLAGS_UNREPORTED_ADDED_ITEMS: u32 = 2u32;
 pub const WMP_MDRT_FLAGS_UNREPORTED_DELETED_ITEMS: u32 = 1u32;

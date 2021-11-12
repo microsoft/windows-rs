@@ -390,6 +390,12 @@ pub const CredsspCertificateCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(13i
 pub const CredsspSubmitBufferBoth: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(50i32);
 pub const CredsspSubmitBufferBothOld: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(51i32);
 pub const CredsspCredEx: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(100i32);
+impl ::core::marker::Copy for CREDSPP_SUBMIT_TYPE {}
+impl ::core::clone::Clone for CREDSPP_SUBMIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CREDSSP_CRED {
     pub Type: CREDSPP_SUBMIT_TYPE,
@@ -433,6 +439,12 @@ pub const CREDUIWIN_ENUMERATE_CURRENT_USER: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(51
 pub const CREDUIWIN_SECURE_PROMPT: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(4096u32);
 pub const CREDUIWIN_PREPROMPTING: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(8192u32);
 pub const CREDUIWIN_PACK_32_WOW: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(268435456u32);
+impl ::core::marker::Copy for CREDUIWIN_FLAGS {}
+impl ::core::clone::Clone for CREDUIWIN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144u32;
 #[repr(transparent)]
 pub struct CREDUI_FLAGS(pub u32);
@@ -453,6 +465,12 @@ pub const CREDUI_FLAGS_SERVER_CREDENTIAL: CREDUI_FLAGS = CREDUI_FLAGS(16384u32);
 pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: CREDUI_FLAGS = CREDUI_FLAGS(64u32);
 pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(524288u32);
 pub const CREDUI_FLAGS_VALIDATE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1024u32);
+impl ::core::marker::Copy for CREDUI_FLAGS {}
+impl ::core::clone::Clone for CREDUI_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CREDUI_INFOA {
@@ -495,6 +513,12 @@ pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
 #[repr(transparent)]
 pub struct CRED_ENUMERATE_FLAGS(pub u32);
 pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = CRED_ENUMERATE_FLAGS(1u32);
+impl ::core::marker::Copy for CRED_ENUMERATE_FLAGS {}
+impl ::core::clone::Clone for CRED_ENUMERATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRED_FLAGS(pub u32);
 pub const CRED_FLAGS_PASSWORD_FOR_CERT: CRED_FLAGS = CRED_FLAGS(1u32);
@@ -507,6 +531,12 @@ pub const CRED_FLAGS_VSM_PROTECTED: CRED_FLAGS = CRED_FLAGS(64u32);
 pub const CRED_FLAGS_NGC_CERT: CRED_FLAGS = CRED_FLAGS(128u32);
 pub const CRED_FLAGS_VALID_FLAGS: CRED_FLAGS = CRED_FLAGS(61695u32);
 pub const CRED_FLAGS_VALID_INPUT_FLAGS: CRED_FLAGS = CRED_FLAGS(61599u32);
+impl ::core::marker::Copy for CRED_FLAGS {}
+impl ::core::clone::Clone for CRED_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRED_LOGON_TYPES_MASK: u32 = 61440u32;
 #[repr(transparent)]
 pub struct CRED_MARSHAL_TYPE(pub i32);
@@ -515,6 +545,12 @@ pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(2i32);
 pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(3i32);
 pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(4i32);
 pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(5i32);
+impl ::core::marker::Copy for CRED_MARSHAL_TYPE {}
+impl ::core::clone::Clone for CRED_MARSHAL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRED_MAX_ATTRIBUTES: u32 = 64u32;
 pub const CRED_MAX_GENERIC_TARGET_NAME_LENGTH: u32 = 32767u32;
 pub const CRED_MAX_STRING_LENGTH: u32 = 256u32;
@@ -527,12 +563,24 @@ pub const CRED_PACK_PROTECTED_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(1u3
 pub const CRED_PACK_WOW_BUFFER: CRED_PACK_FLAGS = CRED_PACK_FLAGS(2u32);
 pub const CRED_PACK_GENERIC_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(4u32);
 pub const CRED_PACK_ID_PROVIDER_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(8u32);
+impl ::core::marker::Copy for CRED_PACK_FLAGS {}
+impl ::core::clone::Clone for CRED_PACK_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRED_PERSIST(pub u32);
 pub const CRED_PERSIST_NONE: CRED_PERSIST = CRED_PERSIST(0u32);
 pub const CRED_PERSIST_SESSION: CRED_PERSIST = CRED_PERSIST(1u32);
 pub const CRED_PERSIST_LOCAL_MACHINE: CRED_PERSIST = CRED_PERSIST(2u32);
 pub const CRED_PERSIST_ENTERPRISE: CRED_PERSIST = CRED_PERSIST(3u32);
+impl ::core::marker::Copy for CRED_PERSIST {}
+impl ::core::clone::Clone for CRED_PERSIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1u32;
 #[repr(transparent)]
 pub struct CRED_PROTECTION_TYPE(pub i32);
@@ -540,6 +588,12 @@ pub const CredUnprotected: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(0i32);
 pub const CredUserProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(1i32);
 pub const CredTrustedProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(2i32);
 pub const CredForSystemProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(3i32);
+impl ::core::marker::Copy for CRED_PROTECTION_TYPE {}
+impl ::core::clone::Clone for CRED_PROTECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRED_PROTECT_AS_SELF: u32 = 1u32;
 pub const CRED_PROTECT_TO_SYSTEM: u32 = 2u32;
 pub const CRED_TI_CREATE_EXPLICIT_CRED: u32 = 16u32;
@@ -560,6 +614,12 @@ pub const CRED_TYPE_GENERIC_CERTIFICATE: CRED_TYPE = CRED_TYPE(5u32);
 pub const CRED_TYPE_DOMAIN_EXTENDED: CRED_TYPE = CRED_TYPE(6u32);
 pub const CRED_TYPE_MAXIMUM: CRED_TYPE = CRED_TYPE(7u32);
 pub const CRED_TYPE_MAXIMUM_EX: CRED_TYPE = CRED_TYPE(1007u32);
+impl ::core::marker::Copy for CRED_TYPE {}
+impl ::core::clone::Clone for CRED_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
 pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
 pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
@@ -584,11 +644,23 @@ pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure: KeyCreden
 pub const KeyCredentialManagerOperationErrorStatePolicyFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(16u32);
 pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(32u32);
 pub const KeyCredentialManagerOperationErrorStatePinExistsFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(64u32);
+impl ::core::marker::Copy for KeyCredentialManagerOperationErrorStates {}
+impl ::core::clone::Clone for KeyCredentialManagerOperationErrorStates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KeyCredentialManagerOperationType(pub i32);
 pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(0i32);
 pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(1i32);
 pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(2i32);
+impl ::core::marker::Copy for KeyCredentialManagerOperationType {}
+impl ::core::clone::Clone for KeyCredentialManagerOperationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type LPOCNCHKPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
@@ -833,6 +905,12 @@ pub struct READER_SEL_REQUEST_MATCH_TYPE(pub i32);
 pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(1i32);
 pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(2i32);
 pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(3i32);
+impl ::core::marker::Copy for READER_SEL_REQUEST_MATCH_TYPE {}
+impl ::core::clone::Clone for READER_SEL_REQUEST_MATCH_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct READER_SEL_RESPONSE {
     pub cbReaderNameOffset: u32,
@@ -958,6 +1036,12 @@ pub const SCARD_RESET_CARD: u32 = 1u32;
 pub struct SCARD_SCOPE(pub u32);
 pub const SCARD_SCOPE_USER: SCARD_SCOPE = SCARD_SCOPE(0u32);
 pub const SCARD_SCOPE_SYSTEM: SCARD_SCOPE = SCARD_SCOPE(2u32);
+impl ::core::marker::Copy for SCARD_SCOPE {}
+impl ::core::clone::Clone for SCARD_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCARD_SCOPE_TERMINAL: u32 = 1u32;
 pub const SCARD_SHARE_DIRECT: u32 = 3u32;
 pub const SCARD_SHARE_EXCLUSIVE: u32 = 1u32;
@@ -976,6 +1060,12 @@ pub const SCARD_STATE_INUSE: SCARD_STATE = SCARD_STATE(256u32);
 pub const SCARD_STATE_MUTE: SCARD_STATE = SCARD_STATE(512u32);
 pub const SCARD_STATE_CHANGED: SCARD_STATE = SCARD_STATE(2u32);
 pub const SCARD_STATE_UNKNOWN: SCARD_STATE = SCARD_STATE(4u32);
+impl ::core::marker::Copy for SCARD_STATE {}
+impl ::core::clone::Clone for SCARD_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCARD_STATE_UNPOWERED: u32 = 1024u32;
 pub const SCARD_SWALLOWED: u32 = 3u32;
 pub const SCARD_T0_CMD_LENGTH: u32 = 5u32;

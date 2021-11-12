@@ -11,6 +11,12 @@ impl FindAllWebAccountsStatus {
     pub const NotSupportedByProvider: Self = Self(2i32);
     pub const ProviderError: Self = Self(3i32);
 }
+impl ::core::marker::Copy for FindAllWebAccountsStatus {}
+impl ::core::clone::Clone for FindAllWebAccountsStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFindAllAccountsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -59,6 +65,12 @@ impl WebTokenRequestPromptType {
     pub const Default: Self = Self(0i32);
     pub const ForceAuthentication: Self = Self(1i32);
 }
+impl ::core::marker::Copy for WebTokenRequestPromptType {}
+impl ::core::clone::Clone for WebTokenRequestPromptType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WebTokenRequestResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -70,6 +82,12 @@ impl WebTokenRequestStatus {
     pub const UserInteractionRequired: Self = Self(3i32);
     pub const AccountProviderNotAvailable: Self = Self(4i32);
     pub const ProviderError: Self = Self(5i32);
+}
+impl ::core::marker::Copy for WebTokenRequestStatus {}
+impl ::core::clone::Clone for WebTokenRequestStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WebTokenResponse(pub *mut ::core::ffi::c_void);

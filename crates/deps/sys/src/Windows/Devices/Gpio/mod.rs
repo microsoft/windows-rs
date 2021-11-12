@@ -26,6 +26,12 @@ impl GpioChangePolarity {
     pub const Rising: Self = Self(1i32);
     pub const Both: Self = Self(2i32);
 }
+impl ::core::marker::Copy for GpioChangePolarity {}
+impl ::core::clone::Clone for GpioChangePolarity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GpioChangeReader(pub *mut ::core::ffi::c_void);
 #[repr(C)]
@@ -53,6 +59,12 @@ impl GpioOpenStatus {
     pub const MuxingConflict: Self = Self(3i32);
     pub const UnknownError: Self = Self(4i32);
 }
+impl ::core::marker::Copy for GpioOpenStatus {}
+impl ::core::clone::Clone for GpioOpenStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GpioPin(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -67,17 +79,35 @@ impl GpioPinDriveMode {
     pub const OutputOpenSource: Self = Self(6i32);
     pub const OutputOpenSourcePullDown: Self = Self(7i32);
 }
+impl ::core::marker::Copy for GpioPinDriveMode {}
+impl ::core::clone::Clone for GpioPinDriveMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GpioPinEdge(pub i32);
 impl GpioPinEdge {
     pub const FallingEdge: Self = Self(0i32);
     pub const RisingEdge: Self = Self(1i32);
 }
+impl ::core::marker::Copy for GpioPinEdge {}
+impl ::core::clone::Clone for GpioPinEdge {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GpioPinValue(pub i32);
 impl GpioPinValue {
     pub const Low: Self = Self(0i32);
     pub const High: Self = Self(1i32);
+}
+impl ::core::marker::Copy for GpioPinValue {}
+impl ::core::clone::Clone for GpioPinValue {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GpioPinValueChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -86,6 +116,12 @@ pub struct GpioSharingMode(pub i32);
 impl GpioSharingMode {
     pub const Exclusive: Self = Self(0i32);
     pub const SharedReadOnly: Self = Self(1i32);
+}
+impl ::core::marker::Copy for GpioSharingMode {}
+impl ::core::clone::Clone for GpioSharingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IGpioChangeCounter(pub *mut ::core::ffi::c_void);

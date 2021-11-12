@@ -28,6 +28,12 @@ pub struct AUTHNEXTSTEP(pub i32);
 pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
 pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);
 pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);
+impl ::core::marker::Copy for AUTHNEXTSTEP {}
+impl ::core::clone::Clone for AUTHNEXTSTEP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
 pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
 pub const DAV_AUTHN_SCHEME_DIGEST: u32 = 8u32;

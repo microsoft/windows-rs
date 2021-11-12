@@ -79,6 +79,12 @@ impl PrintWorkflowJobAbortReason {
     pub const JobFailed: Self = Self(0i32);
     pub const UserCanceled: Self = Self(1i32);
 }
+impl ::core::marker::Copy for PrintWorkflowJobAbortReason {}
+impl ::core::clone::Clone for PrintWorkflowJobAbortReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintWorkflowJobActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -102,6 +108,12 @@ impl PrintWorkflowPdlConversionType {
     pub const XpsToPwgr: Self = Self(1i32);
     pub const XpsToPclm: Self = Self(2i32);
 }
+impl ::core::marker::Copy for PrintWorkflowPdlConversionType {}
+impl ::core::clone::Clone for PrintWorkflowPdlConversionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintWorkflowPdlConverter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -122,6 +134,12 @@ impl PrintWorkflowPrinterJobStatus {
     pub const InProgress: Self = Self(2i32);
     pub const Completed: Self = Self(3i32);
 }
+impl ::core::marker::Copy for PrintWorkflowPrinterJobStatus {}
+impl ::core::clone::Clone for PrintWorkflowPrinterJobStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintWorkflowSessionStatus(pub i32);
 impl PrintWorkflowSessionStatus {
@@ -130,6 +148,12 @@ impl PrintWorkflowSessionStatus {
     pub const Aborted: Self = Self(2i32);
     pub const Closed: Self = Self(3i32);
     pub const PdlDataAvailableForModification: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PrintWorkflowSessionStatus {}
+impl ::core::clone::Clone for PrintWorkflowSessionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PrintWorkflowSourceContent(pub *mut ::core::ffi::c_void);
@@ -148,6 +172,12 @@ impl PrintWorkflowSubmittedStatus {
     pub const Canceled: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
 }
+impl ::core::marker::Copy for PrintWorkflowSubmittedStatus {}
+impl ::core::clone::Clone for PrintWorkflowSubmittedStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintWorkflowTarget(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -161,6 +191,12 @@ impl PrintWorkflowUICompletionStatus {
     pub const LaunchFailed: Self = Self(1i32);
     pub const JobFailed: Self = Self(2i32);
     pub const UserCanceled: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PrintWorkflowUICompletionStatus {}
+impl ::core::clone::Clone for PrintWorkflowUICompletionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PrintWorkflowUILauncher(pub *mut ::core::ffi::c_void);

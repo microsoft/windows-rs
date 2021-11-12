@@ -353,6 +353,12 @@ pub const HH_GPROPID_TOOLBAR_MARGIN: HH_GPROPID = HH_GPROPID(2i32);
 pub const HH_GPROPID_UI_LANGUAGE: HH_GPROPID = HH_GPROPID(3i32);
 pub const HH_GPROPID_CURRENT_SUBSET: HH_GPROPID = HH_GPROPID(4i32);
 pub const HH_GPROPID_CONTENT_LANGUAGE: HH_GPROPID = HH_GPROPID(5i32);
+impl ::core::marker::Copy for HH_GPROPID {}
+impl ::core::clone::Clone for HH_GPROPID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HH_HELP_CONTEXT: u32 = 15u32;
 pub const HH_HELP_FINDER: u32 = 0u32;
 pub const HH_INITIALIZE: u32 = 28u32;
@@ -524,6 +530,12 @@ pub struct PRIORITY(pub i32);
 pub const PRIORITY_LOW: PRIORITY = PRIORITY(0i32);
 pub const PRIORITY_NORMAL: PRIORITY = PRIORITY(1i32);
 pub const PRIORITY_HIGH: PRIORITY = PRIORITY(2i32);
+impl ::core::marker::Copy for PRIORITY {}
+impl ::core::clone::Clone for PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROP_ADD: u32 = 0u32;
 pub const PROP_DELETE: u32 = 1u32;
 pub const PROP_UPDATE: u32 = 2u32;
@@ -562,3 +574,9 @@ pub const TYPE_VALUE: u32 = 0u32;
 #[repr(transparent)]
 pub struct WORD_WHEEL_OPEN_FLAGS(pub u32);
 pub const ITWW_OPEN_CONNECT: WORD_WHEEL_OPEN_FLAGS = WORD_WHEEL_OPEN_FLAGS(0u32);
+impl ::core::marker::Copy for WORD_WHEEL_OPEN_FLAGS {}
+impl ::core::clone::Clone for WORD_WHEEL_OPEN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

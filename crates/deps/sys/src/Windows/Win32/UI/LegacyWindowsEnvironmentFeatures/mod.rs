@@ -46,3 +46,9 @@ pub const RECONCILEF_RESUMERECONCILIATION: _reconcilef = _reconcilef(16i32);
 pub const RECONCILEF_YOUMAYDOTHEUPDATES: _reconcilef = _reconcilef(32i32);
 pub const RECONCILEF_ONLYYOUWERECHANGED: _reconcilef = _reconcilef(64i32);
 pub const ALL_RECONCILE_FLAGS: _reconcilef = _reconcilef(127i32);
+impl ::core::marker::Copy for _reconcilef {}
+impl ::core::clone::Clone for _reconcilef {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -33,6 +33,12 @@ impl HandJointKind {
     pub const LittleDistal: Self = Self(24i32);
     pub const LittleTip: Self = Self(25i32);
 }
+impl ::core::marker::Copy for HandJointKind {}
+impl ::core::clone::Clone for HandJointKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HandMeshObserver(pub *mut ::core::ffi::c_void);
 #[repr(C)]
@@ -88,4 +94,10 @@ pub struct JointPoseAccuracy(pub i32);
 impl JointPoseAccuracy {
     pub const High: Self = Self(0i32);
     pub const Approximate: Self = Self(1i32);
+}
+impl ::core::marker::Copy for JointPoseAccuracy {}
+impl ::core::clone::Clone for JointPoseAccuracy {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

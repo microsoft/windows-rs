@@ -262,6 +262,12 @@ pub struct SNMP_API_TRANSLATE_MODE(pub u32);
 pub const SNMPAPI_TRANSLATED: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(0u32);
 pub const SNMPAPI_UNTRANSLATED_V1: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(1u32);
 pub const SNMPAPI_UNTRANSLATED_V2: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(2u32);
+impl ::core::marker::Copy for SNMP_API_TRANSLATE_MODE {}
+impl ::core::clone::Clone for SNMP_API_TRANSLATE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SNMP_AUTHAPI_INVALID_MSG_TYPE: u32 = 31u32;
 pub const SNMP_AUTHAPI_INVALID_VERSION: u32 = 30u32;
 pub const SNMP_AUTHAPI_TRIV_AUTH_FAILED: u32 = 32u32;
@@ -291,6 +297,12 @@ pub const SNMP_ERROR_UNDOFAILED: SNMP_ERROR = SNMP_ERROR(15u32);
 pub const SNMP_ERROR_AUTHORIZATIONERROR: SNMP_ERROR = SNMP_ERROR(16u32);
 pub const SNMP_ERROR_NOTWRITABLE: SNMP_ERROR = SNMP_ERROR(17u32);
 pub const SNMP_ERROR_INCONSISTENTNAME: SNMP_ERROR = SNMP_ERROR(18u32);
+impl ::core::marker::Copy for SNMP_ERROR {}
+impl ::core::clone::Clone for SNMP_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SNMP_ERROR_STATUS(pub u32);
 pub const SNMP_ERRORSTATUS_NOERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(0u32);
@@ -312,6 +324,12 @@ pub const SNMP_ERRORSTATUS_UNDOFAILED: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(15u
 pub const SNMP_ERRORSTATUS_AUTHORIZATIONERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(16u32);
 pub const SNMP_ERRORSTATUS_NOTWRITABLE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(17u32);
 pub const SNMP_ERRORSTATUS_INCONSISTENTNAME: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(18u32);
+impl ::core::marker::Copy for SNMP_ERROR_STATUS {}
+impl ::core::clone::Clone for SNMP_ERROR_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SNMP_EXTENSION_REQUEST_TYPE(pub u32);
 pub const SNMP_EXTENSION_GET: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(160u32);
@@ -320,6 +338,12 @@ pub const SNMP_EXTENSION_SET_TEST: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_
 pub const SNMP_EXTENSION_SET_COMMIT: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(163u32);
 pub const SNMP_EXTENSION_SET_UNDO: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(225u32);
 pub const SNMP_EXTENSION_SET_CLEANUP: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(226u32);
+impl ::core::marker::Copy for SNMP_EXTENSION_REQUEST_TYPE {}
+impl ::core::clone::Clone for SNMP_EXTENSION_REQUEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SNMP_GENERICTRAP(pub u32);
 pub const SNMP_GENERICTRAP_COLDSTART: SNMP_GENERICTRAP = SNMP_GENERICTRAP(0u32);
@@ -329,6 +353,12 @@ pub const SNMP_GENERICTRAP_LINKUP: SNMP_GENERICTRAP = SNMP_GENERICTRAP(3u32);
 pub const SNMP_GENERICTRAP_AUTHFAILURE: SNMP_GENERICTRAP = SNMP_GENERICTRAP(4u32);
 pub const SNMP_GENERICTRAP_EGPNEIGHLOSS: SNMP_GENERICTRAP = SNMP_GENERICTRAP(5u32);
 pub const SNMP_GENERICTRAP_ENTERSPECIFIC: SNMP_GENERICTRAP = SNMP_GENERICTRAP(6u32);
+impl ::core::marker::Copy for SNMP_GENERICTRAP {}
+impl ::core::clone::Clone for SNMP_GENERICTRAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SNMP_LOG(pub u32);
 pub const SNMP_LOG_SILENT: SNMP_LOG = SNMP_LOG(0u32);
@@ -337,6 +367,12 @@ pub const SNMP_LOG_ERROR: SNMP_LOG = SNMP_LOG(2u32);
 pub const SNMP_LOG_WARNING: SNMP_LOG = SNMP_LOG(3u32);
 pub const SNMP_LOG_TRACE: SNMP_LOG = SNMP_LOG(4u32);
 pub const SNMP_LOG_VERBOSE: SNMP_LOG = SNMP_LOG(5u32);
+impl ::core::marker::Copy for SNMP_LOG {}
+impl ::core::clone::Clone for SNMP_LOG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SNMP_MAX_OID_LEN: u32 = 128u32;
 pub const SNMP_MEM_ALLOC_ERROR: u32 = 1u32;
 pub const SNMP_MGMTAPI_AGAIN: u32 = 45u32;
@@ -353,6 +389,12 @@ pub struct SNMP_OUTPUT_LOG_TYPE(pub u32);
 pub const SNMP_OUTPUT_TO_CONSOLE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(1u32);
 pub const SNMP_OUTPUT_TO_LOGFILE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(2u32);
 pub const SNMP_OUTPUT_TO_DEBUGGER: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(8u32);
+impl ::core::marker::Copy for SNMP_OUTPUT_LOG_TYPE {}
+impl ::core::clone::Clone for SNMP_OUTPUT_LOG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SNMP_OUTPUT_TO_EVENTLOG: u32 = 4u32;
 pub const SNMP_PDUAPI_INVALID_ES: u32 = 21u32;
 pub const SNMP_PDUAPI_INVALID_GT: u32 = 22u32;
@@ -365,10 +407,22 @@ pub const SNMP_PDU_RESPONSE: SNMP_PDU_TYPE = SNMP_PDU_TYPE(162u32);
 pub const SNMP_PDU_SET: SNMP_PDU_TYPE = SNMP_PDU_TYPE(163u32);
 pub const SNMP_PDU_GETBULK: SNMP_PDU_TYPE = SNMP_PDU_TYPE(165u32);
 pub const SNMP_PDU_TRAP: SNMP_PDU_TYPE = SNMP_PDU_TYPE(167u32);
+impl ::core::marker::Copy for SNMP_PDU_TYPE {}
+impl ::core::clone::Clone for SNMP_PDU_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SNMP_STATUS(pub u32);
 pub const SNMPAPI_ON: SNMP_STATUS = SNMP_STATUS(1u32);
 pub const SNMPAPI_OFF: SNMP_STATUS = SNMP_STATUS(0u32);
+impl ::core::marker::Copy for SNMP_STATUS {}
+impl ::core::clone::Clone for SNMP_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SNMP_TRAP_AUTHFAIL: u32 = 4u32;
 pub const SNMP_TRAP_COLDSTART: u32 = 0u32;
 pub const SNMP_TRAP_EGPNEIGHBORLOSS: u32 = 5u32;

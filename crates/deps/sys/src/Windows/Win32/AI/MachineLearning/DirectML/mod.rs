@@ -349,6 +349,12 @@ impl ::core::clone::Clone for DML_AVERAGE_POOLING_OPERATOR_DESC {
 pub struct DML_AXIS_DIRECTION(pub i32);
 pub const DML_AXIS_DIRECTION_INCREASING: DML_AXIS_DIRECTION = DML_AXIS_DIRECTION(0i32);
 pub const DML_AXIS_DIRECTION_DECREASING: DML_AXIS_DIRECTION = DML_AXIS_DIRECTION(1i32);
+impl ::core::marker::Copy for DML_AXIS_DIRECTION {}
+impl ::core::clone::Clone for DML_AXIS_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
@@ -432,6 +438,12 @@ pub struct DML_BINDING_TYPE(pub i32);
 pub const DML_BINDING_TYPE_NONE: DML_BINDING_TYPE = DML_BINDING_TYPE(0i32);
 pub const DML_BINDING_TYPE_BUFFER: DML_BINDING_TYPE = DML_BINDING_TYPE(1i32);
 pub const DML_BINDING_TYPE_BUFFER_ARRAY: DML_BINDING_TYPE = DML_BINDING_TYPE(2i32);
+impl ::core::marker::Copy for DML_BINDING_TYPE {}
+impl ::core::clone::Clone for DML_BINDING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BUFFER_ARRAY_BINDING {
@@ -492,6 +504,12 @@ impl ::core::clone::Clone for DML_CAST_OPERATOR_DESC {
 pub struct DML_CONVOLUTION_DIRECTION(pub i32);
 pub const DML_CONVOLUTION_DIRECTION_FORWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(0i32);
 pub const DML_CONVOLUTION_DIRECTION_BACKWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(1i32);
+impl ::core::marker::Copy for DML_CONVOLUTION_DIRECTION {}
+impl ::core::clone::Clone for DML_CONVOLUTION_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
@@ -516,6 +534,12 @@ impl ::core::clone::Clone for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
 pub struct DML_CONVOLUTION_MODE(pub i32);
 pub const DML_CONVOLUTION_MODE_CONVOLUTION: DML_CONVOLUTION_MODE = DML_CONVOLUTION_MODE(0i32);
 pub const DML_CONVOLUTION_MODE_CROSS_CORRELATION: DML_CONVOLUTION_MODE = DML_CONVOLUTION_MODE(1i32);
+impl ::core::marker::Copy for DML_CONVOLUTION_MODE {}
+impl ::core::clone::Clone for DML_CONVOLUTION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_CONVOLUTION_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
@@ -543,6 +567,12 @@ impl ::core::clone::Clone for DML_CONVOLUTION_OPERATOR_DESC {
 pub struct DML_CREATE_DEVICE_FLAGS(pub u32);
 pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(0u32);
 pub const DML_CREATE_DEVICE_FLAG_DEBUG: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(1u32);
+impl ::core::marker::Copy for DML_CREATE_DEVICE_FLAGS {}
+impl ::core::clone::Clone for DML_CREATE_DEVICE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
@@ -581,6 +611,12 @@ impl ::core::clone::Clone for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
 pub struct DML_DEPTH_SPACE_ORDER(pub i32);
 pub const DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(0i32);
 pub const DML_DEPTH_SPACE_ORDER_COLUMN_ROW_DEPTH: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(1i32);
+impl ::core::marker::Copy for DML_DEPTH_SPACE_ORDER {}
+impl ::core::clone::Clone for DML_DEPTH_SPACE_ORDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
@@ -1393,10 +1429,22 @@ pub const DML_EXECUTION_FLAG_NONE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(0u3
 pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(1u32);
 pub const DML_EXECUTION_FLAG_DISABLE_META_COMMANDS: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(2u32);
 pub const DML_EXECUTION_FLAG_DESCRIPTORS_VOLATILE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(4u32);
+impl ::core::marker::Copy for DML_EXECUTION_FLAGS {}
+impl ::core::clone::Clone for DML_EXECUTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DML_FEATURE(pub i32);
 pub const DML_FEATURE_TENSOR_DATA_TYPE_SUPPORT: DML_FEATURE = DML_FEATURE(0i32);
 pub const DML_FEATURE_FEATURE_LEVELS: DML_FEATURE = DML_FEATURE(1i32);
+impl ::core::marker::Copy for DML_FEATURE {}
+impl ::core::clone::Clone for DML_FEATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_FEATURE_DATA_FEATURE_LEVELS {
     pub MaxSupportedFeatureLevel: DML_FEATURE_LEVEL,
@@ -1428,6 +1476,12 @@ pub const DML_FEATURE_LEVEL_2_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(8448i32);
 pub const DML_FEATURE_LEVEL_3_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12288i32);
 pub const DML_FEATURE_LEVEL_3_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12544i32);
 pub const DML_FEATURE_LEVEL_4_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16384i32);
+impl ::core::marker::Copy for DML_FEATURE_LEVEL {}
+impl ::core::clone::Clone for DML_FEATURE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_FEATURE_QUERY_FEATURE_LEVELS {
     pub RequestedFeatureLevelCount: u32,
@@ -1584,6 +1638,12 @@ pub const DML_GRAPH_EDGE_TYPE_INVALID: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE
 pub const DML_GRAPH_EDGE_TYPE_INPUT: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(1i32);
 pub const DML_GRAPH_EDGE_TYPE_OUTPUT: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(2i32);
 pub const DML_GRAPH_EDGE_TYPE_INTERMEDIATE: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(3i32);
+impl ::core::marker::Copy for DML_GRAPH_EDGE_TYPE {}
+impl ::core::clone::Clone for DML_GRAPH_EDGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_GRAPH_NODE_DESC {
     pub Type: DML_GRAPH_NODE_TYPE,
@@ -1599,6 +1659,12 @@ impl ::core::clone::Clone for DML_GRAPH_NODE_DESC {
 pub struct DML_GRAPH_NODE_TYPE(pub i32);
 pub const DML_GRAPH_NODE_TYPE_INVALID: DML_GRAPH_NODE_TYPE = DML_GRAPH_NODE_TYPE(0i32);
 pub const DML_GRAPH_NODE_TYPE_OPERATOR: DML_GRAPH_NODE_TYPE = DML_GRAPH_NODE_TYPE(1i32);
+impl ::core::marker::Copy for DML_GRAPH_NODE_TYPE {}
+impl ::core::clone::Clone for DML_GRAPH_NODE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_GRU_OPERATOR_DESC {
@@ -1660,11 +1726,23 @@ impl ::core::clone::Clone for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
 pub struct DML_INTERPOLATION_MODE(pub i32);
 pub const DML_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(0i32);
 pub const DML_INTERPOLATION_MODE_LINEAR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(1i32);
+impl ::core::marker::Copy for DML_INTERPOLATION_MODE {}
+impl ::core::clone::Clone for DML_INTERPOLATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DML_IS_INFINITY_MODE(pub i32);
 pub const DML_IS_INFINITY_MODE_EITHER: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(0i32);
 pub const DML_IS_INFINITY_MODE_POSITIVE: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(1i32);
 pub const DML_IS_INFINITY_MODE_NEGATIVE: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(2i32);
+impl ::core::marker::Copy for DML_IS_INFINITY_MODE {}
+impl ::core::clone::Clone for DML_IS_INFINITY_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_JOIN_OPERATOR_DESC {
     pub InputCount: u32,
@@ -1795,6 +1873,12 @@ impl ::core::clone::Clone for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
 pub struct DML_MATRIX_TRANSFORM(pub i32);
 pub const DML_MATRIX_TRANSFORM_NONE: DML_MATRIX_TRANSFORM = DML_MATRIX_TRANSFORM(0i32);
 pub const DML_MATRIX_TRANSFORM_TRANSPOSE: DML_MATRIX_TRANSFORM = DML_MATRIX_TRANSFORM(1i32);
+impl ::core::marker::Copy for DML_MATRIX_TRANSFORM {}
+impl ::core::clone::Clone for DML_MATRIX_TRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_MAX_POOLING1_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
@@ -2121,6 +2205,12 @@ pub const DML_OPERATOR_BATCH_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = DML_OPERATO
 pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZED_LINEAR_ADD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(147i32);
 pub const DML_OPERATOR_DYNAMIC_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(148i32);
 pub const DML_OPERATOR_ROI_ALIGN1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(149i32);
+impl ::core::marker::Copy for DML_OPERATOR_TYPE {}
+impl ::core::clone::Clone for DML_OPERATOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_OUTPUT_GRAPH_EDGE_DESC {
@@ -2143,6 +2233,12 @@ pub const DML_PADDING_MODE_CONSTANT: DML_PADDING_MODE = DML_PADDING_MODE(0i32);
 pub const DML_PADDING_MODE_EDGE: DML_PADDING_MODE = DML_PADDING_MODE(1i32);
 pub const DML_PADDING_MODE_REFLECTION: DML_PADDING_MODE = DML_PADDING_MODE(2i32);
 pub const DML_PADDING_MODE_SYMMETRIC: DML_PADDING_MODE = DML_PADDING_MODE(3i32);
+impl ::core::marker::Copy for DML_PADDING_MODE {}
+impl ::core::clone::Clone for DML_PADDING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_PADDING_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
@@ -2219,11 +2315,23 @@ impl ::core::clone::Clone for DML_RANDOM_GENERATOR_OPERATOR_DESC {
 #[repr(transparent)]
 pub struct DML_RANDOM_GENERATOR_TYPE(pub i32);
 pub const DML_RANDOM_GENERATOR_TYPE_PHILOX_4X32_10: DML_RANDOM_GENERATOR_TYPE = DML_RANDOM_GENERATOR_TYPE(0i32);
+impl ::core::marker::Copy for DML_RANDOM_GENERATOR_TYPE {}
+impl ::core::clone::Clone for DML_RANDOM_GENERATOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DML_RECURRENT_NETWORK_DIRECTION(pub i32);
 pub const DML_RECURRENT_NETWORK_DIRECTION_FORWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(0i32);
 pub const DML_RECURRENT_NETWORK_DIRECTION_BACKWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(1i32);
 pub const DML_RECURRENT_NETWORK_DIRECTION_BIDIRECTIONAL: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(2i32);
+impl ::core::marker::Copy for DML_RECURRENT_NETWORK_DIRECTION {}
+impl ::core::clone::Clone for DML_RECURRENT_NETWORK_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DML_REDUCE_FUNCTION(pub i32);
 pub const DML_REDUCE_FUNCTION_ARGMAX: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(0i32);
@@ -2238,6 +2346,12 @@ pub const DML_REDUCE_FUNCTION_MIN: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(8i3
 pub const DML_REDUCE_FUNCTION_MULTIPLY: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(9i32);
 pub const DML_REDUCE_FUNCTION_SUM: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(10i32);
 pub const DML_REDUCE_FUNCTION_SUM_SQUARE: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(11i32);
+impl ::core::marker::Copy for DML_REDUCE_FUNCTION {}
+impl ::core::clone::Clone for DML_REDUCE_FUNCTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_REDUCE_OPERATOR_DESC {
     pub Function: DML_REDUCE_FUNCTION,
@@ -2396,6 +2510,12 @@ pub struct DML_ROUNDING_MODE(pub i32);
 pub const DML_ROUNDING_MODE_HALVES_TO_NEAREST_EVEN: DML_ROUNDING_MODE = DML_ROUNDING_MODE(0i32);
 pub const DML_ROUNDING_MODE_TOWARD_ZERO: DML_ROUNDING_MODE = DML_ROUNDING_MODE(1i32);
 pub const DML_ROUNDING_MODE_TOWARD_INFINITY: DML_ROUNDING_MODE = DML_ROUNDING_MODE(2i32);
+impl ::core::marker::Copy for DML_ROUNDING_MODE {}
+impl ::core::clone::Clone for DML_ROUNDING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union DML_SCALAR_UNION {
     pub Bytes: [u8; 8],
@@ -2565,6 +2685,12 @@ pub const DML_TENSOR_DATA_TYPE_INT8: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE
 pub const DML_TENSOR_DATA_TYPE_FLOAT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(9i32);
 pub const DML_TENSOR_DATA_TYPE_UINT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(10i32);
 pub const DML_TENSOR_DATA_TYPE_INT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(11i32);
+impl ::core::marker::Copy for DML_TENSOR_DATA_TYPE {}
+impl ::core::clone::Clone for DML_TENSOR_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_TENSOR_DESC {
     pub Type: DML_TENSOR_TYPE,
@@ -2582,10 +2708,22 @@ pub const DML_TENSOR_DIMENSION_COUNT_MAX1: u32 = 8u32;
 pub struct DML_TENSOR_FLAGS(pub u32);
 pub const DML_TENSOR_FLAG_NONE: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(0u32);
 pub const DML_TENSOR_FLAG_OWNED_BY_DML: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(1u32);
+impl ::core::marker::Copy for DML_TENSOR_FLAGS {}
+impl ::core::clone::Clone for DML_TENSOR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DML_TENSOR_TYPE(pub i32);
 pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = DML_TENSOR_TYPE(0i32);
 pub const DML_TENSOR_TYPE_BUFFER: DML_TENSOR_TYPE = DML_TENSOR_TYPE(1i32);
+impl ::core::marker::Copy for DML_TENSOR_TYPE {}
+impl ::core::clone::Clone for DML_TENSOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DML_TILE_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,

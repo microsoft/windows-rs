@@ -340,6 +340,12 @@ pub struct ADDRESS_FAMILY(pub u32);
 pub const AF_INET: ADDRESS_FAMILY = ADDRESS_FAMILY(2u32);
 pub const AF_INET6: ADDRESS_FAMILY = ADDRESS_FAMILY(23u32);
 pub const AF_UNSPEC: ADDRESS_FAMILY = ADDRESS_FAMILY(0u32);
+impl ::core::marker::Copy for ADDRESS_FAMILY {}
+impl ::core::clone::Clone for ADDRESS_FAMILY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ANY_SIZE: u32 = 1u32;
 pub const BEST_IF: u32 = 20u32;
 pub const BEST_ROUTE: u32 = 21u32;
@@ -459,6 +465,12 @@ impl ::core::clone::Clone for DNS_SERVER_PROPERTY {
 pub struct DNS_SERVER_PROPERTY_TYPE(pub i32);
 pub const DnsServerInvalidProperty: DNS_SERVER_PROPERTY_TYPE = DNS_SERVER_PROPERTY_TYPE(0i32);
 pub const DnsServerDohProperty: DNS_SERVER_PROPERTY_TYPE = DNS_SERVER_PROPERTY_TYPE(1i32);
+impl ::core::marker::Copy for DNS_SERVER_PROPERTY_TYPE {}
+impl ::core::clone::Clone for DNS_SERVER_PROPERTY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DNS_SERVER_PROPERTY_TYPES {
@@ -561,11 +573,23 @@ pub const GAA_FLAG_INCLUDE_GATEWAYS: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS
 pub const GAA_FLAG_INCLUDE_ALL_INTERFACES: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(256u32);
 pub const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(512u32);
 pub const GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(1024u32);
+impl ::core::marker::Copy for GET_ADAPTERS_ADDRESSES_FLAGS {}
+impl ::core::clone::Clone for GET_ADAPTERS_ADDRESSES_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GLOBAL_FILTER(pub i32);
 pub const GF_FRAGMENTS: GLOBAL_FILTER = GLOBAL_FILTER(2i32);
 pub const GF_STRONGHOST: GLOBAL_FILTER = GLOBAL_FILTER(8i32);
 pub const GF_FRAGCACHE: GLOBAL_FILTER = GLOBAL_FILTER(9i32);
+impl ::core::marker::Copy for GLOBAL_FILTER {}
+impl ::core::clone::Clone for GLOBAL_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HIFTIMESTAMPCHANGE {
     pub Value: isize,
@@ -592,6 +616,12 @@ pub const ICMP4_TIMESTAMP_REQUEST: ICMP4_TYPE = ICMP4_TYPE(13i32);
 pub const ICMP4_TIMESTAMP_REPLY: ICMP4_TYPE = ICMP4_TYPE(14i32);
 pub const ICMP4_MASK_REQUEST: ICMP4_TYPE = ICMP4_TYPE(17i32);
 pub const ICMP4_MASK_REPLY: ICMP4_TYPE = ICMP4_TYPE(18i32);
+impl ::core::marker::Copy for ICMP4_TYPE {}
+impl ::core::clone::Clone for ICMP4_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ICMP6_INFOMSG_MASK: u32 = 128u32;
 #[repr(transparent)]
 pub struct ICMP6_TYPE(pub i32);
@@ -610,6 +640,12 @@ pub const ND_NEIGHBOR_SOLICIT: ICMP6_TYPE = ICMP6_TYPE(135i32);
 pub const ND_NEIGHBOR_ADVERT: ICMP6_TYPE = ICMP6_TYPE(136i32);
 pub const ND_REDIRECT: ICMP6_TYPE = ICMP6_TYPE(137i32);
 pub const ICMP6_V2_MEMBERSHIP_REPORT: ICMP6_TYPE = ICMP6_TYPE(143i32);
+impl ::core::marker::Copy for ICMP6_TYPE {}
+impl ::core::clone::Clone for ICMP6_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ICMP_STATS: u32 = 11u32;
 #[repr(transparent)]
 pub struct IF_ACCESS_TYPE(pub i32);
@@ -619,11 +655,23 @@ pub const IF_ACCESS_POINT_TO_POINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(3i32);
 pub const IF_ACCESS_POINTTOPOINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(3i32);
 pub const IF_ACCESS_POINT_TO_MULTI_POINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(4i32);
 pub const IF_ACCESS_POINTTOMULTIPOINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(4i32);
+impl ::core::marker::Copy for IF_ACCESS_TYPE {}
+impl ::core::clone::Clone for IF_ACCESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IF_ADMINISTRATIVE_STATE(pub i32);
 pub const IF_ADMINISTRATIVE_DISABLED: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(0i32);
 pub const IF_ADMINISTRATIVE_ENABLED: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(1i32);
 pub const IF_ADMINISTRATIVE_DEMANDDIAL: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(2i32);
+impl ::core::marker::Copy for IF_ADMINISTRATIVE_STATE {}
+impl ::core::clone::Clone for IF_ADMINISTRATIVE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IF_ADMIN_STATUS_DOWN: u32 = 2u32;
 pub const IF_ADMIN_STATUS_TESTING: u32 = 3u32;
 pub const IF_ADMIN_STATUS_UP: u32 = 1u32;
@@ -656,6 +704,12 @@ pub const IfOperStatusUnknown: IF_OPER_STATUS = IF_OPER_STATUS(4i32);
 pub const IfOperStatusDormant: IF_OPER_STATUS = IF_OPER_STATUS(5i32);
 pub const IfOperStatusNotPresent: IF_OPER_STATUS = IF_OPER_STATUS(6i32);
 pub const IfOperStatusLowerLayerDown: IF_OPER_STATUS = IF_OPER_STATUS(7i32);
+impl ::core::marker::Copy for IF_OPER_STATUS {}
+impl ::core::clone::Clone for IF_OPER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IF_PHYSICAL_ADDRESS_LH {
     pub Length: u16,
@@ -945,6 +999,12 @@ pub const IF_OPER_STATUS_DISCONNECTED: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPE
 pub const IF_OPER_STATUS_CONNECTING: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(3i32);
 pub const IF_OPER_STATUS_CONNECTED: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(4i32);
 pub const IF_OPER_STATUS_OPERATIONAL: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(5i32);
+impl ::core::marker::Copy for INTERNAL_IF_OPER_STATUS {}
+impl ::core::clone::Clone for INTERNAL_IF_OPER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IOCTL_ARP_SEND_REQUEST: u32 = 103u32;
 pub const IOCTL_IP_ADDCHANGE_NOTIFY_REQUEST: u32 = 102u32;
 pub const IOCTL_IP_GET_BEST_INTERFACE: u32 = 105u32;
@@ -1976,6 +2036,12 @@ pub const MIB_IF_ADMIN_STATUS_UP: u32 = 1u32;
 pub struct MIB_IF_ENTRY_LEVEL(pub i32);
 pub const MibIfEntryNormal: MIB_IF_ENTRY_LEVEL = MIB_IF_ENTRY_LEVEL(0i32);
 pub const MibIfEntryNormalWithoutStatistics: MIB_IF_ENTRY_LEVEL = MIB_IF_ENTRY_LEVEL(2i32);
+impl ::core::marker::Copy for MIB_IF_ENTRY_LEVEL {}
+impl ::core::clone::Clone for MIB_IF_ENTRY_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct MIB_IF_ROW2 {
@@ -2061,6 +2127,12 @@ pub struct MIB_IF_TABLE_LEVEL(pub i32);
 pub const MibIfTableNormal: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(0i32);
 pub const MibIfTableRaw: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(1i32);
 pub const MibIfTableNormalWithoutStatistics: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(2i32);
+impl ::core::marker::Copy for MIB_IF_TABLE_LEVEL {}
+impl ::core::clone::Clone for MIB_IF_TABLE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MIB_IF_TYPE_ETHERNET: u32 = 6u32;
 pub const MIB_IF_TYPE_FDDI: u32 = 15u32;
 pub const MIB_IF_TYPE_LOOPBACK: u32 = 24u32;
@@ -2290,6 +2362,12 @@ pub const MIB_IPROUTE_TYPE_OTHER: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(1i32);
 pub const MIB_IPROUTE_TYPE_INVALID: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(2i32);
 pub const MIB_IPROUTE_TYPE_DIRECT: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(3i32);
 pub const MIB_IPROUTE_TYPE_INDIRECT: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(4i32);
+impl ::core::marker::Copy for MIB_IPFORWARD_TYPE {}
+impl ::core::clone::Clone for MIB_IPFORWARD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPINTERFACE_ROW {
@@ -2690,6 +2768,12 @@ pub const MIB_IPNET_TYPE_OTHER: MIB_IPNET_TYPE = MIB_IPNET_TYPE(1i32);
 pub const MIB_IPNET_TYPE_INVALID: MIB_IPNET_TYPE = MIB_IPNET_TYPE(2i32);
 pub const MIB_IPNET_TYPE_DYNAMIC: MIB_IPNET_TYPE = MIB_IPNET_TYPE(3i32);
 pub const MIB_IPNET_TYPE_STATIC: MIB_IPNET_TYPE = MIB_IPNET_TYPE(4i32);
+impl ::core::marker::Copy for MIB_IPNET_TYPE {}
+impl ::core::clone::Clone for MIB_IPNET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPPATH_ROW {
@@ -2745,6 +2829,12 @@ pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295u32;
 pub struct MIB_IPSTATS_FORWARDING(pub i32);
 pub const MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = MIB_IPSTATS_FORWARDING(1i32);
 pub const MIB_IP_NOT_FORWARDING: MIB_IPSTATS_FORWARDING = MIB_IPSTATS_FORWARDING(2i32);
+impl ::core::marker::Copy for MIB_IPSTATS_FORWARDING {}
+impl ::core::clone::Clone for MIB_IPSTATS_FORWARDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MIB_IPSTATS_LH {
     pub Anonymous: MIB_IPSTATS_LH_0,
@@ -2913,6 +3003,12 @@ pub const MibParameterNotification: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYP
 pub const MibAddInstance: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(1i32);
 pub const MibDeleteInstance: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(2i32);
 pub const MibInitialNotification: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(3i32);
+impl ::core::marker::Copy for MIB_NOTIFICATION_TYPE {}
+impl ::core::clone::Clone for MIB_NOTIFICATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MIB_OPAQUE_INFO {
     pub dwId: u32,
@@ -3323,6 +3419,12 @@ pub const MIB_TCP_STATE_LAST_ACK: MIB_TCP_STATE = MIB_TCP_STATE(10i32);
 pub const MIB_TCP_STATE_TIME_WAIT: MIB_TCP_STATE = MIB_TCP_STATE(11i32);
 pub const MIB_TCP_STATE_DELETE_TCB: MIB_TCP_STATE = MIB_TCP_STATE(12i32);
 pub const MIB_TCP_STATE_RESERVED: MIB_TCP_STATE = MIB_TCP_STATE(100i32);
+impl ::core::marker::Copy for MIB_TCP_STATE {}
+impl ::core::clone::Clone for MIB_TCP_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_UDP6ROW {
@@ -3732,6 +3834,12 @@ pub const NET_ADDRESS_FORMAT_UNSPECIFIED: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMA
 pub const NET_ADDRESS_DNS_NAME: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(1i32);
 pub const NET_ADDRESS_IPV4: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(2i32);
 pub const NET_ADDRESS_IPV6: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(3i32);
+impl ::core::marker::Copy for NET_ADDRESS_FORMAT {}
+impl ::core::clone::Clone for NET_ADDRESS_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NET_IFLUID_UNSPECIFIED: u32 = 0u32;
 #[repr(transparent)]
 pub struct NET_IF_ACCESS_TYPE(pub i32);
@@ -3740,11 +3848,23 @@ pub const NET_IF_ACCESS_BROADCAST: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(2i32)
 pub const NET_IF_ACCESS_POINT_TO_POINT: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(3i32);
 pub const NET_IF_ACCESS_POINT_TO_MULTI_POINT: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(4i32);
 pub const NET_IF_ACCESS_MAXIMUM: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(5i32);
+impl ::core::marker::Copy for NET_IF_ACCESS_TYPE {}
+impl ::core::clone::Clone for NET_IF_ACCESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NET_IF_ADMIN_STATUS(pub i32);
 pub const NET_IF_ADMIN_STATUS_UP: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(1i32);
 pub const NET_IF_ADMIN_STATUS_DOWN: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(2i32);
 pub const NET_IF_ADMIN_STATUS_TESTING: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(3i32);
+impl ::core::marker::Copy for NET_IF_ADMIN_STATUS {}
+impl ::core::clone::Clone for NET_IF_ADMIN_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct NET_IF_ALIAS_LH {
     pub ifAliasLength: u16,
@@ -3762,22 +3882,46 @@ pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTIO
 pub const NET_IF_CONNECTION_PASSIVE: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(2i32);
 pub const NET_IF_CONNECTION_DEMAND: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(3i32);
 pub const NET_IF_CONNECTION_MAXIMUM: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(4i32);
+impl ::core::marker::Copy for NET_IF_CONNECTION_TYPE {}
+impl ::core::clone::Clone for NET_IF_CONNECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NET_IF_DIRECTION_TYPE(pub i32);
 pub const NET_IF_DIRECTION_SENDRECEIVE: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(0i32);
 pub const NET_IF_DIRECTION_SENDONLY: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(1i32);
 pub const NET_IF_DIRECTION_RECEIVEONLY: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(2i32);
 pub const NET_IF_DIRECTION_MAXIMUM: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(3i32);
+impl ::core::marker::Copy for NET_IF_DIRECTION_TYPE {}
+impl ::core::clone::Clone for NET_IF_DIRECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NET_IF_MEDIA_CONNECT_STATE(pub i32);
 pub const MediaConnectStateUnknown: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(0i32);
 pub const MediaConnectStateConnected: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(1i32);
 pub const MediaConnectStateDisconnected: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(2i32);
+impl ::core::marker::Copy for NET_IF_MEDIA_CONNECT_STATE {}
+impl ::core::clone::Clone for NET_IF_MEDIA_CONNECT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NET_IF_MEDIA_DUPLEX_STATE(pub i32);
 pub const MediaDuplexStateUnknown: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(0i32);
 pub const MediaDuplexStateHalf: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(1i32);
 pub const MediaDuplexStateFull: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(2i32);
+impl ::core::marker::Copy for NET_IF_MEDIA_DUPLEX_STATE {}
+impl ::core::clone::Clone for NET_IF_MEDIA_DUPLEX_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NET_IF_OID_COMPARTMENT_ID: u32 = 2u32;
 pub const NET_IF_OID_IF_ALIAS: u32 = 1u32;
 pub const NET_IF_OID_IF_ENTRY: u32 = 4u32;
@@ -3791,6 +3935,12 @@ pub const NET_IF_OPER_STATUS_UNKNOWN: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(4i
 pub const NET_IF_OPER_STATUS_DORMANT: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(5i32);
 pub const NET_IF_OPER_STATUS_NOT_PRESENT: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(6i32);
 pub const NET_IF_OPER_STATUS_LOWER_LAYER_DOWN: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(7i32);
+impl ::core::marker::Copy for NET_IF_OPER_STATUS {}
+impl ::core::clone::Clone for NET_IF_OPER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NET_IF_OPER_STATUS_DORMANT_LOW_POWER: u32 = 8u32;
 pub const NET_IF_OPER_STATUS_DORMANT_PAUSED: u32 = 4u32;
 pub const NET_IF_OPER_STATUS_DOWN_NOT_AUTHENTICATED: u32 = 1u32;
@@ -3812,6 +3962,12 @@ pub struct NET_IF_RCV_ADDRESS_TYPE(pub i32);
 pub const NET_IF_RCV_ADDRESS_TYPE_OTHER: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(1i32);
 pub const NET_IF_RCV_ADDRESS_TYPE_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(2i32);
 pub const NET_IF_RCV_ADDRESS_TYPE_NON_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(3i32);
+impl ::core::marker::Copy for NET_IF_RCV_ADDRESS_TYPE {}
+impl ::core::clone::Clone for NET_IF_RCV_ADDRESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union NET_LUID_LH {
     pub Value: u64,
@@ -3872,6 +4028,12 @@ pub const PEER_TO_PEER_NODETYPE: u32 = 2u32;
 pub struct PFADDRESSTYPE(pub i32);
 pub const PF_IPV4: PFADDRESSTYPE = PFADDRESSTYPE(0i32);
 pub const PF_IPV6: PFADDRESSTYPE = PFADDRESSTYPE(1i32);
+impl ::core::marker::Copy for PFADDRESSTYPE {}
+impl ::core::clone::Clone for PFADDRESSTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PFERROR_BUFFER_TOO_SMALL: u32 = 23002u32;
 pub const PFERROR_NO_FILTERS_GIVEN: u32 = 23001u32;
 pub const PFERROR_NO_PF_INTERFACE: u32 = 23000u32;
@@ -3879,11 +4041,23 @@ pub const PFERROR_NO_PF_INTERFACE: u32 = 23000u32;
 pub struct PFFORWARD_ACTION(pub i32);
 pub const PF_ACTION_FORWARD: PFFORWARD_ACTION = PFFORWARD_ACTION(0i32);
 pub const PF_ACTION_DROP: PFFORWARD_ACTION = PFFORWARD_ACTION(1i32);
+impl ::core::marker::Copy for PFFORWARD_ACTION {}
+impl ::core::clone::Clone for PFFORWARD_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PFFRAMETYPE(pub i32);
 pub const PFFT_FILTER: PFFRAMETYPE = PFFRAMETYPE(1i32);
 pub const PFFT_FRAG: PFFRAMETYPE = PFFRAMETYPE(2i32);
 pub const PFFT_SPOOF: PFFRAMETYPE = PFFRAMETYPE(3i32);
+impl ::core::marker::Copy for PFFRAMETYPE {}
+impl ::core::clone::Clone for PFFRAMETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PFLOGFRAME {
     pub Timestamp: i64,
@@ -4007,12 +4181,24 @@ impl ::core::clone::Clone for TCPIP_OWNER_MODULE_BASIC_INFO {
 #[repr(transparent)]
 pub struct TCPIP_OWNER_MODULE_INFO_CLASS(pub i32);
 pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = TCPIP_OWNER_MODULE_INFO_CLASS(0i32);
+impl ::core::marker::Copy for TCPIP_OWNER_MODULE_INFO_CLASS {}
+impl ::core::clone::Clone for TCPIP_OWNER_MODULE_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TCPIP_OWNING_MODULE_SIZE: u32 = 16u32;
 #[repr(transparent)]
 pub struct TCP_BOOLEAN_OPTIONAL(pub i32);
 pub const TcpBoolOptDisabled: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(0i32);
 pub const TcpBoolOptEnabled: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(1i32);
 pub const TcpBoolOptUnchanged: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(-1i32);
+impl ::core::marker::Copy for TCP_BOOLEAN_OPTIONAL {}
+impl ::core::clone::Clone for TCP_BOOLEAN_OPTIONAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TCP_CONNECTION_OFFLOAD_STATE(pub i32);
 pub const TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(0i32);
@@ -4020,6 +4206,12 @@ pub const TcpConnectionOffloadStateOffloading: TCP_CONNECTION_OFFLOAD_STATE = TC
 pub const TcpConnectionOffloadStateOffloaded: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(2i32);
 pub const TcpConnectionOffloadStateUploading: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(3i32);
 pub const TcpConnectionOffloadStateMax: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(4i32);
+impl ::core::marker::Copy for TCP_CONNECTION_OFFLOAD_STATE {}
+impl ::core::clone::Clone for TCP_CONNECTION_OFFLOAD_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
@@ -4338,6 +4530,12 @@ pub const TcpConnectionEstatsObsRec: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(6i32);
 pub const TcpConnectionEstatsBandwidth: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(7i32);
 pub const TcpConnectionEstatsFineRtt: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(8i32);
 pub const TcpConnectionEstatsMaximum: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(9i32);
+impl ::core::marker::Copy for TCP_ESTATS_TYPE {}
+impl ::core::clone::Clone for TCP_ESTATS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TCP_ROW: u32 = 14u32;
 #[repr(transparent)]
 pub struct TCP_RTO_ALGORITHM(pub i32);
@@ -4349,6 +4547,12 @@ pub const MIB_TCP_RTO_OTHER: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(1i32);
 pub const MIB_TCP_RTO_CONSTANT: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(2i32);
 pub const MIB_TCP_RTO_RSRE: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(3i32);
 pub const MIB_TCP_RTO_VANJ: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(4i32);
+impl ::core::marker::Copy for TCP_RTO_ALGORITHM {}
+impl ::core::clone::Clone for TCP_RTO_ALGORITHM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TCP_SOFT_ERROR(pub i32);
 pub const TcpErrorNone: TCP_SOFT_ERROR = TCP_SOFT_ERROR(0i32);
@@ -4361,6 +4565,12 @@ pub const TcpErrorAboveTsWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(6i32);
 pub const TcpErrorDataChecksumError: TCP_SOFT_ERROR = TCP_SOFT_ERROR(7i32);
 pub const TcpErrorDataLengthError: TCP_SOFT_ERROR = TCP_SOFT_ERROR(8i32);
 pub const TcpErrorMaxSoftError: TCP_SOFT_ERROR = TCP_SOFT_ERROR(9i32);
+impl ::core::marker::Copy for TCP_SOFT_ERROR {}
+impl ::core::clone::Clone for TCP_SOFT_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TCP_STATS: u32 = 12u32;
 pub const TCP_TABLE: u32 = 13u32;
 #[repr(transparent)]
@@ -4374,6 +4584,12 @@ pub const TCP_TABLE_OWNER_PID_ALL: TCP_TABLE_CLASS = TCP_TABLE_CLASS(5i32);
 pub const TCP_TABLE_OWNER_MODULE_LISTENER: TCP_TABLE_CLASS = TCP_TABLE_CLASS(6i32);
 pub const TCP_TABLE_OWNER_MODULE_CONNECTIONS: TCP_TABLE_CLASS = TCP_TABLE_CLASS(7i32);
 pub const TCP_TABLE_OWNER_MODULE_ALL: TCP_TABLE_CLASS = TCP_TABLE_CLASS(8i32);
+impl ::core::marker::Copy for TCP_TABLE_CLASS {}
+impl ::core::clone::Clone for TCP_TABLE_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TUNNEL_TYPE(pub i32);
 pub const TUNNEL_TYPE_NONE: TUNNEL_TYPE = TUNNEL_TYPE(0i32);
@@ -4383,6 +4599,12 @@ pub const TUNNEL_TYPE_6TO4: TUNNEL_TYPE = TUNNEL_TYPE(11i32);
 pub const TUNNEL_TYPE_ISATAP: TUNNEL_TYPE = TUNNEL_TYPE(13i32);
 pub const TUNNEL_TYPE_TEREDO: TUNNEL_TYPE = TUNNEL_TYPE(14i32);
 pub const TUNNEL_TYPE_IPHTTPS: TUNNEL_TYPE = TUNNEL_TYPE(15i32);
+impl ::core::marker::Copy for TUNNEL_TYPE {}
+impl ::core::clone::Clone for TUNNEL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UDP6_STATS: u32 = 37u32;
 pub const UDP_ROW: u32 = 17u32;
 pub const UDP_STATS: u32 = 15u32;
@@ -4392,6 +4614,12 @@ pub struct UDP_TABLE_CLASS(pub i32);
 pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = UDP_TABLE_CLASS(0i32);
 pub const UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = UDP_TABLE_CLASS(1i32);
 pub const UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = UDP_TABLE_CLASS(2i32);
+impl ::core::marker::Copy for UDP_TABLE_CLASS {}
+impl ::core::clone::Clone for UDP_TABLE_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct arp_send_reply {
     pub DestAddress: u32,

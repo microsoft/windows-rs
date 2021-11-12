@@ -42,5 +42,11 @@ impl PushNotificationType {
     pub const Raw: Self = Self(3i32);
     pub const TileFlyout: Self = Self(4i32);
 }
+impl ::core::marker::Copy for PushNotificationType {}
+impl ::core::clone::Clone for PushNotificationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RawNotification(pub *mut ::core::ffi::c_void);

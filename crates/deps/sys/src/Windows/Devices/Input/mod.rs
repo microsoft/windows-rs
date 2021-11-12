@@ -89,6 +89,12 @@ impl PointerDeviceType {
     pub const Pen: Self = Self(1i32);
     pub const Mouse: Self = Self(2i32);
 }
+impl ::core::marker::Copy for PointerDeviceType {}
+impl ::core::clone::Clone for PointerDeviceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PointerDeviceUsage {
     pub UsagePage: u32,

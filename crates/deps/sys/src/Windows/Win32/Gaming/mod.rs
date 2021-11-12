@@ -41,15 +41,33 @@ extern "system" {
 pub struct GAMESTATS_OPEN_RESULT(pub i32);
 pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(0i32);
 pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(1i32);
+impl ::core::marker::Copy for GAMESTATS_OPEN_RESULT {}
+impl ::core::clone::Clone for GAMESTATS_OPEN_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GAMESTATS_OPEN_TYPE(pub i32);
 pub const GAMESTATS_OPEN_OPENORCREATE: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(0i32);
 pub const GAMESTATS_OPEN_OPENONLY: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(1i32);
+impl ::core::marker::Copy for GAMESTATS_OPEN_TYPE {}
+impl ::core::clone::Clone for GAMESTATS_OPEN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GAME_INSTALL_SCOPE(pub i32);
 pub const GIS_NOT_INSTALLED: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(1i32);
 pub const GIS_CURRENT_USER: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(2i32);
 pub const GIS_ALL_USERS: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(3i32);
+impl ::core::marker::Copy for GAME_INSTALL_SCOPE {}
+impl ::core::clone::Clone for GAME_INSTALL_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GAMING_DEVICE_DEVICE_ID(pub i32);
 pub const GAMING_DEVICE_DEVICE_ID_NONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(0i32);
@@ -57,6 +75,12 @@ pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEV
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_S: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(712204761i32);
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(1523980231i32);
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(284675555i32);
+impl ::core::marker::Copy for GAMING_DEVICE_DEVICE_ID {}
+impl ::core::clone::Clone for GAMING_DEVICE_DEVICE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct GAMING_DEVICE_MODEL_INFORMATION {
     pub vendorId: GAMING_DEVICE_VENDOR_ID,
@@ -72,6 +96,12 @@ impl ::core::clone::Clone for GAMING_DEVICE_MODEL_INFORMATION {
 pub struct GAMING_DEVICE_VENDOR_ID(pub i32);
 pub const GAMING_DEVICE_VENDOR_ID_NONE: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(0i32);
 pub const GAMING_DEVICE_VENDOR_ID_MICROSOFT: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(-1024700366i32);
+impl ::core::marker::Copy for GAMING_DEVICE_VENDOR_ID {}
+impl ::core::clone::Clone for GAMING_DEVICE_VENDOR_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GameExplorer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2589895056, data2: 12340, data3: 19823, data4: [145, 40, 1, 243, 198, 16, 34, 188] };
 pub const GameStatistics: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3687340588,
@@ -118,6 +148,12 @@ pub const XPRIVILEGE_PROFILE_VIEWING: KnownGamingPrivileges = KnownGamingPrivile
 pub const XPRIVILEGE_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(252i32);
 pub const XPRIVILEGE_MULTIPLAYER_SESSIONS: KnownGamingPrivileges = KnownGamingPrivileges(254i32);
 pub const XPRIVILEGE_ADD_FRIEND: KnownGamingPrivileges = KnownGamingPrivileges(255i32);
+impl ::core::marker::Copy for KnownGamingPrivileges {}
+impl ::core::clone::Clone for KnownGamingPrivileges {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PlayerPickerUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::windows_sys::core::HSTRING, selectedxuidscount: usize);
 #[repr(transparent)]
 pub struct XBL_IDP_AUTH_TOKEN_STATUS(pub i32);
@@ -130,6 +166,12 @@ pub const XBL_IDP_AUTH_TOKEN_STATUS_MSA_INTERRUPT: XBL_IDP_AUTH_TOKEN_STATUS = X
 pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_NO_CONSENT: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(6i32);
 pub const XBL_IDP_AUTH_TOKEN_STATUS_VIEW_NOT_SET: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(7i32);
 pub const XBL_IDP_AUTH_TOKEN_STATUS_UNKNOWN: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(-1i32);
+impl ::core::marker::Copy for XBL_IDP_AUTH_TOKEN_STATUS {}
+impl ::core::clone::Clone for XBL_IDP_AUTH_TOKEN_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const XblIdpAuthManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3458421579,
     data2: 22232,

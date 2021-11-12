@@ -48,6 +48,12 @@ pub struct SECURITY_INFO_PAGE_FLAGS(pub u32);
 pub const SI_ADVANCED: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(16u32);
 pub const SI_EDIT_AUDITS: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(2u32);
 pub const SI_EDIT_PROPERTIES: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(128u32);
+impl ::core::marker::Copy for SECURITY_INFO_PAGE_FLAGS {}
+impl ::core::clone::Clone for SECURITY_INFO_PAGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_OBJECT {
@@ -176,6 +182,12 @@ pub const SI_RESET_OWNER: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(1048576u32
 pub const SI_RESET_SACL: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(524288u32);
 pub const SI_SCOPE_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(134217728u32);
 pub const SI_VIEW_ONLY: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(4194304u32);
+impl ::core::marker::Copy for SI_OBJECT_INFO_FLAGS {}
+impl ::core::clone::Clone for SI_OBJECT_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SI_OWNER_READONLY: i32 = 64i32;
 pub const SI_OWNER_RECURSE: i32 = 256i32;
 #[repr(transparent)]
@@ -187,6 +199,12 @@ pub const SI_SHOW_OWNER_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(3i32);
 pub const SI_SHOW_EFFECTIVE_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(4i32);
 pub const SI_SHOW_SHARE_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(5i32);
 pub const SI_SHOW_CENTRAL_POLICY_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(6i32);
+impl ::core::marker::Copy for SI_PAGE_ACTIVATED {}
+impl ::core::clone::Clone for SI_PAGE_ACTIVATED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SI_PAGE_TITLE: i32 = 2048i32;
 #[repr(transparent)]
 pub struct SI_PAGE_TYPE(pub i32);
@@ -197,6 +215,12 @@ pub const SI_PAGE_OWNER: SI_PAGE_TYPE = SI_PAGE_TYPE(3i32);
 pub const SI_PAGE_EFFECTIVE: SI_PAGE_TYPE = SI_PAGE_TYPE(4i32);
 pub const SI_PAGE_TAKEOWNERSHIP: SI_PAGE_TYPE = SI_PAGE_TYPE(5i32);
 pub const SI_PAGE_SHARE: SI_PAGE_TYPE = SI_PAGE_TYPE(6i32);
+impl ::core::marker::Copy for SI_PAGE_TYPE {}
+impl ::core::clone::Clone for SI_PAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SI_READONLY: i32 = 8i32;
 pub const SI_RESET: i32 = 32i32;
 pub const SI_RESET_DACL_TREE: i32 = 16384i32;

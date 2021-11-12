@@ -18,6 +18,12 @@ impl AppBarClosedDisplayMode {
     pub const Minimal: Self = Self(1i32);
     pub const Hidden: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AppBarClosedDisplayMode {}
+impl ::core::clone::Clone for AppBarClosedDisplayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppBarElementContainer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -39,6 +45,12 @@ impl AutoSuggestionBoxTextChangeReason {
     pub const ProgrammaticChange: Self = Self(1i32);
     pub const SuggestionChosen: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AutoSuggestionBoxTextChangeReason {}
+impl ::core::clone::Clone for AutoSuggestionBoxTextChangeReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BackClickEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -48,6 +60,12 @@ pub struct BackgroundSizing(pub i32);
 impl BackgroundSizing {
     pub const InnerBorderEdge: Self = Self(0i32);
     pub const OuterBorderEdge: Self = Self(1i32);
+}
+impl ::core::marker::Copy for BackgroundSizing {}
+impl ::core::clone::Clone for BackgroundSizing {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BitmapIcon(pub *mut ::core::ffi::c_void);
@@ -76,6 +94,12 @@ impl CalendarViewDisplayMode {
     pub const Year: Self = Self(1i32);
     pub const Decade: Self = Self(2i32);
 }
+impl ::core::marker::Copy for CalendarViewDisplayMode {}
+impl ::core::clone::Clone for CalendarViewDisplayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CalendarViewSelectedDatesChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -85,11 +109,23 @@ impl CalendarViewSelectionMode {
     pub const Single: Self = Self(1i32);
     pub const Multiple: Self = Self(2i32);
 }
+impl ::core::marker::Copy for CalendarViewSelectionMode {}
+impl ::core::clone::Clone for CalendarViewSelectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CandidateWindowAlignment(pub i32);
 impl CandidateWindowAlignment {
     pub const Default: Self = Self(0i32);
     pub const BottomEdge: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CandidateWindowAlignment {}
+impl ::core::clone::Clone for CandidateWindowAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CandidateWindowBoundsChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -103,6 +139,12 @@ impl CharacterCasing {
     pub const Normal: Self = Self(0i32);
     pub const Lower: Self = Self(1i32);
     pub const Upper: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CharacterCasing {}
+impl ::core::clone::Clone for CharacterCasing {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CheckBox(pub *mut ::core::ffi::c_void);
@@ -121,6 +163,12 @@ impl ClickMode {
     pub const Press: Self = Self(1i32);
     pub const Hover: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ClickMode {}
+impl ::core::clone::Clone for ClickMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ColorChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -133,6 +181,12 @@ impl ColorPickerHsvChannel {
     pub const Value: Self = Self(2i32);
     pub const Alpha: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ColorPickerHsvChannel {}
+impl ::core::clone::Clone for ColorPickerHsvChannel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ColorSpectrumComponents(pub i32);
 impl ColorSpectrumComponents {
@@ -143,11 +197,23 @@ impl ColorSpectrumComponents {
     pub const SaturationValue: Self = Self(4i32);
     pub const ValueSaturation: Self = Self(5i32);
 }
+impl ::core::marker::Copy for ColorSpectrumComponents {}
+impl ::core::clone::Clone for ColorSpectrumComponents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ColorSpectrumShape(pub i32);
 impl ColorSpectrumShape {
     pub const Box: Self = Self(0i32);
     pub const Ring: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ColorSpectrumShape {}
+impl ::core::clone::Clone for ColorSpectrumShape {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ColumnDefinition(pub *mut ::core::ffi::c_void);
@@ -163,6 +229,12 @@ impl ComboBoxSelectionChangedTrigger {
     pub const Committed: Self = Self(0i32);
     pub const Always: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ComboBoxSelectionChangedTrigger {}
+impl ::core::clone::Clone for ComboBoxSelectionChangedTrigger {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ComboBoxTextSubmittedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -174,11 +246,23 @@ impl CommandBarDefaultLabelPosition {
     pub const Right: Self = Self(1i32);
     pub const Collapsed: Self = Self(2i32);
 }
+impl ::core::marker::Copy for CommandBarDefaultLabelPosition {}
+impl ::core::clone::Clone for CommandBarDefaultLabelPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CommandBarDynamicOverflowAction(pub i32);
 impl CommandBarDynamicOverflowAction {
     pub const AddingToOverflow: Self = Self(0i32);
     pub const RemovingFromOverflow: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CommandBarDynamicOverflowAction {}
+impl ::core::clone::Clone for CommandBarDynamicOverflowAction {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CommandBarFlyout(pub *mut ::core::ffi::c_void);
@@ -188,12 +272,24 @@ impl CommandBarLabelPosition {
     pub const Default: Self = Self(0i32);
     pub const Collapsed: Self = Self(1i32);
 }
+impl ::core::marker::Copy for CommandBarLabelPosition {}
+impl ::core::clone::Clone for CommandBarLabelPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CommandBarOverflowButtonVisibility(pub i32);
 impl CommandBarOverflowButtonVisibility {
     pub const Auto: Self = Self(0i32);
     pub const Visible: Self = Self(1i32);
     pub const Collapsed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CommandBarOverflowButtonVisibility {}
+impl ::core::clone::Clone for CommandBarOverflowButtonVisibility {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CommandBarOverflowPresenter(pub *mut ::core::ffi::c_void);
@@ -210,6 +306,12 @@ impl ContentDialogButton {
     pub const Primary: Self = Self(1i32);
     pub const Secondary: Self = Self(2i32);
     pub const Close: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ContentDialogButton {}
+impl ::core::clone::Clone for ContentDialogButton {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContentDialogButtonClickDeferral(pub *mut ::core::ffi::c_void);
@@ -229,6 +331,12 @@ impl ContentDialogPlacement {
     pub const Popup: Self = Self(0i32);
     pub const InPlace: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ContentDialogPlacement {}
+impl ::core::clone::Clone for ContentDialogPlacement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContentDialogResult(pub i32);
 impl ContentDialogResult {
@@ -236,12 +344,24 @@ impl ContentDialogResult {
     pub const Primary: Self = Self(1i32);
     pub const Secondary: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ContentDialogResult {}
+impl ::core::clone::Clone for ContentDialogResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContentLinkChangeKind(pub i32);
 impl ContentLinkChangeKind {
     pub const Inserted: Self = Self(0i32);
     pub const Removed: Self = Self(1i32);
     pub const Edited: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ContentLinkChangeKind {}
+impl ::core::clone::Clone for ContentLinkChangeKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContentLinkChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -279,6 +399,12 @@ impl DisabledFormattingAccelerators {
     pub const Italic: Self = Self(2u32);
     pub const Underline: Self = Self(4u32);
     pub const All: Self = Self(4294967295u32);
+}
+impl ::core::marker::Copy for DisabledFormattingAccelerators {}
+impl ::core::clone::Clone for DisabledFormattingAccelerators {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DragItemsCompletedEventArgs(pub *mut ::core::ffi::c_void);
@@ -336,6 +462,12 @@ impl HandwritingPanelPlacementAlignment {
     pub const TopRight: Self = Self(2i32);
     pub const BottomLeft: Self = Self(3i32);
     pub const BottomRight: Self = Self(4i32);
+}
+impl ::core::marker::Copy for HandwritingPanelPlacementAlignment {}
+impl ::core::clone::Clone for HandwritingPanelPlacementAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct HandwritingView(pub *mut ::core::ffi::c_void);
@@ -2069,6 +2201,12 @@ impl IncrementalLoadingTrigger {
     pub const None: Self = Self(0i32);
     pub const Edge: Self = Self(1i32);
 }
+impl ::core::marker::Copy for IncrementalLoadingTrigger {}
+impl ::core::clone::Clone for IncrementalLoadingTrigger {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkCanvas(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2083,6 +2221,12 @@ impl InkToolbarButtonFlyoutPlacement {
     pub const Bottom: Self = Self(2i32);
     pub const Left: Self = Self(3i32);
     pub const Right: Self = Self(4i32);
+}
+impl ::core::marker::Copy for InkToolbarButtonFlyoutPlacement {}
+impl ::core::clone::Clone for InkToolbarButtonFlyoutPlacement {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct InkToolbarCustomPen(pub *mut ::core::ffi::c_void);
@@ -2104,6 +2248,12 @@ impl InkToolbarFlyoutItemKind {
     pub const Check: Self = Self(2i32);
     pub const RadioCheck: Self = Self(3i32);
 }
+impl ::core::marker::Copy for InkToolbarFlyoutItemKind {}
+impl ::core::clone::Clone for InkToolbarFlyoutItemKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkToolbarHighlighterButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2114,6 +2264,12 @@ impl InkToolbarInitialControls {
     pub const PensOnly: Self = Self(2i32);
     pub const AllExceptPens: Self = Self(3i32);
 }
+impl ::core::marker::Copy for InkToolbarInitialControls {}
+impl ::core::clone::Clone for InkToolbarInitialControls {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkToolbarIsStencilButtonCheckedChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2122,6 +2278,12 @@ pub struct InkToolbarMenuButton(pub *mut ::core::ffi::c_void);
 pub struct InkToolbarMenuKind(pub i32);
 impl InkToolbarMenuKind {
     pub const Stencil: Self = Self(0i32);
+}
+impl ::core::marker::Copy for InkToolbarMenuKind {}
+impl ::core::clone::Clone for InkToolbarMenuKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct InkToolbarPenButton(pub *mut ::core::ffi::c_void);
@@ -2139,11 +2301,23 @@ impl InkToolbarStencilKind {
     pub const Ruler: Self = Self(0i32);
     pub const Protractor: Self = Self(1i32);
 }
+impl ::core::marker::Copy for InkToolbarStencilKind {}
+impl ::core::clone::Clone for InkToolbarStencilKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkToolbarToggle(pub i32);
 impl InkToolbarToggle {
     pub const Ruler: Self = Self(0i32);
     pub const Custom: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InkToolbarToggle {}
+impl ::core::clone::Clone for InkToolbarToggle {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct InkToolbarToggleButton(pub *mut ::core::ffi::c_void);
@@ -2156,6 +2330,12 @@ impl InkToolbarTool {
     pub const Eraser: Self = Self(3i32);
     pub const CustomPen: Self = Self(4i32);
     pub const CustomTool: Self = Self(5i32);
+}
+impl ::core::marker::Copy for InkToolbarTool {}
+impl ::core::clone::Clone for InkToolbarTool {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct InkToolbarToolButton(pub *mut ::core::ffi::c_void);
@@ -2186,6 +2366,12 @@ impl ItemsUpdatingScrollMode {
     pub const KeepScrollOffset: Self = Self(1i32);
     pub const KeepLastItemInView: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ItemsUpdatingScrollMode {}
+impl ::core::clone::Clone for ItemsUpdatingScrollMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ItemsWrapGrid(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2194,6 +2380,12 @@ impl LightDismissOverlayMode {
     pub const Auto: Self = Self(0i32);
     pub const On: Self = Self(1i32);
     pub const Off: Self = Self(2i32);
+}
+impl ::core::marker::Copy for LightDismissOverlayMode {}
+impl ::core::clone::Clone for LightDismissOverlayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ListBox(pub *mut ::core::ffi::c_void);
@@ -2208,6 +2400,12 @@ pub struct ListPickerFlyoutSelectionMode(pub i32);
 impl ListPickerFlyoutSelectionMode {
     pub const Single: Self = Self(0i32);
     pub const Multiple: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ListPickerFlyoutSelectionMode {}
+impl ::core::clone::Clone for ListPickerFlyoutSelectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ListView(pub *mut ::core::ffi::c_void);
@@ -2231,6 +2429,12 @@ impl ListViewReorderMode {
     pub const Disabled: Self = Self(0i32);
     pub const Enabled: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ListViewReorderMode {}
+impl ::core::clone::Clone for ListViewReorderMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ListViewSelectionMode(pub i32);
 impl ListViewSelectionMode {
@@ -2238,6 +2442,12 @@ impl ListViewSelectionMode {
     pub const Single: Self = Self(1i32);
     pub const Multiple: Self = Self(2i32);
     pub const Extended: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ListViewSelectionMode {}
+impl ::core::clone::Clone for ListViewSelectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MediaElement(pub *mut ::core::ffi::c_void);
@@ -2276,6 +2486,12 @@ impl NavigationViewBackButtonVisible {
     pub const Visible: Self = Self(1i32);
     pub const Auto: Self = Self(2i32);
 }
+impl ::core::marker::Copy for NavigationViewBackButtonVisible {}
+impl ::core::clone::Clone for NavigationViewBackButtonVisible {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NavigationViewBackRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2284,6 +2500,12 @@ impl NavigationViewDisplayMode {
     pub const Minimal: Self = Self(0i32);
     pub const Compact: Self = Self(1i32);
     pub const Expanded: Self = Self(2i32);
+}
+impl ::core::marker::Copy for NavigationViewDisplayMode {}
+impl ::core::clone::Clone for NavigationViewDisplayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct NavigationViewDisplayModeChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -2305,6 +2527,12 @@ impl NavigationViewOverflowLabelMode {
     pub const MoreLabel: Self = Self(0i32);
     pub const NoLabel: Self = Self(1i32);
 }
+impl ::core::marker::Copy for NavigationViewOverflowLabelMode {}
+impl ::core::clone::Clone for NavigationViewOverflowLabelMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NavigationViewPaneClosingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2316,6 +2544,12 @@ impl NavigationViewPaneDisplayMode {
     pub const LeftCompact: Self = Self(3i32);
     pub const LeftMinimal: Self = Self(4i32);
 }
+impl ::core::marker::Copy for NavigationViewPaneDisplayMode {}
+impl ::core::clone::Clone for NavigationViewPaneDisplayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NavigationViewSelectionChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2324,12 +2558,24 @@ impl NavigationViewSelectionFollowsFocus {
     pub const Disabled: Self = Self(0i32);
     pub const Enabled: Self = Self(1i32);
 }
+impl ::core::marker::Copy for NavigationViewSelectionFollowsFocus {}
+impl ::core::clone::Clone for NavigationViewSelectionFollowsFocus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NavigationViewShoulderNavigationEnabled(pub i32);
 impl NavigationViewShoulderNavigationEnabled {
     pub const WhenSelectionFollowsFocus: Self = Self(0i32);
     pub const Always: Self = Self(1i32);
     pub const Never: Self = Self(2i32);
+}
+impl ::core::marker::Copy for NavigationViewShoulderNavigationEnabled {}
+impl ::core::clone::Clone for NavigationViewShoulderNavigationEnabled {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct NavigationViewTemplateSettings(pub *mut ::core::ffi::c_void);
@@ -2343,6 +2589,12 @@ impl Orientation {
     pub const Vertical: Self = Self(0i32);
     pub const Horizontal: Self = Self(1i32);
 }
+impl ::core::marker::Copy for Orientation {}
+impl ::core::clone::Clone for Orientation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Page(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2354,11 +2606,23 @@ impl PanelScrollingDirection {
     pub const Forward: Self = Self(1i32);
     pub const Backward: Self = Self(2i32);
 }
+impl ::core::marker::Copy for PanelScrollingDirection {}
+impl ::core::clone::Clone for PanelScrollingDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ParallaxSourceOffsetKind(pub i32);
 impl ParallaxSourceOffsetKind {
     pub const Absolute: Self = Self(0i32);
     pub const Relative: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ParallaxSourceOffsetKind {}
+impl ::core::clone::Clone for ParallaxSourceOffsetKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ParallaxView(pub *mut ::core::ffi::c_void);
@@ -2372,6 +2636,12 @@ impl PasswordRevealMode {
     pub const Peek: Self = Self(0i32);
     pub const Hidden: Self = Self(1i32);
     pub const Visible: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PasswordRevealMode {}
+impl ::core::clone::Clone for PasswordRevealMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PathIcon(pub *mut ::core::ffi::c_void);
@@ -2393,6 +2663,12 @@ impl PivotHeaderFocusVisualPlacement {
     pub const ItemHeaders: Self = Self(0i32);
     pub const SelectedItemHeader: Self = Self(1i32);
 }
+impl ::core::marker::Copy for PivotHeaderFocusVisualPlacement {}
+impl ::core::clone::Clone for PivotHeaderFocusVisualPlacement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PivotItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2404,6 +2680,12 @@ impl PivotSlideInAnimationGroup {
     pub const GroupOne: Self = Self(1i32);
     pub const GroupTwo: Self = Self(2i32);
     pub const GroupThree: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PivotSlideInAnimationGroup {}
+impl ::core::clone::Clone for PivotSlideInAnimationGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ProgressBar(pub *mut ::core::ffi::c_void);
@@ -2431,6 +2713,12 @@ impl RefreshPullDirection {
     pub const RightToLeft: Self = Self(2i32);
     pub const BottomToTop: Self = Self(3i32);
 }
+impl ::core::marker::Copy for RefreshPullDirection {}
+impl ::core::clone::Clone for RefreshPullDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RefreshRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2445,6 +2733,12 @@ impl RefreshVisualizerOrientation {
     pub const Rotate90DegreesCounterclockwise: Self = Self(2i32);
     pub const Rotate270DegreesCounterclockwise: Self = Self(3i32);
 }
+impl ::core::marker::Copy for RefreshVisualizerOrientation {}
+impl ::core::clone::Clone for RefreshVisualizerOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RefreshVisualizerState(pub i32);
 impl RefreshVisualizerState {
@@ -2454,6 +2748,12 @@ impl RefreshVisualizerState {
     pub const Pending: Self = Self(3i32);
     pub const Refreshing: Self = Self(4i32);
 }
+impl ::core::marker::Copy for RefreshVisualizerState {}
+impl ::core::clone::Clone for RefreshVisualizerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RelativePanel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2462,6 +2762,12 @@ impl RequiresPointer {
     pub const Never: Self = Self(0i32);
     pub const WhenEngaged: Self = Self(1i32);
     pub const WhenFocused: Self = Self(2i32);
+}
+impl ::core::marker::Copy for RequiresPointer {}
+impl ::core::clone::Clone for RequiresPointer {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RichEditBox(pub *mut ::core::ffi::c_void);
@@ -2474,6 +2780,12 @@ pub struct RichEditClipboardFormat(pub i32);
 impl RichEditClipboardFormat {
     pub const AllFormats: Self = Self(0i32);
     pub const PlainText: Self = Self(1i32);
+}
+impl ::core::marker::Copy for RichEditClipboardFormat {}
+impl ::core::clone::Clone for RichEditClipboardFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RichTextBlock(pub *mut ::core::ffi::c_void);
@@ -2491,6 +2803,12 @@ impl ScrollBarVisibility {
     pub const Hidden: Self = Self(2i32);
     pub const Visible: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ScrollBarVisibility {}
+impl ::core::clone::Clone for ScrollBarVisibility {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ScrollContentPresenter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2499,12 +2817,24 @@ impl ScrollIntoViewAlignment {
     pub const Default: Self = Self(0i32);
     pub const Leading: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ScrollIntoViewAlignment {}
+impl ::core::clone::Clone for ScrollIntoViewAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ScrollMode(pub i32);
 impl ScrollMode {
     pub const Disabled: Self = Self(0i32);
     pub const Enabled: Self = Self(1i32);
     pub const Auto: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ScrollMode {}
+impl ::core::clone::Clone for ScrollMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ScrollViewer(pub *mut ::core::ffi::c_void);
@@ -2539,6 +2869,12 @@ impl SelectionMode {
     pub const Multiple: Self = Self(1i32);
     pub const Extended: Self = Self(2i32);
 }
+impl ::core::marker::Copy for SelectionMode {}
+impl ::core::clone::Clone for SelectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SemanticZoom(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2560,6 +2896,12 @@ impl SnapPointsType {
     pub const OptionalSingle: Self = Self(3i32);
     pub const MandatorySingle: Self = Self(4i32);
 }
+impl ::core::marker::Copy for SnapPointsType {}
+impl ::core::clone::Clone for SnapPointsType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SplitButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2576,6 +2918,12 @@ impl SplitViewDisplayMode {
     pub const CompactOverlay: Self = Self(2i32);
     pub const CompactInline: Self = Self(3i32);
 }
+impl ::core::marker::Copy for SplitViewDisplayMode {}
+impl ::core::clone::Clone for SplitViewDisplayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SplitViewPaneClosingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2583,6 +2931,12 @@ pub struct SplitViewPanePlacement(pub i32);
 impl SplitViewPanePlacement {
     pub const Left: Self = Self(0i32);
     pub const Right: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SplitViewPanePlacement {}
+impl ::core::clone::Clone for SplitViewPanePlacement {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct StackPanel(pub *mut ::core::ffi::c_void);
@@ -2592,6 +2946,12 @@ impl StretchDirection {
     pub const UpOnly: Self = Self(0i32);
     pub const DownOnly: Self = Self(1i32);
     pub const Both: Self = Self(2i32);
+}
+impl ::core::marker::Copy for StretchDirection {}
+impl ::core::clone::Clone for StretchDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct StyleSelector(pub *mut ::core::ffi::c_void);
@@ -2606,6 +2966,12 @@ impl SwipeBehaviorOnInvoked {
     pub const Close: Self = Self(1i32);
     pub const RemainOpen: Self = Self(2i32);
 }
+impl ::core::marker::Copy for SwipeBehaviorOnInvoked {}
+impl ::core::clone::Clone for SwipeBehaviorOnInvoked {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SwipeControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2619,6 +2985,12 @@ pub struct SwipeMode(pub i32);
 impl SwipeMode {
     pub const Reveal: Self = Self(0i32);
     pub const Execute: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SwipeMode {}
+impl ::core::clone::Clone for SwipeMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct Symbol(pub i32);
@@ -2821,6 +3193,12 @@ impl Symbol {
     pub const Print: Self = Self(59209i32);
     pub const XboxOneConsole: Self = Self(59792i32);
 }
+impl ::core::marker::Copy for Symbol {}
+impl ::core::clone::Clone for Symbol {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SymbolIcon(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2908,6 +3286,12 @@ impl TreeViewSelectionMode {
     pub const Single: Self = Self(1i32);
     pub const Multiple: Self = Self(2i32);
 }
+impl ::core::marker::Copy for TreeViewSelectionMode {}
+impl ::core::clone::Clone for TreeViewSelectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TwoPaneView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -2917,11 +3301,23 @@ impl TwoPaneViewMode {
     pub const Wide: Self = Self(1i32);
     pub const Tall: Self = Self(2i32);
 }
+impl ::core::marker::Copy for TwoPaneViewMode {}
+impl ::core::clone::Clone for TwoPaneViewMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TwoPaneViewPriority(pub i32);
 impl TwoPaneViewPriority {
     pub const Pane1: Self = Self(0i32);
     pub const Pane2: Self = Self(1i32);
+}
+impl ::core::marker::Copy for TwoPaneViewPriority {}
+impl ::core::clone::Clone for TwoPaneViewPriority {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TwoPaneViewTallModeConfiguration(pub i32);
@@ -2930,12 +3326,24 @@ impl TwoPaneViewTallModeConfiguration {
     pub const TopBottom: Self = Self(1i32);
     pub const BottomTop: Self = Self(2i32);
 }
+impl ::core::marker::Copy for TwoPaneViewTallModeConfiguration {}
+impl ::core::clone::Clone for TwoPaneViewTallModeConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TwoPaneViewWideModeConfiguration(pub i32);
 impl TwoPaneViewWideModeConfiguration {
     pub const SinglePane: Self = Self(0i32);
     pub const LeftRight: Self = Self(1i32);
     pub const RightLeft: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TwoPaneViewWideModeConfiguration {}
+impl ::core::clone::Clone for TwoPaneViewWideModeConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UIElementCollection(pub *mut ::core::ffi::c_void);
@@ -2950,6 +3358,12 @@ pub struct VirtualizationMode(pub i32);
 impl VirtualizationMode {
     pub const Standard: Self = Self(0i32);
     pub const Recycling: Self = Self(1i32);
+}
+impl ::core::marker::Copy for VirtualizationMode {}
+impl ::core::clone::Clone for VirtualizationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VirtualizingPanel(pub *mut ::core::ffi::c_void);
@@ -2971,6 +3385,12 @@ impl WebViewExecutionMode {
     pub const SameThread: Self = Self(0i32);
     pub const SeparateThread: Self = Self(1i32);
     pub const SeparateProcess: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WebViewExecutionMode {}
+impl ::core::clone::Clone for WebViewExecutionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WebViewLongRunningScriptDetectedEventArgs(pub *mut ::core::ffi::c_void);
@@ -2996,6 +3416,12 @@ impl WebViewPermissionState {
     pub const Allow: Self = Self(2i32);
     pub const Deny: Self = Self(3i32);
 }
+impl ::core::marker::Copy for WebViewPermissionState {}
+impl ::core::clone::Clone for WebViewPermissionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WebViewPermissionType(pub i32);
 impl WebViewPermissionType {
@@ -3006,6 +3432,12 @@ impl WebViewPermissionType {
     pub const WebNotifications: Self = Self(4i32);
     pub const Screen: Self = Self(5i32);
     pub const ImmersiveView: Self = Self(6i32);
+}
+impl ::core::marker::Copy for WebViewPermissionType {}
+impl ::core::clone::Clone for WebViewPermissionType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WebViewSeparateProcessLostEventArgs(pub *mut ::core::ffi::c_void);
@@ -3024,4 +3456,10 @@ pub struct ZoomMode(pub i32);
 impl ZoomMode {
     pub const Disabled: Self = Self(0i32);
     pub const Enabled: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ZoomMode {}
+impl ::core::clone::Clone for ZoomMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

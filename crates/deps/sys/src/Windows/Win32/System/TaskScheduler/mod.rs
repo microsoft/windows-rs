@@ -139,12 +139,24 @@ pub struct TASKPAGE(pub i32);
 pub const TASKPAGE_TASK: TASKPAGE = TASKPAGE(0i32);
 pub const TASKPAGE_SCHEDULE: TASKPAGE = TASKPAGE(1i32);
 pub const TASKPAGE_SETTINGS: TASKPAGE = TASKPAGE(2i32);
+impl ::core::marker::Copy for TASKPAGE {}
+impl ::core::clone::Clone for TASKPAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASK_ACTION_TYPE(pub i32);
 pub const TASK_ACTION_EXEC: TASK_ACTION_TYPE = TASK_ACTION_TYPE(0i32);
 pub const TASK_ACTION_COM_HANDLER: TASK_ACTION_TYPE = TASK_ACTION_TYPE(5i32);
 pub const TASK_ACTION_SEND_EMAIL: TASK_ACTION_TYPE = TASK_ACTION_TYPE(6i32);
 pub const TASK_ACTION_SHOW_MESSAGE: TASK_ACTION_TYPE = TASK_ACTION_TYPE(7i32);
+impl ::core::marker::Copy for TASK_ACTION_TYPE {}
+impl ::core::clone::Clone for TASK_ACTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TASK_APRIL: u32 = 8u32;
 pub const TASK_AUGUST: u32 = 128u32;
 #[repr(transparent)]
@@ -156,6 +168,12 @@ pub const TASK_COMPATIBILITY_V2_1: TASK_COMPATIBILITY = TASK_COMPATIBILITY(3i32)
 pub const TASK_COMPATIBILITY_V2_2: TASK_COMPATIBILITY = TASK_COMPATIBILITY(4i32);
 pub const TASK_COMPATIBILITY_V2_3: TASK_COMPATIBILITY = TASK_COMPATIBILITY(5i32);
 pub const TASK_COMPATIBILITY_V2_4: TASK_COMPATIBILITY = TASK_COMPATIBILITY(6i32);
+impl ::core::marker::Copy for TASK_COMPATIBILITY {}
+impl ::core::clone::Clone for TASK_COMPATIBILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASK_CREATION(pub i32);
 pub const TASK_VALIDATE_ONLY: TASK_CREATION = TASK_CREATION(1i32);
@@ -165,10 +183,22 @@ pub const TASK_CREATE_OR_UPDATE: TASK_CREATION = TASK_CREATION(6i32);
 pub const TASK_DISABLE: TASK_CREATION = TASK_CREATION(8i32);
 pub const TASK_DONT_ADD_PRINCIPAL_ACE: TASK_CREATION = TASK_CREATION(16i32);
 pub const TASK_IGNORE_REGISTRATION_TRIGGERS: TASK_CREATION = TASK_CREATION(32i32);
+impl ::core::marker::Copy for TASK_CREATION {}
+impl ::core::clone::Clone for TASK_CREATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TASK_DECEMBER: u32 = 2048u32;
 #[repr(transparent)]
 pub struct TASK_ENUM_FLAGS(pub i32);
 pub const TASK_ENUM_HIDDEN: TASK_ENUM_FLAGS = TASK_ENUM_FLAGS(1i32);
+impl ::core::marker::Copy for TASK_ENUM_FLAGS {}
+impl ::core::clone::Clone for TASK_ENUM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TASK_FEBRUARY: u32 = 2u32;
 pub const TASK_FIRST_WEEK: u32 = 1u32;
 pub const TASK_FLAG_DELETE_WHEN_DONE: u32 = 2u32;
@@ -192,6 +222,12 @@ pub const TASK_INSTANCES_PARALLEL: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY
 pub const TASK_INSTANCES_QUEUE: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(1i32);
 pub const TASK_INSTANCES_IGNORE_NEW: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(2i32);
 pub const TASK_INSTANCES_STOP_EXISTING: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(3i32);
+impl ::core::marker::Copy for TASK_INSTANCES_POLICY {}
+impl ::core::clone::Clone for TASK_INSTANCES_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TASK_JANUARY: u32 = 1u32;
 pub const TASK_JULY: u32 = 64u32;
 pub const TASK_JUNE: u32 = 32u32;
@@ -205,6 +241,12 @@ pub const TASK_LOGON_INTERACTIVE_TOKEN: TASK_LOGON_TYPE = TASK_LOGON_TYPE(3i32);
 pub const TASK_LOGON_GROUP: TASK_LOGON_TYPE = TASK_LOGON_TYPE(4i32);
 pub const TASK_LOGON_SERVICE_ACCOUNT: TASK_LOGON_TYPE = TASK_LOGON_TYPE(5i32);
 pub const TASK_LOGON_INTERACTIVE_TOKEN_OR_PASSWORD: TASK_LOGON_TYPE = TASK_LOGON_TYPE(6i32);
+impl ::core::marker::Copy for TASK_LOGON_TYPE {}
+impl ::core::clone::Clone for TASK_LOGON_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TASK_MARCH: u32 = 4u32;
 pub const TASK_MAX_RUN_TIMES: u32 = 1440u32;
 pub const TASK_MAY: u32 = 16u32;
@@ -216,10 +258,22 @@ pub struct TASK_PROCESSTOKENSID_TYPE(pub i32);
 pub const TASK_PROCESSTOKENSID_NONE: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(0i32);
 pub const TASK_PROCESSTOKENSID_UNRESTRICTED: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(1i32);
 pub const TASK_PROCESSTOKENSID_DEFAULT: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(2i32);
+impl ::core::marker::Copy for TASK_PROCESSTOKENSID_TYPE {}
+impl ::core::clone::Clone for TASK_PROCESSTOKENSID_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASK_RUNLEVEL_TYPE(pub i32);
 pub const TASK_RUNLEVEL_LUA: TASK_RUNLEVEL_TYPE = TASK_RUNLEVEL_TYPE(0i32);
 pub const TASK_RUNLEVEL_HIGHEST: TASK_RUNLEVEL_TYPE = TASK_RUNLEVEL_TYPE(1i32);
+impl ::core::marker::Copy for TASK_RUNLEVEL_TYPE {}
+impl ::core::clone::Clone for TASK_RUNLEVEL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASK_RUN_FLAGS(pub i32);
 pub const TASK_RUN_NO_FLAGS: TASK_RUN_FLAGS = TASK_RUN_FLAGS(0i32);
@@ -227,6 +281,12 @@ pub const TASK_RUN_AS_SELF: TASK_RUN_FLAGS = TASK_RUN_FLAGS(1i32);
 pub const TASK_RUN_IGNORE_CONSTRAINTS: TASK_RUN_FLAGS = TASK_RUN_FLAGS(2i32);
 pub const TASK_RUN_USE_SESSION_ID: TASK_RUN_FLAGS = TASK_RUN_FLAGS(4i32);
 pub const TASK_RUN_USER_SID: TASK_RUN_FLAGS = TASK_RUN_FLAGS(8i32);
+impl ::core::marker::Copy for TASK_RUN_FLAGS {}
+impl ::core::clone::Clone for TASK_RUN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TASK_SATURDAY: u32 = 64u32;
 pub const TASK_SECOND_WEEK: u32 = 2u32;
 pub const TASK_SEPTEMBER: u32 = 256u32;
@@ -238,6 +298,12 @@ pub const TASK_REMOTE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STA
 pub const TASK_REMOTE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(4i32);
 pub const TASK_SESSION_LOCK: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(7i32);
 pub const TASK_SESSION_UNLOCK: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(8i32);
+impl ::core::marker::Copy for TASK_SESSION_STATE_CHANGE_TYPE {}
+impl ::core::clone::Clone for TASK_SESSION_STATE_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASK_STATE(pub i32);
 pub const TASK_STATE_UNKNOWN: TASK_STATE = TASK_STATE(0i32);
@@ -245,6 +311,12 @@ pub const TASK_STATE_DISABLED: TASK_STATE = TASK_STATE(1i32);
 pub const TASK_STATE_QUEUED: TASK_STATE = TASK_STATE(2i32);
 pub const TASK_STATE_READY: TASK_STATE = TASK_STATE(3i32);
 pub const TASK_STATE_RUNNING: TASK_STATE = TASK_STATE(4i32);
+impl ::core::marker::Copy for TASK_STATE {}
+impl ::core::clone::Clone for TASK_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TASK_SUNDAY: u32 = 1u32;
 pub const TASK_THIRD_WEEK: u32 = 3u32;
 pub const TASK_THURSDAY: u32 = 16u32;
@@ -287,6 +359,12 @@ pub const TASK_TIME_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(4i
 pub const TASK_EVENT_TRIGGER_ON_IDLE: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(5i32);
 pub const TASK_EVENT_TRIGGER_AT_SYSTEMSTART: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(6i32);
 pub const TASK_EVENT_TRIGGER_AT_LOGON: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(7i32);
+impl ::core::marker::Copy for TASK_TRIGGER_TYPE {}
+impl ::core::clone::Clone for TASK_TRIGGER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASK_TRIGGER_TYPE2(pub i32);
 pub const TASK_TRIGGER_EVENT: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(0i32);
@@ -301,6 +379,12 @@ pub const TASK_TRIGGER_BOOT: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(8i32);
 pub const TASK_TRIGGER_LOGON: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(9i32);
 pub const TASK_TRIGGER_SESSION_STATE_CHANGE: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(11i32);
 pub const TASK_TRIGGER_CUSTOM_TRIGGER_01: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(12i32);
+impl ::core::marker::Copy for TASK_TRIGGER_TYPE2 {}
+impl ::core::clone::Clone for TASK_TRIGGER_TYPE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TASK_TUESDAY: u32 = 4u32;
 pub const TASK_WEDNESDAY: u32 = 8u32;
 #[repr(C)]

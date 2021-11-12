@@ -173,6 +173,12 @@ pub const ADVF_DATAONSTOP: ADVF = ADVF(64i32);
 pub const ADVFCACHE_NOHANDLER: ADVF = ADVF(8i32);
 pub const ADVFCACHE_FORCEBUILTIN: ADVF = ADVF(16i32);
 pub const ADVFCACHE_ONSAVE: ADVF = ADVF(32i32);
+impl ::core::marker::Copy for ADVF {}
+impl ::core::clone::Clone for ADVF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU: u32 = 2048u32;
 pub const APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP: u32 = 1u32;
 pub const APPIDREGFLAGS_ISSUE_ACTIVATION_RPC_AT_IDENTIFY: u32 = 4u32;
@@ -195,6 +201,12 @@ pub const APTTYPE_STA: APTTYPE = APTTYPE(0i32);
 pub const APTTYPE_MTA: APTTYPE = APTTYPE(1i32);
 pub const APTTYPE_NA: APTTYPE = APTTYPE(2i32);
 pub const APTTYPE_MAINSTA: APTTYPE = APTTYPE(3i32);
+impl ::core::marker::Copy for APTTYPE {}
+impl ::core::clone::Clone for APTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APTTYPEQUALIFIER(pub i32);
 pub const APTTYPEQUALIFIER_NONE: APTTYPEQUALIFIER = APTTYPEQUALIFIER(0i32);
@@ -205,6 +217,12 @@ pub const APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFI
 pub const APTTYPEQUALIFIER_NA_ON_MAINSTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(5i32);
 pub const APTTYPEQUALIFIER_APPLICATION_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(6i32);
 pub const APTTYPEQUALIFIER_RESERVED_1: APTTYPEQUALIFIER = APTTYPEQUALIFIER(7i32);
+impl ::core::marker::Copy for APTTYPEQUALIFIER {}
+impl ::core::clone::Clone for APTTYPEQUALIFIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
 pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
 #[repr(C)]
@@ -222,6 +240,12 @@ impl ::core::clone::Clone for AUTHENTICATEINFO {
 pub struct ApplicationType(pub i32);
 pub const ServerApplication: ApplicationType = ApplicationType(0i32);
 pub const LibraryApplication: ApplicationType = ApplicationType(1i32);
+impl ::core::marker::Copy for ApplicationType {}
+impl ::core::clone::Clone for ApplicationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIAdviseSink(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -266,6 +290,12 @@ impl ::core::clone::Clone for BINDINFO {
 pub struct BINDINFOF(pub i32);
 pub const BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = BINDINFOF(1i32);
 pub const BINDINFOF_URLENCODEDEXTRAINFO: BINDINFOF = BINDINFOF(2i32);
+impl ::core::marker::Copy for BINDINFOF {}
+impl ::core::clone::Clone for BINDINFOF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub union BINDPTR {
@@ -283,6 +313,12 @@ impl ::core::clone::Clone for BINDPTR {
 pub struct BIND_FLAGS(pub i32);
 pub const BIND_MAYBOTHERUSER: BIND_FLAGS = BIND_FLAGS(1i32);
 pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = BIND_FLAGS(2i32);
+impl ::core::marker::Copy for BIND_FLAGS {}
+impl ::core::clone::Clone for BIND_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct BIND_OPTS {
     pub cbStruct: u32,
@@ -373,6 +409,12 @@ pub const CC_SYSCALL: CALLCONV = CALLCONV(6i32);
 pub const CC_MPWCDECL: CALLCONV = CALLCONV(7i32);
 pub const CC_MPWPASCAL: CALLCONV = CALLCONV(8i32);
 pub const CC_MAX: CALLCONV = CALLCONV(9i32);
+impl ::core::marker::Copy for CALLCONV {}
+impl ::core::clone::Clone for CALLCONV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLTYPE(pub i32);
 pub const CALLTYPE_TOPLEVEL: CALLTYPE = CALLTYPE(1i32);
@@ -380,6 +422,12 @@ pub const CALLTYPE_NESTED: CALLTYPE = CALLTYPE(2i32);
 pub const CALLTYPE_ASYNC: CALLTYPE = CALLTYPE(3i32);
 pub const CALLTYPE_TOPLEVEL_CALLPENDING: CALLTYPE = CALLTYPE(4i32);
 pub const CALLTYPE_ASYNC_CALLPENDING: CALLTYPE = CALLTYPE(5i32);
+impl ::core::marker::Copy for CALLTYPE {}
+impl ::core::clone::Clone for CALLTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CATEGORYINFO {
     pub catid: ::windows_sys::core::GUID,
@@ -423,6 +471,12 @@ pub const CLSCTX_ACTIVATE_ARM32_SERVER: CLSCTX = CLSCTX(33554432u32);
 pub const CLSCTX_PS_DLL: CLSCTX = CLSCTX(2147483648u32);
 pub const CLSCTX_ALL: CLSCTX = CLSCTX(23u32);
 pub const CLSCTX_SERVER: CLSCTX = CLSCTX(21u32);
+impl ::core::marker::Copy for CLSCTX {}
+impl ::core::clone::Clone for CLSCTX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct COAUTHIDENTITY {
     pub User: *mut u16,
@@ -464,15 +518,33 @@ pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2u32);
 pub const COINIT_MULTITHREADED: COINIT = COINIT(0u32);
 pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4u32);
 pub const COINIT_SPEED_OVER_MEMORY: COINIT = COINIT(8u32);
+impl ::core::marker::Copy for COINIT {}
+impl ::core::clone::Clone for COINIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COINITBASE(pub i32);
 pub const COINITBASE_MULTITHREADED: COINITBASE = COINITBASE(0i32);
+impl ::core::marker::Copy for COINITBASE {}
+impl ::core::clone::Clone for COINITBASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMSD(pub i32);
 pub const SD_LAUNCHPERMISSIONS: COMSD = COMSD(0i32);
 pub const SD_ACCESSPERMISSIONS: COMSD = COMSD(1i32);
 pub const SD_LAUNCHRESTRICTIONS: COMSD = COMSD(2i32);
 pub const SD_ACCESSRESTRICTIONS: COMSD = COMSD(3i32);
+impl ::core::marker::Copy for COMSD {}
+impl ::core::clone::Clone for COMSD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const COM_RIGHTS_ACTIVATE_LOCAL: u32 = 8u32;
 pub const COM_RIGHTS_ACTIVATE_REMOTE: u32 = 16u32;
 pub const COM_RIGHTS_EXECUTE: u32 = 1u32;
@@ -515,6 +587,12 @@ pub const COWAIT_ALERTABLE: COWAIT_FLAGS = COWAIT_FLAGS(2i32);
 pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = COWAIT_FLAGS(4i32);
 pub const COWAIT_DISPATCH_CALLS: COWAIT_FLAGS = COWAIT_FLAGS(8i32);
 pub const COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = COWAIT_FLAGS(16i32);
+impl ::core::marker::Copy for COWAIT_FLAGS {}
+impl ::core::clone::Clone for COWAIT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CO_DEVICE_CATALOG_COOKIE {
     pub Value: isize,
@@ -546,6 +624,12 @@ pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15: CO_MARSHALING_CONTEXT_ATT
 pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483633i32);
 pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483632i32);
 pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483631i32);
+impl ::core::marker::Copy for CO_MARSHALING_CONTEXT_ATTRIBUTES {}
+impl ::core::clone::Clone for CO_MARSHALING_CONTEXT_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CO_MTA_USAGE_COOKIE {
     pub Value: isize,
@@ -602,6 +686,12 @@ pub struct CWMO_FLAGS(pub i32);
 pub const CWMO_DEFAULT: CWMO_FLAGS = CWMO_FLAGS(0i32);
 pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = CWMO_FLAGS(1i32);
 pub const CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = CWMO_FLAGS(2i32);
+impl ::core::marker::Copy for CWMO_FLAGS {}
+impl ::core::clone::Clone for CWMO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CWMO_MAX_HANDLES: u32 = 56u32;
 #[repr(C)]
 pub union CY {
@@ -640,6 +730,12 @@ impl ::core::clone::Clone for ComCallData {
 pub struct DATADIR(pub i32);
 pub const DATADIR_GET: DATADIR = DATADIR(1i32);
 pub const DATADIR_SET: DATADIR = DATADIR(2i32);
+impl ::core::marker::Copy for DATADIR {}
+impl ::core::clone::Clone for DATADIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: u32 = 2u32;
 pub const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: u32 = 1u32;
 pub const DCOMSCM_PING_DISALLOW_UNSECURE_CALL: u32 = 32u32;
@@ -651,6 +747,12 @@ pub struct DCOM_CALL_STATE(pub i32);
 pub const DCOM_NONE: DCOM_CALL_STATE = DCOM_CALL_STATE(0i32);
 pub const DCOM_CALL_COMPLETE: DCOM_CALL_STATE = DCOM_CALL_STATE(1i32);
 pub const DCOM_CALL_CANCELED: DCOM_CALL_STATE = DCOM_CALL_STATE(2i32);
+impl ::core::marker::Copy for DCOM_CALL_STATE {}
+impl ::core::clone::Clone for DCOM_CALL_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DESCKIND(pub i32);
 pub const DESCKIND_NONE: DESCKIND = DESCKIND(0i32);
@@ -659,6 +761,12 @@ pub const DESCKIND_VARDESC: DESCKIND = DESCKIND(2i32);
 pub const DESCKIND_TYPECOMP: DESCKIND = DESCKIND(3i32);
 pub const DESCKIND_IMPLICITAPPOBJ: DESCKIND = DESCKIND(4i32);
 pub const DESCKIND_MAX: DESCKIND = DESCKIND(5i32);
+impl ::core::marker::Copy for DESCKIND {}
+impl ::core::clone::Clone for DESCKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct DISPPARAMS {
@@ -682,6 +790,12 @@ pub const DVASPECT_CONTENT: DVASPECT = DVASPECT(1i32);
 pub const DVASPECT_THUMBNAIL: DVASPECT = DVASPECT(2i32);
 pub const DVASPECT_ICON: DVASPECT = DVASPECT(4i32);
 pub const DVASPECT_DOCPRINT: DVASPECT = DVASPECT(8i32);
+impl ::core::marker::Copy for DVASPECT {}
+impl ::core::clone::Clone for DVASPECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DVTARGETDEVICE {
     pub tdSize: u32,
@@ -752,6 +866,12 @@ pub const EOAC_AUTO_IMPERSONATE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENT
 pub const EOAC_DISABLE_AAA: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4096i32);
 pub const EOAC_NO_CUSTOM_MARSHAL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8192i32);
 pub const EOAC_RESERVED1: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16384i32);
+impl ::core::marker::Copy for EOLE_AUTHENTICATION_CAPABILITIES {}
+impl ::core::clone::Clone for EOLE_AUTHENTICATION_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXCEPINFO {
@@ -778,6 +898,12 @@ pub struct EXTCONN(pub i32);
 pub const EXTCONN_STRONG: EXTCONN = EXTCONN(1i32);
 pub const EXTCONN_WEAK: EXTCONN = EXTCONN(2i32);
 pub const EXTCONN_CALLABLE: EXTCONN = EXTCONN(4i32);
+impl ::core::marker::Copy for EXTCONN {}
+impl ::core::clone::Clone for EXTCONN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct FLAGGED_BYTE_BLOB {
     pub fFlags: u32,
@@ -862,6 +988,12 @@ pub const FUNC_PUREVIRTUAL: FUNCKIND = FUNCKIND(1i32);
 pub const FUNC_NONVIRTUAL: FUNCKIND = FUNCKIND(2i32);
 pub const FUNC_STATIC: FUNCKIND = FUNCKIND(3i32);
 pub const FUNC_DISPATCH: FUNCKIND = FUNCKIND(4i32);
+impl ::core::marker::Copy for FUNCKIND {}
+impl ::core::clone::Clone for FUNCKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct GDI_OBJECT {
@@ -895,6 +1027,12 @@ pub const COMGLB_EXCEPTION_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(0i3
 pub const COMGLB_EXCEPTION_DONOT_HANDLE_FATAL: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
 pub const COMGLB_EXCEPTION_DONOT_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
 pub const COMGLB_EXCEPTION_DONOT_HANDLE_ANY: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(2i32);
+impl ::core::marker::Copy for GLOBALOPT_EH_VALUES {}
+impl ::core::clone::Clone for GLOBALOPT_EH_VALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GLOBALOPT_PROPERTIES(pub i32);
 pub const COMGLB_EXCEPTION_HANDLING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(1i32);
@@ -905,6 +1043,12 @@ pub const COMGLB_UNMARSHALING_POLICY: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIE
 pub const COMGLB_PROPERTIES_RESERVED1: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(6i32);
 pub const COMGLB_PROPERTIES_RESERVED2: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(7i32);
 pub const COMGLB_PROPERTIES_RESERVED3: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(8i32);
+impl ::core::marker::Copy for GLOBALOPT_PROPERTIES {}
+impl ::core::clone::Clone for GLOBALOPT_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GLOBALOPT_RO_FLAGS(pub i32);
 pub const COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1i32);
@@ -918,15 +1062,33 @@ pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES: GLOBALOPT_
 pub const COMGLB_RESERVED4: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(256i32);
 pub const COMGLB_RESERVED5: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(512i32);
 pub const COMGLB_RESERVED6: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1024i32);
+impl ::core::marker::Copy for GLOBALOPT_RO_FLAGS {}
+impl ::core::clone::Clone for GLOBALOPT_RO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GLOBALOPT_RPCTP_VALUES(pub i32);
 pub const COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(0i32);
 pub const COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(1i32);
+impl ::core::marker::Copy for GLOBALOPT_RPCTP_VALUES {}
+impl ::core::clone::Clone for GLOBALOPT_RPCTP_VALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GLOBALOPT_UNMARSHALING_POLICY_VALUES(pub i32);
 pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(0i32);
 pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(1i32);
 pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(2i32);
+impl ::core::marker::Copy for GLOBALOPT_UNMARSHALING_POLICY_VALUES {}
+impl ::core::clone::Clone for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct HYPER_SIZEDARR {
     pub clSize: u32,
@@ -1079,6 +1241,12 @@ pub const INVOKE_FUNC: INVOKEKIND = INVOKEKIND(1i32);
 pub const INVOKE_PROPERTYGET: INVOKEKIND = INVOKEKIND(2i32);
 pub const INVOKE_PROPERTYPUT: INVOKEKIND = INVOKEKIND(4i32);
 pub const INVOKE_PROPERTYPUTREF: INVOKEKIND = INVOKEKIND(8i32);
+impl ::core::marker::Copy for INVOKEKIND {}
+impl ::core::clone::Clone for INVOKEKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INoMarshal(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1205,12 +1373,24 @@ pub const MEMCTX_SHARED: MEMCTX = MEMCTX(2i32);
 pub const MEMCTX_MACSYSTEM: MEMCTX = MEMCTX(3i32);
 pub const MEMCTX_UNKNOWN: MEMCTX = MEMCTX(-1i32);
 pub const MEMCTX_SAME: MEMCTX = MEMCTX(-2i32);
+impl ::core::marker::Copy for MEMCTX {}
+impl ::core::clone::Clone for MEMCTX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MKREDUCE(pub i32);
 pub const MKRREDUCE_ONE: MKREDUCE = MKREDUCE(196608i32);
 pub const MKRREDUCE_TOUSER: MKREDUCE = MKREDUCE(131072i32);
 pub const MKRREDUCE_THROUGHUSER: MKREDUCE = MKREDUCE(65536i32);
 pub const MKRREDUCE_ALL: MKREDUCE = MKREDUCE(0i32);
+impl ::core::marker::Copy for MKREDUCE {}
+impl ::core::clone::Clone for MKREDUCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MKSYS(pub i32);
 pub const MKSYS_NONE: MKSYS = MKSYS(0i32);
@@ -1223,6 +1403,12 @@ pub const MKSYS_CLASSMONIKER: MKSYS = MKSYS(7i32);
 pub const MKSYS_OBJREFMONIKER: MKSYS = MKSYS(8i32);
 pub const MKSYS_SESSIONMONIKER: MKSYS = MKSYS(9i32);
 pub const MKSYS_LUAMONIKER: MKSYS = MKSYS(10i32);
+impl ::core::marker::Copy for MKSYS {}
+impl ::core::clone::Clone for MKSYS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSHCTX(pub i32);
 pub const MSHCTX_LOCAL: MSHCTX = MSHCTX(0i32);
@@ -1231,6 +1417,12 @@ pub const MSHCTX_DIFFERENTMACHINE: MSHCTX = MSHCTX(2i32);
 pub const MSHCTX_INPROC: MSHCTX = MSHCTX(3i32);
 pub const MSHCTX_CROSSCTX: MSHCTX = MSHCTX(4i32);
 pub const MSHCTX_CONTAINER: MSHCTX = MSHCTX(5i32);
+impl ::core::marker::Copy for MSHCTX {}
+impl ::core::clone::Clone for MSHCTX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSHLFLAGS(pub i32);
 pub const MSHLFLAGS_NORMAL: MSHLFLAGS = MSHLFLAGS(0i32);
@@ -1241,6 +1433,12 @@ pub const MSHLFLAGS_RESERVED1: MSHLFLAGS = MSHLFLAGS(8i32);
 pub const MSHLFLAGS_RESERVED2: MSHLFLAGS = MSHLFLAGS(16i32);
 pub const MSHLFLAGS_RESERVED3: MSHLFLAGS = MSHLFLAGS(32i32);
 pub const MSHLFLAGS_RESERVED4: MSHLFLAGS = MSHLFLAGS(64i32);
+impl ::core::marker::Copy for MSHLFLAGS {}
+impl ::core::clone::Clone for MSHLFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MULTI_QI {
     pub pIID: *mut ::windows_sys::core::GUID,
@@ -1268,10 +1466,22 @@ pub struct PENDINGMSG(pub i32);
 pub const PENDINGMSG_CANCELCALL: PENDINGMSG = PENDINGMSG(0i32);
 pub const PENDINGMSG_WAITNOPROCESS: PENDINGMSG = PENDINGMSG(1i32);
 pub const PENDINGMSG_WAITDEFPROCESS: PENDINGMSG = PENDINGMSG(2i32);
+impl ::core::marker::Copy for PENDINGMSG {}
+impl ::core::clone::Clone for PENDINGMSG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PENDINGTYPE(pub i32);
 pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = PENDINGTYPE(1i32);
 pub const PENDINGTYPE_NESTED: PENDINGTYPE = PENDINGTYPE(2i32);
+impl ::core::marker::Copy for PENDINGTYPE {}
+impl ::core::clone::Clone for PENDINGTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PFNCONTEXTCALL = unsafe extern "system" fn(pparam: *mut ComCallData) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct QUERYCONTEXT {
@@ -1295,6 +1505,12 @@ pub const REGCLS_MULTI_SEPARATE: REGCLS = REGCLS(2i32);
 pub const REGCLS_SUSPENDED: REGCLS = REGCLS(4i32);
 pub const REGCLS_SURROGATE: REGCLS = REGCLS(8i32);
 pub const REGCLS_AGILE: REGCLS = REGCLS(16i32);
+impl ::core::marker::Copy for REGCLS {}
+impl ::core::clone::Clone for REGCLS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1u32;
 #[repr(C)]
 pub struct RPCOLEMESSAGE {
@@ -1320,11 +1536,23 @@ pub const COMBND_RESERVED1: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(4i32);
 pub const COMBND_RESERVED2: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(5i32);
 pub const COMBND_RESERVED3: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(8i32);
 pub const COMBND_RESERVED4: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(16i32);
+impl ::core::marker::Copy for RPCOPT_PROPERTIES {}
+impl ::core::clone::Clone for RPCOPT_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RPCOPT_SERVER_LOCALITY_VALUES(pub i32);
 pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(0i32);
 pub const SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(1i32);
 pub const SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(2i32);
+impl ::core::marker::Copy for RPCOPT_SERVER_LOCALITY_VALUES {}
+impl ::core::clone::Clone for RPCOPT_SERVER_LOCALITY_VALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RPC_C_AUTHN_LEVEL(pub u32);
 pub const RPC_C_AUTHN_LEVEL_DEFAULT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(0u32);
@@ -1334,6 +1562,12 @@ pub const RPC_C_AUTHN_LEVEL_CALL: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(3u32);
 pub const RPC_C_AUTHN_LEVEL_PKT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(4u32);
 pub const RPC_C_AUTHN_LEVEL_PKT_INTEGRITY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(5u32);
 pub const RPC_C_AUTHN_LEVEL_PKT_PRIVACY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(6u32);
+impl ::core::marker::Copy for RPC_C_AUTHN_LEVEL {}
+impl ::core::clone::Clone for RPC_C_AUTHN_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RPC_C_IMP_LEVEL(pub u32);
 pub const RPC_C_IMP_LEVEL_DEFAULT: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(0u32);
@@ -1341,6 +1575,12 @@ pub const RPC_C_IMP_LEVEL_ANONYMOUS: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(1u32);
 pub const RPC_C_IMP_LEVEL_IDENTIFY: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(2u32);
 pub const RPC_C_IMP_LEVEL_IMPERSONATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(3u32);
 pub const RPC_C_IMP_LEVEL_DELEGATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(4u32);
+impl ::core::marker::Copy for RPC_C_IMP_LEVEL {}
+impl ::core::clone::Clone for RPC_C_IMP_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct RemSTGMEDIUM {
     pub tymed: u32,
@@ -1402,6 +1642,12 @@ pub struct SERVERCALL(pub i32);
 pub const SERVERCALL_ISHANDLED: SERVERCALL = SERVERCALL(0i32);
 pub const SERVERCALL_REJECTED: SERVERCALL = SERVERCALL(1i32);
 pub const SERVERCALL_RETRYLATER: SERVERCALL = SERVERCALL(2i32);
+impl ::core::marker::Copy for SERVERCALL {}
+impl ::core::clone::Clone for SERVERCALL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SHORT_SIZEDARR {
     pub clSize: u32,
@@ -1526,6 +1772,12 @@ pub const STGTY_STORAGE: STGTY = STGTY(1i32);
 pub const STGTY_STREAM: STGTY = STGTY(2i32);
 pub const STGTY_LOCKBYTES: STGTY = STGTY(3i32);
 pub const STGTY_PROPERTY: STGTY = STGTY(4i32);
+impl ::core::marker::Copy for STGTY {}
+impl ::core::clone::Clone for STGTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STGTY_REPEAT: i32 = 256i32;
 pub const STG_LAYOUT_INTERLEAVED: i32 = 1i32;
 pub const STG_LAYOUT_SEQUENTIAL: i32 = 0i32;
@@ -1535,16 +1787,34 @@ pub struct STREAM_SEEK(pub u32);
 pub const STREAM_SEEK_SET: STREAM_SEEK = STREAM_SEEK(0u32);
 pub const STREAM_SEEK_CUR: STREAM_SEEK = STREAM_SEEK(1u32);
 pub const STREAM_SEEK_END: STREAM_SEEK = STREAM_SEEK(2u32);
+impl ::core::marker::Copy for STREAM_SEEK {}
+impl ::core::clone::Clone for STREAM_SEEK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYSKIND(pub i32);
 pub const SYS_WIN16: SYSKIND = SYSKIND(0i32);
 pub const SYS_WIN32: SYSKIND = SYSKIND(1i32);
 pub const SYS_MAC: SYSKIND = SYSKIND(2i32);
 pub const SYS_WIN64: SYSKIND = SYSKIND(3i32);
+impl ::core::marker::Copy for SYSKIND {}
+impl ::core::clone::Clone for SYSKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ShutdownType(pub i32);
 pub const IdleShutdown: ShutdownType = ShutdownType(0i32);
 pub const ForcedShutdown: ShutdownType = ShutdownType(1i32);
+impl ::core::marker::Copy for ShutdownType {}
+impl ::core::clone::Clone for ShutdownType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct StorageLayout {
@@ -1565,6 +1835,12 @@ impl ::core::clone::Clone for StorageLayout {
 pub struct THDTYPE(pub i32);
 pub const THDTYPE_BLOCKMESSAGES: THDTYPE = THDTYPE(0i32);
 pub const THDTYPE_PROCESSMESSAGES: THDTYPE = THDTYPE(1i32);
+impl ::core::marker::Copy for THDTYPE {}
+impl ::core::clone::Clone for THDTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TLIBATTR {
     pub guid: ::windows_sys::core::GUID,
@@ -1590,6 +1866,12 @@ pub const TYMED_GDI: TYMED = TYMED(16i32);
 pub const TYMED_MFPICT: TYMED = TYMED(32i32);
 pub const TYMED_ENHMF: TYMED = TYMED(64i32);
 pub const TYMED_NULL: TYMED = TYMED(0i32);
+impl ::core::marker::Copy for TYMED {}
+impl ::core::clone::Clone for TYMED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct TYPEATTR {
@@ -1658,6 +1940,12 @@ pub const TKIND_COCLASS: TYPEKIND = TYPEKIND(5i32);
 pub const TKIND_ALIAS: TYPEKIND = TYPEKIND(6i32);
 pub const TKIND_UNION: TYPEKIND = TYPEKIND(7i32);
 pub const TKIND_MAX: TYPEKIND = TYPEKIND(8i32);
+impl ::core::marker::Copy for TYPEKIND {}
+impl ::core::clone::Clone for TYPEKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TYSPEC(pub i32);
 pub const TYSPEC_CLSID: TYSPEC = TYSPEC(0i32);
@@ -1667,6 +1955,12 @@ pub const TYSPEC_FILENAME: TYSPEC = TYSPEC(3i32);
 pub const TYSPEC_PROGID: TYSPEC = TYSPEC(4i32);
 pub const TYSPEC_PACKAGENAME: TYSPEC = TYSPEC(5i32);
 pub const TYSPEC_OBJECTID: TYSPEC = TYSPEC(6i32);
+impl ::core::marker::Copy for TYSPEC {}
+impl ::core::clone::Clone for TYSPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct URI_CREATE_FLAGS(pub u32);
 pub const Uri_CREATE_ALLOW_RELATIVE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1u32);
@@ -1687,6 +1981,12 @@ pub const Uri_CREATE_NO_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16384u3
 pub const Uri_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32768u32);
 pub const Uri_CREATE_NORMALIZE_INTL_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(65536u32);
 pub const Uri_CREATE_CANONICALIZE_ABSOLUTE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(131072u32);
+impl ::core::marker::Copy for URI_CREATE_FLAGS {}
+impl ::core::clone::Clone for URI_CREATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Uri_PROPERTY(pub i32);
 pub const Uri_PROPERTY_ABSOLUTE_URI: Uri_PROPERTY = Uri_PROPERTY(0i32);
@@ -1712,6 +2012,12 @@ pub const Uri_PROPERTY_PORT: Uri_PROPERTY = Uri_PROPERTY(16i32);
 pub const Uri_PROPERTY_SCHEME: Uri_PROPERTY = Uri_PROPERTY(17i32);
 pub const Uri_PROPERTY_ZONE: Uri_PROPERTY = Uri_PROPERTY(18i32);
 pub const Uri_PROPERTY_DWORD_LAST: Uri_PROPERTY = Uri_PROPERTY(18i32);
+impl ::core::marker::Copy for Uri_PROPERTY {}
+impl ::core::clone::Clone for Uri_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct VARDESC {
@@ -1860,6 +2166,12 @@ pub const VAR_PERINSTANCE: VARKIND = VARKIND(0i32);
 pub const VAR_STATIC: VARKIND = VARKIND(1i32);
 pub const VAR_CONST: VARKIND = VARKIND(2i32);
 pub const VAR_DISPATCH: VARKIND = VARKIND(3i32);
+impl ::core::marker::Copy for VARKIND {}
+impl ::core::clone::Clone for VARKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WORD_BLOB {
     pub clSize: u32,

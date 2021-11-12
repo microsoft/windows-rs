@@ -15,6 +15,12 @@ impl DeviceAccessStatus {
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
 }
+impl ::core::marker::Copy for DeviceAccessStatus {}
+impl ::core::clone::Clone for DeviceAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DeviceClass(pub i32);
 impl DeviceClass {
@@ -25,6 +31,12 @@ impl DeviceClass {
     pub const VideoCapture: Self = Self(4i32);
     pub const ImageScanner: Self = Self(5i32);
     pub const Location: Self = Self(6i32);
+}
+impl ::core::marker::Copy for DeviceClass {}
+impl ::core::clone::Clone for DeviceClass {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DeviceConnectionChangeTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -49,6 +61,12 @@ impl DeviceInformationKind {
     pub const AssociationEndpointService: Self = Self(7i32);
     pub const DevicePanel: Self = Self(8i32);
 }
+impl ::core::marker::Copy for DeviceInformationKind {}
+impl ::core::clone::Clone for DeviceInformationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DeviceInformationPairing(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -63,6 +81,12 @@ impl DevicePairingKinds {
     pub const ConfirmPinMatch: Self = Self(8u32);
     pub const ProvidePasswordCredential: Self = Self(16u32);
 }
+impl ::core::marker::Copy for DevicePairingKinds {}
+impl ::core::clone::Clone for DevicePairingKinds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DevicePairingProtectionLevel(pub i32);
 impl DevicePairingProtectionLevel {
@@ -70,6 +94,12 @@ impl DevicePairingProtectionLevel {
     pub const None: Self = Self(1i32);
     pub const Encryption: Self = Self(2i32);
     pub const EncryptionAndAuthentication: Self = Self(3i32);
+}
+impl ::core::marker::Copy for DevicePairingProtectionLevel {}
+impl ::core::clone::Clone for DevicePairingProtectionLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DevicePairingRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -99,6 +129,12 @@ impl DevicePairingResultStatus {
     pub const RemoteDeviceHasAssociation: Self = Self(18i32);
     pub const Failed: Self = Self(19i32);
 }
+impl ::core::marker::Copy for DevicePairingResultStatus {}
+impl ::core::clone::Clone for DevicePairingResultStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DevicePicker(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -110,6 +146,12 @@ impl DevicePickerDisplayStatusOptions {
     pub const ShowProgress: Self = Self(1u32);
     pub const ShowDisconnectButton: Self = Self(2u32);
     pub const ShowRetryButton: Self = Self(4u32);
+}
+impl ::core::marker::Copy for DevicePickerDisplayStatusOptions {}
+impl ::core::clone::Clone for DevicePickerDisplayStatusOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DevicePickerFilter(pub *mut ::core::ffi::c_void);
@@ -128,6 +170,12 @@ impl DeviceUnpairingResultStatus {
     pub const AccessDenied: Self = Self(3i32);
     pub const Failed: Self = Self(4i32);
 }
+impl ::core::marker::Copy for DeviceUnpairingResultStatus {}
+impl ::core::clone::Clone for DeviceUnpairingResultStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DeviceWatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -139,6 +187,12 @@ impl DeviceWatcherEventKind {
     pub const Update: Self = Self(1i32);
     pub const Remove: Self = Self(2i32);
 }
+impl ::core::marker::Copy for DeviceWatcherEventKind {}
+impl ::core::clone::Clone for DeviceWatcherEventKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DeviceWatcherStatus(pub i32);
 impl DeviceWatcherStatus {
@@ -148,6 +202,12 @@ impl DeviceWatcherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
+}
+impl ::core::marker::Copy for DeviceWatcherStatus {}
+impl ::core::clone::Clone for DeviceWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DeviceWatcherTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -227,4 +287,10 @@ impl Panel {
     pub const Bottom: Self = Self(4i32);
     pub const Left: Self = Self(5i32);
     pub const Right: Self = Self(6i32);
+}
+impl ::core::marker::Copy for Panel {}
+impl ::core::clone::Clone for Panel {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

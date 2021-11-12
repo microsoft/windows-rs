@@ -70,6 +70,12 @@ pub const AUDIOPOSTURE_ORIENTATION_NOTROTATED: AUDIOPOSTURE_ORIENTATION = AUDIOP
 pub const AUDIOPOSTURE_ORIENTATION_ROTATED90DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = AUDIOPOSTURE_ORIENTATION(1i32);
 pub const AUDIOPOSTURE_ORIENTATION_ROTATED180DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = AUDIOPOSTURE_ORIENTATION(2i32);
 pub const AUDIOPOSTURE_ORIENTATION_ROTATED270DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = AUDIOPOSTURE_ORIENTATION(3i32);
+impl ::core::marker::Copy for AUDIOPOSTURE_ORIENTATION {}
+impl ::core::clone::Clone for AUDIOPOSTURE_ORIENTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
@@ -88,6 +94,12 @@ impl ::core::clone::Clone for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
 pub struct AUDIO_CURVE_TYPE(pub i32);
 pub const AUDIO_CURVE_TYPE_NONE: AUDIO_CURVE_TYPE = AUDIO_CURVE_TYPE(0i32);
 pub const AUDIO_CURVE_TYPE_WINDOWS_FADE: AUDIO_CURVE_TYPE = AUDIO_CURVE_TYPE(1i32);
+impl ::core::marker::Copy for AUDIO_CURVE_TYPE {}
+impl ::core::clone::Clone for AUDIO_CURVE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1868869054, data2: 33297, data3: 4578, data4: [140, 112, 44, 39, 215, 240, 1, 250] };
 pub const AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1868869056, data2: 33297, data3: 4578, data4: [140, 112, 44, 39, 215, 240, 1, 250] };
 pub const AUDIO_EFFECT_TYPE_BASS_BOOST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1868869061, data2: 33297, data3: 4578, data4: [140, 112, 44, 39, 215, 240, 1, 250] };
@@ -171,6 +183,12 @@ pub const KS_CAPTURE_ALLOC_VRAM: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMOR
 pub const KS_CAPTURE_ALLOC_SYSTEM_AGP: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(4i32);
 pub const KS_CAPTURE_ALLOC_VRAM_MAPPED: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(8i32);
 pub const KS_CAPTURE_ALLOC_SECURE_BUFFER: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(16i32);
+impl ::core::marker::Copy for CAPTURE_MEMORY_ALLOCATION_FLAGS {}
+impl ::core::clone::Clone for CAPTURE_MEMORY_ALLOCATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct CC_BYTE_PAIR {
     pub Decoded: [u8; 2],
@@ -224,6 +242,12 @@ pub const CODECAPI_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::GUI
 pub struct CONSTRICTOR_OPTION(pub i32);
 pub const CONSTRICTOR_OPTION_DISABLE: CONSTRICTOR_OPTION = CONSTRICTOR_OPTION(0i32);
 pub const CONSTRICTOR_OPTION_MUTE: CONSTRICTOR_OPTION = CONSTRICTOR_OPTION(1i32);
+impl ::core::marker::Copy for CONSTRICTOR_OPTION {}
+impl ::core::clone::Clone for CONSTRICTOR_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct DEVCAPS {
     pub CanRecord: i32,
@@ -340,6 +364,12 @@ pub const eConnTypeMultichannelAnalogDIN: EPcxConnectionType = EPcxConnectionTyp
 pub const eConnTypeXlrProfessional: EPcxConnectionType = EPcxConnectionType(9i32);
 pub const eConnTypeRJ11Modem: EPcxConnectionType = EPcxConnectionType(10i32);
 pub const eConnTypeCombination: EPcxConnectionType = EPcxConnectionType(11i32);
+impl ::core::marker::Copy for EPcxConnectionType {}
+impl ::core::clone::Clone for EPcxConnectionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EPcxGenLocation(pub i32);
 pub const eGenLocPrimaryBox: EPcxGenLocation = EPcxGenLocation(0i32);
@@ -347,6 +377,12 @@ pub const eGenLocInternal: EPcxGenLocation = EPcxGenLocation(1i32);
 pub const eGenLocSeparate: EPcxGenLocation = EPcxGenLocation(2i32);
 pub const eGenLocOther: EPcxGenLocation = EPcxGenLocation(3i32);
 pub const EPcxGenLocation_enum_count: EPcxGenLocation = EPcxGenLocation(4i32);
+impl ::core::marker::Copy for EPcxGenLocation {}
+impl ::core::clone::Clone for EPcxGenLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EPcxGeoLocation(pub i32);
 pub const eGeoLocRear: EPcxGeoLocation = EPcxGeoLocation(1i32);
@@ -365,12 +401,24 @@ pub const eGeoLocATAPI: EPcxGeoLocation = EPcxGeoLocation(13i32);
 pub const eGeoLocNotApplicable: EPcxGeoLocation = EPcxGeoLocation(14i32);
 pub const eGeoLocReserved6: EPcxGeoLocation = EPcxGeoLocation(15i32);
 pub const EPcxGeoLocation_enum_count: EPcxGeoLocation = EPcxGeoLocation(16i32);
+impl ::core::marker::Copy for EPcxGeoLocation {}
+impl ::core::clone::Clone for EPcxGeoLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EPxcPortConnection(pub i32);
 pub const ePortConnJack: EPxcPortConnection = EPxcPortConnection(0i32);
 pub const ePortConnIntegratedDevice: EPxcPortConnection = EPxcPortConnection(1i32);
 pub const ePortConnBothIntegratedAndJack: EPxcPortConnection = EPxcPortConnection(2i32);
 pub const ePortConnUnknown: EPxcPortConnection = EPxcPortConnection(3i32);
+impl ::core::marker::Copy for EPxcPortConnection {}
+impl ::core::clone::Clone for EPxcPortConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EVENTSETID_CROSSBAR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1781401153, data2: 10468, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };
 pub const EVENTSETID_TUNER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1781401094, data2: 10468, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };
 pub const EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -386,12 +434,24 @@ pub const Framing_Cache_Update: FRAMING_CACHE_OPS = FRAMING_CACHE_OPS(0i32);
 pub const Framing_Cache_ReadLast: FRAMING_CACHE_OPS = FRAMING_CACHE_OPS(1i32);
 pub const Framing_Cache_ReadOrig: FRAMING_CACHE_OPS = FRAMING_CACHE_OPS(2i32);
 pub const Framing_Cache_Write: FRAMING_CACHE_OPS = FRAMING_CACHE_OPS(3i32);
+impl ::core::marker::Copy for FRAMING_CACHE_OPS {}
+impl ::core::clone::Clone for FRAMING_CACHE_OPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FRAMING_PROP(pub i32);
 pub const FramingProp_Uninitialized: FRAMING_PROP = FRAMING_PROP(0i32);
 pub const FramingProp_None: FRAMING_PROP = FRAMING_PROP(1i32);
 pub const FramingProp_Old: FRAMING_PROP = FRAMING_PROP(2i32);
 pub const FramingProp_Ex: FRAMING_PROP = FRAMING_PROP(3i32);
+impl ::core::marker::Copy for FRAMING_PROP {}
+impl ::core::clone::Clone for FRAMING_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GUID_NULL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
 #[repr(transparent)]
 pub struct IKsAggregateControl(pub *mut ::core::ffi::c_void);
@@ -542,6 +602,12 @@ pub const KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS: ::windows_sys::core::GUID =
 pub struct KSALLOCATORMODE(pub i32);
 pub const KsAllocatorMode_User: KSALLOCATORMODE = KSALLOCATORMODE(0i32);
 pub const KsAllocatorMode_Kernel: KSALLOCATORMODE = KSALLOCATORMODE(1i32);
+impl ::core::marker::Copy for KSALLOCATORMODE {}
+impl ::core::clone::Clone for KSALLOCATORMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSALLOCATOR_FLAG_2D_BUFFER_REQUIRED: u32 = 32768u32;
 pub const KSALLOCATOR_FLAG_ALLOCATOR_EXISTS: u32 = 2048u32;
 pub const KSALLOCATOR_FLAG_ATTENTION_STEPPING: u32 = 8192u32;
@@ -1240,6 +1306,12 @@ pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_LOST: KSCAMERA_EXTENDEDPROP_FOCUSSTAT
 pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_SEARCHING: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(2i32);
 pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_FOCUSED: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(3i32);
 pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_FAILED: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(4i32);
+impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {}
+impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSCAMERA_EXTENDEDPROP_FOCUS_CONTINUOUS: u64 = 256u64;
 pub const KSCAMERA_EXTENDEDPROP_FOCUS_CONTINUOUSLOCK: u64 = 512u64;
 pub const KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_HYPERFOCAL: u64 = 33554432u64;
@@ -1312,6 +1384,12 @@ pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_1024: KSCAMERA_EXTENDEDPROP_Me
 pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_2048: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(11i32);
 pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_4096: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(12i32);
 pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_8192: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(13i32);
+impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_MetadataAlignment {}
+impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSCAMERA_EXTENDEDPROP_OIS_AUTO: u64 = 2u64;
 pub const KSCAMERA_EXTENDEDPROP_OIS_OFF: u64 = 0u64;
 pub const KSCAMERA_EXTENDEDPROP_OIS_ON: u64 = 1u64;
@@ -1364,6 +1442,12 @@ pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_ON: u64 = 1u64;
 pub struct KSCAMERA_EXTENDEDPROP_ROITYPE(pub i32);
 pub const KSCAMERA_EXTENDEDPROP_ROITYPE_UNKNOWN: KSCAMERA_EXTENDEDPROP_ROITYPE = KSCAMERA_EXTENDEDPROP_ROITYPE(0i32);
 pub const KSCAMERA_EXTENDEDPROP_ROITYPE_FACE: KSCAMERA_EXTENDEDPROP_ROITYPE = KSCAMERA_EXTENDEDPROP_ROITYPE(1i32);
+impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_ROITYPE {}
+impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROITYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
     pub ControlId: u32,
@@ -1552,10 +1636,22 @@ pub const KSCAMERA_EXTENDEDPROP_WBPRESET_FLASH: KSCAMERA_EXTENDEDPROP_WBPRESET =
 pub const KSCAMERA_EXTENDEDPROP_WBPRESET_FLUORESCENT: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(4i32);
 pub const KSCAMERA_EXTENDEDPROP_WBPRESET_TUNGSTEN: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(5i32);
 pub const KSCAMERA_EXTENDEDPROP_WBPRESET_CANDLELIGHT: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(6i32);
+impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_WBPRESET {}
+impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_WBPRESET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE(pub i32);
 pub const KSCAMERA_EXTENDEDPROP_WHITEBALANCE_TEMPERATURE: KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE = KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE(1i32);
 pub const KSCAMERA_EXTENDEDPROP_WHITEBALANCE_PRESET: KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE = KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE(2i32);
+impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {}
+impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSCAMERA_EXTENDEDPROP_ZOOM_DEFAULT: u64 = 0u64;
 pub const KSCAMERA_EXTENDEDPROP_ZOOM_DIRECT: u64 = 1u64;
 pub const KSCAMERA_EXTENDEDPROP_ZOOM_SMOOTH: u64 = 2u64;
@@ -1686,6 +1782,12 @@ pub const MetadataId_DigitalWindow: KSCAMERA_MetadataId = KSCAMERA_MetadataId(7i
 pub const MetadataId_BackgroundSegmentationMask: KSCAMERA_MetadataId = KSCAMERA_MetadataId(8i32);
 pub const MetadataId_Standard_End: KSCAMERA_MetadataId = KSCAMERA_MetadataId(8i32);
 pub const MetadataId_Custom_Start: KSCAMERA_MetadataId = KSCAMERA_MetadataId(-2147483648i32);
+impl ::core::marker::Copy for KSCAMERA_MetadataId {}
+impl ::core::clone::Clone for KSCAMERA_MetadataId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSCAMERA_PERFRAMESETTING_AUTO: u64 = 4294967296u64;
 #[repr(C)]
 pub struct KSCAMERA_PERFRAMESETTING_CAP_HEADER {
@@ -1772,6 +1874,12 @@ pub const KSCAMERA_PERFRAMESETTING_ITEM_ISO: KSCAMERA_PERFRAMESETTING_ITEM_TYPE 
 pub const KSCAMERA_PERFRAMESETTING_ITEM_FOCUS: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(5i32);
 pub const KSCAMERA_PERFRAMESETTING_ITEM_PHOTOCONFIRMATION: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(6i32);
 pub const KSCAMERA_PERFRAMESETTING_ITEM_CUSTOM: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(7i32);
+impl ::core::marker::Copy for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {}
+impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSCAMERA_PERFRAMESETTING_MANUAL: u64 = 8589934592u64;
 #[repr(C)]
 pub struct KSCAMERA_PROFILE_CONCURRENCYINFO {
@@ -2169,6 +2277,12 @@ pub const KSDEGRADE_STANDARD_SAMPLE: KSDEGRADE_STANDARD = KSDEGRADE_STANDARD(0i3
 pub const KSDEGRADE_STANDARD_QUALITY: KSDEGRADE_STANDARD = KSDEGRADE_STANDARD(1i32);
 pub const KSDEGRADE_STANDARD_COMPUTATION: KSDEGRADE_STANDARD = KSDEGRADE_STANDARD(2i32);
 pub const KSDEGRADE_STANDARD_SKIP: KSDEGRADE_STANDARD = KSDEGRADE_STANDARD(3i32);
+impl ::core::marker::Copy for KSDEGRADE_STANDARD {}
+impl ::core::clone::Clone for KSDEGRADE_STANDARD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSDEVICE_DESCRIPTOR_VERSION: u32 = 256u32;
 pub const KSDEVICE_DESCRIPTOR_VERSION_2: u32 = 272u32;
 pub const KSDEVICE_FLAG_ENABLE_QUERYINTERFACE: u32 = 4u32;
@@ -2214,6 +2328,12 @@ pub const KSDEVICE_PROFILE_TYPE_UNKNOWN: u32 = 0u32;
 pub struct KSDEVICE_THERMAL_STATE(pub i32);
 pub const KSDEVICE_THERMAL_STATE_LOW: KSDEVICE_THERMAL_STATE = KSDEVICE_THERMAL_STATE(0i32);
 pub const KSDEVICE_THERMAL_STATE_HIGH: KSDEVICE_THERMAL_STATE = KSDEVICE_THERMAL_STATE(1i32);
+impl ::core::marker::Copy for KSDEVICE_THERMAL_STATE {}
+impl ::core::clone::Clone for KSDEVICE_THERMAL_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSDISPATCH_FASTIO: u32 = 2147483648u32;
 #[repr(C)]
 pub struct KSDISPLAYCHANGE {
@@ -2262,6 +2382,12 @@ pub struct KSDS3D_HRTF_COEFF_FORMAT(pub i32);
 pub const FLOAT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = KSDS3D_HRTF_COEFF_FORMAT(0i32);
 pub const SHORT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = KSDS3D_HRTF_COEFF_FORMAT(1i32);
 pub const KSDS3D_COEFF_COUNT: KSDS3D_HRTF_COEFF_FORMAT = KSDS3D_HRTF_COEFF_FORMAT(2i32);
+impl ::core::marker::Copy for KSDS3D_HRTF_COEFF_FORMAT {}
+impl ::core::clone::Clone for KSDS3D_HRTF_COEFF_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSDS3D_HRTF_FILTER_FORMAT_MSG {
     pub FilterMethod: KSDS3D_HRTF_FILTER_METHOD,
@@ -2280,14 +2406,32 @@ pub struct KSDS3D_HRTF_FILTER_METHOD(pub i32);
 pub const DIRECT_FORM: KSDS3D_HRTF_FILTER_METHOD = KSDS3D_HRTF_FILTER_METHOD(0i32);
 pub const CASCADE_FORM: KSDS3D_HRTF_FILTER_METHOD = KSDS3D_HRTF_FILTER_METHOD(1i32);
 pub const KSDS3D_FILTER_METHOD_COUNT: KSDS3D_HRTF_FILTER_METHOD = KSDS3D_HRTF_FILTER_METHOD(2i32);
+impl ::core::marker::Copy for KSDS3D_HRTF_FILTER_METHOD {}
+impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSDS3D_HRTF_FILTER_QUALITY(pub i32);
 pub const FULL_FILTER: KSDS3D_HRTF_FILTER_QUALITY = KSDS3D_HRTF_FILTER_QUALITY(0i32);
 pub const LIGHT_FILTER: KSDS3D_HRTF_FILTER_QUALITY = KSDS3D_HRTF_FILTER_QUALITY(1i32);
 pub const KSDS3D_FILTER_QUALITY_COUNT: KSDS3D_HRTF_FILTER_QUALITY = KSDS3D_HRTF_FILTER_QUALITY(2i32);
+impl ::core::marker::Copy for KSDS3D_HRTF_FILTER_QUALITY {}
+impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_QUALITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSDS3D_HRTF_FILTER_VERSION(pub i32);
 pub const DS3D_HRTF_VERSION_1: KSDS3D_HRTF_FILTER_VERSION = KSDS3D_HRTF_FILTER_VERSION(0i32);
+impl ::core::marker::Copy for KSDS3D_HRTF_FILTER_VERSION {}
+impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSDS3D_HRTF_INIT_MSG {
     pub Size: u32,
@@ -2516,17 +2660,41 @@ pub const KSEVENTSETID_VolumeLimit: ::windows_sys::core::GUID = ::windows_sys::G
 #[repr(transparent)]
 pub struct KSEVENT_AUDIO_CONTROL_CHANGE(pub i32);
 pub const KSEVENT_CONTROL_CHANGE: KSEVENT_AUDIO_CONTROL_CHANGE = KSEVENT_AUDIO_CONTROL_CHANGE(0i32);
+impl ::core::marker::Copy for KSEVENT_AUDIO_CONTROL_CHANGE {}
+impl ::core::clone::Clone for KSEVENT_AUDIO_CONTROL_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_CAMERACONTROL(pub i32);
 pub const KSEVENT_CAMERACONTROL_FOCUS: KSEVENT_CAMERACONTROL = KSEVENT_CAMERACONTROL(0i32);
 pub const KSEVENT_CAMERACONTROL_ZOOM: KSEVENT_CAMERACONTROL = KSEVENT_CAMERACONTROL(1i32);
+impl ::core::marker::Copy for KSEVENT_CAMERACONTROL {}
+impl ::core::clone::Clone for KSEVENT_CAMERACONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_CAMERAEVENT(pub i32);
 pub const KSEVENT_PHOTO_SAMPLE_SCANNED: KSEVENT_CAMERAEVENT = KSEVENT_CAMERAEVENT(0i32);
+impl ::core::marker::Copy for KSEVENT_CAMERAEVENT {}
+impl ::core::clone::Clone for KSEVENT_CAMERAEVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_CLOCK_POSITION(pub i32);
 pub const KSEVENT_CLOCK_INTERVAL_MARK: KSEVENT_CLOCK_POSITION = KSEVENT_CLOCK_POSITION(0i32);
 pub const KSEVENT_CLOCK_POSITION_MARK: KSEVENT_CLOCK_POSITION = KSEVENT_CLOCK_POSITION(1i32);
+impl ::core::marker::Copy for KSEVENT_CLOCK_POSITION {}
+impl ::core::clone::Clone for KSEVENT_CLOCK_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_CONNECTION(pub i32);
 pub const KSEVENT_CONNECTION_POSITIONUPDATE: KSEVENT_CONNECTION = KSEVENT_CONNECTION(0i32);
@@ -2534,9 +2702,21 @@ pub const KSEVENT_CONNECTION_DATADISCONTINUITY: KSEVENT_CONNECTION = KSEVENT_CON
 pub const KSEVENT_CONNECTION_TIMEDISCONTINUITY: KSEVENT_CONNECTION = KSEVENT_CONNECTION(2i32);
 pub const KSEVENT_CONNECTION_PRIORITY: KSEVENT_CONNECTION = KSEVENT_CONNECTION(3i32);
 pub const KSEVENT_CONNECTION_ENDOFSTREAM: KSEVENT_CONNECTION = KSEVENT_CONNECTION(4i32);
+impl ::core::marker::Copy for KSEVENT_CONNECTION {}
+impl ::core::clone::Clone for KSEVENT_CONNECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_CROSSBAR(pub i32);
 pub const KSEVENT_CROSSBAR_CHANGED: KSEVENT_CROSSBAR = KSEVENT_CROSSBAR(0i32);
+impl ::core::marker::Copy for KSEVENT_CROSSBAR {}
+impl ::core::clone::Clone for KSEVENT_CROSSBAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_DEVCMD(pub i32);
 pub const KSEVENT_EXTDEV_COMMAND_NOTIFY_INTERIM_READY: KSEVENT_DEVCMD = KSEVENT_DEVCMD(0i32);
@@ -2547,35 +2727,83 @@ pub const KSEVENT_EXTDEV_OPERATION_MODE_UPDATE: KSEVENT_DEVCMD = KSEVENT_DEVCMD(
 pub const KSEVENT_EXTDEV_TRANSPORT_STATE_UPDATE: KSEVENT_DEVCMD = KSEVENT_DEVCMD(5i32);
 pub const KSEVENT_EXTDEV_NOTIFY_REMOVAL: KSEVENT_DEVCMD = KSEVENT_DEVCMD(6i32);
 pub const KSEVENT_EXTDEV_NOTIFY_MEDIUM_CHANGE: KSEVENT_DEVCMD = KSEVENT_DEVCMD(7i32);
+impl ::core::marker::Copy for KSEVENT_DEVCMD {}
+impl ::core::clone::Clone for KSEVENT_DEVCMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_DEVICE(pub i32);
 pub const KSEVENT_DEVICE_LOST: KSEVENT_DEVICE = KSEVENT_DEVICE(0i32);
 pub const KSEVENT_DEVICE_PREEMPTED: KSEVENT_DEVICE = KSEVENT_DEVICE(1i32);
 pub const KSEVENT_DEVICE_THERMAL_HIGH: KSEVENT_DEVICE = KSEVENT_DEVICE(2i32);
 pub const KSEVENT_DEVICE_THERMAL_LOW: KSEVENT_DEVICE = KSEVENT_DEVICE(3i32);
+impl ::core::marker::Copy for KSEVENT_DEVICE {}
+impl ::core::clone::Clone for KSEVENT_DEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_DYNAMICFORMATCHANGE(pub i32);
 pub const KSEVENT_DYNAMIC_FORMAT_CHANGE: KSEVENT_DYNAMICFORMATCHANGE = KSEVENT_DYNAMICFORMATCHANGE(0i32);
+impl ::core::marker::Copy for KSEVENT_DYNAMICFORMATCHANGE {}
+impl ::core::clone::Clone for KSEVENT_DYNAMICFORMATCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSEVENT_ENTRY_BUFFERED: u32 = 4u32;
 pub const KSEVENT_ENTRY_DELETED: u32 = 1u32;
 pub const KSEVENT_ENTRY_ONESHOT: u32 = 2u32;
 #[repr(transparent)]
 pub struct KSEVENT_LOOPEDSTREAMING(pub i32);
 pub const KSEVENT_LOOPEDSTREAMING_POSITION: KSEVENT_LOOPEDSTREAMING = KSEVENT_LOOPEDSTREAMING(0i32);
+impl ::core::marker::Copy for KSEVENT_LOOPEDSTREAMING {}
+impl ::core::clone::Clone for KSEVENT_LOOPEDSTREAMING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_PINCAPS_CHANGENOTIFICATIONS(pub i32);
 pub const KSEVENT_PINCAPS_FORMATCHANGE: KSEVENT_PINCAPS_CHANGENOTIFICATIONS = KSEVENT_PINCAPS_CHANGENOTIFICATIONS(0i32);
 pub const KSEVENT_PINCAPS_JACKINFOCHANGE: KSEVENT_PINCAPS_CHANGENOTIFICATIONS = KSEVENT_PINCAPS_CHANGENOTIFICATIONS(1i32);
+impl ::core::marker::Copy for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {}
+impl ::core::clone::Clone for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_SOUNDDETECTOR(pub i32);
 pub const KSEVENT_SOUNDDETECTOR_MATCHDETECTED: KSEVENT_SOUNDDETECTOR = KSEVENT_SOUNDDETECTOR(1i32);
+impl ::core::marker::Copy for KSEVENT_SOUNDDETECTOR {}
+impl ::core::clone::Clone for KSEVENT_SOUNDDETECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_STREAMALLOCATOR(pub i32);
 pub const KSEVENT_STREAMALLOCATOR_INTERNAL_FREEFRAME: KSEVENT_STREAMALLOCATOR = KSEVENT_STREAMALLOCATOR(0i32);
 pub const KSEVENT_STREAMALLOCATOR_FREEFRAME: KSEVENT_STREAMALLOCATOR = KSEVENT_STREAMALLOCATOR(1i32);
+impl ::core::marker::Copy for KSEVENT_STREAMALLOCATOR {}
+impl ::core::clone::Clone for KSEVENT_STREAMALLOCATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_TELEPHONY(pub i32);
 pub const KSEVENT_TELEPHONY_ENDPOINTPAIRS_CHANGED: KSEVENT_TELEPHONY = KSEVENT_TELEPHONY(0i32);
+impl ::core::marker::Copy for KSEVENT_TELEPHONY {}
+impl ::core::clone::Clone for KSEVENT_TELEPHONY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENT_TIME_INTERVAL {
@@ -2609,6 +2837,12 @@ impl ::core::clone::Clone for KSEVENT_TIME_MARK {
 pub struct KSEVENT_TUNER(pub i32);
 pub const KSEVENT_TUNER_CHANGED: KSEVENT_TUNER = KSEVENT_TUNER(0i32);
 pub const KSEVENT_TUNER_INITIATE_SCAN: KSEVENT_TUNER = KSEVENT_TUNER(1i32);
+impl ::core::marker::Copy for KSEVENT_TUNER {}
+impl ::core::clone::Clone for KSEVENT_TUNER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENT_TUNER_INITIATE_SCAN_S {
@@ -2627,6 +2861,12 @@ impl ::core::clone::Clone for KSEVENT_TUNER_INITIATE_SCAN_S {
 #[repr(transparent)]
 pub struct KSEVENT_TVAUDIO(pub i32);
 pub const KSEVENT_TVAUDIO_CHANGED: KSEVENT_TVAUDIO = KSEVENT_TVAUDIO(0i32);
+impl ::core::marker::Copy for KSEVENT_TVAUDIO {}
+impl ::core::clone::Clone for KSEVENT_TVAUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSEVENT_TYPE_BASICSUPPORT: u32 = 512u32;
 pub const KSEVENT_TYPE_ENABLE: u32 = 1u32;
 pub const KSEVENT_TYPE_ENABLEBUFFERED: u32 = 4u32;
@@ -2639,18 +2879,48 @@ pub struct KSEVENT_VIDCAPTOSTI(pub i32);
 pub const KSEVENT_VIDCAPTOSTI_EXT_TRIGGER: KSEVENT_VIDCAPTOSTI = KSEVENT_VIDCAPTOSTI(0i32);
 pub const KSEVENT_VIDCAP_AUTO_UPDATE: KSEVENT_VIDCAPTOSTI = KSEVENT_VIDCAPTOSTI(1i32);
 pub const KSEVENT_VIDCAP_SEARCH: KSEVENT_VIDCAPTOSTI = KSEVENT_VIDCAPTOSTI(2i32);
+impl ::core::marker::Copy for KSEVENT_VIDCAPTOSTI {}
+impl ::core::clone::Clone for KSEVENT_VIDCAPTOSTI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_VIDEODECODER(pub i32);
 pub const KSEVENT_VIDEODECODER_CHANGED: KSEVENT_VIDEODECODER = KSEVENT_VIDEODECODER(0i32);
+impl ::core::marker::Copy for KSEVENT_VIDEODECODER {}
+impl ::core::clone::Clone for KSEVENT_VIDEODECODER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_VOLUMELIMIT(pub i32);
 pub const KSEVENT_VOLUMELIMIT_CHANGED: KSEVENT_VOLUMELIMIT = KSEVENT_VOLUMELIMIT(0i32);
+impl ::core::marker::Copy for KSEVENT_VOLUMELIMIT {}
+impl ::core::clone::Clone for KSEVENT_VOLUMELIMIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_VPNOTIFY(pub i32);
 pub const KSEVENT_VPNOTIFY_FORMATCHANGE: KSEVENT_VPNOTIFY = KSEVENT_VPNOTIFY(0i32);
+impl ::core::marker::Copy for KSEVENT_VPNOTIFY {}
+impl ::core::clone::Clone for KSEVENT_VPNOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSEVENT_VPVBINOTIFY(pub i32);
 pub const KSEVENT_VPVBINOTIFY_FORMATCHANGE: KSEVENT_VPVBINOTIFY = KSEVENT_VPVBINOTIFY(0i32);
+impl ::core::marker::Copy for KSEVENT_VPVBINOTIFY {}
+impl ::core::clone::Clone for KSEVENT_VPVBINOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSE_NODE {
     pub Event: KSIDENTIFIER,
@@ -2748,16 +3018,34 @@ pub const KSINTERFACESETID_Standard: ::windows_sys::core::GUID = ::windows_sys::
 #[repr(transparent)]
 pub struct KSINTERFACE_FILEIO(pub i32);
 pub const KSINTERFACE_FILEIO_STREAMING: KSINTERFACE_FILEIO = KSINTERFACE_FILEIO(0i32);
+impl ::core::marker::Copy for KSINTERFACE_FILEIO {}
+impl ::core::clone::Clone for KSINTERFACE_FILEIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSINTERFACE_MEDIA(pub i32);
 pub const KSINTERFACE_MEDIA_MUSIC: KSINTERFACE_MEDIA = KSINTERFACE_MEDIA(0i32);
 pub const KSINTERFACE_MEDIA_WAVE_BUFFERED: KSINTERFACE_MEDIA = KSINTERFACE_MEDIA(1i32);
 pub const KSINTERFACE_MEDIA_WAVE_QUEUED: KSINTERFACE_MEDIA = KSINTERFACE_MEDIA(2i32);
+impl ::core::marker::Copy for KSINTERFACE_MEDIA {}
+impl ::core::clone::Clone for KSINTERFACE_MEDIA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSINTERFACE_STANDARD(pub i32);
 pub const KSINTERFACE_STANDARD_STREAMING: KSINTERFACE_STANDARD = KSINTERFACE_STANDARD(0i32);
 pub const KSINTERFACE_STANDARD_LOOPED_STREAMING: KSINTERFACE_STANDARD = KSINTERFACE_STANDARD(1i32);
 pub const KSINTERFACE_STANDARD_CONTROL: KSINTERFACE_STANDARD = KSINTERFACE_STANDARD(2i32);
+impl ::core::marker::Copy for KSINTERFACE_STANDARD {}
+impl ::core::clone::Clone for KSINTERFACE_STANDARD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSINTERVAL {
     pub TimeBase: i64,
@@ -2803,6 +3091,12 @@ impl ::core::clone::Clone for KSJACK_DESCRIPTION2 {
 pub struct KSJACK_SINK_CONNECTIONTYPE(pub i32);
 pub const KSJACK_SINK_CONNECTIONTYPE_HDMI: KSJACK_SINK_CONNECTIONTYPE = KSJACK_SINK_CONNECTIONTYPE(0i32);
 pub const KSJACK_SINK_CONNECTIONTYPE_DISPLAYPORT: KSJACK_SINK_CONNECTIONTYPE = KSJACK_SINK_CONNECTIONTYPE(1i32);
+impl ::core::marker::Copy for KSJACK_SINK_CONNECTIONTYPE {}
+impl ::core::clone::Clone for KSJACK_SINK_CONNECTIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSJACK_SINK_INFORMATION {
@@ -2841,10 +3135,22 @@ pub const KSMETHODSETID_Wavetable: ::windows_sys::core::GUID = ::windows_sys::GU
 pub struct KSMETHOD_STREAMALLOCATOR(pub i32);
 pub const KSMETHOD_STREAMALLOCATOR_ALLOC: KSMETHOD_STREAMALLOCATOR = KSMETHOD_STREAMALLOCATOR(0i32);
 pub const KSMETHOD_STREAMALLOCATOR_FREE: KSMETHOD_STREAMALLOCATOR = KSMETHOD_STREAMALLOCATOR(1i32);
+impl ::core::marker::Copy for KSMETHOD_STREAMALLOCATOR {}
+impl ::core::clone::Clone for KSMETHOD_STREAMALLOCATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSMETHOD_STREAMIO(pub i32);
 pub const KSMETHOD_STREAMIO_READ: KSMETHOD_STREAMIO = KSMETHOD_STREAMIO(0i32);
 pub const KSMETHOD_STREAMIO_WRITE: KSMETHOD_STREAMIO = KSMETHOD_STREAMIO(1i32);
+impl ::core::marker::Copy for KSMETHOD_STREAMIO {}
+impl ::core::clone::Clone for KSMETHOD_STREAMIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSMETHOD_TYPE_BASICSUPPORT: u32 = 512u32;
 pub const KSMETHOD_TYPE_MODIFY: u32 = 3u32;
 pub const KSMETHOD_TYPE_NONE: u32 = 0u32;
@@ -2860,6 +3166,12 @@ pub const KSMETHOD_WAVETABLE_WAVE_ALLOC: KSMETHOD_WAVETABLE = KSMETHOD_WAVETABLE
 pub const KSMETHOD_WAVETABLE_WAVE_FREE: KSMETHOD_WAVETABLE = KSMETHOD_WAVETABLE(1i32);
 pub const KSMETHOD_WAVETABLE_WAVE_FIND: KSMETHOD_WAVETABLE = KSMETHOD_WAVETABLE(2i32);
 pub const KSMETHOD_WAVETABLE_WAVE_WRITE: KSMETHOD_WAVETABLE = KSMETHOD_WAVETABLE(3i32);
+impl ::core::marker::Copy for KSMETHOD_WAVETABLE {}
+impl ::core::clone::Clone for KSMETHOD_WAVETABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSMETHOD_WAVE_QUEUED_BREAKLOOP: u32 = 1u32;
 pub const KSMFT_CATEGORY_AUDIO_DECODER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2661760948, data2: 61306, data3: 17753, data4: [141, 93, 113, 157, 143, 4, 38, 199] };
 pub const KSMFT_CATEGORY_AUDIO_EFFECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 285625416, data2: 13896, data3: 20176, data4: [147, 46, 5, 206, 138, 200, 17, 183] };
@@ -2896,6 +3208,12 @@ pub struct KSMICARRAY_MICARRAYTYPE(pub i32);
 pub const KSMICARRAY_MICARRAYTYPE_LINEAR: KSMICARRAY_MICARRAYTYPE = KSMICARRAY_MICARRAYTYPE(0i32);
 pub const KSMICARRAY_MICARRAYTYPE_PLANAR: KSMICARRAY_MICARRAYTYPE = KSMICARRAY_MICARRAYTYPE(1i32);
 pub const KSMICARRAY_MICARRAYTYPE_3D: KSMICARRAY_MICARRAYTYPE = KSMICARRAY_MICARRAYTYPE(2i32);
+impl ::core::marker::Copy for KSMICARRAY_MICARRAYTYPE {}
+impl ::core::clone::Clone for KSMICARRAY_MICARRAYTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSMICARRAY_MICTYPE(pub i32);
 pub const KSMICARRAY_MICTYPE_OMNIDIRECTIONAL: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(0i32);
@@ -2905,6 +3223,12 @@ pub const KSMICARRAY_MICTYPE_SUPERCARDIOID: KSMICARRAY_MICTYPE = KSMICARRAY_MICT
 pub const KSMICARRAY_MICTYPE_HYPERCARDIOID: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(4i32);
 pub const KSMICARRAY_MICTYPE_8SHAPED: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(5i32);
 pub const KSMICARRAY_MICTYPE_VENDORDEFINED: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(15i32);
+impl ::core::marker::Copy for KSMICARRAY_MICTYPE {}
+impl ::core::clone::Clone for KSMICARRAY_MICTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSMPEGVIDMODE_LTRBOX: u32 = 2u32;
 pub const KSMPEGVIDMODE_PANSCAN: u32 = 1u32;
 pub const KSMPEGVIDMODE_SCALE: u32 = 4u32;
@@ -3243,6 +3567,12 @@ pub const KSPIN_COMMUNICATION_SINK: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(1i
 pub const KSPIN_COMMUNICATION_SOURCE: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(2i32);
 pub const KSPIN_COMMUNICATION_BOTH: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(3i32);
 pub const KSPIN_COMMUNICATION_BRIDGE: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(4i32);
+impl ::core::marker::Copy for KSPIN_COMMUNICATION {}
+impl ::core::clone::Clone for KSPIN_COMMUNICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPIN_CONNECT {
@@ -3264,6 +3594,12 @@ impl ::core::clone::Clone for KSPIN_CONNECT {
 pub struct KSPIN_DATAFLOW(pub i32);
 pub const KSPIN_DATAFLOW_IN: KSPIN_DATAFLOW = KSPIN_DATAFLOW(1i32);
 pub const KSPIN_DATAFLOW_OUT: KSPIN_DATAFLOW = KSPIN_DATAFLOW(2i32);
+impl ::core::marker::Copy for KSPIN_DATAFLOW {}
+impl ::core::clone::Clone for KSPIN_DATAFLOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSPIN_FLAG_ASYNCHRONOUS_PROCESSING: u32 = 8u32;
 pub const KSPIN_FLAG_CRITICAL_PROCESSING: u32 = 2u32;
 pub const KSPIN_FLAG_DENY_USERMODE_ACCESS: u32 = 2147483648u32;
@@ -3290,6 +3626,12 @@ pub const KSPIN_MDL_CACHING_NOTIFY_CLEANUP: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_
 pub const KSPIN_MDL_CACHING_NOTIFY_CLEANALL_WAIT: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(1i32);
 pub const KSPIN_MDL_CACHING_NOTIFY_CLEANALL_NOWAIT: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(2i32);
 pub const KSPIN_MDL_CACHING_NOTIFY_ADDSAMPLE: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(3i32);
+impl ::core::marker::Copy for KSPIN_MDL_CACHING_EVENT {}
+impl ::core::clone::Clone for KSPIN_MDL_CACHING_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPIN_MDL_CACHING_NOTIFICATION {
     pub Event: KSPIN_MDL_CACHING_EVENT,
@@ -3327,6 +3669,12 @@ impl ::core::clone::Clone for KSPIN_PHYSICALCONNECTION {
 #[repr(transparent)]
 pub struct KSPPROPERTY_ALLOCATOR_MDLCACHING(pub i32);
 pub const KSPROPERTY_ALLOCATOR_CLEANUP_CACHEDMDLPAGES: KSPPROPERTY_ALLOCATOR_MDLCACHING = KSPPROPERTY_ALLOCATOR_MDLCACHING(1i32);
+impl ::core::marker::Copy for KSPPROPERTY_ALLOCATOR_MDLCACHING {}
+impl ::core::clone::Clone for KSPPROPERTY_ALLOCATOR_MDLCACHING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPRIORITY {
     pub PriorityClass: u32,
@@ -3376,12 +3724,24 @@ pub const KSPROPERTY_AC3_BIT_STREAM_MODE: KSPROPERTY_AC3 = KSPROPERTY_AC3(4i32);
 pub const KSPROPERTY_AC3_DIALOGUE_LEVEL: KSPROPERTY_AC3 = KSPROPERTY_AC3(5i32);
 pub const KSPROPERTY_AC3_LANGUAGE_CODE: KSPROPERTY_AC3 = KSPROPERTY_AC3(6i32);
 pub const KSPROPERTY_AC3_ROOM_TYPE: KSPROPERTY_AC3 = KSPROPERTY_AC3(7i32);
+impl ::core::marker::Copy for KSPROPERTY_AC3 {}
+impl ::core::clone::Clone for KSPROPERTY_AC3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL(pub i32);
 pub const KSPROPERTY_ALLOCATOR_CONTROL_HONOR_COUNT: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(0i32);
 pub const KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(1i32);
 pub const KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(2i32);
 pub const KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(3i32);
+impl ::core::marker::Copy for KSPROPERTY_ALLOCATOR_CONTROL {}
+impl ::core::clone::Clone for KSPROPERTY_ALLOCATOR_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
     pub InterleavedCapSupported: u32,
@@ -3417,6 +3777,12 @@ impl ::core::clone::Clone for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
 pub struct KSPROPERTY_AUDDECOUT(pub i32);
 pub const KSPROPERTY_AUDDECOUT_MODES: KSPROPERTY_AUDDECOUT = KSPROPERTY_AUDDECOUT(0i32);
 pub const KSPROPERTY_AUDDECOUT_CUR_MODE: KSPROPERTY_AUDDECOUT = KSPROPERTY_AUDDECOUT(1i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDDECOUT {}
+impl ::core::clone::Clone for KSPROPERTY_AUDDECOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_AUDIO(pub i32);
 pub const KSPROPERTY_AUDIO_LATENCY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(1i32);
@@ -3479,6 +3845,12 @@ pub const KSPROPERTY_AUDIO_VOLUMELIMIT_ENGAGED: KSPROPERTY_AUDIO = KSPROPERTY_AU
 pub const KSPROPERTY_AUDIO_MIC_SENSITIVITY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(58i32);
 pub const KSPROPERTY_AUDIO_MIC_SNR: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(59i32);
 pub const KSPROPERTY_AUDIO_MIC_SENSITIVITY2: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(60i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDIO {}
+impl ::core::clone::Clone for KSPROPERTY_AUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_AUDIOENGINE(pub i32);
 pub const KSPROPERTY_AUDIOENGINE_LFXENABLE: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(0i32);
@@ -3490,20 +3862,50 @@ pub const KSPROPERTY_AUDIOENGINE_DESCRIPTOR: KSPROPERTY_AUDIOENGINE = KSPROPERTY
 pub const KSPROPERTY_AUDIOENGINE_BUFFER_SIZE_RANGE: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(7i32);
 pub const KSPROPERTY_AUDIOENGINE_LOOPBACK_PROTECTION: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(8i32);
 pub const KSPROPERTY_AUDIOENGINE_VOLUMELEVEL: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(9i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDIOENGINE {}
+impl ::core::clone::Clone for KSPROPERTY_AUDIOENGINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_AUDIOMODULE(pub i32);
 pub const KSPROPERTY_AUDIOMODULE_DESCRIPTORS: KSPROPERTY_AUDIOMODULE = KSPROPERTY_AUDIOMODULE(1i32);
 pub const KSPROPERTY_AUDIOMODULE_COMMAND: KSPROPERTY_AUDIOMODULE = KSPROPERTY_AUDIOMODULE(2i32);
 pub const KSPROPERTY_AUDIOMODULE_NOTIFICATION_DEVICE_ID: KSPROPERTY_AUDIOMODULE = KSPROPERTY_AUDIOMODULE(3i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDIOMODULE {}
+impl ::core::clone::Clone for KSPROPERTY_AUDIOMODULE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_AUDIOPOSTURE(pub i32);
 pub const KSPROPERTY_AUDIOPOSTURE_ORIENTATION: KSPROPERTY_AUDIOPOSTURE = KSPROPERTY_AUDIOPOSTURE(1i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDIOPOSTURE {}
+impl ::core::clone::Clone for KSPROPERTY_AUDIOPOSTURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_AUDIORESOURCEMANAGEMENT(pub i32);
 pub const KSPROPERTY_AUDIORESOURCEMANAGEMENT_RESOURCEGROUP: KSPROPERTY_AUDIORESOURCEMANAGEMENT = KSPROPERTY_AUDIORESOURCEMANAGEMENT(0i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDIORESOURCEMANAGEMENT {}
+impl ::core::clone::Clone for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_AUDIOSIGNALPROCESSING(pub i32);
 pub const KSPROPERTY_AUDIOSIGNALPROCESSING_MODES: KSPROPERTY_AUDIOSIGNALPROCESSING = KSPROPERTY_AUDIOSIGNALPROCESSING(0i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDIOSIGNALPROCESSING {}
+impl ::core::clone::Clone for KSPROPERTY_AUDIOSIGNALPROCESSING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSPROPERTY_AUDIO_BUFFER_DURATION: u32 = 1u32;
 #[repr(transparent)]
 pub struct KSPROPERTY_BIBLIOGRAPHIC(pub i32);
@@ -3543,6 +3945,12 @@ pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYUNIFORMTITLE: KSPROPERTY_BIBLIOGRAP
 pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYRELATED: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808728352i32);
 pub const KSPROPERTY_BIBLIOGRAPHIC_SERIESSTATEMENTPERSONALNAME: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808466464i32);
 pub const KSPROPERTY_BIBLIOGRAPHIC_SERIESSTATEMENTUNIFORMTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808663072i32);
+impl ::core::marker::Copy for KSPROPERTY_BIBLIOGRAPHIC {}
+impl ::core::clone::Clone for KSPROPERTY_BIBLIOGRAPHIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub union KSPROPERTY_BOUNDS_LONG {
     pub Anonymous1: KSPROPERTY_BOUNDS_LONG_0,
@@ -3611,6 +4019,12 @@ impl ::core::clone::Clone for KSPROPERTY_BOUNDS_LONGLONG_1 {
 pub struct KSPROPERTY_BTAUDIO(pub i32);
 pub const KSPROPERTY_ONESHOT_RECONNECT: KSPROPERTY_BTAUDIO = KSPROPERTY_BTAUDIO(0i32);
 pub const KSPROPERTY_ONESHOT_DISCONNECT: KSPROPERTY_BTAUDIO = KSPROPERTY_BTAUDIO(1i32);
+impl ::core::marker::Copy for KSPROPERTY_BTAUDIO {}
+impl ::core::clone::Clone for KSPROPERTY_BTAUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(pub i32);
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(0i32);
@@ -3659,6 +4073,12 @@ pub const KSPROPERTY_CAMERACONTROL_EXTENDED_DIGITALWINDOW_CONFIGCAPS: KSPROPERTY
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_DIGITALWINDOW: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(43i32);
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_END: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(44i32);
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_END2: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(44i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSPROPERTY_CAMERACONTROL_FLAGS_ABSOLUTE: i32 = 0i32;
 pub const KSPROPERTY_CAMERACONTROL_FLAGS_ASYNCHRONOUS: i32 = 4i32;
 pub const KSPROPERTY_CAMERACONTROL_FLAGS_AUTO: i32 = 1i32;
@@ -3667,6 +4087,12 @@ pub const KSPROPERTY_CAMERACONTROL_FLAGS_RELATIVE: i32 = 16i32;
 #[repr(transparent)]
 pub struct KSPROPERTY_CAMERACONTROL_FLASH(pub i32);
 pub const KSPROPERTY_CAMERACONTROL_FLASH_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_FLASH = KSPROPERTY_CAMERACONTROL_FLASH(0i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_FLASH {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_FLASH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSPROPERTY_CAMERACONTROL_FLASH_AUTO: i32 = 2i32;
 pub const KSPROPERTY_CAMERACONTROL_FLASH_FLAGS_AUTO: i32 = 1i32;
 pub const KSPROPERTY_CAMERACONTROL_FLASH_FLAGS_MANUAL: i32 = 2i32;
@@ -3699,6 +4125,12 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
 #[repr(transparent)]
 pub struct KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY(pub i32);
 pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY = KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY(0i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_EXCLUSIVE_WITH_RECORD: i32 = 1i32;
 #[repr(C)]
 pub struct KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
@@ -3757,9 +4189,21 @@ pub struct KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(pub i32);
 pub const KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_CAPABILITY: KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY = KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(0i32);
 pub const KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_SET: KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY = KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(1i32);
 pub const KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_CLEAR: KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY = KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(2i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST(pub i32);
 pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST = KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST(0i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_EXPOSURE: i32 = 512i32;
 pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_FOCUS: i32 = 256i32;
 pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_WB: i32 = 1024i32;
@@ -3861,10 +4305,22 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S
 #[repr(transparent)]
 pub struct KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE(pub i32);
 pub const KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE = KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE(0i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS(pub i32);
 pub const KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_CLEAR: KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS = KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS(0i32);
 pub const KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_SET: KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS = KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS(1i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_CLOCK(pub i32);
 pub const KSPROPERTY_CLOCK_TIME: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(0i32);
@@ -3873,6 +4329,12 @@ pub const KSPROPERTY_CLOCK_CORRELATEDTIME: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(2
 pub const KSPROPERTY_CLOCK_CORRELATEDPHYSICALTIME: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(3i32);
 pub const KSPROPERTY_CLOCK_RESOLUTION: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(4i32);
 pub const KSPROPERTY_CLOCK_STATE: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(5i32);
+impl ::core::marker::Copy for KSPROPERTY_CLOCK {}
+impl ::core::clone::Clone for KSPROPERTY_CLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_CONNECTION(pub i32);
 pub const KSPROPERTY_CONNECTION_STATE: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(0i32);
@@ -3883,6 +4345,12 @@ pub const KSPROPERTY_CONNECTION_PROPOSEDATAFORMAT: KSPROPERTY_CONNECTION = KSPRO
 pub const KSPROPERTY_CONNECTION_ACQUIREORDERING: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(5i32);
 pub const KSPROPERTY_CONNECTION_ALLOCATORFRAMING_EX: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(6i32);
 pub const KSPROPERTY_CONNECTION_STARTAT: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(7i32);
+impl ::core::marker::Copy for KSPROPERTY_CONNECTION {}
+impl ::core::clone::Clone for KSPROPERTY_CONNECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_COPYPROT(pub i32);
 pub const KSPROPERTY_DVDCOPY_CHLG_KEY: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(1i32);
@@ -3893,6 +4361,12 @@ pub const KSPROPERTY_COPY_MACROVISION: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT
 pub const KSPROPERTY_DVDCOPY_REGION: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(6i32);
 pub const KSPROPERTY_DVDCOPY_SET_COPY_STATE: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(7i32);
 pub const KSPROPERTY_DVDCOPY_DISC_KEY: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(128i32);
+impl ::core::marker::Copy for KSPROPERTY_COPYPROT {}
+impl ::core::clone::Clone for KSPROPERTY_COPYPROT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_CROSSBAR_ACTIVE_S {
     pub Property: KSIDENTIFIER,
@@ -3948,6 +4422,12 @@ impl ::core::clone::Clone for KSPROPERTY_CROSSBAR_ROUTE_S {
 #[repr(transparent)]
 pub struct KSPROPERTY_CYCLIC(pub i32);
 pub const KSPROPERTY_CYCLIC_POSITION: KSPROPERTY_CYCLIC = KSPROPERTY_CYCLIC(0i32);
+impl ::core::marker::Copy for KSPROPERTY_CYCLIC {}
+impl ::core::clone::Clone for KSPROPERTY_CYCLIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_DESCRIPTION {
     pub AccessFlags: u32,
@@ -3973,6 +4453,12 @@ pub const KSPROPERTY_DIRECTSOUND3DBUFFER_CONEOUTSIDEVOLUME: KSPROPERTY_DIRECTSOU
 pub const KSPROPERTY_DIRECTSOUND3DBUFFER_MINDISTANCE: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(6i32);
 pub const KSPROPERTY_DIRECTSOUND3DBUFFER_MAXDISTANCE: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(7i32);
 pub const KSPROPERTY_DIRECTSOUND3DBUFFER_MODE: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(8i32);
+impl ::core::marker::Copy for KSPROPERTY_DIRECTSOUND3DBUFFER {}
+impl ::core::clone::Clone for KSPROPERTY_DIRECTSOUND3DBUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_DIRECTSOUND3DLISTENER(pub i32);
 pub const KSPROPERTY_DIRECTSOUND3DLISTENER_ALL: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(0i32);
@@ -3984,9 +4470,21 @@ pub const KSPROPERTY_DIRECTSOUND3DLISTENER_ROLLOFFFACTOR: KSPROPERTY_DIRECTSOUND
 pub const KSPROPERTY_DIRECTSOUND3DLISTENER_DOPPLERFACTOR: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(6i32);
 pub const KSPROPERTY_DIRECTSOUND3DLISTENER_BATCH: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(7i32);
 pub const KSPROPERTY_DIRECTSOUND3DLISTENER_ALLOCATION: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(8i32);
+impl ::core::marker::Copy for KSPROPERTY_DIRECTSOUND3DLISTENER {}
+impl ::core::clone::Clone for KSPROPERTY_DIRECTSOUND3DLISTENER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_DRMAUDIOSTREAM(pub i32);
 pub const KSPROPERTY_DRMAUDIOSTREAM_CONTENTID: KSPROPERTY_DRMAUDIOSTREAM = KSPROPERTY_DRMAUDIOSTREAM(0i32);
+impl ::core::marker::Copy for KSPROPERTY_DRMAUDIOSTREAM {}
+impl ::core::clone::Clone for KSPROPERTY_DRMAUDIOSTREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
     pub Property: KSIDENTIFIER,
@@ -4005,6 +4503,12 @@ pub struct KSPROPERTY_DVDSUBPIC(pub i32);
 pub const KSPROPERTY_DVDSUBPIC_PALETTE: KSPROPERTY_DVDSUBPIC = KSPROPERTY_DVDSUBPIC(0i32);
 pub const KSPROPERTY_DVDSUBPIC_HLI: KSPROPERTY_DVDSUBPIC = KSPROPERTY_DVDSUBPIC(1i32);
 pub const KSPROPERTY_DVDSUBPIC_COMPOSIT_ON: KSPROPERTY_DVDSUBPIC = KSPROPERTY_DVDSUBPIC(2i32);
+impl ::core::marker::Copy for KSPROPERTY_DVDSUBPIC {}
+impl ::core::clone::Clone for KSPROPERTY_DVDSUBPIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_EXTDEVICE(pub i32);
 pub const KSPROPERTY_EXTDEVICE_ID: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(0i32);
@@ -4012,6 +4516,12 @@ pub const KSPROPERTY_EXTDEVICE_VERSION: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEV
 pub const KSPROPERTY_EXTDEVICE_POWER_STATE: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(2i32);
 pub const KSPROPERTY_EXTDEVICE_PORT: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(3i32);
 pub const KSPROPERTY_EXTDEVICE_CAPABILITIES: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(4i32);
+impl ::core::marker::Copy for KSPROPERTY_EXTDEVICE {}
+impl ::core::clone::Clone for KSPROPERTY_EXTDEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_EXTDEVICE_S {
     pub Property: KSIDENTIFIER,
@@ -4041,6 +4551,12 @@ pub struct KSPROPERTY_EXTENSION_UNIT(pub i32);
 pub const KSPROPERTY_EXTENSION_UNIT_INFO: KSPROPERTY_EXTENSION_UNIT = KSPROPERTY_EXTENSION_UNIT(0i32);
 pub const KSPROPERTY_EXTENSION_UNIT_CONTROL: KSPROPERTY_EXTENSION_UNIT = KSPROPERTY_EXTENSION_UNIT(1i32);
 pub const KSPROPERTY_EXTENSION_UNIT_PASS_THROUGH: KSPROPERTY_EXTENSION_UNIT = KSPROPERTY_EXTENSION_UNIT(65535i32);
+impl ::core::marker::Copy for KSPROPERTY_EXTENSION_UNIT {}
+impl ::core::clone::Clone for KSPROPERTY_EXTENSION_UNIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_EXTXPORT(pub i32);
 pub const KSPROPERTY_EXTXPORT_CAPABILITIES: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(0i32);
@@ -4054,6 +4570,12 @@ pub const KSPROPERTY_EXTXPORT_TIMECODE_SEARCH: KSPROPERTY_EXTXPORT = KSPROPERTY_
 pub const KSPROPERTY_EXTXPORT_ATN_SEARCH: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(8i32);
 pub const KSPROPERTY_EXTXPORT_RTC_SEARCH: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(9i32);
 pub const KSPROPERTY_RAW_AVC_CMD: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(10i32);
+impl ::core::marker::Copy for KSPROPERTY_EXTXPORT {}
+impl ::core::clone::Clone for KSPROPERTY_EXTXPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_NODE_S {
@@ -4183,31 +4705,73 @@ impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_S_0_1 {
 #[repr(transparent)]
 pub struct KSPROPERTY_FMRX_CONTROL(pub i32);
 pub const KSPROPERTY_FMRX_STATE: KSPROPERTY_FMRX_CONTROL = KSPROPERTY_FMRX_CONTROL(0i32);
+impl ::core::marker::Copy for KSPROPERTY_FMRX_CONTROL {}
+impl ::core::clone::Clone for KSPROPERTY_FMRX_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_FMRX_TOPOLOGY(pub i32);
 pub const KSPROPERTY_FMRX_ENDPOINTID: KSPROPERTY_FMRX_TOPOLOGY = KSPROPERTY_FMRX_TOPOLOGY(0i32);
 pub const KSPROPERTY_FMRX_VOLUME: KSPROPERTY_FMRX_TOPOLOGY = KSPROPERTY_FMRX_TOPOLOGY(1i32);
 pub const KSPROPERTY_FMRX_ANTENNAENDPOINTID: KSPROPERTY_FMRX_TOPOLOGY = KSPROPERTY_FMRX_TOPOLOGY(2i32);
+impl ::core::marker::Copy for KSPROPERTY_FMRX_TOPOLOGY {}
+impl ::core::clone::Clone for KSPROPERTY_FMRX_TOPOLOGY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_GENERAL(pub i32);
 pub const KSPROPERTY_GENERAL_COMPONENTID: KSPROPERTY_GENERAL = KSPROPERTY_GENERAL(0i32);
+impl ::core::marker::Copy for KSPROPERTY_GENERAL {}
+impl ::core::clone::Clone for KSPROPERTY_GENERAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_HRTF3D(pub i32);
 pub const KSPROPERTY_HRTF3D_PARAMS: KSPROPERTY_HRTF3D = KSPROPERTY_HRTF3D(0i32);
 pub const KSPROPERTY_HRTF3D_INITIALIZE: KSPROPERTY_HRTF3D = KSPROPERTY_HRTF3D(1i32);
 pub const KSPROPERTY_HRTF3D_FILTER_FORMAT: KSPROPERTY_HRTF3D = KSPROPERTY_HRTF3D(2i32);
+impl ::core::marker::Copy for KSPROPERTY_HRTF3D {}
+impl ::core::clone::Clone for KSPROPERTY_HRTF3D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_INTERLEAVEDAUDIO(pub i32);
 pub const KSPROPERTY_INTERLEAVEDAUDIO_FORMATINFORMATION: KSPROPERTY_INTERLEAVEDAUDIO = KSPROPERTY_INTERLEAVEDAUDIO(1i32);
+impl ::core::marker::Copy for KSPROPERTY_INTERLEAVEDAUDIO {}
+impl ::core::clone::Clone for KSPROPERTY_INTERLEAVEDAUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_ITD3D(pub i32);
 pub const KSPROPERTY_ITD3D_PARAMS: KSPROPERTY_ITD3D = KSPROPERTY_ITD3D(0i32);
+impl ::core::marker::Copy for KSPROPERTY_ITD3D {}
+impl ::core::clone::Clone for KSPROPERTY_ITD3D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_JACK(pub i32);
 pub const KSPROPERTY_JACK_DESCRIPTION: KSPROPERTY_JACK = KSPROPERTY_JACK(1i32);
 pub const KSPROPERTY_JACK_DESCRIPTION2: KSPROPERTY_JACK = KSPROPERTY_JACK(2i32);
 pub const KSPROPERTY_JACK_SINK_INFO: KSPROPERTY_JACK = KSPROPERTY_JACK(3i32);
 pub const KSPROPERTY_JACK_CONTAINERID: KSPROPERTY_JACK = KSPROPERTY_JACK(4i32);
+impl ::core::marker::Copy for KSPROPERTY_JACK {}
+impl ::core::clone::Clone for KSPROPERTY_JACK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_MEDIAAVAILABLE {
     pub Earliest: i64,
@@ -4231,6 +4795,12 @@ pub const KSPROPERTY_MEDIASEEKING_DURATION: KSPROPERTY_MEDIASEEKING = KSPROPERTY
 pub const KSPROPERTY_MEDIASEEKING_AVAILABLE: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(7i32);
 pub const KSPROPERTY_MEDIASEEKING_PREROLL: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(8i32);
 pub const KSPROPERTY_MEDIASEEKING_CONVERTTIMEFORMAT: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(9i32);
+impl ::core::marker::Copy for KSPROPERTY_MEDIASEEKING {}
+impl ::core::clone::Clone for KSPROPERTY_MEDIASEEKING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_MEMBERSHEADER {
     pub MembersFlags: u32,
@@ -4258,9 +4828,21 @@ pub const KSPROPERTY_MPEG2VID_CUR_MODE: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VI
 pub const KSPROPERTY_MPEG2VID_4_3_RECT: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(2i32);
 pub const KSPROPERTY_MPEG2VID_16_9_RECT: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(3i32);
 pub const KSPROPERTY_MPEG2VID_16_9_PANSCAN: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(4i32);
+impl ::core::marker::Copy for KSPROPERTY_MPEG2VID {}
+impl ::core::clone::Clone for KSPROPERTY_MPEG2VID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES(pub i32);
 pub const KSPROPERTY_MPEG4_MEDIATYPE_SD_BOX: KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES = KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES(1i32);
+impl ::core::marker::Copy for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {}
+impl ::core::clone::Clone for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
@@ -4293,6 +4875,12 @@ impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
 #[repr(transparent)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE(pub i32);
 pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE_EVENTSINFO: KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE = KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE(0i32);
+impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {}
+impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
     pub Size: u32,
@@ -4309,12 +4897,24 @@ pub struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(pub i32);
 pub const KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_DISABLE: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE = KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(0i32);
 pub const KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_HOSTNTP: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE = KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(1i32);
 pub const KSPROPERYT_NETWORKCAMERACONTROL_NTPINFO_TYPE_CUSTOM: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE = KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(2i32);
+impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {}
+impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(pub i32);
 pub const KSPROPERTY_NETWORKCAMERACONTROL_NTP: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(0i32);
 pub const KSPROPERTY_NETWORKCAMERACONTROL_URI: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(1i32);
 pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(2i32);
 pub const KSPROPERTY_NETWORKCAMERACONTROL_EVENTTOPICS_XML: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(3i32);
+impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {}
+impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_OVERLAYUPDATE(pub i32);
 pub const KSPROPERTY_OVERLAYUPDATE_INTERESTS: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(0i32);
@@ -4324,6 +4924,12 @@ pub const KSPROPERTY_OVERLAYUPDATE_COLORKEY: KSPROPERTY_OVERLAYUPDATE = KSPROPER
 pub const KSPROPERTY_OVERLAYUPDATE_VIDEOPOSITION: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(8i32);
 pub const KSPROPERTY_OVERLAYUPDATE_DISPLAYCHANGE: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(16i32);
 pub const KSPROPERTY_OVERLAYUPDATE_COLORREF: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(268435456i32);
+impl ::core::marker::Copy for KSPROPERTY_OVERLAYUPDATE {}
+impl ::core::clone::Clone for KSPROPERTY_OVERLAYUPDATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_PIN(pub i32);
 pub const KSPROPERTY_PIN_CINSTANCES: KSPROPERTY_PIN = KSPROPERTY_PIN(0i32);
@@ -4343,6 +4949,12 @@ pub const KSPROPERTY_PIN_CONSTRAINEDDATARANGES: KSPROPERTY_PIN = KSPROPERTY_PIN(
 pub const KSPROPERTY_PIN_PROPOSEDATAFORMAT: KSPROPERTY_PIN = KSPROPERTY_PIN(14i32);
 pub const KSPROPERTY_PIN_PROPOSEDATAFORMAT2: KSPROPERTY_PIN = KSPROPERTY_PIN(15i32);
 pub const KSPROPERTY_PIN_MODEDATAFORMATS: KSPROPERTY_PIN = KSPROPERTY_PIN(16i32);
+impl ::core::marker::Copy for KSPROPERTY_PIN {}
+impl ::core::clone::Clone for KSPROPERTY_PIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSPROPERTY_PIN_FLAGS_ATTRIBUTE_RANGE_AWARE: u32 = 1u32;
 pub const KSPROPERTY_PIN_FLAGS_MASK: u32 = 1u32;
 #[repr(C)]
@@ -4362,6 +4974,12 @@ impl ::core::clone::Clone for KSPROPERTY_POSITIONS {
 pub struct KSPROPERTY_QUALITY(pub i32);
 pub const KSPROPERTY_QUALITY_REPORT: KSPROPERTY_QUALITY = KSPROPERTY_QUALITY(0i32);
 pub const KSPROPERTY_QUALITY_ERROR: KSPROPERTY_QUALITY = KSPROPERTY_QUALITY(1i32);
+impl ::core::marker::Copy for KSPROPERTY_QUALITY {}
+impl ::core::clone::Clone for KSPROPERTY_QUALITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_RTAUDIO(pub i32);
 pub const KSPROPERTY_RTAUDIO_GETPOSITIONFUNCTION: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(0i32);
@@ -4378,6 +4996,12 @@ pub const KSPROPERTY_RTAUDIO_PRESENTATION_POSITION: KSPROPERTY_RTAUDIO = KSPROPE
 pub const KSPROPERTY_RTAUDIO_GETREADPACKET: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(11i32);
 pub const KSPROPERTY_RTAUDIO_SETWRITEPACKET: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(12i32);
 pub const KSPROPERTY_RTAUDIO_PACKETVREGISTER: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(13i32);
+impl ::core::marker::Copy for KSPROPERTY_RTAUDIO {}
+impl ::core::clone::Clone for KSPROPERTY_RTAUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_SELECTOR_NODE_S {
     pub NodeProperty: KSP_NODE,
@@ -4435,6 +5059,12 @@ pub const KSPROPERTY_SOUNDDETECTOR_ARMED: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_
 pub const KSPROPERTY_SOUNDDETECTOR_MATCHRESULT: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(4i32);
 pub const KSPROPERTY_SOUNDDETECTOR_RESET: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(5i32);
 pub const KSPROPERTY_SOUNDDETECTOR_STREAMINGSUPPORT: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(6i32);
+impl ::core::marker::Copy for KSPROPERTY_SOUNDDETECTOR {}
+impl ::core::clone::Clone for KSPROPERTY_SOUNDDETECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_SPHLI {
     pub HLISS: u16,
@@ -4499,9 +5129,21 @@ pub const KSPROPERTY_STREAM_FRAMETIME: KSPROPERTY_STREAM = KSPROPERTY_STREAM(7i3
 pub const KSPROPERTY_STREAM_RATECAPABILITY: KSPROPERTY_STREAM = KSPROPERTY_STREAM(8i32);
 pub const KSPROPERTY_STREAM_RATE: KSPROPERTY_STREAM = KSPROPERTY_STREAM(9i32);
 pub const KSPROPERTY_STREAM_PIPE_ID: KSPROPERTY_STREAM = KSPROPERTY_STREAM(10i32);
+impl ::core::marker::Copy for KSPROPERTY_STREAM {}
+impl ::core::clone::Clone for KSPROPERTY_STREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_STREAMINTERFACE(pub i32);
 pub const KSPROPERTY_STREAMINTERFACE_HEADERSIZE: KSPROPERTY_STREAMINTERFACE = KSPROPERTY_STREAMINTERFACE(0i32);
+impl ::core::marker::Copy for KSPROPERTY_STREAMINTERFACE {}
+impl ::core::clone::Clone for KSPROPERTY_STREAMINTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_TELEPHONY_CONTROL(pub i32);
 pub const KSPROPERTY_TELEPHONY_PROVIDERID: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(0i32);
@@ -4510,15 +5152,33 @@ pub const KSPROPERTY_TELEPHONY_CALLCONTROL: KSPROPERTY_TELEPHONY_CONTROL = KSPRO
 pub const KSPROPERTY_TELEPHONY_PROVIDERCHANGE: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(3i32);
 pub const KSPROPERTY_TELEPHONY_CALLHOLD: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(4i32);
 pub const KSPROPERTY_TELEPHONY_MUTE_TX: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(5i32);
+impl ::core::marker::Copy for KSPROPERTY_TELEPHONY_CONTROL {}
+impl ::core::clone::Clone for KSPROPERTY_TELEPHONY_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_TELEPHONY_TOPOLOGY(pub i32);
 pub const KSPROPERTY_TELEPHONY_ENDPOINTIDPAIR: KSPROPERTY_TELEPHONY_TOPOLOGY = KSPROPERTY_TELEPHONY_TOPOLOGY(0i32);
 pub const KSPROPERTY_TELEPHONY_VOLUME: KSPROPERTY_TELEPHONY_TOPOLOGY = KSPROPERTY_TELEPHONY_TOPOLOGY(1i32);
+impl ::core::marker::Copy for KSPROPERTY_TELEPHONY_TOPOLOGY {}
+impl ::core::clone::Clone for KSPROPERTY_TELEPHONY_TOPOLOGY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_TIMECODE(pub i32);
 pub const KSPROPERTY_TIMECODE_READER: KSPROPERTY_TIMECODE = KSPROPERTY_TIMECODE(0i32);
 pub const KSPROPERTY_ATN_READER: KSPROPERTY_TIMECODE = KSPROPERTY_TIMECODE(1i32);
 pub const KSPROPERTY_RTC_READER: KSPROPERTY_TIMECODE = KSPROPERTY_TIMECODE(2i32);
+impl ::core::marker::Copy for KSPROPERTY_TIMECODE {}
+impl ::core::clone::Clone for KSPROPERTY_TIMECODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_TIMECODE_NODE_S {
     pub NodeProperty: KSP_NODE,
@@ -4547,10 +5207,22 @@ pub const KSPROPERTY_TOPOLOGY_CATEGORIES: KSPROPERTY_TOPOLOGY = KSPROPERTY_TOPOL
 pub const KSPROPERTY_TOPOLOGY_NODES: KSPROPERTY_TOPOLOGY = KSPROPERTY_TOPOLOGY(1i32);
 pub const KSPROPERTY_TOPOLOGY_CONNECTIONS: KSPROPERTY_TOPOLOGY = KSPROPERTY_TOPOLOGY(2i32);
 pub const KSPROPERTY_TOPOLOGY_NAME: KSPROPERTY_TOPOLOGY = KSPROPERTY_TOPOLOGY(3i32);
+impl ::core::marker::Copy for KSPROPERTY_TOPOLOGY {}
+impl ::core::clone::Clone for KSPROPERTY_TOPOLOGY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_TOPOLOGYNODE(pub i32);
 pub const KSPROPERTY_TOPOLOGYNODE_ENABLE: KSPROPERTY_TOPOLOGYNODE = KSPROPERTY_TOPOLOGYNODE(1i32);
 pub const KSPROPERTY_TOPOLOGYNODE_RESET: KSPROPERTY_TOPOLOGYNODE = KSPROPERTY_TOPOLOGYNODE(2i32);
+impl ::core::marker::Copy for KSPROPERTY_TOPOLOGYNODE {}
+impl ::core::clone::Clone for KSPROPERTY_TOPOLOGYNODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_TUNER(pub i32);
 pub const KSPROPERTY_TUNER_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(0i32);
@@ -4565,6 +5237,12 @@ pub const KSPROPERTY_TUNER_SCAN_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(8i32);
 pub const KSPROPERTY_TUNER_SCAN_STATUS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(9i32);
 pub const KSPROPERTY_TUNER_STANDARD_MODE: KSPROPERTY_TUNER = KSPROPERTY_TUNER(10i32);
 pub const KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(11i32);
+impl ::core::marker::Copy for KSPROPERTY_TUNER {}
+impl ::core::clone::Clone for KSPROPERTY_TUNER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_TUNER_CAPS_S {
     pub Property: KSIDENTIFIER,
@@ -4625,6 +5303,12 @@ pub const KSPROPERTY_TUNER_MODE_FM_RADIO: KSPROPERTY_TUNER_MODES = KSPROPERTY_TU
 pub const KSPROPERTY_TUNER_MODE_AM_RADIO: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(4i32);
 pub const KSPROPERTY_TUNER_MODE_DSS: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(8i32);
 pub const KSPROPERTY_TUNER_MODE_ATSC: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(16i32);
+impl ::core::marker::Copy for KSPROPERTY_TUNER_MODES {}
+impl ::core::clone::Clone for KSPROPERTY_TUNER_MODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_TUNER_MODE_CAPS_S {
     pub Property: KSIDENTIFIER,
@@ -4778,6 +5462,12 @@ pub const KSPROPERTY_TYPE_UNSERIALIZESET: u32 = 4096u32;
 #[repr(transparent)]
 pub struct KSPROPERTY_VBICAP(pub i32);
 pub const KSPROPERTY_VBICAP_PROPERTIES_PROTECTION: KSPROPERTY_VBICAP = KSPROPERTY_VBICAP(1i32);
+impl ::core::marker::Copy for KSPROPERTY_VBICAP {}
+impl ::core::clone::Clone for KSPROPERTY_VBICAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_VBICODECFILTERING(pub i32);
 pub const KSPROPERTY_VBICODECFILTERING_SCANLINES_REQUESTED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(1i32);
@@ -4785,6 +5475,12 @@ pub const KSPROPERTY_VBICODECFILTERING_SCANLINES_DISCOVERED_BIT_ARRAY: KSPROPERT
 pub const KSPROPERTY_VBICODECFILTERING_SUBSTREAMS_REQUESTED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(3i32);
 pub const KSPROPERTY_VBICODECFILTERING_SUBSTREAMS_DISCOVERED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(4i32);
 pub const KSPROPERTY_VBICODECFILTERING_STATISTICS: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(5i32);
+impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING {}
+impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
     pub Property: KSIDENTIFIER,
@@ -4906,6 +5602,12 @@ pub const KSPROPERTY_CAMERACONTROL_FOCUS_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTR
 pub const KSPROPERTY_CAMERACONTROL_PANTILT_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(17i32);
 pub const KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(18i32);
 pub const KSPROPERTY_CAMERACONTROL_AUTO_EXPOSURE_PRIORITY: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(19i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_CAMERACONTROL {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_CAMERACONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_VIDCAP_CROSSBAR(pub i32);
 pub const KSPROPERTY_CROSSBAR_CAPS: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(0i32);
@@ -4913,18 +5615,42 @@ pub const KSPROPERTY_CROSSBAR_PININFO: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_V
 pub const KSPROPERTY_CROSSBAR_CAN_ROUTE: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(2i32);
 pub const KSPROPERTY_CROSSBAR_ROUTE: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(3i32);
 pub const KSPROPERTY_CROSSBAR_INPUT_ACTIVE: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(4i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_CROSSBAR {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_CROSSBAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_VIDCAP_DROPPEDFRAMES(pub i32);
 pub const KSPROPERTY_DROPPEDFRAMES_CURRENT: KSPROPERTY_VIDCAP_DROPPEDFRAMES = KSPROPERTY_VIDCAP_DROPPEDFRAMES(0i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_DROPPEDFRAMES {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_VIDCAP_SELECTOR(pub i32);
 pub const KSPROPERTY_SELECTOR_SOURCE_NODE_ID: KSPROPERTY_VIDCAP_SELECTOR = KSPROPERTY_VIDCAP_SELECTOR(0i32);
 pub const KSPROPERTY_SELECTOR_NUM_SOURCES: KSPROPERTY_VIDCAP_SELECTOR = KSPROPERTY_VIDCAP_SELECTOR(1i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_SELECTOR {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_SELECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_VIDCAP_TVAUDIO(pub i32);
 pub const KSPROPERTY_TVAUDIO_CAPS: KSPROPERTY_VIDCAP_TVAUDIO = KSPROPERTY_VIDCAP_TVAUDIO(0i32);
 pub const KSPROPERTY_TVAUDIO_MODE: KSPROPERTY_VIDCAP_TVAUDIO = KSPROPERTY_VIDCAP_TVAUDIO(1i32);
 pub const KSPROPERTY_TVAUDIO_CURRENTLY_AVAILABLE_MODES: KSPROPERTY_VIDCAP_TVAUDIO = KSPROPERTY_VIDCAP_TVAUDIO(2i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_TVAUDIO {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_TVAUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(pub i32);
 pub const KSPROPERTY_VIDEOCOMPRESSION_GETINFO: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(0i32);
@@ -4934,12 +5660,24 @@ pub const KSPROPERTY_VIDEOCOMPRESSION_QUALITY: KSPROPERTY_VIDCAP_VIDEOCOMPRESSIO
 pub const KSPROPERTY_VIDEOCOMPRESSION_OVERRIDE_KEYFRAME: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(4i32);
 pub const KSPROPERTY_VIDEOCOMPRESSION_OVERRIDE_FRAME_SIZE: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(5i32);
 pub const KSPROPERTY_VIDEOCOMPRESSION_WINDOWSIZE: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(6i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_VIDCAP_VIDEOCONTROL(pub i32);
 pub const KSPROPERTY_VIDEOCONTROL_CAPS: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(0i32);
 pub const KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(1i32);
 pub const KSPROPERTY_VIDEOCONTROL_FRAME_RATES: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(2i32);
 pub const KSPROPERTY_VIDEOCONTROL_MODE: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(3i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOCONTROL {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOCONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_VIDCAP_VIDEODECODER(pub i32);
 pub const KSPROPERTY_VIDEODECODER_CAPS: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(0i32);
@@ -4948,12 +5686,24 @@ pub const KSPROPERTY_VIDEODECODER_STATUS: KSPROPERTY_VIDCAP_VIDEODECODER = KSPRO
 pub const KSPROPERTY_VIDEODECODER_OUTPUT_ENABLE: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(3i32);
 pub const KSPROPERTY_VIDEODECODER_VCR_TIMING: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(4i32);
 pub const KSPROPERTY_VIDEODECODER_STATUS2: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(5i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEODECODER {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEODECODER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_VIDCAP_VIDEOENCODER(pub i32);
 pub const KSPROPERTY_VIDEOENCODER_CAPS: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(0i32);
 pub const KSPROPERTY_VIDEOENCODER_STANDARD: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(1i32);
 pub const KSPROPERTY_VIDEOENCODER_COPYPROTECTION: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(2i32);
 pub const KSPROPERTY_VIDEOENCODER_CC_ENABLE: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(3i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOENCODER {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOENCODER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_VIDCAP_VIDEOPROCAMP(pub i32);
 pub const KSPROPERTY_VIDEOPROCAMP_BRIGHTNESS: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(0i32);
@@ -4970,6 +5720,12 @@ pub const KSPROPERTY_VIDEOPROCAMP_DIGITAL_MULTIPLIER: KSPROPERTY_VIDCAP_VIDEOPRO
 pub const KSPROPERTY_VIDEOPROCAMP_DIGITAL_MULTIPLIER_LIMIT: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(11i32);
 pub const KSPROPERTY_VIDEOPROCAMP_WHITEBALANCE_COMPONENT: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(12i32);
 pub const KSPROPERTY_VIDEOPROCAMP_POWERLINE_FREQUENCY: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(13i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOPROCAMP {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
     pub Property: KSIDENTIFIER,
@@ -5194,6 +5950,12 @@ pub const KSPROPERTY_DISPLAY_ADAPTER_GUID: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPE
 pub const KSPROPERTY_PREFERRED_CAPTURE_SURFACE: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(2i32);
 pub const KSPROPERTY_CURRENT_CAPTURE_SURFACE: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(3i32);
 pub const KSPROPERTY_MAP_CAPTURE_HANDLE_TO_VRAM_ADDRESS: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(4i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDMEM_TRANSPORT {}
+impl ::core::clone::Clone for KSPROPERTY_VIDMEM_TRANSPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_VPCONFIG(pub i32);
 pub const KSPROPERTY_VPCONFIG_NUMCONNECTINFO: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(0i32);
@@ -5212,6 +5974,12 @@ pub const KSPROPERTY_VPCONFIG_DDRAWHANDLE: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCO
 pub const KSPROPERTY_VPCONFIG_VIDEOPORTID: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(13i32);
 pub const KSPROPERTY_VPCONFIG_DDRAWSURFACEHANDLE: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(14i32);
 pub const KSPROPERTY_VPCONFIG_SURFACEPARAMS: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(15i32);
+impl ::core::marker::Copy for KSPROPERTY_VPCONFIG {}
+impl ::core::clone::Clone for KSPROPERTY_VPCONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSPROPERTY_WAVE(pub i32);
 pub const KSPROPERTY_WAVE_COMPATIBLE_CAPABILITIES: KSPROPERTY_WAVE = KSPROPERTY_WAVE(0i32);
@@ -5221,6 +5989,12 @@ pub const KSPROPERTY_WAVE_BUFFER: KSPROPERTY_WAVE = KSPROPERTY_WAVE(3i32);
 pub const KSPROPERTY_WAVE_FREQUENCY: KSPROPERTY_WAVE = KSPROPERTY_WAVE(4i32);
 pub const KSPROPERTY_WAVE_VOLUME: KSPROPERTY_WAVE = KSPROPERTY_WAVE(5i32);
 pub const KSPROPERTY_WAVE_PAN: KSPROPERTY_WAVE = KSPROPERTY_WAVE(6i32);
+impl ::core::marker::Copy for KSPROPERTY_WAVE {}
+impl ::core::clone::Clone for KSPROPERTY_WAVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KSPROPERTY_WAVE_QUEUED_POSITION: u32 = 1u32;
 pub const KSPROPSETID_AC3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3215714080, data2: 28191, data3: 4560, data4: [188, 242, 68, 69, 83, 84, 0, 0] };
 pub const KSPROPSETID_Audio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1174383264, data2: 28187, data3: 4560, data4: [188, 242, 68, 69, 83, 84, 0, 0] };
@@ -5480,6 +6254,12 @@ pub const KSRELATIVEEVENT_FLAG_POINTER: u32 = 2u32;
 pub struct KSRESET(pub i32);
 pub const KSRESET_BEGIN: KSRESET = KSRESET(0i32);
 pub const KSRESET_END: KSRESET = KSRESET(1i32);
+impl ::core::marker::Copy for KSRESET {}
+impl ::core::clone::Clone for KSRESET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSRESOLUTION {
     pub Granularity: i64,
@@ -5726,6 +6506,12 @@ pub const KSSTATE_STOP: KSSTATE = KSSTATE(0i32);
 pub const KSSTATE_ACQUIRE: KSSTATE = KSSTATE(1i32);
 pub const KSSTATE_PAUSE: KSSTATE = KSSTATE(2i32);
 pub const KSSTATE_RUN: KSSTATE = KSSTATE(3i32);
+impl ::core::marker::Copy for KSSTATE {}
+impl ::core::clone::Clone for KSSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KSSTREAMALLOCATOR_STATUS {
     pub Framing: KSALLOCATOR_FRAMING,
@@ -6124,6 +6910,12 @@ pub const KS_PixAspectRatio_NTSC4x3: KS_AMPixAspectRatio = KS_AMPixAspectRatio(0
 pub const KS_PixAspectRatio_NTSC16x9: KS_AMPixAspectRatio = KS_AMPixAspectRatio(1i32);
 pub const KS_PixAspectRatio_PAL4x3: KS_AMPixAspectRatio = KS_AMPixAspectRatio(2i32);
 pub const KS_PixAspectRatio_PAL16x9: KS_AMPixAspectRatio = KS_AMPixAspectRatio(3i32);
+impl ::core::marker::Copy for KS_AMPixAspectRatio {}
+impl ::core::clone::Clone for KS_AMPixAspectRatio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_AMVPDATAINFO {
@@ -6184,11 +6976,23 @@ pub const KS_AMVP_MODE_BOBINTERLEAVED: KS_AMVP_MODE = KS_AMVP_MODE(1i32);
 pub const KS_AMVP_MODE_BOBNONINTERLEAVED: KS_AMVP_MODE = KS_AMVP_MODE(2i32);
 pub const KS_AMVP_MODE_SKIPEVEN: KS_AMVP_MODE = KS_AMVP_MODE(3i32);
 pub const KS_AMVP_MODE_SKIPODD: KS_AMVP_MODE = KS_AMVP_MODE(4i32);
+impl ::core::marker::Copy for KS_AMVP_MODE {}
+impl ::core::clone::Clone for KS_AMVP_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KS_AMVP_SELECTFORMATBY(pub i32);
 pub const KS_AMVP_DO_NOT_CARE: KS_AMVP_SELECTFORMATBY = KS_AMVP_SELECTFORMATBY(0i32);
 pub const KS_AMVP_BEST_BANDWIDTH: KS_AMVP_SELECTFORMATBY = KS_AMVP_SELECTFORMATBY(1i32);
 pub const KS_AMVP_INPUT_SAME_AS_OUTPUT: KS_AMVP_SELECTFORMATBY = KS_AMVP_SELECTFORMATBY(2i32);
+impl ::core::marker::Copy for KS_AMVP_SELECTFORMATBY {}
+impl ::core::clone::Clone for KS_AMVP_SELECTFORMATBY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KS_AM_ExactRateChange {
     pub OutputZeroTime: i64,
@@ -6206,6 +7010,12 @@ pub const KS_AM_RATE_SimpleRateChange: KS_AM_PROPERTY_TS_RATE_CHANGE = KS_AM_PRO
 pub const KS_AM_RATE_ExactRateChange: KS_AM_PROPERTY_TS_RATE_CHANGE = KS_AM_PROPERTY_TS_RATE_CHANGE(2i32);
 pub const KS_AM_RATE_MaxFullDataRate: KS_AM_PROPERTY_TS_RATE_CHANGE = KS_AM_PROPERTY_TS_RATE_CHANGE(3i32);
 pub const KS_AM_RATE_Step: KS_AM_PROPERTY_TS_RATE_CHANGE = KS_AM_PROPERTY_TS_RATE_CHANGE(4i32);
+impl ::core::marker::Copy for KS_AM_PROPERTY_TS_RATE_CHANGE {}
+impl ::core::clone::Clone for KS_AM_PROPERTY_TS_RATE_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KS_AM_SimpleRateChange {
     pub StartTime: i64,
@@ -6258,6 +7068,12 @@ pub const KS_AnalogVideo_SECAM_K1: KS_AnalogVideoStandard = KS_AnalogVideoStanda
 pub const KS_AnalogVideo_SECAM_L: KS_AnalogVideoStandard = KS_AnalogVideoStandard(262144i32);
 pub const KS_AnalogVideo_SECAM_L1: KS_AnalogVideoStandard = KS_AnalogVideoStandard(524288i32);
 pub const KS_AnalogVideo_PAL_N_COMBO: KS_AnalogVideoStandard = KS_AnalogVideoStandard(1048576i32);
+impl ::core::marker::Copy for KS_AnalogVideoStandard {}
+impl ::core::clone::Clone for KS_AnalogVideoStandard {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KS_AnalogVideo_NTSC_Mask: u32 = 7u32;
 pub const KS_AnalogVideo_PAL_Mask: u32 = 1052656u32;
 pub const KS_AnalogVideo_SECAM_Mask: u32 = 1044480u32;
@@ -6341,11 +7157,23 @@ pub const KS_MACROVISION_DISABLED: KS_COPY_MACROVISION_LEVEL = KS_COPY_MACROVISI
 pub const KS_MACROVISION_LEVEL1: KS_COPY_MACROVISION_LEVEL = KS_COPY_MACROVISION_LEVEL(1i32);
 pub const KS_MACROVISION_LEVEL2: KS_COPY_MACROVISION_LEVEL = KS_COPY_MACROVISION_LEVEL(2i32);
 pub const KS_MACROVISION_LEVEL3: KS_COPY_MACROVISION_LEVEL = KS_COPY_MACROVISION_LEVEL(3i32);
+impl ::core::marker::Copy for KS_COPY_MACROVISION_LEVEL {}
+impl ::core::clone::Clone for KS_COPY_MACROVISION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KS_CameraControlAsyncOperation(pub i32);
 pub const KS_CAMERACONTROL_ASYNC_START: KS_CameraControlAsyncOperation = KS_CameraControlAsyncOperation(1i32);
 pub const KS_CAMERACONTROL_ASYNC_STOP: KS_CameraControlAsyncOperation = KS_CameraControlAsyncOperation(2i32);
 pub const KS_CAMERACONTROL_ASYNC_RESET: KS_CameraControlAsyncOperation = KS_CameraControlAsyncOperation(3i32);
+impl ::core::marker::Copy for KS_CameraControlAsyncOperation {}
+impl ::core::clone::Clone for KS_CameraControlAsyncOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KS_CompressionCaps(pub i32);
 pub const KS_CompressionCaps_CanQuality: KS_CompressionCaps = KS_CompressionCaps(1i32);
@@ -6353,6 +7181,12 @@ pub const KS_CompressionCaps_CanCrunch: KS_CompressionCaps = KS_CompressionCaps(
 pub const KS_CompressionCaps_CanKeyFrame: KS_CompressionCaps = KS_CompressionCaps(4i32);
 pub const KS_CompressionCaps_CanBFrame: KS_CompressionCaps = KS_CompressionCaps(8i32);
 pub const KS_CompressionCaps_CanWindow: KS_CompressionCaps = KS_CompressionCaps(16i32);
+impl ::core::marker::Copy for KS_CompressionCaps {}
+impl ::core::clone::Clone for KS_CompressionCaps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KS_DATAFORMAT_H264VIDEOINFO {
     pub DataFormat: KSDATAFORMAT,
@@ -6611,6 +7445,12 @@ pub const KS_DVDCOPYSTATE_INITIALIZE_TITLE: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(1i
 pub const KS_DVDCOPYSTATE_AUTHENTICATION_NOT_REQUIRED: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(2i32);
 pub const KS_DVDCOPYSTATE_AUTHENTICATION_REQUIRED: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(3i32);
 pub const KS_DVDCOPYSTATE_DONE: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(4i32);
+impl ::core::marker::Copy for KS_DVDCOPYSTATE {}
+impl ::core::clone::Clone for KS_DVDCOPYSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KS_DVDCOPY_BUSKEY {
     pub BusKey: [u8; 5],
@@ -6897,6 +7737,12 @@ pub const KS_MemoryTypeDeviceHostMapped: KS_LogicalMemoryType = KS_LogicalMemory
 pub const KS_MemoryTypeDeviceSpecific: KS_LogicalMemoryType = KS_LogicalMemoryType(4i32);
 pub const KS_MemoryTypeUser: KS_LogicalMemoryType = KS_LogicalMemoryType(5i32);
 pub const KS_MemoryTypeAnyHost: KS_LogicalMemoryType = KS_LogicalMemoryType(6i32);
+impl ::core::marker::Copy for KS_LogicalMemoryType {}
+impl ::core::clone::Clone for KS_LogicalMemoryType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KS_MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140u32;
 #[repr(C)]
 pub struct KS_MPEAUDIOINFO {
@@ -6933,6 +7779,12 @@ pub const KS_MPEG2Level_Low: KS_MPEG2Level = KS_MPEG2Level(0i32);
 pub const KS_MPEG2Level_Main: KS_MPEG2Level = KS_MPEG2Level(1i32);
 pub const KS_MPEG2Level_High1440: KS_MPEG2Level = KS_MPEG2Level(2i32);
 pub const KS_MPEG2Level_High: KS_MPEG2Level = KS_MPEG2Level(3i32);
+impl ::core::marker::Copy for KS_MPEG2Level {}
+impl ::core::clone::Clone for KS_MPEG2Level {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KS_MPEG2Profile(pub i32);
 pub const KS_MPEG2Profile_Simple: KS_MPEG2Profile = KS_MPEG2Profile(0i32);
@@ -6940,6 +7792,12 @@ pub const KS_MPEG2Profile_Main: KS_MPEG2Profile = KS_MPEG2Profile(1i32);
 pub const KS_MPEG2Profile_SNRScalable: KS_MPEG2Profile = KS_MPEG2Profile(2i32);
 pub const KS_MPEG2Profile_SpatiallyScalable: KS_MPEG2Profile = KS_MPEG2Profile(3i32);
 pub const KS_MPEG2Profile_High: KS_MPEG2Profile = KS_MPEG2Profile(4i32);
+impl ::core::marker::Copy for KS_MPEG2Profile {}
+impl ::core::clone::Clone for KS_MPEG2Profile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KS_MPEG2_27MhzTimebase: u32 = 256u32;
 pub const KS_MPEG2_DSS_UserData: u32 = 64u32;
 pub const KS_MPEG2_DVB_UserData: u32 = 128u32;
@@ -7009,6 +7867,12 @@ pub const KS_PhysConn_Audio_AUX: KS_PhysicalConnectorType = KS_PhysicalConnector
 pub const KS_PhysConn_Audio_1394: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4103i32);
 pub const KS_PhysConn_Audio_USB: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4104i32);
 pub const KS_PhysConn_Audio_AudioDecoder: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4105i32);
+impl ::core::marker::Copy for KS_PhysicalConnectorType {}
+impl ::core::clone::Clone for KS_PhysicalConnectorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KS_RGBQUAD {
     pub rgbBlue: u8,
@@ -7032,6 +7896,12 @@ pub const KS_SEEKING_CanGetCurrentPos: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPA
 pub const KS_SEEKING_CanGetStopPos: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(16i32);
 pub const KS_SEEKING_CanGetDuration: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(32i32);
 pub const KS_SEEKING_CanPlayBackwards: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(64i32);
+impl ::core::marker::Copy for KS_SEEKING_CAPABILITIES {}
+impl ::core::clone::Clone for KS_SEEKING_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KS_SEEKING_FLAGS(pub i32);
 pub const KS_SEEKING_NoPositioning: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(0i32);
@@ -7041,6 +7911,12 @@ pub const KS_SEEKING_IncrementalPositioning: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS
 pub const KS_SEEKING_PositioningBitsMask: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(3i32);
 pub const KS_SEEKING_SeekToKeyFrame: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(4i32);
 pub const KS_SEEKING_ReturnTime: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(8i32);
+impl ::core::marker::Copy for KS_SEEKING_FLAGS {}
+impl ::core::clone::Clone for KS_SEEKING_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct KS_TRUECOLORINFO {
     pub dwBitMasks: [u32; 3],
@@ -7057,11 +7933,23 @@ pub struct KS_TUNER_STRATEGY(pub i32);
 pub const KS_TUNER_STRATEGY_PLL: KS_TUNER_STRATEGY = KS_TUNER_STRATEGY(1i32);
 pub const KS_TUNER_STRATEGY_SIGNAL_STRENGTH: KS_TUNER_STRATEGY = KS_TUNER_STRATEGY(2i32);
 pub const KS_TUNER_STRATEGY_DRIVER_TUNES: KS_TUNER_STRATEGY = KS_TUNER_STRATEGY(4i32);
+impl ::core::marker::Copy for KS_TUNER_STRATEGY {}
+impl ::core::clone::Clone for KS_TUNER_STRATEGY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KS_TUNER_TUNING_FLAGS(pub i32);
 pub const KS_TUNER_TUNING_EXACT: KS_TUNER_TUNING_FLAGS = KS_TUNER_TUNING_FLAGS(1i32);
 pub const KS_TUNER_TUNING_FINE: KS_TUNER_TUNING_FLAGS = KS_TUNER_TUNING_FLAGS(2i32);
 pub const KS_TUNER_TUNING_COARSE: KS_TUNER_TUNING_FLAGS = KS_TUNER_TUNING_FLAGS(3i32);
+impl ::core::marker::Copy for KS_TUNER_TUNING_FLAGS {}
+impl ::core::clone::Clone for KS_TUNER_TUNING_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KS_TVAUDIO_MODE_LANG_A: u32 = 16u32;
 pub const KS_TVAUDIO_MODE_LANG_B: u32 = 32u32;
 pub const KS_TVAUDIO_MODE_LANG_C: u32 = 64u32;
@@ -7140,6 +8028,12 @@ pub struct KS_VIDEODECODER_FLAGS(pub i32);
 pub const KS_VIDEODECODER_FLAGS_CAN_DISABLE_OUTPUT: KS_VIDEODECODER_FLAGS = KS_VIDEODECODER_FLAGS(1i32);
 pub const KS_VIDEODECODER_FLAGS_CAN_USE_VCR_LOCKING: KS_VIDEODECODER_FLAGS = KS_VIDEODECODER_FLAGS(2i32);
 pub const KS_VIDEODECODER_FLAGS_CAN_INDICATE_LOCKED: KS_VIDEODECODER_FLAGS = KS_VIDEODECODER_FLAGS(4i32);
+impl ::core::marker::Copy for KS_VIDEODECODER_FLAGS {}
+impl ::core::clone::Clone for KS_VIDEODECODER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_VIDEOINFO {
@@ -7294,6 +8188,12 @@ pub const KS_VideoControlFlag_IndependentImagePin: KS_VideoControlFlags = KS_Vid
 pub const KS_VideoControlFlag_StillCapturePreviewFrame: KS_VideoControlFlags = KS_VideoControlFlags(128i32);
 pub const KS_VideoControlFlag_StartPhotoSequenceCapture: KS_VideoControlFlags = KS_VideoControlFlags(256i32);
 pub const KS_VideoControlFlag_StopPhotoSequenceCapture: KS_VideoControlFlags = KS_VideoControlFlags(512i32);
+impl ::core::marker::Copy for KS_VideoControlFlags {}
+impl ::core::clone::Clone for KS_VideoControlFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KS_VideoStreamingHints(pub i32);
 pub const KS_StreamingHint_FrameInterval: KS_VideoStreamingHints = KS_VideoStreamingHints(256i32);
@@ -7301,6 +8201,12 @@ pub const KS_StreamingHint_KeyFrameRate: KS_VideoStreamingHints = KS_VideoStream
 pub const KS_StreamingHint_PFrameRate: KS_VideoStreamingHints = KS_VideoStreamingHints(1024i32);
 pub const KS_StreamingHint_CompQuality: KS_VideoStreamingHints = KS_VideoStreamingHints(2048i32);
 pub const KS_StreamingHint_CompWindowSize: KS_VideoStreamingHints = KS_VideoStreamingHints(4096i32);
+impl ::core::marker::Copy for KS_VideoStreamingHints {}
+impl ::core::clone::Clone for KS_VideoStreamingHints {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KS_iBLUE: u32 = 2u32;
 pub const KS_iEGA_COLORS: u32 = 16u32;
 pub const KS_iGREEN: u32 = 1u32;
@@ -7450,6 +8356,12 @@ pub const Pipe_Allocator_None: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(0i32)
 pub const Pipe_Allocator_FirstPin: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(1i32);
 pub const Pipe_Allocator_LastPin: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(2i32);
 pub const Pipe_Allocator_MiddlePin: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(3i32);
+impl ::core::marker::Copy for PIPE_ALLOCATOR_PLACE {}
+impl ::core::clone::Clone for PIPE_ALLOCATOR_PLACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PIPE_DIMENSIONS {
     pub AllocatorPin: KS_COMPRESSION,
@@ -7469,6 +8381,12 @@ pub const PipeState_RangeNotFixed: PIPE_STATE = PIPE_STATE(1i32);
 pub const PipeState_RangeFixed: PIPE_STATE = PIPE_STATE(2i32);
 pub const PipeState_CompressionUnknown: PIPE_STATE = PIPE_STATE(3i32);
 pub const PipeState_Finalized: PIPE_STATE = PIPE_STATE(4i32);
+impl ::core::marker::Copy for PIPE_STATE {}
+impl ::core::clone::Clone for PIPE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PIPE_TERMINATION {
     pub Flags: u32,
@@ -7590,22 +8508,46 @@ pub const SYSAUDIO_FLAGS_DONT_COMBINE_PINS: u32 = 1u32;
 pub struct TELEPHONY_CALLCONTROLOP(pub i32);
 pub const TELEPHONY_CALLCONTROLOP_DISABLE: TELEPHONY_CALLCONTROLOP = TELEPHONY_CALLCONTROLOP(0i32);
 pub const TELEPHONY_CALLCONTROLOP_ENABLE: TELEPHONY_CALLCONTROLOP = TELEPHONY_CALLCONTROLOP(1i32);
+impl ::core::marker::Copy for TELEPHONY_CALLCONTROLOP {}
+impl ::core::clone::Clone for TELEPHONY_CALLCONTROLOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TELEPHONY_CALLSTATE(pub i32);
 pub const TELEPHONY_CALLSTATE_DISABLED: TELEPHONY_CALLSTATE = TELEPHONY_CALLSTATE(0i32);
 pub const TELEPHONY_CALLSTATE_ENABLED: TELEPHONY_CALLSTATE = TELEPHONY_CALLSTATE(1i32);
 pub const TELEPHONY_CALLSTATE_HOLD: TELEPHONY_CALLSTATE = TELEPHONY_CALLSTATE(2i32);
 pub const TELEPHONY_CALLSTATE_PROVIDERTRANSITION: TELEPHONY_CALLSTATE = TELEPHONY_CALLSTATE(3i32);
+impl ::core::marker::Copy for TELEPHONY_CALLSTATE {}
+impl ::core::clone::Clone for TELEPHONY_CALLSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TELEPHONY_CALLTYPE(pub i32);
 pub const TELEPHONY_CALLTYPE_CIRCUITSWITCHED: TELEPHONY_CALLTYPE = TELEPHONY_CALLTYPE(0i32);
 pub const TELEPHONY_CALLTYPE_PACKETSWITCHED_LTE: TELEPHONY_CALLTYPE = TELEPHONY_CALLTYPE(1i32);
 pub const TELEPHONY_CALLTYPE_PACKETSWITCHED_WLAN: TELEPHONY_CALLTYPE = TELEPHONY_CALLTYPE(2i32);
+impl ::core::marker::Copy for TELEPHONY_CALLTYPE {}
+impl ::core::clone::Clone for TELEPHONY_CALLTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TELEPHONY_PROVIDERCHANGEOP(pub i32);
 pub const TELEPHONY_PROVIDERCHANGEOP_END: TELEPHONY_PROVIDERCHANGEOP = TELEPHONY_PROVIDERCHANGEOP(0i32);
 pub const TELEPHONY_PROVIDERCHANGEOP_BEGIN: TELEPHONY_PROVIDERCHANGEOP = TELEPHONY_PROVIDERCHANGEOP(1i32);
 pub const TELEPHONY_PROVIDERCHANGEOP_CANCEL: TELEPHONY_PROVIDERCHANGEOP = TELEPHONY_PROVIDERCHANGEOP(2i32);
+impl ::core::marker::Copy for TELEPHONY_PROVIDERCHANGEOP {}
+impl ::core::clone::Clone for TELEPHONY_PROVIDERCHANGEOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TRANSPORTAUDIOPARMS {
     pub EnableOutput: i32,
@@ -7953,3 +8895,9 @@ pub struct _TunerDecoderLockType(pub i32);
 pub const Tuner_LockType_None: _TunerDecoderLockType = _TunerDecoderLockType(0i32);
 pub const Tuner_LockType_Within_Scan_Sensing_Range: _TunerDecoderLockType = _TunerDecoderLockType(1i32);
 pub const Tuner_LockType_Locked: _TunerDecoderLockType = _TunerDecoderLockType(2i32);
+impl ::core::marker::Copy for _TunerDecoderLockType {}
+impl ::core::clone::Clone for _TunerDecoderLockType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

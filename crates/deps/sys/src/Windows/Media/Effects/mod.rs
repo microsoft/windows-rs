@@ -31,6 +31,12 @@ impl AudioEffectType {
     pub const FarFieldBeamForming: Self = Self(18i32);
     pub const DeepNoiseSuppression: Self = Self(19i32);
 }
+impl ::core::marker::Copy for AudioEffectType {}
+impl ::core::clone::Clone for AudioEffectType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AudioRenderEffectsManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -85,12 +91,24 @@ impl MediaEffectClosedReason {
     pub const UnsupportedEncodingFormat: Self = Self(2i32);
     pub const EffectCurrentlyUnloaded: Self = Self(3i32);
 }
+impl ::core::marker::Copy for MediaEffectClosedReason {}
+impl ::core::clone::Clone for MediaEffectClosedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaMemoryTypes(pub i32);
 impl MediaMemoryTypes {
     pub const Gpu: Self = Self(0i32);
     pub const Cpu: Self = Self(1i32);
     pub const GpuAndCpu: Self = Self(2i32);
+}
+impl ::core::marker::Copy for MediaMemoryTypes {}
+impl ::core::clone::Clone for MediaMemoryTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ProcessAudioFrameContext(pub *mut ::core::ffi::c_void);

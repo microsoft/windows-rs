@@ -21,6 +21,12 @@ impl MicrosoftAccountMultiFactorAuthenticationType {
     pub const User: Self = Self(0i32);
     pub const Device: Self = Self(1i32);
 }
+impl ::core::marker::Copy for MicrosoftAccountMultiFactorAuthenticationType {}
+impl ::core::clone::Clone for MicrosoftAccountMultiFactorAuthenticationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -51,6 +57,12 @@ impl MicrosoftAccountMultiFactorServiceResponse {
     pub const UIRequired: Self = Self(20i32);
     pub const DeviceIdChanged: Self = Self(21i32);
 }
+impl ::core::marker::Copy for MicrosoftAccountMultiFactorServiceResponse {}
+impl ::core::clone::Clone for MicrosoftAccountMultiFactorServiceResponse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionApprovalStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionApprovalStatus {
@@ -58,11 +70,23 @@ impl MicrosoftAccountMultiFactorSessionApprovalStatus {
     pub const Approved: Self = Self(1i32);
     pub const Denied: Self = Self(2i32);
 }
+impl ::core::marker::Copy for MicrosoftAccountMultiFactorSessionApprovalStatus {}
+impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionApprovalStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionAuthenticationStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     pub const Authenticated: Self = Self(0i32);
     pub const Unauthenticated: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MicrosoftAccountMultiFactorSessionAuthenticationStatus {}
+impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionInfo(pub *mut ::core::ffi::c_void);

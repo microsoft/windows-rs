@@ -14,3 +14,9 @@ impl DragDropModifiers {
     pub const MiddleButton: Self = Self(16u32);
     pub const RightButton: Self = Self(32u32);
 }
+impl ::core::marker::Copy for DragDropModifiers {}
+impl ::core::clone::Clone for DragDropModifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -11,6 +11,12 @@ impl AppServiceClosedStatus {
     pub const ResourceLimitsExceeded: Self = Self(2i32);
     pub const Unknown: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AppServiceClosedStatus {}
+impl ::core::clone::Clone for AppServiceClosedStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppServiceConnection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -28,6 +34,12 @@ impl AppServiceConnectionStatus {
     pub const NetworkNotAvailable: Self = Self(9i32);
     pub const DisabledByPolicy: Self = Self(10i32);
     pub const WebServiceUnavailable: Self = Self(11i32);
+}
+impl ::core::marker::Copy for AppServiceConnectionStatus {}
+impl ::core::clone::Clone for AppServiceConnectionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppServiceDeferral(pub *mut ::core::ffi::c_void);
@@ -51,6 +63,12 @@ impl AppServiceResponseStatus {
     pub const NetworkNotAvailable: Self = Self(8i32);
     pub const DisabledByPolicy: Self = Self(9i32);
     pub const WebServiceUnavailable: Self = Self(10i32);
+}
+impl ::core::marker::Copy for AppServiceResponseStatus {}
+impl ::core::clone::Clone for AppServiceResponseStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppServiceTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -102,4 +120,10 @@ impl StatelessAppServiceResponseStatus {
     pub const NetworkNotAvailable: Self = Self(12i32);
     pub const DisabledByPolicy: Self = Self(13i32);
     pub const WebServiceUnavailable: Self = Self(14i32);
+}
+impl ::core::marker::Copy for StatelessAppServiceResponseStatus {}
+impl ::core::clone::Clone for StatelessAppServiceResponseStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

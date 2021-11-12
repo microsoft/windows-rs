@@ -23,11 +23,23 @@ impl AnimationControllerProgressBehavior {
     pub const Default: Self = Self(0i32);
     pub const IncludesDelayTime: Self = Self(1i32);
 }
+impl ::core::marker::Copy for AnimationControllerProgressBehavior {}
+impl ::core::clone::Clone for AnimationControllerProgressBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AnimationDelayBehavior(pub i32);
 impl AnimationDelayBehavior {
     pub const SetInitialValueAfterDelay: Self = Self(0i32);
     pub const SetInitialValueBeforeDelay: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AnimationDelayBehavior {}
+impl ::core::clone::Clone for AnimationDelayBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AnimationDirection(pub i32);
@@ -37,11 +49,23 @@ impl AnimationDirection {
     pub const Alternate: Self = Self(2i32);
     pub const AlternateReverse: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AnimationDirection {}
+impl ::core::clone::Clone for AnimationDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AnimationIterationBehavior(pub i32);
 impl AnimationIterationBehavior {
     pub const Count: Self = Self(0i32);
     pub const Forever: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AnimationIterationBehavior {}
+impl ::core::clone::Clone for AnimationIterationBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AnimationPropertyAccessMode(pub i32);
@@ -51,6 +75,12 @@ impl AnimationPropertyAccessMode {
     pub const WriteOnly: Self = Self(2i32);
     pub const ReadWrite: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AnimationPropertyAccessMode {}
+impl ::core::clone::Clone for AnimationPropertyAccessMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AnimationPropertyInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -59,6 +89,12 @@ impl AnimationStopBehavior {
     pub const LeaveCurrentValue: Self = Self(0i32);
     pub const SetToInitialValue: Self = Self(1i32);
     pub const SetToFinalValue: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AnimationStopBehavior {}
+impl ::core::clone::Clone for AnimationStopBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BackEasingFunction(pub *mut ::core::ffi::c_void);
@@ -89,6 +125,12 @@ impl CompositionBackfaceVisibility {
     pub const Visible: Self = Self(1i32);
     pub const Hidden: Self = Self(2i32);
 }
+impl ::core::marker::Copy for CompositionBackfaceVisibility {}
+impl ::core::clone::Clone for CompositionBackfaceVisibility {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CompositionBatchCompletedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -99,6 +141,12 @@ impl CompositionBatchTypes {
     pub const Effect: Self = Self(2u32);
     pub const InfiniteAnimation: Self = Self(4u32);
     pub const AllAnimations: Self = Self(5u32);
+}
+impl ::core::marker::Copy for CompositionBatchTypes {}
+impl ::core::clone::Clone for CompositionBatchTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CompositionBitmapInterpolationMode(pub i32);
@@ -114,12 +162,24 @@ impl CompositionBitmapInterpolationMode {
     pub const MagNearestMinNearestMipLinear: Self = Self(8i32);
     pub const MagNearestMinNearestMipNearest: Self = Self(9i32);
 }
+impl ::core::marker::Copy for CompositionBitmapInterpolationMode {}
+impl ::core::clone::Clone for CompositionBitmapInterpolationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CompositionBorderMode(pub i32);
 impl CompositionBorderMode {
     pub const Inherit: Self = Self(0i32);
     pub const Soft: Self = Self(1i32);
     pub const Hard: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CompositionBorderMode {}
+impl ::core::clone::Clone for CompositionBorderMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CompositionBrush(pub *mut ::core::ffi::c_void);
@@ -142,6 +202,12 @@ impl CompositionColorSpace {
     pub const HslLinear: Self = Self(3i32);
     pub const RgbLinear: Self = Self(4i32);
 }
+impl ::core::marker::Copy for CompositionColorSpace {}
+impl ::core::clone::Clone for CompositionColorSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CompositionCommitBatch(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -151,6 +217,12 @@ impl CompositionCompositeMode {
     pub const SourceOver: Self = Self(1i32);
     pub const DestinationInvert: Self = Self(2i32);
     pub const MinBlend: Self = Self(3i32);
+}
+impl ::core::marker::Copy for CompositionCompositeMode {}
+impl ::core::clone::Clone for CompositionCompositeMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CompositionContainerShape(pub *mut ::core::ffi::c_void);
@@ -162,6 +234,12 @@ impl CompositionDropShadowSourcePolicy {
     pub const Default: Self = Self(0i32);
     pub const InheritFromVisualContent: Self = Self(1i32);
 }
+impl ::core::marker::Copy for CompositionDropShadowSourcePolicy {}
+impl ::core::clone::Clone for CompositionDropShadowSourcePolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CompositionEasingFunction(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -170,6 +248,12 @@ impl CompositionEasingFunctionMode {
     pub const In: Self = Self(0i32);
     pub const Out: Self = Self(1i32);
     pub const InOut: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CompositionEasingFunctionMode {}
+impl ::core::clone::Clone for CompositionEasingFunctionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CompositionEffectBrush(pub *mut ::core::ffi::c_void);
@@ -182,6 +266,12 @@ impl CompositionEffectFactoryLoadStatus {
     pub const EffectTooComplex: Self = Self(1i32);
     pub const Pending: Self = Self(2i32);
     pub const Other: Self = Self(-1i32);
+}
+impl ::core::marker::Copy for CompositionEffectFactoryLoadStatus {}
+impl ::core::clone::Clone for CompositionEffectFactoryLoadStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CompositionEffectSourceParameter(pub *mut ::core::ffi::c_void);
@@ -198,6 +288,12 @@ impl CompositionGetValueStatus {
     pub const TypeMismatch: Self = Self(1i32);
     pub const NotFound: Self = Self(2i32);
 }
+impl ::core::marker::Copy for CompositionGetValueStatus {}
+impl ::core::clone::Clone for CompositionGetValueStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CompositionGradientBrush(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -206,6 +302,12 @@ impl CompositionGradientExtendMode {
     pub const Clamp: Self = Self(0i32);
     pub const Wrap: Self = Self(1i32);
     pub const Mirror: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CompositionGradientExtendMode {}
+impl ::core::clone::Clone for CompositionGradientExtendMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CompositionGraphicsDevice(pub *mut ::core::ffi::c_void);
@@ -220,6 +322,12 @@ pub struct CompositionMappingMode(pub i32);
 impl CompositionMappingMode {
     pub const Absolute: Self = Self(0i32);
     pub const Relative: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CompositionMappingMode {}
+impl ::core::clone::Clone for CompositionMappingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CompositionMaskBrush(pub *mut ::core::ffi::c_void);
@@ -269,6 +377,12 @@ impl CompositionStretch {
     pub const Uniform: Self = Self(2i32);
     pub const UniformToFill: Self = Self(3i32);
 }
+impl ::core::marker::Copy for CompositionStretch {}
+impl ::core::clone::Clone for CompositionStretch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CompositionStrokeCap(pub i32);
 impl CompositionStrokeCap {
@@ -276,6 +390,12 @@ impl CompositionStrokeCap {
     pub const Square: Self = Self(1i32);
     pub const Round: Self = Self(2i32);
     pub const Triangle: Self = Self(3i32);
+}
+impl ::core::marker::Copy for CompositionStrokeCap {}
+impl ::core::clone::Clone for CompositionStrokeCap {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CompositionStrokeDashArray(pub *mut ::core::ffi::c_void);
@@ -286,6 +406,12 @@ impl CompositionStrokeLineJoin {
     pub const Bevel: Self = Self(1i32);
     pub const Round: Self = Self(2i32);
     pub const MiterOrBevel: Self = Self(3i32);
+}
+impl ::core::marker::Copy for CompositionStrokeLineJoin {}
+impl ::core::clone::Clone for CompositionStrokeLineJoin {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CompositionSurfaceBrush(pub *mut ::core::ffi::c_void);

@@ -40,12 +40,24 @@ impl TargetedContentAppInstallationState {
     pub const NotInstalled: Self = Self(1i32);
     pub const Installed: Self = Self(2i32);
 }
+impl ::core::marker::Copy for TargetedContentAppInstallationState {}
+impl ::core::clone::Clone for TargetedContentAppInstallationState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TargetedContentAvailability(pub i32);
 impl TargetedContentAvailability {
     pub const None: Self = Self(0i32);
     pub const Partial: Self = Self(1i32);
     pub const All: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TargetedContentAvailability {}
+impl ::core::clone::Clone for TargetedContentAvailability {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TargetedContentAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -76,6 +88,12 @@ impl TargetedContentInteraction {
     pub const Conversion: Self = Self(11i32);
     pub const Opportunity: Self = Self(12i32);
 }
+impl ::core::marker::Copy for TargetedContentInteraction {}
+impl ::core::clone::Clone for TargetedContentInteraction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TargetedContentItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -88,6 +106,12 @@ impl TargetedContentObjectKind {
     pub const Collection: Self = Self(0i32);
     pub const Item: Self = Self(1i32);
     pub const Value: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TargetedContentObjectKind {}
+impl ::core::clone::Clone for TargetedContentObjectKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TargetedContentStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -114,4 +138,10 @@ impl TargetedContentValueKind {
     pub const Files: Self = Self(11i32);
     pub const ImageFiles: Self = Self(12i32);
     pub const Actions: Self = Self(13i32);
+}
+impl ::core::marker::Copy for TargetedContentValueKind {}
+impl ::core::clone::Clone for TargetedContentValueKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
