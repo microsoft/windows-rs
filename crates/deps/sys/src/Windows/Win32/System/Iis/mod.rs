@@ -372,7 +372,7 @@ pub const HSE_TERM_MUST_UNLOAD: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_TF_INFO {
-    pub pfnHseIO: ::core::option::Option<PFN_HSE_IO_COMPLETION>,
+    pub pfnHseIO: PFN_HSE_IO_COMPLETION,
     pub pContext: *mut ::core::ffi::c_void,
     pub hFile: super::super::Foundation::HANDLE,
     pub pszStatusCode: super::super::Foundation::PSTR,

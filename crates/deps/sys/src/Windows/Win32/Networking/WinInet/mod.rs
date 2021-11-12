@@ -431,9 +431,9 @@ extern "system" {
     pub fn InternetSetPerSiteCookieDecisionA(pchhostname: super::super::Foundation::PSTR, dwdecision: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn InternetSetPerSiteCookieDecisionW(pchhostname: super::super::Foundation::PWSTR, dwdecision: u32) -> super::super::Foundation::BOOL;
-    pub fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> ::core::option::Option<LPINTERNET_STATUS_CALLBACK>;
-    pub fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> ::core::option::Option<LPINTERNET_STATUS_CALLBACK>;
-    pub fn InternetSetStatusCallbackW(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> ::core::option::Option<LPINTERNET_STATUS_CALLBACK>;
+    pub fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK;
+    pub fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK;
+    pub fn InternetSetStatusCallbackW(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK;
     #[cfg(feature = "Win32_Foundation")]
     pub fn InternetShowSecurityInfoByURL(lpszurl: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -1678,7 +1678,7 @@ impl ::core::clone::Clone for INTERNET_ASYNC_RESULT {
 pub struct INTERNET_AUTH_NOTIFY_DATA {
     pub cbStruct: u32,
     pub dwOptions: u32,
-    pub pfnNotify: ::core::option::Option<PFN_AUTH_NOTIFY>,
+    pub pfnNotify: PFN_AUTH_NOTIFY,
     pub dwContext: usize,
 }
 impl ::core::marker::Copy for INTERNET_AUTH_NOTIFY_DATA {}

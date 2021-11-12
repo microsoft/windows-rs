@@ -3893,7 +3893,7 @@ pub const IOCTL_STORAGE_STOP_DATA_INTEGRITY_CHECK: u32 = 3004552u32;
 pub struct IO_IRP_EXT_TRACK_OFFSET_HEADER {
     pub Validation: u16,
     pub Flags: u16,
-    pub TrackedOffsetCallback: ::core::option::Option<PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK>,
+    pub TrackedOffsetCallback: PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK,
 }
 impl ::core::marker::Copy for IO_IRP_EXT_TRACK_OFFSET_HEADER {}
 impl ::core::clone::Clone for IO_IRP_EXT_TRACK_OFFSET_HEADER {

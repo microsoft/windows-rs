@@ -5711,7 +5711,7 @@ impl ::core::clone::Clone for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
 }
 #[repr(C)]
 pub struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
-    pub pCryptoSession: ::core::option::Option<ID3D11CryptoSession>,
+    pub pCryptoSession: ID3D11CryptoSession,
     pub BlobSize: u32,
     pub pBlob: *mut ::core::ffi::c_void,
     pub pKeyInfoId: *mut ::windows_sys::core::GUID,
@@ -5864,7 +5864,7 @@ pub struct D3D11_VIDEO_DECODER_EXTENSION {
     pub pPrivateOutputData: *mut ::core::ffi::c_void,
     pub PrivateOutputDataSize: u32,
     pub ResourceCount: u32,
-    pub ppResourceList: *mut ::core::option::Option<ID3D11Resource>,
+    pub ppResourceList: *mut ID3D11Resource,
 }
 impl ::core::marker::Copy for D3D11_VIDEO_DECODER_EXTENSION {}
 impl ::core::clone::Clone for D3D11_VIDEO_DECODER_EXTENSION {
@@ -6323,12 +6323,12 @@ pub struct D3D11_VIDEO_PROCESSOR_STREAM {
     pub InputFrameOrField: u32,
     pub PastFrames: u32,
     pub FutureFrames: u32,
-    pub ppPastSurfaces: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub pInputSurface: ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub ppFutureSurfaces: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub ppPastSurfacesRight: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub pInputSurfaceRight: ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub ppFutureSurfacesRight: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
+    pub ppPastSurfaces: *mut ID3D11VideoProcessorInputView,
+    pub pInputSurface: ID3D11VideoProcessorInputView,
+    pub ppFutureSurfaces: *mut ID3D11VideoProcessorInputView,
+    pub ppPastSurfacesRight: *mut ID3D11VideoProcessorInputView,
+    pub pInputSurfaceRight: ID3D11VideoProcessorInputView,
+    pub ppFutureSurfacesRight: *mut ID3D11VideoProcessorInputView,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_STREAM {}

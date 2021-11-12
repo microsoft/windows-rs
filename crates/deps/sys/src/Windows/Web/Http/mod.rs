@@ -48,9 +48,9 @@ pub struct HttpMultipartFormDataContent(pub *mut ::core::ffi::c_void);
 pub struct HttpProgress {
     pub Stage: HttpProgressStage,
     pub BytesSent: u64,
-    pub TotalBytesToSend: ::core::option::Option<super::super::Foundation::IReference<u64>>,
+    pub TotalBytesToSend: super::super::Foundation::IReference<u64>,
     pub BytesReceived: u64,
-    pub TotalBytesToReceive: ::core::option::Option<super::super::Foundation::IReference<u64>>,
+    pub TotalBytesToReceive: super::super::Foundation::IReference<u64>,
     pub Retries: u32,
 }
 #[cfg(feature = "Foundation")]

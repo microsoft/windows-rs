@@ -1078,7 +1078,7 @@ pub struct WSMAN_SHELL(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_SHELL_ASYNC {
     pub operationContext: *mut ::core::ffi::c_void,
-    pub completionFunction: ::core::option::Option<WSMAN_SHELL_COMPLETION_FUNCTION>,
+    pub completionFunction: WSMAN_SHELL_COMPLETION_FUNCTION,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSMAN_SHELL_ASYNC {}

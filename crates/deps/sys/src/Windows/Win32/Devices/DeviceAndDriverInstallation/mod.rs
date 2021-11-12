@@ -4123,7 +4123,7 @@ impl ::core::clone::Clone for SP_COPY_STYLE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub DetectProgressNotify: ::core::option::Option<PDETECT_PROGRESS_NOTIFY>,
+    pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
     pub ProgressNotifyParam: *mut ::core::ffi::c_void,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -4141,7 +4141,7 @@ impl ::core::clone::Clone for SP_DETECTDEVICE_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub DetectProgressNotify: ::core::option::Option<PDETECT_PROGRESS_NOTIFY>,
+    pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
     pub ProgressNotifyParam: *mut ::core::ffi::c_void,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -4364,7 +4364,7 @@ pub struct SP_DEVINSTALL_PARAMS_A {
     pub Flags: u32,
     pub FlagsEx: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: ::core::option::Option<PSP_FILE_CALLBACK_A>,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,
@@ -4389,7 +4389,7 @@ pub struct SP_DEVINSTALL_PARAMS_A {
     pub Flags: u32,
     pub FlagsEx: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: ::core::option::Option<PSP_FILE_CALLBACK_A>,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,
@@ -4414,7 +4414,7 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub Flags: u32,
     pub FlagsEx: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: ::core::option::Option<PSP_FILE_CALLBACK_A>,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,
@@ -4439,7 +4439,7 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub Flags: u32,
     pub FlagsEx: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: ::core::option::Option<PSP_FILE_CALLBACK_A>,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,

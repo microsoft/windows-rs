@@ -50,7 +50,7 @@ extern "system" {
     pub fn AVIStreamGetFrame(pg: IGetFrame, lpos: i32) -> *mut ::core::ffi::c_void;
     pub fn AVIStreamGetFrameClose(pg: IGetFrame) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn AVIStreamGetFrameOpen(pavi: IAVIStream, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::core::option::Option<IGetFrame>;
+    pub fn AVIStreamGetFrameOpen(pavi: IAVIStream, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> IGetFrame;
     #[cfg(feature = "Win32_Foundation")]
     pub fn AVIStreamInfoA(pavi: IAVIStream, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -217,7 +217,7 @@ extern "system" {
     pub fn mciGetErrorStringA(mcierr: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn mciGetErrorStringW(mcierr: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> super::super::Foundation::BOOL;
-    pub fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> ::core::option::Option<YIELDPROC>;
+    pub fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC;
     #[cfg(feature = "Win32_Foundation")]
     pub fn mciLoadCommandResource(hinstance: super::super::Foundation::HANDLE, lpresname: super::super::Foundation::PWSTR, wtype: u32) -> u32;
     pub fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
@@ -249,9 +249,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> ::core::option::Option<LPMMIOPROC>;
+    pub fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> ::core::option::Option<LPMMIOPROC>;
+    pub fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC;
     #[cfg(feature = "Win32_Foundation")]
     pub fn mmioOpenA(pszfilename: super::super::Foundation::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
     #[cfg(feature = "Win32_Foundation")]
@@ -4129,7 +4129,7 @@ pub const MMIOERR_UNBUFFERED: u32 = 266u32;
 pub struct MMIOINFO {
     pub dwFlags: u32,
     pub fccIOProc: u32,
-    pub pIOProc: ::core::option::Option<LPMMIOPROC>,
+    pub pIOProc: LPMMIOPROC,
     pub wErrorRet: u32,
     pub htask: super::HTASK,
     pub cchBuffer: i32,
@@ -7107,7 +7107,7 @@ pub const TDD_SETTIMEREVENT: u32 = 2052u32;
 pub struct TIMEREVENT {
     pub wDelay: u16,
     pub wResolution: u16,
-    pub lpFunction: ::core::option::Option<super::LPTIMECALLBACK>,
+    pub lpFunction: super::LPTIMECALLBACK,
     pub dwUser: u32,
     pub wFlags: u16,
     pub wReserved1: u16,

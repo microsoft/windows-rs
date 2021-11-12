@@ -743,7 +743,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    pub Callback: ::core::option::Option<LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1>,
+    pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1,
     pub Context: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -757,7 +757,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    pub Callback: ::core::option::Option<LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA>,
+    pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA,
     pub Context: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -771,7 +771,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    pub Callback: ::core::option::Option<LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW>,
+    pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW,
     pub Context: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]

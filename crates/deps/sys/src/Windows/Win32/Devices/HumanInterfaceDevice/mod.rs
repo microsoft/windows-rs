@@ -1245,7 +1245,7 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub lprgFormats: *mut DIACTIONFORMATA,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub lpUnkDDSTarget: ::windows_sys::core::IUnknown,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DICONFIGUREDEVICESPARAMSA {}
@@ -1265,7 +1265,7 @@ pub struct DICONFIGUREDEVICESPARAMSW {
     pub lprgFormats: *mut DIACTIONFORMATW,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub lpUnkDDSTarget: ::windows_sys::core::IUnknown,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DICONFIGUREDEVICESPARAMSW {}

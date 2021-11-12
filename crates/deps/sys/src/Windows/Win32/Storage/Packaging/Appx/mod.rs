@@ -216,7 +216,7 @@ pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
     pub encryptionAlgorithm: super::super::super::Foundation::PWSTR,
     pub useDiffusion: super::super::super::Foundation::BOOL,
-    pub blockMapHashAlgorithm: ::core::option::Option<super::super::super::System::Com::IUri>,
+    pub blockMapHashAlgorithm: super::super::super::System::Com::IUri,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for APPX_ENCRYPTED_PACKAGE_SETTINGS {}
@@ -231,7 +231,7 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS {
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
     pub encryptionAlgorithm: super::super::super::Foundation::PWSTR,
-    pub blockMapHashAlgorithm: ::core::option::Option<super::super::super::System::Com::IUri>,
+    pub blockMapHashAlgorithm: super::super::super::System::Com::IUri,
     pub options: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -320,7 +320,7 @@ impl ::core::clone::Clone for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: super::super::super::Foundation::BOOL,
-    pub hashMethod: ::core::option::Option<super::super::super::System::Com::IUri>,
+    pub hashMethod: super::super::super::System::Com::IUri,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for APPX_PACKAGE_SETTINGS {}
@@ -333,7 +333,7 @@ impl ::core::clone::Clone for APPX_PACKAGE_SETTINGS {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    pub inputStream: ::core::option::Option<super::super::super::System::Com::IStream>,
+    pub inputStream: super::super::super::System::Com::IStream,
     pub fileName: super::super::super::Foundation::PWSTR,
     pub contentType: super::super::super::Foundation::PWSTR,
     pub compressionOption: APPX_COMPRESSION_OPTION,

@@ -795,21 +795,21 @@ pub const CLCTL_USER_SHIFT: u32 = 21u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLRES_CALLBACK_FUNCTION_TABLE {
-    pub LogEvent: ::core::option::Option<PLOG_EVENT_ROUTINE>,
-    pub SetResourceStatusEx: ::core::option::Option<PSET_RESOURCE_STATUS_ROUTINE_EX>,
-    pub SetResourceLockedMode: ::core::option::Option<PSET_RESOURCE_LOCKED_MODE_ROUTINE>,
-    pub SignalFailure: ::core::option::Option<PSIGNAL_FAILURE_ROUTINE>,
-    pub SetResourceInMemoryNodeLocalProperties: ::core::option::Option<PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE>,
-    pub EndControlCall: ::core::option::Option<PEND_CONTROL_CALL>,
-    pub EndTypeControlCall: ::core::option::Option<PEND_TYPE_CONTROL_CALL>,
-    pub ExtendControlCall: ::core::option::Option<PEXTEND_RES_CONTROL_CALL>,
-    pub ExtendTypeControlCall: ::core::option::Option<PEXTEND_RES_TYPE_CONTROL_CALL>,
-    pub RaiseResTypeNotification: ::core::option::Option<PRAISE_RES_TYPE_NOTIFICATION>,
-    pub ChangeResourceProcessForDumps: ::core::option::Option<PCHANGE_RESOURCE_PROCESS_FOR_DUMPS>,
-    pub ChangeResTypeProcessForDumps: ::core::option::Option<PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS>,
-    pub SetInternalState: ::core::option::Option<PSET_INTERNAL_STATE>,
-    pub SetResourceLockedModeEx: ::core::option::Option<PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE>,
-    pub RequestDump: ::core::option::Option<PREQUEST_DUMP_ROUTINE>,
+    pub LogEvent: PLOG_EVENT_ROUTINE,
+    pub SetResourceStatusEx: PSET_RESOURCE_STATUS_ROUTINE_EX,
+    pub SetResourceLockedMode: PSET_RESOURCE_LOCKED_MODE_ROUTINE,
+    pub SignalFailure: PSIGNAL_FAILURE_ROUTINE,
+    pub SetResourceInMemoryNodeLocalProperties: PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE,
+    pub EndControlCall: PEND_CONTROL_CALL,
+    pub EndTypeControlCall: PEND_TYPE_CONTROL_CALL,
+    pub ExtendControlCall: PEXTEND_RES_CONTROL_CALL,
+    pub ExtendTypeControlCall: PEXTEND_RES_TYPE_CONTROL_CALL,
+    pub RaiseResTypeNotification: PRAISE_RES_TYPE_NOTIFICATION,
+    pub ChangeResourceProcessForDumps: PCHANGE_RESOURCE_PROCESS_FOR_DUMPS,
+    pub ChangeResTypeProcessForDumps: PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS,
+    pub SetInternalState: PSET_INTERNAL_STATE,
+    pub SetResourceLockedModeEx: PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE,
+    pub RequestDump: PREQUEST_DUMP_ROUTINE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CLRES_CALLBACK_FUNCTION_TABLE {}
@@ -853,17 +853,17 @@ impl ::core::clone::Clone for CLRES_FUNCTION_TABLE_0 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V1_FUNCTIONS {
-    pub Open: ::core::option::Option<POPEN_ROUTINE>,
-    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
-    pub Online: ::core::option::Option<PONLINE_ROUTINE>,
-    pub Offline: ::core::option::Option<POFFLINE_ROUTINE>,
-    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
-    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
-    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
-    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
-    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
-    pub ResourceControl: ::core::option::Option<PRESOURCE_CONTROL_ROUTINE>,
-    pub ResourceTypeControl: ::core::option::Option<PRESOURCE_TYPE_CONTROL_ROUTINE>,
+    pub Open: POPEN_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_ROUTINE,
+    pub Offline: POFFLINE_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub ResourceControl: PRESOURCE_CONTROL_ROUTINE,
+    pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::marker::Copy for CLRES_V1_FUNCTIONS {}
@@ -876,18 +876,18 @@ impl ::core::clone::Clone for CLRES_V1_FUNCTIONS {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V2_FUNCTIONS {
-    pub Open: ::core::option::Option<POPEN_V2_ROUTINE>,
-    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
-    pub Online: ::core::option::Option<PONLINE_V2_ROUTINE>,
-    pub Offline: ::core::option::Option<POFFLINE_V2_ROUTINE>,
-    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
-    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
-    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
-    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
-    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
-    pub ResourceControl: ::core::option::Option<PRESOURCE_CONTROL_ROUTINE>,
-    pub ResourceTypeControl: ::core::option::Option<PRESOURCE_TYPE_CONTROL_ROUTINE>,
-    pub Cancel: ::core::option::Option<PCANCEL_ROUTINE>,
+    pub Open: POPEN_V2_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_V2_ROUTINE,
+    pub Offline: POFFLINE_V2_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub ResourceControl: PRESOURCE_CONTROL_ROUTINE,
+    pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
+    pub Cancel: PCANCEL_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::marker::Copy for CLRES_V2_FUNCTIONS {}
@@ -900,18 +900,18 @@ impl ::core::clone::Clone for CLRES_V2_FUNCTIONS {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V3_FUNCTIONS {
-    pub Open: ::core::option::Option<POPEN_V2_ROUTINE>,
-    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
-    pub Online: ::core::option::Option<PONLINE_V2_ROUTINE>,
-    pub Offline: ::core::option::Option<POFFLINE_V2_ROUTINE>,
-    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
-    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
-    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
-    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
-    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
-    pub BeginResourceControl: ::core::option::Option<PBEGIN_RESCALL_ROUTINE>,
-    pub BeginResourceTypeControl: ::core::option::Option<PBEGIN_RESTYPECALL_ROUTINE>,
-    pub Cancel: ::core::option::Option<PCANCEL_ROUTINE>,
+    pub Open: POPEN_V2_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_V2_ROUTINE,
+    pub Offline: POFFLINE_V2_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub BeginResourceControl: PBEGIN_RESCALL_ROUTINE,
+    pub BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE,
+    pub Cancel: PCANCEL_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::marker::Copy for CLRES_V3_FUNCTIONS {}
@@ -924,20 +924,20 @@ impl ::core::clone::Clone for CLRES_V3_FUNCTIONS {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V4_FUNCTIONS {
-    pub Open: ::core::option::Option<POPEN_V2_ROUTINE>,
-    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
-    pub Online: ::core::option::Option<PONLINE_V2_ROUTINE>,
-    pub Offline: ::core::option::Option<POFFLINE_V2_ROUTINE>,
-    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
-    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
-    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
-    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
-    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
-    pub BeginResourceControl: ::core::option::Option<PBEGIN_RESCALL_ROUTINE>,
-    pub BeginResourceTypeControl: ::core::option::Option<PBEGIN_RESTYPECALL_ROUTINE>,
-    pub Cancel: ::core::option::Option<PCANCEL_ROUTINE>,
-    pub BeginResourceControlAsUser: ::core::option::Option<PBEGIN_RESCALL_AS_USER_ROUTINE>,
-    pub BeginResourceTypeControlAsUser: ::core::option::Option<PBEGIN_RESTYPECALL_AS_USER_ROUTINE>,
+    pub Open: POPEN_V2_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_V2_ROUTINE,
+    pub Offline: POFFLINE_V2_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub BeginResourceControl: PBEGIN_RESCALL_ROUTINE,
+    pub BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE,
+    pub Cancel: PCANCEL_ROUTINE,
+    pub BeginResourceControlAsUser: PBEGIN_RESCALL_AS_USER_ROUTINE,
+    pub BeginResourceTypeControlAsUser: PBEGIN_RESTYPECALL_AS_USER_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::marker::Copy for CLRES_V4_FUNCTIONS {}

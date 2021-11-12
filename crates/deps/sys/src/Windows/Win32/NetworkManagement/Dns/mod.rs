@@ -1047,7 +1047,7 @@ pub struct DNS_QUERY_REQUEST {
     pub QueryOptions: u64,
     pub pDnsServerList: *mut DNS_ADDR_ARRAY,
     pub InterfaceIndex: u32,
-    pub pQueryCompletionCallback: ::core::option::Option<PDNS_QUERY_COMPLETION_ROUTINE>,
+    pub pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
     pub pQueryContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1067,7 +1067,7 @@ pub struct DNS_QUERY_REQUEST3 {
     pub QueryOptions: u64,
     pub pDnsServerList: *mut DNS_ADDR_ARRAY,
     pub InterfaceIndex: u32,
-    pub pQueryCompletionCallback: ::core::option::Option<PDNS_QUERY_COMPLETION_ROUTINE>,
+    pub pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
     pub pQueryContext: *mut ::core::ffi::c_void,
     pub IsNetworkQueryRequired: super::super::Foundation::BOOL,
     pub RequiredNetworkIndex: u32,
@@ -1518,8 +1518,8 @@ impl ::core::clone::Clone for DNS_SERVICE_BROWSE_REQUEST {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DNS_SERVICE_BROWSE_REQUEST_0 {
-    pub pBrowseCallback: ::core::option::Option<PDNS_SERVICE_BROWSE_CALLBACK>,
-    pub pBrowseCallbackV2: ::core::option::Option<PDNS_QUERY_COMPLETION_ROUTINE>,
+    pub pBrowseCallback: PDNS_SERVICE_BROWSE_CALLBACK,
+    pub pBrowseCallbackV2: PDNS_QUERY_COMPLETION_ROUTINE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DNS_SERVICE_BROWSE_REQUEST_0 {}
@@ -1568,7 +1568,7 @@ pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
     pub pServiceInstance: *mut DNS_SERVICE_INSTANCE,
-    pub pRegisterCompletionCallback: ::core::option::Option<PDNS_SERVICE_REGISTER_COMPLETE>,
+    pub pRegisterCompletionCallback: PDNS_SERVICE_REGISTER_COMPLETE,
     pub pQueryContext: *mut ::core::ffi::c_void,
     pub hCredentials: super::super::Foundation::HANDLE,
     pub unicastEnabled: super::super::Foundation::BOOL,
@@ -1587,7 +1587,7 @@ pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
     pub QueryName: super::super::Foundation::PWSTR,
-    pub pResolveCompletionCallback: ::core::option::Option<PDNS_SERVICE_RESOLVE_COMPLETE>,
+    pub pResolveCompletionCallback: PDNS_SERVICE_RESOLVE_COMPLETE,
     pub pQueryContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2114,7 +2114,7 @@ pub struct MDNS_QUERY_REQUEST {
     pub QueryType: u16,
     pub QueryOptions: u64,
     pub InterfaceIndex: u32,
-    pub pQueryCallback: ::core::option::Option<PMDNS_QUERY_CALLBACK>,
+    pub pQueryCallback: PMDNS_QUERY_CALLBACK,
     pub pQueryContext: *mut ::core::ffi::c_void,
     pub fAnswerReceived: super::super::Foundation::BOOL,
     pub ulResendCount: u32,

@@ -356,7 +356,7 @@ pub struct ADSPROPINITPARAMS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub hr: ::windows_sys::core::HRESULT,
-    pub pDsObj: ::core::option::Option<IDirectoryObject>,
+    pub pDsObj: IDirectoryObject,
     pub pwzCN: super::super::Foundation::PWSTR,
     pub pWritableAttrs: *mut ADS_ATTR_INFO,
 }
@@ -1297,11 +1297,11 @@ impl ::core::clone::Clone for CQFORM {
 pub struct CQPAGE {
     pub cbStruct: u32,
     pub dwFlags: u32,
-    pub pPageProc: ::core::option::Option<LPCQPAGEPROC>,
+    pub pPageProc: LPCQPAGEPROC,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub idPageName: i32,
     pub idPageTemplate: i32,
-    pub pDlgProc: ::core::option::Option<super::super::UI::WindowsAndMessaging::DLGPROC>,
+    pub pDlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1511,7 +1511,7 @@ pub struct DSBROWSEINFOA {
     pub pszPath: super::super::Foundation::PWSTR,
     pub cchPath: u32,
     pub dwFlags: u32,
-    pub pfnCallback: ::core::option::Option<super::super::UI::Shell::BFFCALLBACK>,
+    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
     pub lParam: super::super::Foundation::LPARAM,
     pub dwReturnFormat: u32,
     pub pUserName: super::super::Foundation::PWSTR,
@@ -1538,7 +1538,7 @@ pub struct DSBROWSEINFOW {
     pub pszPath: super::super::Foundation::PWSTR,
     pub cchPath: u32,
     pub dwFlags: u32,
-    pub pfnCallback: ::core::option::Option<super::super::UI::Shell::BFFCALLBACK>,
+    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
     pub lParam: super::super::Foundation::LPARAM,
     pub dwReturnFormat: u32,
     pub pUserName: super::super::Foundation::PWSTR,
@@ -3477,7 +3477,7 @@ pub struct OPENQUERYWINDOW {
     pub clsidHandler: ::windows_sys::core::GUID,
     pub pHandlerParameters: *mut ::core::ffi::c_void,
     pub clsidDefaultForm: ::windows_sys::core::GUID,
-    pub pPersistQuery: ::core::option::Option<IPersistQuery>,
+    pub pPersistQuery: IPersistQuery,
     pub Anonymous: OPENQUERYWINDOW_0,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -3492,7 +3492,7 @@ impl ::core::clone::Clone for OPENQUERYWINDOW {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub union OPENQUERYWINDOW_0 {
     pub pFormParameters: *mut ::core::ffi::c_void,
-    pub ppbFormParameters: ::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyBag>,
+    pub ppbFormParameters: super::super::System::Com::StructuredStorage::IPropertyBag,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::marker::Copy for OPENQUERYWINDOW_0 {}

@@ -408,9 +408,9 @@ pub struct COLORMATCHSETUPA {
     pub ccPrinterProfile: u32,
     pub pTargetProfile: super::super::Foundation::PSTR,
     pub ccTargetProfile: u32,
-    pub lpfnHook: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub lpfnHook: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub lpfnApplyCallback: ::core::option::Option<PCMSCALLBACKA>,
+    pub lpfnApplyCallback: PCMSCALLBACKA,
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -439,9 +439,9 @@ pub struct COLORMATCHSETUPW {
     pub ccPrinterProfile: u32,
     pub pTargetProfile: super::super::Foundation::PWSTR,
     pub ccTargetProfile: u32,
-    pub lpfnHook: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub lpfnHook: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub lpfnApplyCallback: ::core::option::Option<PCMSCALLBACKW>,
+    pub lpfnApplyCallback: PCMSCALLBACKW,
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]

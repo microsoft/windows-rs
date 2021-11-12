@@ -1067,11 +1067,11 @@ impl ::core::clone::Clone for FAX_ROUTE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct FAX_ROUTE_CALLBACKROUTINES {
     pub SizeOfStruct: u32,
-    pub FaxRouteAddFile: ::core::option::Option<PFAXROUTEADDFILE>,
-    pub FaxRouteDeleteFile: ::core::option::Option<PFAXROUTEDELETEFILE>,
-    pub FaxRouteGetFile: ::core::option::Option<PFAXROUTEGETFILE>,
-    pub FaxRouteEnumFiles: ::core::option::Option<PFAXROUTEENUMFILES>,
-    pub FaxRouteModifyRoutingData: ::core::option::Option<PFAXROUTEMODIFYROUTINGDATA>,
+    pub FaxRouteAddFile: PFAXROUTEADDFILE,
+    pub FaxRouteDeleteFile: PFAXROUTEDELETEFILE,
+    pub FaxRouteGetFile: PFAXROUTEGETFILE,
+    pub FaxRouteEnumFiles: PFAXROUTEENUMFILES,
+    pub FaxRouteModifyRoutingData: PFAXROUTEMODIFYROUTINGDATA,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_ROUTE_CALLBACKROUTINES {}

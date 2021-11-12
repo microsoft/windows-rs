@@ -1411,7 +1411,7 @@ pub struct MI_MethodDecl {
     pub origin: *mut u16,
     pub propagator: *mut u16,
     pub schema: *mut MI_SchemaDecl,
-    pub function: ::core::option::Option<MI_MethodDecl_Invoke>,
+    pub function: MI_MethodDecl_Invoke,
 }
 impl ::core::marker::Copy for MI_MethodDecl {}
 impl ::core::clone::Clone for MI_MethodDecl {
@@ -1427,8 +1427,8 @@ pub struct MI_Module {
     pub flags: u32,
     pub charSize: u32,
     pub schemaDecl: *mut MI_SchemaDecl,
-    pub Load: ::core::option::Option<MI_Module_Load>,
-    pub Unload: ::core::option::Option<MI_Module_Unload>,
+    pub Load: MI_Module_Load,
+    pub Unload: MI_Module_Unload,
     pub dynamicProviderFT: *mut MI_ProviderFT,
 }
 impl ::core::marker::Copy for MI_Module {}
@@ -1504,14 +1504,14 @@ pub type MI_OperationCallback_WriteProgress = unsafe extern "system" fn(operatio
 #[repr(C)]
 pub struct MI_OperationCallbacks {
     pub callbackContext: *mut ::core::ffi::c_void,
-    pub promptUser: ::core::option::Option<MI_OperationCallback_PromptUser>,
-    pub writeError: ::core::option::Option<MI_OperationCallback_WriteError>,
-    pub writeMessage: ::core::option::Option<MI_OperationCallback_WriteMessage>,
-    pub writeProgress: ::core::option::Option<MI_OperationCallback_WriteProgress>,
-    pub instanceResult: ::core::option::Option<MI_OperationCallback_Instance>,
-    pub indicationResult: ::core::option::Option<MI_OperationCallback_Indication>,
-    pub classResult: ::core::option::Option<MI_OperationCallback_Class>,
-    pub streamedParameterResult: ::core::option::Option<MI_OperationCallback_StreamedParameter>,
+    pub promptUser: MI_OperationCallback_PromptUser,
+    pub writeError: MI_OperationCallback_WriteError,
+    pub writeMessage: MI_OperationCallback_WriteMessage,
+    pub writeProgress: MI_OperationCallback_WriteProgress,
+    pub instanceResult: MI_OperationCallback_Instance,
+    pub indicationResult: MI_OperationCallback_Indication,
+    pub classResult: MI_OperationCallback_Class,
+    pub streamedParameterResult: MI_OperationCallback_StreamedParameter,
 }
 impl ::core::marker::Copy for MI_OperationCallbacks {}
 impl ::core::clone::Clone for MI_OperationCallbacks {
@@ -1682,20 +1682,20 @@ impl ::core::clone::Clone for MI_ProviderArchitecture {
 }
 #[repr(C)]
 pub struct MI_ProviderFT {
-    pub Load: ::core::option::Option<MI_ProviderFT_Load>,
-    pub Unload: ::core::option::Option<MI_ProviderFT_Unload>,
-    pub GetInstance: ::core::option::Option<MI_ProviderFT_GetInstance>,
-    pub EnumerateInstances: ::core::option::Option<MI_ProviderFT_EnumerateInstances>,
-    pub CreateInstance: ::core::option::Option<MI_ProviderFT_CreateInstance>,
-    pub ModifyInstance: ::core::option::Option<MI_ProviderFT_ModifyInstance>,
-    pub DeleteInstance: ::core::option::Option<MI_ProviderFT_DeleteInstance>,
-    pub AssociatorInstances: ::core::option::Option<MI_ProviderFT_AssociatorInstances>,
-    pub ReferenceInstances: ::core::option::Option<MI_ProviderFT_ReferenceInstances>,
-    pub EnableIndications: ::core::option::Option<MI_ProviderFT_EnableIndications>,
-    pub DisableIndications: ::core::option::Option<MI_ProviderFT_DisableIndications>,
-    pub Subscribe: ::core::option::Option<MI_ProviderFT_Subscribe>,
-    pub Unsubscribe: ::core::option::Option<MI_ProviderFT_Unsubscribe>,
-    pub Invoke: ::core::option::Option<MI_ProviderFT_Invoke>,
+    pub Load: MI_ProviderFT_Load,
+    pub Unload: MI_ProviderFT_Unload,
+    pub GetInstance: MI_ProviderFT_GetInstance,
+    pub EnumerateInstances: MI_ProviderFT_EnumerateInstances,
+    pub CreateInstance: MI_ProviderFT_CreateInstance,
+    pub ModifyInstance: MI_ProviderFT_ModifyInstance,
+    pub DeleteInstance: MI_ProviderFT_DeleteInstance,
+    pub AssociatorInstances: MI_ProviderFT_AssociatorInstances,
+    pub ReferenceInstances: MI_ProviderFT_ReferenceInstances,
+    pub EnableIndications: MI_ProviderFT_EnableIndications,
+    pub DisableIndications: MI_ProviderFT_DisableIndications,
+    pub Subscribe: MI_ProviderFT_Subscribe,
+    pub Unsubscribe: MI_ProviderFT_Unsubscribe,
+    pub Invoke: MI_ProviderFT_Invoke,
 }
 impl ::core::marker::Copy for MI_ProviderFT {}
 impl ::core::clone::Clone for MI_ProviderFT {
@@ -2573,7 +2573,7 @@ pub struct SWbemAssocQueryInf {
     pub m_uVersion: u32,
     pub m_uAnalysisType: u32,
     pub m_uFeatureMask: u32,
-    pub m_pPath: ::core::option::Option<IWbemPath>,
+    pub m_pPath: IWbemPath,
     pub m_pszPath: super::super::Foundation::PWSTR,
     pub m_pszQueryText: super::super::Foundation::PWSTR,
     pub m_pszResultClass: super::super::Foundation::PWSTR,

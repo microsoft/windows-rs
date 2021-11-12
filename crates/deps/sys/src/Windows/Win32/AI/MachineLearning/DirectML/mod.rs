@@ -420,7 +420,7 @@ impl ::core::clone::Clone for DML_BINDING_PROPERTIES {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BINDING_TABLE_DESC {
-    pub Dispatchable: ::core::option::Option<IDMLDispatchable>,
+    pub Dispatchable: IDMLDispatchable,
     pub CPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_CPU_DESCRIPTOR_HANDLE,
     pub GPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_GPU_DESCRIPTOR_HANDLE,
     pub SizeInDescriptors: u32,
@@ -461,7 +461,7 @@ impl ::core::clone::Clone for DML_BUFFER_ARRAY_BINDING {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BUFFER_BINDING {
-    pub Buffer: ::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub Buffer: super::super::super::Graphics::Direct3D12::ID3D12Resource,
     pub Offset: u64,
     pub SizeInBytes: u64,
 }
@@ -2041,7 +2041,7 @@ impl ::core::clone::Clone for DML_OPERATOR_DESC {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_OPERATOR_GRAPH_NODE_DESC {
-    pub Operator: ::core::option::Option<IDMLOperator>,
+    pub Operator: IDMLOperator,
     pub Name: super::super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]

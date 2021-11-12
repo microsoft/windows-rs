@@ -901,7 +901,7 @@ impl ::core::clone::Clone for DISPID_StrokeEvent {
 #[repr(C)]
 pub struct DYNAMIC_RENDERER_CACHED_DATA {
     pub strokeId: i32,
-    pub dynamicRenderer: ::core::option::Option<IDynamicRenderer>,
+    pub dynamicRenderer: IDynamicRenderer,
 }
 impl ::core::marker::Copy for DYNAMIC_RENDERER_CACHED_DATA {}
 impl ::core::clone::Clone for DYNAMIC_RENDERER_CACHED_DATA {
@@ -1310,8 +1310,8 @@ pub const IECN__BASE: u32 = 2048u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub Cursor: ::core::option::Option<IInkCursor>,
-    pub Strokes: ::core::option::Option<IInkStrokes>,
+    pub Cursor: IInkCursor,
+    pub Strokes: IInkStrokes,
     pub Gestures: super::super::System::Com::VARIANT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
@@ -1326,7 +1326,7 @@ impl ::core::clone::Clone for IEC_GESTUREINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub RecognitionResult: ::core::option::Option<IInkRecognitionResult>,
+    pub RecognitionResult: IInkRecognitionResult,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::marker::Copy for IEC_RECOGNITIONRESULTINFO {}
@@ -1340,8 +1340,8 @@ impl ::core::clone::Clone for IEC_RECOGNITIONRESULTINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub Cursor: ::core::option::Option<IInkCursor>,
-    pub Stroke: ::core::option::Option<IInkStrokeDisp>,
+    pub Cursor: IInkCursor,
+    pub Stroke: IInkStrokeDisp,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::marker::Copy for IEC_STROKEINFO {}

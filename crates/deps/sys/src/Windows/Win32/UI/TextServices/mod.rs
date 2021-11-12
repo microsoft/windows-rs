@@ -900,7 +900,7 @@ pub const TF_E_STACKFULL: ::windows_sys::core::HRESULT = ::windows_sys::core::HR
 pub const TF_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220984i32 as _);
 #[repr(C)]
 pub struct TF_HALTCOND {
-    pub pHaltRange: ::core::option::Option<ITfRange>,
+    pub pHaltRange: ITfRange,
     pub aHaltPos: TfAnchor,
     pub dwFlags: u32,
 }
@@ -1179,7 +1179,7 @@ pub const TF_SD_READONLY: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TF_SELECTION {
-    pub range: ::core::option::Option<ITfRange>,
+    pub range: ITfRange,
     pub style: TF_SELECTIONSTYLE,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1702,8 +1702,8 @@ impl ::core::clone::Clone for TS_SELECTION_ACP {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TS_SELECTION_ANCHOR {
-    pub paStart: ::core::option::Option<IAnchor>,
-    pub paEnd: ::core::option::Option<IAnchor>,
+    pub paStart: IAnchor,
+    pub paEnd: IAnchor,
     pub style: TS_SELECTIONSTYLE,
 }
 #[cfg(feature = "Win32_Foundation")]

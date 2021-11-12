@@ -423,7 +423,7 @@ pub struct ACMFILTERCHOOSEA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCA>,
+    pub pfnHook: ACMFILTERCHOOSEHOOKPROCA,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFILTERCHOOSEA {}
@@ -455,7 +455,7 @@ pub struct ACMFILTERCHOOSEW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCW>,
+    pub pfnHook: ACMFILTERCHOOSEHOOKPROCW,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFILTERCHOOSEW {}
@@ -569,7 +569,7 @@ pub struct ACMFORMATCHOOSEA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCA>,
+    pub pfnHook: ACMFORMATCHOOSEHOOKPROCA,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFORMATCHOOSEA {}
@@ -601,7 +601,7 @@ pub struct ACMFORMATCHOOSEW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCW>,
+    pub pfnHook: ACMFORMATCHOOSEHOOKPROCW,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFORMATCHOOSEW {}
@@ -1147,9 +1147,9 @@ impl ::core::clone::Clone for AudioClientProperties {
 #[cfg(feature = "Win32_Foundation")]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::super::Foundation::LPARAM,
-    pub pEndpoint: ::core::option::Option<IMMDevice>,
-    pub pPnpInterface: ::core::option::Option<IMMDevice>,
-    pub pPnpDevnode: ::core::option::Option<IMMDevice>,
+    pub pEndpoint: IMMDevice,
+    pub pPnpInterface: IMMDevice,
+    pub pPnpDevnode: IMMDevice,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AudioExtensionParams {}
@@ -2744,7 +2744,7 @@ pub struct SpatialAudioHrtfActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
@@ -2767,7 +2767,7 @@ pub struct SpatialAudioHrtfActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
@@ -2921,7 +2921,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SpatialAudioObjectRenderStreamActivationParams {}
@@ -2940,7 +2940,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2963,7 +2963,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MetadataFormatId: ::windows_sys::core::GUID,
     pub MaxMetadataItemCount: u16,
     pub MetadataActivationParams: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for SpatialAudioObjectRenderStreamForMetadataActivationParams {}
@@ -2985,7 +2985,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub MetadataFormatId: ::windows_sys::core::GUID,
     pub MaxMetadataItemCount: u32,
     pub MetadataActivationParams: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]

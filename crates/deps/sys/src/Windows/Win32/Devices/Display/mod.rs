@@ -1674,7 +1674,7 @@ impl ::core::clone::Clone for DRH_APIBITMAPDATA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRIVEROBJ {
     pub pvObj: *mut ::core::ffi::c_void,
-    pub pFreeProc: ::core::option::Option<FREEOBJPROC>,
+    pub pFreeProc: FREEOBJPROC,
     pub hdev: HDEV,
     pub dhpdev: DHPDEV,
 }
@@ -1701,7 +1701,7 @@ impl ::core::clone::Clone for DRVENABLEDATA {
 #[repr(C)]
 pub struct DRVFN {
     pub iFunc: u32,
-    pub pfn: ::core::option::Option<PFN>,
+    pub pfn: PFN,
 }
 impl ::core::marker::Copy for DRVFN {}
 impl ::core::clone::Clone for DRVFN {
@@ -4785,7 +4785,7 @@ impl ::core::clone::Clone for VIDEO_VDM {
 #[cfg(feature = "Win32_Foundation")]
 pub struct VIDEO_WIN32K_CALLBACKS {
     pub PhysDisp: *mut ::core::ffi::c_void,
-    pub Callout: ::core::option::Option<PVIDEO_WIN32K_CALLOUT>,
+    pub Callout: PVIDEO_WIN32K_CALLOUT,
     pub bACPI: u32,
     pub pPhysDeviceObject: super::super::Foundation::HANDLE,
     pub DualviewFlags: u32,

@@ -2152,7 +2152,7 @@ pub struct JET_RSTINFO_A {
     pub crstmap: i32,
     pub lgposStop: JET_LGPOS,
     pub logtimeStop: JET_LOGTIME,
-    pub pfnStatus: ::core::option::Option<JET_PFNSTATUS>,
+    pub pfnStatus: JET_PFNSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::marker::Copy for JET_RSTINFO_A {}
@@ -2170,7 +2170,7 @@ pub struct JET_RSTINFO_W {
     pub crstmap: i32,
     pub lgposStop: JET_LGPOS,
     pub logtimeStop: JET_LOGTIME,
-    pub pfnStatus: ::core::option::Option<JET_PFNSTATUS>,
+    pub pfnStatus: JET_PFNSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::marker::Copy for JET_RSTINFO_W {}

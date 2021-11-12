@@ -60,7 +60,7 @@ impl ::core::clone::Clone for EXCEPTION_DISPOSITION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
-    pub Handler: ::core::option::Option<EXCEPTION_ROUTINE>,
+    pub Handler: EXCEPTION_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::marker::Copy for EXCEPTION_REGISTRATION_RECORD {}

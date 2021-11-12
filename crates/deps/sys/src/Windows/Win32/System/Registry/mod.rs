@@ -509,10 +509,10 @@ pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
 #[repr(C)]
 pub struct provider_info {
-    pub pi_R0_1val: ::core::option::Option<PQUERYHANDLER>,
-    pub pi_R0_allvals: ::core::option::Option<PQUERYHANDLER>,
-    pub pi_R3_1val: ::core::option::Option<PQUERYHANDLER>,
-    pub pi_R3_allvals: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_R0_1val: PQUERYHANDLER,
+    pub pi_R0_allvals: PQUERYHANDLER,
+    pub pi_R3_1val: PQUERYHANDLER,
+    pub pi_R3_allvals: PQUERYHANDLER,
     pub pi_flags: u32,
     pub pi_key_context: *mut ::core::ffi::c_void,
 }

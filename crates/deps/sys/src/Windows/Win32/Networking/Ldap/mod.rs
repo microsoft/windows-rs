@@ -672,9 +672,9 @@ pub const LDAP_PORT: u32 = 389u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct LDAP_REFERRAL_CALLBACK {
     pub SizeOfCallbacks: u32,
-    pub QueryForConnection: ::core::option::Option<QUERYFORCONNECTION>,
-    pub NotifyRoutine: ::core::option::Option<NOTIFYOFNEWCONNECTION>,
-    pub DereferenceRoutine: ::core::option::Option<DEREFERENCECONNECTION>,
+    pub QueryForConnection: QUERYFORCONNECTION,
+    pub NotifyRoutine: NOTIFYOFNEWCONNECTION,
+    pub DereferenceRoutine: DEREFERENCECONNECTION,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LDAP_REFERRAL_CALLBACK {}

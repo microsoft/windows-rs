@@ -30,10 +30,10 @@ impl ::core::clone::Clone for APOInitBaseStruct {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct APOInitSystemEffects {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
-    pub pAPOSystemEffectsProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pAPOEndpointProperties: super::super::super::UI::Shell::PropertiesSystem::IPropertyStore,
+    pub pAPOSystemEffectsProperties: super::super::super::UI::Shell::PropertiesSystem::IPropertyStore,
     pub pReserved: *mut ::core::ffi::c_void,
-    pub pDeviceCollection: ::core::option::Option<super::IMMDeviceCollection>,
+    pub pDeviceCollection: super::IMMDeviceCollection,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::marker::Copy for APOInitSystemEffects {}
@@ -47,10 +47,10 @@ impl ::core::clone::Clone for APOInitSystemEffects {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct APOInitSystemEffects2 {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
-    pub pAPOSystemEffectsProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pAPOEndpointProperties: super::super::super::UI::Shell::PropertiesSystem::IPropertyStore,
+    pub pAPOSystemEffectsProperties: super::super::super::UI::Shell::PropertiesSystem::IPropertyStore,
     pub pReserved: *mut ::core::ffi::c_void,
-    pub pDeviceCollection: ::core::option::Option<super::IMMDeviceCollection>,
+    pub pDeviceCollection: super::IMMDeviceCollection,
     pub nSoftwareIoDeviceInCollection: u32,
     pub nSoftwareIoConnectorIndex: u32,
     pub AudioProcessingMode: ::windows_sys::core::GUID,
@@ -68,9 +68,9 @@ impl ::core::clone::Clone for APOInitSystemEffects2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct APOInitSystemEffects3 {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
-    pub pServiceProvider: ::core::option::Option<super::super::super::System::Com::IServiceProvider>,
-    pub pDeviceCollection: ::core::option::Option<super::IMMDeviceCollection>,
+    pub pAPOEndpointProperties: super::super::super::UI::Shell::PropertiesSystem::IPropertyStore,
+    pub pServiceProvider: super::super::super::System::Com::IServiceProvider,
+    pub pDeviceCollection: super::IMMDeviceCollection,
     pub nSoftwareIoDeviceInCollection: u32,
     pub nSoftwareIoConnectorIndex: u32,
     pub AudioProcessingMode: ::windows_sys::core::GUID,
@@ -111,7 +111,7 @@ pub struct APO_CONNECTION_DESCRIPTOR {
     pub Type: APO_CONNECTION_BUFFER_TYPE,
     pub pBuffer: usize,
     pub u32MaxFrameCount: u32,
-    pub pFormat: ::core::option::Option<IAudioMediaType>,
+    pub pFormat: IAudioMediaType,
     pub u32Signature: u32,
 }
 impl ::core::marker::Copy for APO_CONNECTION_DESCRIPTOR {}
@@ -264,7 +264,7 @@ pub const AUDIOMEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8u32;
 #[repr(C)]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: ::core::option::Option<super::IMMDevice>,
+    pub device: super::IMMDevice,
 }
 impl ::core::marker::Copy for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {}
 impl ::core::clone::Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
@@ -275,8 +275,8 @@ impl ::core::clone::Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DE
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
-    pub endpoint: ::core::option::Option<super::IMMDevice>,
-    pub propertyStore: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub endpoint: super::IMMDevice,
+    pub propertyStore: super::super::super::UI::Shell::PropertiesSystem::IPropertyStore,
     pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -289,7 +289,7 @@ impl ::core::clone::Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
 }
 #[repr(C)]
 pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: ::core::option::Option<super::IMMDevice>,
+    pub device: super::IMMDevice,
 }
 impl ::core::marker::Copy for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {}
 impl ::core::clone::Clone for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
@@ -300,7 +300,7 @@ impl ::core::clone::Clone for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR 
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
-    pub endpoint: ::core::option::Option<super::IMMDevice>,
+    pub endpoint: super::IMMDevice,
     pub volume: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -342,7 +342,7 @@ impl ::core::clone::Clone for AUDIO_SYSTEMEFFECT {
 }
 #[repr(C)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: ::core::option::Option<super::IMMDevice>,
+    pub device: super::IMMDevice,
     pub propertyStoreContext: ::windows_sys::core::GUID,
 }
 impl ::core::marker::Copy for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {}
@@ -354,10 +354,10 @@ impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATI
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
-    pub endpoint: ::core::option::Option<super::IMMDevice>,
+    pub endpoint: super::IMMDevice,
     pub propertyStoreContext: ::windows_sys::core::GUID,
     pub propertyStoreType: super::__MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002,
-    pub propertyStore: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub propertyStore: super::super::super::UI::Shell::PropertiesSystem::IPropertyStore,
     pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -383,7 +383,7 @@ impl ::core::clone::Clone for AUDIO_SYSTEMEFFECT_STATE {
 pub struct AudioFXExtensionParams {
     pub AddPageParam: super::super::super::Foundation::LPARAM,
     pub pwstrEndpointID: super::super::super::Foundation::PWSTR,
-    pub pFxProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pFxProperties: super::super::super::UI::Shell::PropertiesSystem::IPropertyStore,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::marker::Copy for AudioFXExtensionParams {}

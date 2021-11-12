@@ -263,10 +263,10 @@ impl ::core::clone::Clone for CHANNEL_DEF {
 pub struct CHANNEL_ENTRY_POINTS {
     pub cbSize: u32,
     pub protocolVersion: u32,
-    pub pVirtualChannelInit: ::core::option::Option<PVIRTUALCHANNELINIT>,
-    pub pVirtualChannelOpen: ::core::option::Option<PVIRTUALCHANNELOPEN>,
-    pub pVirtualChannelClose: ::core::option::Option<PVIRTUALCHANNELCLOSE>,
-    pub pVirtualChannelWrite: ::core::option::Option<PVIRTUALCHANNELWRITE>,
+    pub pVirtualChannelInit: PVIRTUALCHANNELINIT,
+    pub pVirtualChannelOpen: PVIRTUALCHANNELOPEN,
+    pub pVirtualChannelClose: PVIRTUALCHANNELCLOSE,
+    pub pVirtualChannelWrite: PVIRTUALCHANNELWRITE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANNEL_ENTRY_POINTS {}

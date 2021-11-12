@@ -842,7 +842,7 @@ pub struct RSOP_TARGET {
     pub psaSecurityGroups: *mut super::Com::SAFEARRAY,
     pub pRsopToken: *mut ::core::ffi::c_void,
     pub pGPOList: *mut GROUP_POLICY_OBJECTA,
-    pub pWbemServices: ::core::option::Option<super::Wmi::IWbemServices>,
+    pub pWbemServices: super::Wmi::IWbemServices,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 impl ::core::marker::Copy for RSOP_TARGET {}

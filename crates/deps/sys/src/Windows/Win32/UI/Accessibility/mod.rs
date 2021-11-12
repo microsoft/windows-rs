@@ -3416,7 +3416,7 @@ pub struct UIAutomationPatternInfo {
     pub pMethods: *mut UIAutomationMethodInfo,
     pub cEvents: u32,
     pub pEvents: *mut UIAutomationEventInfo,
-    pub pPatternHandler: ::core::option::Option<IUIAutomationPatternHandler>,
+    pub pPatternHandler: IUIAutomationPatternHandler,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UIAutomationPatternInfo {}

@@ -827,11 +827,11 @@ impl ::core::clone::Clone for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
 pub struct AUTHZ_INIT_INFO {
     pub version: u16,
     pub szResourceManagerName: super::super::Foundation::PWSTR,
-    pub pfnDynamicAccessCheck: ::core::option::Option<PFN_AUTHZ_DYNAMIC_ACCESS_CHECK>,
-    pub pfnComputeDynamicGroups: ::core::option::Option<PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS>,
-    pub pfnFreeDynamicGroups: ::core::option::Option<PFN_AUTHZ_FREE_DYNAMIC_GROUPS>,
-    pub pfnGetCentralAccessPolicy: ::core::option::Option<PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY>,
-    pub pfnFreeCentralAccessPolicy: ::core::option::Option<PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY>,
+    pub pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK,
+    pub pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS,
+    pub pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS,
+    pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
+    pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AUTHZ_INIT_INFO {}

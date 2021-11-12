@@ -757,10 +757,10 @@ pub struct LPM_INIT_INFO {
     pub PcmVersionNumber: u32,
     pub ResultTimeLimit: u32,
     pub ConfiguredLpmCount: i32,
-    pub AllocMemory: ::core::option::Option<PALLOCMEM>,
-    pub FreeMemory: ::core::option::Option<PFREEMEM>,
-    pub PcmAdmitResultCallback: ::core::option::Option<CBADMITRESULT>,
-    pub GetRsvpObjectsCallback: ::core::option::Option<CBGETRSVPOBJECTS>,
+    pub AllocMemory: PALLOCMEM,
+    pub FreeMemory: PFREEMEM,
+    pub PcmAdmitResultCallback: CBADMITRESULT,
+    pub GetRsvpObjectsCallback: CBGETRSVPOBJECTS,
 }
 impl ::core::marker::Copy for LPM_INIT_INFO {}
 impl ::core::clone::Clone for LPM_INIT_INFO {
@@ -1811,10 +1811,10 @@ pub type TCI_ADD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: su
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCI_CLIENT_FUNC_LIST {
-    pub ClNotifyHandler: ::core::option::Option<TCI_NOTIFY_HANDLER>,
-    pub ClAddFlowCompleteHandler: ::core::option::Option<TCI_ADD_FLOW_COMPLETE_HANDLER>,
-    pub ClModifyFlowCompleteHandler: ::core::option::Option<TCI_MOD_FLOW_COMPLETE_HANDLER>,
-    pub ClDeleteFlowCompleteHandler: ::core::option::Option<TCI_DEL_FLOW_COMPLETE_HANDLER>,
+    pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
+    pub ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,
+    pub ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
+    pub ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TCI_CLIENT_FUNC_LIST {}

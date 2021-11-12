@@ -142,7 +142,7 @@ pub const DDBD_8: i32 = 2048i32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDBLTBATCH {
     pub lprDest: *mut super::super::Foundation::RECT,
-    pub lpDDSSrc: ::core::option::Option<IDirectDrawSurface>,
+    pub lpDDSSrc: IDirectDrawSurface,
     pub lprSrc: *mut super::super::Foundation::RECT,
     pub dwFlags: u32,
     pub lpDDBltFx: *mut DDBLTFX,
@@ -195,7 +195,7 @@ impl ::core::clone::Clone for DDBLTFX {
 #[repr(C)]
 pub union DDBLTFX_0 {
     pub dwZDestConst: u32,
-    pub lpDDSZBufferDest: ::core::option::Option<IDirectDrawSurface>,
+    pub lpDDSZBufferDest: IDirectDrawSurface,
 }
 impl ::core::marker::Copy for DDBLTFX_0 {}
 impl ::core::clone::Clone for DDBLTFX_0 {
@@ -206,7 +206,7 @@ impl ::core::clone::Clone for DDBLTFX_0 {
 #[repr(C)]
 pub union DDBLTFX_1 {
     pub dwZSrcConst: u32,
-    pub lpDDSZBufferSrc: ::core::option::Option<IDirectDrawSurface>,
+    pub lpDDSZBufferSrc: IDirectDrawSurface,
 }
 impl ::core::marker::Copy for DDBLTFX_1 {}
 impl ::core::clone::Clone for DDBLTFX_1 {
@@ -217,7 +217,7 @@ impl ::core::clone::Clone for DDBLTFX_1 {
 #[repr(C)]
 pub union DDBLTFX_2 {
     pub dwAlphaDestConst: u32,
-    pub lpDDSAlphaDest: ::core::option::Option<IDirectDrawSurface>,
+    pub lpDDSAlphaDest: IDirectDrawSurface,
 }
 impl ::core::marker::Copy for DDBLTFX_2 {}
 impl ::core::clone::Clone for DDBLTFX_2 {
@@ -228,7 +228,7 @@ impl ::core::clone::Clone for DDBLTFX_2 {
 #[repr(C)]
 pub union DDBLTFX_3 {
     pub dwAlphaSrcConst: u32,
-    pub lpDDSAlphaSrc: ::core::option::Option<IDirectDrawSurface>,
+    pub lpDDSAlphaSrc: IDirectDrawSurface,
 }
 impl ::core::marker::Copy for DDBLTFX_3 {}
 impl ::core::clone::Clone for DDBLTFX_3 {
@@ -241,7 +241,7 @@ pub union DDBLTFX_4 {
     pub dwFillColor: u32,
     pub dwFillDepth: u32,
     pub dwFillPixel: u32,
-    pub lpDDSPattern: ::core::option::Option<IDirectDrawSurface>,
+    pub lpDDSPattern: IDirectDrawSurface,
 }
 impl ::core::marker::Copy for DDBLTFX_4 {}
 impl ::core::clone::Clone for DDBLTFX_4 {
@@ -853,7 +853,7 @@ pub const DDEM_MODEPASSED: i32 = 1i32;
 pub struct DDENABLEIRQINFO {
     pub dwIRQSources: u32,
     pub dwLine: u32,
-    pub IRQCallback: ::core::option::Option<PDX_IRQCALLBACK>,
+    pub IRQCallback: PDX_IRQCALLBACK,
     pub lpIRQData: *mut DX_IRQDATA,
 }
 impl ::core::marker::Copy for DDENABLEIRQINFO {}
@@ -1054,9 +1054,9 @@ pub const DDGFS_ISFLIPDONE: i32 = 2i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHALDDRAWFNS {
     pub dwSize: u32,
-    pub lpSetInfo: ::core::option::Option<LPDDHAL_SETINFO>,
-    pub lpVidMemAlloc: ::core::option::Option<LPDDHAL_VIDMEMALLOC>,
-    pub lpVidMemFree: ::core::option::Option<LPDDHAL_VIDMEMFREE>,
+    pub lpSetInfo: LPDDHAL_SETINFO,
+    pub lpVidMemAlloc: LPDDHAL_VIDMEMALLOC,
+    pub lpVidMemFree: LPDDHAL_VIDMEMFREE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHALDDRAWFNS {}
@@ -1076,7 +1076,7 @@ pub struct DDHALINFO {
     pub vmiData: VIDMEMINFO,
     pub ddCaps: DDCORECAPS,
     pub dwMonitorFrequency: u32,
-    pub GetDriverInfo: ::core::option::Option<LPDDHAL_GETDRIVERINFO>,
+    pub GetDriverInfo: LPDDHAL_GETDRIVERINFO,
     pub dwModeIndex: u32,
     pub lpdwFourCC: *mut u32,
     pub dwNumModes: u32,
@@ -1126,7 +1126,7 @@ pub struct DDHAL_ADDATTACHEDSURFACEDATA {
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpSurfAttached: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub AddAttachedSurface: ::core::option::Option<LPDDHALSURFCB_ADDATTACHEDSURFACE>,
+    pub AddAttachedSurface: LPDDHALSURFCB_ADDATTACHEDSURFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_ADDATTACHEDSURFACEDATA {}
@@ -1147,7 +1147,7 @@ pub struct DDHAL_BEGINMOCOMPFRAMEDATA {
     pub dwOutputDataSize: u32,
     pub lpOutputData: *mut ::core::ffi::c_void,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub BeginMoCompFrame: ::core::option::Option<LPDDHALMOCOMPCB_BEGINFRAME>,
+    pub BeginMoCompFrame: LPDDHALMOCOMPCB_BEGINFRAME,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_BEGINMOCOMPFRAMEDATA {}
@@ -1169,7 +1169,7 @@ pub struct DDHAL_BLTDATA {
     pub dwROPFlags: u32,
     pub bltFX: DDBLTFX,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub Blt: ::core::option::Option<LPDDHALSURFCB_BLT>,
+    pub Blt: LPDDHALSURFCB_BLT,
     pub IsClipped: super::super::Foundation::BOOL,
     pub rOrigDest: super::super::Foundation::RECTL,
     pub rOrigSrc: super::super::Foundation::RECTL,
@@ -1225,7 +1225,7 @@ pub struct DDHAL_CANCREATESURFACEDATA {
     pub lpDDSurfaceDesc: *mut DDSURFACEDESC,
     pub bIsDifferentPixelFormat: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub CanCreateSurface: ::core::option::Option<LPDDHAL_CANCREATESURFACE>,
+    pub CanCreateSurface: LPDDHAL_CANCREATESURFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_CANCREATESURFACEDATA {}
@@ -1241,7 +1241,7 @@ pub struct DDHAL_CANCREATEVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub CanCreateVideoPort: ::core::option::Option<LPDDHALVPORTCB_CANCREATEVIDEOPORT>,
+    pub CanCreateVideoPort: LPDDHALVPORTCB_CANCREATEVIDEOPORT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_CANCREATEVPORTDATA {}
@@ -1270,7 +1270,7 @@ pub struct DDHAL_COLORCONTROLDATA {
     pub lpColorData: *mut DDCOLORCONTROL,
     pub dwFlags: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub ColorControl: ::core::option::Option<LPDDHALCOLORCB_COLORCONTROL>,
+    pub ColorControl: LPDDHALCOLORCB_COLORCONTROL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_COLORCONTROLDATA {}
@@ -1293,7 +1293,7 @@ pub struct DDHAL_CREATEMOCOMPDATA {
     pub lpData: *mut ::core::ffi::c_void,
     pub dwDataSize: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub CreateMoComp: ::core::option::Option<LPDDHALMOCOMPCB_CREATE>,
+    pub CreateMoComp: LPDDHALMOCOMPCB_CREATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_CREATEMOCOMPDATA {}
@@ -1310,7 +1310,7 @@ pub struct DDHAL_CREATEPALETTEDATA {
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_GBL,
     pub lpColorTable: *mut super::Gdi::PALETTEENTRY,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub CreatePalette: ::core::option::Option<LPDDHAL_CREATEPALETTE>,
+    pub CreatePalette: LPDDHAL_CREATEPALETTE,
     pub is_excl: super::super::Foundation::BOOL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1329,7 +1329,7 @@ pub struct DDHAL_CREATESURFACEDATA {
     pub lplpSList: *mut *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwSCnt: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub CreateSurface: ::core::option::Option<LPDDHAL_CREATESURFACE>,
+    pub CreateSurface: LPDDHAL_CREATESURFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_CREATESURFACEDATA {}
@@ -1363,7 +1363,7 @@ pub struct DDHAL_CREATEVPORTDATA {
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub CreateVideoPort: ::core::option::Option<LPDDHALVPORTCB_CREATEVIDEOPORT>,
+    pub CreateVideoPort: LPDDHALVPORTCB_CREATEVIDEOPORT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_CREATEVPORTDATA {}
@@ -1383,16 +1383,16 @@ pub const DDHAL_D3DBUFCB32_UNLOCKD3DBUF: i32 = 16i32;
 pub struct DDHAL_DDCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub DestroyDriver: ::core::option::Option<LPDDHAL_DESTROYDRIVER>,
-    pub CreateSurface: ::core::option::Option<LPDDHAL_CREATESURFACE>,
-    pub SetColorKey: ::core::option::Option<LPDDHAL_SETCOLORKEY>,
-    pub SetMode: ::core::option::Option<LPDDHAL_SETMODE>,
-    pub WaitForVerticalBlank: ::core::option::Option<LPDDHAL_WAITFORVERTICALBLANK>,
-    pub CanCreateSurface: ::core::option::Option<LPDDHAL_CANCREATESURFACE>,
-    pub CreatePalette: ::core::option::Option<LPDDHAL_CREATEPALETTE>,
-    pub GetScanLine: ::core::option::Option<LPDDHAL_GETSCANLINE>,
-    pub SetExclusiveMode: ::core::option::Option<LPDDHAL_SETEXCLUSIVEMODE>,
-    pub FlipToGDISurface: ::core::option::Option<LPDDHAL_FLIPTOGDISURFACE>,
+    pub DestroyDriver: LPDDHAL_DESTROYDRIVER,
+    pub CreateSurface: LPDDHAL_CREATESURFACE,
+    pub SetColorKey: LPDDHAL_SETCOLORKEY,
+    pub SetMode: LPDDHAL_SETMODE,
+    pub WaitForVerticalBlank: LPDDHAL_WAITFORVERTICALBLANK,
+    pub CanCreateSurface: LPDDHAL_CANCREATESURFACE,
+    pub CreatePalette: LPDDHAL_CREATEPALETTE,
+    pub GetScanLine: LPDDHAL_GETSCANLINE,
+    pub SetExclusiveMode: LPDDHAL_SETEXCLUSIVEMODE,
+    pub FlipToGDISurface: LPDDHAL_FLIPTOGDISURFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DDCALLBACKS {}
@@ -1407,7 +1407,7 @@ impl ::core::clone::Clone for DDHAL_DDCALLBACKS {
 pub struct DDHAL_DDCOLORCONTROLCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub ColorControl: ::core::option::Option<LPDDHALCOLORCB_COLORCONTROL>,
+    pub ColorControl: LPDDHALCOLORCB_COLORCONTROL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DDCOLORCONTROLCALLBACKS {}
@@ -1422,11 +1422,11 @@ impl ::core::clone::Clone for DDHAL_DDCOLORCONTROLCALLBACKS {
 pub struct DDHAL_DDEXEBUFCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub CanCreateExecuteBuffer: ::core::option::Option<LPDDHALEXEBUFCB_CANCREATEEXEBUF>,
-    pub CreateExecuteBuffer: ::core::option::Option<LPDDHALEXEBUFCB_CREATEEXEBUF>,
-    pub DestroyExecuteBuffer: ::core::option::Option<LPDDHALEXEBUFCB_DESTROYEXEBUF>,
-    pub LockExecuteBuffer: ::core::option::Option<LPDDHALEXEBUFCB_LOCKEXEBUF>,
-    pub UnlockExecuteBuffer: ::core::option::Option<LPDDHALEXEBUFCB_UNLOCKEXEBUF>,
+    pub CanCreateExecuteBuffer: LPDDHALEXEBUFCB_CANCREATEEXEBUF,
+    pub CreateExecuteBuffer: LPDDHALEXEBUFCB_CREATEEXEBUF,
+    pub DestroyExecuteBuffer: LPDDHALEXEBUFCB_DESTROYEXEBUF,
+    pub LockExecuteBuffer: LPDDHALEXEBUFCB_LOCKEXEBUF,
+    pub UnlockExecuteBuffer: LPDDHALEXEBUFCB_UNLOCKEXEBUF,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DDEXEBUFCALLBACKS {}
@@ -1441,8 +1441,8 @@ impl ::core::clone::Clone for DDHAL_DDEXEBUFCALLBACKS {
 pub struct DDHAL_DDKERNELCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub SyncSurfaceData: ::core::option::Option<LPDDHALKERNELCB_SYNCSURFACE>,
-    pub SyncVideoPortData: ::core::option::Option<LPDDHALKERNELCB_SYNCVIDEOPORT>,
+    pub SyncSurfaceData: LPDDHALKERNELCB_SYNCSURFACE,
+    pub SyncVideoPortData: LPDDHALKERNELCB_SYNCVIDEOPORT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DDKERNELCALLBACKS {}
@@ -1458,9 +1458,9 @@ pub struct DDHAL_DDMISCELLANEOUS2CALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub Reserved: *mut ::core::ffi::c_void,
-    pub CreateSurfaceEx: ::core::option::Option<LPDDHAL_CREATESURFACEEX>,
-    pub GetDriverState: ::core::option::Option<LPDDHAL_GETDRIVERSTATE>,
-    pub DestroyDDLocal: ::core::option::Option<LPDDHAL_DESTROYDDLOCAL>,
+    pub CreateSurfaceEx: LPDDHAL_CREATESURFACEEX,
+    pub GetDriverState: LPDDHAL_GETDRIVERSTATE,
+    pub DestroyDDLocal: LPDDHAL_DESTROYDDLOCAL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DDMISCELLANEOUS2CALLBACKS {}
@@ -1475,10 +1475,10 @@ impl ::core::clone::Clone for DDHAL_DDMISCELLANEOUS2CALLBACKS {
 pub struct DDHAL_DDMISCELLANEOUSCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub GetAvailDriverMemory: ::core::option::Option<LPDDHAL_GETAVAILDRIVERMEMORY>,
-    pub UpdateNonLocalHeap: ::core::option::Option<LPDDHAL_UPDATENONLOCALHEAP>,
-    pub GetHeapAlignment: ::core::option::Option<LPDDHAL_GETHEAPALIGNMENT>,
-    pub GetSysmemBltStatus: ::core::option::Option<LPDDHALSURFCB_GETBLTSTATUS>,
+    pub GetAvailDriverMemory: LPDDHAL_GETAVAILDRIVERMEMORY,
+    pub UpdateNonLocalHeap: LPDDHAL_UPDATENONLOCALHEAP,
+    pub GetHeapAlignment: LPDDHAL_GETHEAPALIGNMENT,
+    pub GetSysmemBltStatus: LPDDHALSURFCB_GETBLTSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DDMISCELLANEOUSCALLBACKS {}
@@ -1493,16 +1493,16 @@ impl ::core::clone::Clone for DDHAL_DDMISCELLANEOUSCALLBACKS {
 pub struct DDHAL_DDMOTIONCOMPCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub GetMoCompGuids: ::core::option::Option<LPDDHALMOCOMPCB_GETGUIDS>,
-    pub GetMoCompFormats: ::core::option::Option<LPDDHALMOCOMPCB_GETFORMATS>,
-    pub CreateMoComp: ::core::option::Option<LPDDHALMOCOMPCB_CREATE>,
-    pub GetMoCompBuffInfo: ::core::option::Option<LPDDHALMOCOMPCB_GETCOMPBUFFINFO>,
-    pub GetInternalMoCompInfo: ::core::option::Option<LPDDHALMOCOMPCB_GETINTERNALINFO>,
-    pub BeginMoCompFrame: ::core::option::Option<LPDDHALMOCOMPCB_BEGINFRAME>,
-    pub EndMoCompFrame: ::core::option::Option<LPDDHALMOCOMPCB_ENDFRAME>,
-    pub RenderMoComp: ::core::option::Option<LPDDHALMOCOMPCB_RENDER>,
-    pub QueryMoCompStatus: ::core::option::Option<LPDDHALMOCOMPCB_QUERYSTATUS>,
-    pub DestroyMoComp: ::core::option::Option<LPDDHALMOCOMPCB_DESTROY>,
+    pub GetMoCompGuids: LPDDHALMOCOMPCB_GETGUIDS,
+    pub GetMoCompFormats: LPDDHALMOCOMPCB_GETFORMATS,
+    pub CreateMoComp: LPDDHALMOCOMPCB_CREATE,
+    pub GetMoCompBuffInfo: LPDDHALMOCOMPCB_GETCOMPBUFFINFO,
+    pub GetInternalMoCompInfo: LPDDHALMOCOMPCB_GETINTERNALINFO,
+    pub BeginMoCompFrame: LPDDHALMOCOMPCB_BEGINFRAME,
+    pub EndMoCompFrame: LPDDHALMOCOMPCB_ENDFRAME,
+    pub RenderMoComp: LPDDHALMOCOMPCB_RENDER,
+    pub QueryMoCompStatus: LPDDHALMOCOMPCB_QUERYSTATUS,
+    pub DestroyMoComp: LPDDHALMOCOMPCB_DESTROY,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DDMOTIONCOMPCALLBACKS {}
@@ -1517,8 +1517,8 @@ impl ::core::clone::Clone for DDHAL_DDMOTIONCOMPCALLBACKS {
 pub struct DDHAL_DDPALETTECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub DestroyPalette: ::core::option::Option<LPDDHALPALCB_DESTROYPALETTE>,
-    pub SetEntries: ::core::option::Option<LPDDHALPALCB_SETENTRIES>,
+    pub DestroyPalette: LPDDHALPALCB_DESTROYPALETTE,
+    pub SetEntries: LPDDHALPALCB_SETENTRIES,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DDPALETTECALLBACKS {}
@@ -1533,20 +1533,20 @@ impl ::core::clone::Clone for DDHAL_DDPALETTECALLBACKS {
 pub struct DDHAL_DDSURFACECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub DestroySurface: ::core::option::Option<LPDDHALSURFCB_DESTROYSURFACE>,
-    pub Flip: ::core::option::Option<LPDDHALSURFCB_FLIP>,
-    pub SetClipList: ::core::option::Option<LPDDHALSURFCB_SETCLIPLIST>,
-    pub Lock: ::core::option::Option<LPDDHALSURFCB_LOCK>,
-    pub Unlock: ::core::option::Option<LPDDHALSURFCB_UNLOCK>,
-    pub Blt: ::core::option::Option<LPDDHALSURFCB_BLT>,
-    pub SetColorKey: ::core::option::Option<LPDDHALSURFCB_SETCOLORKEY>,
-    pub AddAttachedSurface: ::core::option::Option<LPDDHALSURFCB_ADDATTACHEDSURFACE>,
-    pub GetBltStatus: ::core::option::Option<LPDDHALSURFCB_GETBLTSTATUS>,
-    pub GetFlipStatus: ::core::option::Option<LPDDHALSURFCB_GETFLIPSTATUS>,
-    pub UpdateOverlay: ::core::option::Option<LPDDHALSURFCB_UPDATEOVERLAY>,
-    pub SetOverlayPosition: ::core::option::Option<LPDDHALSURFCB_SETOVERLAYPOSITION>,
+    pub DestroySurface: LPDDHALSURFCB_DESTROYSURFACE,
+    pub Flip: LPDDHALSURFCB_FLIP,
+    pub SetClipList: LPDDHALSURFCB_SETCLIPLIST,
+    pub Lock: LPDDHALSURFCB_LOCK,
+    pub Unlock: LPDDHALSURFCB_UNLOCK,
+    pub Blt: LPDDHALSURFCB_BLT,
+    pub SetColorKey: LPDDHALSURFCB_SETCOLORKEY,
+    pub AddAttachedSurface: LPDDHALSURFCB_ADDATTACHEDSURFACE,
+    pub GetBltStatus: LPDDHALSURFCB_GETBLTSTATUS,
+    pub GetFlipStatus: LPDDHALSURFCB_GETFLIPSTATUS,
+    pub UpdateOverlay: LPDDHALSURFCB_UPDATEOVERLAY,
+    pub SetOverlayPosition: LPDDHALSURFCB_SETOVERLAYPOSITION,
     pub reserved4: *mut ::core::ffi::c_void,
-    pub SetPalette: ::core::option::Option<LPDDHALSURFCB_SETPALETTE>,
+    pub SetPalette: LPDDHALSURFCB_SETPALETTE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DDSURFACECALLBACKS {}
@@ -1561,22 +1561,22 @@ impl ::core::clone::Clone for DDHAL_DDSURFACECALLBACKS {
 pub struct DDHAL_DDVIDEOPORTCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub CanCreateVideoPort: ::core::option::Option<LPDDHALVPORTCB_CANCREATEVIDEOPORT>,
-    pub CreateVideoPort: ::core::option::Option<LPDDHALVPORTCB_CREATEVIDEOPORT>,
-    pub FlipVideoPort: ::core::option::Option<LPDDHALVPORTCB_FLIP>,
-    pub GetVideoPortBandwidth: ::core::option::Option<LPDDHALVPORTCB_GETBANDWIDTH>,
-    pub GetVideoPortInputFormats: ::core::option::Option<LPDDHALVPORTCB_GETINPUTFORMATS>,
-    pub GetVideoPortOutputFormats: ::core::option::Option<LPDDHALVPORTCB_GETOUTPUTFORMATS>,
+    pub CanCreateVideoPort: LPDDHALVPORTCB_CANCREATEVIDEOPORT,
+    pub CreateVideoPort: LPDDHALVPORTCB_CREATEVIDEOPORT,
+    pub FlipVideoPort: LPDDHALVPORTCB_FLIP,
+    pub GetVideoPortBandwidth: LPDDHALVPORTCB_GETBANDWIDTH,
+    pub GetVideoPortInputFormats: LPDDHALVPORTCB_GETINPUTFORMATS,
+    pub GetVideoPortOutputFormats: LPDDHALVPORTCB_GETOUTPUTFORMATS,
     pub lpReserved1: *mut ::core::ffi::c_void,
-    pub GetVideoPortField: ::core::option::Option<LPDDHALVPORTCB_GETFIELD>,
-    pub GetVideoPortLine: ::core::option::Option<LPDDHALVPORTCB_GETLINE>,
-    pub GetVideoPortConnectInfo: ::core::option::Option<LPDDHALVPORTCB_GETVPORTCONNECT>,
-    pub DestroyVideoPort: ::core::option::Option<LPDDHALVPORTCB_DESTROYVPORT>,
-    pub GetVideoPortFlipStatus: ::core::option::Option<LPDDHALVPORTCB_GETFLIPSTATUS>,
-    pub UpdateVideoPort: ::core::option::Option<LPDDHALVPORTCB_UPDATE>,
-    pub WaitForVideoPortSync: ::core::option::Option<LPDDHALVPORTCB_WAITFORSYNC>,
-    pub GetVideoSignalStatus: ::core::option::Option<LPDDHALVPORTCB_GETSIGNALSTATUS>,
-    pub ColorControl: ::core::option::Option<LPDDHALVPORTCB_COLORCONTROL>,
+    pub GetVideoPortField: LPDDHALVPORTCB_GETFIELD,
+    pub GetVideoPortLine: LPDDHALVPORTCB_GETLINE,
+    pub GetVideoPortConnectInfo: LPDDHALVPORTCB_GETVPORTCONNECT,
+    pub DestroyVideoPort: LPDDHALVPORTCB_DESTROYVPORT,
+    pub GetVideoPortFlipStatus: LPDDHALVPORTCB_GETFLIPSTATUS,
+    pub UpdateVideoPort: LPDDHALVPORTCB_UPDATE,
+    pub WaitForVideoPortSync: LPDDHALVPORTCB_WAITFORSYNC,
+    pub GetVideoSignalStatus: LPDDHALVPORTCB_GETSIGNALSTATUS,
+    pub ColorControl: LPDDHALVPORTCB_COLORCONTROL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DDVIDEOPORTCALLBACKS {}
@@ -1606,7 +1606,7 @@ impl ::core::clone::Clone for DDHAL_DESTROYDDLOCALDATA {
 pub struct DDHAL_DESTROYDRIVERDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub DestroyDriver: ::core::option::Option<LPDDHAL_DESTROYDRIVER>,
+    pub DestroyDriver: LPDDHAL_DESTROYDRIVER,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DESTROYDRIVERDATA {}
@@ -1622,7 +1622,7 @@ pub struct DDHAL_DESTROYMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpMoComp: *mut DDRAWI_DDMOTIONCOMP_LCL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub DestroyMoComp: ::core::option::Option<LPDDHALMOCOMPCB_DESTROY>,
+    pub DestroyMoComp: LPDDHALMOCOMPCB_DESTROY,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DESTROYMOCOMPDATA {}
@@ -1638,7 +1638,7 @@ pub struct DDHAL_DESTROYPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_GBL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub DestroyPalette: ::core::option::Option<LPDDHALPALCB_DESTROYPALETTE>,
+    pub DestroyPalette: LPDDHALPALCB_DESTROYPALETTE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DESTROYPALETTEDATA {}
@@ -1654,7 +1654,7 @@ pub struct DDHAL_DESTROYSURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub DestroySurface: ::core::option::Option<LPDDHALSURFCB_DESTROYSURFACE>,
+    pub DestroySurface: LPDDHALSURFCB_DESTROYSURFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DESTROYSURFACEDATA {}
@@ -1670,7 +1670,7 @@ pub struct DDHAL_DESTROYVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub DestroyVideoPort: ::core::option::Option<LPDDHALVPORTCB_DESTROYVPORT>,
+    pub DestroyVideoPort: LPDDHALVPORTCB_DESTROYVPORT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DESTROYVPORTDATA {}
@@ -1690,7 +1690,7 @@ pub struct DDHAL_DRVSETCOLORKEYDATA {
     pub dwFlags: u32,
     pub ckNew: DDCOLORKEY,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub SetColorKey: ::core::option::Option<LPDDHAL_SETCOLORKEY>,
+    pub SetColorKey: LPDDHAL_SETCOLORKEY,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DRVSETCOLORKEYDATA {}
@@ -1708,7 +1708,7 @@ pub struct DDHAL_ENDMOCOMPFRAMEDATA {
     pub lpInputData: *mut ::core::ffi::c_void,
     pub dwInputDataSize: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub EndMoCompFrame: ::core::option::Option<LPDDHALMOCOMPCB_ENDFRAME>,
+    pub EndMoCompFrame: LPDDHALMOCOMPCB_ENDFRAME,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_ENDMOCOMPFRAMEDATA {}
@@ -1731,7 +1731,7 @@ pub struct DDHAL_FLIPDATA {
     pub lpSurfTarg: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub Flip: ::core::option::Option<LPDDHALSURFCB_FLIP>,
+    pub Flip: LPDDHALSURFCB_FLIP,
     pub lpSurfCurrLeft: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpSurfTargLeft: *mut DDRAWI_DDRAWSURFACE_LCL,
 }
@@ -1750,7 +1750,7 @@ pub struct DDHAL_FLIPTOGDISURFACEDATA {
     pub dwToGDI: u32,
     pub dwReserved: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub FlipToGDISurface: ::core::option::Option<LPDDHAL_FLIPTOGDISURFACE>,
+    pub FlipToGDISurface: LPDDHAL_FLIPTOGDISURFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_FLIPTOGDISURFACEDATA {}
@@ -1768,7 +1768,7 @@ pub struct DDHAL_FLIPVPORTDATA {
     pub lpSurfCurr: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpSurfTarg: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub FlipVideoPort: ::core::option::Option<LPDDHALVPORTCB_FLIP>,
+    pub FlipVideoPort: LPDDHALVPORTCB_FLIP,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_FLIPVPORTDATA {}
@@ -1786,7 +1786,7 @@ pub struct DDHAL_GETAVAILDRIVERMEMORYDATA {
     pub dwTotal: u32,
     pub dwFree: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetAvailDriverMemory: ::core::option::Option<LPDDHAL_GETAVAILDRIVERMEMORY>,
+    pub GetAvailDriverMemory: LPDDHAL_GETAVAILDRIVERMEMORY,
     pub ddsCapsEx: DDSCAPSEX,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1804,7 +1804,7 @@ pub struct DDHAL_GETBLTSTATUSDATA {
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetBltStatus: ::core::option::Option<LPDDHALSURFCB_GETBLTSTATUS>,
+    pub GetBltStatus: LPDDHALSURFCB_GETBLTSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETBLTSTATUSDATA {}
@@ -1862,7 +1862,7 @@ pub struct DDHAL_GETFLIPSTATUSDATA {
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetFlipStatus: ::core::option::Option<LPDDHALSURFCB_GETFLIPSTATUS>,
+    pub GetFlipStatus: LPDDHALSURFCB_GETFLIPSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETFLIPSTATUSDATA {}
@@ -1877,7 +1877,7 @@ pub struct DDHAL_GETHEAPALIGNMENTDATA {
     pub dwInstance: usize,
     pub dwHeap: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetHeapAlignment: ::core::option::Option<LPDDHAL_GETHEAPALIGNMENT>,
+    pub GetHeapAlignment: LPDDHAL_GETHEAPALIGNMENT,
     pub Alignment: HEAPALIGNMENT,
 }
 impl ::core::marker::Copy for DDHAL_GETHEAPALIGNMENTDATA {}
@@ -1896,7 +1896,7 @@ pub struct DDHAL_GETINTERNALMOCOMPDATA {
     pub ddPixelFormat: DDPIXELFORMAT,
     pub dwScratchMemAlloc: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetInternalMoCompInfo: ::core::option::Option<LPDDHALMOCOMPCB_GETINTERNALINFO>,
+    pub GetInternalMoCompInfo: LPDDHALMOCOMPCB_GETINTERNALINFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETINTERNALMOCOMPDATA {}
@@ -1917,7 +1917,7 @@ pub struct DDHAL_GETMOCOMPCOMPBUFFDATA {
     pub dwNumTypesCompBuffs: u32,
     pub lpCompBuffInfo: *mut DDMCCOMPBUFFERINFO,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetMoCompBuffInfo: ::core::option::Option<LPDDHALMOCOMPCB_GETCOMPBUFFINFO>,
+    pub GetMoCompBuffInfo: LPDDHALMOCOMPCB_GETCOMPBUFFINFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETMOCOMPCOMPBUFFDATA {}
@@ -1935,7 +1935,7 @@ pub struct DDHAL_GETMOCOMPFORMATSDATA {
     pub dwNumFormats: u32,
     pub lpFormats: *mut DDPIXELFORMAT,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetMoCompFormats: ::core::option::Option<LPDDHALMOCOMPCB_GETFORMATS>,
+    pub GetMoCompFormats: LPDDHALMOCOMPCB_GETFORMATS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETMOCOMPFORMATSDATA {}
@@ -1952,7 +1952,7 @@ pub struct DDHAL_GETMOCOMPGUIDSDATA {
     pub dwNumGuids: u32,
     pub lpGuids: *mut ::windows_sys::core::GUID,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetMoCompGuids: ::core::option::Option<LPDDHALMOCOMPCB_GETGUIDS>,
+    pub GetMoCompGuids: LPDDHALMOCOMPCB_GETGUIDS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETMOCOMPGUIDSDATA {}
@@ -1968,7 +1968,7 @@ pub struct DDHAL_GETSCANLINEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub dwScanLine: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetScanLine: ::core::option::Option<LPDDHAL_GETSCANLINE>,
+    pub GetScanLine: LPDDHAL_GETSCANLINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETSCANLINEDATA {}
@@ -1989,7 +1989,7 @@ pub struct DDHAL_GETVPORTBANDWIDTHDATA {
     pub dwFlags: u32,
     pub lpBandwidth: *mut DDVIDEOPORTBANDWIDTH,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetVideoPortBandwidth: ::core::option::Option<LPDDHALVPORTCB_GETBANDWIDTH>,
+    pub GetVideoPortBandwidth: LPDDHALVPORTCB_GETBANDWIDTH,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETVPORTBANDWIDTHDATA {}
@@ -2007,7 +2007,7 @@ pub struct DDHAL_GETVPORTCONNECTDATA {
     pub lpConnect: *mut DDVIDEOPORTCONNECT,
     pub dwNumEntries: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetVideoPortConnectInfo: ::core::option::Option<LPDDHALVPORTCB_GETVPORTCONNECT>,
+    pub GetVideoPortConnectInfo: LPDDHALVPORTCB_GETVPORTCONNECT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETVPORTCONNECTDATA {}
@@ -2024,7 +2024,7 @@ pub struct DDHAL_GETVPORTFIELDDATA {
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub bField: super::super::Foundation::BOOL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetVideoPortField: ::core::option::Option<LPDDHALVPORTCB_GETFIELD>,
+    pub GetVideoPortField: LPDDHALVPORTCB_GETFIELD,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETVPORTFIELDDATA {}
@@ -2040,7 +2040,7 @@ pub struct DDHAL_GETVPORTFLIPSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub fpSurface: usize,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetVideoPortFlipStatus: ::core::option::Option<LPDDHALVPORTCB_GETFLIPSTATUS>,
+    pub GetVideoPortFlipStatus: LPDDHALVPORTCB_GETFLIPSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETVPORTFLIPSTATUSDATA {}
@@ -2059,7 +2059,7 @@ pub struct DDHAL_GETVPORTINPUTFORMATDATA {
     pub lpddpfFormat: *mut DDPIXELFORMAT,
     pub dwNumFormats: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetVideoPortInputFormats: ::core::option::Option<LPDDHALVPORTCB_GETINPUTFORMATS>,
+    pub GetVideoPortInputFormats: LPDDHALVPORTCB_GETINPUTFORMATS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETVPORTINPUTFORMATDATA {}
@@ -2076,7 +2076,7 @@ pub struct DDHAL_GETVPORTLINEDATA {
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub dwLine: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetVideoPortLine: ::core::option::Option<LPDDHALVPORTCB_GETLINE>,
+    pub GetVideoPortLine: LPDDHALVPORTCB_GETLINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETVPORTLINEDATA {}
@@ -2096,7 +2096,7 @@ pub struct DDHAL_GETVPORTOUTPUTFORMATDATA {
     pub lpddpfOutputFormats: *mut DDPIXELFORMAT,
     pub dwNumFormats: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetVideoPortOutputFormats: ::core::option::Option<LPDDHALVPORTCB_GETOUTPUTFORMATS>,
+    pub GetVideoPortOutputFormats: LPDDHALVPORTCB_GETOUTPUTFORMATS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETVPORTOUTPUTFORMATDATA {}
@@ -2113,7 +2113,7 @@ pub struct DDHAL_GETVPORTSIGNALDATA {
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub dwStatus: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub GetVideoSignalStatus: ::core::option::Option<LPDDHALVPORTCB_GETSIGNALSTATUS>,
+    pub GetVideoSignalStatus: LPDDHALVPORTCB_GETSIGNALSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_GETVPORTSIGNALDATA {}
@@ -2134,7 +2134,7 @@ pub struct DDHAL_LOCKDATA {
     pub rArea: super::super::Foundation::RECTL,
     pub lpSurfData: *mut ::core::ffi::c_void,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub Lock: ::core::option::Option<LPDDHALSURFCB_LOCK>,
+    pub Lock: LPDDHALSURFCB_LOCK,
     pub dwFlags: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2182,7 +2182,7 @@ pub struct DDHAL_QUERYMOCOMPSTATUSDATA {
     pub lpSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub QueryMoCompStatus: ::core::option::Option<LPDDHALMOCOMPCB_QUERYSTATUS>,
+    pub QueryMoCompStatus: LPDDHALMOCOMPCB_QUERYSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_QUERYMOCOMPSTATUSDATA {}
@@ -2205,7 +2205,7 @@ pub struct DDHAL_RENDERMOCOMPDATA {
     pub lpOutputData: *mut ::core::ffi::c_void,
     pub dwOutputDataSize: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub RenderMoComp: ::core::option::Option<LPDDHALMOCOMPCB_RENDER>,
+    pub RenderMoComp: LPDDHALMOCOMPCB_RENDER,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_RENDERMOCOMPDATA {}
@@ -2221,7 +2221,7 @@ pub struct DDHAL_SETCLIPLISTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub SetClipList: ::core::option::Option<LPDDHALSURFCB_SETCLIPLIST>,
+    pub SetClipList: LPDDHALSURFCB_SETCLIPLIST,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_SETCLIPLISTDATA {}
@@ -2239,7 +2239,7 @@ pub struct DDHAL_SETCOLORKEYDATA {
     pub dwFlags: u32,
     pub ckNew: DDCOLORKEY,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub SetColorKey: ::core::option::Option<LPDDHALSURFCB_SETCOLORKEY>,
+    pub SetColorKey: LPDDHALSURFCB_SETCOLORKEY,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_SETCOLORKEYDATA {}
@@ -2258,7 +2258,7 @@ pub struct DDHAL_SETENTRIESDATA {
     pub dwNumEntries: u32,
     pub lpEntries: *mut super::Gdi::PALETTEENTRY,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub SetEntries: ::core::option::Option<LPDDHALPALCB_SETENTRIES>,
+    pub SetEntries: LPDDHALPALCB_SETENTRIES,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_SETENTRIESDATA {}
@@ -2275,7 +2275,7 @@ pub struct DDHAL_SETEXCLUSIVEMODEDATA {
     pub dwEnterExcl: u32,
     pub dwReserved: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub SetExclusiveMode: ::core::option::Option<LPDDHAL_SETEXCLUSIVEMODE>,
+    pub SetExclusiveMode: LPDDHAL_SETEXCLUSIVEMODE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_SETEXCLUSIVEMODEDATA {}
@@ -2291,7 +2291,7 @@ pub struct DDHAL_SETMODEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub dwModeIndex: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub SetMode: ::core::option::Option<LPDDHAL_SETMODE>,
+    pub SetMode: LPDDHAL_SETMODE,
     pub inexcl: super::super::Foundation::BOOL,
     pub useRefreshRate: super::super::Foundation::BOOL,
 }
@@ -2312,7 +2312,7 @@ pub struct DDHAL_SETOVERLAYPOSITIONDATA {
     pub lXPos: i32,
     pub lYPos: i32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub SetOverlayPosition: ::core::option::Option<LPDDHALSURFCB_SETOVERLAYPOSITION>,
+    pub SetOverlayPosition: LPDDHALSURFCB_SETOVERLAYPOSITION,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_SETOVERLAYPOSITIONDATA {}
@@ -2329,7 +2329,7 @@ pub struct DDHAL_SETPALETTEDATA {
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_GBL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub SetPalette: ::core::option::Option<LPDDHALSURFCB_SETPALETTE>,
+    pub SetPalette: LPDDHALSURFCB_SETPALETTE,
     pub Attach: super::super::Foundation::BOOL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2409,7 +2409,7 @@ pub struct DDHAL_UNLOCKDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub Unlock: ::core::option::Option<LPDDHALSURFCB_UNLOCK>,
+    pub Unlock: LPDDHALSURFCB_UNLOCK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_UNLOCKDATA {}
@@ -2428,7 +2428,7 @@ pub struct DDHAL_UPDATENONLOCALHEAPDATA {
     pub fpGARTDev: usize,
     pub ulPolicyMaxBytes: usize,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub UpdateNonLocalHeap: ::core::option::Option<LPDDHAL_UPDATENONLOCALHEAP>,
+    pub UpdateNonLocalHeap: LPDDHAL_UPDATENONLOCALHEAP,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_UPDATENONLOCALHEAPDATA {}
@@ -2449,7 +2449,7 @@ pub struct DDHAL_UPDATEOVERLAYDATA {
     pub dwFlags: u32,
     pub overlayFX: DDOVERLAYFX,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub UpdateOverlay: ::core::option::Option<LPDDHALSURFCB_UPDATEOVERLAY>,
+    pub UpdateOverlay: LPDDHALSURFCB_UPDATEOVERLAY,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_UPDATEOVERLAYDATA {}
@@ -2471,7 +2471,7 @@ pub struct DDHAL_UPDATEVPORTDATA {
     pub dwNumAutoflip: u32,
     pub dwNumVBIAutoflip: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub UpdateVideoPort: ::core::option::Option<LPDDHALVPORTCB_UPDATE>,
+    pub UpdateVideoPort: LPDDHALVPORTCB_UPDATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_UPDATEVPORTDATA {}
@@ -2505,7 +2505,7 @@ pub struct DDHAL_VPORTCOLORDATA {
     pub dwFlags: u32,
     pub lpColorData: *mut DDCOLORCONTROL,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub ColorControl: ::core::option::Option<LPDDHALVPORTCB_COLORCONTROL>,
+    pub ColorControl: LPDDHALVPORTCB_COLORCONTROL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_VPORTCOLORDATA {}
@@ -2523,7 +2523,7 @@ pub struct DDHAL_WAITFORVERTICALBLANKDATA {
     pub bIsInVB: u32,
     pub hEvent: usize,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub WaitForVerticalBlank: ::core::option::Option<LPDDHAL_WAITFORVERTICALBLANK>,
+    pub WaitForVerticalBlank: LPDDHAL_WAITFORVERTICALBLANK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_WAITFORVERTICALBLANKDATA {}
@@ -2542,7 +2542,7 @@ pub struct DDHAL_WAITFORVPORTSYNCDATA {
     pub dwLine: u32,
     pub dwTimeOut: u32,
     pub ddRVal: ::windows_sys::core::HRESULT,
-    pub WaitForVideoPortSync: ::core::option::Option<LPDDHALVPORTCB_WAITFORSYNC>,
+    pub WaitForVideoPortSync: LPDDHALVPORTCB_WAITFORSYNC,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_WAITFORVPORTSYNCDATA {}
@@ -2869,7 +2869,7 @@ impl ::core::clone::Clone for DDOVERLAYFX {
 #[repr(C)]
 pub union DDOVERLAYFX_0 {
     pub dwAlphaDestConst: u32,
-    pub lpDDSAlphaDest: ::core::option::Option<IDirectDrawSurface>,
+    pub lpDDSAlphaDest: IDirectDrawSurface,
 }
 impl ::core::marker::Copy for DDOVERLAYFX_0 {}
 impl ::core::clone::Clone for DDOVERLAYFX_0 {
@@ -2880,7 +2880,7 @@ impl ::core::clone::Clone for DDOVERLAYFX_0 {
 #[repr(C)]
 pub union DDOVERLAYFX_1 {
     pub dwAlphaSrcConst: u32,
-    pub lpDDSAlphaSrc: ::core::option::Option<IDirectDrawSurface>,
+    pub lpDDSAlphaSrc: IDirectDrawSurface,
 }
 impl ::core::marker::Copy for DDOVERLAYFX_1 {}
 impl ::core::clone::Clone for DDOVERLAYFX_1 {
@@ -3241,10 +3241,10 @@ pub struct DDRAWI_DDRAWCLIPPER_LCL {
     pub lpGbl: *mut DDRAWI_DDRAWCLIPPER_GBL,
     pub lpDD_lcl: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwLocalRefCnt: u32,
-    pub pUnkOuter: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnkOuter: ::windows_sys::core::IUnknown,
     pub lpDD_int: *mut DDRAWI_DIRECTDRAW_INT,
     pub dwReserved1: usize,
-    pub pAddrefedThisOwner: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pAddrefedThisOwner: ::windows_sys::core::IUnknown,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDRAWI_DDRAWCLIPPER_LCL {}
@@ -3314,7 +3314,7 @@ pub struct DDRAWI_DDRAWPALETTE_LCL {
     pub lpGbl: *mut DDRAWI_DDRAWPALETTE_GBL,
     pub dwUnused0: usize,
     pub dwLocalRefCnt: u32,
-    pub pUnkOuter: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnkOuter: ::windows_sys::core::IUnknown,
     pub lpDD_lcl: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwReserved1: usize,
     pub dwDDRAWReserved1: usize,
@@ -3733,7 +3733,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub dwLocalFlags: u32,
     pub dwLocalRefCnt: u32,
     pub dwProcessId: u32,
-    pub pUnkOuter: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnkOuter: ::windows_sys::core::IUnknown,
     pub dwObsolete1: u32,
     pub hWnd: usize,
     pub hDC: usize,
@@ -3742,7 +3742,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub lpCB: *mut DDRAWI_DDRAWSURFACE_INT,
     pub dwPreferredMode: u32,
     pub hD3DInstance: super::super::Foundation::HINSTANCE,
-    pub pD3DIUnknown: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pD3DIUnknown: ::windows_sys::core::IUnknown,
     pub lpDDCB: *mut DDHAL_CALLBACKS,
     pub hDDVxd: usize,
     pub dwAppHackFlags: u32,
@@ -3752,7 +3752,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub hWndPopup: usize,
     pub hDD: usize,
     pub hGammaCalibrator: usize,
-    pub lpGammaCalibrator: ::core::option::Option<LPDDGAMMACALIBRATORPROC>,
+    pub lpGammaCalibrator: LPDDGAMMACALIBRATORPROC,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDRAWI_DIRECTDRAW_LCL {}
@@ -4588,15 +4588,15 @@ impl ::core::clone::Clone for DD_BLTDATA {
 pub struct DD_CALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub DestroyDriver: ::core::option::Option<PDD_DESTROYDRIVER>,
-    pub CreateSurface: ::core::option::Option<PDD_CREATESURFACE>,
-    pub SetColorKey: ::core::option::Option<PDD_SETCOLORKEY>,
-    pub SetMode: ::core::option::Option<PDD_SETMODE>,
-    pub WaitForVerticalBlank: ::core::option::Option<PDD_WAITFORVERTICALBLANK>,
-    pub CanCreateSurface: ::core::option::Option<PDD_CANCREATESURFACE>,
-    pub CreatePalette: ::core::option::Option<PDD_CREATEPALETTE>,
-    pub GetScanLine: ::core::option::Option<PDD_GETSCANLINE>,
-    pub MapMemory: ::core::option::Option<PDD_MAPMEMORY>,
+    pub DestroyDriver: PDD_DESTROYDRIVER,
+    pub CreateSurface: PDD_CREATESURFACE,
+    pub SetColorKey: PDD_SETCOLORKEY,
+    pub SetMode: PDD_SETMODE,
+    pub WaitForVerticalBlank: PDD_WAITFORVERTICALBLANK,
+    pub CanCreateSurface: PDD_CANCREATESURFACE,
+    pub CreatePalette: PDD_CREATEPALETTE,
+    pub GetScanLine: PDD_GETSCANLINE,
+    pub MapMemory: PDD_MAPMEMORY,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DD_CALLBACKS {}
@@ -4658,7 +4658,7 @@ impl ::core::clone::Clone for DD_CLIPPER_LOCAL {
 pub struct DD_COLORCONTROLCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub ColorControl: ::core::option::Option<PDD_COLORCB_COLORCONTROL>,
+    pub ColorControl: PDD_COLORCB_COLORCONTROL,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_COLORCONTROLCALLBACKS {}
@@ -4778,11 +4778,11 @@ impl ::core::clone::Clone for DD_CREATEVPORTDATA {
 pub struct DD_D3DBUFCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub CanCreateD3DBuffer: ::core::option::Option<PDD_CANCREATESURFACE>,
-    pub CreateD3DBuffer: ::core::option::Option<PDD_CREATESURFACE>,
-    pub DestroyD3DBuffer: ::core::option::Option<PDD_SURFCB_DESTROYSURFACE>,
-    pub LockD3DBuffer: ::core::option::Option<PDD_SURFCB_LOCK>,
-    pub UnlockD3DBuffer: ::core::option::Option<PDD_SURFCB_UNLOCK>,
+    pub CanCreateD3DBuffer: PDD_CANCREATESURFACE,
+    pub CreateD3DBuffer: PDD_CREATESURFACE,
+    pub DestroyD3DBuffer: PDD_SURFCB_DESTROYSURFACE,
+    pub LockD3DBuffer: PDD_SURFCB_LOCK,
+    pub UnlockD3DBuffer: PDD_SURFCB_UNLOCK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_D3DBUFCALLBACKS {}
@@ -5306,7 +5306,7 @@ pub struct DD_HALINFO {
     pub dwSize: u32,
     pub vmiData: VIDEOMEMORYINFO,
     pub ddCaps: DDNTCORECAPS,
-    pub GetDriverInfo: ::core::option::Option<PDD_GETDRIVERINFO>,
+    pub GetDriverInfo: PDD_GETDRIVERINFO,
     pub dwFlags: u32,
     pub lpD3DGlobalDriverData: *mut ::core::ffi::c_void,
     pub lpD3DHALCallbacks: *mut ::core::ffi::c_void,
@@ -5325,7 +5325,7 @@ pub struct DD_HALINFO_V4 {
     pub dwSize: u32,
     pub vmiData: VIDEOMEMORYINFO,
     pub ddCaps: DDNTCORECAPS,
-    pub GetDriverInfo: ::core::option::Option<PDD_GETDRIVERINFO>,
+    pub GetDriverInfo: PDD_GETDRIVERINFO,
     pub dwFlags: u32,
 }
 impl ::core::marker::Copy for DD_HALINFO_V4 {}
@@ -5340,8 +5340,8 @@ pub const DD_HAL_VERSION: u32 = 256u32;
 pub struct DD_KERNELCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub SyncSurfaceData: ::core::option::Option<PDD_KERNELCB_SYNCSURFACE>,
-    pub SyncVideoPortData: ::core::option::Option<PDD_KERNELCB_SYNCVIDEOPORT>,
+    pub SyncSurfaceData: PDD_KERNELCB_SYNCSURFACE,
+    pub SyncVideoPortData: PDD_KERNELCB_SYNCVIDEOPORT,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_KERNELCALLBACKS {}
@@ -5394,10 +5394,10 @@ impl ::core::clone::Clone for DD_MAPMEMORYDATA {
 pub struct DD_MISCELLANEOUS2CALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub AlphaBlt: ::core::option::Option<PDD_ALPHABLT>,
-    pub CreateSurfaceEx: ::core::option::Option<PDD_CREATESURFACEEX>,
-    pub GetDriverState: ::core::option::Option<PDD_GETDRIVERSTATE>,
-    pub DestroyDDLocal: ::core::option::Option<PDD_DESTROYDDLOCAL>,
+    pub AlphaBlt: PDD_ALPHABLT,
+    pub CreateSurfaceEx: PDD_CREATESURFACEEX,
+    pub GetDriverState: PDD_GETDRIVERSTATE,
+    pub DestroyDDLocal: PDD_DESTROYDDLOCAL,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_MISCELLANEOUS2CALLBACKS {}
@@ -5411,7 +5411,7 @@ impl ::core::clone::Clone for DD_MISCELLANEOUS2CALLBACKS {
 pub struct DD_MISCELLANEOUSCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub GetAvailDriverMemory: ::core::option::Option<PDD_GETAVAILDRIVERMEMORY>,
+    pub GetAvailDriverMemory: PDD_GETAVAILDRIVERMEMORY,
 }
 impl ::core::marker::Copy for DD_MISCELLANEOUSCALLBACKS {}
 impl ::core::clone::Clone for DD_MISCELLANEOUSCALLBACKS {
@@ -5465,16 +5465,16 @@ impl ::core::clone::Clone for DD_MORESURFACECAPS_0 {
 pub struct DD_MOTIONCOMPCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub GetMoCompGuids: ::core::option::Option<PDD_MOCOMPCB_GETGUIDS>,
-    pub GetMoCompFormats: ::core::option::Option<PDD_MOCOMPCB_GETFORMATS>,
-    pub CreateMoComp: ::core::option::Option<PDD_MOCOMPCB_CREATE>,
-    pub GetMoCompBuffInfo: ::core::option::Option<PDD_MOCOMPCB_GETCOMPBUFFINFO>,
-    pub GetInternalMoCompInfo: ::core::option::Option<PDD_MOCOMPCB_GETINTERNALINFO>,
-    pub BeginMoCompFrame: ::core::option::Option<PDD_MOCOMPCB_BEGINFRAME>,
-    pub EndMoCompFrame: ::core::option::Option<PDD_MOCOMPCB_ENDFRAME>,
-    pub RenderMoComp: ::core::option::Option<PDD_MOCOMPCB_RENDER>,
-    pub QueryMoCompStatus: ::core::option::Option<PDD_MOCOMPCB_QUERYSTATUS>,
-    pub DestroyMoComp: ::core::option::Option<PDD_MOCOMPCB_DESTROY>,
+    pub GetMoCompGuids: PDD_MOCOMPCB_GETGUIDS,
+    pub GetMoCompFormats: PDD_MOCOMPCB_GETFORMATS,
+    pub CreateMoComp: PDD_MOCOMPCB_CREATE,
+    pub GetMoCompBuffInfo: PDD_MOCOMPCB_GETCOMPBUFFINFO,
+    pub GetInternalMoCompInfo: PDD_MOCOMPCB_GETINTERNALINFO,
+    pub BeginMoCompFrame: PDD_MOCOMPCB_BEGINFRAME,
+    pub EndMoCompFrame: PDD_MOCOMPCB_ENDFRAME,
+    pub RenderMoComp: PDD_MOCOMPCB_RENDER,
+    pub QueryMoCompStatus: PDD_MOCOMPCB_QUERYSTATUS,
+    pub DestroyMoComp: PDD_MOCOMPCB_DESTROY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_MOTIONCOMPCALLBACKS {}
@@ -5524,9 +5524,9 @@ impl ::core::clone::Clone for DD_NONLOCALVIDMEMCAPS {
 pub struct DD_NTCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub FreeDriverMemory: ::core::option::Option<PDD_FREEDRIVERMEMORY>,
-    pub SetExclusiveMode: ::core::option::Option<PDD_SETEXCLUSIVEMODE>,
-    pub FlipToGDISurface: ::core::option::Option<PDD_FLIPTOGDISURFACE>,
+    pub FreeDriverMemory: PDD_FREEDRIVERMEMORY,
+    pub SetExclusiveMode: PDD_SETEXCLUSIVEMODE,
+    pub FlipToGDISurface: PDD_FLIPTOGDISURFACE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_NTCALLBACKS {}
@@ -5552,8 +5552,8 @@ impl ::core::clone::Clone for DD_NTPRIVATEDRIVERCAPS {
 pub struct DD_PALETTECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub DestroyPalette: ::core::option::Option<PDD_PALCB_DESTROYPALETTE>,
-    pub SetEntries: ::core::option::Option<PDD_PALCB_SETENTRIES>,
+    pub DestroyPalette: PDD_PALCB_DESTROYPALETTE,
+    pub SetEntries: PDD_PALCB_SETENTRIES,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for DD_PALETTECALLBACKS {}
@@ -5751,20 +5751,20 @@ impl ::core::clone::Clone for DD_STEREOMODE {
 pub struct DD_SURFACECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub DestroySurface: ::core::option::Option<PDD_SURFCB_DESTROYSURFACE>,
-    pub Flip: ::core::option::Option<PDD_SURFCB_FLIP>,
-    pub SetClipList: ::core::option::Option<PDD_SURFCB_SETCLIPLIST>,
-    pub Lock: ::core::option::Option<PDD_SURFCB_LOCK>,
-    pub Unlock: ::core::option::Option<PDD_SURFCB_UNLOCK>,
-    pub Blt: ::core::option::Option<PDD_SURFCB_BLT>,
-    pub SetColorKey: ::core::option::Option<PDD_SURFCB_SETCOLORKEY>,
-    pub AddAttachedSurface: ::core::option::Option<PDD_SURFCB_ADDATTACHEDSURFACE>,
-    pub GetBltStatus: ::core::option::Option<PDD_SURFCB_GETBLTSTATUS>,
-    pub GetFlipStatus: ::core::option::Option<PDD_SURFCB_GETFLIPSTATUS>,
-    pub UpdateOverlay: ::core::option::Option<PDD_SURFCB_UPDATEOVERLAY>,
-    pub SetOverlayPosition: ::core::option::Option<PDD_SURFCB_SETOVERLAYPOSITION>,
+    pub DestroySurface: PDD_SURFCB_DESTROYSURFACE,
+    pub Flip: PDD_SURFCB_FLIP,
+    pub SetClipList: PDD_SURFCB_SETCLIPLIST,
+    pub Lock: PDD_SURFCB_LOCK,
+    pub Unlock: PDD_SURFCB_UNLOCK,
+    pub Blt: PDD_SURFCB_BLT,
+    pub SetColorKey: PDD_SURFCB_SETCOLORKEY,
+    pub AddAttachedSurface: PDD_SURFCB_ADDATTACHEDSURFACE,
+    pub GetBltStatus: PDD_SURFCB_GETBLTSTATUS,
+    pub GetFlipStatus: PDD_SURFCB_GETFLIPSTATUS,
+    pub UpdateOverlay: PDD_SURFCB_UPDATEOVERLAY,
+    pub SetOverlayPosition: PDD_SURFCB_SETOVERLAYPOSITION,
     pub reserved4: *mut ::core::ffi::c_void,
-    pub SetPalette: ::core::option::Option<PDD_SURFCB_SETPALETTE>,
+    pub SetPalette: PDD_SURFCB_SETPALETTE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_SURFACECALLBACKS {}
@@ -6046,22 +6046,22 @@ pub const DD_VERSION: i32 = 512i32;
 pub struct DD_VIDEOPORTCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub CanCreateVideoPort: ::core::option::Option<PDD_VPORTCB_CANCREATEVIDEOPORT>,
-    pub CreateVideoPort: ::core::option::Option<PDD_VPORTCB_CREATEVIDEOPORT>,
-    pub FlipVideoPort: ::core::option::Option<PDD_VPORTCB_FLIP>,
-    pub GetVideoPortBandwidth: ::core::option::Option<PDD_VPORTCB_GETBANDWIDTH>,
-    pub GetVideoPortInputFormats: ::core::option::Option<PDD_VPORTCB_GETINPUTFORMATS>,
-    pub GetVideoPortOutputFormats: ::core::option::Option<PDD_VPORTCB_GETOUTPUTFORMATS>,
+    pub CanCreateVideoPort: PDD_VPORTCB_CANCREATEVIDEOPORT,
+    pub CreateVideoPort: PDD_VPORTCB_CREATEVIDEOPORT,
+    pub FlipVideoPort: PDD_VPORTCB_FLIP,
+    pub GetVideoPortBandwidth: PDD_VPORTCB_GETBANDWIDTH,
+    pub GetVideoPortInputFormats: PDD_VPORTCB_GETINPUTFORMATS,
+    pub GetVideoPortOutputFormats: PDD_VPORTCB_GETOUTPUTFORMATS,
     pub lpReserved1: *mut ::core::ffi::c_void,
-    pub GetVideoPortField: ::core::option::Option<PDD_VPORTCB_GETFIELD>,
-    pub GetVideoPortLine: ::core::option::Option<PDD_VPORTCB_GETLINE>,
-    pub GetVideoPortConnectInfo: ::core::option::Option<PDD_VPORTCB_GETVPORTCONNECT>,
-    pub DestroyVideoPort: ::core::option::Option<PDD_VPORTCB_DESTROYVPORT>,
-    pub GetVideoPortFlipStatus: ::core::option::Option<PDD_VPORTCB_GETFLIPSTATUS>,
-    pub UpdateVideoPort: ::core::option::Option<PDD_VPORTCB_UPDATE>,
-    pub WaitForVideoPortSync: ::core::option::Option<PDD_VPORTCB_WAITFORSYNC>,
-    pub GetVideoSignalStatus: ::core::option::Option<PDD_VPORTCB_GETSIGNALSTATUS>,
-    pub ColorControl: ::core::option::Option<PDD_VPORTCB_COLORCONTROL>,
+    pub GetVideoPortField: PDD_VPORTCB_GETFIELD,
+    pub GetVideoPortLine: PDD_VPORTCB_GETLINE,
+    pub GetVideoPortConnectInfo: PDD_VPORTCB_GETVPORTCONNECT,
+    pub DestroyVideoPort: PDD_VPORTCB_DESTROYVPORT,
+    pub GetVideoPortFlipStatus: PDD_VPORTCB_GETFLIPSTATUS,
+    pub UpdateVideoPort: PDD_VPORTCB_UPDATE,
+    pub WaitForVideoPortSync: PDD_VPORTCB_WAITFORSYNC,
+    pub GetVideoSignalStatus: PDD_VPORTCB_GETSIGNALSTATUS,
+    pub ColorControl: PDD_VPORTCB_COLORCONTROL,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_VIDEOPORTCALLBACKS {}
@@ -6158,19 +6158,19 @@ pub struct DXAPI_INTERFACE {
     pub Context: *mut ::core::ffi::c_void,
     pub InterfaceReference: *mut ::core::ffi::c_void,
     pub InterfaceDereference: *mut ::core::ffi::c_void,
-    pub DxGetIrqInfo: ::core::option::Option<PDX_GETIRQINFO>,
-    pub DxEnableIrq: ::core::option::Option<PDX_ENABLEIRQ>,
-    pub DxSkipNextField: ::core::option::Option<PDX_SKIPNEXTFIELD>,
-    pub DxBobNextField: ::core::option::Option<PDX_BOBNEXTFIELD>,
-    pub DxSetState: ::core::option::Option<PDX_SETSTATE>,
-    pub DxLock: ::core::option::Option<PDX_LOCK>,
-    pub DxFlipOverlay: ::core::option::Option<PDX_FLIPOVERLAY>,
-    pub DxFlipVideoPort: ::core::option::Option<PDX_FLIPVIDEOPORT>,
-    pub DxGetPolarity: ::core::option::Option<PDX_GETPOLARITY>,
-    pub DxGetCurrentAutoflip: ::core::option::Option<PDX_GETCURRENTAUTOFLIP>,
-    pub DxGetPreviousAutoflip: ::core::option::Option<PDX_GETPREVIOUSAUTOFLIP>,
-    pub DxTransfer: ::core::option::Option<PDX_TRANSFER>,
-    pub DxGetTransferStatus: ::core::option::Option<PDX_GETTRANSFERSTATUS>,
+    pub DxGetIrqInfo: PDX_GETIRQINFO,
+    pub DxEnableIrq: PDX_ENABLEIRQ,
+    pub DxSkipNextField: PDX_SKIPNEXTFIELD,
+    pub DxBobNextField: PDX_BOBNEXTFIELD,
+    pub DxSetState: PDX_SETSTATE,
+    pub DxLock: PDX_LOCK,
+    pub DxFlipOverlay: PDX_FLIPOVERLAY,
+    pub DxFlipVideoPort: PDX_FLIPVIDEOPORT,
+    pub DxGetPolarity: PDX_GETPOLARITY,
+    pub DxGetCurrentAutoflip: PDX_GETCURRENTAUTOFLIP,
+    pub DxGetPreviousAutoflip: PDX_GETPREVIOUSAUTOFLIP,
+    pub DxTransfer: PDX_TRANSFER,
+    pub DxGetTransferStatus: PDX_GETTRANSFERSTATUS,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXAPI_INTERFACE {}
@@ -6362,7 +6362,7 @@ pub const IRQINFO_NOTHANDLED: u32 = 2u32;
 pub struct IUNKNOWN_LIST {
     pub lpLink: *mut IUNKNOWN_LIST,
     pub lpGuid: *mut ::windows_sys::core::GUID,
-    pub lpIUnknown: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub lpIUnknown: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for IUNKNOWN_LIST {}
 impl ::core::clone::Clone for IUNKNOWN_LIST {

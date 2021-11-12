@@ -506,7 +506,7 @@ impl ::core::clone::Clone for WMT_ATTR_IMAGETYPE {
 }
 #[repr(C)]
 pub struct WMT_BUFFER_SEGMENT {
-    pub pBuffer: ::core::option::Option<INSSBuffer>,
+    pub pBuffer: INSSBuffer,
     pub cbOffset: u32,
     pub cbLength: u32,
 }
@@ -1146,7 +1146,7 @@ pub struct WM_MEDIA_TYPE {
     pub bTemporalCompression: super::super::Foundation::BOOL,
     pub lSampleSize: u32,
     pub formattype: ::windows_sys::core::GUID,
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnk: ::windows_sys::core::IUnknown,
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }

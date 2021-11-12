@@ -352,7 +352,7 @@ pub const ECO_WANTRETURN: u32 = 4096u32;
 pub struct EDITSTREAM {
     pub dwCookie: usize,
     pub dwError: u32,
-    pub pfnCallback: ::core::option::Option<EDITSTREAMCALLBACK>,
+    pub pfnCallback: EDITSTREAMCALLBACK,
 }
 impl ::core::marker::Copy for EDITSTREAM {}
 impl ::core::clone::Clone for EDITSTREAM {
@@ -1253,9 +1253,9 @@ pub struct REOBJECT {
     pub cbStruct: u32,
     pub cp: i32,
     pub clsid: ::windows_sys::core::GUID,
-    pub poleobj: ::core::option::Option<super::super::super::System::Ole::IOleObject>,
-    pub pstg: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IStorage>,
-    pub polesite: ::core::option::Option<super::super::super::System::Ole::IOleClientSite>,
+    pub poleobj: super::super::super::System::Ole::IOleObject,
+    pub pstg: super::super::super::System::Com::StructuredStorage::IStorage,
+    pub polesite: super::super::super::System::Ole::IOleClientSite,
     pub sizel: super::super::super::Foundation::SIZE,
     pub dvaspect: u32,
     pub dwFlags: REOBJECT_FLAGS,
@@ -1334,7 +1334,7 @@ pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub Ascent: i32,
     pub Type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS,
     pub pwszAlternateText: super::super::super::Foundation::PWSTR,
-    pub pIStream: ::core::option::Option<super::super::super::System::Com::IStream>,
+    pub pIStream: super::super::super::System::Com::IStream,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for RICHEDIT_IMAGE_PARAMETERS {}

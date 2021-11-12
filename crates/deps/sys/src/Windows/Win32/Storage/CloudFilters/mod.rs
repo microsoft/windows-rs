@@ -443,7 +443,7 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_11 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 pub struct CF_CALLBACK_REGISTRATION {
     pub Type: CF_CALLBACK_TYPE,
-    pub Callback: ::core::option::Option<CF_CALLBACK>,
+    pub Callback: CF_CALLBACK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::marker::Copy for CF_CALLBACK_REGISTRATION {}

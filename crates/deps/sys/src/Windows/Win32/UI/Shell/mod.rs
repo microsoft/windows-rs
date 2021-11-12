@@ -295,7 +295,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn OleSaveToStreamEx(piunk: ::windows_sys::core::IUnknown, pistm: super::super::System::Com::IStream, fcleardirty: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
-    pub fn OpenRegStream(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, grfmode: u32) -> ::core::option::Option<super::super::System::Com::IStream>;
+    pub fn OpenRegStream(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, grfmode: u32) -> super::super::System::Com::IStream;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ParseURLA(pcszurl: super::super::Foundation::PSTR, ppu: *mut PARSEDURLA) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -684,7 +684,7 @@ extern "system" {
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub fn SHCreateItemWithParent(pidlparent: *const Common::ITEMIDLIST, psfparent: IShellFolder, pidl: *const Common::ITEMIDLIST, riid: *const ::windows_sys::core::GUID, ppvitem: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn SHCreateMemStream(pinit: *const u8, cbinit: u32) -> ::core::option::Option<super::super::System::Com::IStream>;
+    pub fn SHCreateMemStream(pinit: *const u8, cbinit: u32) -> super::super::System::Com::IStream;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
     pub fn SHCreateProcessAsUserW(pscpi: *mut SHCREATEPROCESSINFOW) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -760,7 +760,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub fn SHFindFiles(pidlfolder: *const Common::ITEMIDLIST, pidlsavefile: *const Common::ITEMIDLIST) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn SHFind_InitMenuPopup(hmenu: super::WindowsAndMessaging::HMENU, hwndowner: super::super::Foundation::HWND, idcmdfirst: u32, idcmdlast: u32) -> ::core::option::Option<IContextMenu>;
+    pub fn SHFind_InitMenuPopup(hmenu: super::WindowsAndMessaging::HMENU, hwndowner: super::super::Foundation::HWND, idcmdfirst: u32, idcmdlast: u32) -> IContextMenu;
     pub fn SHFlushSFCache();
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHFormatDateTimeA(pft: *const super::super::Foundation::FILETIME, pdwflags: *mut u32, pszbuf: super::super::Foundation::PSTR, cchbuf: u32) -> i32;
@@ -898,13 +898,13 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
     pub fn SHOpenPropSheetW(pszcaption: super::super::Foundation::PWSTR, ahkeys: *const super::super::System::Registry::HKEY, ckeys: u32, pclsiddefault: *const ::windows_sys::core::GUID, pdtobj: super::super::System::Com::IDataObject, psb: IShellBrowser, pstartpage: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
-    pub fn SHOpenRegStream2A(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, grfmode: u32) -> ::core::option::Option<super::super::System::Com::IStream>;
+    pub fn SHOpenRegStream2A(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, grfmode: u32) -> super::super::System::Com::IStream;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
-    pub fn SHOpenRegStream2W(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, grfmode: u32) -> ::core::option::Option<super::super::System::Com::IStream>;
+    pub fn SHOpenRegStream2W(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, grfmode: u32) -> super::super::System::Com::IStream;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
-    pub fn SHOpenRegStreamA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, grfmode: u32) -> ::core::option::Option<super::super::System::Com::IStream>;
+    pub fn SHOpenRegStreamA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, grfmode: u32) -> super::super::System::Com::IStream;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
-    pub fn SHOpenRegStreamW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, grfmode: u32) -> ::core::option::Option<super::super::System::Com::IStream>;
+    pub fn SHOpenRegStreamW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, grfmode: u32) -> super::super::System::Com::IStream;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHOpenWithDialog(hwndparent: super::super::Foundation::HWND, poainfo: *const OPENASINFO) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -2001,7 +2001,7 @@ pub struct BANDINFOSFB {
     pub crBtnDk: u32,
     pub wViewMode: u16,
     pub wAlign: u16,
-    pub psf: ::core::option::Option<IShellFolder>,
+    pub psf: IShellFolder,
     pub pidl: *mut Common::ITEMIDLIST,
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -2067,24 +2067,24 @@ impl ::core::clone::Clone for BANNER_NOTIFICATION_EVENT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::super::Foundation::HWND,
-    pub _ptl: ::core::option::Option<ITravelLog>,
-    pub _phlf: ::core::option::Option<IHlinkFrame>,
-    pub _pautoWB2: ::core::option::Option<IWebBrowser2>,
-    pub _pautoEDS: ::core::option::Option<IExpDispSupport>,
-    pub _pautoSS: ::core::option::Option<IShellService>,
+    pub _ptl: ITravelLog,
+    pub _phlf: IHlinkFrame,
+    pub _pautoWB2: IWebBrowser2,
+    pub _pautoEDS: IExpDispSupport,
+    pub _pautoSS: IShellService,
     pub _eSecureLockIcon: i32,
     pub _bitfield: u32,
     pub _uActivateState: u32,
     pub _pidlViewState: *mut Common::ITEMIDLIST,
-    pub _pctView: ::core::option::Option<super::super::System::Ole::IOleCommandTarget>,
+    pub _pctView: super::super::System::Ole::IOleCommandTarget,
     pub _pidlCur: *mut Common::ITEMIDLIST,
-    pub _psv: ::core::option::Option<IShellView>,
-    pub _psf: ::core::option::Option<IShellFolder>,
+    pub _psv: IShellView,
+    pub _psf: IShellFolder,
     pub _hwndView: super::super::Foundation::HWND,
     pub _pszTitleCur: super::super::Foundation::PWSTR,
     pub _pidlPending: *mut Common::ITEMIDLIST,
-    pub _psvPending: ::core::option::Option<IShellView>,
-    pub _psfPending: ::core::option::Option<IShellFolder>,
+    pub _psvPending: IShellView,
+    pub _psfPending: IShellFolder,
     pub _hwndViewPending: super::super::Foundation::HWND,
     pub _pszTitlePending: super::super::Foundation::PWSTR,
     pub _fIsViewMSHTML: super::super::Foundation::BOOL,
@@ -2106,24 +2106,24 @@ impl ::core::clone::Clone for BASEBROWSERDATALH {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct BASEBROWSERDATAXP {
     pub _hwnd: super::super::Foundation::HWND,
-    pub _ptl: ::core::option::Option<ITravelLog>,
-    pub _phlf: ::core::option::Option<IHlinkFrame>,
-    pub _pautoWB2: ::core::option::Option<IWebBrowser2>,
-    pub _pautoEDS: ::core::option::Option<IExpDispSupportXP>,
-    pub _pautoSS: ::core::option::Option<IShellService>,
+    pub _ptl: ITravelLog,
+    pub _phlf: IHlinkFrame,
+    pub _pautoWB2: IWebBrowser2,
+    pub _pautoEDS: IExpDispSupportXP,
+    pub _pautoSS: IShellService,
     pub _eSecureLockIcon: i32,
     pub _bitfield: u32,
     pub _uActivateState: u32,
     pub _pidlViewState: *mut Common::ITEMIDLIST,
-    pub _pctView: ::core::option::Option<super::super::System::Ole::IOleCommandTarget>,
+    pub _pctView: super::super::System::Ole::IOleCommandTarget,
     pub _pidlCur: *mut Common::ITEMIDLIST,
-    pub _psv: ::core::option::Option<IShellView>,
-    pub _psf: ::core::option::Option<IShellFolder>,
+    pub _psv: IShellView,
+    pub _psf: IShellFolder,
     pub _hwndView: super::super::Foundation::HWND,
     pub _pszTitleCur: super::super::Foundation::PWSTR,
     pub _pidlPending: *mut Common::ITEMIDLIST,
-    pub _psvPending: ::core::option::Option<IShellView>,
-    pub _psfPending: ::core::option::Option<IShellFolder>,
+    pub _psvPending: IShellView,
+    pub _psfPending: IShellFolder,
     pub _hwndViewPending: super::super::Foundation::HWND,
     pub _pszTitlePending: super::super::Foundation::PWSTR,
     pub _fIsViewMSHTML: super::super::Foundation::BOOL,
@@ -2253,7 +2253,7 @@ pub struct BROWSEINFOA {
     pub pszDisplayName: super::super::Foundation::PSTR,
     pub lpszTitle: super::super::Foundation::PSTR,
     pub ulFlags: u32,
-    pub lpfn: ::core::option::Option<BFFCALLBACK>,
+    pub lpfn: BFFCALLBACK,
     pub lParam: super::super::Foundation::LPARAM,
     pub iImage: i32,
 }
@@ -2273,7 +2273,7 @@ pub struct BROWSEINFOW {
     pub pszDisplayName: super::super::Foundation::PWSTR,
     pub lpszTitle: super::super::Foundation::PWSTR,
     pub ulFlags: u32,
-    pub lpfn: ::core::option::Option<BFFCALLBACK>,
+    pub lpfn: BFFCALLBACK,
     pub lParam: super::super::Foundation::LPARAM,
     pub iImage: i32,
 }
@@ -2736,7 +2736,7 @@ pub const COMP_TYPE_WEBSITE: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONFIRM_CONFLICT_ITEM {
-    pub pShellItem: ::core::option::Option<IShellItem2>,
+    pub pShellItem: IShellItem2,
     pub pszOriginalName: super::super::Foundation::PWSTR,
     pub pszAlternateName: super::super::Foundation::PWSTR,
     pub pszLocationShort: super::super::Foundation::PWSTR,
@@ -3054,11 +3054,11 @@ impl ::core::clone::Clone for CREDENTIAL_PROVIDER_USAGE_SCENARIO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct CSFV {
     pub cbSize: u32,
-    pub pshf: ::core::option::Option<IShellFolder>,
-    pub psvOuter: ::core::option::Option<IShellView>,
+    pub pshf: IShellFolder,
+    pub psvOuter: IShellView,
     pub pidl: *mut Common::ITEMIDLIST,
     pub lEvents: i32,
-    pub pfnCallback: ::core::option::Option<LPFNVIEWCALLBACK>,
+    pub pfnCallback: LPFNVIEWCALLBACK,
     pub fvm: FOLDERVIEWMODE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
@@ -3256,12 +3256,12 @@ impl ::core::clone::Clone for DEFAULT_FOLDER_MENU_RESTRICTIONS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::super::Foundation::HWND,
-    pub pcmcb: ::core::option::Option<IContextMenuCB>,
+    pub pcmcb: IContextMenuCB,
     pub pidlFolder: *mut Common::ITEMIDLIST,
-    pub psf: ::core::option::Option<IShellFolder>,
+    pub psf: IShellFolder,
     pub cidl: u32,
     pub apidl: *mut *mut Common::ITEMIDLIST,
-    pub punkAssociationInfo: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub punkAssociationInfo: ::windows_sys::core::IUnknown,
     pub cKeys: u32,
     pub aKeys: *mut super::super::System::Registry::HKEY,
 }
@@ -3404,7 +3404,7 @@ pub struct DFMICS {
     pub idCmdFirst: u32,
     pub idDefMax: u32,
     pub pici: *mut CMINVOKECOMMANDINFO,
-    pub punkSite: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub punkSite: ::windows_sys::core::IUnknown,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DFMICS {}
@@ -6949,7 +6949,7 @@ impl ::core::clone::Clone for NRESARRAY {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct NSTCCUSTOMDRAW {
-    pub psi: ::core::option::Option<IShellItem>,
+    pub psi: IShellItem,
     pub uItemState: u32,
     pub nstcis: u32,
     pub pszText: super::super::Foundation::PWSTR,
@@ -8199,7 +8199,7 @@ impl ::core::clone::Clone for SFVM_MESSAGE_ID {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct SFVM_PROPPAGE_DATA {
     pub dwReserved: u32,
-    pub pfn: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>,
+    pub pfn: super::Controls::LPFNSVADDPROPSHEETPAGE,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -8232,9 +8232,9 @@ impl ::core::clone::Clone for SFVS_SELECT {
 #[repr(C)]
 pub struct SFV_CREATE {
     pub cbSize: u32,
-    pub pshf: ::core::option::Option<IShellFolder>,
-    pub psvOuter: ::core::option::Option<IShellView>,
-    pub psfvcb: ::core::option::Option<IShellFolderViewCB>,
+    pub pshf: IShellFolder,
+    pub psvOuter: IShellView,
+    pub psfvcb: IShellFolderViewCB,
 }
 impl ::core::marker::Copy for SFV_CREATE {}
 impl ::core::clone::Clone for SFV_CREATE {
@@ -8287,7 +8287,7 @@ impl ::core::clone::Clone for SHARD {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARDAPPIDINFO {
-    pub psi: ::core::option::Option<IShellItem>,
+    pub psi: IShellItem,
     pub pszAppID: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8315,7 +8315,7 @@ impl ::core::clone::Clone for SHARDAPPIDINFOIDLIST {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARDAPPIDINFOLINK {
-    pub psl: ::core::option::Option<IShellLinkA>,
+    pub psl: IShellLinkA,
     pub pszAppID: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9832,10 +9832,10 @@ pub struct SMDATA {
     pub uId: u32,
     pub uIdParent: u32,
     pub uIdAncestor: u32,
-    pub punk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub punk: ::windows_sys::core::IUnknown,
     pub pidlFolder: *mut Common::ITEMIDLIST,
     pub pidlItem: *mut Common::ITEMIDLIST,
-    pub psf: ::core::option::Option<IShellFolder>,
+    pub psf: IShellFolder,
     pub pvUserData: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -10102,9 +10102,9 @@ pub type SUBCLASSPROC = unsafe extern "system" fn(hwnd: super::super::Foundation
 #[cfg(feature = "Win32_Foundation")]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: u32,
-    pub psvPrev: ::core::option::Option<IShellView>,
+    pub psvPrev: IShellView,
     pub pfs: *mut FOLDERSETTINGS,
-    pub psbOwner: ::core::option::Option<IShellBrowser>,
+    pub psbOwner: IShellBrowser,
     pub prcView: *mut super::super::Foundation::RECT,
     pub pvid: *mut ::windows_sys::core::GUID,
     pub hwndView: super::super::Foundation::HWND,
@@ -10951,7 +10951,7 @@ pub const TLOG_FORE: u32 = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct TOOLBARITEM {
-    pub ptbar: ::core::option::Option<IDockingWindow>,
+    pub ptbar: IDockingWindow,
     pub rcBorderTool: super::super::Foundation::RECT,
     pub pwszItem: super::super::Foundation::PWSTR,
     pub fShow: super::super::Foundation::BOOL,

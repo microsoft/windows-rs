@@ -3331,7 +3331,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0 {
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
-    pub pTerminal: ::core::option::Option<ITTerminal>,
+    pub pTerminal: ITTerminal,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_0 {}
@@ -3344,7 +3344,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_1 {
-    pub pASRTerminal: ::core::option::Option<ITTerminal>,
+    pub pASRTerminal: ITTerminal,
     pub hrErrorCode: ::windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3360,8 +3360,8 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_1 {
 pub struct MSP_EVENT_INFO_0_2 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
-    pub pStream: ::core::option::Option<ITStream>,
-    pub pTerminal: ::core::option::Option<ITTerminal>,
+    pub pStream: ITStream,
+    pub pTerminal: ITTerminal,
     pub hrError: ::windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3375,8 +3375,8 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_2 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_3 {
-    pub pParentFileTerminal: ::core::option::Option<ITTerminal>,
-    pub pFileTrack: ::core::option::Option<ITFileTrack>,
+    pub pParentFileTerminal: ITTerminal,
+    pub pFileTrack: ITFileTrack,
     pub TerminalMediaState: TERMINAL_MEDIA_STATE,
     pub ftecEventCause: FT_STATE_EVENT_CAUSE,
     pub hrErrorCode: ::windows_sys::core::HRESULT,
@@ -3392,7 +3392,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_3 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_4 {
-    pub pEvent: ::core::option::Option<super::super::System::Com::IDispatch>,
+    pub pEvent: super::super::System::Com::IDispatch,
     pub lEventCode: i32,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3406,7 +3406,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_4 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_5 {
-    pub pToneTerminal: ::core::option::Option<ITTerminal>,
+    pub pToneTerminal: ITTerminal,
     pub hrErrorCode: ::windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3434,7 +3434,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_6 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_7 {
-    pub pTTSTerminal: ::core::option::Option<ITTerminal>,
+    pub pTTSTerminal: ITTerminal,
     pub hrErrorCode: ::windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]

@@ -784,7 +784,7 @@ pub struct DBBINDING {
     pub obValue: usize,
     pub obLength: usize,
     pub obStatus: usize,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub pObject: *mut DBOBJECT,
     pub pBindExt: *mut DBBINDEXT,
     pub dwPart: u32,
@@ -814,7 +814,7 @@ pub struct DBBINDING {
     pub obValue: usize,
     pub obLength: usize,
     pub obStatus: usize,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub pObject: *mut DBOBJECT,
     pub pBindExt: *mut DBBINDEXT,
     pub dwPart: u32,
@@ -952,7 +952,7 @@ impl ::core::clone::Clone for DBCOLUMNACCESS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub rgPropertySets: *mut DBPROPSET,
     pub pclsid: *mut ::windows_sys::core::GUID,
     pub cPropertySets: u32,
@@ -977,7 +977,7 @@ impl ::core::clone::Clone for DBCOLUMNDESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub rgPropertySets: *mut DBPROPSET,
     pub pclsid: *mut ::windows_sys::core::GUID,
     pub cPropertySets: u32,
@@ -1080,7 +1080,7 @@ impl ::core::clone::Clone for DBCOLUMNFLAGSENUM26 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub struct DBCOLUMNINFO {
     pub pwszName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub iOrdinal: usize,
     pub dwFlags: u32,
     pub ulColumnSize: usize,
@@ -1104,7 +1104,7 @@ impl ::core::clone::Clone for DBCOLUMNINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub struct DBCOLUMNINFO {
     pub pwszName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub iOrdinal: usize,
     pub dwFlags: u32,
     pub ulColumnSize: usize,
@@ -1452,9 +1452,9 @@ pub const DBGUID_XPATH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { 
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBIMPLICITSESSION {
-    pub pUnkOuter: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnkOuter: ::windows_sys::core::IUnknown,
     pub piid: *mut ::windows_sys::core::GUID,
-    pub pSession: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pSession: ::windows_sys::core::IUnknown,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::marker::Copy for DBIMPLICITSESSION {}
@@ -1467,9 +1467,9 @@ impl ::core::clone::Clone for DBIMPLICITSESSION {
 #[repr(C, packed(2))]
 #[cfg(any(target_arch = "x86",))]
 pub struct DBIMPLICITSESSION {
-    pub pUnkOuter: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnkOuter: ::windows_sys::core::IUnknown,
     pub piid: *mut ::windows_sys::core::GUID,
-    pub pSession: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pSession: ::windows_sys::core::IUnknown,
 }
 #[cfg(any(target_arch = "x86",))]
 impl ::core::marker::Copy for DBIMPLICITSESSION {}
@@ -1754,7 +1754,7 @@ pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
     pub pwszName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub ulParamSize: usize,
     pub wType: u16,
     pub bPrecision: u8,
@@ -1777,7 +1777,7 @@ pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
     pub pwszName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub ulParamSize: usize,
     pub wType: u16,
     pub bPrecision: u8,
@@ -5355,16 +5355,16 @@ pub const REXSPH_S_REDIRECTED: i32 = 275713i32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct RMTPACK {
-    pub pISeqStream: ::core::option::Option<super::Com::ISequentialStream>,
+    pub pISeqStream: super::Com::ISequentialStream,
     pub cbData: u32,
     pub cBSTR: u32,
     pub rgBSTR: *mut super::super::Foundation::BSTR,
     pub cVARIANT: u32,
     pub rgVARIANT: *mut super::Com::VARIANT,
     pub cIDISPATCH: u32,
-    pub rgIDISPATCH: *mut ::core::option::Option<super::Com::IDispatch>,
+    pub rgIDISPATCH: *mut super::Com::IDispatch,
     pub cIUNKNOWN: u32,
-    pub rgIUNKNOWN: *mut ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub rgIUNKNOWN: *mut ::windows_sys::core::IUnknown,
     pub cPROPVARIANT: u32,
     pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub cArray: u32,
@@ -5384,16 +5384,16 @@ impl ::core::clone::Clone for RMTPACK {
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct RMTPACK {
-    pub pISeqStream: ::core::option::Option<super::Com::ISequentialStream>,
+    pub pISeqStream: super::Com::ISequentialStream,
     pub cbData: u32,
     pub cBSTR: u32,
     pub rgBSTR: *mut super::super::Foundation::BSTR,
     pub cVARIANT: u32,
     pub rgVARIANT: *mut super::Com::VARIANT,
     pub cIDISPATCH: u32,
-    pub rgIDISPATCH: *mut ::core::option::Option<super::Com::IDispatch>,
+    pub rgIDISPATCH: *mut super::Com::IDispatch,
     pub cIUNKNOWN: u32,
-    pub rgIUNKNOWN: *mut ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub rgIUNKNOWN: *mut ::windows_sys::core::IUnknown,
     pub cPROPVARIANT: u32,
     pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub cArray: u32,
@@ -7514,7 +7514,7 @@ impl ::core::clone::Clone for SSVARIANT_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_0 {
     pub dbobj: DBOBJECT,
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnk: ::windows_sys::core::IUnknown,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for SSVARIANT_0_0 {}
@@ -7788,7 +7788,7 @@ pub const SubscriptionMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TEXT_SOURCE {
-    pub pfnFillTextBuffer: ::core::option::Option<PFNFILLTEXTBUFFER>,
+    pub pfnFillTextBuffer: PFNFILLTEXTBUFFER,
     pub awcBuffer: super::super::Foundation::PWSTR,
     pub iEnd: u32,
     pub iCur: u32,

@@ -1005,14 +1005,14 @@ impl ::core::clone::Clone for DHCP_BOOTP_IP_RANGE {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CALLOUT_TABLE {
-    pub DhcpControlHook: ::core::option::Option<LPDHCP_CONTROL>,
-    pub DhcpNewPktHook: ::core::option::Option<LPDHCP_NEWPKT>,
-    pub DhcpPktDropHook: ::core::option::Option<LPDHCP_DROP_SEND>,
-    pub DhcpPktSendHook: ::core::option::Option<LPDHCP_DROP_SEND>,
-    pub DhcpAddressDelHook: ::core::option::Option<LPDHCP_PROB>,
-    pub DhcpAddressOfferHook: ::core::option::Option<LPDHCP_GIVE_ADDRESS>,
-    pub DhcpHandleOptionsHook: ::core::option::Option<LPDHCP_HANDLE_OPTIONS>,
-    pub DhcpDeleteClientHook: ::core::option::Option<LPDHCP_DELETE_CLIENT>,
+    pub DhcpControlHook: LPDHCP_CONTROL,
+    pub DhcpNewPktHook: LPDHCP_NEWPKT,
+    pub DhcpPktDropHook: LPDHCP_DROP_SEND,
+    pub DhcpPktSendHook: LPDHCP_DROP_SEND,
+    pub DhcpAddressDelHook: LPDHCP_PROB,
+    pub DhcpAddressOfferHook: LPDHCP_GIVE_ADDRESS,
+    pub DhcpHandleOptionsHook: LPDHCP_HANDLE_OPTIONS,
+    pub DhcpDeleteClientHook: LPDHCP_DELETE_CLIENT,
     pub DhcpExtensionHook: *mut ::core::ffi::c_void,
     pub DhcpReservedHook: *mut ::core::ffi::c_void,
 }

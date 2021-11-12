@@ -76,11 +76,11 @@ pub const DETECT_STOR: u32 = 4096u32;
 pub struct DEVICEDIALOGDATA {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub pIWiaItemRoot: ::core::option::Option<IWiaItem>,
+    pub pIWiaItemRoot: IWiaItem,
     pub dwFlags: u32,
     pub lIntent: i32,
     pub lItemCount: i32,
-    pub ppWiaItems: *mut ::core::option::Option<IWiaItem>,
+    pub ppWiaItems: *mut IWiaItem,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICEDIALOGDATA {}
@@ -94,14 +94,14 @@ impl ::core::clone::Clone for DEVICEDIALOGDATA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICEDIALOGDATA2 {
     pub cbSize: u32,
-    pub pIWiaItemRoot: ::core::option::Option<IWiaItem2>,
+    pub pIWiaItemRoot: IWiaItem2,
     pub dwFlags: u32,
     pub hwndParent: super::super::Foundation::HWND,
     pub bstrFolderName: super::super::Foundation::BSTR,
     pub bstrFilename: super::super::Foundation::BSTR,
     pub lNumFiles: i32,
     pub pbstrFilePaths: *mut super::super::Foundation::BSTR,
-    pub pWiaItem: ::core::option::Option<IWiaItem2>,
+    pub pWiaItem: IWiaItem2,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICEDIALOGDATA2 {}
@@ -278,7 +278,7 @@ pub struct MINIDRV_TRANSFER_CONTEXT {
     pub bTransferDataCB: super::super::Foundation::BOOL,
     pub bClassDrvAllocBuf: super::super::Foundation::BOOL,
     pub lClientAddress: isize,
-    pub pIWiaMiniDrvCallBack: ::core::option::Option<IWiaMiniDrvCallBack>,
+    pub pIWiaMiniDrvCallBack: IWiaMiniDrvCallBack,
     pub lImageSize: i32,
     pub lHeaderSize: i32,
     pub lItemSize: i32,

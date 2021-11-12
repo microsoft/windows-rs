@@ -480,7 +480,7 @@ pub const DEVICEPOWER_HARDWAREID: u32 = 2147483648u32;
 pub const DEVICEPOWER_SET_WAKEENABLED: u32 = 1u32;
 #[repr(C)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    pub Callback: ::core::option::Option<PDEVICE_NOTIFY_CALLBACK_ROUTINE>,
+    pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
     pub Context: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}

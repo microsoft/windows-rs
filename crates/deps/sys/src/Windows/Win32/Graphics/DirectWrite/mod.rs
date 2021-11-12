@@ -610,7 +610,7 @@ impl ::core::clone::Clone for DWRITE_GLYPH_ORIENTATION_ANGLE {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_GLYPH_RUN {
-    pub fontFace: ::core::option::Option<IDWriteFontFace>,
+    pub fontFace: IDWriteFontFace,
     pub fontEmSize: f32,
     pub glyphCount: u32,
     pub glyphIndices: *mut u16,

@@ -1043,18 +1043,18 @@ pub const MGM_MFE_STATS_1: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub revision: u8,
-    pub lpfnMprAdminGetIpAddressForUser: ::core::option::Option<PMPRADMINGETIPADDRESSFORUSER>,
-    pub lpfnMprAdminReleaseIpAddress: ::core::option::Option<PMPRADMINRELEASEIPADRESS>,
-    pub lpfnMprAdminGetIpv6AddressForUser: ::core::option::Option<PMPRADMINGETIPV6ADDRESSFORUSER>,
-    pub lpfnMprAdminReleaseIpV6AddressForUser: ::core::option::Option<PMPRADMINRELEASEIPV6ADDRESSFORUSER>,
-    pub lpfnRasAdminAcceptNewLink: ::core::option::Option<PMPRADMINACCEPTNEWLINK>,
-    pub lpfnRasAdminLinkHangupNotification: ::core::option::Option<PMPRADMINLINKHANGUPNOTIFICATION>,
-    pub lpfnRasAdminTerminateDll: ::core::option::Option<PMPRADMINTERMINATEDLL>,
-    pub lpfnRasAdminAcceptNewConnectionEx: ::core::option::Option<PMPRADMINACCEPTNEWCONNECTIONEX>,
-    pub lpfnRasAdminAcceptEndpointChangeEx: ::core::option::Option<PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX>,
-    pub lpfnRasAdminAcceptReauthenticationEx: ::core::option::Option<PMPRADMINACCEPTREAUTHENTICATIONEX>,
-    pub lpfnRasAdminConnectionHangupNotificationEx: ::core::option::Option<PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX>,
-    pub lpfnRASValidatePreAuthenticatedConnectionEx: ::core::option::Option<PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX>,
+    pub lpfnMprAdminGetIpAddressForUser: PMPRADMINGETIPADDRESSFORUSER,
+    pub lpfnMprAdminReleaseIpAddress: PMPRADMINRELEASEIPADRESS,
+    pub lpfnMprAdminGetIpv6AddressForUser: PMPRADMINGETIPV6ADDRESSFORUSER,
+    pub lpfnMprAdminReleaseIpV6AddressForUser: PMPRADMINRELEASEIPV6ADDRESSFORUSER,
+    pub lpfnRasAdminAcceptNewLink: PMPRADMINACCEPTNEWLINK,
+    pub lpfnRasAdminLinkHangupNotification: PMPRADMINLINKHANGUPNOTIFICATION,
+    pub lpfnRasAdminTerminateDll: PMPRADMINTERMINATEDLL,
+    pub lpfnRasAdminAcceptNewConnectionEx: PMPRADMINACCEPTNEWCONNECTIONEX,
+    pub lpfnRasAdminAcceptEndpointChangeEx: PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX,
+    pub lpfnRasAdminAcceptReauthenticationEx: PMPRADMINACCEPTREAUTHENTICATIONEX,
+    pub lpfnRasAdminConnectionHangupNotificationEx: PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX,
+    pub lpfnRASValidatePreAuthenticatedConnectionEx: PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for MPRAPI_ADMIN_DLL_CALLBACKS {}
@@ -2406,7 +2406,7 @@ impl ::core::clone::Clone for RASCTRYINFO {
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCUSTOMSCRIPTEXTENSIONS {
     pub dwSize: u32,
-    pub pfnRasSetCommSettings: ::core::option::Option<PFNRASSETCOMMSETTINGS>,
+    pub pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASCUSTOMSCRIPTEXTENSIONS {}
@@ -3038,7 +3038,7 @@ pub struct RASPBDLGA {
     pub xDlg: i32,
     pub yDlg: i32,
     pub dwCallbackId: usize,
-    pub pCallback: ::core::option::Option<RASPBDLGFUNCA>,
+    pub pCallback: RASPBDLGFUNCA,
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
@@ -3064,7 +3064,7 @@ pub struct RASPBDLGW {
     pub xDlg: i32,
     pub yDlg: i32,
     pub dwCallbackId: usize,
-    pub pCallback: ::core::option::Option<RASPBDLGFUNCW>,
+    pub pCallback: RASPBDLGFUNCW,
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
@@ -3963,15 +3963,15 @@ impl ::core::clone::Clone for ROUTER_INTERFACE_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct ROUTING_PROTOCOL_CONFIG {
     pub dwCallbackFlags: u32,
-    pub pfnRpfCallback: ::core::option::Option<PMGM_RPF_CALLBACK>,
-    pub pfnCreationAlertCallback: ::core::option::Option<PMGM_CREATION_ALERT_CALLBACK>,
-    pub pfnPruneAlertCallback: ::core::option::Option<PMGM_PRUNE_ALERT_CALLBACK>,
-    pub pfnJoinAlertCallback: ::core::option::Option<PMGM_JOIN_ALERT_CALLBACK>,
-    pub pfnWrongIfCallback: ::core::option::Option<PMGM_WRONG_IF_CALLBACK>,
-    pub pfnLocalJoinCallback: ::core::option::Option<PMGM_LOCAL_JOIN_CALLBACK>,
-    pub pfnLocalLeaveCallback: ::core::option::Option<PMGM_LOCAL_LEAVE_CALLBACK>,
-    pub pfnDisableIgmpCallback: ::core::option::Option<PMGM_DISABLE_IGMP_CALLBACK>,
-    pub pfnEnableIgmpCallback: ::core::option::Option<PMGM_ENABLE_IGMP_CALLBACK>,
+    pub pfnRpfCallback: PMGM_RPF_CALLBACK,
+    pub pfnCreationAlertCallback: PMGM_CREATION_ALERT_CALLBACK,
+    pub pfnPruneAlertCallback: PMGM_PRUNE_ALERT_CALLBACK,
+    pub pfnJoinAlertCallback: PMGM_JOIN_ALERT_CALLBACK,
+    pub pfnWrongIfCallback: PMGM_WRONG_IF_CALLBACK,
+    pub pfnLocalJoinCallback: PMGM_LOCAL_JOIN_CALLBACK,
+    pub pfnLocalLeaveCallback: PMGM_LOCAL_LEAVE_CALLBACK,
+    pub pfnDisableIgmpCallback: PMGM_DISABLE_IGMP_CALLBACK,
+    pub pfnEnableIgmpCallback: PMGM_ENABLE_IGMP_CALLBACK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ROUTING_PROTOCOL_CONFIG {}
@@ -4028,7 +4028,7 @@ pub type RTM_ENTITY_EXPORT_METHOD = unsafe extern "system" fn(callerhandle: isiz
 #[repr(C)]
 pub struct RTM_ENTITY_EXPORT_METHODS {
     pub NumMethods: u32,
-    pub Methods: [::core::option::Option<RTM_ENTITY_EXPORT_METHOD>; 1],
+    pub Methods: [RTM_ENTITY_EXPORT_METHOD; 1],
 }
 impl ::core::marker::Copy for RTM_ENTITY_EXPORT_METHODS {}
 impl ::core::clone::Clone for RTM_ENTITY_EXPORT_METHODS {

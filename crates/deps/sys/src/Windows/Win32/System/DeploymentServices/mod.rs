@@ -835,12 +835,12 @@ pub const WDS_MC_TRACE_WARNING: u32 = 262144u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
-    pub SessionStart: ::core::option::Option<PFN_WdsTransportClientSessionStart>,
-    pub SessionStartEx: ::core::option::Option<PFN_WdsTransportClientSessionStartEx>,
-    pub ReceiveContents: ::core::option::Option<PFN_WdsTransportClientReceiveContents>,
-    pub ReceiveMetadata: ::core::option::Option<PFN_WdsTransportClientReceiveMetadata>,
-    pub SessionComplete: ::core::option::Option<PFN_WdsTransportClientSessionComplete>,
-    pub SessionNegotiate: ::core::option::Option<PFN_WdsTransportClientSessionNegotiate>,
+    pub SessionStart: PFN_WdsTransportClientSessionStart,
+    pub SessionStartEx: PFN_WdsTransportClientSessionStartEx,
+    pub ReceiveContents: PFN_WdsTransportClientReceiveContents,
+    pub ReceiveMetadata: PFN_WdsTransportClientReceiveMetadata,
+    pub SessionComplete: PFN_WdsTransportClientSessionComplete,
+    pub SessionNegotiate: PFN_WdsTransportClientSessionNegotiate,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WDS_TRANSPORTCLIENT_CALLBACKS {}

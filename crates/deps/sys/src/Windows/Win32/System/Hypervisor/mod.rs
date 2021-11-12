@@ -321,16 +321,16 @@ pub type HDV_PCI_DEVICE_INITIALIZE = unsafe extern "system" fn(devicecontext: *c
 #[cfg(feature = "Win32_Foundation")]
 pub struct HDV_PCI_DEVICE_INTERFACE {
     pub Version: HDV_PCI_INTERFACE_VERSION,
-    pub Initialize: ::core::option::Option<HDV_PCI_DEVICE_INITIALIZE>,
-    pub Teardown: ::core::option::Option<HDV_PCI_DEVICE_TEARDOWN>,
-    pub SetConfiguration: ::core::option::Option<HDV_PCI_DEVICE_SET_CONFIGURATION>,
-    pub GetDetails: ::core::option::Option<HDV_PCI_DEVICE_GET_DETAILS>,
-    pub Start: ::core::option::Option<HDV_PCI_DEVICE_START>,
-    pub Stop: ::core::option::Option<HDV_PCI_DEVICE_STOP>,
-    pub ReadConfigSpace: ::core::option::Option<HDV_PCI_READ_CONFIG_SPACE>,
-    pub WriteConfigSpace: ::core::option::Option<HDV_PCI_WRITE_CONFIG_SPACE>,
-    pub ReadInterceptedMemory: ::core::option::Option<HDV_PCI_READ_INTERCEPTED_MEMORY>,
-    pub WriteInterceptedMemory: ::core::option::Option<HDV_PCI_WRITE_INTERCEPTED_MEMORY>,
+    pub Initialize: HDV_PCI_DEVICE_INITIALIZE,
+    pub Teardown: HDV_PCI_DEVICE_TEARDOWN,
+    pub SetConfiguration: HDV_PCI_DEVICE_SET_CONFIGURATION,
+    pub GetDetails: HDV_PCI_DEVICE_GET_DETAILS,
+    pub Start: HDV_PCI_DEVICE_START,
+    pub Stop: HDV_PCI_DEVICE_STOP,
+    pub ReadConfigSpace: HDV_PCI_READ_CONFIG_SPACE,
+    pub WriteConfigSpace: HDV_PCI_WRITE_CONFIG_SPACE,
+    pub ReadInterceptedMemory: HDV_PCI_READ_INTERCEPTED_MEMORY,
+    pub WriteInterceptedMemory: HDV_PCI_WRITE_INTERCEPTED_MEMORY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HDV_PCI_DEVICE_INTERFACE {}
@@ -1051,11 +1051,11 @@ impl ::core::clone::Clone for WHV_DOORBELL_MATCH_DATA {
 pub struct WHV_EMULATOR_CALLBACKS {
     pub Size: u32,
     pub Reserved: u32,
-    pub WHvEmulatorIoPortCallback: ::core::option::Option<WHV_EMULATOR_IO_PORT_CALLBACK>,
-    pub WHvEmulatorMemoryCallback: ::core::option::Option<WHV_EMULATOR_MEMORY_CALLBACK>,
-    pub WHvEmulatorGetVirtualProcessorRegisters: ::core::option::Option<WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK>,
-    pub WHvEmulatorSetVirtualProcessorRegisters: ::core::option::Option<WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK>,
-    pub WHvEmulatorTranslateGvaPage: ::core::option::Option<WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK>,
+    pub WHvEmulatorIoPortCallback: WHV_EMULATOR_IO_PORT_CALLBACK,
+    pub WHvEmulatorMemoryCallback: WHV_EMULATOR_MEMORY_CALLBACK,
+    pub WHvEmulatorGetVirtualProcessorRegisters: WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK,
+    pub WHvEmulatorSetVirtualProcessorRegisters: WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK,
+    pub WHvEmulatorTranslateGvaPage: WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK,
 }
 impl ::core::marker::Copy for WHV_EMULATOR_CALLBACKS {}
 impl ::core::clone::Clone for WHV_EMULATOR_CALLBACKS {

@@ -1842,10 +1842,10 @@ pub struct PEER_SECURITY_INTERFACE {
     pub cbSecurityInfo: u32,
     pub pbSecurityInfo: *mut u8,
     pub pvContext: *mut ::core::ffi::c_void,
-    pub pfnValidateRecord: ::core::option::Option<PFNPEER_VALIDATE_RECORD>,
-    pub pfnSecureRecord: ::core::option::Option<PFNPEER_SECURE_RECORD>,
-    pub pfnFreeSecurityData: ::core::option::Option<PFNPEER_FREE_SECURITY_DATA>,
-    pub pfnAuthFailed: ::core::option::Option<PFNPEER_ON_PASSWORD_AUTH_FAILED>,
+    pub pfnValidateRecord: PFNPEER_VALIDATE_RECORD,
+    pub pfnSecureRecord: PFNPEER_SECURE_RECORD,
+    pub pfnFreeSecurityData: PFNPEER_FREE_SECURITY_DATA,
+    pub pfnAuthFailed: PFNPEER_ON_PASSWORD_AUTH_FAILED,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_SECURITY_INTERFACE {}

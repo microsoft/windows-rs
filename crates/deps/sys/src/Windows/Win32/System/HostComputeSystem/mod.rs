@@ -133,7 +133,7 @@ pub struct HCS_CREATE_OPTIONS_1 {
     pub SecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
     pub CallbackOptions: HCS_EVENT_OPTIONS,
     pub CallbackContext: *mut ::core::ffi::c_void,
-    pub Callback: ::core::option::Option<HCS_EVENT_CALLBACK>,
+    pub Callback: HCS_EVENT_CALLBACK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for HCS_CREATE_OPTIONS_1 {}

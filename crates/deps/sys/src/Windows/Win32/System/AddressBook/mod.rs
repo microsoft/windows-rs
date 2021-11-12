@@ -55,7 +55,7 @@ extern "system" {
     pub fn LpValFindProp(ulproptag: u32, cvalues: u32, lpproparray: *mut SPropValue) -> *mut SPropValue;
     pub fn MAPIDeinitIdle();
     #[cfg(feature = "Win32_System_Com")]
-    pub fn MAPIGetDefaultMalloc() -> ::core::option::Option<super::Com::IMalloc>;
+    pub fn MAPIGetDefaultMalloc() -> super::Com::IMalloc;
     pub fn MAPIInitIdle(lpvreserved: *mut ::core::ffi::c_void) -> i32;
     #[cfg(feature = "Win32_System_Com")]
     pub fn OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut super::Com::IStream) -> ::windows_sys::core::HRESULT;
@@ -135,8 +135,8 @@ pub struct ADRPARM {
     pub lpReserved: *mut ::core::ffi::c_void,
     pub ulHelpContext: u32,
     pub lpszHelpFileName: *mut i8,
-    pub lpfnABSDI: ::core::option::Option<LPFNABSDI>,
-    pub lpfnDismiss: ::core::option::Option<LPFNDISMISS>,
+    pub lpfnABSDI: LPFNABSDI,
+    pub lpfnDismiss: LPFNDISMISS,
     pub lpvDismissContext: *mut ::core::ffi::c_void,
     pub lpszCaption: *mut i8,
     pub lpszNewEntryTitle: *mut i8,
@@ -1361,9 +1361,9 @@ pub const UI_SERVICE: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct WABEXTDISPLAY {
     pub cbSize: u32,
-    pub lpWABObject: ::core::option::Option<IWABObject>,
-    pub lpAdrBook: ::core::option::Option<IAddrBook>,
-    pub lpPropObj: ::core::option::Option<IMAPIProp>,
+    pub lpWABObject: IWABObject,
+    pub lpAdrBook: IAddrBook,
+    pub lpPropObj: IMAPIProp,
     pub fReadOnly: super::super::Foundation::BOOL,
     pub fDataChanged: super::super::Foundation::BOOL,
     pub ulFlags: u32,
@@ -1382,7 +1382,7 @@ impl ::core::clone::Clone for WABEXTDISPLAY {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WABIMPORTPARAM {
     pub cbSize: u32,
-    pub lpAdrBook: ::core::option::Option<IAddrBook>,
+    pub lpAdrBook: IAddrBook,
     pub hWnd: super::super::Foundation::HWND,
     pub ulFlags: u32,
     pub lpszFileName: super::super::Foundation::PSTR,

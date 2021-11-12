@@ -1274,7 +1274,7 @@ pub struct EVENT_TRACE_LOGFILEA {
     pub Anonymous1: EVENT_TRACE_LOGFILEA_0,
     pub CurrentEvent: EVENT_TRACE,
     pub LogfileHeader: TRACE_LOGFILE_HEADER,
-    pub BufferCallback: ::core::option::Option<PEVENT_TRACE_BUFFER_CALLBACKA>,
+    pub BufferCallback: PEVENT_TRACE_BUFFER_CALLBACKA,
     pub BufferSize: u32,
     pub Filled: u32,
     pub EventsLost: u32,
@@ -1307,8 +1307,8 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA_0 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union EVENT_TRACE_LOGFILEA_1 {
-    pub EventCallback: ::core::option::Option<PEVENT_CALLBACK>,
-    pub EventRecordCallback: ::core::option::Option<PEVENT_RECORD_CALLBACK>,
+    pub EventCallback: PEVENT_CALLBACK,
+    pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::marker::Copy for EVENT_TRACE_LOGFILEA_1 {}
@@ -1328,7 +1328,7 @@ pub struct EVENT_TRACE_LOGFILEW {
     pub Anonymous1: EVENT_TRACE_LOGFILEW_0,
     pub CurrentEvent: EVENT_TRACE,
     pub LogfileHeader: TRACE_LOGFILE_HEADER,
-    pub BufferCallback: ::core::option::Option<PEVENT_TRACE_BUFFER_CALLBACKW>,
+    pub BufferCallback: PEVENT_TRACE_BUFFER_CALLBACKW,
     pub BufferSize: u32,
     pub Filled: u32,
     pub EventsLost: u32,
@@ -1361,8 +1361,8 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW_0 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union EVENT_TRACE_LOGFILEW_1 {
-    pub EventCallback: ::core::option::Option<PEVENT_CALLBACK>,
-    pub EventRecordCallback: ::core::option::Option<PEVENT_RECORD_CALLBACK>,
+    pub EventCallback: PEVENT_CALLBACK,
+    pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::marker::Copy for EVENT_TRACE_LOGFILEW_1 {}

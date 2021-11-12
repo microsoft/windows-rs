@@ -1352,7 +1352,7 @@ pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwCopyFlags: u32,
     pub pfCancel: *mut super::super::Foundation::BOOL,
-    pub pProgressRoutine: ::core::option::Option<PCOPYFILE2_PROGRESS_ROUTINE>,
+    pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
     pub pvCallbackContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1369,7 +1369,7 @@ pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
     pub dwSize: u32,
     pub dwCopyFlags: u32,
     pub pfCancel: *mut super::super::Foundation::BOOL,
-    pub pProgressRoutine: ::core::option::Option<PCOPYFILE2_PROGRESS_ROUTINE>,
+    pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
     pub pvCallbackContext: *mut ::core::ffi::c_void,
     pub dwCopyFlagsV2: u32,
     pub ioDesiredSize: u32,
@@ -1933,7 +1933,7 @@ pub struct FH_OVERLAPPED {
     pub Offset: u32,
     pub OffsetHigh: u32,
     pub hEvent: super::super::Foundation::HANDLE,
-    pub pfnCompletion: ::core::option::Option<PFN_IO_COMPLETION>,
+    pub pfnCompletion: PFN_IO_COMPLETION,
     pub Reserved1: usize,
     pub Reserved2: usize,
     pub Reserved3: usize,
@@ -3053,9 +3053,9 @@ impl ::core::clone::Clone for LOCK_FILE_FLAGS {
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOG_MANAGEMENT_CALLBACKS {
     pub CallbackContext: *mut ::core::ffi::c_void,
-    pub AdvanceTailCallback: ::core::option::Option<PLOG_TAIL_ADVANCE_CALLBACK>,
-    pub LogFullHandlerCallback: ::core::option::Option<PLOG_FULL_HANDLER_CALLBACK>,
-    pub LogUnpinnedCallback: ::core::option::Option<PLOG_UNPINNED_CALLBACK>,
+    pub AdvanceTailCallback: PLOG_TAIL_ADVANCE_CALLBACK,
+    pub LogFullHandlerCallback: PLOG_FULL_HANDLER_CALLBACK,
+    pub LogUnpinnedCallback: PLOG_UNPINNED_CALLBACK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LOG_MANAGEMENT_CALLBACKS {}

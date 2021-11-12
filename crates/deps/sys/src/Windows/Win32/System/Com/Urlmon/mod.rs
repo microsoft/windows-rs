@@ -436,7 +436,7 @@ impl ::core::clone::Clone for CODEBASEHOLD {
 #[repr(C)]
 pub struct CONFIRMSAFETY {
     pub clsid: ::windows_sys::core::GUID,
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnk: ::windows_sys::core::IUnknown,
     pub dwFlags: u32,
 }
 impl ::core::marker::Copy for CONFIRMSAFETY {}
@@ -807,9 +807,9 @@ impl ::core::clone::Clone for PROTOCOLDATA {
 #[repr(C)]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
-    pub pProtocolSink: ::core::option::Option<IInternetProtocolSink>,
-    pub pProtocol: ::core::option::Option<IInternetProtocol>,
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pProtocolSink: IInternetProtocolSink,
+    pub pProtocol: IInternetProtocol,
+    pub pUnk: ::windows_sys::core::IUnknown,
     pub dwFilterFlags: u32,
 }
 impl ::core::marker::Copy for PROTOCOLFILTERDATA {}
@@ -935,7 +935,7 @@ pub struct RemBINDINFO {
     pub dwCodePage: u32,
     pub securityAttributes: REMSECURITY_ATTRIBUTES,
     pub iid: ::windows_sys::core::GUID,
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnk: ::windows_sys::core::IUnknown,
     pub dwReserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1017,8 +1017,8 @@ pub const S_ASYNCHRONOUS: i32 = 262632i32;
 #[repr(C)]
 pub struct StartParam {
     pub iid: ::windows_sys::core::GUID,
-    pub pIBindCtx: ::core::option::Option<super::IBindCtx>,
-    pub pItf: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pIBindCtx: super::IBindCtx,
+    pub pItf: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for StartParam {}
 impl ::core::clone::Clone for StartParam {

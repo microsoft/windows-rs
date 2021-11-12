@@ -60,8 +60,8 @@ pub struct D3D12_AUTO_BREADCRUMB_NODE {
     pub pCommandListDebugNameW: super::super::Foundation::PWSTR,
     pub pCommandQueueDebugNameA: *mut u8,
     pub pCommandQueueDebugNameW: super::super::Foundation::PWSTR,
-    pub pCommandList: ::core::option::Option<ID3D12GraphicsCommandList>,
-    pub pCommandQueue: ::core::option::Option<ID3D12CommandQueue>,
+    pub pCommandList: ID3D12GraphicsCommandList,
+    pub pCommandQueue: ID3D12CommandQueue,
     pub BreadcrumbCount: u32,
     pub pLastBreadcrumbValue: *mut u32,
     pub pCommandHistory: *mut D3D12_AUTO_BREADCRUMB_OP,
@@ -82,8 +82,8 @@ pub struct D3D12_AUTO_BREADCRUMB_NODE1 {
     pub pCommandListDebugNameW: super::super::Foundation::PWSTR,
     pub pCommandQueueDebugNameA: *mut u8,
     pub pCommandQueueDebugNameW: super::super::Foundation::PWSTR,
-    pub pCommandList: ::core::option::Option<ID3D12GraphicsCommandList>,
-    pub pCommandQueue: ::core::option::Option<ID3D12CommandQueue>,
+    pub pCommandList: ID3D12GraphicsCommandList,
+    pub pCommandQueue: ID3D12CommandQueue,
     pub BreadcrumbCount: u32,
     pub pLastBreadcrumbValue: *mut u32,
     pub pCommandHistory: *mut D3D12_AUTO_BREADCRUMB_OP,
@@ -582,7 +582,7 @@ impl ::core::clone::Clone for D3D12_COMPARISON_FUNC {
 }
 #[repr(C)]
 pub struct D3D12_COMPUTE_PIPELINE_STATE_DESC {
-    pub pRootSignature: ::core::option::Option<ID3D12RootSignature>,
+    pub pRootSignature: ID3D12RootSignature,
     pub CS: D3D12_SHADER_BYTECODE,
     pub NodeMask: u32,
     pub CachedPSO: D3D12_CACHED_PIPELINE_STATE,
@@ -1194,7 +1194,7 @@ pub struct D3D12_DRED_ALLOCATION_NODE1 {
     pub ObjectNameW: super::super::Foundation::PWSTR,
     pub AllocationType: D3D12_DRED_ALLOCATION_TYPE,
     pub pNext: *mut D3D12_DRED_ALLOCATION_NODE1,
-    pub pObject: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pObject: ::windows_sys::core::IUnknown,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_ALLOCATION_NODE1 {}
@@ -1490,7 +1490,7 @@ impl ::core::clone::Clone for D3D12_ELEMENTS_LAYOUT {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_EXISTING_COLLECTION_DESC {
-    pub pExistingCollection: ::core::option::Option<ID3D12StateObject>,
+    pub pExistingCollection: ID3D12StateObject,
     pub NumExports: u32,
     pub pExports: *mut D3D12_EXPORT_DESC,
 }
@@ -2217,7 +2217,7 @@ impl ::core::clone::Clone for D3D12_FUNCTION_DESC {
 }
 #[repr(C)]
 pub struct D3D12_GLOBAL_ROOT_SIGNATURE {
-    pub pGlobalRootSignature: ::core::option::Option<ID3D12RootSignature>,
+    pub pGlobalRootSignature: ID3D12RootSignature,
 }
 impl ::core::marker::Copy for D3D12_GLOBAL_ROOT_SIGNATURE {}
 impl ::core::clone::Clone for D3D12_GLOBAL_ROOT_SIGNATURE {
@@ -2308,7 +2308,7 @@ impl ::core::clone::Clone for D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_GRAPHICS_PIPELINE_STATE_DESC {
-    pub pRootSignature: ::core::option::Option<ID3D12RootSignature>,
+    pub pRootSignature: ID3D12RootSignature,
     pub VS: D3D12_SHADER_BYTECODE,
     pub PS: D3D12_SHADER_BYTECODE,
     pub DS: D3D12_SHADER_BYTECODE,
@@ -2769,7 +2769,7 @@ impl ::core::clone::Clone for D3D12_LIFETIME_STATE {
 pub const D3D12_LINEAR_GAMMA: f32 = 1f32;
 #[repr(C)]
 pub struct D3D12_LOCAL_ROOT_SIGNATURE {
-    pub pLocalRootSignature: ::core::option::Option<ID3D12RootSignature>,
+    pub pLocalRootSignature: ID3D12RootSignature,
 }
 impl ::core::marker::Copy for D3D12_LOCAL_ROOT_SIGNATURE {}
 impl ::core::clone::Clone for D3D12_LOCAL_ROOT_SIGNATURE {
@@ -4734,8 +4734,8 @@ impl ::core::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
-    pub pSrcResource: ::core::option::Option<ID3D12Resource>,
-    pub pDstResource: ::core::option::Option<ID3D12Resource>,
+    pub pSrcResource: ID3D12Resource,
+    pub pDstResource: ID3D12Resource,
     pub SubresourceCount: u32,
     pub pSubresourceParameters: *mut D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
@@ -4940,8 +4940,8 @@ impl ::core::clone::Clone for D3D12_RESOLVE_MODE {
 }
 #[repr(C)]
 pub struct D3D12_RESOURCE_ALIASING_BARRIER {
-    pub pResourceBefore: ::core::option::Option<ID3D12Resource>,
-    pub pResourceAfter: ::core::option::Option<ID3D12Resource>,
+    pub pResourceBefore: ID3D12Resource,
+    pub pResourceAfter: ID3D12Resource,
 }
 impl ::core::marker::Copy for D3D12_RESOURCE_ALIASING_BARRIER {}
 impl ::core::clone::Clone for D3D12_RESOURCE_ALIASING_BARRIER {
@@ -5152,7 +5152,7 @@ impl ::core::clone::Clone for D3D12_RESOURCE_STATES {
 }
 #[repr(C)]
 pub struct D3D12_RESOURCE_TRANSITION_BARRIER {
-    pub pResource: ::core::option::Option<ID3D12Resource>,
+    pub pResource: ID3D12Resource,
     pub Subresource: u32,
     pub StateBefore: D3D12_RESOURCE_STATES,
     pub StateAfter: D3D12_RESOURCE_STATES,
@@ -5165,7 +5165,7 @@ impl ::core::clone::Clone for D3D12_RESOURCE_TRANSITION_BARRIER {
 }
 #[repr(C)]
 pub struct D3D12_RESOURCE_UAV_BARRIER {
-    pub pResource: ::core::option::Option<ID3D12Resource>,
+    pub pResource: ID3D12Resource,
 }
 impl ::core::marker::Copy for D3D12_RESOURCE_UAV_BARRIER {}
 impl ::core::clone::Clone for D3D12_RESOURCE_UAV_BARRIER {
@@ -6501,7 +6501,7 @@ impl ::core::clone::Clone for D3D12_TEXTURE_ADDRESS_MODE {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_TEXTURE_COPY_LOCATION {
-    pub pResource: ::core::option::Option<ID3D12Resource>,
+    pub pResource: ID3D12Resource,
     pub Type: D3D12_TEXTURE_COPY_TYPE,
     pub Anonymous: D3D12_TEXTURE_COPY_LOCATION_0,
 }

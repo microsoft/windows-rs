@@ -422,16 +422,7 @@ fn gen_sys_sig(sig: &Signature, gen: &Gen) -> TokenStream {
         }
     }
 
-    let kind = gen_sys_name(&sig.kind, gen);
-
-    if sig.kind.is_nullable() {
-        tokens.combine(&quote! {
-            ::core::option::Option<#kind>
-        });
-    } else {
-        tokens.combine(&kind)
-    }
-
+    tokens.combine(&gen_sys_name(&sig.kind, gen));
     tokens
 }
 

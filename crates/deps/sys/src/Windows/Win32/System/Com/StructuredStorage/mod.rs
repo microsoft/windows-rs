@@ -628,10 +628,10 @@ pub union PROPVARIANT_0_0_0 {
     pub blob: super::BLOB,
     pub pszVal: super::super::super::Foundation::PSTR,
     pub pwszVal: super::super::super::Foundation::PWSTR,
-    pub punkVal: ::core::option::Option<::windows_sys::core::IUnknown>,
-    pub pdispVal: ::core::option::Option<super::IDispatch>,
-    pub pStream: ::core::option::Option<super::IStream>,
-    pub pStorage: ::core::option::Option<IStorage>,
+    pub punkVal: ::windows_sys::core::IUnknown,
+    pub pdispVal: super::IDispatch,
+    pub pStream: super::IStream,
+    pub pStorage: IStorage,
     pub pVersionedStream: *mut VERSIONEDSTREAM,
     pub parray: *mut super::SAFEARRAY,
     pub cac: CAC,
@@ -672,8 +672,8 @@ pub union PROPVARIANT_0_0_0 {
     pub pcyVal: *mut super::CY,
     pub pdate: *mut f64,
     pub pbstrVal: *mut super::super::super::Foundation::BSTR,
-    pub ppunkVal: *mut ::core::option::Option<::windows_sys::core::IUnknown>,
-    pub ppdispVal: *mut ::core::option::Option<super::IDispatch>,
+    pub ppunkVal: *mut ::windows_sys::core::IUnknown,
+    pub ppdispVal: *mut super::IDispatch,
     pub pparray: *mut *mut super::SAFEARRAY,
     pub pvarVal: *mut PROPVARIANT,
 }
@@ -822,7 +822,7 @@ pub const STGOPTIONS_VERSION: u32 = 1u32;
 #[repr(C)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: ::windows_sys::core::GUID,
-    pub pStream: ::core::option::Option<super::IStream>,
+    pub pStream: super::IStream,
 }
 impl ::core::marker::Copy for VERSIONEDSTREAM {}
 impl ::core::clone::Clone for VERSIONEDSTREAM {

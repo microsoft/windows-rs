@@ -252,10 +252,10 @@ extern "system" {
     pub fn RtlUnwindEx(targetframe: *const ::core::ffi::c_void, targetip: *const ::core::ffi::c_void, exceptionrecord: *const EXCEPTION_RECORD, returnvalue: *const ::core::ffi::c_void, contextrecord: *const CONTEXT, historytable: *const UNWIND_HISTORY_TABLE);
     #[cfg(any(target_arch = "aarch64",))]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE>;
+    pub fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> super::super::Kernel::EXCEPTION_ROUTINE;
     #[cfg(any(target_arch = "x86_64",))]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE>;
+    pub fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel::EXCEPTION_ROUTINE;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SearchTreeForFile(rootpath: super::super::super::Foundation::PSTR, inputpathname: super::super::super::Foundation::PSTR, outputpathbuffer: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -274,7 +274,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: *const THREAD_ERROR_MODE) -> super::super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> ::core::option::Option<LPTOP_LEVEL_EXCEPTION_FILTER>;
+    pub fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER;
     #[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
     pub fn SetXStateFeaturesMask(context: *mut CONTEXT, featuremask: u64) -> super::super::super::Foundation::BOOL;
@@ -1822,7 +1822,7 @@ pub struct CREATE_PROCESS_DEBUG_INFO {
     pub dwDebugInfoFileOffset: u32,
     pub nDebugInfoSize: u32,
     pub lpThreadLocalBase: *mut ::core::ffi::c_void,
-    pub lpStartAddress: ::core::option::Option<super::super::Threading::LPTHREAD_START_ROUTINE>,
+    pub lpStartAddress: super::super::Threading::LPTHREAD_START_ROUTINE,
     pub lpImageName: *mut ::core::ffi::c_void,
     pub fUnicode: u16,
 }
@@ -1839,7 +1839,7 @@ impl ::core::clone::Clone for CREATE_PROCESS_DEBUG_INFO {
 pub struct CREATE_THREAD_DEBUG_INFO {
     pub hThread: super::super::super::Foundation::HANDLE,
     pub lpThreadLocalBase: *mut ::core::ffi::c_void,
-    pub lpStartAddress: ::core::option::Option<super::super::Threading::LPTHREAD_START_ROUTINE>,
+    pub lpStartAddress: super::super::Threading::LPTHREAD_START_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 impl ::core::marker::Copy for CREATE_THREAD_DEBUG_INFO {}
@@ -3510,7 +3510,7 @@ pub struct DISPATCHER_CONTEXT {
     pub EstablisherFrame: usize,
     pub TargetPc: usize,
     pub ContextRecord: *mut CONTEXT,
-    pub LanguageHandler: ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE>,
+    pub LanguageHandler: super::super::Kernel::EXCEPTION_ROUTINE,
     pub HandlerData: *mut ::core::ffi::c_void,
     pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
     pub ScopeIndex: u32,
@@ -3537,7 +3537,7 @@ pub struct DISPATCHER_CONTEXT {
     pub EstablisherFrame: u64,
     pub TargetIp: u64,
     pub ContextRecord: *mut CONTEXT,
-    pub LanguageHandler: ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE>,
+    pub LanguageHandler: super::super::Kernel::EXCEPTION_ROUTINE,
     pub HandlerData: *mut ::core::ffi::c_void,
     pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
     pub ScopeIndex: u32,
@@ -3741,7 +3741,7 @@ pub struct DebugPropertyInfo {
     pub m_bstrValue: super::super::super::Foundation::BSTR,
     pub m_bstrFullName: super::super::super::Foundation::BSTR,
     pub m_dwAttrib: u32,
-    pub m_pDebugProp: ::core::option::Option<IDebugProperty>,
+    pub m_pDebugProp: IDebugProperty,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DebugPropertyInfo {}
@@ -3754,11 +3754,11 @@ impl ::core::clone::Clone for DebugPropertyInfo {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugStackFrameDescriptor {
-    pub pdsf: ::core::option::Option<IDebugStackFrame>,
+    pub pdsf: IDebugStackFrame,
     pub dwMin: u32,
     pub dwLim: u32,
     pub fFinal: super::super::super::Foundation::BOOL,
-    pub punkFinal: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub punkFinal: ::windows_sys::core::IUnknown,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DebugStackFrameDescriptor {}
@@ -3771,11 +3771,11 @@ impl ::core::clone::Clone for DebugStackFrameDescriptor {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugStackFrameDescriptor64 {
-    pub pdsf: ::core::option::Option<IDebugStackFrame>,
+    pub pdsf: IDebugStackFrame,
     pub dwMin: u64,
     pub dwLim: u64,
     pub fFinal: super::super::super::Foundation::BOOL,
-    pub punkFinal: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub punkFinal: ::windows_sys::core::IUnknown,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DebugStackFrameDescriptor64 {}
@@ -4107,12 +4107,12 @@ pub struct ExtendedDebugPropertyInfo {
     pub pszValue: super::super::super::Foundation::PWSTR,
     pub pszFullName: super::super::super::Foundation::PWSTR,
     pub dwAttrib: u32,
-    pub pDebugProp: ::core::option::Option<IDebugProperty>,
+    pub pDebugProp: IDebugProperty,
     pub nDISPID: u32,
     pub nType: u32,
     pub varValue: super::super::Com::VARIANT,
-    pub plbValue: ::core::option::Option<super::super::Com::StructuredStorage::ILockBytes>,
-    pub pDebugExtProp: ::core::option::Option<IDebugExtendedProperty>,
+    pub plbValue: super::super::Com::StructuredStorage::ILockBytes,
+    pub pDebugExtProp: IDebugExtendedProperty,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for ExtendedDebugPropertyInfo {}
@@ -7322,7 +7322,7 @@ pub const MEMORY_READ_ERROR: u32 = 1u32;
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
-    pub CallbackRoutine: ::core::option::Option<MINIDUMP_CALLBACK_ROUTINE>,
+    pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
@@ -10516,7 +10516,7 @@ pub struct SYM_DUMP_PARAM {
     pub addr: u64,
     pub listLink: *mut FIELD_INFO,
     pub Anonymous: SYM_DUMP_PARAM_0,
-    pub CallbackRoutine: ::core::option::Option<PSYM_DUMP_FIELD_CALLBACK>,
+    pub CallbackRoutine: PSYM_DUMP_FIELD_CALLBACK,
     pub nFields: u32,
     pub Fields: *mut FIELD_INFO,
     pub ModBase: u64,
@@ -10761,7 +10761,7 @@ impl ::core::clone::Clone for SymbolSearchOptions {
 #[repr(C)]
 pub struct TEXT_DOCUMENT_ARRAY {
     pub dwCount: u32,
-    pub Members: *mut ::core::option::Option<IDebugDocumentText>,
+    pub Members: *mut IDebugDocumentText,
 }
 impl ::core::marker::Copy for TEXT_DOCUMENT_ARRAY {}
 impl ::core::clone::Clone for TEXT_DOCUMENT_ARRAY {
@@ -11282,9 +11282,9 @@ impl ::core::clone::Clone for WHEA_DRIVER_BUFFER_SET {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
-    pub Initialize: ::core::option::Option<WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER>,
-    pub Uninitialize: ::core::option::Option<WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER>,
-    pub Correct: ::core::option::Option<WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER>,
+    pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
+    pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
+    pub Correct: WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WHEA_ERROR_SOURCE_CONFIGURATION_DD {}
@@ -11301,8 +11301,8 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     pub SourceGuid: ::windows_sys::core::GUID,
     pub LogTag: u16,
     pub Reserved: [u8; 6],
-    pub Initialize: ::core::option::Option<WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER>,
-    pub Uninitialize: ::core::option::Option<WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER>,
+    pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
+    pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
     pub MaxSectionDataLength: u32,
     pub MaxSectionsPerReport: u32,
     pub CreatorId: ::windows_sys::core::GUID,
@@ -11323,8 +11323,8 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     pub SourceGuid: ::windows_sys::core::GUID,
     pub LogTag: u16,
     pub Reserved: [u8; 6],
-    pub Initialize: ::core::option::Option<WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER>,
-    pub Uninitialize: ::core::option::Option<WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER>,
+    pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
+    pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {}
@@ -11824,17 +11824,17 @@ impl ::core::clone::Clone for WHEA_XPF_NMI_DESCRIPTOR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
-    pub lpReadProcessMemoryRoutine: ::core::option::Option<PWINDBG_READ_PROCESS_MEMORY_ROUTINE>,
-    pub lpWriteProcessMemoryRoutine: ::core::option::Option<PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE>,
-    pub lpGetThreadContextRoutine: ::core::option::Option<PWINDBG_GET_THREAD_CONTEXT_ROUTINE>,
-    pub lpSetThreadContextRoutine: ::core::option::Option<PWINDBG_SET_THREAD_CONTEXT_ROUTINE>,
-    pub lpIoctlRoutine: ::core::option::Option<PWINDBG_IOCTL_ROUTINE>,
-    pub lpStackTraceRoutine: ::core::option::Option<PWINDBG_STACKTRACE_ROUTINE>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
+    pub lpDisasmRoutine: PWINDBG_DISASM,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE,
+    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE,
+    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for WINDBG_EXTENSION_APIS {}
@@ -11848,17 +11848,17 @@ impl ::core::clone::Clone for WINDBG_EXTENSION_APIS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION32>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL32>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM32>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
-    pub lpReadProcessMemoryRoutine: ::core::option::Option<PWINDBG_READ_PROCESS_MEMORY_ROUTINE32>,
-    pub lpWriteProcessMemoryRoutine: ::core::option::Option<PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32>,
-    pub lpGetThreadContextRoutine: ::core::option::Option<PWINDBG_GET_THREAD_CONTEXT_ROUTINE>,
-    pub lpSetThreadContextRoutine: ::core::option::Option<PWINDBG_SET_THREAD_CONTEXT_ROUTINE>,
-    pub lpIoctlRoutine: ::core::option::Option<PWINDBG_IOCTL_ROUTINE>,
-    pub lpStackTraceRoutine: ::core::option::Option<PWINDBG_STACKTRACE_ROUTINE32>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION32,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL32,
+    pub lpDisasmRoutine: PWINDBG_DISASM32,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE32,
+    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32,
+    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for WINDBG_EXTENSION_APIS32 {}
@@ -11872,17 +11872,17 @@ impl ::core::clone::Clone for WINDBG_EXTENSION_APIS32 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION64>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL64>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM64>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
-    pub lpReadProcessMemoryRoutine: ::core::option::Option<PWINDBG_READ_PROCESS_MEMORY_ROUTINE64>,
-    pub lpWriteProcessMemoryRoutine: ::core::option::Option<PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64>,
-    pub lpGetThreadContextRoutine: ::core::option::Option<PWINDBG_GET_THREAD_CONTEXT_ROUTINE>,
-    pub lpSetThreadContextRoutine: ::core::option::Option<PWINDBG_SET_THREAD_CONTEXT_ROUTINE>,
-    pub lpIoctlRoutine: ::core::option::Option<PWINDBG_IOCTL_ROUTINE>,
-    pub lpStackTraceRoutine: ::core::option::Option<PWINDBG_STACKTRACE_ROUTINE64>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION64,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL64,
+    pub lpDisasmRoutine: PWINDBG_DISASM64,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE64,
+    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64,
+    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for WINDBG_EXTENSION_APIS64 {}
@@ -11896,15 +11896,15 @@ impl ::core::clone::Clone for WINDBG_EXTENSION_APIS64 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION32>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL32>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM32>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
-    pub lpReadVirtualMemRoutine: ::core::option::Option<PWINDBG_READ_PROCESS_MEMORY_ROUTINE32>,
-    pub lpWriteVirtualMemRoutine: ::core::option::Option<PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32>,
-    pub lpReadPhysicalMemRoutine: ::core::option::Option<PWINDBG_OLDKD_READ_PHYSICAL_MEMORY>,
-    pub lpWritePhysicalMemRoutine: ::core::option::Option<PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION32,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL32,
+    pub lpDisasmRoutine: PWINDBG_DISASM32,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadVirtualMemRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE32,
+    pub lpWriteVirtualMemRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32,
+    pub lpReadPhysicalMemRoutine: PWINDBG_OLDKD_READ_PHYSICAL_MEMORY,
+    pub lpWritePhysicalMemRoutine: PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINDBG_OLDKD_EXTENSION_APIS {}
@@ -11918,11 +11918,11 @@ impl ::core::clone::Clone for WINDBG_OLDKD_EXTENSION_APIS {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDBG_OLD_EXTENSION_APIS {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
+    pub lpDisasmRoutine: PWINDBG_DISASM,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINDBG_OLD_EXTENSION_APIS {}

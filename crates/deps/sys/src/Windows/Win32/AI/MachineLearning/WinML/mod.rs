@@ -481,7 +481,7 @@ pub struct WINML_RESOURCE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
     pub pShape: *mut i64,
-    pub pResource: ::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pResource: super::super::super::Graphics::Direct3D12::ID3D12Resource,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::marker::Copy for WINML_RESOURCE_BINDING_DESC {}

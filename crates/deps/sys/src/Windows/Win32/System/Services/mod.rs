@@ -704,7 +704,7 @@ impl ::core::clone::Clone for SERVICE_NOTIFY {
 #[repr(C)]
 pub struct SERVICE_NOTIFY_1 {
     pub dwVersion: u32,
-    pub pfnNotifyCallback: ::core::option::Option<PFN_SC_NOTIFY_CALLBACK>,
+    pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
     pub pContext: *mut ::core::ffi::c_void,
     pub dwNotificationStatus: u32,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
@@ -719,7 +719,7 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_1 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_NOTIFY_2A {
     pub dwVersion: u32,
-    pub pfnNotifyCallback: ::core::option::Option<PFN_SC_NOTIFY_CALLBACK>,
+    pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
     pub pContext: *mut ::core::ffi::c_void,
     pub dwNotificationStatus: u32,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
@@ -738,7 +738,7 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_2A {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_NOTIFY_2W {
     pub dwVersion: u32,
-    pub pfnNotifyCallback: ::core::option::Option<PFN_SC_NOTIFY_CALLBACK>,
+    pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
     pub pContext: *mut ::core::ffi::c_void,
     pub dwNotificationStatus: u32,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
@@ -995,7 +995,7 @@ pub const SERVICE_STOP_REASON_MINOR_WMI: u32 = 18u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_TABLE_ENTRYA {
     pub lpServiceName: super::super::Foundation::PSTR,
-    pub lpServiceProc: ::core::option::Option<LPSERVICE_MAIN_FUNCTIONA>,
+    pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONA,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVICE_TABLE_ENTRYA {}
@@ -1009,7 +1009,7 @@ impl ::core::clone::Clone for SERVICE_TABLE_ENTRYA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceName: super::super::Foundation::PWSTR,
-    pub lpServiceProc: ::core::option::Option<LPSERVICE_MAIN_FUNCTIONW>,
+    pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVICE_TABLE_ENTRYW {}

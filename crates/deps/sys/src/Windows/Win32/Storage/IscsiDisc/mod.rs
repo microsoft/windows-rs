@@ -359,7 +359,7 @@ pub struct DUMP_POINTERS_EX {
     pub AdapterObject: *mut ::core::ffi::c_void,
     pub MappedRegisterBase: *mut ::core::ffi::c_void,
     pub DeviceReady: *mut super::super::Foundation::BOOLEAN,
-    pub DumpDevicePowerOn: ::core::option::Option<PDUMP_DEVICE_POWERON_ROUTINE>,
+    pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
     pub DumpDevicePowerOnContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]

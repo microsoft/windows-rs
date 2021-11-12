@@ -586,7 +586,7 @@ impl ::core::clone::Clone for XAUDIO2_EFFECT_CHAIN {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct XAUDIO2_EFFECT_DESCRIPTOR {
-    pub pEffect: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pEffect: ::windows_sys::core::IUnknown,
     pub InitialState: super::super::super::Foundation::BOOL,
     pub OutputChannels: u32,
 }
@@ -685,7 +685,7 @@ pub const XAUDIO2_QUANTUM_NUMERATOR: u32 = 1u32;
 #[repr(C, packed(1))]
 pub struct XAUDIO2_SEND_DESCRIPTOR {
     pub Flags: u32,
-    pub pOutputVoice: ::core::option::Option<IXAudio2Voice>,
+    pub pOutputVoice: IXAudio2Voice,
 }
 impl ::core::marker::Copy for XAUDIO2_SEND_DESCRIPTOR {}
 impl ::core::clone::Clone for XAUDIO2_SEND_DESCRIPTOR {

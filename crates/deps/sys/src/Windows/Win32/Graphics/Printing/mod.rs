@@ -868,7 +868,7 @@ pub struct COMPROPSHEETUI {
     pub pCallerName: *mut i8,
     pub UserData: usize,
     pub pHelpFile: *mut i8,
-    pub pfnCallBack: ::core::option::Option<_CPSUICALLBACK>,
+    pub pfnCallBack: _CPSUICALLBACK,
     pub pOptItem: *mut OPTITEM,
     pub pDlgPage: *mut DLGPAGE,
     pub cOptItem: u16,
@@ -1302,7 +1302,7 @@ pub const DI_READ_SPOOL_JOB: u32 = 3u32;
 pub struct DLGPAGE {
     pub cbSize: u16,
     pub Flags: u16,
-    pub DlgProc: ::core::option::Option<super::super::UI::WindowsAndMessaging::DLGPROC>,
+    pub DlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
     pub pTabName: *mut i8,
     pub IconID: usize,
     pub Anonymous: DLGPAGE_0,
@@ -2138,8 +2138,8 @@ impl ::core::clone::Clone for EXTPUSH {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union EXTPUSH_0 {
-    pub DlgProc: ::core::option::Option<super::super::UI::WindowsAndMessaging::DLGPROC>,
-    pub pfnCallBack: ::core::option::Option<super::super::Foundation::FARPROC>,
+    pub DlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
+    pub pfnCallBack: super::super::Foundation::FARPROC,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for EXTPUSH_0 {}
@@ -4363,7 +4363,7 @@ impl ::core::clone::Clone for NOTIFICATION_CALLBACK_COMMANDS {
 pub struct NOTIFICATION_CONFIG_1 {
     pub cbSize: u32,
     pub fdwFlags: u32,
-    pub pfnNotifyCallback: ::core::option::Option<ROUTER_NOTIFY_CALLBACK>,
+    pub pfnNotifyCallback: ROUTER_NOTIFY_CALLBACK,
     pub pContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4409,7 +4409,7 @@ pub struct OEMCUIPPARAM {
     pub pOEMOptItems: *mut OPTITEM,
     pub cOEMOptItems: u32,
     pub pOEMUserData: *mut ::core::ffi::c_void,
-    pub OEMCUIPCallback: ::core::option::Option<OEMCUIPCALLBACK>,
+    pub OEMCUIPCallback: OEMCUIPCALLBACK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for OEMCUIPPARAM {}
@@ -4510,8 +4510,8 @@ impl ::core::clone::Clone for OEMUIOBJ {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OEMUIPROCS {
-    pub DrvGetDriverSetting: ::core::option::Option<PFN_DrvGetDriverSetting>,
-    pub DrvUpdateUISetting: ::core::option::Option<PFN_DrvUpdateUISetting>,
+    pub DrvGetDriverSetting: PFN_DrvGetDriverSetting,
+    pub DrvUpdateUISetting: PFN_DrvUpdateUISetting,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OEMUIPROCS {}
@@ -5935,7 +5935,7 @@ pub struct PROPSHEETUI_INFO {
     pub Flags: u16,
     pub Reason: u16,
     pub hComPropSheet: super::super::Foundation::HANDLE,
-    pub pfnComPropSheet: ::core::option::Option<PFNCOMPROPSHEET>,
+    pub pfnComPropSheet: PFNCOMPROPSHEET,
     pub lParamInit: super::super::Foundation::LPARAM,
     pub UserData: usize,
     pub Result: usize,
@@ -6064,7 +6064,7 @@ pub struct PSPINFO {
     pub wReserved: u16,
     pub hComPropSheet: super::super::Foundation::HANDLE,
     pub hCPSUIPage: super::super::Foundation::HANDLE,
-    pub pfnComPropSheet: ::core::option::Option<PFNCOMPROPSHEET>,
+    pub pfnComPropSheet: PFNCOMPROPSHEET,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PSPINFO {}

@@ -275,7 +275,7 @@ pub struct BINDINFO {
     pub dwCodePage: u32,
     pub securityAttributes: super::super::Security::SECURITY_ATTRIBUTES,
     pub iid: ::windows_sys::core::GUID,
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnk: ::windows_sys::core::IUnknown,
     pub dwReserved: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
@@ -301,7 +301,7 @@ impl ::core::clone::Clone for BINDINFOF {
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
-    pub lptcomp: ::core::option::Option<ITypeComp>,
+    pub lptcomp: ITypeComp,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for BINDPTR {}
@@ -556,7 +556,7 @@ pub const COM_RIGHTS_RESERVED1: u32 = 32u32;
 pub const COM_RIGHTS_RESERVED2: u32 = 64u32;
 #[repr(C)]
 pub struct CONNECTDATA {
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnk: ::windows_sys::core::IUnknown,
     pub dwCookie: u32,
 }
 impl ::core::marker::Copy for CONNECTDATA {}
@@ -883,7 +883,7 @@ pub struct EXCEPINFO {
     pub bstrHelpFile: super::super::Foundation::BSTR,
     pub dwHelpContext: u32,
     pub pvReserved: *mut ::core::ffi::c_void,
-    pub pfnDeferredFillIn: ::core::option::Option<LPEXCEPFINO_DEFERRED_FILLIN>,
+    pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
     pub scode: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1228,7 +1228,7 @@ pub struct IMoniker(pub *mut ::core::ffi::c_void);
 pub struct IMultiQI(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct INTERFACEINFO {
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnk: ::windows_sys::core::IUnknown,
     pub iid: ::windows_sys::core::GUID,
     pub wMethod: u16,
 }
@@ -1445,7 +1445,7 @@ impl ::core::clone::Clone for MSHLFLAGS {
 #[repr(C)]
 pub struct MULTI_QI {
     pub pIID: *mut ::windows_sys::core::GUID,
-    pub pItf: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pItf: ::windows_sys::core::IUnknown,
     pub hr: ::windows_sys::core::HRESULT,
 }
 impl ::core::marker::Copy for MULTI_QI {}
@@ -1705,7 +1705,7 @@ impl ::core::clone::Clone for SOLE_AUTHENTICATION_SERVICE {
 pub struct STATDATA {
     pub formatetc: FORMATETC,
     pub advf: u32,
-    pub pAdvSink: ::core::option::Option<IAdviseSink>,
+    pub pAdvSink: IAdviseSink,
     pub dwConnection: u32,
 }
 impl ::core::marker::Copy for STATDATA {}
@@ -1742,7 +1742,7 @@ impl ::core::clone::Clone for STATSTG {
 pub struct STGMEDIUM {
     pub tymed: u32,
     pub Anonymous: STGMEDIUM_0,
-    pub pUnkForRelease: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnkForRelease: ::windows_sys::core::IUnknown,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for STGMEDIUM {}
@@ -1760,8 +1760,8 @@ pub union STGMEDIUM_0 {
     pub hEnhMetaFile: super::super::Graphics::Gdi::HENHMETAFILE,
     pub hGlobal: isize,
     pub lpszFileName: super::super::Foundation::PWSTR,
-    pub pstm: ::core::option::Option<IStream>,
-    pub pstg: ::core::option::Option<StructuredStorage::IStorage>,
+    pub pstm: IStream,
+    pub pstg: StructuredStorage::IStorage,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for STGMEDIUM_0 {}
@@ -2116,8 +2116,8 @@ pub union VARIANT_0_0_0 {
     pub cyVal: CY,
     pub date: f64,
     pub bstrVal: super::super::Foundation::BSTR,
-    pub punkVal: ::core::option::Option<::windows_sys::core::IUnknown>,
-    pub pdispVal: ::core::option::Option<IDispatch>,
+    pub punkVal: ::windows_sys::core::IUnknown,
+    pub pdispVal: IDispatch,
     pub parray: *mut SAFEARRAY,
     pub pbVal: *mut u8,
     pub piVal: *mut i16,
@@ -2131,8 +2131,8 @@ pub union VARIANT_0_0_0 {
     pub pcyVal: *mut CY,
     pub pdate: *mut f64,
     pub pbstrVal: *mut super::super::Foundation::BSTR,
-    pub ppunkVal: *mut ::core::option::Option<::windows_sys::core::IUnknown>,
-    pub ppdispVal: *mut ::core::option::Option<IDispatch>,
+    pub ppunkVal: *mut ::windows_sys::core::IUnknown,
+    pub ppdispVal: *mut IDispatch,
     pub pparray: *mut *mut SAFEARRAY,
     pub pvarVal: *mut VARIANT,
     pub byref: *mut ::core::ffi::c_void,
@@ -2163,7 +2163,7 @@ impl ::core::clone::Clone for VARIANT_0_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut ::core::ffi::c_void,
-    pub pRecInfo: ::core::option::Option<super::Ole::IRecordInfo>,
+    pub pRecInfo: super::Ole::IRecordInfo,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for VARIANT_0_0_0_0 {}
@@ -2271,7 +2271,7 @@ impl ::core::clone::Clone for userFLAG_STGMEDIUM {
 }
 #[repr(C)]
 pub struct userSTGMEDIUM {
-    pub pUnkForRelease: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnkForRelease: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for userSTGMEDIUM {}
 impl ::core::clone::Clone for userSTGMEDIUM {

@@ -2823,7 +2823,7 @@ pub struct MSGBOXPARAMSA {
     pub dwStyle: MESSAGEBOX_STYLE,
     pub lpszIcon: super::super::Foundation::PSTR,
     pub dwContextHelpId: usize,
-    pub lpfnMsgBoxCallback: ::core::option::Option<MSGBOXCALLBACK>,
+    pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
     pub dwLanguageId: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -2845,7 +2845,7 @@ pub struct MSGBOXPARAMSW {
     pub dwStyle: MESSAGEBOX_STYLE,
     pub lpszIcon: super::super::Foundation::PWSTR,
     pub dwContextHelpId: usize,
-    pub lpfnMsgBoxCallback: ::core::option::Option<MSGBOXCALLBACK>,
+    pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
     pub dwLanguageId: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -4781,7 +4781,7 @@ pub const WM_XBUTTONUP: u32 = 524u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSA {
     pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: ::core::option::Option<WNDPROC>,
+    pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -4804,7 +4804,7 @@ impl ::core::clone::Clone for WNDCLASSA {
 pub struct WNDCLASSEXA {
     pub cbSize: u32,
     pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: ::core::option::Option<WNDPROC>,
+    pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -4828,7 +4828,7 @@ impl ::core::clone::Clone for WNDCLASSEXA {
 pub struct WNDCLASSEXW {
     pub cbSize: u32,
     pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: ::core::option::Option<WNDPROC>,
+    pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -4851,7 +4851,7 @@ impl ::core::clone::Clone for WNDCLASSEXW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSW {
     pub style: WNDCLASS_STYLES,
-    pub lpfnWndProc: ::core::option::Option<WNDPROC>,
+    pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
     pub hInstance: super::super::Foundation::HINSTANCE,

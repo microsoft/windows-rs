@@ -531,7 +531,7 @@ impl ::core::clone::Clone for WSD_BYE {
 }
 #[repr(C)]
 pub struct WSD_CONFIG_ADDRESSES {
-    pub addresses: *mut ::core::option::Option<IWSDAddress>,
+    pub addresses: *mut IWSDAddress,
     pub dwAddressCount: u32,
 }
 impl ::core::marker::Copy for WSD_CONFIG_ADDRESSES {}
@@ -658,7 +658,7 @@ pub struct WSD_EVENT {
     pub HandlerContext: WSD_HANDLER_CONTEXT,
     pub Soap: *mut WSD_SOAP_MESSAGE,
     pub Operation: *mut WSD_OPERATION,
-    pub MessageParameters: ::core::option::Option<IWSDMessageParameters>,
+    pub MessageParameters: IWSDMessageParameters,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSD_EVENT {}
@@ -741,9 +741,9 @@ impl ::core::clone::Clone for WSD_EVENTING_FILTER_ACTION {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_HANDLER_CONTEXT {
-    pub Handler: ::core::option::Option<PWSD_SOAP_MESSAGE_HANDLER>,
+    pub Handler: PWSD_SOAP_MESSAGE_HANDLER,
     pub PVoid: *mut ::core::ffi::c_void,
-    pub Unknown: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub Unknown: ::windows_sys::core::IUnknown,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSD_HANDLER_CONTEXT {}
@@ -878,7 +878,7 @@ impl ::core::clone::Clone for WSD_NAME_LIST {
 pub struct WSD_OPERATION {
     pub RequestType: *mut WSDXML_TYPE,
     pub ResponseType: *mut WSDXML_TYPE,
-    pub RequestStubFunction: ::core::option::Option<WSD_STUB_FUNCTION>,
+    pub RequestStubFunction: WSD_STUB_FUNCTION,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSD_OPERATION {}
@@ -1265,7 +1265,7 @@ pub type WSD_STUB_FUNCTION = unsafe extern "system" fn(server: ::windows_sys::co
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: ::windows_sys::core::HRESULT,
     pub eventHandle: super::super::Foundation::HANDLE,
-    pub messageParameters: ::core::option::Option<IWSDMessageParameters>,
+    pub messageParameters: IWSDMessageParameters,
     pub results: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]

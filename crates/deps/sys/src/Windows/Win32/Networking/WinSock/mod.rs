@@ -230,7 +230,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn WSASendTo(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpto: *const SOCKADDR, itolen: i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WSASetBlockingHook(lpblockfunc: super::super::Foundation::FARPROC) -> ::core::option::Option<super::super::Foundation::FARPROC>;
+    pub fn WSASetBlockingHook(lpblockfunc: super::super::Foundation::FARPROC) -> super::super::Foundation::FARPROC;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WSASetEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     pub fn WSASetLastError(ierror: i32);
@@ -2441,13 +2441,13 @@ pub struct NSPV2_ROUTINE {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
-    pub NSPv2Startup: ::core::option::Option<LPNSPV2STARTUP>,
-    pub NSPv2Cleanup: ::core::option::Option<LPNSPV2CLEANUP>,
-    pub NSPv2LookupServiceBegin: ::core::option::Option<LPNSPV2LOOKUPSERVICEBEGIN>,
-    pub NSPv2LookupServiceNextEx: ::core::option::Option<LPNSPV2LOOKUPSERVICENEXTEX>,
-    pub NSPv2LookupServiceEnd: ::core::option::Option<LPNSPV2LOOKUPSERVICEEND>,
-    pub NSPv2SetServiceEx: ::core::option::Option<LPNSPV2SETSERVICEEX>,
-    pub NSPv2ClientSessionRundown: ::core::option::Option<LPNSPV2CLIENTSESSIONRUNDOWN>,
+    pub NSPv2Startup: LPNSPV2STARTUP,
+    pub NSPv2Cleanup: LPNSPV2CLEANUP,
+    pub NSPv2LookupServiceBegin: LPNSPV2LOOKUPSERVICEBEGIN,
+    pub NSPv2LookupServiceNextEx: LPNSPV2LOOKUPSERVICENEXTEX,
+    pub NSPv2LookupServiceEnd: LPNSPV2LOOKUPSERVICEEND,
+    pub NSPv2SetServiceEx: LPNSPV2SETSERVICEEX,
+    pub NSPv2ClientSessionRundown: LPNSPV2CLIENTSESSIONRUNDOWN,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for NSPV2_ROUTINE {}
@@ -2463,15 +2463,15 @@ pub struct NSP_ROUTINE {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
-    pub NSPCleanup: ::core::option::Option<LPNSPCLEANUP>,
-    pub NSPLookupServiceBegin: ::core::option::Option<LPNSPLOOKUPSERVICEBEGIN>,
-    pub NSPLookupServiceNext: ::core::option::Option<LPNSPLOOKUPSERVICENEXT>,
-    pub NSPLookupServiceEnd: ::core::option::Option<LPNSPLOOKUPSERVICEEND>,
-    pub NSPSetService: ::core::option::Option<LPNSPSETSERVICE>,
-    pub NSPInstallServiceClass: ::core::option::Option<LPNSPINSTALLSERVICECLASS>,
-    pub NSPRemoveServiceClass: ::core::option::Option<LPNSPREMOVESERVICECLASS>,
-    pub NSPGetServiceClassInfo: ::core::option::Option<LPNSPGETSERVICECLASSINFO>,
-    pub NSPIoctl: ::core::option::Option<LPNSPIOCTL>,
+    pub NSPCleanup: LPNSPCLEANUP,
+    pub NSPLookupServiceBegin: LPNSPLOOKUPSERVICEBEGIN,
+    pub NSPLookupServiceNext: LPNSPLOOKUPSERVICENEXT,
+    pub NSPLookupServiceEnd: LPNSPLOOKUPSERVICEEND,
+    pub NSPSetService: LPNSPSETSERVICE,
+    pub NSPInstallServiceClass: LPNSPINSTALLSERVICECLASS,
+    pub NSPRemoveServiceClass: LPNSPREMOVESERVICECLASS,
+    pub NSPGetServiceClassInfo: LPNSPGETSERVICECLASSINFO,
+    pub NSPIoctl: LPNSPIOCTL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 impl ::core::marker::Copy for NSP_ROUTINE {}
@@ -2853,19 +2853,19 @@ pub struct RIO_CQ_t(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 pub struct RIO_EXTENSION_FUNCTION_TABLE {
     pub cbSize: u32,
-    pub RIOReceive: ::core::option::Option<LPFN_RIORECEIVE>,
-    pub RIOReceiveEx: ::core::option::Option<LPFN_RIORECEIVEEX>,
-    pub RIOSend: ::core::option::Option<LPFN_RIOSEND>,
-    pub RIOSendEx: ::core::option::Option<LPFN_RIOSENDEX>,
-    pub RIOCloseCompletionQueue: ::core::option::Option<LPFN_RIOCLOSECOMPLETIONQUEUE>,
-    pub RIOCreateCompletionQueue: ::core::option::Option<LPFN_RIOCREATECOMPLETIONQUEUE>,
-    pub RIOCreateRequestQueue: ::core::option::Option<LPFN_RIOCREATEREQUESTQUEUE>,
-    pub RIODequeueCompletion: ::core::option::Option<LPFN_RIODEQUEUECOMPLETION>,
-    pub RIODeregisterBuffer: ::core::option::Option<LPFN_RIODEREGISTERBUFFER>,
-    pub RIONotify: ::core::option::Option<LPFN_RIONOTIFY>,
-    pub RIORegisterBuffer: ::core::option::Option<LPFN_RIOREGISTERBUFFER>,
-    pub RIOResizeCompletionQueue: ::core::option::Option<LPFN_RIORESIZECOMPLETIONQUEUE>,
-    pub RIOResizeRequestQueue: ::core::option::Option<LPFN_RIORESIZEREQUESTQUEUE>,
+    pub RIOReceive: LPFN_RIORECEIVE,
+    pub RIOReceiveEx: LPFN_RIORECEIVEEX,
+    pub RIOSend: LPFN_RIOSEND,
+    pub RIOSendEx: LPFN_RIOSENDEX,
+    pub RIOCloseCompletionQueue: LPFN_RIOCLOSECOMPLETIONQUEUE,
+    pub RIOCreateCompletionQueue: LPFN_RIOCREATECOMPLETIONQUEUE,
+    pub RIOCreateRequestQueue: LPFN_RIOCREATEREQUESTQUEUE,
+    pub RIODequeueCompletion: LPFN_RIODEQUEUECOMPLETION,
+    pub RIODeregisterBuffer: LPFN_RIODEREGISTERBUFFER,
+    pub RIONotify: LPFN_RIONOTIFY,
+    pub RIORegisterBuffer: LPFN_RIOREGISTERBUFFER,
+    pub RIOResizeCompletionQueue: LPFN_RIORESIZECOMPLETIONQUEUE,
+    pub RIOResizeRequestQueue: LPFN_RIORESIZEREQUESTQUEUE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RIO_EXTENSION_FUNCTION_TABLE {}
@@ -3155,7 +3155,7 @@ pub const SERVICE_ADDRESS_FLAG_RPC_NB: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_ASYNC_INFO {
-    pub lpServiceCallbackProc: ::core::option::Option<LPSERVICE_CALLBACK_PROC>,
+    pub lpServiceCallbackProc: LPSERVICE_CALLBACK_PROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub hAsyncTaskHandle: super::super::Foundation::HANDLE,
 }
@@ -4297,7 +4297,7 @@ impl ::core::clone::Clone for WSACOMPLETION_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WSACOMPLETION_0_0 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
-    pub lpfnCompletionProc: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
+    pub lpfnCompletionProc: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::marker::Copy for WSACOMPLETION_0_0 {}
@@ -4773,7 +4773,7 @@ pub struct WSASENDMSG {
     pub dwFlags: u32,
     pub lpNumberOfBytesSent: *mut u32,
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
-    pub lpCompletionRoutine: ::core::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
+    pub lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::marker::Copy for WSASENDMSG {}
@@ -5020,36 +5020,36 @@ impl ::core::clone::Clone for WSPData {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS", feature = "Win32_System_IO"))]
 pub struct WSPPROC_TABLE {
-    pub lpWSPAccept: ::core::option::Option<LPWSPACCEPT>,
-    pub lpWSPAddressToString: ::core::option::Option<LPWSPADDRESSTOSTRING>,
-    pub lpWSPAsyncSelect: ::core::option::Option<LPWSPASYNCSELECT>,
-    pub lpWSPBind: ::core::option::Option<LPWSPBIND>,
-    pub lpWSPCancelBlockingCall: ::core::option::Option<LPWSPCANCELBLOCKINGCALL>,
-    pub lpWSPCleanup: ::core::option::Option<LPWSPCLEANUP>,
-    pub lpWSPCloseSocket: ::core::option::Option<LPWSPCLOSESOCKET>,
-    pub lpWSPConnect: ::core::option::Option<LPWSPCONNECT>,
-    pub lpWSPDuplicateSocket: ::core::option::Option<LPWSPDUPLICATESOCKET>,
-    pub lpWSPEnumNetworkEvents: ::core::option::Option<LPWSPENUMNETWORKEVENTS>,
-    pub lpWSPEventSelect: ::core::option::Option<LPWSPEVENTSELECT>,
-    pub lpWSPGetOverlappedResult: ::core::option::Option<LPWSPGETOVERLAPPEDRESULT>,
-    pub lpWSPGetPeerName: ::core::option::Option<LPWSPGETPEERNAME>,
-    pub lpWSPGetSockName: ::core::option::Option<LPWSPGETSOCKNAME>,
-    pub lpWSPGetSockOpt: ::core::option::Option<LPWSPGETSOCKOPT>,
-    pub lpWSPGetQOSByName: ::core::option::Option<LPWSPGETQOSBYNAME>,
-    pub lpWSPIoctl: ::core::option::Option<LPWSPIOCTL>,
-    pub lpWSPJoinLeaf: ::core::option::Option<LPWSPJOINLEAF>,
-    pub lpWSPListen: ::core::option::Option<LPWSPLISTEN>,
-    pub lpWSPRecv: ::core::option::Option<LPWSPRECV>,
-    pub lpWSPRecvDisconnect: ::core::option::Option<LPWSPRECVDISCONNECT>,
-    pub lpWSPRecvFrom: ::core::option::Option<LPWSPRECVFROM>,
-    pub lpWSPSelect: ::core::option::Option<LPWSPSELECT>,
-    pub lpWSPSend: ::core::option::Option<LPWSPSEND>,
-    pub lpWSPSendDisconnect: ::core::option::Option<LPWSPSENDDISCONNECT>,
-    pub lpWSPSendTo: ::core::option::Option<LPWSPSENDTO>,
-    pub lpWSPSetSockOpt: ::core::option::Option<LPWSPSETSOCKOPT>,
-    pub lpWSPShutdown: ::core::option::Option<LPWSPSHUTDOWN>,
-    pub lpWSPSocket: ::core::option::Option<LPWSPSOCKET>,
-    pub lpWSPStringToAddress: ::core::option::Option<LPWSPSTRINGTOADDRESS>,
+    pub lpWSPAccept: LPWSPACCEPT,
+    pub lpWSPAddressToString: LPWSPADDRESSTOSTRING,
+    pub lpWSPAsyncSelect: LPWSPASYNCSELECT,
+    pub lpWSPBind: LPWSPBIND,
+    pub lpWSPCancelBlockingCall: LPWSPCANCELBLOCKINGCALL,
+    pub lpWSPCleanup: LPWSPCLEANUP,
+    pub lpWSPCloseSocket: LPWSPCLOSESOCKET,
+    pub lpWSPConnect: LPWSPCONNECT,
+    pub lpWSPDuplicateSocket: LPWSPDUPLICATESOCKET,
+    pub lpWSPEnumNetworkEvents: LPWSPENUMNETWORKEVENTS,
+    pub lpWSPEventSelect: LPWSPEVENTSELECT,
+    pub lpWSPGetOverlappedResult: LPWSPGETOVERLAPPEDRESULT,
+    pub lpWSPGetPeerName: LPWSPGETPEERNAME,
+    pub lpWSPGetSockName: LPWSPGETSOCKNAME,
+    pub lpWSPGetSockOpt: LPWSPGETSOCKOPT,
+    pub lpWSPGetQOSByName: LPWSPGETQOSBYNAME,
+    pub lpWSPIoctl: LPWSPIOCTL,
+    pub lpWSPJoinLeaf: LPWSPJOINLEAF,
+    pub lpWSPListen: LPWSPLISTEN,
+    pub lpWSPRecv: LPWSPRECV,
+    pub lpWSPRecvDisconnect: LPWSPRECVDISCONNECT,
+    pub lpWSPRecvFrom: LPWSPRECVFROM,
+    pub lpWSPSelect: LPWSPSELECT,
+    pub lpWSPSend: LPWSPSEND,
+    pub lpWSPSendDisconnect: LPWSPSENDDISCONNECT,
+    pub lpWSPSendTo: LPWSPSENDTO,
+    pub lpWSPSetSockOpt: LPWSPSETSOCKOPT,
+    pub lpWSPShutdown: LPWSPSHUTDOWN,
+    pub lpWSPSocket: LPWSPSOCKET,
+    pub lpWSPStringToAddress: LPWSPSTRINGTOADDRESS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS", feature = "Win32_System_IO"))]
 impl ::core::marker::Copy for WSPPROC_TABLE {}
@@ -5062,21 +5062,21 @@ impl ::core::clone::Clone for WSPPROC_TABLE {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSPUPCALLTABLE {
-    pub lpWPUCloseEvent: ::core::option::Option<LPWPUCLOSEEVENT>,
-    pub lpWPUCloseSocketHandle: ::core::option::Option<LPWPUCLOSESOCKETHANDLE>,
-    pub lpWPUCreateEvent: ::core::option::Option<LPWPUCREATEEVENT>,
-    pub lpWPUCreateSocketHandle: ::core::option::Option<LPWPUCREATESOCKETHANDLE>,
-    pub lpWPUFDIsSet: ::core::option::Option<LPWPUFDISSET>,
-    pub lpWPUGetProviderPath: ::core::option::Option<LPWPUGETPROVIDERPATH>,
-    pub lpWPUModifyIFSHandle: ::core::option::Option<LPWPUMODIFYIFSHANDLE>,
-    pub lpWPUPostMessage: ::core::option::Option<LPWPUPOSTMESSAGE>,
-    pub lpWPUQueryBlockingCallback: ::core::option::Option<LPWPUQUERYBLOCKINGCALLBACK>,
-    pub lpWPUQuerySocketHandleContext: ::core::option::Option<LPWPUQUERYSOCKETHANDLECONTEXT>,
-    pub lpWPUQueueApc: ::core::option::Option<LPWPUQUEUEAPC>,
-    pub lpWPUResetEvent: ::core::option::Option<LPWPURESETEVENT>,
-    pub lpWPUSetEvent: ::core::option::Option<LPWPUSETEVENT>,
-    pub lpWPUOpenCurrentThread: ::core::option::Option<LPWPUOPENCURRENTTHREAD>,
-    pub lpWPUCloseThread: ::core::option::Option<LPWPUCLOSETHREAD>,
+    pub lpWPUCloseEvent: LPWPUCLOSEEVENT,
+    pub lpWPUCloseSocketHandle: LPWPUCLOSESOCKETHANDLE,
+    pub lpWPUCreateEvent: LPWPUCREATEEVENT,
+    pub lpWPUCreateSocketHandle: LPWPUCREATESOCKETHANDLE,
+    pub lpWPUFDIsSet: LPWPUFDISSET,
+    pub lpWPUGetProviderPath: LPWPUGETPROVIDERPATH,
+    pub lpWPUModifyIFSHandle: LPWPUMODIFYIFSHANDLE,
+    pub lpWPUPostMessage: LPWPUPOSTMESSAGE,
+    pub lpWPUQueryBlockingCallback: LPWPUQUERYBLOCKINGCALLBACK,
+    pub lpWPUQuerySocketHandleContext: LPWPUQUERYSOCKETHANDLECONTEXT,
+    pub lpWPUQueueApc: LPWPUQUEUEAPC,
+    pub lpWPUResetEvent: LPWPURESETEVENT,
+    pub lpWPUSetEvent: LPWPUSETEVENT,
+    pub lpWPUOpenCurrentThread: LPWPUOPENCURRENTTHREAD,
+    pub lpWPUCloseThread: LPWPUCLOSETHREAD,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSPUPCALLTABLE {}

@@ -1532,7 +1532,7 @@ impl ::core::clone::Clone for D3D10_PASS_DESC {
 }
 #[repr(C)]
 pub struct D3D10_PASS_SHADER_DESC {
-    pub pShaderVariable: ::core::option::Option<ID3D10EffectShaderVariable>,
+    pub pShaderVariable: ID3D10EffectShaderVariable,
     pub ShaderIndex: u32,
 }
 impl ::core::marker::Copy for D3D10_PASS_SHADER_DESC {}

@@ -434,7 +434,7 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub fShowUnknown: super::super::Foundation::BOOL,
     pub fAddNewDeviceWizard: super::super::Foundation::BOOL,
     pub fSkipServicesPage: super::super::Foundation::BOOL,
-    pub pfnDeviceCallback: ::core::option::Option<PFN_DEVICE_CALLBACK>,
+    pub pfnDeviceCallback: PFN_DEVICE_CALLBACK,
     pub pvParam: *mut ::core::ffi::c_void,
     pub cNumDevices: u32,
     pub pDevices: *mut BLUETOOTH_DEVICE_INFO,

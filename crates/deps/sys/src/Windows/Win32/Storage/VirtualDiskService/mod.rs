@@ -119,7 +119,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0 {
 }
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_0_0 {
-    pub pVolumeUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pVolumeUnk: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_0 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_0 {
@@ -129,7 +129,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_0 {
 }
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_0_1 {
-    pub pLunUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pLunUnk: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_1 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_1 {
@@ -150,7 +150,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_2 {
 }
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_0_3 {
-    pub pPortalGroupUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pPortalGroupUnk: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_3 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_3 {
@@ -160,7 +160,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_3 {
 }
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_0_4 {
-    pub pTargetUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pTargetUnk: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_4 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_4 {
@@ -170,7 +170,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_4 {
 }
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_0_5 {
-    pub pVolumeUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pVolumeUnk: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_5 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_5 {
@@ -180,7 +180,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_5 {
 }
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_0_6 {
-    pub pVDiskUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pVDiskUnk: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_6 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_6 {

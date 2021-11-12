@@ -894,7 +894,7 @@ impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct RESULT_VIEW_TYPE_INFO_0_1 {
     pub dwOCXOptions: u32,
-    pub pUnkControl: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnkControl: ::windows_sys::core::IUnknown,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RESULT_VIEW_TYPE_INFO_0_1 {}
@@ -969,7 +969,7 @@ pub const SDI_STR: u32 = 2u32;
 #[cfg(feature = "Win32_System_Com")]
 pub struct SMMCDataObjects {
     pub count: u32,
-    pub lpDataObject: [::core::option::Option<super::Com::IDataObject>; 1],
+    pub lpDataObject: [super::Com::IDataObject; 1],
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for SMMCDataObjects {}

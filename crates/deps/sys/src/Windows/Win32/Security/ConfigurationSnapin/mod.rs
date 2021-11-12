@@ -62,10 +62,10 @@ impl ::core::clone::Clone for SCESVC_ANALYSIS_LINE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCESVC_CALLBACK_INFO {
     pub sceHandle: *mut ::core::ffi::c_void,
-    pub pfQueryInfo: ::core::option::Option<PFSCE_QUERY_INFO>,
-    pub pfSetInfo: ::core::option::Option<PFSCE_SET_INFO>,
-    pub pfFreeInfo: ::core::option::Option<PFSCE_FREE_INFO>,
-    pub pfLogInfo: ::core::option::Option<PFSCE_LOG_INFO>,
+    pub pfQueryInfo: PFSCE_QUERY_INFO,
+    pub pfSetInfo: PFSCE_SET_INFO,
+    pub pfFreeInfo: PFSCE_FREE_INFO,
+    pub pfLogInfo: PFSCE_LOG_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCESVC_CALLBACK_INFO {}

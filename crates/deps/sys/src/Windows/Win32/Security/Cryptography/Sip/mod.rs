@@ -151,11 +151,11 @@ pub const SIP_CAP_SET_VERSION_3: u32 = 3u32;
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
     pub hSIP: super::super::super::Foundation::HANDLE,
-    pub pfGet: ::core::option::Option<pCryptSIPGetSignedDataMsg>,
-    pub pfPut: ::core::option::Option<pCryptSIPPutSignedDataMsg>,
-    pub pfCreate: ::core::option::Option<pCryptSIPCreateIndirectData>,
-    pub pfVerify: ::core::option::Option<pCryptSIPVerifyIndirectData>,
-    pub pfRemove: ::core::option::Option<pCryptSIPRemoveSignedDataMsg>,
+    pub pfGet: pCryptSIPGetSignedDataMsg,
+    pub pfPut: pCryptSIPPutSignedDataMsg,
+    pub pfCreate: pCryptSIPCreateIndirectData,
+    pub pfVerify: pCryptSIPVerifyIndirectData,
+    pub pfRemove: pCryptSIPRemoveSignedDataMsg,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::core::marker::Copy for SIP_DISPATCH_INFO {}

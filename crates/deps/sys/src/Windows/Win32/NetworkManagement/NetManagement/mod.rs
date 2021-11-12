@@ -3161,7 +3161,7 @@ pub const NetProvisioning: ::windows_sys::core::GUID = ::windows_sys::core::GUID
 #[cfg(feature = "Win32_Foundation")]
 pub struct OBO_TOKEN {
     pub Type: OBO_TOKEN_TYPE,
-    pub pncc: ::core::option::Option<INetCfgComponent>,
+    pub pncc: INetCfgComponent,
     pub pszwManufacturer: super::super::Foundation::PWSTR,
     pub pszwProduct: super::super::Foundation::PWSTR,
     pub pszwDisplayName: super::super::Foundation::PWSTR,

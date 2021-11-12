@@ -2346,7 +2346,7 @@ impl ::core::clone::Clone for USB_HUB_STATUS_AND_CHANGE_0 {
 pub type USB_IDLE_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
 #[repr(C)]
 pub struct USB_IDLE_CALLBACK_INFO {
-    pub IdleCallback: ::core::option::Option<USB_IDLE_CALLBACK>,
+    pub IdleCallback: USB_IDLE_CALLBACK,
     pub IdleContext: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for USB_IDLE_CALLBACK_INFO {}

@@ -903,7 +903,7 @@ pub struct AM_MEDIA_TYPE {
     pub bTemporalCompression: super::super::Foundation::BOOL,
     pub lSampleSize: u32,
     pub formattype: ::windows_sys::core::GUID,
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnk: ::windows_sys::core::IUnknown,
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
@@ -4563,19 +4563,19 @@ pub const DWORD_ALLPARAMS: i32 = -1i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub struct DXVA2SW_CALLBACKS {
     pub Size: u32,
-    pub GetVideoProcessorRenderTargetCount: ::core::option::Option<PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETCOUNT>,
-    pub GetVideoProcessorRenderTargets: ::core::option::Option<PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETS>,
-    pub GetVideoProcessorCaps: ::core::option::Option<PDXVA2SW_GETVIDEOPROCESSORCAPS>,
-    pub GetVideoProcessorSubStreamFormatCount: ::core::option::Option<PDXVA2SW_GETVIDEOPROCESSORSUBSTREAMFORMATCOUNT>,
-    pub GetVideoProcessorSubStreamFormats: ::core::option::Option<PDXVA2SW_GETVIDEOPROCESSORSUBSTREAMFORMATS>,
-    pub GetProcAmpRange: ::core::option::Option<PDXVA2SW_GETPROCAMPRANGE>,
-    pub GetFilterPropertyRange: ::core::option::Option<PDXVA2SW_GETFILTERPROPERTYRANGE>,
-    pub CreateVideoProcessDevice: ::core::option::Option<PDXVA2SW_CREATEVIDEOPROCESSDEVICE>,
-    pub DestroyVideoProcessDevice: ::core::option::Option<PDXVA2SW_DESTROYVIDEOPROCESSDEVICE>,
-    pub VideoProcessBeginFrame: ::core::option::Option<PDXVA2SW_VIDEOPROCESSBEGINFRAME>,
-    pub VideoProcessEndFrame: ::core::option::Option<PDXVA2SW_VIDEOPROCESSENDFRAME>,
-    pub VideoProcessSetRenderTarget: ::core::option::Option<PDXVA2SW_VIDEOPROCESSSETRENDERTARGET>,
-    pub VideoProcessBlt: ::core::option::Option<PDXVA2SW_VIDEOPROCESSBLT>,
+    pub GetVideoProcessorRenderTargetCount: PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETCOUNT,
+    pub GetVideoProcessorRenderTargets: PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETS,
+    pub GetVideoProcessorCaps: PDXVA2SW_GETVIDEOPROCESSORCAPS,
+    pub GetVideoProcessorSubStreamFormatCount: PDXVA2SW_GETVIDEOPROCESSORSUBSTREAMFORMATCOUNT,
+    pub GetVideoProcessorSubStreamFormats: PDXVA2SW_GETVIDEOPROCESSORSUBSTREAMFORMATS,
+    pub GetProcAmpRange: PDXVA2SW_GETPROCAMPRANGE,
+    pub GetFilterPropertyRange: PDXVA2SW_GETFILTERPROPERTYRANGE,
+    pub CreateVideoProcessDevice: PDXVA2SW_CREATEVIDEOPROCESSDEVICE,
+    pub DestroyVideoProcessDevice: PDXVA2SW_DESTROYVIDEOPROCESSDEVICE,
+    pub VideoProcessBeginFrame: PDXVA2SW_VIDEOPROCESSBEGINFRAME,
+    pub VideoProcessEndFrame: PDXVA2SW_VIDEOPROCESSENDFRAME,
+    pub VideoProcessSetRenderTarget: PDXVA2SW_VIDEOPROCESSSETRENDERTARGET,
+    pub VideoProcessBlt: PDXVA2SW_VIDEOPROCESSBLT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 impl ::core::marker::Copy for DXVA2SW_CALLBACKS {}
@@ -5915,7 +5915,7 @@ impl ::core::clone::Clone for FECMethod {
 #[repr(C)]
 pub struct FILTER_INFO {
     pub achName: [u16; 128],
-    pub pGraph: ::core::option::Option<IFilterGraph>,
+    pub pGraph: IFilterGraph,
 }
 impl ::core::marker::Copy for FILTER_INFO {}
 impl ::core::clone::Clone for FILTER_INFO {
@@ -9862,7 +9862,7 @@ impl ::core::clone::Clone for PIN_DIRECTION {
 }
 #[repr(C)]
 pub struct PIN_INFO {
-    pub pFilter: ::core::option::Option<IBaseFilter>,
+    pub pFilter: IBaseFilter,
     pub dir: PIN_DIRECTION,
     pub achName: [u16; 128],
 }
@@ -11545,7 +11545,7 @@ impl ::core::clone::Clone for VMR9AllocationInfo {
 pub struct VMR9AlphaBitmap {
     pub dwFlags: u32,
     pub hdc: super::super::Graphics::Gdi::HDC,
-    pub pDDS: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub pDDS: super::super::Graphics::Direct3D9::IDirect3DSurface9,
     pub rSrc: super::super::Foundation::RECT,
     pub rDest: VMR9NormalizedRect,
     pub fAlpha: f32,
@@ -11730,7 +11730,7 @@ impl ::core::clone::Clone for VMR9PresentationFlags {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct VMR9PresentationInfo {
     pub dwFlags: u32,
-    pub lpSurf: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub lpSurf: super::super::Graphics::Direct3D9::IDirect3DSurface9,
     pub rtStart: i64,
     pub rtEnd: i64,
     pub szAspectRatio: super::super::Foundation::SIZE,
@@ -11834,7 +11834,7 @@ impl ::core::clone::Clone for VMR9VideoDesc {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct VMR9VideoStreamInfo {
-    pub pddsVideoSurface: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub pddsVideoSurface: super::super::Graphics::Direct3D9::IDirect3DSurface9,
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub dwStrmID: u32,
@@ -11891,7 +11891,7 @@ impl ::core::clone::Clone for VMRALLOCATIONINFO {
 pub struct VMRALPHABITMAP {
     pub dwFlags: u32,
     pub hdc: super::super::Graphics::Gdi::HDC,
-    pub pDDS: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>,
+    pub pDDS: super::super::Graphics::DirectDraw::IDirectDrawSurface7,
     pub rSrc: super::super::Foundation::RECT,
     pub rDest: NORMALIZEDRECT,
     pub fAlpha: f32,
@@ -12040,7 +12040,7 @@ impl ::core::clone::Clone for VMRMode {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
-    pub lpSurf: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>,
+    pub lpSurf: super::super::Graphics::DirectDraw::IDirectDrawSurface7,
     pub rtStart: i64,
     pub rtEnd: i64,
     pub szAspectRatio: super::super::Foundation::SIZE,
@@ -12104,7 +12104,7 @@ impl ::core::clone::Clone for VMRSurfaceAllocationFlags {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct VMRVIDEOSTREAMINFO {
-    pub pddsVideoSurface: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>,
+    pub pddsVideoSurface: super::super::Graphics::DirectDraw::IDirectDrawSurface7,
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub dwStrmID: u32,

@@ -6512,9 +6512,9 @@ impl ::core::clone::Clone for IPSEC_KEY_MANAGER0 {
 pub struct IPSEC_KEY_MANAGER_CALLBACKS0 {
     pub reserved: ::windows_sys::core::GUID,
     pub flags: u32,
-    pub keyDictationCheck: ::core::option::Option<IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0>,
-    pub keyDictation: ::core::option::Option<IPSEC_KEY_MANAGER_DICTATE_KEY0>,
-    pub keyNotify: ::core::option::Option<IPSEC_KEY_MANAGER_NOTIFY_KEY0>,
+    pub keyDictationCheck: IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0,
+    pub keyDictation: IPSEC_KEY_MANAGER_DICTATE_KEY0,
+    pub keyNotify: IPSEC_KEY_MANAGER_NOTIFY_KEY0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for IPSEC_KEY_MANAGER_CALLBACKS0 {}

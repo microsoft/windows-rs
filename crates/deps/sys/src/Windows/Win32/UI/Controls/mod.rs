@@ -624,8 +624,8 @@ pub struct CCINFOA {
     pub szTextDefault: [super::super::Foundation::CHAR; 256],
     pub cStyleFlags: i32,
     pub aStyleFlags: *mut CCSTYLEFLAGA,
-    pub lpfnStyle: ::core::option::Option<LPFNCCSTYLEA>,
-    pub lpfnSizeToText: ::core::option::Option<LPFNCCSIZETOTEXTA>,
+    pub lpfnStyle: LPFNCCSTYLEA,
+    pub lpfnSizeToText: LPFNCCSIZETOTEXTA,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
@@ -651,8 +651,8 @@ pub struct CCINFOW {
     pub cStyleFlags: i32,
     pub aStyleFlags: *mut CCSTYLEFLAGW,
     pub szTextDefault: [u16; 256],
-    pub lpfnStyle: ::core::option::Option<LPFNCCSTYLEW>,
-    pub lpfnSizeToText: ::core::option::Option<LPFNCCSIZETOTEXTW>,
+    pub lpfnStyle: LPFNCCSTYLEW,
+    pub lpfnSizeToText: LPFNCCSIZETOTEXTW,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
@@ -1181,7 +1181,7 @@ pub struct DTTOPTS {
     pub iStateId: i32,
     pub fApplyOverlay: super::super::Foundation::BOOL,
     pub iGlowSize: i32,
-    pub pfnDrawTextCallback: ::core::option::Option<DTT_CALLBACK_PROC>,
+    pub pfnDrawTextCallback: DTT_CALLBACK_PROC,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2517,7 +2517,7 @@ pub const LVIM_AFTER: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVINSERTGROUPSORTED {
-    pub pfnGroupCompare: ::core::option::Option<PFNLVGROUPCOMPARE>,
+    pub pfnGroupCompare: PFNLVGROUPCOMPARE,
     pub pvData: *mut ::core::ffi::c_void,
     pub lvGroup: LVGROUP,
 }
@@ -5122,7 +5122,7 @@ pub struct PROPSHEETHEADERA_V1 {
     pub nPages: u32,
     pub Anonymous2: PROPSHEETHEADERA_V1_1,
     pub Anonymous3: PROPSHEETHEADERA_V1_2,
-    pub pfnCallback: ::core::option::Option<PFNPROPSHEETCALLBACK>,
+    pub pfnCallback: PFNPROPSHEETCALLBACK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V1 {}
@@ -5186,7 +5186,7 @@ pub struct PROPSHEETHEADERA_V2 {
     pub nPages: u32,
     pub Anonymous2: PROPSHEETHEADERA_V2_1,
     pub Anonymous3: PROPSHEETHEADERA_V2_2,
-    pub pfnCallback: ::core::option::Option<PFNPROPSHEETCALLBACK>,
+    pub pfnCallback: PFNPROPSHEETCALLBACK,
     pub Anonymous4: PROPSHEETHEADERA_V2_3,
     pub hplWatermark: super::super::Graphics::Gdi::HPALETTE,
     pub Anonymous5: PROPSHEETHEADERA_V2_4,
@@ -5281,7 +5281,7 @@ pub struct PROPSHEETHEADERW_V1 {
     pub nPages: u32,
     pub Anonymous2: PROPSHEETHEADERW_V1_1,
     pub Anonymous3: PROPSHEETHEADERW_V1_2,
-    pub pfnCallback: ::core::option::Option<PFNPROPSHEETCALLBACK>,
+    pub pfnCallback: PFNPROPSHEETCALLBACK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V1 {}
@@ -5345,7 +5345,7 @@ pub struct PROPSHEETHEADERW_V2 {
     pub nPages: u32,
     pub Anonymous2: PROPSHEETHEADERW_V2_1,
     pub Anonymous3: PROPSHEETHEADERW_V2_2,
-    pub pfnCallback: ::core::option::Option<PFNPROPSHEETCALLBACK>,
+    pub pfnCallback: PFNPROPSHEETCALLBACK,
     pub Anonymous4: PROPSHEETHEADERW_V2_3,
     pub hplWatermark: super::super::Graphics::Gdi::HPALETTE,
     pub Anonymous5: PROPSHEETHEADERW_V2_4,
@@ -5437,9 +5437,9 @@ pub struct PROPSHEETPAGEA {
     pub Anonymous1: PROPSHEETPAGEA_0,
     pub Anonymous2: PROPSHEETPAGEA_1,
     pub pszTitle: super::super::Foundation::PSTR,
-    pub pfnDlgProc: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub pfnCallback: ::core::option::Option<LPFNPSPCALLBACKA>,
+    pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
     pub pszHeaderTitle: super::super::Foundation::PSTR,
     pub pszHeaderSubTitle: super::super::Foundation::PSTR,
@@ -5505,9 +5505,9 @@ pub struct PROPSHEETPAGEA_V1 {
     pub Anonymous1: PROPSHEETPAGEA_V1_0,
     pub Anonymous2: PROPSHEETPAGEA_V1_1,
     pub pszTitle: super::super::Foundation::PSTR,
-    pub pfnDlgProc: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub pfnCallback: ::core::option::Option<LPFNPSPCALLBACKA>,
+    pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -5555,9 +5555,9 @@ pub struct PROPSHEETPAGEA_V2 {
     pub Anonymous1: PROPSHEETPAGEA_V2_0,
     pub Anonymous2: PROPSHEETPAGEA_V2_1,
     pub pszTitle: super::super::Foundation::PSTR,
-    pub pfnDlgProc: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub pfnCallback: ::core::option::Option<LPFNPSPCALLBACKA>,
+    pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
     pub pszHeaderTitle: super::super::Foundation::PSTR,
     pub pszHeaderSubTitle: super::super::Foundation::PSTR,
@@ -5607,9 +5607,9 @@ pub struct PROPSHEETPAGEA_V3 {
     pub Anonymous1: PROPSHEETPAGEA_V3_0,
     pub Anonymous2: PROPSHEETPAGEA_V3_1,
     pub pszTitle: super::super::Foundation::PSTR,
-    pub pfnDlgProc: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub pfnCallback: ::core::option::Option<LPFNPSPCALLBACKA>,
+    pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
     pub pszHeaderTitle: super::super::Foundation::PSTR,
     pub pszHeaderSubTitle: super::super::Foundation::PSTR,
@@ -5660,9 +5660,9 @@ pub struct PROPSHEETPAGEW {
     pub Anonymous1: PROPSHEETPAGEW_0,
     pub Anonymous2: PROPSHEETPAGEW_1,
     pub pszTitle: super::super::Foundation::PWSTR,
-    pub pfnDlgProc: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub pfnCallback: ::core::option::Option<LPFNPSPCALLBACKW>,
+    pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
     pub pszHeaderTitle: super::super::Foundation::PWSTR,
     pub pszHeaderSubTitle: super::super::Foundation::PWSTR,
@@ -5728,9 +5728,9 @@ pub struct PROPSHEETPAGEW_V1 {
     pub Anonymous1: PROPSHEETPAGEW_V1_0,
     pub Anonymous2: PROPSHEETPAGEW_V1_1,
     pub pszTitle: super::super::Foundation::PWSTR,
-    pub pfnDlgProc: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub pfnCallback: ::core::option::Option<LPFNPSPCALLBACKW>,
+    pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -5778,9 +5778,9 @@ pub struct PROPSHEETPAGEW_V2 {
     pub Anonymous1: PROPSHEETPAGEW_V2_0,
     pub Anonymous2: PROPSHEETPAGEW_V2_1,
     pub pszTitle: super::super::Foundation::PWSTR,
-    pub pfnDlgProc: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub pfnCallback: ::core::option::Option<LPFNPSPCALLBACKW>,
+    pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
     pub pszHeaderTitle: super::super::Foundation::PWSTR,
     pub pszHeaderSubTitle: super::super::Foundation::PWSTR,
@@ -5830,9 +5830,9 @@ pub struct PROPSHEETPAGEW_V3 {
     pub Anonymous1: PROPSHEETPAGEW_V3_0,
     pub Anonymous2: PROPSHEETPAGEW_V3_1,
     pub pszTitle: super::super::Foundation::PWSTR,
-    pub pfnDlgProc: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub pfnCallback: ::core::option::Option<LPFNPSPCALLBACKW>,
+    pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
     pub pszHeaderTitle: super::super::Foundation::PWSTR,
     pub pszHeaderSubTitle: super::super::Foundation::PWSTR,
@@ -6363,7 +6363,7 @@ pub struct TASKDIALOGCONFIG {
     pub pszCollapsedControlText: super::super::Foundation::PWSTR,
     pub Anonymous2: TASKDIALOGCONFIG_1,
     pub pszFooter: super::super::Foundation::PWSTR,
-    pub pfCallback: ::core::option::Option<PFTASKDIALOGCALLBACK>,
+    pub pfCallback: PFTASKDIALOGCALLBACK,
     pub lpCallbackData: isize,
     pub cxWidth: u32,
 }
@@ -8159,7 +8159,7 @@ pub const TVSI_NOSINGLEEXPAND: u32 = 32768u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct TVSORTCB {
     pub hParent: HTREEITEM,
-    pub lpfnCompare: ::core::option::Option<PFNTVCOMPARE>,
+    pub lpfnCompare: PFNTVCOMPARE,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_Foundation")]
