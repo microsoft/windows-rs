@@ -69,4 +69,4 @@ impl ::core::clone::Clone for UpdateImpactLevel {
         *self
     }
 }
-pub const WaaSAssessor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 160364657, data2: 64159, data3: 18095, data4: [137, 88, 192, 131, 81, 93, 124, 156] };
+pub const WaaSAssessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 160364657, data2: 64159, data3: 18095, data4: [137, 88, 192, 131, 81, 93, 124, 156] };

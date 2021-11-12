@@ -2797,8 +2797,8 @@ pub const D3D_SPEC_DATE_DAY: u32 = 8u32;
 pub const D3D_SPEC_DATE_MONTH: u32 = 8u32;
 pub const D3D_SPEC_DATE_YEAR: u32 = 2006u32;
 pub const D3D_SPEC_VERSION: f64 = 1.050005f64;
-pub const DXGI_DEBUG_D3D10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 607865938, data2: 13830, data3: 19770, data4: [153, 215, 167, 231, 179, 62, 215, 6] };
-pub const GUID_DeviceType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3609393997, data2: 31336, data3: 17274, data4: [178, 12, 88, 4, 238, 36, 148, 166] };
+pub const DXGI_DEBUG_D3D10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 607865938, data2: 13830, data3: 19770, data4: [153, 215, 167, 231, 179, 62, 215, 6] };
+pub const GUID_DeviceType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3609393997, data2: 31336, data3: 17274, data4: [178, 12, 88, 4, 238, 36, 148, 166] };
 #[repr(transparent)]
 pub struct ID3D10Asynchronous(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -41,7 +41,7 @@ impl ::core::clone::Clone for RENDEZVOUS_SESSION_STATE {
         *self
     }
 }
-pub const RendezvousApplication: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RendezvousApplication: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 192807322,
     data2: 46558,
     data3: 18426,

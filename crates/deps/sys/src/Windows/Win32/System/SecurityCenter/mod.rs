@@ -32,8 +32,8 @@ impl ::core::clone::Clone for SECURITY_PRODUCT_TYPE {
         *self
     }
 }
-pub const WSCDefaultProduct: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 696361838, data2: 61997, data3: 4581, data4: [156, 233, 94, 85, 23, 80, 124, 102] };
-pub const WSCProductList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 386346875, data2: 39614, data3: 19060, data4: [162, 97, 30, 183, 107, 85, 16, 122] };
+pub const WSCDefaultProduct: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 696361838, data2: 61997, data3: 4581, data4: [156, 233, 94, 85, 23, 80, 124, 102] };
+pub const WSCProductList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 386346875, data2: 39614, data3: 19060, data4: [162, 97, 30, 183, 107, 85, 16, 122] };
 #[repr(transparent)]
 pub struct WSC_SECURITY_PRODUCT_STATE(pub i32);
 pub const WSC_SECURITY_PRODUCT_STATE_ON: WSC_SECURITY_PRODUCT_STATE = WSC_SECURITY_PRODUCT_STATE(0i32);

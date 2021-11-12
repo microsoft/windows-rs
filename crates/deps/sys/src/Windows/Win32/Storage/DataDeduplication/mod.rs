@@ -61,7 +61,7 @@ impl ::core::clone::Clone for DEDUP_SET_PARAM_TYPE {
         *self
     }
 }
-pub const DedupBackupSupport: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DedupBackupSupport: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1943450285,
     data2: 10628,
     data3: 18197,
@@ -110,7 +110,7 @@ impl ::core::clone::Clone for DedupCompressionAlgorithm {
         *self
     }
 }
-pub const DedupDataPort: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2400219655, data2: 6185, data3: 18610, data4: [166, 75, 230, 31, 142, 13, 154, 203] };
+pub const DedupDataPort: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2400219655, data2: 6185, data3: 18610, data4: [166, 75, 230, 31, 142, 13, 154, 203] };
 #[repr(transparent)]
 pub struct DedupDataPortManagerOption(pub i32);
 pub const DedupDataPortManagerOption_None: DedupDataPortManagerOption = DedupDataPortManagerOption(0i32);

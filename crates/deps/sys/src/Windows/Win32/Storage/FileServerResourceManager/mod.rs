@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-pub const AdSyncTask: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 719734609, data2: 46888, data3: 19819, data4: [151, 160, 178, 218, 46, 125, 42, 59] };
+pub const AdSyncTask: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 719734609, data2: 46888, data3: 19819, data4: [151, 160, 178, 218, 46, 125, 42, 59] };
 #[repr(transparent)]
 pub struct AdrClientDisplayFlags(pub i32);
 pub const AdrClientDisplayFlags_AllowEmailRequests: AdrClientDisplayFlags = AdrClientDisplayFlags(1i32);
@@ -193,7 +193,7 @@ pub const FSRM_E_XML_CORRUPTED: ::windows_sys::core::HRESULT = ::windows_sys::co
 pub const FSRM_S_CLASSIFICATION_SCAN_FAILURES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(283398i32 as _);
 pub const FSRM_S_PARTIAL_BATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(283396i32 as _);
 pub const FSRM_S_PARTIAL_CLASSIFICATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(283397i32 as _);
-pub const FsrmAccessDeniedRemediationClient: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FsrmAccessDeniedRemediationClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 269176776,
     data2: 29889,
     data3: 18191,
@@ -240,7 +240,7 @@ impl ::core::clone::Clone for FsrmClassificationLoggingFlags {
         *self
     }
 }
-pub const FsrmClassificationManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FsrmClassificationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2975600199,
     data2: 50065,
     data3: 17849,
@@ -306,7 +306,7 @@ impl ::core::clone::Clone for FsrmExecutionOption {
         *self
     }
 }
-pub const FsrmExportImport: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 344120375, data2: 64233, data3: 18311, data4: [144, 37, 140, 228, 224, 36, 171, 86] };
+pub const FsrmExportImport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 344120375, data2: 64233, data3: 18311, data4: [144, 37, 140, 228, 224, 36, 171, 86] };
 #[repr(transparent)]
 pub struct FsrmFileConditionType(pub i32);
 pub const FsrmFileConditionType_Unknown: FsrmFileConditionType = FsrmFileConditionType(0i32);
@@ -317,13 +317,13 @@ impl ::core::clone::Clone for FsrmFileConditionType {
         *self
     }
 }
-pub const FsrmFileGroupManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FsrmFileGroupManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2400412662,
     data2: 25967,
     data3: 17558,
     data4: [146, 38, 19, 174, 203, 215, 113, 143],
 };
-pub const FsrmFileManagementJobManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3944282546, data2: 19514, data3: 17185, data4: [178, 3, 32, 81, 32, 207, 246, 20] };
+pub const FsrmFileManagementJobManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3944282546, data2: 19514, data3: 17185, data4: [178, 3, 32, 81, 32, 207, 246, 20] };
 #[repr(transparent)]
 pub struct FsrmFileManagementLoggingFlags(pub i32);
 pub const FsrmFileManagementLoggingFlags_None: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(0i32);
@@ -357,13 +357,13 @@ impl ::core::clone::Clone for FsrmFileScreenFlags {
         *self
     }
 }
-pub const FsrmFileScreenManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FsrmFileScreenManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2509508995,
     data2: 56147,
     data3: 19551,
     data4: [179, 123, 125, 9, 33, 207, 157, 199],
 };
-pub const FsrmFileScreenTemplateManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 607195615, data2: 58484, data3: 18090, data4: [160, 84, 234, 163, 62, 220, 41, 42] };
+pub const FsrmFileScreenTemplateManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 607195615, data2: 58484, data3: 18090, data4: [160, 84, 234, 163, 62, 220, 41, 42] };
 #[repr(transparent)]
 pub struct FsrmFileStreamingInterfaceType(pub i32);
 pub const FsrmFileStreamingInterfaceType_Unknown: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(0i32);
@@ -419,13 +419,13 @@ pub const FsrmMaxNumberThresholds: u32 = 16u32;
 pub const FsrmMaxThresholdValue: u32 = 250u32;
 pub const FsrmMinQuotaLimit: u32 = 1024u32;
 pub const FsrmMinThresholdValue: u32 = 1u32;
-pub const FsrmPathMapper: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FsrmPathMapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4089332413,
     data2: 35522,
     data3: 16542,
     data4: [187, 216, 250, 249, 182, 180, 31, 235],
 };
-pub const FsrmPipelineModuleConnector: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3345232757, data2: 7861, data3: 17630, data4: [160, 98, 98, 53, 71, 217, 51, 188] };
+pub const FsrmPipelineModuleConnector: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3345232757, data2: 7861, data3: 17630, data4: [160, 98, 98, 53, 71, 217, 51, 188] };
 #[repr(transparent)]
 pub struct FsrmPipelineModuleType(pub i32);
 pub const FsrmPipelineModuleType_Unknown: FsrmPipelineModuleType = FsrmPipelineModuleType(0i32);
@@ -570,8 +570,8 @@ impl ::core::clone::Clone for FsrmQuotaFlags {
         *self
     }
 }
-pub const FsrmQuotaManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2430380927, data2: 13436, data3: 19452, data4: [181, 67, 84, 3, 38, 48, 95, 190] };
-pub const FsrmQuotaTemplateManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2547242051, data2: 9500, data3: 17207, data4: [129, 231, 179, 46, 143, 78, 230, 94] };
+pub const FsrmQuotaManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2430380927, data2: 13436, data3: 19452, data4: [181, 67, 84, 3, 38, 48, 95, 190] };
+pub const FsrmQuotaTemplateManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2547242051, data2: 9500, data3: 17207, data4: [129, 231, 179, 46, 143, 78, 230, 94] };
 #[repr(transparent)]
 pub struct FsrmReportFilter(pub i32);
 pub const FsrmReportFilter_MinSize: FsrmReportFilter = FsrmReportFilter(1i32);
@@ -634,7 +634,7 @@ impl ::core::clone::Clone for FsrmReportLimit {
         *self
     }
 }
-pub const FsrmReportManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5828407, data2: 43622, data3: 19528, data4: [189, 91, 47, 206, 67, 42, 176, 200] };
+pub const FsrmReportManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5828407, data2: 43622, data3: 19528, data4: [189, 91, 47, 206, 67, 42, 176, 200] };
 #[repr(transparent)]
 pub struct FsrmReportRunningStatus(pub i32);
 pub const FsrmReportRunningStatus_Unknown: FsrmReportRunningStatus = FsrmReportRunningStatus(0i32);
@@ -647,7 +647,7 @@ impl ::core::clone::Clone for FsrmReportRunningStatus {
         *self
     }
 }
-pub const FsrmReportScheduler: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FsrmReportScheduler: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3928355256,
     data2: 7053,
     data3: 17040,
@@ -698,7 +698,7 @@ impl ::core::clone::Clone for FsrmRuleType {
         *self
     }
 }
-pub const FsrmSetting: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4116109064, data2: 27981, data3: 17812, data4: [156, 97, 125, 187, 13, 174, 42, 70] };
+pub const FsrmSetting: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4116109064, data2: 27981, data3: 17812, data4: [156, 97, 125, 187, 13, 174, 42, 70] };
 #[repr(transparent)]
 pub struct FsrmStorageModuleCaps(pub i32);
 pub const FsrmStorageModuleCaps_Unknown: FsrmStorageModuleCaps = FsrmStorageModuleCaps(0i32);

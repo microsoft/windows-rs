@@ -1159,7 +1159,7 @@ impl ::core::clone::Clone for WSMAN_USERNAME_PASSWORD_CREDS {
         *self
     }
 }
-pub const WSMan: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WSMan: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3169673595,
     data2: 60419,
     data3: 16907,
@@ -1228,7 +1228,7 @@ impl ::core::clone::Clone for WSManEnumFlags {
         *self
     }
 }
-pub const WSManInternal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2111866789, data2: 24011, data3: 19959, data4: [187, 18, 9, 36, 173, 143, 189, 154] };
+pub const WSManInternal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2111866789, data2: 24011, data3: 19959, data4: [187, 18, 9, 36, 173, 143, 189, 154] };
 #[repr(transparent)]
 pub struct WSManProxyAccessType(pub i32);
 pub const WSMAN_OPTION_PROXY_IE_PROXY_CONFIG: WSManProxyAccessType = WSManProxyAccessType(1i32);

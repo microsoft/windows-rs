@@ -141,16 +141,16 @@ impl ::core::clone::Clone for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
     }
 }
 pub const DXGI_CREATE_FACTORY_DEBUG: u32 = 1u32;
-pub const DXGI_DEBUG_ALL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXGI_DEBUG_ALL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3834307203,
     data2: 55936,
     data3: 18699,
     data4: [135, 230, 67, 233, 169, 207, 218, 8],
 };
-pub const DXGI_DEBUG_APP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 114126337, data2: 16921, data3: 20157, data4: [135, 9, 39, 237, 35, 54, 12, 98] };
+pub const DXGI_DEBUG_APP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 114126337, data2: 16921, data3: 20157, data4: [135, 9, 39, 237, 35, 54, 12, 98] };
 pub const DXGI_DEBUG_BINARY_VERSION: u32 = 1u32;
-pub const DXGI_DEBUG_DX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 902682620, data2: 5042, data3: 16925, data4: [165, 215, 126, 68, 81, 40, 125, 100] };
-pub const DXGI_DEBUG_DXGI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 634247844, data2: 45510, data3: 18401, data4: [172, 62, 152, 135, 91, 90, 46, 42] };
+pub const DXGI_DEBUG_DX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 902682620, data2: 5042, data3: 16925, data4: [165, 215, 126, 68, 81, 40, 125, 100] };
+pub const DXGI_DEBUG_DXGI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 634247844, data2: 45510, data3: 18401, data4: [172, 62, 152, 135, 91, 90, 46, 42] };
 #[repr(transparent)]
 pub struct DXGI_DEBUG_RLO_FLAGS(pub u32);
 pub const DXGI_DEBUG_RLO_SUMMARY: DXGI_DEBUG_RLO_FLAGS = DXGI_DEBUG_RLO_FLAGS(1u32);

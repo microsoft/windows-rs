@@ -536,13 +536,13 @@ pub struct IPropertySystem(pub *mut ::core::ffi::c_void);
 pub struct IPropertySystemChangeNotify(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPropertyUI(pub *mut ::core::ffi::c_void);
-pub const InMemoryPropertyStore: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InMemoryPropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2583879698,
     data2: 25347,
     data3: 19998,
     data4: [185, 161, 99, 15, 128, 37, 146, 197],
 };
-pub const InMemoryPropertyStoreMarshalByValue: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InMemoryPropertyStoreMarshalByValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3570011693,
     data2: 28071,
     data3: 19317,
@@ -937,7 +937,7 @@ impl ::core::clone::Clone for PSTIME_FLAGS {
         *self
     }
 }
-pub const PropertySystem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3096870789, data2: 22702, data3: 20294, data4: [159, 178, 93, 121, 4, 121, 143, 75] };
+pub const PropertySystem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3096870789, data2: 22702, data3: 20294, data4: [159, 178, 93, 121, 4, 121, 143, 75] };
 #[repr(C)]
 pub struct SERIALIZEDPROPSTORAGE(pub u8);
 #[repr(transparent)]

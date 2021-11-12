@@ -3010,7 +3010,7 @@ impl ::core::clone::Clone for ProofOfPossessionCookieInfo {
         *self
     }
 }
-pub const ProofOfPossessionCookieInfoManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2844950405, data2: 41732, data3: 17296, data4: [139, 35, 167, 95, 28, 102, 134, 0] };
+pub const ProofOfPossessionCookieInfoManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2844950405, data2: 41732, data3: 17296, data4: [139, 35, 167, 95, 28, 102, 134, 0] };
 pub const REDIRECT_CACHE_ENTRY: u32 = 2048u32;
 #[repr(transparent)]
 pub struct REQUEST_TIMES(pub i32);

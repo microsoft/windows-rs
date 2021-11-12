@@ -623,7 +623,7 @@ impl ::core::clone::Clone for CRED_TYPE {
 pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
 pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
 pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
-pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1356681776, data2: 47754, data3: 4561, data4: [191, 93, 0, 0, 248, 5, 245, 48] };
+pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1356681776, data2: 47754, data3: 4561, data4: [191, 93, 0, 0, 248, 5, 245, 48] };
 #[repr(C)]
 pub struct KeyCredentialManagerInfo {
     pub containerId: ::windows_sys::core::GUID,

@@ -159,8 +159,8 @@ impl ::core::clone::Clone for FhBackupStopReason {
         *self
     }
 }
-pub const FhConfigMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3980639036, data2: 2537, data3: 18826, data4: [157, 246, 33, 119, 36, 76, 109, 180] };
-pub const FhReassociation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1299353141, data2: 5882, data3: 17184, data4: [158, 139, 191, 215, 16, 10, 136, 70] };
+pub const FhConfigMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3980639036, data2: 2537, data3: 18826, data4: [157, 246, 33, 119, 36, 76, 109, 180] };
+pub const FhReassociation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1299353141, data2: 5882, data3: 17184, data4: [158, 139, 191, 215, 16, 10, 136, 70] };
 #[repr(transparent)]
 pub struct IFhConfigMgr(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -61,7 +61,7 @@ extern "system" {
 }
 pub const FACILITY_NONE: u32 = 0u32;
 pub const FACILITY_WINBIO: u32 = 9u32;
-pub const GUID_DEVINTERFACE_BIOMETRIC_READER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVINTERFACE_BIOMETRIC_READER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3803519034,
     data2: 39402,
     data3: 19651,

@@ -398,7 +398,7 @@ fn gen_sys_guid(guid: &GUID) -> TokenStream {
     // TODO: once code complete measure how much longer it takes if-any to use from_u128 to produce a more compact package
 
     quote! {
-        ::windows_sys::GUID { data1:#a, data2:#b, data3:#c, data4:[#d, #e, #f, #g, #h, #i, #j, #k] }
+        ::windows_sys::core::GUID { data1:#a, data2:#b, data3:#c, data4:[#d, #e, #f, #g, #h, #i, #j, #k] }
     }
 }
 

@@ -2,8 +2,17 @@
 #[repr(transparent)]
 #[allow(non_camel_case_types)]
 pub struct HRESULT(pub u32);
-impl ::core::marker::Copy for HRESULT {}
-impl ::core::clone::Clone for HRESULT {
+impl core::marker::Copy for HRESULT {}
+impl core::clone::Clone for HRESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+
+#[repr(transparent)]
+pub struct HSTRING(*mut core::ffi::c_void);
+impl ::core::marker::Copy for HSTRING {}
+impl ::core::clone::Clone for HSTRING {
     fn clone(&self) -> Self {
         *self
     }

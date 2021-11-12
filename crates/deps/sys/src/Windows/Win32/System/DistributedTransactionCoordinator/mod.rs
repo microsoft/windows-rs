@@ -41,8 +41,8 @@ impl ::core::clone::Clone for BOID {
         *self
     }
 }
-pub const CLSID_MSDtcTransaction: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 972609387, data2: 2344, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
-pub const CLSID_MSDtcTransactionManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1528343393, data2: 2333, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
+pub const CLSID_MSDtcTransaction: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 972609387, data2: 2344, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
+pub const CLSID_MSDtcTransactionManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1528343393, data2: 2333, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
 pub const DTCINSTALL_E_CLIENT_ALREADY_INSTALLED: i32 = 384i32;
 pub const DTCINSTALL_E_SERVER_ALREADY_INSTALLED: i32 = 385i32;
 #[cfg(feature = "Win32_Foundation")]

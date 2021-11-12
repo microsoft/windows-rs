@@ -995,7 +995,7 @@ impl ::core::clone::Clone for SHV_COMBINATION_TYPE {
         *self
     }
 }
-pub const SdoMachine: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3911289575, data2: 40593, data3: 4561, data4: [191, 96, 0, 128, 199, 132, 107, 192] };
+pub const SdoMachine: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3911289575, data2: 40593, data3: 4561, data4: [191, 96, 0, 128, 199, 132, 107, 192] };
 #[repr(transparent)]
 pub struct TEMPLATESPROPERTIES(pub i32);
 pub const PROPERTY_TEMPLATES_POLICIES_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1024i32);

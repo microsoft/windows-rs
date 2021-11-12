@@ -67,8 +67,8 @@ impl ::core::clone::Clone for ADDURL_FLAG {
         *self
     }
 }
-pub const AnchorClick: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 332742972, data2: 13241, data3: 4562, data4: [149, 167, 0, 192, 79, 142, 203, 2] };
-pub const ApplicationCache: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616873, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const AnchorClick: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 332742972, data2: 13241, data3: 4562, data4: [149, 167, 0, 192, 79, 142, 203, 2] };
+pub const ApplicationCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616873, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct BEHAVIOR_EVENT(pub i32);
 pub const BEHAVIOREVENT_FIRST: BEHAVIOR_EVENT = BEHAVIOR_EVENT(0i32);
@@ -161,7 +161,7 @@ impl ::core::clone::Clone for BEHAVIOR_RENDER_INFO {
         *self
     }
 }
-pub const BlockFormats: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612785, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const BlockFormats: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612785, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct BoolValue(pub i32);
 pub const True: BoolValue = BoolValue(1i32);
@@ -186,15 +186,15 @@ impl ::core::clone::Clone for CARET_DIRECTION {
         *self
     }
 }
-pub const CATID_MSOfficeAntiVirus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1459604528, data2: 54168, data3: 4560, data4: [178, 174, 0, 160, 201, 8, 250, 73] };
-pub const CClientCaps: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2123088974, data2: 44799, data3: 4561, data4: [137, 194, 0, 192, 79, 182, 191, 196] };
-pub const CDeviceRect: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612436, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CDownloadBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612158, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CEventObj: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611850, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CGID_DocHostCommandHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4086022722, data2: 47440, data3: 4561, data4: [137, 24, 0, 192, 79, 194, 200, 54] };
-pub const CGID_EditStateCommands: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611894, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CHeaderFooter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612429, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CLayoutRect: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612324, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CATID_MSOfficeAntiVirus: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1459604528, data2: 54168, data3: 4560, data4: [178, 174, 0, 160, 201, 8, 250, 73] };
+pub const CClientCaps: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2123088974, data2: 44799, data3: 4561, data4: [137, 194, 0, 192, 79, 182, 191, 196] };
+pub const CDeviceRect: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612436, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CDownloadBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612158, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CEventObj: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611850, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CGID_DocHostCommandHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4086022722, data2: 47440, data3: 4561, data4: [137, 24, 0, 192, 79, 194, 200, 54] };
+pub const CGID_EditStateCommands: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611894, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CHeaderFooter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612429, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CLayoutRect: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612324, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const CMDID_HOSTCONTEXT_URL: u32 = 8u32;
 pub const CMDID_SCRIPTSITE_ALLOWRECOVERY: u32 = 9u32;
 pub const CMDID_SCRIPTSITE_BASEIURI: u32 = 10u32;
@@ -211,7 +211,7 @@ pub const CMD_ZOOM_ONEPAGE: i32 = -2i32;
 pub const CMD_ZOOM_PAGEWIDTH: i32 = -1i32;
 pub const CMD_ZOOM_SELECTION: i32 = -4i32;
 pub const CMD_ZOOM_TWOPAGES: i32 = -3i32;
-pub const CMimeTypes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611710, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CMimeTypes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611710, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const COLOR_NO_TRANSPARENT: u32 = 4294967295u32;
 pub const CONTEXT_MENU_ANCHOR: u32 = 5u32;
 pub const CONTEXT_MENU_CONTROL: u32 = 2u32;
@@ -250,28 +250,28 @@ impl ::core::clone::Clone for COORD_SYSTEM {
         *self
     }
 }
-pub const COpsProfile: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611714, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CPersistDataPeer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611847, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CPersistHistory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611912, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CPersistShortcut: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611910, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CPersistSnapshot: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611913, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CPersistUserData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611854, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CPlugins: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611711, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CPrintManagerTemplatePrinter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const COpsProfile: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611714, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPersistDataPeer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611847, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPersistHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611912, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPersistShortcut: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611910, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPersistSnapshot: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611913, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPersistUserData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611854, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPlugins: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611711, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPrintManagerTemplatePrinter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1667342164,
     data2: 40305,
     data3: 19491,
     data4: [160, 141, 80, 215, 241, 141, 178, 233],
 };
-pub const CTemplatePrinter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612403, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CanvasGradient: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616597, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CanvasImageData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616603, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CanvasPattern: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616599, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CanvasRenderingContext2D: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616576, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CanvasTextMetrics: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616601, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CoDitherToRGB8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2824916560, data2: 14608, data3: 4560, data4: [134, 252, 0, 160, 201, 19, 247, 80] };
-pub const CoMapMIMEToCLSID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 818131072, data2: 12539, data3: 4560, data4: [183, 36, 0, 170, 0, 108, 26, 1] };
-pub const CoSniffStream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1778515360, data2: 12511, data3: 4560, data4: [183, 36, 0, 170, 0, 108, 26, 1] };
+pub const CTemplatePrinter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612403, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CanvasGradient: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616597, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CanvasImageData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616603, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CanvasPattern: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616599, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CanvasRenderingContext2D: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616576, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CanvasTextMetrics: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616601, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CoDitherToRGB8: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2824916560, data2: 14608, data3: 4560, data4: [134, 252, 0, 160, 201, 19, 247, 80] };
+pub const CoMapMIMEToCLSID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 818131072, data2: 12539, data3: 4560, data4: [183, 36, 0, 170, 0, 108, 26, 1] };
+pub const CoSniffStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1778515360, data2: 12511, data3: 4560, data4: [183, 36, 0, 170, 0, 108, 26, 1] };
 pub const DEBUGCALLBACKNOTIFICATION_ANIMATIONFRAME: u32 = 8u32;
 pub const DEBUGCALLBACKNOTIFICATION_DOMEVENT: u32 = 16u32;
 pub const DEBUGCALLBACKNOTIFICATION_IMMEDIATE: u32 = 4u32;
@@ -6291,33 +6291,33 @@ impl ::core::clone::Clone for DOCHOSTUITYPE {
         *self
     }
 }
-pub const DOMBeforeUnloadEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616676, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMChildrenCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612138, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMCloseEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616832, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMCompositionEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616537, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMCustomEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616543, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMDocumentType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616633, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMDragEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616674, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615995, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMException: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616620, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMFocusEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616525, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMKeyboardEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616535, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMMSAnimationEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616760, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMMSManipulationEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616855, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMMSTransitionEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616758, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMMessageEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616609, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMMouseEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616527, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMMouseWheelEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616529, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMMutationEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616539, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMParser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616706, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMParserFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616708, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMProcessingInstruction: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616643, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMProgressEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616607, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMSiteModeEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616678, data2: 39094, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMStorageEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616611, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMTextEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616533, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMUIEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616523, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const DOMWheelEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616531, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMBeforeUnloadEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616676, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMChildrenCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612138, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMCloseEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616832, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMCompositionEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616537, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMCustomEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616543, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMDocumentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616633, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMDragEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616674, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615995, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMException: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616620, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMFocusEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616525, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMKeyboardEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616535, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMSAnimationEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616760, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMSManipulationEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616855, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMSTransitionEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616758, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMessageEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616609, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMouseEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616527, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMouseWheelEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616529, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMutationEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616539, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMParser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616706, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMParserFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616708, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMProcessingInstruction: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616643, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMProgressEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616607, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMSiteModeEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616678, data2: 39094, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMStorageEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616611, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMTextEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616533, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMUIEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616523, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMWheelEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616531, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct DOM_EVENT_PHASE(pub i32);
 pub const DEP_CAPTURING_PHASE: DOM_EVENT_PHASE = DOM_EVENT_PHASE(1i32);
@@ -7227,7 +7227,7 @@ pub const E_SURFACE_NOSURFACE: i32 = -2147434496i32;
 pub const E_SURFACE_NOTMYDC: i32 = -2147434491i32;
 pub const E_SURFACE_NOTMYPOINTER: i32 = -2147434494i32;
 pub const E_SURFACE_UNKNOWN_FORMAT: i32 = -2147434495i32;
-pub const EventException: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616635, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const EventException: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616635, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct ExtensionValidationContexts(pub i32);
 pub const ExtensionValidationContextNone: ExtensionValidationContexts = ExtensionValidationContexts(0i32);
@@ -7267,20 +7267,20 @@ impl ::core::clone::Clone for FINDTEXT_FLAGS {
         *self
     }
 }
-pub const FontNames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612794, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const FramesCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612726, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTCAttachBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612213, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTCDefaultDispatch: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611964, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTCDescBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612189, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTCEventBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611966, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTCMethodBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612272, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTCPropertyBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612190, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLAnchorElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611272, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const FontNames: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612794, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const FramesCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612726, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTCAttachBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612213, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTCDefaultDispatch: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611964, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTCDescBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612189, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTCEventBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611966, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTCMethodBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612272, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTCPropertyBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612190, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLAnchorElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611272, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLAnchorEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLAnchorEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLAppBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612171, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLAppBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612171, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLAppFlag(pub i32);
 pub const HTMLAppFlagNo: HTMLAppFlag = HTMLAppFlag(0i32);
@@ -7296,21 +7296,21 @@ impl ::core::clone::Clone for HTMLAppFlag {
         *self
     }
 }
-pub const HTMLAreaElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611331, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLAreaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611331, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLAreaEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLAreaEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLAreasCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611914, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLAttributeCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611916, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLAudioElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616590, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLAudioElementFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616812, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLBGsound: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611568, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLBRElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611328, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLBaseElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611318, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLBaseFontElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611330, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLBlockElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611329, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLBody: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611274, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLAreasCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611914, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLAttributeCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611916, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLAudioElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616590, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLAudioElementFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616812, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLBGsound: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611568, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLBRElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611328, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLBaseElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611318, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLBaseFontElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611330, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLBlockElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611329, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLBody: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611274, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLBorder(pub i32);
 pub const HTMLBorderNone: HTMLBorder = HTMLBorder(0i32);
@@ -7338,18 +7338,18 @@ impl ::core::clone::Clone for HTMLBorderStyle {
         *self
     }
 }
-pub const HTMLButtonElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611398, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLButtonElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611398, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLButtonElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLButtonElementEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLCSSImportRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616560, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLCSSMediaList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616626, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLCSSMediaRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616561, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLCSSNamespaceRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616562, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLCSSRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616559, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLCSSStyleDeclaration: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616641, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLCanvasElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616549, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCSSImportRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616560, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCSSMediaList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616626, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCSSMediaRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616561, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCSSNamespaceRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616562, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCSSRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616559, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCSSStyleDeclaration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616641, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCanvasElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616549, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLCaptionFlag(pub i32);
 pub const HTMLCaptionFlagNo: HTMLCaptionFlag = HTMLCaptionFlag(0i32);
@@ -7361,30 +7361,30 @@ impl ::core::clone::Clone for HTMLCaptionFlag {
         *self
     }
 }
-pub const HTMLCommentElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611479, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCommentElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611479, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLControlElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLControlElementEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLCurrentStyle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611676, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLDDElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611327, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCurrentStyle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611676, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDDElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611327, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLDLG_ALLOW_UNKNOWN_THREAD: u32 = 512u32;
 pub const HTMLDLG_MODAL: u32 = 32u32;
 pub const HTMLDLG_MODELESS: u32 = 64u32;
 pub const HTMLDLG_NOUI: u32 = 16u32;
 pub const HTMLDLG_PRINT_TEMPLATE: u32 = 128u32;
 pub const HTMLDLG_VERIFY: u32 = 256u32;
-pub const HTMLDListElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611325, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLDOMAttribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611890, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLDOMImplementation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612750, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLDOMRange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616515, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLDOMTextNode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611898, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLDOMXmlSerializerFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616704, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLDTElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611324, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLDefaults: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612424, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLDialog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611338, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLDivElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611326, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLDivPosition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611273, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDListElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611325, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDOMAttribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611890, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDOMImplementation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612750, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDOMRange: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616515, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDOMTextNode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611898, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDOMXmlSerializerFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616704, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDTElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611324, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDefaults: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612424, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611338, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDivElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611326, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDivPosition: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611273, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLDlgBorder(pub i32);
 pub const HTMLDlgBorderThin: HTMLDlgBorder = HTMLDlgBorder(0i32);
@@ -7440,9 +7440,9 @@ impl ::core::clone::Clone for HTMLDlgFlag {
         *self
     }
 }
-pub const HTMLDocument: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 624126240, data2: 1017, data3: 4559, data4: [143, 208, 0, 170, 0, 104, 111, 19] };
-pub const HTMLDocumentCompatibleInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615835, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLDocumentCompatibleInfoCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615833, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 624126240, data2: 1017, data3: 4559, data4: [143, 208, 0, 170, 0, 104, 111, 19] };
+pub const HTMLDocumentCompatibleInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615835, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDocumentCompatibleInfoCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615833, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLDocumentEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -7451,7 +7451,7 @@ pub struct HTMLDocumentEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLDocumentEvents3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLDocumentEvents4(pub *mut ::core::ffi::c_void);
-pub const HTMLElementCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611915, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLElementCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611915, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -7460,74 +7460,74 @@ pub struct HTMLElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLElementEvents3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLElementEvents4(pub *mut ::core::ffi::c_void);
-pub const HTMLEmbed: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611293, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLFieldSetElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611688, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLFontElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611323, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLFormElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611281, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLEmbed: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611293, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLFieldSetElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611688, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLFontElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611323, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLFormElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611281, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLFormElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLFormElementEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLFrameBase: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611474, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLFrameElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611476, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLFrameSetSite: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611482, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLFrameBase: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611474, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLFrameElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611476, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLFrameSetSite: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611482, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLFrameSiteEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLFrameSiteEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLGenericElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611896, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLHRElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611282, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLHeadElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611859, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLHeaderElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611322, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLHistory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4274956963, data2: 33797, data3: 4559, data4: [139, 161, 0, 170, 0, 71, 109, 166] };
-pub const HTMLHtmlElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611857, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLIFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611478, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLImageElementFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611599, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLImg: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611265, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLGenericElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611896, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLHRElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611282, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLHeadElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611859, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLHeaderElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611322, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4274956963, data2: 33797, data3: 4559, data4: [139, 161, 0, 170, 0, 71, 109, 166] };
+pub const HTMLHtmlElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611857, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLIFrame: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611478, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLImageElementFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611599, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLImg: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611265, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLImgEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLImgEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLInputButtonElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611380, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLInputElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612184, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLInputFileElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611374, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLInputButtonElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611380, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLInputElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612184, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLInputFileElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611374, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLInputFileElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLInputFileElementEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLInputImage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611396, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLInputImage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611396, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLInputImageEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLInputImageEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLInputTextElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611371, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLInputTextElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611371, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLInputTextElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLInputTextElementEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLIsIndexElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611320, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLLIElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611315, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLLabelElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611499, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLIsIndexElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611320, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLLIElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611315, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLLabelElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611499, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLLabelEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLLabelEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLLegendElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611689, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLLinkElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611319, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLLegendElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611689, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLLinkElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611319, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLLinkElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLLinkElementEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLListElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611314, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLLocation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 373010913, data2: 28160, data3: 4559, data4: [131, 122, 72, 220, 4, 193, 0, 0] };
-pub const HTMLMSCSSKeyframeRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616846, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLMSCSSKeyframesRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616847, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLMapElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611313, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLListElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611314, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLLocation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 373010913, data2: 28160, data3: 4559, data4: [131, 122, 72, 220, 4, 193, 0, 0] };
+pub const HTMLMSCSSKeyframeRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616846, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLMSCSSKeyframesRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616847, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLMapElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611313, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLMapEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLMapEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLMarqueeElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611385, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLMarqueeElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611385, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLMarqueeElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -7543,9 +7543,9 @@ impl ::core::clone::Clone for HTMLMaximizeFlag {
         *self
     }
 }
-pub const HTMLMediaElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616588, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLMediaError: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616586, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLMetaElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611317, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLMediaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616588, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLMediaError: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616586, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLMetaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611317, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLMinimizeFlag(pub i32);
 pub const HTMLMinimizeFlagNo: HTMLMinimizeFlag = HTMLMinimizeFlag(0i32);
@@ -7557,70 +7557,70 @@ impl ::core::clone::Clone for HTMLMinimizeFlag {
         *self
     }
 }
-pub const HTMLNamespace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612412, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLNamespaceCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612409, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLNamespace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612412, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLNamespaceCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612409, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLNamespaceEvents(pub *mut ::core::ffi::c_void);
-pub const HTMLNavigator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4274956966, data2: 33797, data3: 4559, data4: [139, 161, 0, 170, 0, 71, 109, 166] };
-pub const HTMLNextIdElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611321, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLNoShowElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611595, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLOListElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611312, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLObjectElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611278, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLNavigator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4274956966, data2: 33797, data3: 4559, data4: [139, 161, 0, 170, 0, 71, 109, 166] };
+pub const HTMLNextIdElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611321, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLNoShowElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611595, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLOListElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611312, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLObjectElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611278, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLObjectElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLObjectElementEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLOptionButtonElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611390, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLOptionButtonElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611390, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLOptionButtonElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLOptionButtonElementEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLOptionElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611277, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLOptionElementFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611597, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLParaElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611311, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLParamElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612798, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLPerformance: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616655, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLPerformanceNavigation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616657, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLPerformanceTiming: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616659, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLOptionElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611277, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLOptionElementFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611597, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLParaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611311, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLParamElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612798, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLPerformance: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616655, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLPerformanceNavigation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616657, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLPerformanceTiming: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616659, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(C)]
 pub struct HTMLPersistEvents(pub u8);
-pub const HTMLPhraseElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611310, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLPopup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612327, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLProgressElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611413, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLRenderStyle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612394, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLRichtextElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611423, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLRuleStyle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611664, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLScreen: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611549, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLScriptElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611340, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLPhraseElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611310, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLPopup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612327, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLProgressElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611413, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLRenderStyle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612394, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLRichtextElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611423, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLRuleStyle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611664, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLScreen: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611549, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLScriptElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611340, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLScriptEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLScriptEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLSelectElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611269, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLSelectElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611269, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLSelectElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLSelectElementEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLSemanticElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616752, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLSourceElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616589, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLSpanElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611701, data2: 39092, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLSpanFlow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611686, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLStorage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615925, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLStyle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611333, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLStyleElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611581, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLSemanticElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616752, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLSourceElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616589, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLSpanElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611701, data2: 39092, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLSpanFlow: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611686, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStorage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615925, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611333, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611581, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLStyleElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLStyleElementEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLStyleFontFace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611668, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLStyleMedia: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616652, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLStyleSheet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611428, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLStyleSheetPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612719, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLStyleSheetPagesCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612721, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLStyleSheetRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611662, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLStyleSheetRulesAppliedCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3946248261, data2: 9109, data3: 18201, data4: [184, 92, 208, 216, 14, 24, 75, 217] };
-pub const HTMLStyleSheetRulesCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611661, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLStyleSheetsCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611583, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleFontFace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611668, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleMedia: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616652, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleSheet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611428, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleSheetPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612719, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleSheetPagesCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612721, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleSheetRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611662, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleSheetRulesAppliedCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3946248261, data2: 9109, data3: 18201, data4: [184, 92, 208, 216, 14, 24, 75, 217] };
+pub const HTMLStyleSheetRulesCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611661, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleSheetsCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611583, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLSysMenuFlag(pub i32);
 pub const HTMLSysMenuFlagNo: HTMLSysMenuFlag = HTMLSysMenuFlag(0i32);
@@ -7632,37 +7632,37 @@ impl ::core::clone::Clone for HTMLSysMenuFlag {
         *self
     }
 }
-pub const HTMLTable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611307, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLTableCaption: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611436, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLTableCell: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611270, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLTableCol: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611308, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611307, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTableCaption: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611436, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTableCell: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611270, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTableCol: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611308, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLTableEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLTableEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLTableRow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611309, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLTableSection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611433, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLTextAreaElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611372, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTableRow: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611309, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTableSection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611433, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTextAreaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611372, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLTextContainerEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLTextContainerEvents2(pub *mut ::core::ffi::c_void);
-pub const HTMLTextElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611306, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLTimeRanges: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616587, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLTitleElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611332, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLUListElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611305, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLUnknownElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611304, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLUrnCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612096, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLVideoElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616591, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLW3CComputedStyle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616520, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLWindow2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3565842118, data2: 27210, data3: 4559, data4: [148, 167, 68, 69, 83, 84, 0, 0] };
+pub const HTMLTextElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611306, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTimeRanges: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616587, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTitleElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611332, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLUListElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611305, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLUnknownElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611304, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLUrnCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612096, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLVideoElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616591, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLW3CComputedStyle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616520, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLWindow2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3565842118, data2: 27210, data3: 4559, data4: [148, 167, 68, 69, 83, 84, 0, 0] };
 #[repr(transparent)]
 pub struct HTMLWindowEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLWindowEvents2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLWindowEvents3(pub *mut ::core::ffi::c_void);
-pub const HTMLWindowProxy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611601, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLWindowProxy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611601, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLWindowState(pub i32);
 pub const HTMLWindowStateNormal: HTMLWindowState = HTMLWindowState(1i32);
@@ -7675,12 +7675,12 @@ impl ::core::clone::Clone for HTMLWindowState {
         *self
     }
 }
-pub const HTMLWndOptionElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611408, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLWndSelectElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611407, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const HTMLXMLHttpRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615819, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLWndOptionElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611408, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLWndSelectElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611407, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLXMLHttpRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615819, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLXMLHttpRequestEvents(pub *mut ::core::ffi::c_void);
-pub const HTMLXMLHttpRequestFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615821, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLXMLHttpRequestFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615821, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTML_PAINTER(pub i32);
 pub const HTMLPAINTER_OPAQUE: HTML_PAINTER = HTML_PAINTER(1i32);
@@ -7823,8 +7823,8 @@ impl ::core::clone::Clone for HT_RESULTS {
         *self
     }
 }
-pub const HomePage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1986785966, data2: 54864, data3: 4561, data4: [152, 17, 0, 192, 79, 195, 29, 46] };
-pub const HomePageSetting: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const HomePage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1986785966, data2: 54864, data3: 4561, data4: [152, 17, 0, 192, 79, 195, 29, 46] };
+pub const HomePageSetting: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 927788512,
     data2: 34618,
     data3: 19535,
@@ -7832,7 +7832,7 @@ pub const HomePageSetting: ::windows_sys::core::GUID = ::windows_sys::GUID {
 };
 #[repr(C)]
 pub struct HostDialogHelper(pub u8);
-pub const HtmlDlgSafeHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612761, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HtmlDlgSafeHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612761, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct IActiveXUIHandlerSite(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -8498,7 +8498,7 @@ impl ::core::clone::Clone for IELAUNCHURLINFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type IEREGISTERXMLNSFN = unsafe extern "system" fn(lpszuri: super::super::Foundation::PWSTR, clsid: ::windows_sys::core::GUID, fmachine: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-pub const IEWebDriverManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const IEWebDriverManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2419149554,
     data2: 21072,
     data3: 18355,
@@ -9710,8 +9710,8 @@ pub struct IWebGeopositionError(pub *mut ::core::ffi::c_void);
 pub struct IXMLGenericParse(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXMLHttpRequestEventTarget(pub *mut ::core::ffi::c_void);
-pub const IntelliForms: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1631238446, data2: 5823, data3: 4562, data4: [188, 165, 0, 192, 79, 217, 41, 219] };
-pub const InternetExplorerManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3746548788, data2: 1658, data3: 19978, data4: [131, 82, 74, 26, 80, 149, 52, 110] };
+pub const IntelliForms: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1631238446, data2: 5823, data3: 4562, data4: [188, 165, 0, 192, 79, 217, 41, 219] };
+pub const InternetExplorerManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3746548788, data2: 1658, data3: 19978, data4: [131, 82, 74, 26, 80, 149, 52, 110] };
 #[repr(transparent)]
 pub struct Iwfolders(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -9788,9 +9788,9 @@ impl ::core::clone::Clone for MediaActivityNotifyType {
         *self
     }
 }
-pub const NodeIterator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616645, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const OldHTMLDocument: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3565842121, data2: 27210, data3: 4559, data4: [148, 167, 68, 69, 83, 84, 0, 0] };
-pub const OldHTMLFormElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 218419845, data2: 27628, data3: 4559, data4: [139, 151, 0, 170, 0, 71, 109, 166] };
+pub const NodeIterator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616645, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const OldHTMLDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3565842121, data2: 27210, data3: 4559, data4: [148, 167, 68, 69, 83, 84, 0, 0] };
+pub const OldHTMLFormElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 218419845, data2: 27628, data3: 4559, data4: [139, 151, 0, 170, 0, 71, 109, 166] };
 #[repr(transparent)]
 pub struct OpenServiceActivityContentType(pub i32);
 pub const ActivityContentNone: OpenServiceActivityContentType = OpenServiceActivityContentType(-1i32);
@@ -9804,7 +9804,7 @@ impl ::core::clone::Clone for OpenServiceActivityContentType {
         *self
     }
 }
-pub const OpenServiceActivityManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const OpenServiceActivityManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3320829955,
     data2: 20728,
     data3: 17357,
@@ -9822,7 +9822,7 @@ impl ::core::clone::Clone for OpenServiceErrors {
         *self
     }
 }
-pub const OpenServiceManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 159936694, data2: 14826, data3: 18443, data4: [184, 181, 221, 1, 103, 196, 219, 89] };
+pub const OpenServiceManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 159936694, data2: 14826, data3: 18443, data4: [184, 181, 221, 1, 103, 196, 219, 89] };
 #[repr(transparent)]
 pub struct PARSE_FLAGS(pub i32);
 pub const PARSE_ABSOLUTIFYIE40URLS: PARSE_FLAGS = PARSE_FLAGS(1i32);
@@ -9853,7 +9853,7 @@ pub const PRIVACY_URLHASPOLICYREFHEADER: u32 = 2097152u32;
 pub const PRIVACY_URLHASPOLICYREFLINK: u32 = 1048576u32;
 pub const PRIVACY_URLHASPOSTDATA: u32 = 524288u32;
 pub const PRIVACY_URLISTOPLEVEL: u32 = 65536u32;
-pub const PeerFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611919, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const PeerFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611919, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const REGSTR_VAL_FONT_SIZE_DEF: u32 = 2u32;
 pub const REGSTR_VAL_JAVAJIT_DEF: u32 = 0u32;
 pub const REGSTR_VAL_JAVALOGGING_DEF: u32 = 0u32;
@@ -9872,14 +9872,14 @@ pub const REGSTR_VAL_SECURITYWARNONZONECROSSING_DEF: u32 = 1u32;
 pub const REGSTR_VAL_SMOOTHSCROLL_DEF: u32 = 1u32;
 pub const REGSTR_VAL_USEICM_DEF: u32 = 0u32;
 pub const REGSTR_VAL_VISIBLEBANDS_DEF: u32 = 7u32;
-pub const RangeException: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616622, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const RulesApplied: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RangeException: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616622, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const RulesApplied: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2088778016,
     data2: 31315,
     data3: 19750,
     data4: [152, 172, 253, 210, 62, 107, 158, 1],
 };
-pub const RulesAppliedCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RulesAppliedCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1729701614,
     data2: 50127,
     data3: 16559,
@@ -9952,9 +9952,9 @@ pub type SHOWHTMLDIALOGEXFN = unsafe extern "system" fn(hwndparent: super::super
 pub type SHOWHTMLDIALOGFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub type SHOWMODELESSHTMLDIALOGFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, pvarargin: *mut super::super::System::Com::VARIANT, pvaroptions: *mut super::super::System::Com::VARIANT, ppwindow: *mut IHTMLWindow2) -> ::windows_sys::core::HRESULT;
-pub const SID_SEditCommandTarget: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611893, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SID_SHTMLEditHost: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612384, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SID_SHTMLEditServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612729, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SID_SEditCommandTarget: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611893, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SID_SHTMLEditHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612384, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SID_SHTMLEditServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612729, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STATURL {
@@ -10055,100 +10055,100 @@ pub const STDPROPID_XOBJ_WIDTH: u32 = 65541u32;
 pub const SURFACE_LOCK_ALLOW_DISCARD: u32 = 2u32;
 pub const SURFACE_LOCK_EXCLUSIVE: u32 = 1u32;
 pub const SURFACE_LOCK_WAIT: u32 = 4u32;
-pub const SVGAElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616283, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAngle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616196, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAnimatedAngle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616292, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAnimatedBoolean: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616203, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAnimatedEnumeration: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616206, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAnimatedInteger: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616207, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAnimatedLength: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616193, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAnimatedLengthList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616194, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAnimatedNumber: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616200, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAnimatedNumberList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616202, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAnimatedPreserveAspectRatio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616270, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAnimatedRect: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616198, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAnimatedString: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616204, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGAnimatedTransformList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616241, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGCircleElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616184, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGClipPathElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616294, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGDefsElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616176, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGDescElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616178, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616164, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGElementInstance: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616181, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGElementInstanceList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616182, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGEllipseElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616185, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGException: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616624, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGGElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616175, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGGradientElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616278, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGImageElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616271, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGLength: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616190, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGLengthList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616192, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGLineElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616186, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGLinearGradientElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616274, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGMarkerElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616286, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGMaskElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616295, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGMatrix: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616238, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGMetadataElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616279, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGNumber: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616199, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGNumberList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616201, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616242, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSeg: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616243, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegArcAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616251, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegArcRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616252, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegClosePath: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616253, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegCurvetoCubicAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616254, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegCurvetoCubicRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616255, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegCurvetoCubicSmoothAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616256, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegCurvetoCubicSmoothRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616257, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegCurvetoQuadraticAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616258, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegCurvetoQuadraticRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616259, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegCurvetoQuadraticSmoothAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616260, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegCurvetoQuadraticSmoothRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616261, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegLinetoAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616262, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegLinetoHorizontalAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616263, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegLinetoHorizontalRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616264, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegLinetoRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616265, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegLinetoVerticalAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616266, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegLinetoVerticalRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616267, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616244, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegMovetoAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616268, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPathSegMovetoRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616269, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPatternElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616276, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPoint: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616250, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPointList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616249, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPolygonElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616187, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPolylineElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616188, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGPreserveAspectRatio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616272, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGRadialGradientElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616275, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGRect: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616195, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGRectElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616183, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGSVGElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616180, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGScriptElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616289, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGStopElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616277, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGStringList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616205, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGStyleElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616273, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGSwitchElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616280, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGSymbolElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616177, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGTSpanElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616290, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGTextContentElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616285, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGTextElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616287, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGTextPathElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616299, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGTextPositioningElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616288, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGTitleElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616179, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGTransform: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616239, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGTransformList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616240, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGUseElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616208, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGViewElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616284, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const SVGZoomEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616281, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616283, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAngle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616196, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedAngle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616292, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedBoolean: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616203, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedEnumeration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616206, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedInteger: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616207, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedLength: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616193, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedLengthList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616194, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedNumber: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616200, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedNumberList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616202, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedPreserveAspectRatio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616270, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedRect: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616198, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedString: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616204, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedTransformList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616241, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGCircleElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616184, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGClipPathElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616294, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGDefsElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616176, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGDescElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616178, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616164, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGElementInstance: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616181, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGElementInstanceList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616182, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGEllipseElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616185, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGException: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616624, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGGElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616175, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGGradientElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616278, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGImageElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616271, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGLength: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616190, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGLengthList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616192, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGLineElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616186, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGLinearGradientElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616274, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGMarkerElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616286, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGMaskElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616295, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGMatrix: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616238, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGMetadataElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616279, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGNumber: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616199, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGNumberList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616201, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616242, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSeg: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616243, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegArcAbs: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616251, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegArcRel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616252, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegClosePath: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616253, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoCubicAbs: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616254, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoCubicRel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616255, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoCubicSmoothAbs: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616256, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoCubicSmoothRel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616257, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoQuadraticAbs: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616258, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoQuadraticRel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616259, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoQuadraticSmoothAbs: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616260, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoQuadraticSmoothRel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616261, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegLinetoAbs: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616262, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegLinetoHorizontalAbs: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616263, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegLinetoHorizontalRel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616264, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegLinetoRel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616265, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegLinetoVerticalAbs: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616266, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegLinetoVerticalRel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616267, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616244, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegMovetoAbs: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616268, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegMovetoRel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616269, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPatternElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616276, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPoint: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616250, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPointList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616249, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPolygonElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616187, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPolylineElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616188, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPreserveAspectRatio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616272, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGRadialGradientElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616275, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGRect: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616195, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGRectElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616183, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGSVGElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616180, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGScriptElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616289, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGStopElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616277, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGStringList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616205, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGStyleElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616273, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGSwitchElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616280, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGSymbolElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616177, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTSpanElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616290, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTextContentElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616285, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTextElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616287, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTextPathElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616299, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTextPositioningElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616288, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTitleElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616179, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTransform: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616239, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTransformList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616240, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGUseElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616208, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGViewElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616284, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGZoomEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616281, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const S_SURFACE_DISCARDED: i32 = 49155i32;
-pub const Scriptlet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2921659822, data2: 966, data3: 4561, data4: [139, 118, 0, 128, 199, 68, 243, 137] };
-pub const StaticNodeList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615911, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const Scriptlet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2921659822, data2: 966, data3: 4561, data4: [139, 118, 0, 128, 199, 68, 243, 137] };
+pub const StaticNodeList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615911, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const TF_NAVIGATE: u32 = 2142153644u32;
 pub const TIMERMODE_NORMAL: u32 = 0u32;
 pub const TIMERMODE_VISIBILITYAWARE: u32 = 1u32;
 pub const TOOLSBAND: u32 = 1u32;
-pub const ThreadDialogProcParam: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612203, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const TreeWalker: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616647, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const ThreadDialogProcParam: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612203, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const TreeWalker: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616647, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct VIEW_OBJECT_ALPHA_MODE(pub i32);
 pub const VIEW_OBJECT_ALPHA_MODE_IGNORE: VIEW_OBJECT_ALPHA_MODE = VIEW_OBJECT_ALPHA_MODE(0i32);
@@ -10173,14 +10173,14 @@ impl ::core::clone::Clone for VIEW_OBJECT_COMPOSITION_MODE {
 }
 pub const WEBOC_DISPIDBASE: u32 = 70536u32;
 pub const WEBOC_DISPIDMAX: u32 = 70636u32;
-pub const WebGeocoordinates: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616776, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const WebGeolocation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616774, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const WebGeoposition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616782, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const WebGeopositionError: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616778, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const XDomainRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615893, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const XDomainRequestFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615895, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const XMLHttpRequestEventTarget: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616881, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const XMLSerializer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616702, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const WebGeocoordinates: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616776, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const WebGeolocation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616774, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const WebGeoposition: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616782, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const WebGeopositionError: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616778, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const XDomainRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615893, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const XDomainRequestFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615895, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const XMLHttpRequestEventTarget: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616881, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const XMLSerializer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616702, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct __MIDL_ITargetFrame2_0001(pub i32);
 pub const FINDFRAME_NONE: __MIDL_ITargetFrame2_0001 = __MIDL_ITargetFrame2_0001(0i32);
@@ -13281,4 +13281,4 @@ impl ::core::clone::Clone for textpathSpacingtype {
         *self
     }
 }
-pub const wfolders: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3135446938, data2: 7041, data3: 4562, data4: [169, 122, 0, 192, 79, 142, 203, 2] };
+pub const wfolders: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3135446938, data2: 7041, data3: 4562, data4: [169, 122, 0, 192, 79, 142, 203, 2] };

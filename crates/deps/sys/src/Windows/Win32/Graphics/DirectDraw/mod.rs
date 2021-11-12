@@ -51,9 +51,9 @@ impl ::core::clone::Clone for ATTACHLIST {
     }
 }
 pub const CCHDEVICENAME: u32 = 32u32;
-pub const CLSID_DirectDraw: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3619098336, data2: 17216, data3: 4559, data4: [176, 99, 0, 32, 175, 194, 205, 53] };
-pub const CLSID_DirectDraw7: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1009799574, data2: 20699, data3: 4563, data4: [156, 254, 0, 192, 79, 217, 48, 197] };
-pub const CLSID_DirectDrawClipper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1496848288, data2: 32179, data3: 4559, data4: [162, 222, 0, 170, 0, 185, 51, 86] };
+pub const CLSID_DirectDraw: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3619098336, data2: 17216, data3: 4559, data4: [176, 99, 0, 32, 175, 194, 205, 53] };
+pub const CLSID_DirectDraw7: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1009799574, data2: 20699, data3: 4563, data4: [156, 254, 0, 192, 79, 217, 48, 197] };
+pub const CLSID_DirectDrawClipper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1496848288, data2: 32179, data3: 4559, data4: [162, 222, 0, 170, 0, 185, 51, 86] };
 pub const D3DFMT_INTERNAL_D15S1: u32 = 73u32;
 pub const D3DFMT_INTERNAL_D24S8: u32 = 75u32;
 pub const D3DFMT_INTERNAL_D24X8: u32 = 77u32;
@@ -4473,13 +4473,13 @@ pub const DDVPSTATUS_VBIONLY: i32 = 1i32;
 pub const DDVPSTATUS_VIDEOONLY: i32 = 2i32;
 pub const DDVPTARGET_VBI: i32 = 2i32;
 pub const DDVPTARGET_VIDEO: i32 = 1i32;
-pub const DDVPTYPE_BROOKTREE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324183392, data2: 55905, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
-pub const DDVPTYPE_CCIR656: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4238550688, data2: 55904, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
-pub const DDVPTYPE_E_HREFH_VREFH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1425250688, data2: 55904, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
-pub const DDVPTYPE_E_HREFH_VREFL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2457350688, data2: 55904, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
-pub const DDVPTYPE_E_HREFL_VREFH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2692350688, data2: 55904, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
-pub const DDVPTYPE_E_HREFL_VREFL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3768350688, data2: 55904, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
-pub const DDVPTYPE_PHILIPS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 858583392, data2: 55905, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
+pub const DDVPTYPE_BROOKTREE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324183392, data2: 55905, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
+pub const DDVPTYPE_CCIR656: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4238550688, data2: 55904, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
+pub const DDVPTYPE_E_HREFH_VREFH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1425250688, data2: 55904, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
+pub const DDVPTYPE_E_HREFH_VREFL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2457350688, data2: 55904, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
+pub const DDVPTYPE_E_HREFL_VREFH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2692350688, data2: 55904, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
+pub const DDVPTYPE_E_HREFL_VREFL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3768350688, data2: 55904, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
+pub const DDVPTYPE_PHILIPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 858583392, data2: 55905, data3: 4559, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
 pub const DDVPWAIT_BEGIN: i32 = 1i32;
 pub const DDVPWAIT_END: i32 = 2i32;
 pub const DDVPWAIT_LINE: i32 = 3i32;
@@ -6194,50 +6194,50 @@ impl ::core::clone::Clone for DX_IRQDATA {
     }
 }
 pub const DX_OK: u32 = 0u32;
-pub const GUID_ColorControlCallbacks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4023782594, data2: 18919, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
-pub const GUID_D3DCallbacks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2079353232, data2: 34708, data3: 4560, data4: [145, 57, 8, 0, 54, 210, 239, 2] };
-pub const GUID_D3DCallbacks2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 195396833, data2: 28854, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
-pub const GUID_D3DCallbacks3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3723760176, data2: 60426, data3: 4560, data4: [169, 182, 0, 170, 0, 192, 153, 62] };
-pub const GUID_D3DCaps: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2079353233, data2: 34708, data3: 4560, data4: [145, 57, 8, 0, 54, 210, 239, 2] };
-pub const GUID_D3DExtendedCaps: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2112102272, data2: 40339, data3: 4560, data4: [137, 171, 0, 160, 201, 5, 65, 41] };
-pub const GUID_D3DParseUnknownCommandCallback: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 772079520, data2: 39140, data3: 4561, data4: [140, 225, 0, 160, 201, 6, 41, 168] };
-pub const GUID_DDMoreCaps: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2282467120, data2: 45104, data3: 4560, data4: [142, 167, 0, 96, 151, 151, 234, 91] };
-pub const GUID_DDMoreSurfaceCaps: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 998900838, data2: 62057, data3: 4561, data4: [136, 11, 0, 192, 79, 217, 48, 197] };
-pub const GUID_DDStereoMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_ColorControlCallbacks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4023782594, data2: 18919, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
+pub const GUID_D3DCallbacks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2079353232, data2: 34708, data3: 4560, data4: [145, 57, 8, 0, 54, 210, 239, 2] };
+pub const GUID_D3DCallbacks2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 195396833, data2: 28854, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
+pub const GUID_D3DCallbacks3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3723760176, data2: 60426, data3: 4560, data4: [169, 182, 0, 170, 0, 192, 153, 62] };
+pub const GUID_D3DCaps: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2079353233, data2: 34708, data3: 4560, data4: [145, 57, 8, 0, 54, 210, 239, 2] };
+pub const GUID_D3DExtendedCaps: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2112102272, data2: 40339, data3: 4560, data4: [137, 171, 0, 160, 201, 5, 65, 41] };
+pub const GUID_D3DParseUnknownCommandCallback: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 772079520, data2: 39140, data3: 4561, data4: [140, 225, 0, 160, 201, 6, 41, 168] };
+pub const GUID_DDMoreCaps: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2282467120, data2: 45104, data3: 4560, data4: [142, 167, 0, 96, 151, 151, 234, 91] };
+pub const GUID_DDMoreSurfaceCaps: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 998900838, data2: 62057, data3: 4561, data4: [136, 11, 0, 192, 79, 217, 48, 197] };
+pub const GUID_DDStereoMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4163376796,
     data2: 43240,
     data3: 4562,
     data4: [161, 242, 0, 160, 201, 131, 234, 246],
 };
-pub const GUID_DxApi: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2323234544, data2: 47381, data3: 4560, data4: [145, 68, 8, 0, 54, 210, 239, 2] };
-pub const GUID_GetHeapAlignment: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DxApi: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2323234544, data2: 47381, data3: 4560, data4: [145, 68, 8, 0, 54, 210, 239, 2] };
+pub const GUID_GetHeapAlignment: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1121988374,
     data2: 31553,
     data3: 4562,
     data4: [139, 255, 0, 160, 201, 131, 234, 246],
 };
-pub const GUID_KernelCallbacks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2156279808, data2: 27398, data3: 4560, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
-pub const GUID_KernelCaps: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4289361216, data2: 31400, data3: 4560, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
-pub const GUID_Miscellaneous2Callbacks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1080766208, data2: 15962, data3: 4561, data4: [182, 64, 0, 170, 0, 161, 249, 106] };
-pub const GUID_MiscellaneousCallbacks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4023782592, data2: 18919, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
-pub const GUID_MotionCompCallbacks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2970757952, data2: 23973, data3: 4561, data4: [143, 207, 0, 192, 79, 194, 155, 78] };
-pub const GUID_NTCallbacks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1877601502, data2: 57225, data3: 4561, data4: [157, 176, 0, 96, 8, 39, 113, 186] };
-pub const GUID_NTPrivateDriverCaps: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4208028195, data2: 31590, data3: 4562, data4: [131, 215, 0, 192, 79, 124, 229, 140] };
-pub const GUID_NonLocalVidMemCaps: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2261056128, data2: 36228, data3: 4560, data4: [148, 232, 0, 192, 79, 195, 65, 55] };
-pub const GUID_OptSurfaceKmodeInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3764159602, data2: 20948, data3: 4561, data4: [140, 206, 0, 160, 201, 6, 41, 168] };
-pub const GUID_OptSurfaceUmodeInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2641963012, data2: 24488, data3: 4561, data4: [140, 208, 0, 160, 201, 6, 41, 168] };
-pub const GUID_UpdateNonLocalHeap: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_KernelCallbacks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2156279808, data2: 27398, data3: 4560, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
+pub const GUID_KernelCaps: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4289361216, data2: 31400, data3: 4560, data4: [155, 6, 0, 160, 201, 3, 163, 184] };
+pub const GUID_Miscellaneous2Callbacks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1080766208, data2: 15962, data3: 4561, data4: [182, 64, 0, 170, 0, 161, 249, 106] };
+pub const GUID_MiscellaneousCallbacks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4023782592, data2: 18919, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
+pub const GUID_MotionCompCallbacks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2970757952, data2: 23973, data3: 4561, data4: [143, 207, 0, 192, 79, 194, 155, 78] };
+pub const GUID_NTCallbacks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1877601502, data2: 57225, data3: 4561, data4: [157, 176, 0, 96, 8, 39, 113, 186] };
+pub const GUID_NTPrivateDriverCaps: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4208028195, data2: 31590, data3: 4562, data4: [131, 215, 0, 192, 79, 124, 229, 140] };
+pub const GUID_NonLocalVidMemCaps: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2261056128, data2: 36228, data3: 4560, data4: [148, 232, 0, 192, 79, 195, 65, 55] };
+pub const GUID_OptSurfaceKmodeInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3764159602, data2: 20948, data3: 4561, data4: [140, 206, 0, 160, 201, 6, 41, 168] };
+pub const GUID_OptSurfaceUmodeInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2641963012, data2: 24488, data3: 4561, data4: [140, 208, 0, 160, 201, 6, 41, 168] };
+pub const GUID_UpdateNonLocalHeap: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1121988375,
     data2: 31553,
     data3: 4562,
     data4: [139, 255, 0, 160, 201, 131, 234, 246],
 };
-pub const GUID_UserModeDriverInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4038125794, data2: 24471, data3: 4561, data4: [140, 208, 0, 160, 201, 6, 41, 168] };
-pub const GUID_UserModeDriverPassword: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2549637558, data2: 24737, data3: 4561, data4: [140, 208, 0, 160, 201, 6, 41, 168] };
-pub const GUID_VPE2Callbacks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1384653127, data2: 11591, data3: 18074, data4: [160, 209, 3, 69, 88, 144, 246, 200] };
-pub const GUID_VideoPortCallbacks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4023782593, data2: 18919, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
-pub const GUID_VideoPortCaps: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4023782595, data2: 18919, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
-pub const GUID_ZPixelFormats: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2475071616, data2: 14031, data3: 4561, data4: [155, 27, 0, 170, 0, 187, 184, 174] };
+pub const GUID_UserModeDriverInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4038125794, data2: 24471, data3: 4561, data4: [140, 208, 0, 160, 201, 6, 41, 168] };
+pub const GUID_UserModeDriverPassword: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2549637558, data2: 24737, data3: 4561, data4: [140, 208, 0, 160, 201, 6, 41, 168] };
+pub const GUID_VPE2Callbacks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1384653127, data2: 11591, data3: 18074, data4: [160, 209, 3, 69, 88, 144, 246, 200] };
+pub const GUID_VideoPortCallbacks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4023782593, data2: 18919, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
+pub const GUID_VideoPortCaps: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4023782595, data2: 18919, data3: 4560, data4: [136, 157, 0, 170, 0, 187, 183, 106] };
+pub const GUID_ZPixelFormats: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2475071616, data2: 14031, data3: 4561, data4: [155, 27, 0, 170, 0, 187, 184, 174] };
 #[repr(C)]
 pub struct HEAPALIAS {
     pub fpVidMem: usize,

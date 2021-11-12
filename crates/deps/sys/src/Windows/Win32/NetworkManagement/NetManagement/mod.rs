@@ -3156,7 +3156,7 @@ pub const NWSAP_EVENT_WANHANDLEMEMORY_ERROR: i32 = -1073733292i32;
 pub const NWSAP_EVENT_WANSEM_FAIL: i32 = -1073733298i32;
 pub const NWSAP_EVENT_WANSOCKET_FAILED: i32 = -1073733297i32;
 pub const NWSAP_EVENT_WSASTARTUP_FAILED: i32 = -1073733323i32;
-pub const NetProvisioning: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 715306494, data2: 47174, data3: 19719, data4: [129, 12, 178, 30, 228, 83, 32, 227] };
+pub const NetProvisioning: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 715306494, data2: 47174, data3: 19719, data4: [129, 12, 178, 30, 228, 83, 32, 227] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OBO_TOKEN {
@@ -5335,7 +5335,7 @@ pub const SV_VERSION_MINOR_PARMNUM: u32 = 104u32;
 pub const SV_XACTMEMSIZE_PARMNUM: u32 = 531u32;
 pub const SW_AUTOPROF_LOAD_MASK: u32 = 1u32;
 pub const SW_AUTOPROF_SAVE_MASK: u32 = 2u32;
-pub const ServiceAccountPasswordGUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 640588233, data2: 24928, data3: 18545, data4: [172, 236, 78, 97, 115, 107, 111, 33] };
+pub const ServiceAccountPasswordGUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 640588233, data2: 24928, data3: 18545, data4: [172, 236, 78, 97, 115, 107, 111, 33] };
 #[repr(C)]
 pub struct TIME_OF_DAY_INFO {
     pub tod_elapsedt: u32,

@@ -26,13 +26,13 @@ pub struct AsyncIIdentityProvider(pub *mut ::core::ffi::c_void);
 pub struct AsyncIIdentityStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AsyncIIdentityStoreEx(pub *mut ::core::ffi::c_void);
-pub const CIdentityProfileHandler: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CIdentityProfileHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3975528262,
     data2: 58294,
     data3: 17562,
     data4: [181, 107, 67, 245, 143, 134, 120, 20],
 };
-pub const CoClassIdentityStore: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CoClassIdentityStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 819237446,
     data2: 53783,
     data3: 18015,
@@ -93,7 +93,7 @@ impl ::core::clone::Clone for IdentityUpdateEvent {
         *self
     }
 }
-pub const OID_OAssociatedIdentityProviderObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const OID_OAssociatedIdentityProviderObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2563089373,
     data2: 56168,
     data3: 20250,

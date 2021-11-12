@@ -7,8 +7,8 @@ extern "system" {
     pub fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut IXAPO) -> ::windows_sys::core::HRESULT;
     pub fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut IXAudio2, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows_sys::core::HRESULT;
 }
-pub const AudioReverb: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3261283094, data2: 18203, data3: 17560, data4: [184, 197, 79, 9, 89, 226, 236, 9] };
-pub const AudioVolumeMeter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AudioReverb: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3261283094, data2: 18203, data3: 17560, data4: [184, 197, 79, 9, 89, 226, 236, 9] };
+pub const AudioVolumeMeter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1338224998,
     data2: 38698,
     data3: 16591,
@@ -47,7 +47,7 @@ impl ::core::clone::Clone for FXECHO_PARAMETERS {
         *self
     }
 }
-pub const FXEQ: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FXEQ: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4125102359,
     data2: 54980,
     data3: 18522,
@@ -88,7 +88,7 @@ impl ::core::clone::Clone for FXEQ_PARAMETERS {
         *self
     }
 }
-pub const FXEcho: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1345967936, data2: 63286, data3: 17562, data4: [132, 211, 165, 98, 2, 85, 123, 135] };
+pub const FXEcho: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1345967936, data2: 63286, data3: 17562, data4: [132, 211, 165, 98, 2, 85, 123, 135] };
 pub const FXLOUDNESS_DEFAULT_MOMENTARY_MS: u32 = 400u32;
 pub const FXLOUDNESS_DEFAULT_SHORTTERM_MS: u32 = 3000u32;
 pub const FXMASTERINGLIMITER_DEFAULT_LOUDNESS: u32 = 1000u32;
@@ -108,7 +108,7 @@ impl ::core::clone::Clone for FXMASTERINGLIMITER_PARAMETERS {
         *self
     }
 }
-pub const FXMasteringLimiter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3289610518, data2: 11233, data3: 18173, data4: [133, 153, 68, 21, 54, 244, 152, 86] };
+pub const FXMasteringLimiter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3289610518, data2: 11233, data3: 18173, data4: [133, 153, 68, 21, 54, 244, 152, 86] };
 pub const FXREVERB_DEFAULT_DIFFUSION: f32 = 0.9f32;
 pub const FXREVERB_DEFAULT_ROOMSIZE: f32 = 0.6f32;
 pub const FXREVERB_MAX_DIFFUSION: f32 = 1f32;
@@ -126,7 +126,7 @@ impl ::core::clone::Clone for FXREVERB_PARAMETERS {
         *self
     }
 }
-pub const FXReverb: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2107296342, data2: 52072, data3: 18439, data4: [182, 50, 177, 55, 53, 46, 133, 150] };
+pub const FXReverb: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2107296342, data2: 52072, data3: 18439, data4: [182, 50, 177, 55, 53, 46, 133, 150] };
 pub const HRTF_DEFAULT_UNITY_GAIN_DISTANCE: f32 = 1f32;
 pub const HRTF_MAX_GAIN_LIMIT: f32 = 12f32;
 pub const HRTF_MIN_GAIN_LIMIT: f32 = -96f32;

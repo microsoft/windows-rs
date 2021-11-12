@@ -539,7 +539,7 @@ pub const AI_RETURN_TTL: u32 = 128u32;
 pub const AI_SECURE: u32 = 32768u32;
 pub const AI_SECURE_WITH_FALLBACK: u32 = 1048576u32;
 pub const AI_V4MAPPED: u32 = 2048u32;
-pub const ASSOCIATE_NAMERES_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ASSOCIATE_NAMERES_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1503890279,
     data2: 54526,
     data3: 18145,
@@ -2747,8 +2747,8 @@ impl ::core::clone::Clone for RCVALL_VALUE {
         *self
     }
 }
-pub const REAL_TIME_NOTIFICATION_CAPABILITY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1801027994, data2: 23726, data3: 18733, data4: [169, 1, 42, 60, 44, 80, 22, 79] };
-pub const REAL_TIME_NOTIFICATION_CAPABILITY_EX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1749277187, data2: 5450, data3: 17942, data4: [165, 8, 68, 55, 18, 149, 249, 107] };
+pub const REAL_TIME_NOTIFICATION_CAPABILITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1801027994, data2: 23726, data3: 18733, data4: [169, 1, 42, 60, 44, 80, 22, 79] };
+pub const REAL_TIME_NOTIFICATION_CAPABILITY_EX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1749277187, data2: 5450, data3: 17942, data4: [165, 8, 68, 55, 18, 149, 249, 107] };
 #[repr(C)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
@@ -3526,7 +3526,7 @@ impl ::core::clone::Clone for SOCKET_ADDRESS_LIST {
         *self
     }
 }
-pub const SOCKET_DEFAULT2_QM_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2932010908, data2: 14925, data3: 19774, data4: [136, 66, 35, 153, 66, 227, 154, 71] };
+pub const SOCKET_DEFAULT2_QM_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2932010908, data2: 14925, data3: 19774, data4: [136, 66, 35, 153, 66, 227, 154, 71] };
 pub const SOCKET_ERROR: i32 = -1i32;
 pub const SOCKET_INFO_CONNECTION_ENCRYPTED: u32 = 2u32;
 pub const SOCKET_INFO_CONNECTION_IMPERSONATED: u32 = 4u32;

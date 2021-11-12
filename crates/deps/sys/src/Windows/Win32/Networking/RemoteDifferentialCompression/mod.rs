@@ -12,7 +12,7 @@ impl ::core::clone::Clone for FindSimilarFileIndexResults {
         *self
     }
 }
-pub const FindSimilarResults: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903443, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const FindSimilarResults: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903443, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
 #[repr(transparent)]
 pub struct GeneratorParametersType(pub i32);
 pub const RDCGENTYPE_Unused: GeneratorParametersType = GeneratorParametersType(0i32);
@@ -110,7 +110,7 @@ impl ::core::clone::Clone for RdcBufferPointer {
         *self
     }
 }
-pub const RdcComparator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903435, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcComparator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903435, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
 #[repr(transparent)]
 pub struct RdcCreatedTables(pub i32);
 pub const RDCTABLE_InvalidOrUnknown: RdcCreatedTables = RdcCreatedTables(0i32);
@@ -122,11 +122,11 @@ impl ::core::clone::Clone for RdcCreatedTables {
         *self
     }
 }
-pub const RdcFileReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903433, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
-pub const RdcGenerator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903432, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
-pub const RdcGeneratorFilterMaxParameters: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903431, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
-pub const RdcGeneratorParameters: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903430, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
-pub const RdcLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903429, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcFileReader: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903433, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcGenerator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903432, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcGeneratorFilterMaxParameters: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903431, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcGeneratorParameters: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903430, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903429, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
 #[repr(transparent)]
 pub struct RdcMappingAccessMode(pub i32);
 pub const RDCMAPPING_Undefined: RdcMappingAccessMode = RdcMappingAccessMode(0i32);
@@ -197,9 +197,9 @@ impl ::core::clone::Clone for RdcSignaturePointer {
         *self
     }
 }
-pub const RdcSignatureReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903434, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
-pub const RdcSimilarityGenerator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903442, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
-pub const Similarity: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903441, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcSignatureReader: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903434, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const RdcSimilarityGenerator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903442, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const Similarity: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903441, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
 #[repr(C)]
 pub struct SimilarityData {
     pub m_Data: [u8; 16],
@@ -233,7 +233,7 @@ impl ::core::clone::Clone for SimilarityFileId {
 }
 pub const SimilarityFileIdMaxSize: u32 = 32u32;
 pub const SimilarityFileIdMinSize: u32 = 4u32;
-pub const SimilarityFileIdTable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903440, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const SimilarityFileIdTable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903440, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
 #[repr(C)]
 pub struct SimilarityMappedViewInfo {
     pub m_Data: *mut u8,
@@ -245,8 +245,8 @@ impl ::core::clone::Clone for SimilarityMappedViewInfo {
         *self
     }
 }
-pub const SimilarityReportProgress: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903437, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
-pub const SimilarityTableDumpState: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903438, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
-pub const SimilarityTraitsMappedView: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903445, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
-pub const SimilarityTraitsMapping: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903444, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
-pub const SimilarityTraitsTable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2518903439, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const SimilarityReportProgress: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903437, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const SimilarityTableDumpState: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903438, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const SimilarityTraitsMappedView: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903445, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const SimilarityTraitsMapping: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903444, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };
+pub const SimilarityTraitsTable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2518903439, data2: 40380, data3: 4570, data4: [158, 63, 0, 17, 17, 74, 227, 17] };

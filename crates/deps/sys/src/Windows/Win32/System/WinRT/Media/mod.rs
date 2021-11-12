@@ -1,8 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-pub const CLSID_AudioFrameNativeFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 379626425, data2: 40805, data3: 16642, data4: [147, 103, 44, 218, 58, 79, 55, 42] };
-pub const CLSID_VideoFrameNativeFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_AudioFrameNativeFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 379626425, data2: 40805, data3: 16642, data4: [147, 103, 44, 218, 58, 79, 55, 42] };
+pub const CLSID_VideoFrameNativeFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3516151914,
     data2: 1251,
     data3: 18452,

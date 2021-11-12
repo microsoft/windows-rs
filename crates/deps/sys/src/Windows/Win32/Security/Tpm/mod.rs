@@ -9,7 +9,7 @@ pub struct ITpmVirtualSmartCardManager2(pub *mut ::core::ffi::c_void);
 pub struct ITpmVirtualSmartCardManager3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ITpmVirtualSmartCardManagerStatusCallback(pub *mut ::core::ffi::c_void);
-pub const RemoteTpmVirtualSmartCardManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 355377832, data2: 28892, data3: 19545, data4: [139, 42, 50, 170, 60, 160, 220, 172] };
+pub const RemoteTpmVirtualSmartCardManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 355377832, data2: 28892, data3: 19545, data4: [139, 42, 50, 170, 60, 160, 220, 172] };
 #[repr(transparent)]
 pub struct TPMVSCMGR_ERROR(pub i32);
 pub const TPMVSCMGR_ERROR_IMPERSONATION: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(0i32);
@@ -71,7 +71,7 @@ impl ::core::clone::Clone for TPMVSC_ATTESTATION_TYPE {
     }
 }
 pub const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130u32;
-pub const TpmVirtualSmartCardManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const TpmVirtualSmartCardManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 379686534,
     data2: 32622,
     data3: 19488,

@@ -1933,58 +1933,58 @@ impl ::core::clone::Clone for AUTO_SCROLL_DATA {
         *self
     }
 }
-pub const AccessibilityDockingService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AccessibilityDockingService: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 701373766,
     data2: 46209,
     data3: 19104,
     data4: [160, 138, 211, 235, 200, 172, 164, 2],
 };
-pub const AlphabeticalCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1009145030, data2: 29554, data3: 20331, data4: [179, 16, 85, 214, 18, 143, 73, 210] };
-pub const AppShellVerbHandler: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AlphabeticalCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1009145030, data2: 29554, data3: 20331, data4: [179, 16, 85, 214, 18, 143, 73, 210] };
+pub const AppShellVerbHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1322493721,
     data2: 52904,
     data3: 19417,
     data4: [145, 13, 226, 82, 249, 151, 175, 194],
 };
-pub const AppStartupLink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppStartupLink: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 658421223,
     data2: 34992,
     data3: 18499,
     data4: [191, 239, 226, 200, 29, 67, 170, 229],
 };
-pub const AppVisibility: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppVisibility: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2120213465,
     data2: 39007,
     data3: 18696,
     data4: [145, 249, 238, 25, 249, 253, 21, 20],
 };
-pub const ApplicationActivationManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ApplicationActivationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1169822333,
     data2: 4264,
     data3: 18154,
     data4: [138, 183, 86, 234, 144, 120, 148, 60],
 };
-pub const ApplicationAssociationRegistration: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ApplicationAssociationRegistration: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1494354375,
     data2: 30331,
     data3: 17074,
     data4: [159, 186, 68, 238, 70, 21, 242, 199],
 };
-pub const ApplicationAssociationRegistrationUI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ApplicationAssociationRegistrationUI: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 426250349,
     data2: 62389,
     data3: 17615,
     data4: [137, 14, 17, 111, 203, 158, 206, 241],
 };
-pub const ApplicationDesignModeSettings: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ApplicationDesignModeSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2508877749,
     data2: 56498,
     data3: 20399,
     data4: [170, 253, 127, 176, 84, 173, 26, 59],
 };
-pub const ApplicationDestinations: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2260811779, data2: 19819, data3: 20211, data4: [167, 180, 5, 6, 102, 59, 46, 104] };
-pub const ApplicationDocumentLists: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2260648482, data2: 12530, data3: 18400, data4: [159, 37, 96, 209, 28, 215, 92, 40] };
-pub const AttachmentServices: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ApplicationDestinations: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2260811779, data2: 19819, data3: 20211, data4: [167, 180, 5, 6, 102, 59, 46, 104] };
+pub const ApplicationDocumentLists: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2260648482, data2: 12530, data3: 18400, data4: [159, 37, 96, 209, 28, 215, 92, 40] };
+pub const AttachmentServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1093000598,
     data2: 57402,
     data3: 16643,
@@ -2157,64 +2157,64 @@ pub const BFFM_SETSTATUSTEXTW: u32 = 1128u32;
 pub const BFFM_VALIDATEFAILED: u32 = 4u32;
 pub const BFFM_VALIDATEFAILEDA: u32 = 3u32;
 pub const BFFM_VALIDATEFAILEDW: u32 = 4u32;
-pub const BHID_AssociationArray: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BHID_AssociationArray: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3198807831,
     data2: 33521,
     data3: 20320,
     data4: [146, 132, 79, 141, 183, 92, 59, 233],
 };
-pub const BHID_DataObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BHID_DataObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3099639199,
     data2: 60708,
     data3: 17756,
     data4: [131, 230, 213, 57, 12, 79, 232, 196],
 };
-pub const BHID_EnumAssocHandlers: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3098217372, data2: 49900, data3: 20346, data4: [145, 141, 49, 73, 0, 230, 40, 10] };
-pub const BHID_EnumItems: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BHID_EnumAssocHandlers: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3098217372, data2: 49900, data3: 20346, data4: [145, 141, 49, 73, 0, 230, 40, 10] };
+pub const BHID_EnumItems: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2499151129,
     data2: 10320,
     data3: 18724,
     data4: [170, 90, 209, 94, 132, 134, 128, 57],
 };
-pub const BHID_FilePlaceholder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2256002283, data2: 43744, data3: 16389, data4: [141, 61, 84, 127, 168, 82, 248, 37] };
-pub const BHID_Filter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BHID_FilePlaceholder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2256002283, data2: 43744, data3: 16389, data4: [141, 61, 84, 127, 168, 82, 248, 37] };
+pub const BHID_Filter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 953190264,
     data2: 62807,
     data3: 18064,
     data4: [158, 191, 186, 84, 112, 106, 216, 247],
 };
-pub const BHID_LinkTargetItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 964813352, data2: 62809, data3: 4563, data4: [142, 58, 0, 192, 79, 104, 55, 213] };
-pub const BHID_PropertyStore: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 59040164, data2: 5411, data3: 17308, data4: [164, 200, 171, 145, 16, 82, 245, 134] };
-pub const BHID_RandomAccessStream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BHID_LinkTargetItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 964813352, data2: 62809, data3: 4563, data4: [142, 58, 0, 192, 79, 104, 55, 213] };
+pub const BHID_PropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 59040164, data2: 5411, data3: 17308, data4: [164, 200, 171, 145, 16, 82, 245, 134] };
+pub const BHID_RandomAccessStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4050635067,
     data2: 30638,
     data3: 19710,
     data4: [189, 167, 168, 102, 238, 166, 135, 141],
 };
-pub const BHID_SFObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 964813348, data2: 62809, data3: 4563, data4: [142, 58, 0, 192, 79, 104, 55, 213] };
-pub const BHID_SFUIObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 964813349, data2: 62809, data3: 4563, data4: [142, 58, 0, 192, 79, 104, 55, 213] };
-pub const BHID_SFViewObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 964813350, data2: 62809, data3: 4563, data4: [142, 58, 0, 192, 79, 104, 55, 213] };
-pub const BHID_Storage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 964813351, data2: 62809, data3: 4563, data4: [142, 58, 0, 192, 79, 104, 55, 213] };
-pub const BHID_StorageEnum: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1176610019, data2: 61654, data3: 18291, data4: [138, 156, 70, 231, 123, 23, 72, 64] };
-pub const BHID_StorageItem: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BHID_SFObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 964813348, data2: 62809, data3: 4563, data4: [142, 58, 0, 192, 79, 104, 55, 213] };
+pub const BHID_SFUIObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 964813349, data2: 62809, data3: 4563, data4: [142, 58, 0, 192, 79, 104, 55, 213] };
+pub const BHID_SFViewObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 964813350, data2: 62809, data3: 4563, data4: [142, 58, 0, 192, 79, 104, 55, 213] };
+pub const BHID_Storage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 964813351, data2: 62809, data3: 4563, data4: [142, 58, 0, 192, 79, 104, 55, 213] };
+pub const BHID_StorageEnum: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1176610019, data2: 61654, data3: 18291, data4: [138, 156, 70, 231, 123, 23, 72, 64] };
+pub const BHID_StorageItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1078862089,
     data2: 30674,
     data3: 18073,
     data4: [165, 160, 79, 223, 16, 219, 152, 55],
 };
-pub const BHID_Stream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BHID_Stream: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 485209003,
     data2: 31760,
     data3: 18842,
     data4: [164, 23, 146, 202, 22, 196, 203, 131],
 };
-pub const BHID_ThumbnailHandler: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BHID_ThumbnailHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2066638090,
     data2: 36384,
     data3: 20298,
     data4: [176, 158, 101, 151, 175, 199, 47, 176],
 };
-pub const BHID_Transfer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3588441761, data2: 63315, data3: 18738, data4: [180, 3, 69, 116, 128, 14, 36, 152] };
+pub const BHID_Transfer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3588441761, data2: 63315, data3: 18738, data4: [180, 3, 69, 116, 128, 14, 36, 152] };
 pub const BIF_BROWSEFILEJUNCTIONS: u32 = 65536u32;
 pub const BIF_BROWSEFORCOMPUTER: u32 = 4096u32;
 pub const BIF_BROWSEFORPRINTER: u32 = 8192u32;
@@ -2403,20 +2403,20 @@ impl ::core::clone::Clone for CATEGORY_INFO {
         *self
     }
 }
-pub const CATID_BrowsableShellExt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136336, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const CATID_BrowseInPlace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136337, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const CATID_CommBand: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136340, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const CATID_DeskBand: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136338, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const CATID_FilePlaceholderMergeHandler: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CATID_BrowsableShellExt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136336, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const CATID_BrowseInPlace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136337, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const CATID_CommBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136340, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const CATID_DeskBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136338, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const CATID_FilePlaceholderMergeHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1050450513,
     data2: 54442,
     data3: 18544,
     data4: [180, 124, 116, 36, 180, 145, 241, 204],
 };
-pub const CATID_InfoBand: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136339, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const CATID_LocationFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2522631505, data2: 35702, data3: 20055, data4: [128, 183, 86, 77, 46, 164, 181, 94] };
-pub const CATID_LocationProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 456959092, data2: 9748, data3: 16715, data4: [184, 19, 26, 206, 202, 62, 61, 216] };
-pub const CATID_SearchableApplication: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CATID_InfoBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136339, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const CATID_LocationFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2522631505, data2: 35702, data3: 20055, data4: [128, 183, 86, 77, 46, 164, 181, 94] };
+pub const CATID_LocationProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 456959092, data2: 9748, data3: 16715, data4: [184, 19, 26, 206, 202, 62, 61, 216] };
+pub const CATID_SearchableApplication: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 913058090,
     data2: 55731,
     data3: 19903,
@@ -2457,7 +2457,7 @@ impl ::core::clone::Clone for CDBURNINGEXTENSIONRET {
         *self
     }
 }
-pub const CDBurn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4226517509, data2: 48878, data3: 17474, data4: [128, 78, 64, 157, 108, 69, 21, 233] };
+pub const CDBurn: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4226517509, data2: 48878, data3: 17474, data4: [128, 78, 64, 157, 108, 69, 21, 233] };
 #[repr(transparent)]
 pub struct CDCONTROLSTATEF(pub i32);
 pub const CDCS_INACTIVE: CDCONTROLSTATEF = CDCONTROLSTATEF(0i32);
@@ -2470,13 +2470,13 @@ impl ::core::clone::Clone for CDCONTROLSTATEF {
         *self
     }
 }
-pub const CGID_DefView: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1257275152, data2: 53809, data3: 4560, data4: [185, 66, 0, 160, 201, 3, 18, 225] };
-pub const CGID_Explorer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136400, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const CGID_ExplorerBarDoc: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136403, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const CGID_MENUDESKBAR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1553926674, data2: 38302, data3: 4560, data4: [163, 164, 0, 160, 201, 8, 38, 54] };
-pub const CGID_ShellDocView: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136401, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const CGID_ShellServiceObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136402, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const CGID_ShortCut: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2477164368, data2: 38170, data3: 4561, data4: [148, 111, 0, 0, 0, 0, 0, 0] };
+pub const CGID_DefView: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1257275152, data2: 53809, data3: 4560, data4: [185, 66, 0, 160, 201, 3, 18, 225] };
+pub const CGID_Explorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136400, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const CGID_ExplorerBarDoc: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136403, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const CGID_MENUDESKBAR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1553926674, data2: 38302, data3: 4560, data4: [163, 164, 0, 160, 201, 8, 38, 54] };
+pub const CGID_ShellDocView: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136401, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const CGID_ShellServiceObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136402, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const CGID_ShortCut: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2477164368, data2: 38170, data3: 4561, data4: [148, 111, 0, 0, 0, 0, 0, 0] };
 #[repr(C, packed(1))]
 pub struct CIDA {
     pub cidl: u32,
@@ -2492,65 +2492,65 @@ impl ::core::clone::Clone for CIDA {
 pub struct CIE4ConnectionPoint(pub *mut ::core::ffi::c_void);
 pub const CLOSEPROPS_DISCARD: u32 = 1u32;
 pub const CLOSEPROPS_NONE: u32 = 0u32;
-pub const CLSID_ACLCustomMRU: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_ACLCustomMRU: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1765137299,
     data2: 8680,
     data3: 19660,
     data4: [190, 185, 159, 227, 199, 122, 41, 122],
 };
-pub const CLSID_ACLHistory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 12265316, data2: 27255, data3: 4560, data4: [165, 53, 0, 192, 79, 215, 208, 98] };
-pub const CLSID_ACLMRU: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1733731905, data2: 56945, data3: 4560, data4: [131, 27, 0, 170, 0, 91, 67, 131] };
-pub const CLSID_ACLMulti: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 12265317, data2: 27255, data3: 4560, data4: [165, 53, 0, 192, 79, 215, 208, 98] };
-pub const CLSID_ACListISF: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 62928625, data2: 41350, data3: 4560, data4: [130, 74, 0, 170, 0, 91, 67, 131] };
-pub const CLSID_ActiveDesktop: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1963230976, data2: 61215, data3: 4560, data4: [152, 136, 0, 96, 151, 222, 172, 249] };
-pub const CLSID_AutoComplete: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 12265315, data2: 27255, data3: 4560, data4: [165, 53, 0, 192, 79, 215, 208, 98] };
-pub const CLSID_CAnchorBrowsePropertyPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611643, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CLSID_CDocBrowsePropertyPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611636, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CLSID_CFSIconOverlayManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1672814465, data2: 51304, data3: 4560, data4: [153, 156, 0, 192, 79, 214, 85, 225] };
-pub const CLSID_CImageBrowsePropertyPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611635, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CLSID_CURLSearchHook: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3485445632, data2: 6054, data3: 4560, data4: [153, 203, 0, 192, 79, 214, 68, 151] };
-pub const CLSID_CUrlHistory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1010256448, data2: 47844, data3: 4559, data4: [191, 125, 0, 170, 0, 105, 70, 238] };
-pub const CLSID_ControlPanel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 569122848, data2: 15082, data3: 4201, data4: [162, 221, 8, 0, 43, 48, 48, 157] };
-pub const CLSID_DarwinAppPublisher: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3486304160, data2: 41602, data3: 4561, data4: [144, 130, 0, 96, 8, 5, 147, 130] };
-pub const CLSID_DocHostUIHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1884809554, data2: 48411, data3: 4561, data4: [137, 25, 0, 192, 79, 194, 200, 54] };
-pub const CLSID_DragDropHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180116874, data2: 16667, data3: 4562, data4: [131, 154, 0, 192, 79, 217, 24, 208] };
-pub const CLSID_FileTypes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2962351424, data2: 33763, data3: 4559, data4: [167, 19, 0, 32, 175, 215, 151, 98] };
-pub const CLSID_FolderItemsMultiLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1405569062, data2: 43929, data3: 19763, data4: [172, 164, 49, 23, 245, 29, 55, 136] };
-pub const CLSID_FolderShortcut: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 184209105, data2: 59432, data3: 4561, data4: [145, 135, 181, 50, 241, 233, 87, 93] };
-pub const CLSID_HWShellExecute: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_ACLHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 12265316, data2: 27255, data3: 4560, data4: [165, 53, 0, 192, 79, 215, 208, 98] };
+pub const CLSID_ACLMRU: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1733731905, data2: 56945, data3: 4560, data4: [131, 27, 0, 170, 0, 91, 67, 131] };
+pub const CLSID_ACLMulti: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 12265317, data2: 27255, data3: 4560, data4: [165, 53, 0, 192, 79, 215, 208, 98] };
+pub const CLSID_ACListISF: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 62928625, data2: 41350, data3: 4560, data4: [130, 74, 0, 170, 0, 91, 67, 131] };
+pub const CLSID_ActiveDesktop: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1963230976, data2: 61215, data3: 4560, data4: [152, 136, 0, 96, 151, 222, 172, 249] };
+pub const CLSID_AutoComplete: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 12265315, data2: 27255, data3: 4560, data4: [165, 53, 0, 192, 79, 215, 208, 98] };
+pub const CLSID_CAnchorBrowsePropertyPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611643, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CLSID_CDocBrowsePropertyPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611636, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CLSID_CFSIconOverlayManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1672814465, data2: 51304, data3: 4560, data4: [153, 156, 0, 192, 79, 214, 85, 225] };
+pub const CLSID_CImageBrowsePropertyPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611635, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CLSID_CURLSearchHook: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3485445632, data2: 6054, data3: 4560, data4: [153, 203, 0, 192, 79, 214, 68, 151] };
+pub const CLSID_CUrlHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1010256448, data2: 47844, data3: 4559, data4: [191, 125, 0, 170, 0, 105, 70, 238] };
+pub const CLSID_ControlPanel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 569122848, data2: 15082, data3: 4201, data4: [162, 221, 8, 0, 43, 48, 48, 157] };
+pub const CLSID_DarwinAppPublisher: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3486304160, data2: 41602, data3: 4561, data4: [144, 130, 0, 96, 8, 5, 147, 130] };
+pub const CLSID_DocHostUIHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1884809554, data2: 48411, data3: 4561, data4: [137, 25, 0, 192, 79, 194, 200, 54] };
+pub const CLSID_DragDropHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180116874, data2: 16667, data3: 4562, data4: [131, 154, 0, 192, 79, 217, 24, 208] };
+pub const CLSID_FileTypes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2962351424, data2: 33763, data3: 4559, data4: [167, 19, 0, 32, 175, 215, 151, 98] };
+pub const CLSID_FolderItemsMultiLevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1405569062, data2: 43929, data3: 19763, data4: [172, 164, 49, 23, 245, 29, 55, 136] };
+pub const CLSID_FolderShortcut: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 184209105, data2: 59432, data3: 4561, data4: [145, 135, 181, 50, 241, 233, 87, 93] };
+pub const CLSID_HWShellExecute: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4290274655,
     data2: 33209,
     data3: 20430,
     data4: [184, 156, 154, 107, 167, 109, 19, 231],
 };
-pub const CLSID_ISFBand: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3626754736, data2: 22372, data3: 4560, data4: [169, 110, 0, 192, 79, 215, 5, 162] };
-pub const CLSID_Internet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2266780544, data2: 17056, data3: 4201, data4: [162, 234, 8, 0, 43, 48, 48, 157] };
-pub const CLSID_InternetButtons: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 511273344, data2: 40133, data3: 4561, data4: [168, 63, 0, 192, 79, 201, 157, 97] };
-pub const CLSID_InternetShortcut: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4226956096, data2: 58352, data3: 4123, data4: [132, 136, 0, 170, 0, 62, 86, 248] };
-pub const CLSID_LinkColumnProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 619794178, data2: 31516, data3: 4561, data4: [131, 143, 0, 0, 248, 4, 97, 207] };
-pub const CLSID_MSOButtons: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395261112, data2: 41602, data3: 4562, data4: [134, 197, 0, 192, 79, 142, 234, 153] };
-pub const CLSID_MenuBand: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1531817510, data2: 47111, data3: 4560, data4: [152, 21, 0, 192, 79, 217, 25, 114] };
-pub const CLSID_MenuBandSite: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3778999524, data2: 54002, data3: 4560, data4: [152, 22, 0, 192, 79, 217, 25, 114] };
-pub const CLSID_MenuToolbarBase: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1085892112, data2: 46370, data3: 4561, data4: [179, 180, 0, 170, 0, 110, 253, 231] };
-pub const CLSID_MyComputer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 550522848, data2: 15082, data3: 4201, data4: [162, 216, 8, 0, 43, 48, 48, 157] };
-pub const CLSID_MyDocuments: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1158516666, data2: 44325, data3: 4560, data4: [152, 168, 8, 0, 54, 27, 17, 3] };
-pub const CLSID_NetworkDomain: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1189111424, data2: 19440, data3: 4561, data4: [131, 238, 0, 160, 201, 13, 200, 73] };
-pub const CLSID_NetworkServer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3226741392, data2: 19440, data3: 4561, data4: [131, 238, 0, 160, 201, 13, 200, 73] };
-pub const CLSID_NetworkShare: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1420252352, data2: 19440, data3: 4561, data4: [131, 238, 0, 160, 201, 13, 200, 73] };
-pub const CLSID_NewMenu: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3647578880, data2: 59391, data3: 4560, data4: [169, 59, 0, 160, 201, 15, 39, 25] };
-pub const CLSID_Printers: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 573022848, data2: 15082, data3: 4201, data4: [162, 222, 8, 0, 43, 48, 48, 157] };
-pub const CLSID_ProgressDialog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4164434002, data2: 64723, data3: 4561, data4: [166, 185, 0, 96, 151, 223, 91, 212] };
-pub const CLSID_QueryAssociations: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_ISFBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3626754736, data2: 22372, data3: 4560, data4: [169, 110, 0, 192, 79, 215, 5, 162] };
+pub const CLSID_Internet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2266780544, data2: 17056, data3: 4201, data4: [162, 234, 8, 0, 43, 48, 48, 157] };
+pub const CLSID_InternetButtons: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 511273344, data2: 40133, data3: 4561, data4: [168, 63, 0, 192, 79, 201, 157, 97] };
+pub const CLSID_InternetShortcut: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4226956096, data2: 58352, data3: 4123, data4: [132, 136, 0, 170, 0, 62, 86, 248] };
+pub const CLSID_LinkColumnProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 619794178, data2: 31516, data3: 4561, data4: [131, 143, 0, 0, 248, 4, 97, 207] };
+pub const CLSID_MSOButtons: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395261112, data2: 41602, data3: 4562, data4: [134, 197, 0, 192, 79, 142, 234, 153] };
+pub const CLSID_MenuBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1531817510, data2: 47111, data3: 4560, data4: [152, 21, 0, 192, 79, 217, 25, 114] };
+pub const CLSID_MenuBandSite: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3778999524, data2: 54002, data3: 4560, data4: [152, 22, 0, 192, 79, 217, 25, 114] };
+pub const CLSID_MenuToolbarBase: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1085892112, data2: 46370, data3: 4561, data4: [179, 180, 0, 170, 0, 110, 253, 231] };
+pub const CLSID_MyComputer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 550522848, data2: 15082, data3: 4201, data4: [162, 216, 8, 0, 43, 48, 48, 157] };
+pub const CLSID_MyDocuments: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1158516666, data2: 44325, data3: 4560, data4: [152, 168, 8, 0, 54, 27, 17, 3] };
+pub const CLSID_NetworkDomain: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1189111424, data2: 19440, data3: 4561, data4: [131, 238, 0, 160, 201, 13, 200, 73] };
+pub const CLSID_NetworkServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3226741392, data2: 19440, data3: 4561, data4: [131, 238, 0, 160, 201, 13, 200, 73] };
+pub const CLSID_NetworkShare: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1420252352, data2: 19440, data3: 4561, data4: [131, 238, 0, 160, 201, 13, 200, 73] };
+pub const CLSID_NewMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3647578880, data2: 59391, data3: 4560, data4: [169, 59, 0, 160, 201, 15, 39, 25] };
+pub const CLSID_Printers: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 573022848, data2: 15082, data3: 4201, data4: [162, 222, 8, 0, 43, 48, 48, 157] };
+pub const CLSID_ProgressDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4164434002, data2: 64723, data3: 4561, data4: [166, 185, 0, 96, 151, 223, 91, 212] };
+pub const CLSID_QueryAssociations: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2691708157,
     data2: 27818,
     data3: 18772,
     data4: [172, 63, 151, 162, 114, 22, 249, 138],
 };
-pub const CLSID_QuickLinks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 240959265, data2: 53599, data3: 4560, data4: [131, 1, 0, 170, 0, 91, 67, 131] };
-pub const CLSID_RecycleBin: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1684009024, data2: 20609, data3: 4123, data4: [159, 8, 0, 170, 0, 47, 149, 78] };
-pub const CLSID_ShellFldSetExt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1834161088, data2: 35938, data3: 4561, data4: [178, 205, 0, 96, 151, 223, 140, 17] };
-pub const CLSID_ShellThumbnailDiskCache: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 515755904, data2: 41472, data3: 4560, data4: [163, 164, 0, 192, 79, 215, 6, 236] };
-pub const CLSID_ToolbarExtButtons: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 753186264, data2: 41615, data3: 4562, data4: [134, 197, 0, 192, 79, 142, 234, 153] };
+pub const CLSID_QuickLinks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 240959265, data2: 53599, data3: 4560, data4: [131, 1, 0, 170, 0, 91, 67, 131] };
+pub const CLSID_RecycleBin: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1684009024, data2: 20609, data3: 4123, data4: [159, 8, 0, 170, 0, 47, 149, 78] };
+pub const CLSID_ShellFldSetExt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1834161088, data2: 35938, data3: 4561, data4: [178, 205, 0, 96, 151, 223, 140, 17] };
+pub const CLSID_ShellThumbnailDiskCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 515755904, data2: 41472, data3: 4560, data4: [163, 164, 0, 192, 79, 215, 6, 236] };
+pub const CLSID_ToolbarExtButtons: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 753186264, data2: 41615, data3: 4562, data4: [134, 197, 0, 192, 79, 142, 234, 153] };
 pub const CMDID_INTSHORTCUTCREATE: i32 = 1i32;
 pub const CMF_ASYNCVERBSTATE: u32 = 1024u32;
 pub const CMF_CANRENAME: u32 = 16u32;
@@ -2854,19 +2854,19 @@ pub const COPYENGINE_S_PROGRESS_PAUSE: ::windows_sys::core::HRESULT = ::windows_
 pub const COPYENGINE_S_USER_IGNORED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555909i32 as _);
 pub const COPYENGINE_S_USER_RETRY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555908i32 as _);
 pub const COPYENGINE_S_YES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555905i32 as _);
-pub const CPFG_CREDENTIAL_PROVIDER_LABEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 678150131, data2: 47828, data3: 17295, data4: [176, 7, 121, 183, 38, 124, 61, 72] };
-pub const CPFG_CREDENTIAL_PROVIDER_LOGO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 763590517, data2: 63181, data3: 17998, data4: [167, 69, 72, 47, 208, 180, 116, 147] };
-pub const CPFG_LOGON_PASSWORD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1617054970, data2: 42103, data3: 18353, data4: [138, 142, 58, 74, 25, 152, 24, 39] };
-pub const CPFG_LOGON_USERNAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3658857448, data2: 38221, data3: 20435, data4: [176, 244, 31, 181, 185, 11, 23, 75] };
-pub const CPFG_SMARTCARD_PIN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CPFG_CREDENTIAL_PROVIDER_LABEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 678150131, data2: 47828, data3: 17295, data4: [176, 7, 121, 183, 38, 124, 61, 72] };
+pub const CPFG_CREDENTIAL_PROVIDER_LOGO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 763590517, data2: 63181, data3: 17998, data4: [167, 69, 72, 47, 208, 180, 116, 147] };
+pub const CPFG_LOGON_PASSWORD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1617054970, data2: 42103, data3: 18353, data4: [138, 142, 58, 74, 25, 152, 24, 39] };
+pub const CPFG_LOGON_USERNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3658857448, data2: 38221, data3: 20435, data4: [176, 244, 31, 181, 185, 11, 23, 75] };
+pub const CPFG_SMARTCARD_PIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1340417595,
     data2: 37249,
     data3: 18113,
     data4: [176, 164, 157, 237, 212, 219, 125, 234],
 };
-pub const CPFG_SMARTCARD_USERNAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1042206569, data2: 22156, data3: 19862, data4: [157, 89, 70, 68, 65, 116, 226, 214] };
-pub const CPFG_STANDALONE_SUBMIT_BUTTON: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 192613080, data2: 52278, data3: 19801, data4: [128, 43, 130, 247, 20, 250, 112, 34] };
-pub const CPFG_STYLE_LINK_AS_BUTTON: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CPFG_SMARTCARD_USERNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1042206569, data2: 22156, data3: 19862, data4: [157, 89, 70, 68, 65, 116, 226, 214] };
+pub const CPFG_STANDALONE_SUBMIT_BUTTON: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 192613080, data2: 52278, data3: 19801, data4: [128, 43, 130, 247, 20, 250, 112, 34] };
+pub const CPFG_STYLE_LINK_AS_BUTTON: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 143631624,
     data2: 38054,
     data3: 17456,
@@ -3133,7 +3133,7 @@ pub const CSIDL_SYSTEM: u32 = 37u32;
 pub const CSIDL_SYSTEMX86: u32 = 41u32;
 pub const CSIDL_TEMPLATES: u32 = 21u32;
 pub const CSIDL_WINDOWS: u32 = 36u32;
-pub const CScriptErrorList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4023390976, data2: 5647, data3: 4562, data4: [187, 46, 0, 128, 95, 247, 239, 202] };
+pub const CScriptErrorList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4023390976, data2: 5647, data3: 4562, data4: [187, 46, 0, 128, 95, 247, 239, 202] };
 pub const CTF_COINIT: i32 = 8i32;
 pub const CTF_COINIT_MTA: i32 = 4096i32;
 pub const CTF_COINIT_STA: i32 = 8i32;
@@ -3160,7 +3160,7 @@ impl ::core::clone::Clone for CommandStateChangeConstants {
         *self
     }
 }
-pub const ConflictFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 681146540, data2: 41217, data3: 17217, data4: [168, 23, 33, 235, 167, 253, 4, 109] };
+pub const ConflictFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 681146540, data2: 41217, data3: 17217, data4: [168, 23, 33, 235, 167, 253, 4, 109] };
 #[repr(C, packed(1))]
 pub struct DATABLOCK_HEADER {
     pub cbSize: u32,
@@ -3694,33 +3694,33 @@ pub const DWFRF_NORMAL: u32 = 0u32;
 pub struct DWebBrowserEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DWebBrowserEvents2(pub *mut ::core::ffi::c_void);
-pub const DefFolderMenu: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DefFolderMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3325264574,
     data2: 31027,
     data3: 18640,
     data4: [154, 200, 133, 251, 70, 190, 47, 221],
 };
-pub const DesktopGadget: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DesktopGadget: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2454506523,
     data2: 25954,
     data3: 19589,
     data4: [134, 87, 209, 119, 146, 82, 34, 182],
 };
-pub const DesktopWallpaper: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DesktopWallpaper: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3268358416,
     data2: 17934,
     data3: 20417,
     data4: [185, 208, 138, 28, 12, 156, 196, 189],
 };
-pub const DestinationList: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DestinationList: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2012286192,
     data2: 15797,
     data3: 18790,
     data4: [181, 32, 183, 197, 79, 211, 94, 214],
 };
-pub const DocPropShellExtension: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2285073347, data2: 49033, data3: 4561, data4: [190, 53, 8, 0, 54, 177, 26, 3] };
-pub const DriveSizeCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2486532947, data2: 51753, data3: 19320, data4: [131, 174, 232, 254, 116, 9, 19, 79] };
-pub const DriveTypeCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DocPropShellExtension: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2285073347, data2: 49033, data3: 4561, data4: [190, 53, 8, 0, 54, 177, 26, 3] };
+pub const DriveSizeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2486532947, data2: 51753, data3: 19320, data4: [131, 174, 232, 254, 116, 9, 19, 79] };
+pub const DriveTypeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2963862479,
     data2: 17203,
     data3: 19371,
@@ -3748,31 +3748,31 @@ impl ::core::clone::Clone for EDGE_GESTURE_KIND {
         *self
     }
 }
-pub const EP_AdvQueryPane: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3035224971, data2: 13498, data3: 19513, data4: [181, 204, 22, 161, 189, 44, 65, 28] };
-pub const EP_Commands: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EP_AdvQueryPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3035224971, data2: 13498, data3: 19513, data4: [181, 204, 22, 161, 189, 44, 65, 28] };
+pub const EP_Commands: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3648280680,
     data2: 51807,
     data3: 19062,
     data4: [145, 205, 245, 161, 41, 251, 176, 118],
 };
-pub const EP_Commands_Organize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1927812864, data2: 58348, data3: 18016, data4: [191, 36, 60, 59, 123, 100, 136, 6] };
-pub const EP_Commands_View: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 569885485, data2: 61098, data3: 17307, data4: [187, 81, 55, 185, 111, 214, 169, 67] };
-pub const EP_DetailsPane: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EP_Commands_Organize: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1927812864, data2: 58348, data3: 18016, data4: [191, 36, 60, 59, 123, 100, 136, 6] };
+pub const EP_Commands_View: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 569885485, data2: 61098, data3: 17307, data4: [187, 81, 55, 185, 111, 214, 169, 67] };
+pub const EP_DetailsPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1135344011,
     data2: 35256,
     data3: 18221,
     data4: [185, 206, 230, 155, 130, 41, 240, 25],
 };
-pub const EP_NavPane: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3409013538, data2: 9719, data3: 17080, data4: [138, 9, 84, 13, 35, 164, 60, 47] };
-pub const EP_PreviewPane: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2302436305, data2: 17864, data3: 19735, data4: [190, 25, 34, 59, 231, 27, 227, 101] };
-pub const EP_QueryPane: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EP_NavPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3409013538, data2: 9719, data3: 17080, data4: [138, 9, 84, 13, 35, 164, 60, 47] };
+pub const EP_PreviewPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2302436305, data2: 17864, data3: 19735, data4: [190, 25, 34, 59, 231, 27, 227, 101] };
+pub const EP_QueryPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1706876495,
     data2: 20231,
     data3: 20263,
     data4: [131, 167, 26, 252, 164, 223, 125, 221],
 };
-pub const EP_Ribbon: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3530892456, data2: 51698, data3: 18484, data4: [161, 6, 223, 136, 137, 253, 79, 55] };
-pub const EP_StatusBar: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EP_Ribbon: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3530892456, data2: 51698, data3: 18484, data4: [161, 6, 223, 136, 137, 253, 79, 55] };
+pub const EP_StatusBar: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1711167182,
     data2: 23806,
     data3: 19396,
@@ -3903,20 +3903,20 @@ pub const E_USERTILE_FILESIZE: ::windows_sys::core::HRESULT = ::windows_sys::cor
 pub const E_USERTILE_LARGEORDYNAMIC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927214i32 as _);
 pub const E_USERTILE_UNSUPPORTEDFILETYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927216i32 as _);
 pub const E_USERTILE_VIDEOFRAMESIZE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927213i32 as _);
-pub const EnumerableObjectCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 758409409, data2: 13991, data3: 17334, data4: [172, 36, 211, 240, 47, 217, 96, 122] };
-pub const ExecuteFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EnumerableObjectCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 758409409, data2: 13991, data3: 17334, data4: [172, 36, 211, 240, 47, 217, 96, 122] };
+pub const ExecuteFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 299611260,
     data2: 42277,
     data3: 16395,
     data4: [158, 128, 165, 70, 21, 160, 144, 192],
 };
-pub const ExecuteUnknown: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ExecuteUnknown: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3830354984,
     data2: 48572,
     data3: 18823,
     data4: [160, 153, 64, 220, 143, 210, 85, 231],
 };
-pub const ExplorerBrowser: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ExplorerBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1912169349,
     data2: 56790,
     data3: 18643,
@@ -4176,36 +4176,36 @@ impl ::core::clone::Clone for FLYOUT_PLACEMENT {
         *self
     }
 }
-pub const FMTID_Briefcase: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 848136993, data2: 30505, data3: 19452, data4: [149, 76, 144, 43, 50, 157, 86, 176] };
-pub const FMTID_CustomImageProperties: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FMTID_Briefcase: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 848136993, data2: 30505, data3: 19452, data4: [149, 76, 144, 43, 50, 157, 86, 176] };
+pub const FMTID_CustomImageProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2127399694,
     data2: 49462,
     data3: 19099,
     data4: [148, 17, 78, 189, 102, 115, 204, 195],
 };
-pub const FMTID_DRM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FMTID_DRM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2930514404,
     data2: 35246,
     data3: 17672,
     data4: [185, 183, 187, 134, 122, 190, 226, 237],
 };
-pub const FMTID_Displaced: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2601995059, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] };
-pub const FMTID_ImageProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] };
-pub const FMTID_InternetSite: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136353, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const FMTID_Intshcut: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136352, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const FMTID_LibraryProperties: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FMTID_Displaced: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2601995059, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] };
+pub const FMTID_ImageProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 347610529, data2: 309, data3: 19761, data4: [150, 217, 108, 191, 201, 103, 26, 153] };
+pub const FMTID_InternetSite: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136353, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const FMTID_Intshcut: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136352, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const FMTID_LibraryProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1568061055,
     data2: 39741,
     data3: 17595,
     data4: [182, 174, 37, 218, 79, 99, 138, 103],
 };
-pub const FMTID_MUSIC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] };
-pub const FMTID_Misc: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2601995060, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] };
-pub const FMTID_Query: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1231625360, data2: 32279, data3: 4122, data4: [169, 28, 8, 0, 43, 46, 205, 169] };
-pub const FMTID_ShellDetails: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] };
-pub const FMTID_Storage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] };
-pub const FMTID_Volume: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2601995061, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] };
-pub const FMTID_WebView: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FMTID_MUSIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1453537070, data2: 52892, data3: 4562, data4: [159, 14, 0, 96, 151, 198, 134, 246] };
+pub const FMTID_Misc: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2601995060, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] };
+pub const FMTID_Query: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1231625360, data2: 32279, data3: 4122, data4: [169, 28, 8, 0, 43, 46, 205, 169] };
+pub const FMTID_ShellDetails: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 677604006, data2: 38205, data3: 4562, data4: [181, 214, 0, 192, 79, 217, 24, 208] };
+pub const FMTID_Storage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] };
+pub const FMTID_Volume: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2601995061, data2: 16639, data3: 4562, data4: [162, 126, 0, 192, 79, 195, 8, 113] };
+pub const FMTID_WebView: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4062663808,
     data2: 63362,
     data3: 17041,
@@ -4284,508 +4284,508 @@ impl ::core::clone::Clone for FOLDERFLAGS {
         *self
     }
 }
-pub const FOLDERID_AccountPictures: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 9216177, data2: 21940, data3: 19542, data4: [184, 168, 77, 228, 178, 153, 211, 190] };
-pub const FOLDERID_AddNewPrograms: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3730954609, data2: 24252, data3: 20226, data4: [163, 169, 108, 130, 137, 94, 92, 4] };
-pub const FOLDERID_AdminTools: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_AccountPictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 9216177, data2: 21940, data3: 19542, data4: [184, 168, 77, 228, 178, 153, 211, 190] };
+pub const FOLDERID_AddNewPrograms: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3730954609, data2: 24252, data3: 20226, data4: [163, 169, 108, 130, 137, 94, 92, 4] };
+pub const FOLDERID_AdminTools: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1917776240,
     data2: 42029,
     data3: 20463,
     data4: [159, 38, 182, 14, 132, 111, 186, 79],
 };
-pub const FOLDERID_AllAppMods: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_AllAppMods: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2060875929,
     data2: 26287,
     data3: 17338,
     data4: [145, 86, 106, 173, 66, 230, 197, 150],
 };
-pub const FOLDERID_AppCaptures: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_AppCaptures: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3988848241,
     data2: 39128,
     data3: 20298,
     data4: [185, 32, 200, 220, 19, 60, 177, 101],
 };
-pub const FOLDERID_AppDataDesktop: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_AppDataDesktop: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2999313017,
     data2: 31453,
     data3: 17311,
     data4: [178, 140, 196, 31, 225, 187, 246, 114],
 };
-pub const FOLDERID_AppDataDocuments: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_AppDataDocuments: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2078369296,
     data2: 8063,
     data3: 17580,
     data4: [191, 240, 131, 225, 95, 47, 252, 161],
 };
-pub const FOLDERID_AppDataFavorites: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_AppDataFavorites: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2096885692,
     data2: 56863,
     data3: 17834,
     data4: [184, 67, 165, 66, 172, 83, 108, 201],
 };
-pub const FOLDERID_AppDataProgramData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1436369059, data2: 41014, data3: 16634, data4: [175, 97, 132, 203, 67, 10, 77, 52] };
-pub const FOLDERID_AppUpdates: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_AppDataProgramData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1436369059, data2: 41014, data3: 16634, data4: [175, 97, 132, 203, 67, 10, 77, 52] };
+pub const FOLDERID_AppUpdates: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2735066777,
     data2: 62759,
     data3: 18731,
     data4: [139, 26, 126, 118, 250, 152, 214, 228],
 };
-pub const FOLDERID_ApplicationShortcuts: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_ApplicationShortcuts: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2744223617,
     data2: 58866,
     data3: 18576,
     data4: [179, 217, 167, 229, 67, 50, 50, 140],
 };
-pub const FOLDERID_AppsFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 512184461, data2: 35266, data3: 17136, data4: [138, 126, 100, 90, 15, 80, 202, 88] };
-pub const FOLDERID_CDBurning: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_AppsFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 512184461, data2: 35266, data3: 17136, data4: [138, 126, 100, 90, 15, 80, 202, 88] };
+pub const FOLDERID_CDBurning: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2656217872,
     data2: 63501,
     data3: 18911,
     data4: [172, 184, 67, 48, 245, 104, 120, 85],
 };
-pub const FOLDERID_CameraRoll: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2875177083, data2: 31970, data3: 20355, data4: [145, 93, 85, 8, 70, 201, 83, 123] };
-pub const FOLDERID_CameraRollLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 723574645, data2: 7898, data3: 16441, data4: [128, 151, 56, 121, 130, 39, 213, 183] };
-pub const FOLDERID_ChangeRemovePrograms: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3748816556, data2: 37492, data3: 18535, data4: [141, 85, 59, 214, 97, 222, 135, 45] };
-pub const FOLDERID_CommonAdminTools: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_CameraRoll: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2875177083, data2: 31970, data3: 20355, data4: [145, 93, 85, 8, 70, 201, 83, 123] };
+pub const FOLDERID_CameraRollLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 723574645, data2: 7898, data3: 16441, data4: [128, 151, 56, 121, 130, 39, 213, 183] };
+pub const FOLDERID_ChangeRemovePrograms: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3748816556, data2: 37492, data3: 18535, data4: [141, 85, 59, 214, 97, 222, 135, 45] };
+pub const FOLDERID_CommonAdminTools: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3493351037,
     data2: 47811,
     data3: 18327,
     data4: [143, 20, 203, 162, 41, 179, 146, 181],
 };
-pub const FOLDERID_CommonOEMLinks: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_CommonOEMLinks: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3250250448,
     data2: 4319,
     data3: 17204,
     data4: [190, 221, 122, 162, 11, 34, 122, 157],
 };
-pub const FOLDERID_CommonPrograms: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_CommonPrograms: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 20567118,
     data2: 27390,
     data3: 18930,
     data4: [134, 144, 61, 175, 202, 230, 255, 184],
 };
-pub const FOLDERID_CommonStartMenu: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_CommonStartMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2752599833,
     data2: 54830,
     data3: 18717,
     data4: [170, 124, 231, 75, 139, 227, 176, 103],
 };
-pub const FOLDERID_CommonStartMenuPlaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2755692447, data2: 34720, data3: 20349, data4: [183, 0, 2, 7, 185, 102, 25, 74] };
-pub const FOLDERID_CommonStartup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2191911477, data2: 55757, data3: 18373, data4: [150, 41, 225, 93, 47, 113, 78, 110] };
-pub const FOLDERID_CommonTemplates: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_CommonStartMenuPlaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2755692447, data2: 34720, data3: 20349, data4: [183, 0, 2, 7, 185, 102, 25, 74] };
+pub const FOLDERID_CommonStartup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2191911477, data2: 55757, data3: 18373, data4: [150, 41, 225, 93, 47, 113, 78, 110] };
+pub const FOLDERID_CommonTemplates: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3108124647,
     data2: 22444,
     data3: 17223,
     data4: [145, 81, 176, 140, 108, 50, 209, 247],
 };
-pub const FOLDERID_ComputerFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_ComputerFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 180388732,
     data2: 48120,
     data3: 17706,
     data4: [133, 13, 121, 208, 142, 102, 124, 167],
 };
-pub const FOLDERID_ConflictFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_ConflictFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1275001669,
     data2: 13437,
     data3: 16390,
     data4: [165, 190, 172, 12, 176, 86, 113, 146],
 };
-pub const FOLDERID_ConnectionsFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_ConnectionsFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1863113003,
     data2: 11927,
     data3: 17873,
     data4: [136, 255, 176, 209, 134, 184, 222, 221],
 };
-pub const FOLDERID_Contacts: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_Contacts: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1450723412,
     data2: 50891,
     data3: 17963,
     data4: [129, 105, 136, 227, 80, 172, 184, 130],
 };
-pub const FOLDERID_ControlPanelFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_ControlPanelFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2192001771,
     data2: 44724,
     data3: 18012,
     data4: [160, 20, 208, 151, 238, 52, 109, 99],
 };
-pub const FOLDERID_Cookies: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 722433629, data2: 49385, data3: 16753, data4: [144, 142, 8, 166, 17, 184, 79, 246] };
-pub const FOLDERID_CurrentAppMods: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_Cookies: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 722433629, data2: 49385, data3: 16753, data4: [144, 142, 8, 166, 17, 184, 79, 246] };
+pub const FOLDERID_CurrentAppMods: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1035209504,
     data2: 10800,
     data3: 19902,
     data4: [145, 126, 119, 29, 210, 29, 208, 153],
 };
-pub const FOLDERID_Desktop: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_Desktop: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3032468538,
     data2: 56108,
     data3: 16972,
     data4: [176, 41, 127, 233, 154, 135, 198, 65],
 };
-pub const FOLDERID_DevelopmentFiles: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3689472142, data2: 12371, data3: 19388, data4: [177, 131, 42, 123, 43, 25, 30, 89] };
-pub const FOLDERID_Device: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 472564188, data2: 17240, data3: 19308, data4: [151, 51, 175, 33, 21, 101, 118, 240] };
-pub const FOLDERID_DeviceMetadataStore: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1558488553, data2: 58603, data3: 18333, data4: [184, 159, 19, 12, 2, 136, 97, 85] };
-pub const FOLDERID_Documents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4258503376, data2: 9103, data3: 18095, data4: [173, 180, 108, 133, 72, 3, 105, 199] };
-pub const FOLDERID_DocumentsLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2064494973, data2: 40146, data3: 19091, data4: [151, 51, 70, 204, 137, 2, 46, 124] };
-pub const FOLDERID_Downloads: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 927851152, data2: 4671, data3: 17765, data4: [145, 100, 57, 196, 146, 94, 70, 123] };
-pub const FOLDERID_Favorites: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 393738081, data2: 26797, data3: 19850, data4: [135, 189, 48, 183, 89, 250, 51, 221] };
-pub const FOLDERID_Fonts: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_DevelopmentFiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3689472142, data2: 12371, data3: 19388, data4: [177, 131, 42, 123, 43, 25, 30, 89] };
+pub const FOLDERID_Device: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 472564188, data2: 17240, data3: 19308, data4: [151, 51, 175, 33, 21, 101, 118, 240] };
+pub const FOLDERID_DeviceMetadataStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1558488553, data2: 58603, data3: 18333, data4: [184, 159, 19, 12, 2, 136, 97, 85] };
+pub const FOLDERID_Documents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4258503376, data2: 9103, data3: 18095, data4: [173, 180, 108, 133, 72, 3, 105, 199] };
+pub const FOLDERID_DocumentsLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2064494973, data2: 40146, data3: 19091, data4: [151, 51, 70, 204, 137, 2, 46, 124] };
+pub const FOLDERID_Downloads: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 927851152, data2: 4671, data3: 17765, data4: [145, 100, 57, 196, 146, 94, 70, 123] };
+pub const FOLDERID_Favorites: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 393738081, data2: 26797, data3: 19850, data4: [135, 189, 48, 183, 89, 250, 51, 221] };
+pub const FOLDERID_Fonts: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4246899895,
     data2: 44561,
     data3: 19171,
     data4: [134, 76, 22, 243, 145, 10, 184, 254],
 };
-pub const FOLDERID_GameTasks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 89108065, data2: 19928, data3: 18311, data4: [128, 182, 9, 2, 32, 196, 183, 0] };
-pub const FOLDERID_Games: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_GameTasks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 89108065, data2: 19928, data3: 18311, data4: [128, 182, 9, 2, 32, 196, 183, 0] };
+pub const FOLDERID_Games: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3401919514,
     data2: 46397,
     data3: 20188,
     data4: [146, 215, 107, 46, 138, 193, 148, 52],
 };
-pub const FOLDERID_History: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3655109179, data2: 46980, data3: 17198, data4: [167, 129, 90, 17, 48, 167, 89, 99] };
-pub const FOLDERID_HomeGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1381141099, data2: 47587, data3: 19165, data4: [182, 13, 88, 140, 45, 186, 132, 45] };
-pub const FOLDERID_HomeGroupCurrentUser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2608117411, data2: 3581, data3: 20241, data4: [158, 120, 95, 120, 0, 242, 231, 114] };
-pub const FOLDERID_ImplicitAppShortcuts: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3165988207, data2: 31222, data3: 19694, data4: [183, 37, 220, 52, 228, 2, 253, 70] };
-pub const FOLDERID_InternetCache: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 891585000, data2: 13246, data3: 16977, data4: [186, 133, 96, 7, 202, 237, 207, 157] };
-pub const FOLDERID_InternetFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1302296692, data2: 19980, data3: 18692, data4: [150, 123, 64, 176, 210, 12, 62, 75] };
-pub const FOLDERID_Libraries: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_History: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3655109179, data2: 46980, data3: 17198, data4: [167, 129, 90, 17, 48, 167, 89, 99] };
+pub const FOLDERID_HomeGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1381141099, data2: 47587, data3: 19165, data4: [182, 13, 88, 140, 45, 186, 132, 45] };
+pub const FOLDERID_HomeGroupCurrentUser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2608117411, data2: 3581, data3: 20241, data4: [158, 120, 95, 120, 0, 242, 231, 114] };
+pub const FOLDERID_ImplicitAppShortcuts: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3165988207, data2: 31222, data3: 19694, data4: [183, 37, 220, 52, 228, 2, 253, 70] };
+pub const FOLDERID_InternetCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 891585000, data2: 13246, data3: 16977, data4: [186, 133, 96, 7, 202, 237, 207, 157] };
+pub const FOLDERID_InternetFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1302296692, data2: 19980, data3: 18692, data4: [150, 123, 64, 176, 210, 12, 62, 75] };
+pub const FOLDERID_Libraries: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 457090524,
     data2: 46471,
     data3: 18310,
     data4: [180, 239, 189, 29, 195, 50, 174, 174],
 };
-pub const FOLDERID_Links: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_Links: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3216627168,
     data2: 50857,
     data3: 16460,
     data4: [178, 178, 174, 109, 182, 175, 73, 104],
 };
-pub const FOLDERID_LocalAppData: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_LocalAppData: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4055050117,
     data2: 28602,
     data3: 20431,
     data4: [157, 85, 123, 142, 127, 21, 112, 145],
 };
-pub const FOLDERID_LocalAppDataLow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2770379172, data2: 6016, data3: 20470, data4: [189, 24, 22, 115, 67, 197, 175, 22] };
-pub const FOLDERID_LocalDocuments: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4096713427, data2: 37023, data3: 18695, data4: [136, 113, 76, 34, 252, 11, 247, 86] };
-pub const FOLDERID_LocalDownloads: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2105798299, data2: 8772, data3: 20080, data4: [177, 245, 83, 147, 4, 42, 241, 228] };
-pub const FOLDERID_LocalMusic: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2697370265, data2: 8648, data3: 18033, data4: [135, 3, 121, 52, 22, 47, 207, 29] };
-pub const FOLDERID_LocalPictures: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 232587613, data2: 45164, data3: 17877, data4: [140, 76, 245, 151, 19, 133, 70, 57] };
-pub const FOLDERID_LocalStorage: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_LocalAppDataLow: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2770379172, data2: 6016, data3: 20470, data4: [189, 24, 22, 115, 67, 197, 175, 22] };
+pub const FOLDERID_LocalDocuments: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4096713427, data2: 37023, data3: 18695, data4: [136, 113, 76, 34, 252, 11, 247, 86] };
+pub const FOLDERID_LocalDownloads: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2105798299, data2: 8772, data3: 20080, data4: [177, 245, 83, 147, 4, 42, 241, 228] };
+pub const FOLDERID_LocalMusic: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2697370265, data2: 8648, data3: 18033, data4: [135, 3, 121, 52, 22, 47, 207, 29] };
+pub const FOLDERID_LocalPictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 232587613, data2: 45164, data3: 17877, data4: [140, 76, 245, 151, 19, 133, 70, 57] };
+pub const FOLDERID_LocalStorage: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3018524883,
     data2: 41459,
     data3: 18795,
     data4: [134, 90, 66, 181, 54, 205, 160, 236],
 };
-pub const FOLDERID_LocalVideos: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_LocalVideos: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 891841128,
     data2: 15447,
     data3: 16801,
     data4: [187, 177, 14, 174, 115, 215, 108, 149],
 };
-pub const FOLDERID_LocalizedResourcesDir: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704657246, data2: 8780, data3: 18910, data4: [184, 209, 68, 13, 247, 239, 61, 220] };
-pub const FOLDERID_Music: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1272501617, data2: 27929, data3: 18643, data4: [190, 151, 66, 34, 32, 8, 14, 67] };
-pub const FOLDERID_MusicLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 554871562, data2: 51306, data3: 20478, data4: [163, 104, 13, 233, 110, 71, 1, 46] };
-pub const FOLDERID_NetHood: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_LocalizedResourcesDir: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 704657246, data2: 8780, data3: 18910, data4: [184, 209, 68, 13, 247, 239, 61, 220] };
+pub const FOLDERID_Music: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1272501617, data2: 27929, data3: 18643, data4: [190, 151, 66, 34, 32, 8, 14, 67] };
+pub const FOLDERID_MusicLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 554871562, data2: 51306, data3: 20478, data4: [163, 104, 13, 233, 110, 71, 1, 46] };
+pub const FOLDERID_NetHood: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3316367187,
     data2: 57727,
     data3: 16673,
     data4: [137, 0, 134, 98, 111, 194, 201, 115],
 };
-pub const FOLDERID_NetworkFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3523997380, data2: 23720, data3: 18693, data4: [174, 59, 191, 37, 30, 160, 155, 83] };
-pub const FOLDERID_Objects3D: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_NetworkFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3523997380, data2: 23720, data3: 18693, data4: [174, 59, 191, 37, 30, 160, 155, 83] };
+pub const FOLDERID_Objects3D: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 834723109,
     data2: 37945,
     data3: 20242,
     data4: [191, 65, 127, 244, 237, 163, 135, 34],
 };
-pub const FOLDERID_OneDrive: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_OneDrive: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2771106374,
     data2: 59873,
     data3: 17247,
     data4: [179, 217, 40, 218, 166, 72, 192, 246],
 };
-pub const FOLDERID_OriginalImages: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_OriginalImages: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 741785770,
     data2: 22546,
     data3: 19335,
     data4: [191, 208, 76, 208, 223, 177, 155, 57],
 };
-pub const FOLDERID_PhotoAlbums: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_PhotoAlbums: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1775423376,
     data2: 64563,
     data3: 20407,
     data4: [154, 12, 235, 176, 240, 252, 180, 60],
 };
-pub const FOLDERID_Pictures: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 870482224, data2: 19998, data3: 18038, data4: [131, 90, 152, 57, 92, 59, 195, 187] };
-pub const FOLDERID_PicturesLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2844831391, data2: 41019, data3: 20096, data4: [148, 188, 153, 18, 215, 80, 65, 4] };
-pub const FOLDERID_Playlists: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3734159815, data2: 33663, data3: 20329, data4: [163, 187, 134, 230, 49, 32, 74, 35] };
-pub const FOLDERID_PrintHood: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2457124237, data2: 53201, data3: 16835, data4: [179, 94, 177, 63, 85, 167, 88, 244] };
-pub const FOLDERID_PrintersFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1996246573, data2: 54957, data3: 17689, data4: [166, 99, 55, 189, 86, 6, 129, 133] };
-pub const FOLDERID_Profile: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_Pictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 870482224, data2: 19998, data3: 18038, data4: [131, 90, 152, 57, 92, 59, 195, 187] };
+pub const FOLDERID_PicturesLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2844831391, data2: 41019, data3: 20096, data4: [148, 188, 153, 18, 215, 80, 65, 4] };
+pub const FOLDERID_Playlists: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3734159815, data2: 33663, data3: 20329, data4: [163, 187, 134, 230, 49, 32, 74, 35] };
+pub const FOLDERID_PrintHood: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2457124237, data2: 53201, data3: 16835, data4: [179, 94, 177, 63, 85, 167, 88, 244] };
+pub const FOLDERID_PrintersFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1996246573, data2: 54957, data3: 17689, data4: [166, 99, 55, 189, 86, 6, 129, 133] };
+pub const FOLDERID_Profile: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1584170383,
     data2: 3618,
     data3: 18272,
     data4: [154, 254, 234, 51, 23, 182, 113, 115],
 };
-pub const FOLDERID_ProgramData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1655397762, data2: 64961, data3: 19907, data4: [169, 221, 7, 13, 29, 73, 93, 151] };
-pub const FOLDERID_ProgramFiles: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_ProgramData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1655397762, data2: 64961, data3: 19907, data4: [169, 221, 7, 13, 29, 73, 93, 151] };
+pub const FOLDERID_ProgramFiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2422105014,
     data2: 49599,
     data3: 18766,
     data4: [178, 156, 101, 183, 50, 211, 210, 26],
 };
-pub const FOLDERID_ProgramFilesCommon: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_ProgramFilesCommon: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4159827205,
     data2: 40813,
     data3: 18338,
     data4: [170, 174, 41, 211, 23, 198, 240, 102],
 };
-pub const FOLDERID_ProgramFilesCommonX64: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_ProgramFilesCommonX64: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1667618215,
     data2: 3853,
     data3: 17893,
     data4: [135, 246, 13, 165, 107, 106, 79, 125],
 };
-pub const FOLDERID_ProgramFilesCommonX86: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3734457636, data2: 55750, data3: 19774, data4: [191, 145, 244, 69, 81, 32, 185, 23] };
-pub const FOLDERID_ProgramFilesX64: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1837142903, data2: 27376, data3: 17483, data4: [137, 87, 163, 119, 63, 2, 32, 14] };
-pub const FOLDERID_ProgramFilesX86: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_ProgramFilesCommonX86: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3734457636, data2: 55750, data3: 19774, data4: [191, 145, 244, 69, 81, 32, 185, 23] };
+pub const FOLDERID_ProgramFilesX64: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1837142903, data2: 27376, data3: 17483, data4: [137, 87, 163, 119, 63, 2, 32, 14] };
+pub const FOLDERID_ProgramFilesX86: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2086289647,
     data2: 41211,
     data3: 19452,
     data4: [135, 74, 192, 242, 224, 185, 250, 142],
 };
-pub const FOLDERID_Programs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2810142071, data2: 11819, data3: 17603, data4: [166, 162, 171, 166, 1, 5, 74, 81] };
-pub const FOLDERID_Public: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_Programs: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2810142071, data2: 11819, data3: 17603, data4: [166, 162, 171, 166, 1, 5, 74, 81] };
+pub const FOLDERID_Public: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3755964066,
     data2: 51242,
     data3: 19811,
     data4: [144, 106, 86, 68, 172, 69, 115, 133],
 };
-pub const FOLDERID_PublicDesktop: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_PublicDesktop: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3299488781,
     data2: 61967,
     data3: 18531,
     data4: [175, 239, 248, 126, 242, 230, 186, 37],
 };
-pub const FOLDERID_PublicDocuments: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3980928175, data2: 56548, data3: 17832, data4: [129, 226, 252, 121, 101, 8, 54, 52] };
-pub const FOLDERID_PublicDownloads: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1029983387, data2: 8120, data3: 20272, data4: [155, 69, 246, 112, 35, 95, 121, 192] };
-pub const FOLDERID_PublicGameTasks: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_PublicDocuments: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3980928175, data2: 56548, data3: 17832, data4: [129, 226, 252, 121, 101, 8, 54, 52] };
+pub const FOLDERID_PublicDownloads: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1029983387, data2: 8120, data3: 20272, data4: [155, 69, 246, 112, 35, 95, 121, 192] };
+pub const FOLDERID_PublicGameTasks: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3737068854,
     data2: 57768,
     data3: 19545,
     data4: [182, 162, 65, 69, 134, 71, 106, 234],
 };
-pub const FOLDERID_PublicLibraries: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1222309899, data2: 59087, data3: 20302, data4: [184, 0, 14, 105, 216, 78, 227, 132] };
-pub const FOLDERID_PublicMusic: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_PublicLibraries: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1222309899, data2: 59087, data3: 20302, data4: [184, 0, 14, 105, 216, 78, 227, 132] };
+pub const FOLDERID_PublicMusic: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 840235701,
     data2: 38743,
     data3: 17048,
     data4: [187, 97, 146, 169, 222, 170, 68, 255],
 };
-pub const FOLDERID_PublicPictures: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_PublicPictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3068918662,
     data2: 26887,
     data3: 16700,
     data4: [154, 247, 79, 194, 171, 240, 124, 197],
 };
-pub const FOLDERID_PublicRingtones: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3847596896, data2: 5435, data3: 19735, data4: [159, 4, 165, 254, 153, 252, 21, 236] };
-pub const FOLDERID_PublicUserTiles: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 75673452, data2: 2289, data3: 19508, data4: [140, 144, 225, 126, 201, 139, 30, 23] };
-pub const FOLDERID_PublicVideos: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 603985978, data2: 24965, data3: 18939, data4: [162, 216, 74, 57, 42, 96, 43, 163] };
-pub const FOLDERID_QuickLaunch: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_PublicRingtones: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3847596896, data2: 5435, data3: 19735, data4: [159, 4, 165, 254, 153, 252, 21, 236] };
+pub const FOLDERID_PublicUserTiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 75673452, data2: 2289, data3: 19508, data4: [140, 144, 225, 126, 201, 139, 30, 23] };
+pub const FOLDERID_PublicVideos: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 603985978, data2: 24965, data3: 18939, data4: [162, 216, 74, 57, 42, 96, 43, 163] };
+pub const FOLDERID_QuickLaunch: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1386541089,
     data2: 31605,
     data3: 18601,
     data4: [159, 107, 75, 135, 162, 16, 188, 143],
 };
-pub const FOLDERID_Recent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2924527745, data2: 60370, data3: 17290, data4: [134, 85, 138, 9, 46, 52, 152, 122] };
-pub const FOLDERID_RecordedCalls: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_Recent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2924527745, data2: 60370, data3: 17290, data4: [134, 85, 138, 9, 46, 52, 152, 122] };
+pub const FOLDERID_RecordedCalls: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 797655234,
     data2: 33773,
     data3: 18670,
     data4: [179, 131, 161, 241, 87, 236, 111, 154],
 };
-pub const FOLDERID_RecordedTVLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 443538338, data2: 62509, data3: 17240, data4: [167, 152, 183, 77, 116, 89, 38, 197] };
-pub const FOLDERID_RecycleBinFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_RecordedTVLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 443538338, data2: 62509, data3: 17240, data4: [167, 152, 183, 77, 116, 89, 38, 197] };
+pub const FOLDERID_RecycleBinFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3075686470,
     data2: 16075,
     data3: 19480,
     data4: [190, 78, 100, 205, 76, 183, 214, 172],
 };
-pub const FOLDERID_ResourceDir: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_ResourceDir: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2328955953,
     data2: 10971,
     data3: 17046,
     data4: [168, 247, 228, 112, 18, 50, 201, 114],
 };
-pub const FOLDERID_RetailDemo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 315934366, data2: 9389, data3: 18723, data4: [190, 25, 49, 50, 28, 67, 167, 103] };
-pub const FOLDERID_Ringtones: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_RetailDemo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 315934366, data2: 9389, data3: 18723, data4: [190, 25, 49, 50, 28, 67, 167, 103] };
+pub const FOLDERID_Ringtones: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3362784331,
     data2: 62622,
     data3: 16678,
     data4: [169, 195, 181, 42, 31, 244, 17, 232],
 };
-pub const FOLDERID_RoamedTileImages: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_RoamedTileImages: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2863191461,
     data2: 61910,
     data3: 16985,
     data4: [186, 168, 120, 231, 239, 96, 131, 94],
 };
-pub const FOLDERID_RoamingAppData: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_RoamingAppData: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1052149211,
     data2: 26105,
     data3: 19702,
     data4: [160, 58, 227, 239, 101, 114, 159, 61],
 };
-pub const FOLDERID_RoamingTiles: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 12385370, data2: 60820, data3: 20040, data4: [150, 161, 63, 98, 23, 242, 25, 144] };
-pub const FOLDERID_SEARCH_CSC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_RoamingTiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 12385370, data2: 60820, data3: 20040, data4: [150, 161, 63, 98, 23, 242, 25, 144] };
+pub const FOLDERID_SEARCH_CSC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3996312646,
     data2: 12746,
     data3: 19130,
     data4: [129, 79, 165, 235, 210, 253, 109, 94],
 };
-pub const FOLDERID_SEARCH_MAPI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SEARCH_MAPI: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2565606936,
     data2: 8344,
     data3: 19780,
     data4: [134, 68, 102, 151, 147, 21, 162, 129],
 };
-pub const FOLDERID_SampleMusic: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2991638120, data2: 62845, data3: 20193, data4: [166, 60, 41, 14, 231, 209, 170, 31] };
-pub const FOLDERID_SamplePictures: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SampleMusic: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2991638120, data2: 62845, data3: 20193, data4: [166, 60, 41, 14, 231, 209, 170, 31] };
+pub const FOLDERID_SamplePictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3297772864,
     data2: 9081,
     data3: 19573,
     data4: [132, 75, 100, 230, 250, 248, 113, 107],
 };
-pub const FOLDERID_SamplePlaylists: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SamplePlaylists: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 365586867,
     data2: 12526,
     data3: 18881,
     data4: [172, 225, 107, 94, 195, 114, 175, 181],
 };
-pub const FOLDERID_SampleVideos: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2241768852, data2: 11909, data3: 18605, data4: [167, 26, 9, 105, 203, 86, 166, 205] };
-pub const FOLDERID_SavedGames: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SampleVideos: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2241768852, data2: 11909, data3: 18605, data4: [167, 26, 9, 105, 203, 86, 166, 205] };
+pub const FOLDERID_SavedGames: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1281110783,
     data2: 48029,
     data3: 17328,
     data4: [181, 180, 45, 114, 229, 78, 170, 164],
 };
-pub const FOLDERID_SavedPictures: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SavedPictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 991508610,
     data2: 54189,
     data3: 20139,
     data4: [150, 90, 105, 130, 157, 31, 181, 159],
 };
-pub const FOLDERID_SavedPicturesLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SavedPicturesLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3797637138,
     data2: 48776,
     data3: 19417,
     data4: [148, 176, 41, 35, 52, 119, 182, 195],
 };
-pub const FOLDERID_SavedSearches: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2099067396, data2: 57019, data3: 16661, data4: [149, 207, 47, 41, 218, 41, 32, 218] };
-pub const FOLDERID_Screenshots: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SavedSearches: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2099067396, data2: 57019, data3: 16661, data4: [149, 207, 47, 41, 218, 41, 32, 218] };
+pub const FOLDERID_Screenshots: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3082739329,
     data2: 57236,
     data3: 18050,
     data4: [167, 216, 87, 165, 38, 32, 184, 111],
 };
-pub const FOLDERID_SearchHistory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 223100342, data2: 931, data3: 17967, data4: [160, 230, 8, 146, 76, 65, 181, 212] };
-pub const FOLDERID_SearchHome: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 419641297, data2: 47306, data3: 16673, data4: [166, 57, 109, 71, 45, 22, 151, 42] };
-pub const FOLDERID_SearchTemplates: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SearchHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 223100342, data2: 931, data3: 17967, data4: [160, 230, 8, 146, 76, 65, 181, 212] };
+pub const FOLDERID_SearchHome: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 419641297, data2: 47306, data3: 16673, data4: [166, 57, 109, 71, 45, 22, 151, 42] };
+pub const FOLDERID_SearchTemplates: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2120444926,
     data2: 57257,
     data3: 19806,
     data4: [180, 86, 215, 179, 152, 81, 216, 169],
 };
-pub const FOLDERID_SendTo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2307064684, data2: 10176, data3: 16459, data4: [143, 8, 16, 45, 16, 220, 253, 116] };
-pub const FOLDERID_SidebarDefaultParts: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2067361364, data2: 40645, data3: 17152, data4: [190, 10, 36, 130, 235, 174, 26, 38] };
-pub const FOLDERID_SidebarParts: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SendTo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2307064684, data2: 10176, data3: 16459, data4: [143, 8, 16, 45, 16, 220, 253, 116] };
+pub const FOLDERID_SidebarDefaultParts: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2067361364, data2: 40645, data3: 17152, data4: [190, 10, 36, 130, 235, 174, 26, 38] };
+pub const FOLDERID_SidebarParts: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2807903790,
     data2: 20732,
     data3: 20407,
     data4: [172, 44, 168, 190, 170, 49, 68, 147],
 };
-pub const FOLDERID_SkyDrive: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SkyDrive: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2771106374,
     data2: 59873,
     data3: 17247,
     data4: [179, 217, 40, 218, 166, 72, 192, 246],
 };
-pub const FOLDERID_SkyDriveCameraRoll: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1987995665, data2: 18891, data3: 17011, data4: [135, 194, 32, 243, 85, 225, 8, 91] };
-pub const FOLDERID_SkyDriveDocuments: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SkyDriveCameraRoll: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1987995665, data2: 18891, data3: 17011, data4: [135, 194, 32, 243, 85, 225, 8, 91] };
+pub const FOLDERID_SkyDriveDocuments: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 618176036,
     data2: 12057,
     data3: 17716,
     data4: [157, 222, 106, 102, 113, 251, 184, 254],
 };
-pub const FOLDERID_SkyDriveMusic: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SkyDriveMusic: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3287434654,
     data2: 32982,
     data3: 17884,
     data4: [191, 239, 31, 118, 159, 43, 231, 48],
 };
-pub const FOLDERID_SkyDrivePictures: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SkyDrivePictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 865540533,
     data2: 35911,
     data3: 18580,
     data4: [148, 194, 216, 247, 122, 221, 68, 166],
 };
-pub const FOLDERID_StartMenu: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1650152387, data2: 43848, data3: 20161, data4: [186, 31, 161, 239, 65, 70, 252, 25] };
-pub const FOLDERID_StartMenuAllPrograms: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4066575855, data2: 26952, data3: 16569, data4: [178, 85, 129, 69, 61, 9, 199, 133] };
-pub const FOLDERID_Startup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3111985339, data2: 62570, data3: 19607, data4: [186, 16, 94, 54, 8, 67, 8, 84] };
-pub const FOLDERID_SyncManagerFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_StartMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1650152387, data2: 43848, data3: 20161, data4: [186, 31, 161, 239, 65, 70, 252, 25] };
+pub const FOLDERID_StartMenuAllPrograms: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4066575855, data2: 26952, data3: 16569, data4: [178, 85, 129, 69, 61, 9, 199, 133] };
+pub const FOLDERID_Startup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3111985339, data2: 62570, data3: 19607, data4: [186, 16, 94, 54, 8, 67, 8, 84] };
+pub const FOLDERID_SyncManagerFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1130793976,
     data2: 49486,
     data3: 18866,
     data4: [151, 201, 116, 119, 132, 215, 132, 183],
 };
-pub const FOLDERID_SyncResultsFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SyncResultsFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 681220675,
     data2: 48708,
     data3: 16471,
     data4: [164, 27, 88, 122, 118, 215, 231, 249],
 };
-pub const FOLDERID_SyncSetupFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_SyncSetupFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 253837624,
     data2: 45523,
     data3: 19088,
     data4: [187, 169, 39, 203, 192, 197, 56, 154],
 };
-pub const FOLDERID_System: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 448876151, data2: 743, data3: 20061, data4: [183, 68, 46, 177, 174, 81, 152, 183] };
-pub const FOLDERID_SystemX86: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_System: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 448876151, data2: 743, data3: 20061, data4: [183, 68, 46, 177, 174, 81, 152, 183] };
+pub const FOLDERID_SystemX86: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3595710896,
     data2: 45809,
     data3: 18519,
     data4: [164, 206, 168, 231, 198, 234, 125, 39],
 };
-pub const FOLDERID_Templates: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2788332520, data2: 26190, data3: 18651, data4: [160, 121, 223, 117, 158, 5, 9, 247] };
-pub const FOLDERID_UserPinned: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2654573995, data2: 8092, data3: 20243, data4: [184, 39, 72, 178, 75, 108, 113, 116] };
-pub const FOLDERID_UserProfiles: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_Templates: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2788332520, data2: 26190, data3: 18651, data4: [160, 121, 223, 117, 158, 5, 9, 247] };
+pub const FOLDERID_UserPinned: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2654573995, data2: 8092, data3: 20243, data4: [184, 39, 72, 178, 75, 108, 113, 116] };
+pub const FOLDERID_UserProfiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 123916914,
     data2: 50442,
     data3: 19376,
     data4: [163, 130, 105, 125, 205, 114, 155, 128],
 };
-pub const FOLDERID_UserProgramFiles: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1557638882, data2: 8729, data3: 19047, data4: [184, 93, 108, 156, 225, 86, 96, 203] };
-pub const FOLDERID_UserProgramFilesCommon: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3166515287, data2: 51804, data3: 17954, data4: [180, 45, 188, 86, 219, 10, 229, 22] };
-pub const FOLDERID_UsersFiles: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4090367868, data2: 18689, data3: 19148, data4: [134, 72, 213, 212, 75, 4, 239, 143] };
-pub const FOLDERID_UsersLibraries: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_UserProgramFiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1557638882, data2: 8729, data3: 19047, data4: [184, 93, 108, 156, 225, 86, 96, 203] };
+pub const FOLDERID_UserProgramFilesCommon: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3166515287, data2: 51804, data3: 17954, data4: [180, 45, 188, 86, 219, 10, 229, 22] };
+pub const FOLDERID_UsersFiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4090367868, data2: 18689, data3: 19148, data4: [134, 72, 213, 212, 75, 4, 239, 143] };
+pub const FOLDERID_UsersLibraries: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2734838877,
     data2: 57087,
     data3: 17995,
     data4: [171, 232, 97, 200, 100, 141, 147, 155],
 };
-pub const FOLDERID_Videos: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_Videos: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 412654365,
     data2: 39349,
     data3: 17755,
     data4: [132, 28, 171, 124, 116, 228, 221, 252],
 };
-pub const FOLDERID_VideosLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERID_VideosLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1226740271,
     data2: 22083,
     data3: 19188,
     data4: [167, 235, 78, 122, 19, 141, 129, 116],
 };
-pub const FOLDERID_Windows: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4086035460, data2: 7491, data3: 17138, data4: [147, 5, 103, 222, 11, 40, 252, 35] };
+pub const FOLDERID_Windows: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4086035460, data2: 7491, data3: 17138, data4: [147, 5, 103, 222, 11, 40, 252, 35] };
 #[repr(transparent)]
 pub struct FOLDERLOGICALVIEWMODE(pub i32);
 pub const FLVM_UNSPECIFIED: FOLDERLOGICALVIEWMODE = FOLDERLOGICALVIEWMODE(-1i32);
@@ -4825,142 +4825,142 @@ impl ::core::clone::Clone for FOLDERSETTINGS {
         *self
     }
 }
-pub const FOLDERTYPEID_AccountPictures: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_AccountPictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3676986767,
     data2: 1766,
     data3: 16391,
     data4: [171, 166, 175, 135, 125, 82, 110, 166],
 };
-pub const FOLDERTYPEID_Communications: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_Communications: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2437373925,
     data2: 22635,
     data3: 20154,
     data4: [141, 117, 209, 116, 52, 184, 205, 246],
 };
-pub const FOLDERTYPEID_CompressedFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2149662338, data2: 48381, data3: 19535, data4: [136, 23, 187, 39, 96, 18, 103, 169] };
-pub const FOLDERTYPEID_Contacts: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_CompressedFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2149662338, data2: 48381, data3: 19535, data4: [136, 23, 187, 39, 96, 18, 103, 169] };
+pub const FOLDERTYPEID_Contacts: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3727388908,
     data2: 39927,
     data3: 19091,
     data4: [189, 61, 36, 63, 120, 129, 212, 146],
 };
-pub const FOLDERTYPEID_ControlPanelCategory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3729720928, data2: 64016, data3: 19343, data4: [164, 148, 6, 139, 32, 178, 35, 7] };
-pub const FOLDERTYPEID_ControlPanelClassic: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 204969203, data2: 46405, data3: 17322, data4: [163, 41, 195, 116, 48, 197, 141, 42] };
-pub const FOLDERTYPEID_Documents: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_ControlPanelCategory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3729720928, data2: 64016, data3: 19343, data4: [164, 148, 6, 139, 32, 178, 35, 7] };
+pub const FOLDERTYPEID_ControlPanelClassic: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 204969203, data2: 46405, data3: 17322, data4: [163, 41, 195, 116, 48, 197, 141, 42] };
+pub const FOLDERTYPEID_Documents: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2101991206,
     data2: 15393,
     data3: 20229,
     data4: [153, 170, 253, 194, 201, 71, 70, 86],
 };
-pub const FOLDERTYPEID_Downloads: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2287605870, data2: 42048, data3: 19162, data4: [129, 43, 219, 135, 27, 148, 34, 89] };
-pub const FOLDERTYPEID_Games: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3062477008, data2: 30419, data3: 19643, data4: [135, 247, 88, 93, 14, 12, 224, 112] };
-pub const FOLDERTYPEID_Generic: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_Downloads: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2287605870, data2: 42048, data3: 19162, data4: [129, 43, 219, 135, 27, 148, 34, 89] };
+pub const FOLDERTYPEID_Games: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3062477008, data2: 30419, data3: 19643, data4: [135, 247, 88, 93, 14, 12, 224, 112] };
+pub const FOLDERTYPEID_Generic: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1548691637,
     data2: 63593,
     data3: 20100,
     data4: [142, 96, 241, 29, 185, 124, 92, 199],
 };
-pub const FOLDERTYPEID_GenericLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_GenericLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1598991258,
     data2: 26675,
     data3: 20321,
     data4: [137, 157, 49, 207, 70, 151, 157, 73],
 };
-pub const FOLDERTYPEID_GenericSearchResults: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_GenericSearchResults: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2145262110,
     data2: 35633,
     data3: 18853,
     data4: [147, 184, 107, 225, 76, 250, 73, 67],
 };
-pub const FOLDERTYPEID_Invalid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1468037272, data2: 35919, data3: 17506, data4: [187, 99, 113, 4, 35, 128, 177, 9] };
-pub const FOLDERTYPEID_Music: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2497109452, data2: 19048, data3: 16757, data4: [163, 116, 189, 88, 74, 81, 11, 120] };
-pub const FOLDERTYPEID_NetworkExplorer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 634135595, data2: 39548, data3: 20305, data4: [128, 224, 122, 41, 40, 254, 190, 66] };
-pub const FOLDERTYPEID_OpenSearch: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_Invalid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1468037272, data2: 35919, data3: 17506, data4: [187, 99, 113, 4, 35, 128, 177, 9] };
+pub const FOLDERTYPEID_Music: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2497109452, data2: 19048, data3: 16757, data4: [163, 116, 189, 88, 74, 81, 11, 120] };
+pub const FOLDERTYPEID_NetworkExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 634135595, data2: 39548, data3: 20305, data4: [128, 224, 122, 41, 40, 254, 190, 66] };
+pub const FOLDERTYPEID_OpenSearch: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2410649129,
     data2: 6528,
     data3: 18175,
     data4: [128, 35, 157, 206, 171, 156, 62, 227],
 };
-pub const FOLDERTYPEID_OtherUsers: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_OtherUsers: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3006790912,
     data2: 40405,
     data3: 17973,
     data4: [166, 212, 218, 51, 253, 16, 43, 122],
 };
-pub const FOLDERTYPEID_Pictures: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_Pictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3010006616,
     data2: 59745,
     data3: 16955,
     data4: [182, 135, 56, 110, 191, 216, 50, 57],
 };
-pub const FOLDERTYPEID_Printers: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_Printers: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 746307270,
     data2: 51268,
     data3: 18954,
     data4: [145, 250, 206, 246, 245, 156, 253, 161],
 };
-pub const FOLDERTYPEID_PublishedItems: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_PublishedItems: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2133810070,
     data2: 65396,
     data3: 16858,
     data4: [175, 216, 28, 120, 165, 243, 174, 162],
 };
-pub const FOLDERTYPEID_RecordedTV: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_RecordedTV: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1431806607,
     data2: 23974,
     data3: 20355,
     data4: [136, 9, 194, 201, 138, 17, 166, 250],
 };
-pub const FOLDERTYPEID_RecycleBin: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3604602884, data2: 52615, data3: 17451, data4: [157, 87, 94, 10, 235, 79, 111, 114] };
-pub const FOLDERTYPEID_SavedGames: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_RecycleBin: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3604602884, data2: 52615, data3: 17451, data4: [157, 87, 94, 10, 235, 79, 111, 114] };
+pub const FOLDERTYPEID_SavedGames: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3493212935,
     data2: 10443,
     data3: 16646,
     data4: [159, 35, 41, 86, 227, 229, 224, 231],
 };
-pub const FOLDERTYPEID_SearchConnector: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_SearchConnector: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2552702446,
     data2: 28487,
     data3: 18334,
     data4: [180, 71, 129, 43, 250, 125, 46, 143],
 };
-pub const FOLDERTYPEID_SearchHome: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2202896964, data2: 2420, data3: 20182, data4: [134, 110, 242, 3, 216, 11, 56, 16] };
-pub const FOLDERTYPEID_Searches: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 185311971, data2: 16479, data3: 16734, data4: [166, 238, 202, 214, 37, 32, 120, 83] };
-pub const FOLDERTYPEID_SoftwareExplorer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_SearchHome: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2202896964, data2: 2420, data3: 20182, data4: [134, 110, 242, 3, 216, 11, 56, 16] };
+pub const FOLDERTYPEID_Searches: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 185311971, data2: 16479, data3: 16734, data4: [166, 238, 202, 214, 37, 32, 120, 83] };
+pub const FOLDERTYPEID_SoftwareExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3597941019,
     data2: 21209,
     data3: 19975,
     data4: [131, 78, 103, 201, 134, 16, 243, 157],
 };
-pub const FOLDERTYPEID_StartMenu: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4018648267, data2: 62158, data3: 18309, data4: [134, 88, 76, 166, 198, 62, 56, 198] };
-pub const FOLDERTYPEID_StorageProviderDocuments: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_StartMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4018648267, data2: 62158, data3: 18309, data4: [134, 88, 76, 166, 198, 62, 56, 198] };
+pub const FOLDERTYPEID_StorageProviderDocuments: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3714170214,
     data2: 28904,
     data3: 18653,
     data4: [150, 85, 101, 197, 225, 170, 194, 209],
 };
-pub const FOLDERTYPEID_StorageProviderGeneric: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1325525957, data2: 9093, data3: 16882, data4: [162, 142, 44, 92, 145, 251, 86, 224] };
-pub const FOLDERTYPEID_StorageProviderMusic: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1731120510, data2: 44804, data3: 17305, data4: [135, 92, 2, 144, 132, 91, 98, 71] };
-pub const FOLDERTYPEID_StorageProviderPictures: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_StorageProviderGeneric: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1325525957, data2: 9093, data3: 16882, data4: [162, 142, 44, 92, 145, 251, 86, 224] };
+pub const FOLDERTYPEID_StorageProviderMusic: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1731120510, data2: 44804, data3: 17305, data4: [135, 92, 2, 144, 132, 91, 98, 71] };
+pub const FOLDERTYPEID_StorageProviderPictures: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1909867177,
     data2: 62129,
     data3: 17101,
     data4: [173, 146, 235, 147, 0, 199, 204, 10],
 };
-pub const FOLDERTYPEID_StorageProviderVideos: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_StorageProviderVideos: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1361661345,
     data2: 55217,
     data3: 18523,
     data4: [158, 154, 23, 207, 254, 51, 225, 135],
 };
-pub const FOLDERTYPEID_UserFiles: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FOLDERTYPEID_UserFiles: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3440363163,
     data2: 29154,
     data3: 18149,
     data4: [150, 144, 91, 205, 159, 87, 170, 179],
 };
-pub const FOLDERTYPEID_UsersLibraries: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3302592265, data2: 24868, data3: 20448, data4: [153, 66, 130, 100, 22, 8, 45, 169] };
-pub const FOLDERTYPEID_Videos: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1604936711, data2: 32375, data3: 18492, data4: [172, 147, 105, 29, 5, 133, 13, 232] };
+pub const FOLDERTYPEID_UsersLibraries: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3302592265, data2: 24868, data3: 20448, data4: [153, 66, 130, 100, 22, 8, 45, 169] };
+pub const FOLDERTYPEID_Videos: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1604936711, data2: 32375, data3: 18492, data4: [172, 147, 105, 29, 5, 133, 13, 232] };
 #[repr(transparent)]
 pub struct FOLDERVIEWMODE(pub i32);
 pub const FVM_AUTO: FOLDERVIEWMODE = FOLDERVIEWMODE(-1i32);
@@ -5009,7 +5009,7 @@ pub const FO_COPY: u32 = 2u32;
 pub const FO_DELETE: u32 = 3u32;
 pub const FO_MOVE: u32 = 1u32;
 pub const FO_RENAME: u32 = 4u32;
-pub const FSCopyHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3516348426, data2: 2681, data3: 19912, data4: [160, 51, 237, 136, 44, 47, 161, 75] };
+pub const FSCopyHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3516348426, data2: 2681, data3: 19912, data4: [160, 51, 237, 136, 44, 47, 161, 75] };
 pub const FVSIF_CANVIEWIT: u32 = 1073741824u32;
 pub const FVSIF_NEWFAILED: u32 = 134217728u32;
 pub const FVSIF_NEWFILE: u32 = 2147483648u32;
@@ -5024,20 +5024,20 @@ impl ::core::clone::Clone for FVTEXTTYPE {
         *self
     }
 }
-pub const FileOpenDialog: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FileOpenDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3692845724,
     data2: 59530,
     data3: 19934,
     data4: [165, 161, 96, 248, 42, 32, 174, 247],
 };
-pub const FileOperation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 986731893, data2: 34903, data3: 18512, data4: [146, 119, 17, 184, 91, 219, 142, 9] };
-pub const FileSaveDialog: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FileOperation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 986731893, data2: 34903, data3: 18512, data4: [146, 119, 17, 184, 91, 219, 142, 9] };
+pub const FileSaveDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3233080051,
     data2: 47649,
     data3: 18291,
     data4: [141, 186, 51, 94, 201, 70, 235, 139],
 };
-pub const FileSearchBand: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3303944691, data2: 18280, data3: 4562, data4: [190, 92, 0, 160, 201, 168, 61, 161] };
+pub const FileSearchBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3303944691, data2: 18280, data3: 4562, data4: [190, 92, 0, 160, 201, 168, 61, 161] };
 #[repr(transparent)]
 pub struct Folder(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -5058,19 +5058,19 @@ pub struct FolderItems(pub *mut ::core::ffi::c_void);
 pub struct FolderItems2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FolderItems3(pub *mut ::core::ffi::c_void);
-pub const FolderViewHost: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FolderViewHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 548522787,
     data2: 26984,
     data3: 20153,
     data4: [183, 212, 166, 109, 0, 208, 124, 238],
 };
-pub const FrameworkInputPane: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FrameworkInputPane: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3574729379,
     data2: 18106,
     data3: 17605,
     data4: [130, 45, 202, 128, 146, 193, 252, 114],
 };
-pub const FreeSpaceCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FreeSpaceCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3042998163,
     data2: 9388,
     data3: 17607,
@@ -5110,7 +5110,7 @@ pub const GIL_SIMULATEDOC: u32 = 1u32;
 pub const GPFIDL_ALTNAME: i32 = 1i32;
 pub const GPFIDL_DEFAULT: i32 = 0i32;
 pub const GPFIDL_UNCPRINTER: i32 = 2i32;
-pub const GenericCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 634108310, data2: 37613, data3: 17790, data4: [178, 140, 71, 116, 8, 75, 213, 98] };
+pub const GenericCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 634108310, data2: 37613, data3: 17790, data4: [178, 140, 71, 116, 8, 75, 213, 98] };
 #[repr(C)]
 pub struct HDROP(pub isize);
 impl ::core::marker::Copy for HDROP {}
@@ -5368,8 +5368,8 @@ impl ::core::clone::Clone for HPSXA {
         *self
     }
 }
-pub const HideInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 944194225, data2: 10871, data3: 19635, data4: [140, 248, 17, 54, 245, 225, 126, 89] };
-pub const HomeGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3732388356, data2: 15506, data3: 19729, data4: [161, 165, 66, 53, 42, 83, 224, 227] };
+pub const HideInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 944194225, data2: 10871, data3: 19635, data4: [140, 248, 17, 54, 245, 225, 126, 89] };
+pub const HomeGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3732388356, data2: 15506, data3: 19729, data4: [161, 165, 66, 53, 42, 83, 224, 227] };
 #[repr(transparent)]
 pub struct IACList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -5579,7 +5579,7 @@ pub const IEIFLAG_SCREEN: u32 = 32u32;
 pub const IEIT_PRIORITY_NORMAL: u32 = 268435456u32;
 pub const IEI_PRIORITY_MAX: u32 = 2147483647u32;
 pub const IEI_PRIORITY_MIN: u32 = 0u32;
-pub const IENamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const IENamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2900700419,
     data2: 58829,
     data3: 19232,
@@ -6278,41 +6278,41 @@ pub struct IWebWizardHost2(pub *mut ::core::ffi::c_void);
 pub struct IWizardExtension(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWizardSite(pub *mut ::core::ffi::c_void);
-pub const Identity_LocalUserProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2711114395, data2: 29455, data3: 16521, data4: [182, 70, 161, 37, 87, 245, 102, 94] };
-pub const ImageProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2058842311, data2: 3619, data3: 19834, data4: [138, 162, 25, 191, 173, 71, 152, 41] };
-pub const ImageRecompress: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1848838428, data2: 54008, data3: 18240, data4: [181, 94, 46, 17, 209, 71, 122, 44] };
-pub const ImageTranscode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const Identity_LocalUserProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2711114395, data2: 29455, data3: 16521, data4: [182, 70, 161, 37, 87, 245, 102, 94] };
+pub const ImageProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2058842311, data2: 3619, data3: 19834, data4: [138, 162, 25, 191, 173, 71, 152, 41] };
+pub const ImageRecompress: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1848838428, data2: 54008, data3: 18240, data4: [181, 94, 46, 17, 209, 71, 122, 44] };
+pub const ImageTranscode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 397889894,
     data2: 37519,
     data3: 16765,
     data4: [150, 133, 100, 170, 19, 85, 101, 193],
 };
-pub const InputPanelConfiguration: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InputPanelConfiguration: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 676572627,
     data2: 61590,
     data3: 19555,
     data4: [167, 143, 127, 163, 234, 131, 127, 183],
 };
-pub const InternetExplorer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 188161, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const InternetExplorerMedium: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InternetExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 188161, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const InternetExplorerMedium: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3588752413,
     data2: 37391,
     data3: 17897,
     data4: [184, 251, 177, 222, 184, 44, 110, 94],
 };
-pub const InternetPrintOrdering: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InternetPrintOrdering: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2916313768,
     data2: 29978,
     data3: 17785,
     data4: [162, 102, 214, 111, 82, 2, 204, 187],
 };
-pub const ItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2881444933,
     data2: 23756,
     data3: 18359,
     data4: [187, 78, 135, 203, 135, 187, 209, 98],
 };
-pub const ItemIndex_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2459980762, data2: 10601, data3: 16417, data4: [191, 39, 81, 76, 252, 46, 74, 105] };
+pub const ItemIndex_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2459980762, data2: 10601, data3: 16417, data4: [191, 39, 81, 76, 252, 46, 74, 105] };
 #[repr(transparent)]
 pub struct KF_CATEGORY(pub i32);
 pub const KF_CATEGORY_VIRTUAL: KF_CATEGORY = KF_CATEGORY(1i32);
@@ -6384,7 +6384,7 @@ impl ::core::clone::Clone for KNOWN_FOLDER_FLAG {
         *self
     }
 }
-pub const KnownFolderManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KnownFolderManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1307625264,
     data2: 57245,
     data3: 19171,
@@ -6440,7 +6440,7 @@ pub const LINK_E_DELETE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRE
 pub type LPFNDFMCALLBACK = unsafe extern "system" fn(psf: IShellFolder, hwnd: super::super::Foundation::HWND, pdtobj: super::super::System::Com::IDataObject, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNVIEWCALLBACK = unsafe extern "system" fn(psvouter: IShellView, psf: IShellFolder, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
-pub const LocalThumbnailCache: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1357858116, data2: 44191, data3: 19086, data4: [178, 27, 138, 38, 24, 13, 177, 63] };
+pub const LocalThumbnailCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1357858116, data2: 44191, data3: 19086, data4: [178, 27, 138, 38, 24, 13, 177, 63] };
 pub const MAXFILELEN: u32 = 13u32;
 pub const MAX_COLUMN_DESC_LEN: u32 = 128u32;
 pub const MAX_COLUMN_NAME_LEN: u32 = 80u32;
@@ -6554,8 +6554,8 @@ impl ::core::clone::Clone for MULTIKEYHELPW {
         *self
     }
 }
-pub const MailRecipient: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2656484960, data2: 50447, data3: 4559, data4: [154, 44, 0, 160, 201, 10, 144, 206] };
-pub const MergedCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MailRecipient: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2656484960, data2: 50447, data3: 4559, data4: [154, 44, 0, 160, 201, 10, 144, 206] };
+pub const MergedCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2390916113,
     data2: 13287,
     data3: 19393,
@@ -6931,7 +6931,7 @@ impl ::core::clone::Clone for NOTIFY_ICON_MESSAGE {
         *self
     }
 }
-pub const NPCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1037483712, data2: 33171, data3: 20478, data4: [174, 37, 224, 142, 57, 234, 64, 99] };
+pub const NPCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1037483712, data2: 33171, data3: 20478, data4: [174, 37, 224, 142, 57, 234, 64, 99] };
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WNet"))]
 pub struct NRESARRAY {
@@ -7078,26 +7078,26 @@ impl ::core::clone::Clone for NWMF {
         *self
     }
 }
-pub const NamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const NamespaceTreeControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2919580178,
     data2: 13621,
     data3: 17456,
     data4: [131, 237, 213, 1, 170, 102, 128, 230],
 };
-pub const NamespaceWalker: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const NamespaceWalker: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1928028640,
     data2: 34418,
     data3: 17155,
     data4: [145, 117, 242, 228, 198, 139, 46, 124],
 };
-pub const NetworkConnections: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1879551175, data2: 12802, data3: 4561, data4: [170, 210, 0, 128, 95, 193, 39, 14] };
-pub const NetworkExplorerFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const NetworkConnections: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1879551175, data2: 12802, data3: 4561, data4: [170, 210, 0, 128, 95, 193, 39, 14] };
+pub const NetworkExplorerFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4029422093,
     data2: 48673,
     data3: 17232,
     data4: [136, 176, 115, 103, 252, 150, 239, 60],
 };
-pub const NetworkPlaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 546122848, data2: 15082, data3: 4201, data4: [162, 215, 8, 0, 43, 48, 48, 157] };
+pub const NetworkPlaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 546122848, data2: 15082, data3: 4201, data4: [162, 215, 8, 0, 43, 48, 48, 157] };
 #[repr(transparent)]
 pub struct NewProcessCauseConstants(pub i32);
 pub const ProtectedModeRedirect: NewProcessCauseConstants = NewProcessCauseConstants(1i32);
@@ -7285,9 +7285,9 @@ impl ::core::clone::Clone for OfflineFolderStatus {
         *self
     }
 }
-pub const OnexCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 128583814, data2: 52365, data3: 19993, data4: [164, 16, 28, 117, 175, 104, 110, 98] };
-pub const OnexPlapSmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 868773078, data2: 28767, data3: 19361, data4: [154, 219, 103, 7, 11, 131, 119, 117] };
-pub const OpenControlPanel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 107097477, data2: 26710, data3: 17504, data4: [141, 225, 168, 25, 33, 180, 28, 75] };
+pub const OnexCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 128583814, data2: 52365, data3: 19993, data4: [164, 16, 28, 117, 175, 104, 110, 98] };
+pub const OnexPlapSmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 868773078, data2: 28767, data3: 19361, data4: [154, 219, 103, 7, 11, 131, 119, 117] };
+pub const OpenControlPanel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 107097477, data2: 26710, data3: 17504, data4: [141, 225, 168, 25, 33, 180, 28, 75] };
 #[repr(transparent)]
 pub struct PACKAGE_EXECUTION_STATE(pub i32);
 pub const PES_UNKNOWN: PACKAGE_EXECUTION_STATE = PACKAGE_EXECUTION_STATE(0i32);
@@ -7550,7 +7550,7 @@ pub const PIFPARAMSSIZE: u32 = 64u32;
 pub const PIFSHDATASIZE: u32 = 64u32;
 pub const PIFSHPROGSIZE: u32 = 64u32;
 pub const PIFSTARTLOCSIZE: u32 = 63u32;
-pub const PINLogonCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3414354450, data2: 40817, data3: 17517, data4: [137, 225, 141, 9, 36, 225, 37, 110] };
+pub const PINLogonCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3414354450, data2: 40817, data3: 17517, data4: [137, 225, 141, 9, 36, 225, 37, 110] };
 pub const PLATFORM_BROWSERONLY: u32 = 1u32;
 pub const PLATFORM_IE3: u32 = 1u32;
 pub const PLATFORM_INTEGRATED: u32 = 2u32;
@@ -7683,27 +7683,27 @@ impl ::core::clone::Clone for PUBAPPINFOFLAGS {
         *self
     }
 }
-pub const PackageDebugSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2981020015, data2: 9091, data3: 18514, data4: [176, 233, 143, 11, 29, 198, 107, 77] };
-pub const PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PackageDebugSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2981020015, data2: 9091, data3: 18514, data4: [176, 233, 143, 11, 29, 198, 107, 77] };
+pub const PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1622642312,
     data2: 60120,
     data3: 17500,
     data4: [156, 253, 11, 135, 247, 78, 166, 205],
 };
-pub const PreviousVersions: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PreviousVersions: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1500164194,
     data2: 46290,
     data3: 16917,
     data4: [159, 116, 233, 16, 155, 10, 129, 83],
 };
-pub const PropertiesUI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3641899215, data2: 918, data3: 18709, data4: [136, 78, 251, 66, 93, 50, 148, 59] };
-pub const PublishDropTarget: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PropertiesUI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3641899215, data2: 918, data3: 18709, data4: [136, 78, 251, 66, 93, 50, 148, 59] };
+pub const PublishDropTarget: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3429822459,
     data2: 17398,
     data3: 18117,
     data4: [150, 25, 81, 213, 113, 150, 127, 125],
 };
-pub const PublishingWizard: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1798510140, data2: 30373, data3: 19308, data4: [191, 33, 69, 222, 156, 213, 3, 161] };
+pub const PublishingWizard: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1798510140, data2: 30373, data3: 19308, data4: [191, 33, 69, 222, 156, 213, 3, 161] };
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct QCMINFO {
@@ -7787,13 +7787,13 @@ impl ::core::clone::Clone for QUERY_USER_NOTIFICATION_STATE {
         *self
     }
 }
-pub const QueryCancelAutoPlay: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const QueryCancelAutoPlay: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 857675624,
     data2: 1449,
     data3: 19933,
     data4: [184, 110, 218, 227, 77, 220, 153, 138],
 };
-pub const RASProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RASProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1429725827,
     data2: 45543,
     data3: 20216,
@@ -9625,60 +9625,60 @@ impl ::core::clone::Clone for SIATTRIBFLAGS {
         *self
     }
 }
-pub const SID_CommandsPropertyBag: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SID_CommandsPropertyBag: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1845768784,
     data2: 17430,
     data3: 18524,
     data4: [177, 67, 230, 42, 118, 13, 159, 229],
 };
-pub const SID_CtxQueryAssociations: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SID_CtxQueryAssociations: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4205706304,
     data2: 46967,
     data3: 19305,
     data4: [170, 129, 119, 3, 94, 240, 230, 232],
 };
-pub const SID_DefView: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1829961344, data2: 30993, data3: 4559, data4: [149, 52, 0, 0, 192, 91, 174, 11] };
-pub const SID_LaunchSourceAppUserModelId: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 753369104, data2: 29915, data3: 18620, data4: [156, 106, 16, 243, 114, 73, 87, 35] };
-pub const SID_LaunchSourceViewSizePreference: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SID_DefView: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1829961344, data2: 30993, data3: 4559, data4: [149, 52, 0, 0, 192, 91, 174, 11] };
+pub const SID_LaunchSourceAppUserModelId: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 753369104, data2: 29915, data3: 18620, data4: [156, 106, 16, 243, 114, 73, 87, 35] };
+pub const SID_LaunchSourceViewSizePreference: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2153796754,
     data2: 26585,
     data3: 16719,
     data4: [175, 137, 161, 205, 241, 36, 43, 193],
 };
-pub const SID_LaunchTargetViewSizePreference: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 651895922, data2: 47031, data3: 16491, data4: [151, 2, 115, 10, 78, 32, 211, 191] };
-pub const SID_MenuShellFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2797698740, data2: 11621, data3: 4562, data4: [131, 143, 0, 192, 79, 217, 24, 208] };
-pub const SID_SCommDlgBrowser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2163409459, data2: 47071, data3: 4562, data4: [163, 59, 0, 96, 151, 223, 91, 212] };
-pub const SID_SCommandBarState: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3114183260, data2: 14416, data3: 17408, data4: [188, 51, 44, 229, 52, 4, 139, 248] };
-pub const SID_SGetViewFromViewDual: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SID_LaunchTargetViewSizePreference: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 651895922, data2: 47031, data3: 16491, data4: [151, 2, 115, 10, 78, 32, 211, 191] };
+pub const SID_MenuShellFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2797698740, data2: 11621, data3: 4562, data4: [131, 143, 0, 192, 79, 217, 24, 208] };
+pub const SID_SCommDlgBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2163409459, data2: 47071, data3: 4562, data4: [163, 59, 0, 96, 151, 223, 91, 212] };
+pub const SID_SCommandBarState: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3114183260, data2: 14416, data3: 17408, data4: [188, 51, 44, 229, 52, 4, 139, 248] };
+pub const SID_SGetViewFromViewDual: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2291831645,
     data2: 38686,
     data3: 19218,
     data4: [185, 12, 36, 223, 201, 225, 229, 232],
 };
-pub const SID_SInPlaceBrowser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 489349163, data2: 13909, data3: 18124, data4: [182, 58, 40, 89, 136, 21, 59, 202] };
-pub const SID_SMenuBandBKContextMenu: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 374062470, data2: 7437, data3: 19936, data4: [154, 59, 217, 114, 150, 71, 194, 184] };
-pub const SID_SMenuBandBottom: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1950131812, data2: 3563, data3: 4561, data4: [152, 37, 0, 192, 79, 217, 25, 114] };
-pub const SID_SMenuBandBottomSelected: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 375306996, data2: 27985, data3: 4562, data4: [131, 173, 0, 192, 79, 217, 24, 208] };
-pub const SID_SMenuBandChild: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3986472992, data2: 2233, data3: 4561, data4: [152, 35, 0, 192, 79, 217, 25, 114] };
-pub const SID_SMenuBandContextMenuModifier: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SID_SInPlaceBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 489349163, data2: 13909, data3: 18124, data4: [182, 58, 40, 89, 136, 21, 59, 202] };
+pub const SID_SMenuBandBKContextMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 374062470, data2: 7437, data3: 19936, data4: [154, 59, 217, 114, 150, 71, 194, 184] };
+pub const SID_SMenuBandBottom: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1950131812, data2: 3563, data3: 4561, data4: [152, 37, 0, 192, 79, 217, 25, 114] };
+pub const SID_SMenuBandBottomSelected: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 375306996, data2: 27985, data3: 4562, data4: [131, 173, 0, 192, 79, 217, 24, 208] };
+pub const SID_SMenuBandChild: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3986472992, data2: 2233, data3: 4561, data4: [152, 35, 0, 192, 79, 217, 25, 114] };
+pub const SID_SMenuBandContextMenuModifier: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 961828980,
     data2: 29026,
     data3: 18014,
     data4: [183, 131, 42, 161, 135, 79, 239, 129],
 };
-pub const SID_SMenuBandParent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2351402732, data2: 16043, data3: 4561, data4: [140, 176, 0, 192, 79, 217, 24, 208] };
-pub const SID_SMenuBandTop: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2492704784, data2: 60472, data3: 4560, data4: [188, 70, 0, 170, 0, 108, 226, 245] };
-pub const SID_SMenuPopup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3521621995, data2: 27182, data3: 4560, data4: [140, 120, 0, 192, 79, 217, 24, 180] };
-pub const SID_SSearchBoxInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SID_SMenuBandParent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2351402732, data2: 16043, data3: 4561, data4: [140, 176, 0, 192, 79, 217, 24, 208] };
+pub const SID_SMenuBandTop: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2492704784, data2: 60472, data3: 4560, data4: [188, 70, 0, 170, 0, 108, 226, 245] };
+pub const SID_SMenuPopup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3521621995, data2: 27182, data3: 4560, data4: [140, 120, 0, 192, 79, 217, 24, 180] };
+pub const SID_SSearchBoxInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 338537057,
     data2: 20843,
     data3: 18195,
     data4: [180, 156, 251, 152, 94, 248, 41, 152],
 };
-pub const SID_STopLevelBrowser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1284947520, data2: 37212, data3: 4559, data4: [153, 211, 0, 170, 0, 74, 232, 55] };
-pub const SID_STopWindow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1239528704, data2: 17974, data3: 4563, data4: [151, 247, 0, 192, 79, 69, 208, 179] };
-pub const SID_ShellExecuteNamedPropertyStore: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3951340962, data2: 255, data3: 18834, data4: [131, 36, 237, 92, 224, 97, 203, 41] };
-pub const SID_URLExecutionContext: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SID_STopLevelBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1284947520, data2: 37212, data3: 4559, data4: [153, 211, 0, 170, 0, 74, 232, 55] };
+pub const SID_STopWindow: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1239528704, data2: 17974, data3: 4563, data4: [151, 247, 0, 192, 79, 69, 208, 179] };
+pub const SID_ShellExecuteNamedPropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3951340962, data2: 255, data3: 18834, data4: [131, 36, 237, 92, 224, 97, 203, 41] };
+pub const SID_URLExecutionContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4217343676,
     data2: 48054,
     data3: 19728,
@@ -10489,42 +10489,42 @@ impl ::core::clone::Clone for SYNCMGR_ITEM_POLICIES {
         *self
     }
 }
-pub const SYNCMGR_OBJECTID_BrowseContent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SYNCMGR_OBJECTID_BrowseContent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1472968068,
     data2: 59828,
     data3: 18350,
     data4: [161, 32, 196, 223, 51, 53, 222, 226],
 };
-pub const SYNCMGR_OBJECTID_ConflictStore: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3615588852, data2: 9097, data3: 18404, data4: [169, 96, 96, 188, 194, 237, 147, 11] };
-pub const SYNCMGR_OBJECTID_EventLinkClick: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 570670529, data2: 6897, data3: 16514, data4: [140, 48, 40, 57, 159, 65, 56, 76] };
-pub const SYNCMGR_OBJECTID_EventStore: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SYNCMGR_OBJECTID_ConflictStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3615588852, data2: 9097, data3: 18404, data4: [169, 96, 96, 188, 194, 237, 147, 11] };
+pub const SYNCMGR_OBJECTID_EventLinkClick: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 570670529, data2: 6897, data3: 16514, data4: [140, 48, 40, 57, 159, 65, 56, 76] };
+pub const SYNCMGR_OBJECTID_EventStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1273967801,
     data2: 42886,
     data3: 16501,
     data4: [186, 136, 12, 43, 157, 137, 169, 143],
 };
-pub const SYNCMGR_OBJECTID_Icon: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1841071555, data2: 23815, data3: 19570, data4: [167, 119, 127, 236, 120, 7, 44, 6] };
-pub const SYNCMGR_OBJECTID_QueryBeforeActivate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SYNCMGR_OBJECTID_Icon: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1841071555, data2: 23815, data3: 19570, data4: [167, 119, 127, 236, 120, 7, 44, 6] };
+pub const SYNCMGR_OBJECTID_QueryBeforeActivate: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3632453643,
     data2: 59306,
     data3: 18925,
     data4: [134, 183, 230, 225, 247, 20, 205, 254],
 };
-pub const SYNCMGR_OBJECTID_QueryBeforeDeactivate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SYNCMGR_OBJECTID_QueryBeforeDeactivate: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2700067458,
     data2: 24800,
     data3: 17934,
     data4: [147, 116, 234, 136, 81, 60, 252, 128],
 };
-pub const SYNCMGR_OBJECTID_QueryBeforeDelete: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4151063447, data2: 44979, data3: 17879, data4: [165, 159, 90, 73, 233, 5, 67, 126] };
-pub const SYNCMGR_OBJECTID_QueryBeforeDisable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3143591082, data2: 61444, data3: 20149, data4: [142, 77, 38, 117, 25, 102, 52, 76] };
-pub const SYNCMGR_OBJECTID_QueryBeforeEnable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SYNCMGR_OBJECTID_QueryBeforeDelete: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4151063447, data2: 44979, data3: 17879, data4: [165, 159, 90, 73, 233, 5, 67, 126] };
+pub const SYNCMGR_OBJECTID_QueryBeforeDisable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3143591082, data2: 61444, data3: 20149, data4: [142, 77, 38, 117, 25, 102, 52, 76] };
+pub const SYNCMGR_OBJECTID_QueryBeforeEnable: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 80476144,
     data2: 23531,
     data3: 19937,
     data4: [188, 144, 144, 131, 69, 196, 128, 246],
 };
-pub const SYNCMGR_OBJECTID_ShowSchedule: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SYNCMGR_OBJECTID_ShowSchedule: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3989238755,
     data2: 33857,
     data3: 16649,
@@ -10624,8 +10624,8 @@ pub const S_SYNCMGR_ENUMITEMS: ::windows_sys::core::HRESULT = ::windows_sys::cor
 pub const S_SYNCMGR_ITEMDELETED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262672i32 as _);
 pub const S_SYNCMGR_MISSINGITEMS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262657i32 as _);
 pub const S_SYNCMGR_RETRYSYNC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262658i32 as _);
-pub const ScheduledTasks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3592911248, data2: 19562, data3: 4559, data4: [141, 135, 0, 170, 0, 96, 245, 191] };
-pub const SearchFolderItemFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ScheduledTasks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3592911248, data2: 19562, data3: 4559, data4: [141, 135, 0, 170, 0, 96, 245, 191] };
+pub const SearchFolderItemFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 335613442,
     data2: 48061,
     data3: 16880,
@@ -10646,7 +10646,7 @@ impl ::core::clone::Clone for SecureLockIconConstants {
         *self
     }
 }
-pub const SelectedItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SelectedItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2414024402,
     data2: 3666,
     data3: 17930,
@@ -10660,16 +10660,16 @@ impl ::core::clone::Clone for ShFindChangeNotificationHandle {
         *self
     }
 }
-pub const SharedBitmap: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1303536758, data2: 26503, data3: 16454, data4: [184, 54, 232, 65, 42, 158, 138, 39] };
-pub const SharingConfigurationManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1240691169, data2: 35932, data3: 19868, data4: [154, 59, 84, 166, 130, 127, 81, 60] };
-pub const Shell: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 326145568, data2: 49785, data3: 4558, data4: [164, 158, 68, 69, 83, 84, 0, 0] };
-pub const ShellBrowserWindow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3230334352, data2: 62113, data3: 4561, data4: [132, 85, 0, 160, 201, 31, 56, 128] };
-pub const ShellDesktop: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136192, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const ShellDispatchInproc: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 176793696, data2: 55217, data3: 4558, data4: [131, 80, 68, 69, 83, 84, 0, 0] };
-pub const ShellFSFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4080421792, data2: 26041, data3: 4558, data4: [169, 186, 0, 170, 0, 74, 232, 55] };
-pub const ShellFolderItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 803427050, data2: 64799, data3: 4562, data4: [177, 244, 0, 192, 79, 142, 235, 62] };
-pub const ShellFolderView: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1645292193, data2: 60388, data3: 4559, data4: [165, 251, 0, 32, 175, 231, 41, 45] };
-pub const ShellFolderViewOC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2610977137, data2: 63144, data3: 4559, data4: [164, 66, 0, 160, 201, 10, 143, 57] };
+pub const SharedBitmap: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1303536758, data2: 26503, data3: 16454, data4: [184, 54, 232, 65, 42, 158, 138, 39] };
+pub const SharingConfigurationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1240691169, data2: 35932, data3: 19868, data4: [154, 59, 84, 166, 130, 127, 81, 60] };
+pub const Shell: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 326145568, data2: 49785, data3: 4558, data4: [164, 158, 68, 69, 83, 84, 0, 0] };
+pub const ShellBrowserWindow: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3230334352, data2: 62113, data3: 4561, data4: [132, 85, 0, 160, 201, 31, 56, 128] };
+pub const ShellDesktop: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136192, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const ShellDispatchInproc: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 176793696, data2: 55217, data3: 4558, data4: [131, 80, 68, 69, 83, 84, 0, 0] };
+pub const ShellFSFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4080421792, data2: 26041, data3: 4558, data4: [169, 186, 0, 170, 0, 74, 232, 55] };
+pub const ShellFolderItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 803427050, data2: 64799, data3: 4562, data4: [177, 244, 0, 192, 79, 142, 235, 62] };
+pub const ShellFolderView: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1645292193, data2: 60388, data3: 4559, data4: [165, 251, 0, 32, 175, 231, 41, 45] };
+pub const ShellFolderViewOC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2610977137, data2: 63144, data3: 4559, data4: [164, 66, 0, 160, 201, 10, 143, 57] };
 #[repr(transparent)]
 pub struct ShellFolderViewOptions(pub i32);
 pub const SFVVO_SHOWALLOBJECTS: ShellFolderViewOptions = ShellFolderViewOptions(1i32);
@@ -10685,22 +10685,22 @@ impl ::core::clone::Clone for ShellFolderViewOptions {
         *self
     }
 }
-pub const ShellImageDataFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ShellImageDataFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1726276859,
     data2: 62341,
     data3: 19920,
     data4: [141, 116, 162, 239, 209, 188, 97, 120],
 };
-pub const ShellItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2596928481, data2: 57506, data3: 19158, data4: [180, 238, 226, 18, 1, 62, 169, 23] };
-pub const ShellLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ShellItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2596928481, data2: 57506, data3: 19158, data4: [180, 238, 226, 18, 1, 62, 169, 23] };
+pub const ShellLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3652395293,
     data2: 58751,
     data3: 17446,
     data4: [170, 239, 48, 168, 6, 173, 211, 151],
 };
-pub const ShellLink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136193, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const ShellLinkObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 287413280, data2: 5992, data3: 4561, data4: [149, 190, 0, 96, 151, 151, 234, 79] };
-pub const ShellNameSpace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1427335173, data2: 45790, data3: 4561, data4: [185, 242, 0, 160, 201, 139, 197, 71] };
+pub const ShellLink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136193, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const ShellLinkObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 287413280, data2: 5992, data3: 4561, data4: [149, 190, 0, 96, 151, 151, 234, 79] };
+pub const ShellNameSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1427335173, data2: 45790, data3: 4561, data4: [185, 242, 0, 160, 201, 139, 197, 71] };
 #[repr(transparent)]
 pub struct ShellSpecialFolderConstants(pub i32);
 pub const ssfDESKTOP: ShellSpecialFolderConstants = ShellSpecialFolderConstants(0i32);
@@ -10747,7 +10747,7 @@ impl ::core::clone::Clone for ShellSpecialFolderConstants {
         *self
     }
 }
-pub const ShellUIHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1688947639, data2: 4382, data3: 4561, data4: [143, 121, 0, 192, 79, 194, 251, 225] };
+pub const ShellUIHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1688947639, data2: 4382, data3: 4561, data4: [143, 121, 0, 192, 79, 194, 251, 225] };
 #[repr(transparent)]
 pub struct ShellWindowFindWindowOptions(pub i32);
 pub const SWFO_NEEDDISPATCH: ShellWindowFindWindowOptions = ShellWindowFindWindowOptions(1i32);
@@ -10772,74 +10772,74 @@ impl ::core::clone::Clone for ShellWindowTypeConstants {
         *self
     }
 }
-pub const ShellWindows: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2610977138, data2: 63144, data3: 4559, data4: [164, 66, 0, 160, 201, 10, 143, 57] };
-pub const ShowInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ShellWindows: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2610977138, data2: 63144, data3: 4559, data4: [164, 66, 0, 160, 201, 10, 143, 57] };
+pub const ShowInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 520383167,
     data2: 12802,
     data3: 19905,
     data4: [140, 181, 60, 103, 97, 124, 225, 250],
 };
-pub const SimpleConflictPresenter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2047830711, data2: 60804, data3: 18102, data4: [180, 126, 2, 170, 21, 154, 21, 43] };
-pub const SizeCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SimpleConflictPresenter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2047830711, data2: 60804, data3: 18102, data4: [180, 126, 2, 170, 21, 154, 21, 43] };
+pub const SizeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1440200786,
     data2: 63185,
     data3: 17138,
     data4: [170, 117, 135, 40, 161, 178, 210, 100],
 };
-pub const SmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2413289884,
     data2: 15351,
     data3: 18587,
     data4: [167, 44, 132, 106, 179, 103, 140, 150],
 };
-pub const SmartcardPinProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SmartcardPinProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2488888446,
     data2: 14148,
     data3: 16846,
     data4: [137, 62, 187, 240, 145, 34, 247, 106],
 };
-pub const SmartcardReaderSelectionProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SmartcardReaderSelectionProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 455620705,
     data2: 30031,
     data3: 16418,
     data4: [173, 71, 165, 234, 170, 97, 136, 148],
 };
-pub const SmartcardWinRTProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 518468479, data2: 34220, data3: 17890, data4: [162, 60, 55, 199, 83, 32, 151, 105] };
-pub const StartMenuPin: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SmartcardWinRTProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 518468479, data2: 34220, data3: 17890, data4: [162, 60, 55, 199, 83, 32, 151, 105] };
+pub const StartMenuPin: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2729006173,
     data2: 41154,
     data3: 17076,
     data4: [151, 8, 160, 178, 186, 221, 119, 200],
 };
-pub const StorageProviderBanners: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const StorageProviderBanners: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2093873652,
     data2: 58742,
     data3: 17754,
     data4: [139, 199, 246, 236, 104, 214, 240, 99],
 };
-pub const SuspensionDependencyManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SuspensionDependencyManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1797734341,
     data2: 25085,
     data3: 18712,
     data4: [149, 162, 195, 181, 233, 215, 245, 129],
 };
-pub const SyncMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1653989159, data2: 13806, data3: 4561, data4: [135, 7, 0, 192, 79, 217, 51, 39] };
-pub const SyncMgrClient: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 302177120, data2: 7596, data3: 17093, data4: [174, 213, 26, 189, 212, 50, 36, 142] };
-pub const SyncMgrControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 438256134, data2: 1672, data3: 20095, data4: [190, 3, 216, 46, 198, 157, 249, 165] };
-pub const SyncMgrFolder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SyncMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1653989159, data2: 13806, data3: 4561, data4: [135, 7, 0, 192, 79, 217, 51, 39] };
+pub const SyncMgrClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 302177120, data2: 7596, data3: 17093, data4: [174, 213, 26, 189, 212, 50, 36, 142] };
+pub const SyncMgrControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 438256134, data2: 1672, data3: 20095, data4: [190, 3, 216, 46, 198, 157, 249, 165] };
+pub const SyncMgrFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2624845285,
     data2: 31463,
     data3: 20018,
     data4: [168, 232, 141, 35, 184, 82, 85, 191],
 };
-pub const SyncMgrScheduleWizard: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SyncMgrScheduleWizard: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2374733360,
     data2: 50257,
     data3: 16923,
     data4: [133, 83, 210, 151, 106, 250, 100, 140],
 };
-pub const SyncResultsFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1910084708, data2: 15211, data3: 18268, data4: [178, 65, 225, 88, 131, 32, 117, 41] };
-pub const SyncSetupFolder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 782129600, data2: 46135, data3: 18817, data4: [166, 71, 156, 52, 185, 185, 8, 145] };
+pub const SyncResultsFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1910084708, data2: 15211, data3: 18268, data4: [178, 65, 225, 88, 131, 32, 117, 41] };
+pub const SyncSetupFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 782129600, data2: 46135, data3: 18817, data4: [166, 71, 156, 52, 185, 185, 8, 145] };
 pub const TBIF_APPEND: u32 = 0u32;
 pub const TBIF_DEFAULT: u32 = 0u32;
 pub const TBIF_INTERNETBAR: u32 = 65536u32;
@@ -10965,8 +10965,8 @@ impl ::core::clone::Clone for TOOLBARITEM {
         *self
     }
 }
-pub const TaskbarList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1459483460, data2: 64877, data3: 4560, data4: [149, 138, 0, 96, 151, 201, 160, 144] };
-pub const ThumbnailStreamCache: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const TaskbarList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1459483460, data2: 64877, data3: 4560, data4: [149, 138, 0, 96, 151, 201, 160, 144] };
+pub const ThumbnailStreamCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3420520147,
     data2: 19345,
     data3: 20112,
@@ -10984,15 +10984,15 @@ impl ::core::clone::Clone for ThumbnailStreamCacheOptions {
         *self
     }
 }
-pub const TimeCategorizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const TimeCategorizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1001656719,
     data2: 56829,
     data3: 19760,
     data4: [163, 72, 159, 181, 214, 191, 26, 254],
 };
-pub const TrackShellMenu: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2188966193, data2: 10814, data3: 4562, data4: [131, 143, 0, 192, 79, 217, 24, 208] };
-pub const TrayBandSiteService: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4127903904, data2: 58849, data3: 17867, data4: [181, 26, 225, 91, 159, 139, 41, 52] };
-pub const TrayDeskBand: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const TrackShellMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2188966193, data2: 10814, data3: 4562, data4: [131, 143, 0, 192, 79, 217, 24, 208] };
+pub const TrayBandSiteService: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4127903904, data2: 58849, data3: 17867, data4: [181, 26, 225, 91, 159, 139, 41, 52] };
+pub const TrayDeskBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3863225399,
     data2: 27752,
     data3: 20306,
@@ -11104,15 +11104,15 @@ pub const URL_UNESCAPE_HIGH_ANSI_ONLY: u32 = 4194304u32;
 pub const URL_UNESCAPE_INPLACE: u32 = 1048576u32;
 pub const URL_UNESCAPE_URI_COMPONENT: u32 = 262144u32;
 pub const URL_WININET_COMPATIBILITY: u32 = 2147483648u32;
-pub const UserNotification: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1083662, data2: 34697, data3: 16700, data4: [173, 188, 72, 245, 181, 17, 179, 175] };
-pub const V1PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1866849310, data2: 21380, data3: 17786, data4: [188, 19, 44, 216, 27, 13, 40, 237] };
-pub const V1SmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const UserNotification: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1083662, data2: 34697, data3: 16700, data4: [173, 188, 72, 245, 181, 17, 179, 175] };
+pub const V1PasswordCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1866849310, data2: 21380, data3: 17786, data4: [188, 19, 44, 216, 27, 13, 40, 237] };
+pub const V1SmartcardCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2348394768,
     data2: 43263,
     data3: 17791,
     data4: [153, 159, 165, 202, 16, 180, 168, 133],
 };
-pub const V1WinBioCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2889531977, data2: 59424, data3: 17219, data4: [166, 91, 55, 122, 198, 52, 220, 9] };
+pub const V1WinBioCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2889531977, data2: 59424, data3: 17219, data4: [166, 91, 55, 122, 198, 52, 220, 9] };
 #[repr(transparent)]
 pub struct VALIDATEUNC_OPTION(pub i32);
 pub const VALIDATEUNC_CONNECT: VALIDATEUNC_OPTION = VALIDATEUNC_OPTION(1i32);
@@ -11126,19 +11126,19 @@ impl ::core::clone::Clone for VALIDATEUNC_OPTION {
         *self
     }
 }
-pub const VID_Content: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 818070580, data2: 2185, data3: 19597, data4: [152, 93, 169, 247, 24, 48, 176, 169] };
-pub const VID_Details: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 327055104, data2: 13683, data3: 4559, data4: [174, 105, 8, 0, 43, 46, 18, 98] };
-pub const VID_LargeIcons: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5755104, data2: 13683, data3: 4559, data4: [174, 105, 8, 0, 43, 46, 18, 98] };
-pub const VID_List: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 236955104, data2: 13683, data3: 4559, data4: [174, 105, 8, 0, 43, 46, 18, 98] };
-pub const VID_SmallIcons: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 143655104, data2: 13683, data3: 4559, data4: [174, 105, 8, 0, 43, 46, 18, 98] };
-pub const VID_ThumbStrip: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const VID_Content: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 818070580, data2: 2185, data3: 19597, data4: [152, 93, 169, 247, 24, 48, 176, 169] };
+pub const VID_Details: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 327055104, data2: 13683, data3: 4559, data4: [174, 105, 8, 0, 43, 46, 18, 98] };
+pub const VID_LargeIcons: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5755104, data2: 13683, data3: 4559, data4: [174, 105, 8, 0, 43, 46, 18, 98] };
+pub const VID_List: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 236955104, data2: 13683, data3: 4559, data4: [174, 105, 8, 0, 43, 46, 18, 98] };
+pub const VID_SmallIcons: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 143655104, data2: 13683, data3: 4559, data4: [174, 105, 8, 0, 43, 46, 18, 98] };
+pub const VID_ThumbStrip: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2398070308,
     data2: 53737,
     data3: 17499,
     data4: [148, 183, 116, 251, 206, 46, 161, 26],
 };
-pub const VID_Thumbnails: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2347479696, data2: 21200, data3: 4560, data4: [183, 244, 0, 192, 79, 215, 6, 236] };
-pub const VID_Tile: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const VID_Thumbnails: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2347479696, data2: 21200, data3: 4560, data4: [183, 244, 0, 192, 79, 215, 6, 236] };
+pub const VID_Tile: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1710302693,
     data2: 31713,
     data3: 18448,
@@ -11177,13 +11177,13 @@ impl ::core::clone::Clone for VPWATERMARKFLAGS {
         *self
     }
 }
-pub const VaultProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const VaultProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1345796560,
     data2: 19550,
     data3: 19709,
     data4: [179, 186, 216, 129, 51, 79, 13, 242],
 };
-pub const VirtualDesktopManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2857406598, data2: 23721, data3: 19493, data4: [143, 149, 88, 157, 60, 7, 180, 138] };
+pub const VirtualDesktopManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2857406598, data2: 23721, data3: 19493, data4: [143, 149, 88, 157, 60, 7, 180, 138] };
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct WINDOWDATA {
@@ -11289,15 +11289,15 @@ impl ::core::clone::Clone for WTS_THUMBNAILID {
         *self
     }
 }
-pub const WebBrowser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2287401313, data2: 13322, data3: 4560, data4: [169, 107, 0, 192, 79, 215, 5, 162] };
-pub const WebBrowser_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3937544899, data2: 12481, data3: 4559, data4: [167, 235, 0, 0, 192, 91, 174, 11] };
-pub const WebWizardHost: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WebBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2287401313, data2: 13322, data3: 4560, data4: [169, 107, 0, 192, 79, 215, 5, 162] };
+pub const WebBrowser_V1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3937544899, data2: 12481, data3: 4559, data4: [167, 235, 0, 0, 192, 91, 174, 11] };
+pub const WebWizardHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3358060873,
     data2: 21953,
     data3: 19752,
     data4: [147, 94, 87, 228, 124, 174, 217, 115],
 };
-pub const WinBioCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WinBioCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3200291363,
     data2: 45080,
     data3: 16749,

@@ -215,6 +215,6 @@ impl ::core::clone::Clone for XmlWriterProperty {
         *self
     }
 }
-pub const _IID_IXmlReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597121, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
-pub const _IID_IXmlResolver: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597122, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
-pub const _IID_IXmlWriter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597128, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
+pub const _IID_IXmlReader: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1920597121, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
+pub const _IID_IXmlResolver: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1920597122, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
+pub const _IID_IXmlWriter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1920597128, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };

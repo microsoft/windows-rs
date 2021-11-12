@@ -496,416 +496,416 @@ impl ::core::clone::Clone for GEN_GET_TIME_CAPS {
         *self
     }
 }
-pub const GUID_DEVINTERFACE_NET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVINTERFACE_NET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3402138756,
     data2: 29973,
     data3: 19459,
     data4: [130, 230, 113, 168, 122, 186, 195, 97],
 };
-pub const GUID_DEVINTERFACE_NETUIO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVINTERFACE_NETUIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 137588576,
     data2: 1657,
     data3: 19564,
     data4: [133, 210, 174, 124, 237, 101, 255, 247],
 };
-pub const GUID_NDIS_802_11_ADD_KEY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2878036578, data2: 7505, data3: 18904, data4: [186, 92, 250, 152, 11, 224, 58, 29] };
-pub const GUID_NDIS_802_11_ADD_WEP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1124581360, data2: 8489, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_ASSOCIATION_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_802_11_ADD_KEY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2878036578, data2: 7505, data3: 18904, data4: [186, 92, 250, 152, 11, 224, 58, 29] };
+pub const GUID_NDIS_802_11_ADD_WEP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1124581360, data2: 8489, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_ASSOCIATION_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2693615056,
     data2: 38414,
     data3: 16573,
     data4: [140, 246, 197, 56, 175, 152, 242, 227],
 };
-pub const GUID_NDIS_802_11_AUTHENTICATION_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1133644324, data2: 8489, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_BSSID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 621065922, data2: 8101, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_BSSID_LIST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1767010202, data2: 8290, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_BSSID_LIST_SCAN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 228458977, data2: 47728, data3: 4564, data4: [182, 117, 0, 32, 72, 87, 3, 55] };
-pub const GUID_NDIS_802_11_CONFIGURATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1246624130, data2: 8296, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_DESIRED_RATES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1160700046, data2: 9526, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_DISASSOCIATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1130831680, data2: 8489, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_FRAGMENTATION_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1772791748, data2: 8290, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_INFRASTRUCTURE_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1769822846, data2: 8290, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_MEDIA_STREAM_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_802_11_AUTHENTICATION_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1133644324, data2: 8489, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_BSSID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 621065922, data2: 8101, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_BSSID_LIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1767010202, data2: 8290, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_BSSID_LIST_SCAN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 228458977, data2: 47728, data3: 4564, data4: [182, 117, 0, 32, 72, 87, 3, 55] };
+pub const GUID_NDIS_802_11_CONFIGURATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1246624130, data2: 8296, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_DESIRED_RATES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1160700046, data2: 9526, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_DISASSOCIATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1130831680, data2: 8489, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_FRAGMENTATION_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1772791748, data2: 8290, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_INFRASTRUCTURE_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1769822846, data2: 8290, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_MEDIA_STREAM_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 173453158,
     data2: 55371,
     data3: 18923,
     data4: [162, 141, 82, 130, 203, 182, 208, 205],
 };
-pub const GUID_NDIS_802_11_NETWORK_TYPES_SUPPORTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2234636006, data2: 8257, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_NETWORK_TYPE_IN_USE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2239636262, data2: 8257, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_NUMBER_OF_ANTENNAS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 24613686, data2: 8292, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_POWER_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2243855228, data2: 8257, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_PRIVACY_FILTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1731445993, data2: 18322, data3: 4564, data4: [151, 241, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_RELOAD_DEFAULTS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_802_11_NETWORK_TYPES_SUPPORTED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2234636006, data2: 8257, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_NETWORK_TYPE_IN_USE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2239636262, data2: 8257, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_NUMBER_OF_ANTENNAS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 24613686, data2: 8292, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_POWER_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2243855228, data2: 8257, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_PRIVACY_FILTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1731445993, data2: 18322, data3: 4564, data4: [151, 241, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_RELOAD_DEFAULTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1955271912,
     data2: 13038,
     data3: 17445,
     data4: [185, 27, 201, 132, 140, 88, 181, 90],
 };
-pub const GUID_NDIS_802_11_REMOVE_KEY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1942694121, data2: 12680, data3: 17109, data4: [181, 83, 178, 18, 55, 230, 8, 140] };
-pub const GUID_NDIS_802_11_REMOVE_WEP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1128019036, data2: 8489, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_RSSI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 352836374, data2: 8275, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_RSSI_TRIGGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 357992888, data2: 8275, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_RTS_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 20238462, data2: 8292, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_RX_ANTENNA_SELECTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 28051362, data2: 8292, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_SSID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2099941610, data2: 8257, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1119581104, data2: 8489, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_SUPPORTED_RATES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1239123746, data2: 8296, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_TEST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1268556138, data2: 27232, data3: 20125, data4: [146, 12, 99, 53, 149, 63, 160, 181] };
-pub const GUID_NDIS_802_11_TX_ANTENNA_SELECTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 31176522, data2: 8292, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_TX_POWER_LEVEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 300333686, data2: 8275, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
-pub const GUID_NDIS_802_11_WEP_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_802_11_REMOVE_KEY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1942694121, data2: 12680, data3: 17109, data4: [181, 83, 178, 18, 55, 230, 8, 140] };
+pub const GUID_NDIS_802_11_REMOVE_WEP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1128019036, data2: 8489, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_RSSI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 352836374, data2: 8275, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_RSSI_TRIGGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 357992888, data2: 8275, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_RTS_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 20238462, data2: 8292, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_RX_ANTENNA_SELECTED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 28051362, data2: 8292, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_SSID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2099941610, data2: 8257, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1119581104, data2: 8489, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_SUPPORTED_RATES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1239123746, data2: 8296, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_TEST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1268556138, data2: 27232, data3: 20125, data4: [146, 12, 99, 53, 149, 63, 160, 181] };
+pub const GUID_NDIS_802_11_TX_ANTENNA_SELECTED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 31176522, data2: 8292, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_TX_POWER_LEVEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 300333686, data2: 8275, data3: 4564, data4: [151, 235, 0, 192, 79, 121, 196, 3] };
+pub const GUID_NDIS_802_11_WEP_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2955387423,
     data2: 15610,
     data3: 16677,
     data4: [128, 11, 63, 122, 24, 253, 220, 220],
 };
-pub const GUID_NDIS_802_3_CURRENT_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802816, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_3_MAC_OPTIONS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802819, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_3_MAXIMUM_LIST_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802818, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_3_MULTICAST_LIST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802817, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_3_PERMANENT_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802815, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_3_RCV_ERROR_ALIGNMENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802820, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_3_XMIT_MORE_COLLISIONS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802822, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_3_XMIT_ONE_COLLISION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802821, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_5_CURRENT_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802824, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_5_CURRENT_FUNCTIONAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802825, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_5_CURRENT_GROUP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802826, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_5_CURRENT_RING_STATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2901491762, data2: 42524, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_5_CURRENT_RING_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2299148012, data2: 42524, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_5_LAST_OPEN_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802827, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_5_LINE_ERRORS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2901491763, data2: 42524, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_5_LOST_FRAMES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2901491764, data2: 42524, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_802_5_PERMANENT_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802823, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_ENUMERATE_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552180095, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_ENUMERATE_ADAPTERS_EX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 376531223, data2: 17158, data3: 19428, data4: [155, 90, 56, 9, 174, 68, 177, 37] };
-pub const GUID_NDIS_ENUMERATE_VC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552180098, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_DRIVER_VERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2031800728, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_HARDWARE_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2031800722, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_LINK_SPEED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2031800725, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_MAC_OPTIONS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2031800730, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_MEDIA_CONNECT_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2031800731, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_MEDIA_IN_USE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2031800724, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_MEDIA_SUPPORTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2031800723, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_MINIMUM_LINK_SPEED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2031800733, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_RCV_PDUS_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 169953288, data2: 58207, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_RCV_PDUS_NO_BUFFER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 169953289, data2: 58207, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_RCV_PDUS_OK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 169953286, data2: 58207, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_VENDOR_DESCRIPTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2031800727, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_VENDOR_DRIVER_VERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2031800732, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_VENDOR_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2031800726, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_XMIT_PDUS_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 169953287, data2: 58207, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CO_XMIT_PDUS_OK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 169953285, data2: 58207, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CURRENT_LOOKAHEAD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707617, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_CURRENT_PACKET_FILTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707616, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_DRIVER_VERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707618, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_ENUMERATE_PORTS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_802_3_CURRENT_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802816, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_3_MAC_OPTIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802819, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_3_MAXIMUM_LIST_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802818, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_3_MULTICAST_LIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802817, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_3_PERMANENT_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802815, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_3_RCV_ERROR_ALIGNMENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802820, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_3_XMIT_MORE_COLLISIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802822, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_3_XMIT_ONE_COLLISION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802821, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_5_CURRENT_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802824, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_5_CURRENT_FUNCTIONAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802825, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_5_CURRENT_GROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802826, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_5_CURRENT_RING_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2901491762, data2: 42524, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_5_CURRENT_RING_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2299148012, data2: 42524, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_5_LAST_OPEN_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802827, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_5_LINE_ERRORS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2901491763, data2: 42524, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_5_LOST_FRAMES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2901491764, data2: 42524, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_802_5_PERMANENT_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802823, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_ENUMERATE_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2552180095, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_ENUMERATE_ADAPTERS_EX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 376531223, data2: 17158, data3: 19428, data4: [155, 90, 56, 9, 174, 68, 177, 37] };
+pub const GUID_NDIS_ENUMERATE_VC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2552180098, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_DRIVER_VERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2031800728, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_HARDWARE_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2031800722, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_LINK_SPEED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2031800725, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_MAC_OPTIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2031800730, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_MEDIA_CONNECT_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2031800731, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_MEDIA_IN_USE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2031800724, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_MEDIA_SUPPORTED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2031800723, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_MINIMUM_LINK_SPEED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2031800733, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_RCV_PDUS_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 169953288, data2: 58207, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_RCV_PDUS_NO_BUFFER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 169953289, data2: 58207, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_RCV_PDUS_OK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 169953286, data2: 58207, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_VENDOR_DESCRIPTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2031800727, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_VENDOR_DRIVER_VERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2031800732, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_VENDOR_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2031800726, data2: 58204, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_XMIT_PDUS_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 169953287, data2: 58207, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CO_XMIT_PDUS_OK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 169953285, data2: 58207, data3: 4560, data4: [150, 146, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CURRENT_LOOKAHEAD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707617, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_CURRENT_PACKET_FILTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707616, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_DRIVER_VERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707618, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_ENUMERATE_PORTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4057377768,
     data2: 5604,
     data3: 17415,
     data4: [129, 183, 107, 131, 12, 119, 124, 217],
 };
-pub const GUID_NDIS_GEN_HARDWARE_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707604, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_INTERRUPT_MODERATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3653824165, data2: 61806, data3: 18044, data4: [132, 213, 99, 69, 162, 44, 226, 19] };
-pub const GUID_NDIS_GEN_INTERRUPT_MODERATION_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_GEN_HARDWARE_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707604, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_INTERRUPT_MODERATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3653824165, data2: 61806, data3: 18044, data4: [132, 213, 99, 69, 162, 44, 226, 19] };
+pub const GUID_NDIS_GEN_INTERRUPT_MODERATION_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3616124410,
     data2: 40022,
     data3: 17211,
     data4: [173, 1, 117, 116, 243, 206, 219, 233],
 };
-pub const GUID_NDIS_GEN_LINK_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2357015929, data2: 9515, data3: 17940, data4: [130, 197, 166, 80, 218, 161, 80, 73] };
-pub const GUID_NDIS_GEN_LINK_SPEED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707609, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_LINK_STATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3122613268, data2: 43333, data3: 18274, data4: [185, 22, 11, 85, 21, 182, 244, 58] };
-pub const GUID_NDIS_GEN_MAC_OPTIONS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707621, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_MAXIMUM_FRAME_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707608, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_MAXIMUM_LOOKAHEAD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707607, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_MAXIMUM_SEND_PACKETS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707623, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_MAXIMUM_TOTAL_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707619, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_MEDIA_CONNECT_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707622, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_MEDIA_IN_USE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707606, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_MEDIA_SUPPORTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707605, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_PCI_DEVICE_CUSTOM_PROPERTIES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_GEN_LINK_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2357015929, data2: 9515, data3: 17940, data4: [130, 197, 166, 80, 218, 161, 80, 73] };
+pub const GUID_NDIS_GEN_LINK_SPEED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707609, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_LINK_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3122613268, data2: 43333, data3: 18274, data4: [185, 22, 11, 85, 21, 182, 244, 58] };
+pub const GUID_NDIS_GEN_MAC_OPTIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707621, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_MAXIMUM_FRAME_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707608, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_MAXIMUM_LOOKAHEAD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707607, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_MAXIMUM_SEND_PACKETS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707623, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_MAXIMUM_TOTAL_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707619, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_MEDIA_CONNECT_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707622, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_MEDIA_IN_USE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707606, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_MEDIA_SUPPORTED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707605, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_PCI_DEVICE_CUSTOM_PROPERTIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2855925163,
     data2: 57952,
     data3: 19713,
     data4: [130, 176, 183, 55, 200, 128, 234, 5],
 };
-pub const GUID_NDIS_GEN_PHYSICAL_MEDIUM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_GEN_PHYSICAL_MEDIUM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1099735405,
     data2: 14647,
     data3: 16904,
     data4: [148, 10, 236, 97, 150, 39, 128, 133],
 };
-pub const GUID_NDIS_GEN_PHYSICAL_MEDIUM_EX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2308863874, data2: 859, data3: 17401, data4: [139, 182, 43, 88, 151, 22, 18, 229] };
-pub const GUID_NDIS_GEN_PORT_AUTHENTICATION_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2864098353, data2: 34555, data3: 18683, data4: [139, 72, 99, 219, 35, 90, 206, 22] };
-pub const GUID_NDIS_GEN_PORT_STATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1874799199, data2: 35727, data3: 18720, data4: [129, 67, 230, 196, 96, 245, 37, 36] };
-pub const GUID_NDIS_GEN_RCV_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802813, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_RCV_NO_BUFFER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802814, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_RCV_OK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802811, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_RECEIVE_BLOCK_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707613, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_RECEIVE_BUFFER_SPACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707611, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_GEN_PHYSICAL_MEDIUM_EX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2308863874, data2: 859, data3: 17401, data4: [139, 182, 43, 88, 151, 22, 18, 229] };
+pub const GUID_NDIS_GEN_PORT_AUTHENTICATION_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2864098353, data2: 34555, data3: 18683, data4: [139, 72, 99, 219, 35, 90, 206, 22] };
+pub const GUID_NDIS_GEN_PORT_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1874799199, data2: 35727, data3: 18720, data4: [129, 67, 230, 196, 96, 245, 37, 36] };
+pub const GUID_NDIS_GEN_RCV_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802813, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_RCV_NO_BUFFER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802814, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_RCV_OK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802811, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_RECEIVE_BLOCK_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707613, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_RECEIVE_BUFFER_SPACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707611, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 915162549,
     data2: 49449,
     data3: 17345,
     data4: [147, 158, 126, 220, 45, 127, 230, 33],
 };
-pub const GUID_NDIS_GEN_TRANSMIT_BLOCK_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707612, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_TRANSMIT_BUFFER_SPACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707610, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_VENDOR_DESCRIPTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707615, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_VENDOR_DRIVER_VERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802809, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_VENDOR_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1589707614, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_VLAN_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1985857282, data2: 50664, data3: 19303, data4: [132, 59, 63, 90, 79, 242, 100, 139] };
-pub const GUID_NDIS_GEN_XMIT_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802812, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_GEN_XMIT_OK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1148802810, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_HD_SPLIT_CURRENT_CONFIG: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_GEN_TRANSMIT_BLOCK_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707612, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_TRANSMIT_BUFFER_SPACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707610, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_VENDOR_DESCRIPTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707615, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_VENDOR_DRIVER_VERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802809, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_VENDOR_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1589707614, data2: 42522, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_VLAN_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1985857282, data2: 50664, data3: 19303, data4: [132, 59, 63, 90, 79, 242, 100, 139] };
+pub const GUID_NDIS_GEN_XMIT_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802812, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_GEN_XMIT_OK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1148802810, data2: 42523, data3: 4560, data4: [141, 212, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_HD_SPLIT_CURRENT_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2177970236,
     data2: 43776,
     data3: 20041,
     data4: [128, 177, 94, 110, 11, 249, 190, 83],
 };
-pub const GUID_NDIS_HD_SPLIT_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_HD_SPLIT_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2349108202,
     data2: 10515,
     data3: 17496,
     data4: [182, 142, 23, 246, 193, 229, 198, 14],
 };
-pub const GUID_NDIS_LAN_CLASS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2907277636, data2: 30255, data3: 4560, data4: [141, 203, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_NDK_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2036972109, data2: 56704, data3: 19399, data4: [179, 230, 104, 4, 57, 151, 229, 25] };
-pub const GUID_NDIS_NDK_STATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_LAN_CLASS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2907277636, data2: 30255, data3: 4560, data4: [141, 203, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_NDK_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2036972109, data2: 56704, data3: 19399, data4: [179, 230, 104, 4, 57, 151, 229, 25] };
+pub const GUID_NDIS_NDK_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1393322441,
     data2: 12113,
     data3: 18910,
     data4: [161, 175, 8, 141, 84, 255, 164, 116],
 };
-pub const GUID_NDIS_NOTIFY_ADAPTER_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552180097, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_NOTIFY_ADAPTER_REMOVAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552180096, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_NOTIFY_BIND: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1410552604, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_NOTIFY_DEVICE_POWER_OFF: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_NOTIFY_ADAPTER_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2552180097, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_NOTIFY_ADAPTER_REMOVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2552180096, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_NOTIFY_BIND: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1410552604, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_NOTIFY_DEVICE_POWER_OFF: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2176614793,
     data2: 45094,
     data3: 18091,
     data4: [185, 100, 241, 130, 227, 66, 147, 78],
 };
-pub const GUID_NDIS_NOTIFY_DEVICE_POWER_OFF_EX: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_NOTIFY_DEVICE_POWER_OFF_EX: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1096365372,
     data2: 23767,
     data3: 17102,
     data4: [143, 228, 164, 90, 35, 128, 204, 79],
 };
-pub const GUID_NDIS_NOTIFY_DEVICE_POWER_ON: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_NOTIFY_DEVICE_POWER_ON: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1602342864,
     data2: 61510,
     data3: 17218,
     data4: [175, 97, 137, 90, 206, 218, 239, 217],
 };
-pub const GUID_NDIS_NOTIFY_DEVICE_POWER_ON_EX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 725877128, data2: 37548, data3: 20320, data4: [155, 45, 32, 163, 12, 187, 107, 190] };
-pub const GUID_NDIS_NOTIFY_FILTER_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_NOTIFY_DEVICE_POWER_ON_EX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 725877128, data2: 37548, data3: 20320, data4: [155, 45, 32, 163, 12, 187, 107, 190] };
+pub const GUID_NDIS_NOTIFY_FILTER_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 191708297,
     data2: 22807,
     data3: 17354,
     data4: [181, 120, 208, 26, 121, 103, 196, 28],
 };
-pub const GUID_NDIS_NOTIFY_FILTER_REMOVAL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_NOTIFY_FILTER_REMOVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 521632985,
     data2: 22869,
     data3: 18209,
     data4: [159, 106, 120, 235, 223, 174, 248, 137],
 };
-pub const GUID_NDIS_NOTIFY_UNBIND: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1849483756, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_NOTIFY_VC_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 405773836, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_NOTIFY_VC_REMOVAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552180089, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_PM_ACTIVE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_NOTIFY_UNBIND: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1849483756, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_NOTIFY_VC_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 405773836, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_NOTIFY_VC_REMOVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2552180089, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_PM_ACTIVE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2999940835,
     data2: 45998,
     data3: 17300,
     data4: [160, 31, 51, 140, 152, 112, 233, 57],
 };
-pub const GUID_NDIS_PM_ADMIN_CONFIG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 354996497, data2: 28810, data3: 19620, data4: [146, 21, 192, 87, 113, 22, 28, 218] };
-pub const GUID_NDIS_RECEIVE_FILTER_ENUM_FILTERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1059853341, data2: 33724, data3: 4573, data4: [148, 184, 0, 29, 9, 22, 43, 195] };
-pub const GUID_NDIS_RECEIVE_FILTER_ENUM_QUEUES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1059853339, data2: 33724, data3: 4573, data4: [148, 184, 0, 29, 9, 22, 43, 195] };
-pub const GUID_NDIS_RECEIVE_FILTER_GLOBAL_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1059853338, data2: 33724, data3: 4573, data4: [148, 184, 0, 29, 9, 22, 43, 195] };
-pub const GUID_NDIS_RECEIVE_FILTER_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1059853337, data2: 33724, data3: 4573, data4: [148, 184, 0, 29, 9, 22, 43, 195] };
-pub const GUID_NDIS_RECEIVE_FILTER_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1059853342, data2: 33724, data3: 4573, data4: [148, 184, 0, 29, 9, 22, 43, 195] };
-pub const GUID_NDIS_RECEIVE_FILTER_QUEUE_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1059853340, data2: 33724, data3: 4573, data4: [148, 184, 0, 29, 9, 22, 43, 195] };
-pub const GUID_NDIS_RECEIVE_SCALE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 650282868, data2: 16978, data3: 18686, data4: [166, 16, 165, 138, 57, 140, 14, 177] };
-pub const GUID_NDIS_RSS_ENABLED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2506476885, data2: 13314, data3: 20018, data4: [165, 182, 47, 20, 63, 47, 44, 48] };
-pub const GUID_NDIS_STATUS_DOT11_ASSOCIATION_COMPLETION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_PM_ADMIN_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 354996497, data2: 28810, data3: 19620, data4: [146, 21, 192, 87, 113, 22, 28, 218] };
+pub const GUID_NDIS_RECEIVE_FILTER_ENUM_FILTERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1059853341, data2: 33724, data3: 4573, data4: [148, 184, 0, 29, 9, 22, 43, 195] };
+pub const GUID_NDIS_RECEIVE_FILTER_ENUM_QUEUES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1059853339, data2: 33724, data3: 4573, data4: [148, 184, 0, 29, 9, 22, 43, 195] };
+pub const GUID_NDIS_RECEIVE_FILTER_GLOBAL_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1059853338, data2: 33724, data3: 4573, data4: [148, 184, 0, 29, 9, 22, 43, 195] };
+pub const GUID_NDIS_RECEIVE_FILTER_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1059853337, data2: 33724, data3: 4573, data4: [148, 184, 0, 29, 9, 22, 43, 195] };
+pub const GUID_NDIS_RECEIVE_FILTER_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1059853342, data2: 33724, data3: 4573, data4: [148, 184, 0, 29, 9, 22, 43, 195] };
+pub const GUID_NDIS_RECEIVE_FILTER_QUEUE_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1059853340, data2: 33724, data3: 4573, data4: [148, 184, 0, 29, 9, 22, 43, 195] };
+pub const GUID_NDIS_RECEIVE_SCALE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 650282868, data2: 16978, data3: 18686, data4: [166, 16, 165, 138, 57, 140, 14, 177] };
+pub const GUID_NDIS_RSS_ENABLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2506476885, data2: 13314, data3: 20018, data4: [165, 182, 47, 20, 63, 47, 44, 48] };
+pub const GUID_NDIS_STATUS_DOT11_ASSOCIATION_COMPLETION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1166786215,
     data2: 17828,
     data3: 19170,
     data4: [177, 118, 229, 31, 150, 252, 5, 104],
 };
-pub const GUID_NDIS_STATUS_DOT11_ASSOCIATION_START: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 958891067, data2: 27008, data3: 19272, data4: [177, 91, 77, 229, 9, 119, 172, 64] };
-pub const GUID_NDIS_STATUS_DOT11_CONNECTION_COMPLETION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2532301257, data2: 32539, data3: 19081, data4: [188, 4, 62, 158, 39, 23, 101, 241] };
-pub const GUID_NDIS_STATUS_DOT11_CONNECTION_START: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2071210397, data2: 39311, data3: 17492, data4: [173, 8, 197, 175, 40, 87, 109, 27] };
-pub const GUID_NDIS_STATUS_DOT11_DISASSOCIATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_DOT11_ASSOCIATION_START: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 958891067, data2: 27008, data3: 19272, data4: [177, 91, 77, 229, 9, 119, 172, 64] };
+pub const GUID_NDIS_STATUS_DOT11_CONNECTION_COMPLETION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2532301257, data2: 32539, data3: 19081, data4: [188, 4, 62, 158, 39, 23, 101, 241] };
+pub const GUID_NDIS_STATUS_DOT11_CONNECTION_START: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2071210397, data2: 39311, data3: 17492, data4: [173, 8, 197, 175, 40, 87, 109, 27] };
+pub const GUID_NDIS_STATUS_DOT11_DISASSOCIATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1069463292,
     data2: 4066,
     data3: 17405,
     data4: [178, 173, 189, 153, 181, 249, 62, 19],
 };
-pub const GUID_NDIS_STATUS_DOT11_LINK_QUALITY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2737328516, data2: 60057, data3: 18669, data4: [130, 94, 164, 38, 177, 28, 39, 84] };
-pub const GUID_NDIS_STATUS_DOT11_MPDU_MAX_LENGTH_CHANGED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_DOT11_LINK_QUALITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2737328516, data2: 60057, data3: 18669, data4: [130, 94, 164, 38, 177, 28, 39, 84] };
+pub const GUID_NDIS_STATUS_DOT11_MPDU_MAX_LENGTH_CHANGED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 493183212,
     data2: 36424,
     data3: 19006,
     data4: [159, 213, 160, 27, 105, 141, 182, 197],
 };
-pub const GUID_NDIS_STATUS_DOT11_PHY_STATE_CHANGED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_DOT11_PHY_STATE_CHANGED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3736359702,
     data2: 29109,
     data3: 18230,
     data4: [189, 239, 10, 158, 159, 78, 98, 220],
 };
-pub const GUID_NDIS_STATUS_DOT11_PMKID_CANDIDATE_LIST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 651737334, data2: 56194, data3: 18923, data4: [139, 243, 76, 19, 14, 240, 105, 80] };
-pub const GUID_NDIS_STATUS_DOT11_ROAMING_COMPLETION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_DOT11_PMKID_CANDIDATE_LIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 651737334, data2: 56194, data3: 18923, data4: [139, 243, 76, 19, 14, 240, 105, 80] };
+pub const GUID_NDIS_STATUS_DOT11_ROAMING_COMPLETION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3718072273,
     data2: 10283,
     data3: 16868,
     data4: [185, 36, 102, 54, 136, 23, 252, 211],
 };
-pub const GUID_NDIS_STATUS_DOT11_ROAMING_START: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2990615821, data2: 9928, data3: 20302, data4: [147, 223, 247, 183, 5, 160, 180, 51] };
-pub const GUID_NDIS_STATUS_DOT11_SCAN_CONFIRM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_DOT11_ROAMING_START: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2990615821, data2: 9928, data3: 20302, data4: [147, 223, 247, 183, 5, 160, 180, 51] };
+pub const GUID_NDIS_STATUS_DOT11_SCAN_CONFIRM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2231392542,
     data2: 41159,
     data3: 20219,
     data4: [147, 66, 182, 116, 176, 2, 203, 230],
 };
-pub const GUID_NDIS_STATUS_DOT11_TKIPMIC_FAILURE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_DOT11_TKIPMIC_FAILURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1143745252,
     data2: 39877,
     data3: 19344,
     data4: [168, 137, 69, 94, 242, 32, 244, 238],
 };
-pub const GUID_NDIS_STATUS_EXTERNAL_CONNECTIVITY_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_EXTERNAL_CONNECTIVITY_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4247808372,
     data2: 50208,
     data3: 17459,
     data4: [176, 254, 76, 246, 166, 19, 245, 159],
 };
-pub const GUID_NDIS_STATUS_HD_SPLIT_CURRENT_CONFIG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1819560718, data2: 61084, data3: 16901, data4: [144, 162, 1, 95, 109, 101, 244, 3] };
-pub const GUID_NDIS_STATUS_LINK_SPEED_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552180101, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_STATUS_LINK_STATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_HD_SPLIT_CURRENT_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1819560718, data2: 61084, data3: 16901, data4: [144, 162, 1, 95, 109, 101, 244, 3] };
+pub const GUID_NDIS_STATUS_LINK_SPEED_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2552180101, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_STATUS_LINK_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1690761111,
     data2: 34700,
     data3: 17169,
     data4: [146, 70, 101, 219, 168, 156, 58, 97],
 };
-pub const GUID_NDIS_STATUS_MEDIA_CONNECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552180093, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_STATUS_MEDIA_DISCONNECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552180094, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_STATUS_MEDIA_SPECIFIC_INDICATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552180100, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_STATUS_NETWORK_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_MEDIA_CONNECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2552180093, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_STATUS_MEDIA_DISCONNECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2552180094, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_STATUS_MEDIA_SPECIFIC_INDICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2552180100, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_STATUS_NETWORK_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3398063865,
     data2: 52865,
     data3: 16614,
     data4: [167, 15, 160, 103, 164, 118, 233, 233],
 };
-pub const GUID_NDIS_STATUS_OPER_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_OPER_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4179080803,
     data2: 33886,
     data3: 19773,
     data4: [182, 212, 21, 235, 39, 175, 129, 197],
 };
-pub const GUID_NDIS_STATUS_PACKET_FILTER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_PACKET_FILTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3564917767,
     data2: 11893,
     data3: 18141,
     data4: [129, 70, 29, 126, 210, 214, 171, 29],
 };
-pub const GUID_NDIS_STATUS_PM_OFFLOAD_REJECTED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_PM_OFFLOAD_REJECTED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2916209793,
     data2: 28958,
     data3: 19738,
     data4: [146, 202, 166, 45, 185, 50, 151, 18],
 };
-pub const GUID_NDIS_STATUS_PM_WAKE_REASON: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_PM_WAKE_REASON: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 154402136,
     data2: 51810,
     data3: 17295,
     data4: [131, 218, 223, 193, 204, 203, 129, 69],
 };
-pub const GUID_NDIS_STATUS_PM_WOL_PATTERN_REJECTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4146919054, data2: 6356, data3: 19811, data4: [154, 25, 230, 155, 19, 145, 107, 26] };
-pub const GUID_NDIS_STATUS_PORT_STATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_PM_WOL_PATTERN_REJECTED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4146919054, data2: 6356, data3: 19811, data4: [154, 25, 230, 155, 19, 145, 107, 26] };
+pub const GUID_NDIS_STATUS_PORT_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 497815038,
     data2: 17381,
     data3: 17591,
     data4: [183, 89, 123, 244, 109, 227, 46, 129],
 };
-pub const GUID_NDIS_STATUS_RESET_END: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552180087, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_STATUS_RESET_START: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552180086, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
-pub const GUID_NDIS_STATUS_TASK_OFFLOAD_CURRENT_CONFIG: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_RESET_END: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2552180087, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_STATUS_RESET_START: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2552180086, data2: 45555, data3: 4560, data4: [141, 215, 0, 192, 79, 195, 53, 140] };
+pub const GUID_NDIS_STATUS_TASK_OFFLOAD_CURRENT_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1157930950,
     data2: 21720,
     data3: 16584,
     data4: [156, 61, 176, 17, 196, 231, 21, 188],
 };
-pub const GUID_NDIS_STATUS_TASK_OFFLOAD_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_TASK_OFFLOAD_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3065517451,
     data2: 8572,
     data3: 19242,
     data4: [190, 134, 106, 4, 190, 234, 101, 184],
 };
-pub const GUID_NDIS_STATUS_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4176326399, data2: 9444, data3: 19174, data4: [164, 19, 11, 39, 247, 107, 36, 61] };
-pub const GUID_NDIS_STATUS_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 957966774, data2: 16428, data3: 17343, data4: [137, 34, 57, 234, 224, 218, 27, 181] };
-pub const GUID_NDIS_SWITCH_MICROSOFT_VENDOR_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 539314174, data2: 7324, data3: 16569, data4: [187, 161, 8, 173, 161, 249, 139, 60] };
-pub const GUID_NDIS_SWITCH_PORT_PROPERTY_PROFILE_ID_DEFAULT_EXTERNAL_NIC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 187988038, data2: 2572, data3: 18186, data4: [155, 122, 13, 150, 88, 80, 105, 143] };
-pub const GUID_NDIS_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 786870001, data2: 2129, data3: 17803, data4: [191, 13, 121, 35, 67, 209, 205, 225] };
-pub const GUID_NDIS_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2363957036, data2: 54842, data3: 17296, data4: [164, 135, 24, 250, 71, 38, 44, 235] };
-pub const GUID_NDIS_TCP_OFFLOAD_CURRENT_CONFIG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1750347757, data2: 23668, data3: 17950, data4: [137, 52, 145, 198, 249, 198, 9, 96] };
-pub const GUID_NDIS_TCP_OFFLOAD_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3445559554, data2: 22799, data3: 19162, data4: [171, 101, 91, 49, 177, 220, 1, 114] };
-pub const GUID_NDIS_TCP_OFFLOAD_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2393741858, data2: 32617, data3: 19398, data4: [148, 154, 200, 24, 123, 7, 78, 97] };
-pub const GUID_NDIS_TCP_RSC_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_STATUS_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4176326399, data2: 9444, data3: 19174, data4: [164, 19, 11, 39, 247, 107, 36, 61] };
+pub const GUID_NDIS_STATUS_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 957966774, data2: 16428, data3: 17343, data4: [137, 34, 57, 234, 224, 218, 27, 181] };
+pub const GUID_NDIS_SWITCH_MICROSOFT_VENDOR_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 539314174, data2: 7324, data3: 16569, data4: [187, 161, 8, 173, 161, 249, 139, 60] };
+pub const GUID_NDIS_SWITCH_PORT_PROPERTY_PROFILE_ID_DEFAULT_EXTERNAL_NIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 187988038, data2: 2572, data3: 18186, data4: [155, 122, 13, 150, 88, 80, 105, 143] };
+pub const GUID_NDIS_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 786870001, data2: 2129, data3: 17803, data4: [191, 13, 121, 35, 67, 209, 205, 225] };
+pub const GUID_NDIS_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2363957036, data2: 54842, data3: 17296, data4: [164, 135, 24, 250, 71, 38, 44, 235] };
+pub const GUID_NDIS_TCP_OFFLOAD_CURRENT_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1750347757, data2: 23668, data3: 17950, data4: [137, 52, 145, 198, 249, 198, 9, 96] };
+pub const GUID_NDIS_TCP_OFFLOAD_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3445559554, data2: 22799, data3: 19162, data4: [171, 101, 91, 49, 177, 220, 1, 114] };
+pub const GUID_NDIS_TCP_OFFLOAD_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2393741858, data2: 32617, data3: 19398, data4: [148, 154, 200, 24, 123, 7, 78, 97] };
+pub const GUID_NDIS_TCP_RSC_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2198881349,
     data2: 39773,
     data3: 20198,
     data4: [162, 165, 43, 211, 251, 60, 54, 175],
 };
-pub const GUID_NDIS_WAKE_ON_MAGIC_PACKET_ONLY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NDIS_WAKE_ON_MAGIC_PACKET_ONLY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2706316439,
     data2: 34873,
     data3: 20362,
     data4: [153, 150, 162, 137, 150, 235, 191, 29],
 };
-pub const GUID_NIC_SWITCH_CURRENT_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NIC_SWITCH_CURRENT_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3882867443,
     data2: 3047,
     data3: 19861,
     data4: [135, 233, 90, 234, 212, 181, 144, 233],
 };
-pub const GUID_NIC_SWITCH_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 936031244, data2: 53736, data3: 17153, data4: [140, 29, 88, 70, 94, 12, 76, 15] };
-pub const GUID_PM_ADD_PROTOCOL_OFFLOAD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 201769234, data2: 3475, data3: 17307, data4: [158, 109, 38, 190, 19, 12, 151, 132] };
-pub const GUID_PM_ADD_WOL_PATTERN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NIC_SWITCH_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 936031244, data2: 53736, data3: 17153, data4: [140, 29, 88, 70, 94, 12, 76, 15] };
+pub const GUID_PM_ADD_PROTOCOL_OFFLOAD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 201769234, data2: 3475, data3: 17307, data4: [158, 109, 38, 190, 19, 12, 151, 132] };
+pub const GUID_PM_ADD_WOL_PATTERN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1875393447,
     data2: 21180,
     data3: 20394,
     data4: [172, 81, 125, 47, 254, 99, 186, 144],
 };
-pub const GUID_PM_CURRENT_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 985513236, data2: 54346, data3: 19007, data4: [154, 99, 160, 164, 42, 81, 177, 49] };
-pub const GUID_PM_GET_PROTOCOL_OFFLOAD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PM_CURRENT_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 985513236, data2: 54346, data3: 19007, data4: [154, 99, 160, 164, 42, 81, 177, 49] };
+pub const GUID_PM_GET_PROTOCOL_OFFLOAD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2789432537,
     data2: 5279,
     data3: 18830,
     data4: [149, 27, 45, 148, 190, 163, 227, 163],
 };
-pub const GUID_PM_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3974444557, data2: 12945, data3: 19054, data4: [128, 68, 0, 81, 31, 237, 39, 238] };
-pub const GUID_PM_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1442989522, data2: 57937, data3: 16540, data4: [162, 128, 49, 25, 53, 190, 59, 40] };
-pub const GUID_PM_PROTOCOL_OFFLOAD_LIST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1936639403, data2: 51855, data3: 16451, data4: [187, 88, 218, 64, 42, 72, 217, 204] };
-pub const GUID_PM_REMOVE_PROTOCOL_OFFLOAD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3738008546, data2: 42672, data3: 17354, data4: [174, 69, 208, 0, 210, 14, 82, 101] };
-pub const GUID_PM_REMOVE_WOL_PATTERN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PM_HARDWARE_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3974444557, data2: 12945, data3: 19054, data4: [128, 68, 0, 81, 31, 237, 39, 238] };
+pub const GUID_PM_PARAMETERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1442989522, data2: 57937, data3: 16540, data4: [162, 128, 49, 25, 53, 190, 59, 40] };
+pub const GUID_PM_PROTOCOL_OFFLOAD_LIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1936639403, data2: 51855, data3: 16451, data4: [187, 88, 218, 64, 42, 72, 217, 204] };
+pub const GUID_PM_REMOVE_PROTOCOL_OFFLOAD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3738008546, data2: 42672, data3: 17354, data4: [174, 69, 208, 0, 210, 14, 82, 101] };
+pub const GUID_PM_REMOVE_WOL_PATTERN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2688002325,
     data2: 50890,
     data3: 17186,
     data4: [179, 227, 239, 117, 78, 196, 152, 220],
 };
-pub const GUID_PM_WOL_PATTERN_LIST: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PM_WOL_PATTERN_LIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1076018743,
     data2: 32482,
     data3: 18366,
     data4: [165, 165, 5, 15, 199, 154, 252, 117],
 };
-pub const GUID_RECEIVE_FILTER_CURRENT_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1079306255, data2: 11201, data3: 19660, data4: [176, 51, 74, 188, 12, 74, 30, 140] };
-pub const GUID_STATUS_MEDIA_SPECIFIC_INDICATION_EX: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_RECEIVE_FILTER_CURRENT_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1079306255, data2: 11201, data3: 19660, data4: [176, 51, 74, 188, 12, 74, 30, 140] };
+pub const GUID_STATUS_MEDIA_SPECIFIC_INDICATION_EX: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2863463591,
     data2: 38218,
     data3: 17970,
@@ -4744,7 +4744,7 @@ impl ::core::clone::Clone for UDP_ENCAP_TYPE {
         *self
     }
 }
-pub const UNSPECIFIED_NETWORK_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 314203102, data2: 5182, data3: 19469, data4: [182, 109, 35, 121, 187, 20, 25, 19] };
+pub const UNSPECIFIED_NETWORK_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 314203102, data2: 5182, data3: 19469, data4: [182, 109, 35, 121, 187, 20, 25, 19] };
 pub const WAN_PROTOCOL_KEEPS_STATS: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_WiFi")]

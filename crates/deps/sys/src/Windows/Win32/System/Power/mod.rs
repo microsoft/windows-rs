@@ -273,9 +273,9 @@ pub const BATTERY_CLASS_MAJOR_VERSION: u32 = 1u32;
 pub const BATTERY_CLASS_MINOR_VERSION: u32 = 0u32;
 pub const BATTERY_CLASS_MINOR_VERSION_1: u32 = 1u32;
 pub const BATTERY_CRITICAL: u32 = 8u32;
-pub const BATTERY_CYCLE_COUNT_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4019772196, data2: 20, data3: 19493, data4: [165, 11, 199, 36, 174, 92, 211, 113] };
+pub const BATTERY_CYCLE_COUNT_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4019772196, data2: 20, data3: 19493, data4: [165, 11, 199, 36, 174, 92, 211, 113] };
 pub const BATTERY_DISCHARGING: u32 = 2u32;
-pub const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1085539685, data2: 38647, data3: 17461, data4: [134, 148, 151, 224, 228, 57, 89, 5] };
+pub const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1085539685, data2: 38647, data3: 17461, data4: [134, 148, 151, 224, 228, 57, 89, 5] };
 #[repr(C)]
 pub struct BATTERY_INFORMATION {
     pub Capabilities: u32,
@@ -351,7 +351,7 @@ impl ::core::clone::Clone for BATTERY_REPORTING_SCALE {
         *self
     }
 }
-pub const BATTERY_RUNTIME_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1398421351, data2: 6850, data3: 18876, data4: [160, 119, 63, 122, 2, 228, 10, 236] };
+pub const BATTERY_RUNTIME_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1398421351, data2: 6850, data3: 18876, data4: [160, 119, 63, 122, 2, 228, 10, 236] };
 pub const BATTERY_SEALED: u32 = 268435456u32;
 pub const BATTERY_SET_CHARGER_ID_SUPPORTED: u32 = 8u32;
 pub const BATTERY_SET_CHARGE_SUPPORTED: u32 = 1u32;
@@ -383,7 +383,7 @@ impl ::core::clone::Clone for BATTERY_SET_INFORMATION_LEVEL {
         *self
     }
 }
-pub const BATTERY_STATIC_DATA_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 98690147, data2: 58594, data3: 20137, data4: [128, 203, 155, 212, 179, 202, 6, 85] };
+pub const BATTERY_STATIC_DATA_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 98690147, data2: 58594, data3: 20137, data4: [128, 203, 155, 212, 179, 202, 6, 85] };
 #[repr(C)]
 pub struct BATTERY_STATUS {
     pub PowerState: u32,
@@ -397,17 +397,17 @@ impl ::core::clone::Clone for BATTERY_STATUS {
         *self
     }
 }
-pub const BATTERY_STATUS_CHANGE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3453984963, data2: 31835, data3: 20035, data4: [160, 52, 5, 159, 165, 184, 67, 100] };
-pub const BATTERY_STATUS_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4232474833, data2: 60351, data3: 16750, data4: [135, 206, 55, 74, 78, 188, 17, 26] };
+pub const BATTERY_STATUS_CHANGE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3453984963, data2: 31835, data3: 20035, data4: [160, 52, 5, 159, 165, 184, 67, 100] };
+pub const BATTERY_STATUS_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4232474833, data2: 60351, data3: 16750, data4: [135, 206, 55, 74, 78, 188, 17, 26] };
 pub const BATTERY_SYSTEM_BATTERY: u32 = 2147483648u32;
-pub const BATTERY_TAG_CHANGE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BATTERY_TAG_CHANGE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1579118105,
     data2: 34694,
     data3: 19747,
     data4: [148, 252, 158, 116, 107, 213, 216, 136],
 };
 pub const BATTERY_TAG_INVALID: u32 = 0u32;
-pub const BATTERY_TEMPERATURE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BATTERY_TEMPERATURE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 441622861,
     data2: 44494,
     data3: 19012,
@@ -681,45 +681,45 @@ impl ::core::clone::Clone for GLOBAL_USER_POWER_POLICY {
         *self
     }
 }
-pub const GUID_CLASS_INPUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1293833650, data2: 61807, data3: 4559, data4: [136, 203, 0, 17, 17, 0, 0, 48] };
-pub const GUID_DEVICE_ACPI_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_CLASS_INPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1293833650, data2: 61807, data3: 4559, data4: [136, 203, 0, 17, 17, 0, 0, 48] };
+pub const GUID_DEVICE_ACPI_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2549718006,
     data2: 17559,
     data3: 20248,
     data4: [187, 34, 75, 159, 178, 251, 239, 156],
 };
-pub const GUID_DEVICE_APPLICATIONLAUNCH_BUTTON: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1654085870, data2: 39022, data3: 19870, data4: [142, 71, 222, 39, 248, 171, 5, 77] };
-pub const GUID_DEVICE_BATTERY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1919098452, data2: 30884, data3: 4560, data4: [188, 247, 0, 170, 0, 183, 179, 42] };
-pub const GUID_DEVICE_ENERGY_METER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVICE_APPLICATIONLAUNCH_BUTTON: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1654085870, data2: 39022, data3: 19870, data4: [142, 71, 222, 39, 248, 171, 5, 77] };
+pub const GUID_DEVICE_BATTERY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1919098452, data2: 30884, data3: 4560, data4: [188, 247, 0, 170, 0, 183, 179, 42] };
+pub const GUID_DEVICE_ENERGY_METER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1170047812,
     data2: 32470,
     data3: 18895,
     data4: [164, 64, 194, 118, 201, 51, 176, 83],
 };
-pub const GUID_DEVICE_FAN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 99406141, data2: 33242, data3: 18986, data4: [138, 76, 82, 79, 35, 221, 77, 201] };
-pub const GUID_DEVICE_LID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1257913682, data2: 29863, data3: 4560, data4: [190, 94, 0, 160, 201, 6, 40, 87] };
-pub const GUID_DEVICE_MEMORY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1070657597, data2: 37600, data3: 17915, data4: [183, 92, 94, 216, 255, 176, 16, 33] };
-pub const GUID_DEVICE_MESSAGE_INDICATOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVICE_FAN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 99406141, data2: 33242, data3: 18986, data4: [138, 76, 82, 79, 35, 221, 77, 201] };
+pub const GUID_DEVICE_LID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1257913682, data2: 29863, data3: 4560, data4: [190, 94, 0, 160, 201, 6, 40, 87] };
+pub const GUID_DEVICE_MEMORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1070657597, data2: 37600, data3: 17915, data4: [183, 92, 94, 216, 255, 176, 16, 33] };
+pub const GUID_DEVICE_MESSAGE_INDICATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3444089701,
     data2: 64148,
     data3: 19682,
     data4: [162, 50, 161, 183, 100, 229, 216, 180],
 };
-pub const GUID_DEVICE_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVICE_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2549799696,
     data2: 20019,
     data3: 16558,
     data4: [53, 156, 139, 239, 2, 157, 189, 208],
 };
-pub const GUID_DEVICE_SYS_BUTTON: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1257913683, data2: 29863, data3: 4560, data4: [190, 94, 0, 160, 201, 6, 40, 87] };
-pub const GUID_DEVICE_THERMAL_ZONE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1257913681, data2: 29863, data3: 4560, data4: [190, 94, 0, 160, 201, 6, 40, 87] };
-pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVICE_SYS_BUTTON: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1257913683, data2: 29863, data3: 4560, data4: [190, 94, 0, 160, 201, 6, 40, 87] };
+pub const GUID_DEVICE_THERMAL_ZONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1257913681, data2: 29863, data3: 4560, data4: [190, 94, 0, 160, 201, 6, 40, 87] };
+pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3689166653,
     data2: 15489,
     data3: 16587,
     data4: [172, 228, 224, 229, 208, 95, 12, 159],
 };
-pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2457780371, data2: 27044, data3: 19392, data4: [189, 2, 113, 22, 100, 113, 68, 99] };
+pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2457780371, data2: 27044, data3: 19392, data4: [189, 2, 113, 22, 100, 113, 68, 99] };
 #[repr(C)]
 pub struct HPOWERNOTIFY(pub isize);
 impl ::core::marker::Copy for HPOWERNOTIFY {}
@@ -1081,7 +1081,7 @@ impl ::core::clone::Clone for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PROCESSOR_NUMBER_PKEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 1462028317, data2: 54703, data3: 19487, data4: [161, 3, 160, 110, 40, 242, 4, 198] },
+    fmtid: ::windows_sys::core::GUID { data1: 1462028317, data2: 54703, data3: 19487, data4: [161, 3, 160, 110, 40, 242, 4, 198] },
     pid: 1u32,
 };
 #[repr(C)]

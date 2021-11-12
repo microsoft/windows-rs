@@ -24,5 +24,5 @@ impl ::core::clone::Clone for INK_HIGH_CONTRAST_ADJUSTMENT {
         *self
     }
 }
-pub const InkD2DRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1078257164, data2: 31489, data3: 18033, data4: [169, 124, 4, 224, 33, 10, 7, 165] };
-pub const InkDesktopHost: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 103122086, data2: 63536, data3: 19420, data4: [164, 210, 10, 16, 171, 6, 43, 29] };
+pub const InkD2DRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1078257164, data2: 31489, data3: 18033, data4: [169, 124, 4, 224, 33, 10, 7, 165] };
+pub const InkDesktopHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 103122086, data2: 63536, data3: 19420, data4: [164, 210, 10, 16, 171, 6, 43, 29] };

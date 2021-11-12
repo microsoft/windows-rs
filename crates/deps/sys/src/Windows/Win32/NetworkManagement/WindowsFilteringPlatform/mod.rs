@@ -743,25 +743,25 @@ impl ::core::clone::Clone for FWPM_CALLOUT0 {
         *self
     }
 }
-pub const FWPM_CALLOUT_BUILT_IN_RESERVED_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_BUILT_IN_RESERVED_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2006391204,
     data2: 59029,
     data3: 18358,
     data4: [161, 153, 121, 153, 254, 201, 22, 59],
 };
-pub const FWPM_CALLOUT_BUILT_IN_RESERVED_2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_BUILT_IN_RESERVED_2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4019610038,
     data2: 31838,
     data3: 18685,
     data4: [161, 48, 150, 103, 140, 234, 204, 65],
 };
-pub const FWPM_CALLOUT_BUILT_IN_RESERVED_3: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_BUILT_IN_RESERVED_3: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 410164346,
     data2: 12130,
     data3: 19424,
     data4: [150, 111, 151, 75, 33, 184, 109, 241],
 };
-pub const FWPM_CALLOUT_BUILT_IN_RESERVED_4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_BUILT_IN_RESERVED_4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1816115201,
     data2: 56063,
     data3: 16617,
@@ -780,13 +780,13 @@ impl ::core::clone::Clone for FWPM_CALLOUT_CHANGE0 {
     }
 }
 pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const FWPM_CALLOUT_CHANGE0);
-pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 860383925,
     data2: 27998,
     data3: 20069,
     data4: [160, 11, 167, 175, 237, 11, 169, 161],
 };
-pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_RESOURCE_ASSIGNMENT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 127602704, data2: 61893, data3: 20429, data4: [174, 5, 218, 65, 16, 122, 189, 11] };
+pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_RESOURCE_ASSIGNMENT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 127602704, data2: 61893, data3: 20429, data4: [174, 5, 218, 65, 16, 122, 189, 11] };
 #[repr(C)]
 pub struct FWPM_CALLOUT_ENUM_TEMPLATE0 {
     pub providerKey: *mut ::windows_sys::core::GUID,
@@ -801,97 +801,97 @@ impl ::core::clone::Clone for FWPM_CALLOUT_ENUM_TEMPLATE0 {
 pub const FWPM_CALLOUT_FLAG_PERSISTENT: u32 = 65536u32;
 pub const FWPM_CALLOUT_FLAG_REGISTERED: u32 = 262144u32;
 pub const FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT: u32 = 131072u32;
-pub const FWPM_CALLOUT_HTTP_TEMPLATE_SSL_HANDSHAKE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_HTTP_TEMPLATE_SSL_HANDSHAKE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3007459913,
     data2: 36105,
     data3: 18520,
     data4: [146, 16, 149, 199, 253, 168, 227, 15],
 };
-pub const FWPM_CALLOUT_IPSEC_ALE_CONNECT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1791050236, data2: 63325, data3: 16899, data4: [185, 200, 72, 230, 20, 156, 39, 18] };
-pub const FWPM_CALLOUT_IPSEC_ALE_CONNECT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_IPSEC_ALE_CONNECT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1791050236, data2: 63325, data3: 16899, data4: [185, 200, 72, 230, 20, 156, 39, 18] };
+pub const FWPM_CALLOUT_IPSEC_ALE_CONNECT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1275976197,
     data2: 58143,
     data3: 18022,
     data4: [144, 176, 179, 223, 173, 52, 18, 154],
 };
-pub const FWPM_CALLOUT_IPSEC_DOSP_FORWARD_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 801855212, data2: 52535, data3: 19279, data4: [177, 8, 98, 194, 177, 133, 10, 12] };
-pub const FWPM_CALLOUT_IPSEC_DOSP_FORWARD_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_IPSEC_DOSP_FORWARD_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 801855212, data2: 52535, data3: 19279, data4: [177, 8, 98, 194, 177, 133, 10, 12] };
+pub const FWPM_CALLOUT_IPSEC_DOSP_FORWARD_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1829282626,
     data2: 56222,
     data3: 20414,
     data4: [158, 210, 87, 55, 76, 232, 159, 121],
 };
-pub const FWPM_CALLOUT_IPSEC_FORWARD_INBOUND_TUNNEL_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_IPSEC_FORWARD_INBOUND_TUNNEL_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 679646771,
     data2: 50416,
     data3: 20070,
     data4: [135, 63, 132, 77, 178, 168, 153, 199],
 };
-pub const FWPM_CALLOUT_IPSEC_FORWARD_INBOUND_TUNNEL_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_IPSEC_FORWARD_INBOUND_TUNNEL_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2941304514,
     data2: 50822,
     data3: 17050,
     data4: [136, 77, 183, 68, 67, 231, 176, 180],
 };
-pub const FWPM_CALLOUT_IPSEC_FORWARD_OUTBOUND_TUNNEL_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4216529206, data2: 5579, data3: 17419, data4: [147, 124, 23, 23, 202, 50, 12, 64] };
-pub const FWPM_CALLOUT_IPSEC_FORWARD_OUTBOUND_TUNNEL_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_IPSEC_FORWARD_OUTBOUND_TUNNEL_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4216529206, data2: 5579, data3: 17419, data4: [147, 124, 23, 23, 202, 50, 12, 64] };
+pub const FWPM_CALLOUT_IPSEC_FORWARD_OUTBOUND_TUNNEL_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3672522956,
     data2: 57377,
     data3: 19438,
     data4: [158, 182, 164, 139, 39, 92, 140, 29],
 };
-pub const FWPM_CALLOUT_IPSEC_INBOUND_INITIATE_SECURE_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_IPSEC_INBOUND_INITIATE_SECURE_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2113876123,
     data2: 47741,
     data3: 19130,
     data4: [145, 170, 174, 92, 102, 64, 201, 68],
 };
-pub const FWPM_CALLOUT_IPSEC_INBOUND_INITIATE_SECURE_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_IPSEC_INBOUND_INITIATE_SECURE_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2845890265,
     data2: 50572,
     data3: 18254,
     data4: [138, 235, 60, 254, 153, 214, 213, 61],
 };
-pub const FWPM_CALLOUT_IPSEC_INBOUND_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1362268173, data2: 24196, data3: 19295, data4: [128, 228, 1, 116, 30, 129, 255, 16] };
-pub const FWPM_CALLOUT_IPSEC_INBOUND_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1238609042, data2: 10860, data3: 19919, data4: [149, 95, 28, 59, 224, 9, 221, 153] };
-pub const FWPM_CALLOUT_IPSEC_INBOUND_TUNNEL_ALE_ACCEPT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1039591390, data2: 64800, data3: 18674, data4: [159, 38, 248, 84, 68, 76, 186, 121] };
-pub const FWPM_CALLOUT_IPSEC_INBOUND_TUNNEL_ALE_ACCEPT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2716046035, data2: 29356, data3: 18363, data4: [135, 167, 1, 34, 198, 148, 52, 171] };
-pub const FWPM_CALLOUT_IPSEC_INBOUND_TUNNEL_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 421169734, data2: 3064, data3: 18127, data4: [176, 69, 75, 69, 223, 166, 163, 36] };
-pub const FWPM_CALLOUT_IPSEC_INBOUND_TUNNEL_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2160280291, data2: 7763, data3: 19823, data4: [155, 68, 3, 223, 90, 238, 225, 84] };
-pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_IPSEC_INBOUND_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1362268173, data2: 24196, data3: 19295, data4: [128, 228, 1, 116, 30, 129, 255, 16] };
+pub const FWPM_CALLOUT_IPSEC_INBOUND_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1238609042, data2: 10860, data3: 19919, data4: [149, 95, 28, 59, 224, 9, 221, 153] };
+pub const FWPM_CALLOUT_IPSEC_INBOUND_TUNNEL_ALE_ACCEPT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1039591390, data2: 64800, data3: 18674, data4: [159, 38, 248, 84, 68, 76, 186, 121] };
+pub const FWPM_CALLOUT_IPSEC_INBOUND_TUNNEL_ALE_ACCEPT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2716046035, data2: 29356, data3: 18363, data4: [135, 167, 1, 34, 198, 148, 52, 171] };
+pub const FWPM_CALLOUT_IPSEC_INBOUND_TUNNEL_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 421169734, data2: 3064, data3: 18127, data4: [176, 69, 75, 69, 223, 166, 163, 36] };
+pub const FWPM_CALLOUT_IPSEC_INBOUND_TUNNEL_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2160280291, data2: 7763, data3: 19823, data4: [155, 68, 3, 223, 90, 238, 225, 84] };
+pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1262927626,
     data2: 17699,
     data3: 20055,
     data4: [170, 56, 168, 121, 135, 201, 16, 217],
 };
-pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 953710370, data2: 44419, data3: 20241, data4: [169, 31, 223, 15, 176, 119, 34, 91] };
-pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TUNNEL_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1889802604, data2: 33627, data3: 20400, data4: [152, 232, 7, 95, 77, 151, 125, 70] };
-pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TUNNEL_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 953710370, data2: 44419, data3: 20241, data4: [169, 31, 223, 15, 176, 119, 34, 91] };
+pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TUNNEL_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1889802604, data2: 33627, data3: 20400, data4: [152, 232, 7, 95, 77, 151, 125, 70] };
+pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TUNNEL_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4051915619,
     data2: 42661,
     data3: 20066,
     data4: [177, 128, 35, 219, 120, 157, 141, 166],
 };
-pub const FWPM_CALLOUT_POLICY_SILENT_MODE_AUTH_CONNECT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1606402845, data2: 42268, data3: 17628, data4: [172, 182, 6, 36, 160, 48, 167, 0] };
-pub const FWPM_CALLOUT_POLICY_SILENT_MODE_AUTH_CONNECT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1606402845, data2: 42268, data3: 17628, data4: [172, 182, 6, 36, 160, 48, 167, 1] };
-pub const FWPM_CALLOUT_POLICY_SILENT_MODE_AUTH_RECV_ACCEPT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1606402845, data2: 42268, data3: 17628, data4: [172, 182, 6, 36, 160, 48, 167, 2] };
-pub const FWPM_CALLOUT_POLICY_SILENT_MODE_AUTH_RECV_ACCEPT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1606402845, data2: 42268, data3: 17628, data4: [172, 182, 6, 36, 160, 48, 167, 3] };
-pub const FWPM_CALLOUT_RESERVED_AUTH_CONNECT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 680219213, data2: 1382, data3: 19993, data4: [182, 18, 143, 68, 26, 46, 89, 73] };
-pub const FWPM_CALLOUT_RESERVED_AUTH_CONNECT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 12077970, data2: 11102, data3: 19313, data4: [171, 14, 170, 202, 67, 227, 135, 230] };
-pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_CONNECT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_POLICY_SILENT_MODE_AUTH_CONNECT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1606402845, data2: 42268, data3: 17628, data4: [172, 182, 6, 36, 160, 48, 167, 0] };
+pub const FWPM_CALLOUT_POLICY_SILENT_MODE_AUTH_CONNECT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1606402845, data2: 42268, data3: 17628, data4: [172, 182, 6, 36, 160, 48, 167, 1] };
+pub const FWPM_CALLOUT_POLICY_SILENT_MODE_AUTH_RECV_ACCEPT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1606402845, data2: 42268, data3: 17628, data4: [172, 182, 6, 36, 160, 48, 167, 2] };
+pub const FWPM_CALLOUT_POLICY_SILENT_MODE_AUTH_RECV_ACCEPT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1606402845, data2: 42268, data3: 17628, data4: [172, 182, 6, 36, 160, 48, 167, 3] };
+pub const FWPM_CALLOUT_RESERVED_AUTH_CONNECT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 680219213, data2: 1382, data3: 19993, data4: [182, 18, 143, 68, 26, 46, 89, 73] };
+pub const FWPM_CALLOUT_RESERVED_AUTH_CONNECT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 12077970, data2: 11102, data3: 19313, data4: [171, 14, 170, 202, 67, 227, 135, 230] };
+pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_CONNECT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3159892608,
     data2: 5751,
     data3: 16873,
     data4: [148, 171, 194, 252, 177, 92, 46, 235],
 };
-pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_CONNECT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2565158716, data2: 47236, data3: 18703, data4: [182, 95, 47, 106, 74, 87, 81, 149] };
-pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_RECV_ACCEPT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_CONNECT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2565158716, data2: 47236, data3: 18703, data4: [182, 95, 47, 106, 74, 87, 81, 149] };
+pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_RECV_ACCEPT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 760606728,
     data2: 3073,
     data3: 20370,
     data4: [178, 110, 160, 138, 148, 86, 155, 141],
 };
-pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_RECV_ACCEPT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_SET_OPTIONS_AUTH_RECV_ACCEPT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1661044023,
     data2: 62081,
     data3: 19908,
@@ -909,48 +909,48 @@ impl ::core::clone::Clone for FWPM_CALLOUT_SUBSCRIPTION0 {
         *self
     }
 }
-pub const FWPM_CALLOUT_TCP_CHIMNEY_ACCEPT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_TCP_CHIMNEY_ACCEPT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3783519410,
     data2: 14975,
     data3: 19284,
     data4: [138, 217, 118, 5, 14, 216, 128, 202],
 };
-pub const FWPM_CALLOUT_TCP_CHIMNEY_ACCEPT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 58249025, data2: 49048, data3: 17923, data4: [129, 242, 127, 18, 88, 96, 121, 246] };
-pub const FWPM_CALLOUT_TCP_CHIMNEY_CONNECT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_TCP_CHIMNEY_ACCEPT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58249025, data2: 49048, data3: 17923, data4: [129, 242, 127, 18, 88, 96, 121, 246] };
+pub const FWPM_CALLOUT_TCP_CHIMNEY_CONNECT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4091611827,
     data2: 11301,
     data3: 17017,
     data4: [172, 54, 195, 15, 193, 129, 190, 196],
 };
-pub const FWPM_CALLOUT_TCP_CHIMNEY_CONNECT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_TCP_CHIMNEY_CONNECT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 971120773,
     data2: 41793,
     data3: 17148,
     data4: [162, 121, 174, 201, 78, 104, 156, 86],
 };
-pub const FWPM_CALLOUT_TCP_TEMPLATES_ACCEPT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_TCP_TEMPLATES_ACCEPT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 790885840,
     data2: 16580,
     data3: 19521,
     data4: [162, 84, 70, 216, 219, 168, 149, 124],
 };
-pub const FWPM_CALLOUT_TCP_TEMPLATES_ACCEPT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2991674096, data2: 39196, data3: 20307, data4: [187, 231, 210, 75, 69, 254, 99, 44] };
-pub const FWPM_CALLOUT_TCP_TEMPLATES_CONNECT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 559549241, data2: 19326, data3: 20186, data4: [140, 228, 23, 150, 121, 223, 98, 36] };
-pub const FWPM_CALLOUT_TCP_TEMPLATES_CONNECT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2206939041, data2: 23570, data3: 19764, data4: [139, 56, 7, 135, 40, 178, 210, 92] };
-pub const FWPM_CALLOUT_TEREDO_ALE_LISTEN_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2175022311, data2: 62988, data3: 17272, data4: [186, 184, 198, 37, 163, 15, 1, 151] };
-pub const FWPM_CALLOUT_TEREDO_ALE_RESOURCE_ASSIGNMENT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_TCP_TEMPLATES_ACCEPT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2991674096, data2: 39196, data3: 20307, data4: [187, 231, 210, 75, 69, 254, 99, 44] };
+pub const FWPM_CALLOUT_TCP_TEMPLATES_CONNECT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 559549241, data2: 19326, data3: 20186, data4: [140, 228, 23, 150, 121, 223, 98, 36] };
+pub const FWPM_CALLOUT_TCP_TEMPLATES_CONNECT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2206939041, data2: 23570, data3: 19764, data4: [139, 56, 7, 135, 40, 178, 210, 92] };
+pub const FWPM_CALLOUT_TEREDO_ALE_LISTEN_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2175022311, data2: 62988, data3: 17272, data4: [186, 184, 198, 37, 163, 15, 1, 151] };
+pub const FWPM_CALLOUT_TEREDO_ALE_RESOURCE_ASSIGNMENT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 834229138,
     data2: 1646,
     data3: 17058,
     data4: [183, 219, 146, 248, 172, 221, 86, 249],
 };
-pub const FWPM_CALLOUT_WFP_TRANSPORT_LAYER_V4_SILENT_DROP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_WFP_TRANSPORT_LAYER_V4_SILENT_DROP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3986720262,
     data2: 9364,
     data3: 19832,
     data4: [137, 188, 103, 131, 124, 3, 185, 105],
 };
-pub const FWPM_CALLOUT_WFP_TRANSPORT_LAYER_V6_SILENT_DROP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CALLOUT_WFP_TRANSPORT_LAYER_V6_SILENT_DROP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2257833076,
     data2: 41077,
     data3: 16726,
@@ -995,517 +995,517 @@ impl ::core::clone::Clone for FWPM_CLASSIFY_OPTIONS0 {
         *self
     }
 }
-pub const FWPM_CONDITION_ALE_APP_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_ALE_APP_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3616415367,
     data2: 34372,
     data3: 20133,
     data4: [148, 55, 216, 9, 236, 239, 201, 113],
 };
-pub const FWPM_CONDITION_ALE_EFFECTIVE_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_ALE_EFFECTIVE_NAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2972154778,
     data2: 46977,
     data3: 16636,
     data4: [150, 113, 229, 241, 185, 137, 243, 78],
 };
-pub const FWPM_CONDITION_ALE_NAP_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1176984221, data2: 49215, data3: 19831, data4: [183, 132, 28, 87, 244, 208, 39, 83] };
-pub const FWPM_CONDITION_ALE_ORIGINAL_APP_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_ALE_NAP_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1176984221, data2: 49215, data3: 19831, data4: [183, 132, 28, 87, 244, 208, 39, 83] };
+pub const FWPM_CONDITION_ALE_ORIGINAL_APP_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 242012294,
     data2: 57851,
     data3: 16914,
     data4: [132, 47, 138, 159, 153, 63, 179, 246],
 };
-pub const FWPM_CONDITION_ALE_PACKAGE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1908177146, data2: 61820, data3: 18839, data4: [166, 2, 106, 187, 38, 31, 53, 28] };
-pub const FWPM_CONDITION_ALE_PROMISCUOUS_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 479676278, data2: 29058, data3: 18153, data4: [175, 211, 176, 41, 16, 227, 3, 52] };
-pub const FWPM_CONDITION_ALE_REAUTH_REASON: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3028472359, data2: 6521, data3: 19096, data4: [128, 68, 24, 187, 230, 35, 117, 66] };
-pub const FWPM_CONDITION_ALE_REMOTE_MACHINE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_ALE_PACKAGE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1908177146, data2: 61820, data3: 18839, data4: [166, 2, 106, 187, 38, 31, 53, 28] };
+pub const FWPM_CONDITION_ALE_PROMISCUOUS_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 479676278, data2: 29058, data3: 18153, data4: [175, 211, 176, 41, 16, 227, 3, 52] };
+pub const FWPM_CONDITION_ALE_REAUTH_REASON: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3028472359, data2: 6521, data3: 19096, data4: [128, 68, 24, 187, 230, 35, 117, 66] };
+pub const FWPM_CONDITION_ALE_REMOTE_MACHINE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 446988113,
     data2: 32659,
     data3: 17672,
     data4: [162, 113, 129, 171, 176, 12, 156, 171],
 };
-pub const FWPM_CONDITION_ALE_REMOTE_USER_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4130370487, data2: 393, data3: 19120, data4: [149, 164, 97, 35, 203, 250, 184, 98] };
-pub const FWPM_CONDITION_ALE_SECURITY_ATTRIBUTE_FQBN_VALUE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_ALE_REMOTE_USER_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4130370487, data2: 393, data3: 19120, data4: [149, 164, 97, 35, 203, 250, 184, 98] };
+pub const FWPM_CONDITION_ALE_SECURITY_ATTRIBUTE_FQBN_VALUE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 933590681,
     data2: 22659,
     data3: 18787,
     data4: [146, 184, 62, 112, 70, 136, 176, 173],
 };
-pub const FWPM_CONDITION_ALE_SIO_FIREWALL_SYSTEM_PORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3119833224, data2: 52120, data3: 20219, data4: [162, 199, 173, 7, 51, 38, 67, 219] };
-pub const FWPM_CONDITION_ALE_USER_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_ALE_SIO_FIREWALL_SYSTEM_PORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3119833224, data2: 52120, data3: 20219, data4: [162, 199, 173, 7, 51, 38, 67, 219] };
+pub const FWPM_CONDITION_ALE_USER_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2936289802,
     data2: 45901,
     data3: 20358,
     data4: [151, 156, 201, 3, 113, 175, 110, 102],
 };
-pub const FWPM_CONDITION_ARRIVAL_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3423112627, data2: 6034, data3: 19057, data4: [176, 249, 3, 125, 33, 205, 130, 139] };
-pub const FWPM_CONDITION_ARRIVAL_INTERFACE_PROFILE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_ARRIVAL_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3423112627, data2: 6034, data3: 19057, data4: [176, 249, 3, 125, 33, 205, 130, 139] };
+pub const FWPM_CONDITION_ARRIVAL_INTERFACE_PROFILE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3456002731,
     data2: 49283,
     data3: 16706,
     data4: [134, 121, 192, 143, 149, 50, 156, 97],
 };
-pub const FWPM_CONDITION_ARRIVAL_INTERFACE_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_ARRIVAL_INTERFACE_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2314834142,
     data2: 59288,
     data3: 20077,
     data4: [171, 118, 124, 149, 88, 41, 46, 111],
 };
-pub const FWPM_CONDITION_ARRIVAL_TUNNEL_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1360094940, data2: 31372, data3: 19111, data4: [181, 51, 149, 171, 89, 251, 3, 64] };
-pub const FWPM_CONDITION_AUTHENTICATION_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3947203797, data2: 55931, data3: 20217, data4: [141, 67, 123, 10, 132, 3, 50, 242] };
-pub const FWPM_CONDITION_CLIENT_CERT_KEY_LENGTH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2750152903, data2: 1524, data3: 19959, data4: [145, 242, 95, 96, 217, 31, 244, 67] };
-pub const FWPM_CONDITION_CLIENT_CERT_OID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3297881438, data2: 63618, data3: 17027, data4: [185, 22, 67, 107, 16, 63, 244, 173] };
-pub const FWPM_CONDITION_CLIENT_TOKEN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_ARRIVAL_TUNNEL_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1360094940, data2: 31372, data3: 19111, data4: [181, 51, 149, 171, 89, 251, 3, 64] };
+pub const FWPM_CONDITION_AUTHENTICATION_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3947203797, data2: 55931, data3: 20217, data4: [141, 67, 123, 10, 132, 3, 50, 242] };
+pub const FWPM_CONDITION_CLIENT_CERT_KEY_LENGTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2750152903, data2: 1524, data3: 19959, data4: [145, 242, 95, 96, 217, 31, 244, 67] };
+pub const FWPM_CONDITION_CLIENT_CERT_OID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3297881438, data2: 63618, data3: 17027, data4: [185, 22, 67, 107, 16, 63, 244, 173] };
+pub const FWPM_CONDITION_CLIENT_TOKEN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3257465886,
     data2: 16442,
     data3: 17528,
     data4: [190, 5, 201, 186, 164, 192, 90, 206],
 };
-pub const FWPM_CONDITION_COMPARTMENT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 900174251, data2: 1196, data3: 20466, data4: [166, 187, 218, 108, 250, 199, 24, 6] };
-pub const FWPM_CONDITION_CURRENT_PROFILE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2872062921, data2: 49379, data3: 18265, data4: [147, 125, 87, 88, 198, 93, 74, 227] };
-pub const FWPM_CONDITION_DCOM_APP_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4281236301, data2: 12562, data3: 18288, data4: [182, 54, 77, 36, 174, 58, 106, 242] };
-pub const FWPM_CONDITION_DESTINATION_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 902784290, data2: 16697, data3: 17902, data4: [160, 213, 103, 184, 9, 73, 216, 121] };
-pub const FWPM_CONDITION_DESTINATION_SUB_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_COMPARTMENT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 900174251, data2: 1196, data3: 20466, data4: [166, 187, 218, 108, 250, 199, 24, 6] };
+pub const FWPM_CONDITION_CURRENT_PROFILE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2872062921, data2: 49379, data3: 18265, data4: [147, 125, 87, 88, 198, 93, 74, 227] };
+pub const FWPM_CONDITION_DCOM_APP_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4281236301, data2: 12562, data3: 18288, data4: [182, 54, 77, 36, 174, 58, 106, 242] };
+pub const FWPM_CONDITION_DESTINATION_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 902784290, data2: 16697, data3: 17902, data4: [160, 213, 103, 184, 9, 73, 216, 121] };
+pub const FWPM_CONDITION_DESTINATION_SUB_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 729629593,
     data2: 54471,
     data3: 18232,
     data4: [162, 245, 233, 148, 180, 61, 163, 136],
 };
-pub const FWPM_CONDITION_DIRECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_DIRECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2273624390,
     data2: 51863,
     data3: 17622,
     data4: [159, 209, 25, 251, 24, 64, 203, 247],
 };
-pub const FWPM_CONDITION_EMBEDDED_LOCAL_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_EMBEDDED_LOCAL_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1181918312,
     data2: 35338,
     data3: 16898,
     data4: [171, 180, 132, 158, 146, 230, 104, 9],
 };
-pub const FWPM_CONDITION_EMBEDDED_LOCAL_PORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_EMBEDDED_LOCAL_PORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3217701197,
     data2: 44251,
     data3: 18510,
     data4: [184, 230, 42, 255, 121, 117, 115, 69],
 };
-pub const FWPM_CONDITION_EMBEDDED_PROTOCOL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_EMBEDDED_PROTOCOL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 125321479,
     data2: 41630,
     data3: 19579,
     data4: [158, 199, 41, 196, 74, 250, 253, 188],
 };
-pub const FWPM_CONDITION_EMBEDDED_REMOTE_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_EMBEDDED_REMOTE_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2012105529,
     data2: 12915,
     data3: 18033,
     data4: [182, 59, 171, 111, 235, 102, 238, 182],
 };
-pub const FWPM_CONDITION_EMBEDDED_REMOTE_PORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_EMBEDDED_REMOTE_PORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3403994785,
     data2: 10600,
     data3: 16621,
     data4: [164, 206, 84, 113, 96, 221, 168, 141],
 };
-pub const FWPM_CONDITION_ETHER_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4245197965, data2: 41497, data3: 19794, data4: [187, 152, 26, 85, 64, 238, 123, 78] };
-pub const FWPM_CONDITION_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1663885883, data2: 20839, data3: 17244, data4: [134, 215, 233, 3, 104, 74, 168, 12] };
-pub const FWPM_CONDITION_IMAGE_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_ETHER_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4245197965, data2: 41497, data3: 19794, data4: [187, 152, 26, 85, 64, 238, 123, 78] };
+pub const FWPM_CONDITION_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1663885883, data2: 20839, data3: 17244, data4: [134, 215, 233, 3, 104, 74, 168, 12] };
+pub const FWPM_CONDITION_IMAGE_NAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3492077133,
     data2: 57002,
     data3: 17175,
     data4: [156, 133, 228, 14, 246, 225, 64, 195],
 };
-pub const FWPM_CONDITION_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1719654229,
     data2: 54933,
     data3: 17226,
     data4: [138, 245, 211, 131, 90, 18, 89, 188],
 };
-pub const FWPM_CONDITION_INTERFACE_MAC_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_INTERFACE_MAC_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4142284238,
     data2: 8011,
     data3: 19563,
     data4: [182, 239, 17, 101, 231, 31, 142, 231],
 };
-pub const FWPM_CONDITION_INTERFACE_QUARANTINE_EPOCH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3437661534, data2: 1339, data3: 17320, data4: [154, 111, 51, 56, 76, 40, 228, 246] };
-pub const FWPM_CONDITION_INTERFACE_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_INTERFACE_QUARANTINE_EPOCH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3437661534, data2: 1339, data3: 17320, data4: [154, 111, 51, 56, 76, 40, 228, 246] };
+pub const FWPM_CONDITION_INTERFACE_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3673738516,
     data2: 57502,
     data3: 19603,
     data4: [165, 174, 197, 193, 59, 115, 255, 202],
 };
-pub const FWPM_CONDITION_IPSEC_POLICY_KEY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2906119907, data2: 29231, data3: 17868, data4: [164, 227, 6, 128, 72, 18, 68, 82] };
-pub const FWPM_CONDITION_IPSEC_SECURITY_REALM_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IPSEC_POLICY_KEY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2906119907, data2: 29231, data3: 17868, data4: [164, 227, 6, 128, 72, 18, 68, 82] };
+pub const FWPM_CONDITION_IPSEC_SECURITY_REALM_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 933590784,
     data2: 22660,
     data3: 18788,
     data4: [146, 184, 62, 112, 70, 136, 176, 173],
 };
-pub const FWPM_CONDITION_IP_ARRIVAL_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IP_ARRIVAL_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1636473709,
     data2: 14443,
     data3: 16694,
     data4: [173, 110, 181, 21, 135, 207, 177, 205],
 };
-pub const FWPM_CONDITION_IP_DESTINATION_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IP_DESTINATION_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 762909499,
     data2: 45968,
     data3: 17862,
     data4: [134, 153, 172, 172, 234, 175, 237, 51],
 };
-pub const FWPM_CONDITION_IP_DESTINATION_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IP_DESTINATION_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 516011977,
     data2: 20202,
     data3: 20318,
     data4: [185, 239, 118, 190, 170, 175, 23, 238],
 };
-pub const FWPM_CONDITION_IP_DESTINATION_PORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3463311173, data2: 24827, data3: 19067, data4: [163, 4, 175, 48, 161, 23, 0, 14] };
-pub const FWPM_CONDITION_IP_FORWARD_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 276215973, data2: 25379, data3: 19550, data4: [152, 16, 232, 211, 252, 158, 97, 54] };
-pub const FWPM_CONDITION_IP_LOCAL_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IP_DESTINATION_PORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3463311173, data2: 24827, data3: 19067, data4: [163, 4, 175, 48, 161, 23, 0, 14] };
+pub const FWPM_CONDITION_IP_FORWARD_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 276215973, data2: 25379, data3: 19550, data4: [152, 16, 232, 211, 252, 158, 97, 54] };
+pub const FWPM_CONDITION_IP_LOCAL_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3656253662,
     data2: 49647,
     data3: 17943,
     data4: [191, 227, 255, 216, 245, 160, 137, 87],
 };
-pub const FWPM_CONDITION_IP_LOCAL_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IP_LOCAL_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1858598596,
     data2: 14187,
     data3: 17879,
     data4: [158, 156, 211, 55, 206, 220, 210, 55],
 };
-pub const FWPM_CONDITION_IP_LOCAL_ADDRESS_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 61221323, data2: 28242, data3: 18936, data4: [156, 65, 87, 9, 99, 60, 9, 207] };
-pub const FWPM_CONDITION_IP_LOCAL_ADDRESS_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 595705476, data2: 29988, data3: 17843, data4: [160, 91, 30, 99, 125, 156, 122, 106] };
-pub const FWPM_CONDITION_IP_LOCAL_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IP_LOCAL_ADDRESS_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 61221323, data2: 28242, data3: 18936, data4: [156, 65, 87, 9, 99, 60, 9, 207] };
+pub const FWPM_CONDITION_IP_LOCAL_ADDRESS_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 595705476, data2: 29988, data3: 17843, data4: [160, 91, 30, 99, 125, 156, 122, 106] };
+pub const FWPM_CONDITION_IP_LOCAL_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1289103945,
     data2: 22979,
     data3: 18793,
     data4: [183, 243, 189, 165, 211, 40, 144, 164],
 };
-pub const FWPM_CONDITION_IP_LOCAL_PORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IP_LOCAL_PORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 203137455,
     data2: 22373,
     data3: 17727,
     data4: [175, 34, 168, 247, 145, 172, 119, 91],
 };
-pub const FWPM_CONDITION_IP_NEXTHOP_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IP_NEXTHOP_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3938337930,
     data2: 42769,
     data3: 19812,
     data4: [133, 183, 63, 118, 182, 82, 153, 199],
 };
-pub const FWPM_CONDITION_IP_NEXTHOP_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2477690715, data2: 32623, data3: 18201, data4: [152, 200, 20, 233, 116, 41, 239, 4] };
-pub const FWPM_CONDITION_IP_PHYSICAL_ARRIVAL_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3662730696, data2: 64013, data3: 19593, data4: [176, 50, 110, 98, 19, 109, 30, 150] };
-pub const FWPM_CONDITION_IP_PHYSICAL_NEXTHOP_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IP_NEXTHOP_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2477690715, data2: 32623, data3: 18201, data4: [152, 200, 20, 233, 116, 41, 239, 4] };
+pub const FWPM_CONDITION_IP_PHYSICAL_ARRIVAL_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3662730696, data2: 64013, data3: 19593, data4: [176, 50, 110, 98, 19, 109, 30, 150] };
+pub const FWPM_CONDITION_IP_PHYSICAL_NEXTHOP_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4036744654,
     data2: 20816,
     data3: 18622,
     data4: [176, 152, 194, 81, 82, 251, 31, 146],
 };
-pub const FWPM_CONDITION_IP_PROTOCOL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IP_PROTOCOL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 963768107,
     data2: 25150,
     data3: 20378,
     data4: [140, 177, 110, 121, 184, 6, 185, 167],
 };
-pub const FWPM_CONDITION_IP_REMOTE_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2989862554, data2: 7524, data3: 18872, data4: [164, 76, 95, 243, 217, 9, 80, 69] };
-pub const FWPM_CONDITION_IP_REMOTE_ADDRESS_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 535541264, data2: 15308, data3: 17889, data4: [188, 54, 46, 6, 126, 44, 177, 134] };
-pub const FWPM_CONDITION_IP_REMOTE_ADDRESS_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 611196300, data2: 35822, data3: 16408, data4: [155, 152, 49, 212, 88, 47, 51, 97] };
-pub const FWPM_CONDITION_IP_REMOTE_PORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IP_REMOTE_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2989862554, data2: 7524, data3: 18872, data4: [164, 76, 95, 243, 217, 9, 80, 69] };
+pub const FWPM_CONDITION_IP_REMOTE_ADDRESS_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 535541264, data2: 15308, data3: 17889, data4: [188, 54, 46, 6, 126, 44, 177, 134] };
+pub const FWPM_CONDITION_IP_REMOTE_ADDRESS_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 611196300, data2: 35822, data3: 16408, data4: [155, 152, 49, 212, 88, 47, 51, 97] };
+pub const FWPM_CONDITION_IP_REMOTE_PORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3277480013,
     data2: 53803,
     data3: 19994,
     data4: [145, 180, 104, 246, 116, 238, 103, 75],
 };
-pub const FWPM_CONDITION_IP_SOURCE_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2929101182, data2: 11924, data3: 19401, data4: [179, 19, 178, 126, 232, 14, 87, 77] };
-pub const FWPM_CONDITION_IP_SOURCE_PORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_IP_SOURCE_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2929101182, data2: 11924, data3: 19401, data4: [179, 19, 178, 126, 232, 14, 87, 77] };
+pub const FWPM_CONDITION_IP_SOURCE_PORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2796547985,
     data2: 15860,
     data3: 18224,
     data4: [162, 20, 245, 66, 106, 235, 248, 33],
 };
-pub const FWPM_CONDITION_KM_AUTH_NAP_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 902883854, data2: 5578, data3: 18731, data4: [144, 14, 151, 253, 70, 53, 44, 206] };
-pub const FWPM_CONDITION_KM_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_KM_AUTH_NAP_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 902883854, data2: 5578, data3: 18731, data4: [144, 14, 151, 253, 70, 53, 44, 206] };
+pub const FWPM_CONDITION_KM_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4277093762,
     data2: 61327,
     data3: 20347,
     data4: [133, 139, 144, 119, 209, 34, 222, 71],
 };
-pub const FWPM_CONDITION_KM_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4279197513, data2: 3307, data3: 18459, data4: [134, 56, 20, 121, 121, 31, 63, 44] };
-pub const FWPM_CONDITION_L2_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_KM_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4279197513, data2: 3307, data3: 18459, data4: [134, 56, 20, 121, 121, 31, 63, 44] };
+pub const FWPM_CONDITION_L2_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2076458175,
     data2: 14266,
     data3: 17905,
     data4: [183, 74, 130, 255, 81, 142, 235, 16],
 };
-pub const FWPM_CONDITION_LOCAL_INTERFACE_PROFILE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_LOCAL_INTERFACE_PROFILE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1321170274,
     data2: 40728,
     data3: 19718,
     data4: [153, 65, 167, 166, 37, 116, 77, 113],
 };
-pub const FWPM_CONDITION_MAC_DESTINATION_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 82455187, data2: 34188, data3: 16423, data4: [182, 19, 180, 49, 128, 199, 133, 158] };
-pub const FWPM_CONDITION_MAC_DESTINATION_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_MAC_DESTINATION_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 82455187, data2: 34188, data3: 16423, data4: [182, 19, 180, 49, 128, 199, 133, 158] };
+pub const FWPM_CONDITION_MAC_DESTINATION_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2919573810,
     data2: 61250,
     data3: 20121,
     data4: [177, 41, 243, 179, 19, 158, 52, 247],
 };
-pub const FWPM_CONDITION_MAC_LOCAL_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_MAC_LOCAL_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3650742657,
     data2: 31048,
     data3: 19587,
     data4: [183, 66, 200, 78, 59, 103, 143, 143],
 };
-pub const FWPM_CONDITION_MAC_LOCAL_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_MAC_LOCAL_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3425776988,
     data2: 12403,
     data3: 20475,
     data4: [161, 79, 121, 65, 92, 177, 234, 209],
 };
-pub const FWPM_CONDITION_MAC_REMOTE_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1083125460, data2: 14960, data3: 19277, data4: [146, 166, 65, 90, 194, 14, 47, 18] };
-pub const FWPM_CONDITION_MAC_REMOTE_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_MAC_REMOTE_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1083125460, data2: 14960, data3: 19277, data4: [146, 166, 65, 90, 194, 14, 47, 18] };
+pub const FWPM_CONDITION_MAC_REMOTE_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 41938356,
     data2: 61889,
     data3: 16432,
     data4: [181, 100, 238, 119, 127, 216, 103, 234],
 };
-pub const FWPM_CONDITION_MAC_SOURCE_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_MAC_SOURCE_ADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2071549009,
     data2: 61942,
     data3: 19717,
     data4: [183, 203, 33, 119, 157, 128, 35, 54],
 };
-pub const FWPM_CONDITION_MAC_SOURCE_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1545302756, data2: 10654, data3: 17463, data4: [162, 152, 188, 63, 1, 75, 61, 194] };
-pub const FWPM_CONDITION_NDIS_MEDIA_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3409039089, data2: 31005, data3: 18235, data4: [137, 209, 97, 197, 152, 67, 4, 160] };
-pub const FWPM_CONDITION_NDIS_PHYSICAL_MEDIA_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 885495843, data2: 49705, data3: 17650, data4: [184, 60, 116, 2, 8, 130, 174, 119] };
-pub const FWPM_CONDITION_NDIS_PORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_MAC_SOURCE_ADDRESS_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1545302756, data2: 10654, data3: 17463, data4: [162, 152, 188, 63, 1, 75, 61, 194] };
+pub const FWPM_CONDITION_NDIS_MEDIA_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3409039089, data2: 31005, data3: 18235, data4: [137, 209, 97, 197, 152, 67, 4, 160] };
+pub const FWPM_CONDITION_NDIS_PHYSICAL_MEDIA_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 885495843, data2: 49705, data3: 17650, data4: [184, 60, 116, 2, 8, 130, 174, 119] };
+pub const FWPM_CONDITION_NDIS_PORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3682317355,
     data2: 11692,
     data3: 19668,
     data4: [165, 154, 224, 189, 206, 30, 104, 52],
 };
-pub const FWPM_CONDITION_NET_EVENT_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_NET_EVENT_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 544119190,
     data2: 18702,
     data3: 16591,
     data4: [184, 49, 179, 134, 65, 235, 111, 203],
 };
-pub const FWPM_CONDITION_NEXTHOP_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_NEXTHOP_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 328099976,
     data2: 31416,
     data3: 19813,
     data4: [158, 232, 5, 145, 188, 246, 164, 148],
 };
-pub const FWPM_CONDITION_NEXTHOP_INTERFACE_PROFILE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_NEXTHOP_INTERFACE_PROFILE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3623852630,
     data2: 52650,
     data3: 18219,
     data4: [132, 219, 210, 57, 99, 193, 209, 191],
 };
-pub const FWPM_CONDITION_NEXTHOP_INTERFACE_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_NEXTHOP_INTERFACE_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2538830956,
     data2: 55715,
     data3: 18279,
     data4: [163, 129, 233, 66, 103, 92, 217, 32],
 };
-pub const FWPM_CONDITION_NEXTHOP_SUB_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_NEXTHOP_SUB_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4018823458,
     data2: 1399,
     data3: 17831,
     data4: [154, 175, 130, 95, 190, 180, 251, 149],
 };
-pub const FWPM_CONDITION_NEXTHOP_TUNNEL_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_NEXTHOP_TUNNEL_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1924243729,
     data2: 39035,
     data3: 18208,
     data4: [153, 221, 199, 197, 118, 250, 45, 76],
 };
-pub const FWPM_CONDITION_ORIGINAL_ICMP_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_ORIGINAL_ICMP_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 124648894,
     data2: 50540,
     data3: 20338,
     data4: [174, 138, 44, 254, 126, 92, 130, 134],
 };
-pub const FWPM_CONDITION_ORIGINAL_PROFILE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1189746001, data2: 8789, data3: 18731, data4: [128, 25, 170, 190, 238, 52, 159, 64] };
-pub const FWPM_CONDITION_PEER_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2605944962, data2: 60304, data3: 16774, data4: [166, 204, 222, 91, 99, 35, 80, 22] };
-pub const FWPM_CONDITION_PIPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 466646045, data2: 58335, data3: 20004, data4: [134, 52, 118, 32, 70, 238, 246, 235] };
-pub const FWPM_CONDITION_PROCESS_WITH_RPC_IF_UUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3809575080, data2: 48061, data3: 19732, data4: [166, 94, 113, 87, 176, 98, 51, 187] };
-pub const FWPM_CONDITION_QM_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_ORIGINAL_PROFILE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1189746001, data2: 8789, data3: 18731, data4: [128, 25, 170, 190, 238, 52, 159, 64] };
+pub const FWPM_CONDITION_PEER_NAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2605944962, data2: 60304, data3: 16774, data4: [166, 204, 222, 91, 99, 35, 80, 22] };
+pub const FWPM_CONDITION_PIPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 466646045, data2: 58335, data3: 20004, data4: [134, 52, 118, 32, 70, 238, 246, 235] };
+pub const FWPM_CONDITION_PROCESS_WITH_RPC_IF_UUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3809575080, data2: 48061, data3: 19732, data4: [166, 94, 113, 87, 176, 98, 51, 187] };
+pub const FWPM_CONDITION_QM_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4132423377,
     data2: 63947,
     data3: 17362,
     data4: [138, 95, 225, 59, 200, 148, 242, 101],
 };
-pub const FWPM_CONDITION_REAUTHORIZE_REASON: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 287334028, data2: 4526, data3: 17786, data4: [138, 68, 71, 112, 38, 221, 118, 74] };
-pub const FWPM_CONDITION_REMOTE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_REAUTHORIZE_REASON: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 287334028, data2: 4526, data3: 17786, data4: [138, 68, 71, 112, 38, 221, 118, 74] };
+pub const FWPM_CONDITION_REMOTE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4135675645,
     data2: 1666,
     data3: 19593,
     data4: [184, 245, 134, 67, 108, 126, 249, 183],
 };
-pub const FWPM_CONDITION_REMOTE_USER_TOKEN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2616258150, data2: 1737, data3: 16825, data4: [132, 218, 40, 140, 180, 58, 245, 31] };
-pub const FWPM_CONDITION_RESERVED0: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_REMOTE_USER_TOKEN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2616258150, data2: 1737, data3: 16825, data4: [132, 218, 40, 140, 180, 58, 245, 31] };
+pub const FWPM_CONDITION_RESERVED0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1737444843,
     data2: 17839,
     data3: 18562,
     data4: [147, 254, 25, 212, 114, 157, 152, 52],
 };
-pub const FWPM_CONDITION_RESERVED1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RESERVED1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3625515047,
     data2: 23657,
     data3: 18667,
     data4: [191, 128, 216, 107, 23, 117, 95, 151],
 };
-pub const FWPM_CONDITION_RESERVED10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3111772802, data2: 54817, data3: 19596, data4: [177, 132, 177, 5, 166, 28, 54, 206] };
-pub const FWPM_CONDITION_RESERVED11: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 761458253, data2: 573, data3: 16671, data4: [149, 130, 67, 172, 187, 121, 89, 117] };
-pub const FWPM_CONDITION_RESERVED12: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RESERVED10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3111772802, data2: 54817, data3: 19596, data4: [177, 132, 177, 5, 166, 28, 54, 206] };
+pub const FWPM_CONDITION_RESERVED11: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 761458253, data2: 573, data3: 16671, data4: [149, 130, 67, 172, 187, 121, 89, 117] };
+pub const FWPM_CONDITION_RESERVED12: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2741468210,
     data2: 32309,
     data3: 19932,
     data4: [147, 218, 232, 195, 63, 201, 35, 199],
 };
-pub const FWPM_CONDITION_RESERVED13: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 861552272, data2: 33962, data3: 17141, data4: [158, 111, 89, 48, 149, 54, 164, 76] };
-pub const FWPM_CONDITION_RESERVED14: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 820268450, data2: 12058, data3: 16662, data4: [165, 89, 249, 7, 222, 131, 96, 74] };
-pub const FWPM_CONDITION_RESERVED15: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RESERVED13: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 861552272, data2: 33962, data3: 17141, data4: [158, 111, 89, 48, 149, 54, 164, 76] };
+pub const FWPM_CONDITION_RESERVED14: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 820268450, data2: 12058, data3: 16662, data4: [165, 89, 249, 7, 222, 131, 96, 74] };
+pub const FWPM_CONDITION_RESERVED15: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3132634127,
     data2: 45024,
     data3: 17361,
     data4: [128, 216, 92, 164, 86, 150, 45, 227],
 };
-pub const FWPM_CONDITION_RESERVED2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RESERVED2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1406407229,
     data2: 57691,
     data3: 20100,
     data4: [183, 168, 220, 225, 111, 123, 98, 217],
 };
-pub const FWPM_CONDITION_RESERVED3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2137951395, data2: 26118, data3: 18738, data4: [151, 199, 225, 242, 7, 16, 175, 59] };
-pub const FWPM_CONDITION_RESERVED4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RESERVED3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2137951395, data2: 26118, data3: 18738, data4: [151, 199, 225, 242, 7, 16, 175, 59] };
+pub const FWPM_CONDITION_RESERVED4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1599661634,
     data2: 47415,
     data3: 18782,
     data4: [169, 75, 246, 176, 81, 164, 146, 80],
 };
-pub const FWPM_CONDITION_RESERVED5: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RESERVED5: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2611541709,
     data2: 63356,
     data3: 17382,
     data4: [136, 71, 17, 147, 157, 197, 219, 90],
 };
-pub const FWPM_CONDITION_RESERVED6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4047340733, data2: 22997, data3: 17604, data4: [136, 23, 94, 205, 174, 24, 5, 189] };
-pub const FWPM_CONDITION_RESERVED7: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1705048368, data2: 17885, data3: 18819, data4: [170, 51, 239, 199, 182, 17, 175, 8] };
-pub const FWPM_CONDITION_RESERVED8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1329744244, data2: 3090, data3: 18454, data4: [155, 71, 154, 84, 125, 179, 154, 50] };
-pub const FWPM_CONDITION_RESERVED9: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3464028431, data2: 5119, data3: 19568, data4: [134, 67, 54, 173, 24, 121, 175, 163] };
-pub const FWPM_CONDITION_RPC_AUTH_LEVEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3852512981, data2: 22956, data3: 18154, data4: [190, 5, 165, 240, 94, 207, 68, 110] };
-pub const FWPM_CONDITION_RPC_AUTH_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RESERVED6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4047340733, data2: 22997, data3: 17604, data4: [136, 23, 94, 205, 174, 24, 5, 189] };
+pub const FWPM_CONDITION_RESERVED7: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1705048368, data2: 17885, data3: 18819, data4: [170, 51, 239, 199, 182, 17, 175, 8] };
+pub const FWPM_CONDITION_RESERVED8: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1329744244, data2: 3090, data3: 18454, data4: [155, 71, 154, 84, 125, 179, 154, 50] };
+pub const FWPM_CONDITION_RESERVED9: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3464028431, data2: 5119, data3: 19568, data4: [134, 67, 54, 173, 24, 121, 175, 163] };
+pub const FWPM_CONDITION_RPC_AUTH_LEVEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3852512981, data2: 22956, data3: 18154, data4: [190, 5, 165, 240, 94, 207, 68, 110] };
+pub const FWPM_CONDITION_RPC_AUTH_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3669652651,
     data2: 3431,
     data3: 17383,
     data4: [152, 110, 117, 184, 79, 130, 245, 148],
 };
-pub const FWPM_CONDITION_RPC_EP_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 562790730, data2: 2617, data3: 18872, data4: [142, 113, 194, 12, 57, 199, 221, 46] };
-pub const FWPM_CONDITION_RPC_EP_VALUE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3704529081, data2: 2182, data3: 17248, data4: [156, 106, 171, 4, 58, 36, 251, 169] };
-pub const FWPM_CONDITION_RPC_IF_FLAG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 596281906, data2: 12697, data3: 18045, data4: [135, 28, 39, 38, 33, 171, 56, 150] };
-pub const FWPM_CONDITION_RPC_IF_UUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RPC_EP_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 562790730, data2: 2617, data3: 18872, data4: [142, 113, 194, 12, 57, 199, 221, 46] };
+pub const FWPM_CONDITION_RPC_EP_VALUE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3704529081, data2: 2182, data3: 17248, data4: [156, 106, 171, 4, 58, 36, 251, 169] };
+pub const FWPM_CONDITION_RPC_IF_FLAG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 596281906, data2: 12697, data3: 18045, data4: [135, 28, 39, 38, 33, 171, 56, 150] };
+pub const FWPM_CONDITION_RPC_IF_UUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2090630559,
     data2: 117,
     data3: 19765,
     data4: [160, 209, 131, 17, 196, 207, 106, 241],
 };
-pub const FWPM_CONDITION_RPC_IF_VERSION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RPC_IF_VERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3938441655,
     data2: 4706,
     data3: 18990,
     data4: [173, 170, 95, 150, 246, 254, 50, 109],
 };
-pub const FWPM_CONDITION_RPC_PROTOCOL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RPC_PROTOCOL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 655866996,
     data2: 14901,
     data3: 19687,
     data4: [183, 239, 200, 56, 250, 189, 236, 69],
 };
-pub const FWPM_CONDITION_RPC_PROXY_AUTH_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RPC_PROXY_AUTH_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1083523042,
     data2: 34149,
     data3: 18265,
     data4: [132, 136, 23, 113, 180, 180, 181, 219],
 };
-pub const FWPM_CONDITION_RPC_SERVER_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RPC_SERVER_NAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3053822501,
     data2: 50099,
     data3: 18631,
     data4: [152, 51, 122, 239, 169, 82, 117, 70],
 };
-pub const FWPM_CONDITION_RPC_SERVER_PORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2156983877, data2: 39637, data3: 20027, data4: [159, 159, 128, 35, 202, 9, 121, 9] };
-pub const FWPM_CONDITION_SEC_ENCRYPT_ALGORITHM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 221277936, data2: 59764, data3: 20340, data4: [181, 199, 89, 27, 13, 167, 213, 98] };
-pub const FWPM_CONDITION_SEC_KEY_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_RPC_SERVER_PORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2156983877, data2: 39637, data3: 20027, data4: [159, 159, 128, 35, 202, 9, 121, 9] };
+pub const FWPM_CONDITION_SEC_ENCRYPT_ALGORITHM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 221277936, data2: 59764, data3: 20340, data4: [181, 199, 89, 27, 13, 167, 213, 98] };
+pub const FWPM_CONDITION_SEC_KEY_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1198659643,
     data2: 52472,
     data3: 19179,
     data4: [188, 225, 198, 198, 22, 28, 143, 228],
 };
-pub const FWPM_CONDITION_SOURCE_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 588329805, data2: 51501, data3: 17855, data4: [148, 150, 237, 244, 71, 130, 14, 45] };
-pub const FWPM_CONDITION_SOURCE_SUB_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 90103197, data2: 44242, data3: 17249, data4: [141, 171, 249, 82, 93, 151, 102, 47] };
-pub const FWPM_CONDITION_SUB_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_SOURCE_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 588329805, data2: 51501, data3: 17855, data4: [148, 150, 237, 244, 71, 130, 14, 45] };
+pub const FWPM_CONDITION_SOURCE_SUB_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 90103197, data2: 44242, data3: 17249, data4: [141, 171, 249, 82, 93, 151, 102, 47] };
+pub const FWPM_CONDITION_SUB_INTERFACE_INDEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 215229555,
     data2: 54817,
     data3: 19427,
     data4: [174, 140, 114, 163, 72, 210, 131, 225],
 };
-pub const FWPM_CONDITION_TUNNEL_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_TUNNEL_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2007237687,
     data2: 34681,
     data3: 18536,
     data4: [162, 97, 245, 169, 2, 241, 192, 205],
 };
-pub const FWPM_CONDITION_VLAN_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_VLAN_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2475600673,
     data2: 13848,
     data3: 20068,
     data4: [156, 165, 33, 65, 235, 218, 28, 162],
 };
-pub const FWPM_CONDITION_VSWITCH_DESTINATION_INTERFACE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_VSWITCH_DESTINATION_INTERFACE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2396294116,
     data2: 51494,
     data3: 18934,
     data4: [164, 246, 239, 48, 48, 227, 252, 22],
 };
-pub const FWPM_CONDITION_VSWITCH_DESTINATION_INTERFACE_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_VSWITCH_DESTINATION_INTERFACE_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4204478214,
     data2: 12058,
     data3: 19543,
     data4: [158, 104, 167, 9, 139, 40, 219, 254],
 };
-pub const FWPM_CONDITION_VSWITCH_DESTINATION_VM_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_VSWITCH_DESTINATION_VM_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1627826894,
     data2: 19937,
     data3: 19588,
     data4: [150, 113, 54, 55, 248, 188, 247, 49],
 };
-pub const FWPM_CONDITION_VSWITCH_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_VSWITCH_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3299087546,
     data2: 17275,
     data3: 19942,
     data4: [153, 70, 217, 156, 27, 149, 179, 18],
 };
-pub const FWPM_CONDITION_VSWITCH_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 299141963, data2: 59258, data3: 16564, data4: [145, 85, 57, 44, 144, 108, 38, 8] };
-pub const FWPM_CONDITION_VSWITCH_SOURCE_INTERFACE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_VSWITCH_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 299141963, data2: 59258, data3: 16564, data4: [145, 85, 57, 44, 144, 108, 38, 8] };
+pub const FWPM_CONDITION_VSWITCH_SOURCE_INTERFACE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2135880267,
     data2: 45761,
     data3: 18744,
     data4: [186, 51, 161, 236, 190, 213, 18, 186],
 };
-pub const FWPM_CONDITION_VSWITCH_SOURCE_INTERFACE_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_VSWITCH_SOURCE_INTERFACE_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3870310562,
     data2: 60847,
     data3: 19510,
     data4: [144, 139, 242, 245, 138, 228, 56, 7],
 };
-pub const FWPM_CONDITION_VSWITCH_SOURCE_VM_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_VSWITCH_SOURCE_VM_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2620038850,
     data2: 40902,
     data3: 17084,
     data4: [189, 216, 64, 109, 77, 160, 190, 100],
 };
-pub const FWPM_CONDITION_VSWITCH_TENANT_NETWORK_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_CONDITION_VSWITCH_TENANT_NETWORK_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3691283516,
     data2: 31206,
     data3: 20036,
@@ -1788,14 +1788,14 @@ impl ::core::clone::Clone for FWPM_FILTER_SUBSCRIPTION0 {
         *self
     }
 }
-pub const FWPM_KEYING_MODULE_AUTHIP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_KEYING_MODULE_AUTHIP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 300145376,
     data2: 56614,
     data3: 17808,
     data4: [133, 125, 171, 75, 40, 209, 160, 149],
 };
-pub const FWPM_KEYING_MODULE_IKE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2847668103, data2: 33448, data3: 17851, data4: [164, 0, 93, 126, 89, 82, 199, 169] };
-pub const FWPM_KEYING_MODULE_IKEV2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 68653772, data2: 36615, data3: 16797, data4: [163, 148, 113, 105, 104, 203, 22, 71] };
+pub const FWPM_KEYING_MODULE_IKE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2847668103, data2: 33448, data3: 17851, data4: [164, 0, 93, 126, 89, 82, 199, 169] };
+pub const FWPM_KEYING_MODULE_IKEV2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 68653772, data2: 36615, data3: 16797, data4: [163, 148, 113, 105, 104, 203, 22, 71] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_LAYER0 {
@@ -1815,141 +1815,141 @@ impl ::core::clone::Clone for FWPM_LAYER0 {
         *self
     }
 }
-pub const FWPM_LAYER_ALE_AUTH_CONNECT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_AUTH_CONNECT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3280820177,
     data2: 1447,
     data3: 19507,
     data4: [144, 79, 127, 188, 238, 230, 14, 130],
 };
-pub const FWPM_LAYER_ALE_AUTH_CONNECT_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_AUTH_CONNECT_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3593644033,
     data2: 62906,
     data3: 19158,
     data4: [150, 227, 96, 112, 23, 217, 131, 106],
 };
-pub const FWPM_LAYER_ALE_AUTH_CONNECT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_AUTH_CONNECT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1248999739,
     data2: 12703,
     data3: 17596,
     data4: [132, 195, 186, 84, 220, 179, 182, 180],
 };
-pub const FWPM_LAYER_ALE_AUTH_CONNECT_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_AUTH_CONNECT_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3380331448,
     data2: 51619,
     data3: 20019,
     data4: [134, 149, 142, 23, 170, 212, 222, 9],
 };
-pub const FWPM_LAYER_ALE_AUTH_LISTEN_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_AUTH_LISTEN_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2293980589,
     data2: 30423,
     data3: 16935,
     data4: [156, 113, 223, 10, 62, 215, 190, 126],
 };
-pub const FWPM_LAYER_ALE_AUTH_LISTEN_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_AUTH_LISTEN_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 924711642,
     data2: 40742,
     data3: 17917,
     data4: [180, 235, 194, 158, 178, 18, 137, 63],
 };
-pub const FWPM_LAYER_ALE_AUTH_LISTEN_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2060049956, data2: 6109, data3: 18452, data4: [180, 189, 169, 251, 201, 90, 50, 27] };
-pub const FWPM_LAYER_ALE_AUTH_LISTEN_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_AUTH_LISTEN_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2060049956, data2: 6109, data3: 18452, data4: [180, 189, 169, 251, 201, 90, 50, 27] };
+pub const FWPM_LAYER_ALE_AUTH_LISTEN_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1617967879,
     data2: 25544,
     data3: 18665,
     data4: [173, 163, 18, 177, 175, 64, 166, 23],
 };
-pub const FWPM_LAYER_ALE_AUTH_RECV_ACCEPT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3788349415, data2: 62645, data3: 17011, data4: [150, 192, 89, 46, 72, 123, 134, 80] };
-pub const FWPM_LAYER_ALE_AUTH_RECV_ACCEPT_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2666178971, data2: 48418, data3: 16935, data4: [145, 159, 0, 115, 198, 51, 87, 177] };
-pub const FWPM_LAYER_ALE_AUTH_RECV_ACCEPT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_AUTH_RECV_ACCEPT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3788349415, data2: 62645, data3: 17011, data4: [150, 192, 89, 46, 72, 123, 134, 80] };
+pub const FWPM_LAYER_ALE_AUTH_RECV_ACCEPT_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2666178971, data2: 48418, data3: 16935, data4: [145, 159, 0, 115, 198, 51, 87, 177] };
+pub const FWPM_LAYER_ALE_AUTH_RECV_ACCEPT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2746494103,
     data2: 40708,
     data3: 18034,
     data4: [184, 126, 206, 233, 196, 131, 37, 127],
 };
-pub const FWPM_LAYER_ALE_AUTH_RECV_ACCEPT_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_AUTH_RECV_ACCEPT_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2303024023,
     data2: 56289,
     data3: 17727,
     data4: [162, 36, 19, 218, 137, 90, 243, 150],
 };
-pub const FWPM_LAYER_ALE_BIND_REDIRECT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1721207981, data2: 50948, data3: 17068, data4: [134, 172, 124, 26, 35, 27, 210, 83] };
-pub const FWPM_LAYER_ALE_BIND_REDIRECT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3203411100, data2: 24683, data3: 17718, data4: [140, 38, 28, 47, 199, 182, 49, 212] };
-pub const FWPM_LAYER_ALE_CONNECT_REDIRECT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_BIND_REDIRECT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1721207981, data2: 50948, data3: 17068, data4: [134, 172, 124, 26, 35, 27, 210, 83] };
+pub const FWPM_LAYER_ALE_BIND_REDIRECT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3203411100, data2: 24683, data3: 17718, data4: [140, 38, 28, 47, 199, 182, 49, 212] };
+pub const FWPM_LAYER_ALE_CONNECT_REDIRECT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3336977548,
     data2: 46980,
     data3: 17762,
     data4: [170, 125, 10, 103, 207, 202, 249, 163],
 };
-pub const FWPM_LAYER_ALE_CONNECT_REDIRECT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_CONNECT_REDIRECT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1484674215,
     data2: 32838,
     data3: 17082,
     data4: [160, 170, 183, 22, 37, 15, 199, 253],
 };
-pub const FWPM_LAYER_ALE_ENDPOINT_CLOSURE_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3027657767, data2: 58018, data3: 18042, data4: [189, 126, 219, 205, 27, 216, 90, 9] };
-pub const FWPM_LAYER_ALE_ENDPOINT_CLOSURE_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_ENDPOINT_CLOSURE_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3027657767, data2: 58018, data3: 18042, data4: [189, 126, 219, 205, 27, 216, 90, 9] };
+pub const FWPM_LAYER_ALE_ENDPOINT_CLOSURE_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3142806733,
     data2: 18261,
     data3: 19369,
     data4: [159, 247, 249, 237, 248, 105, 156, 123],
 };
-pub const FWPM_LAYER_ALE_FLOW_ESTABLISHED_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_FLOW_ESTABLISHED_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2944419594,
     data2: 21910,
     data3: 19475,
     data4: [153, 146, 83, 158, 111, 229, 121, 103],
 };
-pub const FWPM_LAYER_ALE_FLOW_ESTABLISHED_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 342549673, data2: 41426, data3: 19779, data4: [163, 26, 76, 66, 104, 43, 142, 79] };
-pub const FWPM_LAYER_ALE_FLOW_ESTABLISHED_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_FLOW_ESTABLISHED_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 342549673, data2: 41426, data3: 19779, data4: [163, 26, 76, 66, 104, 43, 142, 79] };
+pub const FWPM_LAYER_ALE_FLOW_ESTABLISHED_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1881264819,
     data2: 57252,
     data3: 16494,
     data4: [175, 235, 106, 250, 247, 231, 14, 253],
 };
-pub const FWPM_LAYER_ALE_FLOW_ESTABLISHED_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_FLOW_ESTABLISHED_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1184007734,
     data2: 48074,
     data3: 19318,
     data4: [148, 29, 15, 167, 245, 215, 211, 114],
 };
-pub const FWPM_LAYER_ALE_RESOURCE_ASSIGNMENT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 306697837, data2: 2912, data3: 18965, data4: [141, 68, 113, 85, 208, 245, 58, 12] };
-pub const FWPM_LAYER_ALE_RESOURCE_ASSIGNMENT_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 190321314, data2: 50175, data3: 20170, data4: [184, 141, 199, 158, 32, 172, 99, 34] };
-pub const FWPM_LAYER_ALE_RESOURCE_ASSIGNMENT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_RESOURCE_ASSIGNMENT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 306697837, data2: 2912, data3: 18965, data4: [141, 68, 113, 85, 208, 245, 58, 12] };
+pub const FWPM_LAYER_ALE_RESOURCE_ASSIGNMENT_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 190321314, data2: 50175, data3: 20170, data4: [184, 141, 199, 158, 32, 172, 99, 34] };
+pub const FWPM_LAYER_ALE_RESOURCE_ASSIGNMENT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1436963041,
     data2: 24330,
     data3: 20170,
     data4: [166, 83, 136, 245, 59, 38, 170, 140],
 };
-pub const FWPM_LAYER_ALE_RESOURCE_ASSIGNMENT_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_RESOURCE_ASSIGNMENT_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3418986683,
     data2: 50463,
     data3: 19482,
     data4: [187, 79, 151, 117, 252, 172, 171, 47],
 };
-pub const FWPM_LAYER_ALE_RESOURCE_RELEASE_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_RESOURCE_RELEASE_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1949719758,
     data2: 52400,
     data3: 16410,
     data4: [191, 193, 184, 153, 52, 173, 126, 21],
 };
-pub const FWPM_LAYER_ALE_RESOURCE_RELEASE_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4108701312, data2: 60876, data3: 19987, data4: [138, 47, 185, 20, 84, 187, 5, 123] };
-pub const FWPM_LAYER_DATAGRAM_DATA_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1023983438, data2: 17910, data3: 18736, data4: [169, 34, 65, 112, 152, 226, 0, 39] };
-pub const FWPM_LAYER_DATAGRAM_DATA_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 417542342, data2: 29256, data3: 20050, data4: [170, 171, 71, 46, 214, 119, 4, 253] };
-pub const FWPM_LAYER_DATAGRAM_DATA_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4198891055, data2: 15546, data3: 17447, data4: [135, 252, 87, 185, 164, 177, 13, 0] };
-pub const FWPM_LAYER_DATAGRAM_DATA_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_ALE_RESOURCE_RELEASE_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4108701312, data2: 60876, data3: 19987, data4: [138, 47, 185, 20, 84, 187, 5, 123] };
+pub const FWPM_LAYER_DATAGRAM_DATA_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1023983438, data2: 17910, data3: 18736, data4: [169, 34, 65, 112, 152, 226, 0, 39] };
+pub const FWPM_LAYER_DATAGRAM_DATA_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 417542342, data2: 29256, data3: 20050, data4: [170, 171, 71, 46, 214, 119, 4, 253] };
+pub const FWPM_LAYER_DATAGRAM_DATA_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4198891055, data2: 15546, data3: 17447, data4: [135, 252, 87, 185, 164, 177, 13, 0] };
+pub const FWPM_LAYER_DATAGRAM_DATA_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 164749281,
     data2: 39814,
     data3: 19010,
     data4: [190, 157, 140, 49, 91, 146, 165, 208],
 };
-pub const FWPM_LAYER_EGRESS_VSWITCH_ETHERNET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2261283504, data2: 30458, data3: 19321, data4: [147, 164, 7, 80, 83, 10, 226, 146] };
-pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_EGRESS_VSWITCH_ETHERNET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2261283504, data2: 30458, data3: 19321, data4: [147, 164, 7, 80, 83, 10, 226, 146] };
+pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3106099382,
     data2: 37360,
     data3: 18102,
     data4: [189, 196, 135, 29, 253, 74, 124, 152],
 };
-pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 455995171, data2: 6273, data3: 16573, data4: [130, 244, 66, 84, 230, 49, 65, 203] };
+pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 455995171, data2: 6273, data3: 16573, data4: [130, 244, 66, 84, 230, 49, 65, 203] };
 #[repr(C)]
 pub struct FWPM_LAYER_ENUM_TEMPLATE0 {
     pub reserved: u64,
@@ -1964,215 +1964,215 @@ pub const FWPM_LAYER_FLAG_BUFFERED: u32 = 8u32;
 pub const FWPM_LAYER_FLAG_BUILTIN: u32 = 2u32;
 pub const FWPM_LAYER_FLAG_CLASSIFY_MOSTLY: u32 = 4u32;
 pub const FWPM_LAYER_FLAG_KERNEL: u32 = 1u32;
-pub const FWPM_LAYER_IKEEXT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_IKEEXT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2974514139,
     data2: 56253,
     data3: 18238,
     data4: [190, 212, 139, 71, 8, 212, 242, 112],
 };
-pub const FWPM_LAYER_IKEEXT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_IKEEXT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3058140851,
     data2: 63111,
     data3: 20153,
     data4: [137, 210, 142, 243, 42, 205, 171, 226],
 };
-pub const FWPM_LAYER_INBOUND_ICMP_ERROR_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INBOUND_ICMP_ERROR_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1632213392,
     data2: 15542,
     data3: 20100,
     data4: [185, 80, 83, 185, 75, 105, 100, 243],
 };
-pub const FWPM_LAYER_INBOUND_ICMP_ERROR_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INBOUND_ICMP_ERROR_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2796646517,
     data2: 60335,
     data3: 16467,
     data4: [164, 231, 33, 60, 129, 33, 237, 229],
 };
-pub const FWPM_LAYER_INBOUND_ICMP_ERROR_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INBOUND_ICMP_ERROR_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1710865919,
     data2: 15149,
     data3: 20061,
     data4: [184, 198, 199, 32, 101, 31, 232, 152],
 };
-pub const FWPM_LAYER_INBOUND_ICMP_ERROR_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2800209088, data2: 2299, data3: 18061, data4: [164, 114, 151, 113, 213, 89, 94, 9] };
-pub const FWPM_LAYER_INBOUND_IPPACKET_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3362771391, data2: 8653, data3: 18814, data4: [160, 187, 23, 66, 92, 136, 92, 88] };
-pub const FWPM_LAYER_INBOUND_IPPACKET_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INBOUND_ICMP_ERROR_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2800209088, data2: 2299, data3: 18061, data4: [164, 114, 151, 113, 213, 89, 94, 9] };
+pub const FWPM_LAYER_INBOUND_IPPACKET_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3362771391, data2: 8653, data3: 18814, data4: [160, 187, 23, 66, 92, 136, 92, 88] };
+pub const FWPM_LAYER_INBOUND_IPPACKET_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3047305424,
     data2: 43200,
     data3: 17650,
     data4: [145, 110, 153, 27, 83, 222, 209, 247],
 };
-pub const FWPM_LAYER_INBOUND_IPPACKET_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4112528075, data2: 39196, data3: 18151, data4: [151, 29, 38, 1, 69, 154, 145, 202] };
-pub const FWPM_LAYER_INBOUND_IPPACKET_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INBOUND_IPPACKET_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4112528075, data2: 39196, data3: 18151, data4: [151, 29, 38, 1, 69, 154, 145, 202] };
+pub const FWPM_LAYER_INBOUND_IPPACKET_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3139748473,
     data2: 37812,
     data3: 18338,
     data4: [131, 173, 174, 22, 152, 181, 8, 133],
 };
-pub const FWPM_LAYER_INBOUND_MAC_FRAME_ETHERNET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4026236635, data2: 85, data3: 20378, data4: [162, 49, 79, 248, 19, 26, 209, 145] };
-pub const FWPM_LAYER_INBOUND_MAC_FRAME_NATIVE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INBOUND_MAC_FRAME_ETHERNET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4026236635, data2: 85, data3: 20378, data4: [162, 49, 79, 248, 19, 26, 209, 145] };
+pub const FWPM_LAYER_INBOUND_MAC_FRAME_NATIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3559001043,
     data2: 25294,
     data3: 20232,
     data4: [174, 136, 181, 110, 133, 38, 223, 80],
 };
-pub const FWPM_LAYER_INBOUND_MAC_FRAME_NATIVE_FAST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2235214478, data2: 11128, data3: 19748, data4: [168, 4, 54, 219, 8, 178, 151, 17] };
-pub const FWPM_LAYER_INBOUND_RESERVED2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INBOUND_MAC_FRAME_NATIVE_FAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2235214478, data2: 11128, data3: 19748, data4: [168, 4, 54, 219, 8, 178, 151, 17] };
+pub const FWPM_LAYER_INBOUND_RESERVED2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4110126421,
     data2: 49270,
     data3: 18136,
     data4: [162, 199, 106, 76, 114, 44, 164, 237],
 };
-pub const FWPM_LAYER_INBOUND_TRANSPORT_FAST: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INBOUND_TRANSPORT_FAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3827115801,
     data2: 1479,
     data3: 16624,
     data4: [137, 131, 234, 141, 23, 187, 194, 246],
 };
-pub const FWPM_LAYER_INBOUND_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1495719880, data2: 58319, data3: 17446, data4: [162, 131, 220, 57, 63, 93, 15, 157] };
-pub const FWPM_LAYER_INBOUND_TRANSPORT_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2890569779, data2: 63133, data3: 17992, data4: [178, 97, 109, 200, 72, 53, 239, 57] };
-pub const FWPM_LAYER_INBOUND_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INBOUND_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1495719880, data2: 58319, data3: 17446, data4: [162, 131, 220, 57, 63, 93, 15, 157] };
+pub const FWPM_LAYER_INBOUND_TRANSPORT_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2890569779, data2: 63133, data3: 17992, data4: [178, 97, 109, 200, 72, 53, 239, 57] };
+pub const FWPM_LAYER_INBOUND_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1665828511,
     data2: 64547,
     data3: 19344,
     data4: [176, 193, 191, 98, 10, 54, 174, 111],
 };
-pub const FWPM_LAYER_INBOUND_TRANSPORT_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INBOUND_TRANSPORT_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 711981397,
     data2: 15147,
     data3: 18898,
     data4: [152, 72, 173, 157, 114, 220, 170, 183],
 };
-pub const FWPM_LAYER_INGRESS_VSWITCH_ETHERNET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INGRESS_VSWITCH_ETHERNET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2107135866,
     data2: 39559,
     data3: 16876,
     data4: [151, 24, 124, 245, 137, 201, 243, 45],
 };
-pub const FWPM_LAYER_INGRESS_VSWITCH_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INGRESS_VSWITCH_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2993254390,
     data2: 30543,
     data3: 17748,
     data4: [159, 125, 61, 163, 148, 95, 142, 133],
 };
-pub const FWPM_LAYER_INGRESS_VSWITCH_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1591940348, data2: 32138, data3: 18420, data4: [183, 227, 41, 26, 54, 218, 78, 18] };
-pub const FWPM_LAYER_IPFORWARD_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_INGRESS_VSWITCH_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1591940348, data2: 32138, data3: 18420, data4: [183, 227, 41, 26, 54, 218, 78, 18] };
+pub const FWPM_LAYER_IPFORWARD_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2821377060,
     data2: 20193,
     data3: 20193,
     data4: [180, 101, 253, 29, 37, 203, 16, 164],
 };
-pub const FWPM_LAYER_IPFORWARD_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_IPFORWARD_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2661197683,
     data2: 12206,
     data3: 16912,
     data4: [143, 23, 52, 18, 158, 243, 105, 235],
 };
-pub const FWPM_LAYER_IPFORWARD_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2073446424, data2: 6599, data3: 18746, data4: [183, 31, 131, 44, 54, 132, 210, 140] };
-pub const FWPM_LAYER_IPFORWARD_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 827476573, data2: 7678, data3: 18223, data4: [187, 147, 81, 142, 233, 69, 216, 162] };
-pub const FWPM_LAYER_IPSEC_KM_DEMUX_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_IPFORWARD_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2073446424, data2: 6599, data3: 18746, data4: [183, 31, 131, 44, 54, 132, 210, 140] };
+pub const FWPM_LAYER_IPFORWARD_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 827476573, data2: 7678, data3: 18223, data4: [187, 147, 81, 142, 233, 69, 216, 162] };
+pub const FWPM_LAYER_IPSEC_KM_DEMUX_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4029355302,
     data2: 42073,
     data3: 19025,
     data4: [185, 227, 117, 157, 229, 43, 157, 44],
 };
-pub const FWPM_LAYER_IPSEC_KM_DEMUX_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 796220662, data2: 12244, data3: 20104, data4: [179, 228, 169, 27, 202, 73, 82, 53] };
-pub const FWPM_LAYER_IPSEC_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_IPSEC_KM_DEMUX_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 796220662, data2: 12244, data3: 20104, data4: [179, 228, 169, 27, 202, 73, 82, 53] };
+pub const FWPM_LAYER_IPSEC_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3987102836,
     data2: 24845,
     data3: 19397,
     data4: [148, 143, 60, 79, 137, 85, 104, 103],
 };
-pub const FWPM_LAYER_IPSEC_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 331646018, data2: 36231, data3: 16993, data4: [154, 41, 89, 210, 171, 195, 72, 180] };
-pub const FWPM_LAYER_KM_AUTHORIZATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_IPSEC_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 331646018, data2: 36231, data3: 16993, data4: [154, 41, 89, 210, 171, 195, 72, 180] };
+pub const FWPM_LAYER_KM_AUTHORIZATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1252140777,
     data2: 36896,
     data3: 17915,
     data4: [149, 106, 192, 36, 157, 132, 17, 149],
 };
-pub const FWPM_LAYER_NAME_RESOLUTION_CACHE_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_NAME_RESOLUTION_CACHE_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 204121729,
     data2: 36955,
     data3: 19661,
     data4: [164, 103, 77, 216, 17, 208, 123, 123],
 };
-pub const FWPM_LAYER_NAME_RESOLUTION_CACHE_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_NAME_RESOLUTION_CACHE_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2463470330,
     data2: 27393,
     data3: 17226,
     data4: [157, 234, 209, 233, 110, 169, 125, 169],
 };
-pub const FWPM_LAYER_OUTBOUND_ICMP_ERROR_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1094254848, data2: 22092, data3: 19250, data4: [188, 29, 113, 128, 72, 53, 77, 124] };
-pub const FWPM_LAYER_OUTBOUND_ICMP_ERROR_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3008990518, data2: 1377, data3: 17800, data4: [166, 191, 233, 85, 227, 246, 38, 75] };
-pub const FWPM_LAYER_OUTBOUND_ICMP_ERROR_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2142255968, data2: 31629, data3: 19962, data4: [186, 221, 152, 1, 118, 252, 78, 18] };
-pub const FWPM_LAYER_OUTBOUND_ICMP_ERROR_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_OUTBOUND_ICMP_ERROR_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1094254848, data2: 22092, data3: 19250, data4: [188, 29, 113, 128, 72, 53, 77, 124] };
+pub const FWPM_LAYER_OUTBOUND_ICMP_ERROR_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3008990518, data2: 1377, data3: 17800, data4: [166, 191, 233, 85, 227, 246, 38, 75] };
+pub const FWPM_LAYER_OUTBOUND_ICMP_ERROR_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2142255968, data2: 31629, data3: 19962, data4: [186, 221, 152, 1, 118, 252, 78, 18] };
+pub const FWPM_LAYER_OUTBOUND_ICMP_ERROR_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1710417479,
     data2: 36108,
     data3: 20295,
     data4: [177, 155, 51, 164, 211, 241, 53, 124],
 };
-pub const FWPM_LAYER_OUTBOUND_IPPACKET_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 509386670, data2: 35460, data3: 16693, data4: [163, 49, 149, 11, 84, 34, 158, 205] };
-pub const FWPM_LAYER_OUTBOUND_IPPACKET_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 149208245, data2: 46663, data3: 18675, data4: [149, 60, 229, 221, 189, 3, 147, 126] };
-pub const FWPM_LAYER_OUTBOUND_IPPACKET_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2746461035, data2: 13668, data3: 18572, data4: [145, 23, 243, 78, 130, 20, 39, 99] };
-pub const FWPM_LAYER_OUTBOUND_IPPACKET_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_OUTBOUND_IPPACKET_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 509386670, data2: 35460, data3: 16693, data4: [163, 49, 149, 11, 84, 34, 158, 205] };
+pub const FWPM_LAYER_OUTBOUND_IPPACKET_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 149208245, data2: 46663, data3: 18675, data4: [149, 60, 229, 221, 189, 3, 147, 126] };
+pub const FWPM_LAYER_OUTBOUND_IPPACKET_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2746461035, data2: 13668, data3: 18572, data4: [145, 23, 243, 78, 130, 20, 39, 99] };
+pub const FWPM_LAYER_OUTBOUND_IPPACKET_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2501105604,
     data2: 43316,
     data3: 18908,
     data4: [145, 167, 108, 203, 128, 204, 2, 227],
 };
-pub const FWPM_LAYER_OUTBOUND_MAC_FRAME_ETHERNET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_OUTBOUND_MAC_FRAME_ETHERNET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1766224828,
     data2: 55003,
     data3: 18544,
     data4: [173, 238, 10, 205, 189, 183, 244, 178],
 };
-pub const FWPM_LAYER_OUTBOUND_MAC_FRAME_NATIVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2495891730, data2: 40303, data3: 20159, data4: [185, 149, 5, 171, 138, 8, 141, 27] };
-pub const FWPM_LAYER_OUTBOUND_MAC_FRAME_NATIVE_FAST: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_OUTBOUND_MAC_FRAME_NATIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2495891730, data2: 40303, data3: 20159, data4: [185, 149, 5, 171, 138, 8, 141, 27] };
+pub const FWPM_LAYER_OUTBOUND_MAC_FRAME_NATIVE_FAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1192098118,
     data2: 51554,
     data3: 18543,
     data4: [148, 70, 130, 147, 203, 199, 94, 184],
 };
-pub const FWPM_LAYER_OUTBOUND_TRANSPORT_FAST: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_OUTBOUND_TRANSPORT_FAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 334316424,
     data2: 41072,
     data3: 18453,
     data4: [153, 53, 122, 155, 230, 64, 139, 120],
 };
-pub const FWPM_LAYER_OUTBOUND_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 166075114, data2: 53780, data3: 18146, data4: [155, 33, 178, 107, 11, 47, 40, 200] };
-pub const FWPM_LAYER_OUTBOUND_TRANSPORT_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_OUTBOUND_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 166075114, data2: 53780, data3: 18146, data4: [155, 33, 178, 107, 11, 47, 40, 200] };
+pub const FWPM_LAYER_OUTBOUND_TRANSPORT_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3320907089,
     data2: 48560,
     data3: 17367,
     data4: [163, 19, 80, 226, 17, 244, 214, 138],
 };
-pub const FWPM_LAYER_OUTBOUND_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3782433758, data2: 319, data3: 18005, data4: [179, 81, 164, 158, 21, 118, 45, 240] };
-pub const FWPM_LAYER_OUTBOUND_TRANSPORT_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4097040233, data2: 52413, data3: 18478, data4: [185, 178, 87, 22, 86, 88, 195, 179] };
-pub const FWPM_LAYER_RPC_EPMAP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_OUTBOUND_TRANSPORT_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3782433758, data2: 319, data3: 18005, data4: [179, 81, 164, 158, 21, 118, 45, 240] };
+pub const FWPM_LAYER_OUTBOUND_TRANSPORT_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4097040233, data2: 52413, data3: 18478, data4: [185, 178, 87, 22, 86, 88, 195, 179] };
+pub const FWPM_LAYER_RPC_EPMAP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2454174817,
     data2: 60167,
     data3: 18414,
     data4: [135, 44, 191, 215, 139, 253, 22, 22],
 };
-pub const FWPM_LAYER_RPC_EP_ADD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_RPC_EP_ADD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1636696007,
     data2: 50256,
     data3: 18755,
     data4: [149, 219, 153, 180, 193, 106, 85, 212],
 };
-pub const FWPM_LAYER_RPC_PROXY_CONN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_RPC_PROXY_CONN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2493822219,
     data2: 47708,
     data3: 20263,
     data4: [144, 122, 34, 159, 172, 12, 42, 122],
 };
-pub const FWPM_LAYER_RPC_PROXY_IF: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_RPC_PROXY_IF: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4171466261,
     data2: 57644,
     data3: 16812,
     data4: [152, 223, 18, 26, 217, 129, 170, 222],
 };
-pub const FWPM_LAYER_RPC_UM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_RPC_UM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1973984730,
     data2: 38372,
     data3: 16627,
@@ -2192,27 +2192,27 @@ impl ::core::clone::Clone for FWPM_LAYER_STATISTICS0 {
         *self
     }
 }
-pub const FWPM_LAYER_STREAM_PACKET_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_STREAM_PACKET_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2941442284,
     data2: 52013,
     data3: 17637,
     data4: [173, 146, 248, 220, 56, 210, 235, 41],
 };
-pub const FWPM_LAYER_STREAM_PACKET_V6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2006617251, data2: 61593, data3: 18063, data4: [181, 212, 131, 83, 92, 70, 28, 2] };
-pub const FWPM_LAYER_STREAM_V4: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_STREAM_PACKET_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2006617251, data2: 61593, data3: 18063, data4: [181, 212, 131, 83, 92, 70, 28, 2] };
+pub const FWPM_LAYER_STREAM_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 998860092,
     data2: 49520,
     data3: 18916,
     data4: [177, 205, 224, 238, 238, 225, 154, 62],
 };
-pub const FWPM_LAYER_STREAM_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 633651906, data2: 9727, data3: 17234, data4: [130, 249, 197, 74, 74, 71, 38, 220] };
-pub const FWPM_LAYER_STREAM_V6: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_LAYER_STREAM_V4_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 633651906, data2: 9727, data3: 17234, data4: [130, 249, 197, 74, 74, 71, 38, 220] };
+pub const FWPM_LAYER_STREAM_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1204360058,
     data2: 32452,
     data3: 18099,
     data4: [182, 228, 72, 233, 38, 177, 237, 164],
 };
-pub const FWPM_LAYER_STREAM_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 279289799, data2: 46632, data3: 19521, data4: [158, 184, 207, 55, 213, 81, 3, 207] };
+pub const FWPM_LAYER_STREAM_V6_DISCARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 279289799, data2: 46632, data3: 19521, data4: [158, 184, 207, 55, 213, 81, 3, 207] };
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT0 {
@@ -3426,13 +3426,13 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
 }
 pub const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: u32 = 2u32;
 pub const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: u32 = 1u32;
-pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_AUTHIP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_AUTHIP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2992547840,
     data2: 3330,
     data3: 18157,
     data4: [146, 189, 127, 168, 75, 183, 62, 157],
 };
-pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_IPSEC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_PROVIDER_CONTEXT_SECURE_SOCKET_IPSEC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2351776068,
     data2: 63712,
     data3: 17088,
@@ -3484,17 +3484,17 @@ impl ::core::clone::Clone for FWPM_PROVIDER_ENUM_TEMPLATE0 {
 }
 pub const FWPM_PROVIDER_FLAG_DISABLED: u32 = 16u32;
 pub const FWPM_PROVIDER_FLAG_PERSISTENT: u32 = 1u32;
-pub const FWPM_PROVIDER_IKEEXT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 279810582, data2: 52446, data3: 17772, data4: [139, 22, 233, 240, 78, 96, 169, 11] };
-pub const FWPM_PROVIDER_IPSEC_DOSP_CONFIG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1013712297, data2: 49244, data3: 19385, data4: [131, 56, 35, 39, 129, 76, 232, 191] };
-pub const FWPM_PROVIDER_MPSSVC_EDP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2835519223, data2: 18104, data3: 17495, data4: [143, 132, 176, 94, 5, 211, 198, 34] };
-pub const FWPM_PROVIDER_MPSSVC_TENANT_RESTRICTIONS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_PROVIDER_IKEEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 279810582, data2: 52446, data3: 17772, data4: [139, 22, 233, 240, 78, 96, 169, 11] };
+pub const FWPM_PROVIDER_IPSEC_DOSP_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1013712297, data2: 49244, data3: 19385, data4: [131, 56, 35, 39, 129, 76, 232, 191] };
+pub const FWPM_PROVIDER_MPSSVC_EDP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2835519223, data2: 18104, data3: 17495, data4: [143, 132, 176, 94, 5, 211, 198, 34] };
+pub const FWPM_PROVIDER_MPSSVC_TENANT_RESTRICTIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3497103353,
     data2: 17626,
     data3: 20304,
     data4: [157, 194, 201, 99, 164, 36, 118, 19],
 };
-pub const FWPM_PROVIDER_MPSSVC_WF: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3737917130, data2: 16179, data3: 17222, data4: [190, 30, 143, 180, 174, 15, 61, 98] };
-pub const FWPM_PROVIDER_MPSSVC_WSH: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_PROVIDER_MPSSVC_WF: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3737917130, data2: 16179, data3: 17222, data4: [190, 30, 143, 180, 174, 15, 61, 98] };
+pub const FWPM_PROVIDER_MPSSVC_WSH: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1259681589,
     data2: 4169,
     data3: 17536,
@@ -3512,13 +3512,13 @@ impl ::core::clone::Clone for FWPM_PROVIDER_SUBSCRIPTION0 {
         *self
     }
 }
-pub const FWPM_PROVIDER_TCP_CHIMNEY_OFFLOAD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_PROVIDER_TCP_CHIMNEY_OFFLOAD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2305466782,
     data2: 39476,
     data3: 19403,
     data4: [174, 121, 190, 185, 18, 124, 132, 185],
 };
-pub const FWPM_PROVIDER_TCP_TEMPLATES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1993329968, data2: 13204, data3: 17197, data4: [190, 211, 68, 26, 229, 14, 99, 195] };
+pub const FWPM_PROVIDER_TCP_TEMPLATES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1993329968, data2: 13204, data3: 17197, data4: [190, 211, 68, 26, 229, 14, 99, 195] };
 #[repr(transparent)]
 pub struct FWPM_SERVICE_STATE(pub i32);
 pub const FWPM_SERVICE_STOPPED: FWPM_SERVICE_STATE = FWPM_SERVICE_STATE(0i32);
@@ -3650,49 +3650,49 @@ impl ::core::clone::Clone for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     }
 }
 pub const FWPM_SUBLAYER_FLAG_PERSISTENT: u32 = 1u32;
-pub const FWPM_SUBLAYER_INSPECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2272598497, data2: 59049, data3: 16805, data4: [129, 180, 140, 79, 17, 142, 74, 96] };
-pub const FWPM_SUBLAYER_IPSEC_DOSP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_SUBLAYER_INSPECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2272598497, data2: 59049, data3: 16805, data4: [129, 180, 140, 79, 17, 142, 74, 96] };
+pub const FWPM_SUBLAYER_IPSEC_DOSP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3765884274,
     data2: 23869,
     data3: 18671,
     data4: [128, 43, 144, 158, 221, 176, 152, 189],
 };
-pub const FWPM_SUBLAYER_IPSEC_FORWARD_OUTBOUND_TUNNEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2768776819, data2: 36721, data3: 17753, data4: [138, 154, 16, 28, 234, 4, 239, 135] };
-pub const FWPM_SUBLAYER_IPSEC_SECURITY_REALM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_SUBLAYER_IPSEC_FORWARD_OUTBOUND_TUNNEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2768776819, data2: 36721, data3: 17753, data4: [138, 154, 16, 28, 234, 4, 239, 135] };
+pub const FWPM_SUBLAYER_IPSEC_SECURITY_REALM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 933590785,
     data2: 22660,
     data3: 18788,
     data4: [146, 184, 62, 112, 70, 136, 176, 173],
 };
-pub const FWPM_SUBLAYER_IPSEC_TUNNEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_SUBLAYER_IPSEC_TUNNEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2213714413,
     data2: 40948,
     data3: 18791,
     data4: [175, 244, 195, 9, 244, 218, 184, 39],
 };
-pub const FWPM_SUBLAYER_LIPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_SUBLAYER_LIPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 460701902,
     data2: 65376,
     data3: 18193,
     data4: [167, 15, 180, 149, 140, 195, 178, 208],
 };
-pub const FWPM_SUBLAYER_MPSSVC_EDP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 161775160, data2: 64151, data3: 18203, data4: [177, 35, 24, 188, 215, 230, 80, 113] };
-pub const FWPM_SUBLAYER_MPSSVC_QUARANTINE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3016610881, data2: 44944, data3: 16826, data4: [167, 69, 124, 96, 8, 255, 35, 2] };
-pub const FWPM_SUBLAYER_MPSSVC_TENANT_RESTRICTIONS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_SUBLAYER_MPSSVC_EDP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 161775160, data2: 64151, data3: 18203, data4: [177, 35, 24, 188, 215, 230, 80, 113] };
+pub const FWPM_SUBLAYER_MPSSVC_QUARANTINE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3016610881, data2: 44944, data3: 16826, data4: [167, 69, 124, 96, 8, 255, 35, 2] };
+pub const FWPM_SUBLAYER_MPSSVC_TENANT_RESTRICTIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 516343777,
     data2: 64985,
     data3: 18314,
     data4: [181, 95, 255, 139, 161, 210, 193, 125],
 };
-pub const FWPM_SUBLAYER_MPSSVC_WF: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3016610881, data2: 44944, data3: 16826, data4: [167, 69, 124, 96, 8, 255, 35, 1] };
-pub const FWPM_SUBLAYER_MPSSVC_WSH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3016610881, data2: 44944, data3: 16826, data4: [167, 69, 124, 96, 8, 255, 35, 0] };
-pub const FWPM_SUBLAYER_RPC_AUDIT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_SUBLAYER_MPSSVC_WF: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3016610881, data2: 44944, data3: 16826, data4: [167, 69, 124, 96, 8, 255, 35, 1] };
+pub const FWPM_SUBLAYER_MPSSVC_WSH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3016610881, data2: 44944, data3: 16826, data4: [167, 69, 124, 96, 8, 255, 35, 0] };
+pub const FWPM_SUBLAYER_RPC_AUDIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1972143348,
     data2: 64328,
     data3: 19945,
     data4: [154, 235, 62, 217, 85, 26, 177, 253],
 };
-pub const FWPM_SUBLAYER_SECURE_SOCKET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_SUBLAYER_SECURE_SOCKET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 363228695,
     data2: 16188,
     data3: 20347,
@@ -3710,15 +3710,15 @@ impl ::core::clone::Clone for FWPM_SUBLAYER_SUBSCRIPTION0 {
         *self
     }
 }
-pub const FWPM_SUBLAYER_TCP_CHIMNEY_OFFLOAD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 863373497, data2: 47061, data3: 19807, data4: [130, 249, 54, 24, 97, 139, 192, 88] };
-pub const FWPM_SUBLAYER_TCP_TEMPLATES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 608312783, data2: 2757, data3: 19626, data4: [158, 20, 80, 246, 227, 99, 106, 240] };
-pub const FWPM_SUBLAYER_TEREDO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FWPM_SUBLAYER_TCP_CHIMNEY_OFFLOAD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 863373497, data2: 47061, data3: 19807, data4: [130, 249, 54, 24, 97, 139, 192, 88] };
+pub const FWPM_SUBLAYER_TCP_TEMPLATES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 608312783, data2: 2757, data3: 19626, data4: [158, 20, 80, 246, 227, 99, 106, 240] };
+pub const FWPM_SUBLAYER_TEREDO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3127499878,
     data2: 20854,
     data3: 18809,
     data4: [156, 137, 38, 167, 180, 106, 131, 39],
 };
-pub const FWPM_SUBLAYER_UNIVERSAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4005481475, data2: 52948, data3: 17280, data4: [129, 154, 39, 52, 57, 123, 43, 116] };
+pub const FWPM_SUBLAYER_UNIVERSAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4005481475, data2: 52948, data3: 17280, data4: [129, 154, 39, 52, 57, 123, 43, 116] };
 #[repr(transparent)]
 pub struct FWPM_SUBSCRIPTION_FLAGS(pub u32);
 pub const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_ADD: FWPM_SUBSCRIPTION_FLAGS = FWPM_SUBSCRIPTION_FLAGS(1u32);

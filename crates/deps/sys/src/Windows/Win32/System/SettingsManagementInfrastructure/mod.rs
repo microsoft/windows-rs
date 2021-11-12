@@ -19,7 +19,7 @@ pub struct ISettingsResult(pub *mut ::core::ffi::c_void);
 pub struct ITargetInfo(pub *mut ::core::ffi::c_void);
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
 pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
-pub const SettingsEngine: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2675801013, data2: 8371, data3: 4570, data4: [129, 165, 0, 48, 241, 100, 46, 60] };
+pub const SettingsEngine: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2675801013, data2: 8371, data3: 4570, data4: [129, 165, 0, 48, 241, 100, 46, 60] };
 pub const WCM_E_ABORTOPERATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145255384i32 as _);
 pub const WCM_E_ASSERTIONFAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145255398i32 as _);
 pub const WCM_E_ATTRIBUTENOTALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145255420i32 as _);

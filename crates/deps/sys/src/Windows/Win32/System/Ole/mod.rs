@@ -919,13 +919,13 @@ impl ::core::clone::Clone for CLEANLOCALSTORAGE {
         *self
     }
 }
-pub const CLSID_CColorPropPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 199447041, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
-pub const CLSID_CFontPropPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 199447040, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
-pub const CLSID_CPicturePropPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 199447042, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
-pub const CLSID_ConvertVBX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4220454946, data2: 356, data3: 4123, data4: [132, 237, 8, 0, 43, 46, 199, 19] };
-pub const CLSID_PersistPropset: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4220454945, data2: 356, data3: 4123, data4: [132, 237, 8, 0, 43, 46, 199, 19] };
-pub const CLSID_StdFont: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 199447043, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
-pub const CLSID_StdPicture: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 199447044, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
+pub const CLSID_CColorPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447041, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
+pub const CLSID_CFontPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447040, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
+pub const CLSID_CPicturePropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447042, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
+pub const CLSID_ConvertVBX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4220454946, data2: 356, data3: 4123, data4: [132, 237, 8, 0, 43, 46, 199, 19] };
+pub const CLSID_PersistPropset: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4220454945, data2: 356, data3: 4123, data4: [132, 237, 8, 0, 43, 46, 199, 19] };
+pub const CLSID_StdFont: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447043, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
+pub const CLSID_StdPicture: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447044, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
 pub const CONNECT_E_ADVISELIMIT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
 pub const CONNECT_E_CANNOTCONNECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220990i32 as _);
 pub const CONNECT_E_FIRST: i32 = -2147220992i32;
@@ -1242,26 +1242,26 @@ impl ::core::clone::Clone for GUIDKIND {
         *self
     }
 }
-pub const GUID_CHECKVALUEEXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536076, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_COLOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536065, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_FONTBOLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536079, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_FONTITALIC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536080, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_FONTNAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536077, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_FONTSIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536078, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_FONTSTRIKETHROUGH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536082, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_FONTUNDERSCORE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536081, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_HANDLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536083, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_HIMETRIC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536064, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_OPTIONVALUEEXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536075, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_TRISTATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536074, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_XPOS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536070, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_XPOSPIXEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536066, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_XSIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536072, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_XSIZEPIXEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536068, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_YPOS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536071, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_YPOSPIXEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536067, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_YSIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536073, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_YSIZEPIXEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536069, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_CHECKVALUEEXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536076, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_COLOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536065, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_FONTBOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536079, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_FONTITALIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536080, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_FONTNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536077, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_FONTSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536078, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_FONTSTRIKETHROUGH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536082, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_FONTUNDERSCORE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536081, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_HANDLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536083, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_HIMETRIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536064, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_OPTIONVALUEEXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536075, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_TRISTATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536074, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_XPOS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536070, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_XPOSPIXEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536066, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_XSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536072, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_XSIZEPIXEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536068, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_YPOS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536071, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_YPOSPIXEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536067, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_YSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536073, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_YSIZEPIXEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536069, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
 #[repr(transparent)]
 pub struct HITRESULT(pub i32);
 pub const HITRESULT_OUTSIDE: HITRESULT = HITRESULT(0i32);
@@ -3392,9 +3392,9 @@ impl ::core::clone::Clone for SF_TYPE {
         *self
     }
 }
-pub const SID_GetCaller: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1192741952, data2: 48313, data3: 4560, data4: [147, 54, 0, 160, 201, 13, 202, 169] };
-pub const SID_ProvideRuntimeContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1956971532, data2: 56588, data3: 18672, data4: [172, 133, 25, 76, 50, 89, 24, 10] };
-pub const SID_VariantConversion: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 521147521, data2: 48333, data3: 4560, data4: [147, 54, 0, 160, 201, 13, 202, 169] };
+pub const SID_GetCaller: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1192741952, data2: 48313, data3: 4560, data4: [147, 54, 0, 160, 201, 13, 202, 169] };
+pub const SID_ProvideRuntimeContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1956971532, data2: 56588, data3: 18672, data4: [172, 133, 25, 76, 50, 89, 24, 10] };
+pub const SID_VariantConversion: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 521147521, data2: 48333, data3: 4560, data4: [147, 54, 0, 160, 201, 13, 202, 169] };
 pub const STDOLE2_LCID: u32 = 0u32;
 pub const STDOLE2_MAJORVERNUM: u32 = 2u32;
 pub const STDOLE2_MINORVERNUM: u32 = 0u32;

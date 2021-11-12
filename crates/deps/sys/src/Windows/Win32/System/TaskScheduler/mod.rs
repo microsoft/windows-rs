@@ -1,8 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-pub const CLSID_CTask: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 344708384, data2: 41643, data3: 4558, data4: [177, 31, 0, 170, 0, 83, 5, 3] };
-pub const CLSID_CTaskScheduler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 344708394, data2: 41643, data3: 4558, data4: [177, 31, 0, 170, 0, 83, 5, 3] };
+pub const CLSID_CTask: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 344708384, data2: 41643, data3: 4558, data4: [177, 31, 0, 170, 0, 83, 5, 3] };
+pub const CLSID_CTaskScheduler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 344708394, data2: 41643, data3: 4558, data4: [177, 31, 0, 170, 0, 83, 5, 3] };
 #[repr(C)]
 pub struct DAILY {
     pub DaysInterval: u16,
@@ -400,19 +400,19 @@ impl ::core::clone::Clone for TRIGGER_TYPE_UNION {
         *self
     }
 }
-pub const TaskHandlerPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const TaskHandlerPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4071005623,
     data2: 55852,
     data3: 17234,
     data4: [144, 102, 134, 254, 230, 218, 202, 201],
 };
-pub const TaskHandlerStatusPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const TaskHandlerStatusPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2668963437,
     data2: 55226,
     data3: 18672,
     data4: [147, 193, 230, 137, 95, 111, 229, 172],
 };
-pub const TaskScheduler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 260519583, data2: 42213, data3: 19708, data4: [189, 62, 115, 230, 21, 69, 114, 221] };
+pub const TaskScheduler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 260519583, data2: 42213, data3: 19708, data4: [189, 62, 115, 230, 21, 69, 114, 221] };
 #[repr(C)]
 pub struct WEEKLY {
     pub WeeksInterval: u16,

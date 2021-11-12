@@ -111,7 +111,7 @@ impl ::core::clone::Clone for ALERT_SYSTEM_SEV {
         *self
     }
 }
-pub const ALL_POWERSCHEMES_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1755441502, data2: 5098, data3: 16865, data4: [128, 17, 12, 73, 108, 164, 144, 176] };
+pub const ALL_POWERSCHEMES_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1755441502, data2: 5098, data3: 16865, data4: [128, 17, 12, 73, 108, 164, 144, 176] };
 pub const ALL_PROCESSOR_GROUPS: u32 = 65535u32;
 #[repr(C)]
 pub struct ANON_OBJECT_HEADER {
@@ -1618,253 +1618,253 @@ impl ::core::clone::Clone for GESTURECONFIG_FLAGS {
         *self
     }
 }
-pub const GUID_ACDC_POWER_SOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_ACDC_POWER_SOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1564383833,
     data2: 59861,
     data3: 19200,
     data4: [166, 189, 255, 52, 255, 81, 101, 72],
 };
-pub const GUID_ACTIVE_POWERSCHEME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 838464134, data2: 20612, data3: 17150, data4: [183, 32, 43, 2, 100, 153, 55, 99] };
-pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 244906729, data2: 62554, data3: 19937, data4: [167, 87, 96, 49, 241, 151, 246, 234] };
-pub const GUID_ADAPTIVE_POWER_BEHAVIOR_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_ACTIVE_POWERSCHEME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 838464134, data2: 20612, data3: 17150, data4: [183, 32, 43, 2, 100, 153, 55, 99] };
+pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 244906729, data2: 62554, data3: 19937, data4: [167, 87, 96, 49, 241, 151, 246, 234] };
+pub const GUID_ADAPTIVE_POWER_BEHAVIOR_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2249832726,
     data2: 57348,
     data3: 19928,
     data4: [155, 102, 218, 232, 111, 128, 102, 152],
 };
-pub const GUID_ADVANCED_COLOR_QUALITY_BIAS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_ADVANCED_COLOR_QUALITY_BIAS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1749827177,
     data2: 42231,
     data3: 16404,
     data4: [135, 84, 212, 81, 121, 165, 97, 103],
 };
-pub const GUID_ALLOW_AWAYMODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_ALLOW_AWAYMODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 635412809,
     data2: 24017,
     data3: 18230,
     data4: [181, 171, 232, 163, 123, 91, 129, 135],
 };
-pub const GUID_ALLOW_DISPLAY_REQUIRED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2848897242, data2: 52550, data3: 17659, data4: [169, 139, 2, 175, 105, 222, 70, 35] };
-pub const GUID_ALLOW_RTC_WAKE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_ALLOW_DISPLAY_REQUIRED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2848897242, data2: 52550, data3: 17659, data4: [169, 139, 2, 175, 105, 222, 70, 35] };
+pub const GUID_ALLOW_RTC_WAKE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3174789514,
     data2: 1664,
     data3: 19869,
     data4: [138, 178, 225, 210, 180, 172, 128, 109],
 };
-pub const GUID_ALLOW_STANDBY_STATES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2885428505, data2: 13832, data3: 19498, data4: [148, 234, 23, 27, 14, 213, 70, 171] };
-pub const GUID_ALLOW_SYSTEM_REQUIRED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_ALLOW_STANDBY_STATES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2885428505, data2: 13832, data3: 19498, data4: [148, 234, 23, 27, 14, 213, 70, 171] };
+pub const GUID_ALLOW_SYSTEM_REQUIRED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2763101685,
     data2: 33317,
     data3: 18392,
     data4: [128, 18, 157, 65, 54, 151, 134, 226],
 };
-pub const GUID_APPLAUNCH_BUTTON: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_APPLAUNCH_BUTTON: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 443060785,
     data2: 29593,
     data3: 20122,
     data4: [143, 153, 183, 31, 153, 157, 179, 250],
 };
-pub const GUID_BACKGROUND_TASK_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3475239488, data2: 10836, data3: 18648, data4: [177, 20, 222, 21, 24, 255, 5, 46] };
-pub const GUID_BATTERY_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BACKGROUND_TASK_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3475239488, data2: 10836, data3: 18648, data4: [177, 20, 222, 21, 24, 255, 5, 46] };
+pub const GUID_BATTERY_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2099658517,
     data2: 64676,
     data3: 18917,
     data4: [133, 75, 169, 242, 191, 189, 92, 36],
 };
-pub const GUID_BATTERY_DISCHARGE_ACTION_0: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BATTERY_DISCHARGE_ACTION_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1669242927,
     data2: 48075,
     data3: 16405,
     data4: [142, 44, 161, 199, 185, 192, 181, 70],
 };
-pub const GUID_BATTERY_DISCHARGE_ACTION_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3631492555, data2: 15978, data3: 19260, data4: [179, 254, 55, 70, 35, 205, 207, 6] };
-pub const GUID_BATTERY_DISCHARGE_ACTION_2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1109178936, data2: 6798, data3: 18561, data4: [172, 137, 227, 58, 139, 4, 236, 228] };
-pub const GUID_BATTERY_DISCHARGE_ACTION_3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2152146451, data2: 38784, data3: 17758, data4: [179, 8, 114, 211, 0, 60, 242, 248] };
-pub const GUID_BATTERY_DISCHARGE_FLAGS_0: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1572568223, data2: 14569, data3: 16594, data4: [151, 73, 79, 138, 14, 159, 100, 15] };
-pub const GUID_BATTERY_DISCHARGE_FLAGS_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3168721233, data2: 6267, data3: 19717, data4: [188, 204, 247, 229, 25, 96, 194, 88] };
-pub const GUID_BATTERY_DISCHARGE_FLAGS_2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BATTERY_DISCHARGE_ACTION_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3631492555, data2: 15978, data3: 19260, data4: [179, 254, 55, 70, 35, 205, 207, 6] };
+pub const GUID_BATTERY_DISCHARGE_ACTION_2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1109178936, data2: 6798, data3: 18561, data4: [172, 137, 227, 58, 139, 4, 236, 228] };
+pub const GUID_BATTERY_DISCHARGE_ACTION_3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2152146451, data2: 38784, data3: 17758, data4: [179, 8, 114, 211, 0, 60, 242, 248] };
+pub const GUID_BATTERY_DISCHARGE_FLAGS_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1572568223, data2: 14569, data3: 16594, data4: [151, 73, 79, 138, 14, 159, 100, 15] };
+pub const GUID_BATTERY_DISCHARGE_FLAGS_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3168721233, data2: 6267, data3: 19717, data4: [188, 204, 247, 229, 25, 96, 194, 88] };
+pub const GUID_BATTERY_DISCHARGE_FLAGS_2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2144530628,
     data2: 65207,
     data3: 19875,
     data4: [129, 23, 227, 251, 237, 196, 101, 130],
 };
-pub const GUID_BATTERY_DISCHARGE_FLAGS_3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935752399, data2: 56314, data3: 17017, data4: [131, 86, 73, 53, 246, 191, 98, 243] };
-pub const GUID_BATTERY_DISCHARGE_LEVEL_0: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BATTERY_DISCHARGE_FLAGS_3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1935752399, data2: 56314, data3: 17017, data4: [131, 86, 73, 53, 246, 191, 98, 243] };
+pub const GUID_BATTERY_DISCHARGE_LEVEL_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2590431447,
     data2: 20471,
     data3: 20217,
     data4: [181, 162, 90, 50, 108, 162, 164, 105],
 };
-pub const GUID_BATTERY_DISCHARGE_LEVEL_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BATTERY_DISCHARGE_LEVEL_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2172893850,
     data2: 59664,
     data3: 18650,
     data4: [135, 105, 20, 174, 109, 193, 23, 10],
 };
-pub const GUID_BATTERY_DISCHARGE_LEVEL_2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 127958178, data2: 44463, data3: 16599, data4: [176, 119, 83, 58, 173, 237, 27, 250] };
-pub const GUID_BATTERY_DISCHARGE_LEVEL_3: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BATTERY_DISCHARGE_LEVEL_2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 127958178, data2: 44463, data3: 16599, data4: [176, 119, 83, 58, 173, 237, 27, 250] };
+pub const GUID_BATTERY_DISCHARGE_LEVEL_3: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1487918502,
     data2: 49885,
     data3: 18386,
     data4: [159, 191, 239, 112, 204, 92, 89, 101],
 };
-pub const GUID_BATTERY_PERCENTAGE_REMAINING: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BATTERY_PERCENTAGE_REMAINING: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2813165633,
     data2: 46170,
     data3: 19630,
     data4: [135, 163, 238, 203, 180, 104, 169, 225],
 };
-pub const GUID_BATTERY_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BATTERY_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3879339149,
     data2: 48935,
     data3: 20242,
     data4: [151, 49, 139, 32, 118, 232, 137, 31],
 };
-pub const GUID_CONNECTIVITY_IN_STANDBY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4048910056, data2: 39095, data3: 16774, data4: [185, 68, 234, 250, 102, 68, 2, 217] };
-pub const GUID_CONSOLE_DISPLAY_STATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_CONNECTIVITY_IN_STANDBY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4048910056, data2: 39095, data3: 16774, data4: [185, 68, 234, 250, 102, 68, 2, 217] };
+pub const GUID_CONSOLE_DISPLAY_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1877382486,
     data2: 28746,
     data3: 18336,
     data4: [143, 36, 194, 141, 147, 111, 218, 71],
 };
-pub const GUID_CRITICAL_POWER_TRANSITION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3080876069, data2: 58729, data3: 18114, data4: [165, 4, 43, 150, 202, 210, 37, 161] };
-pub const GUID_DEEP_SLEEP_ENABLED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3573741550, data2: 7623, data3: 20221, data4: [165, 93, 240, 75, 111, 92, 5, 69] };
-pub const GUID_DEEP_SLEEP_PLATFORM_STATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3527356344, data2: 38198, data3: 16440, data4: [156, 148, 28, 224, 46, 92, 33, 82] };
-pub const GUID_DEVICE_EVENT_RBC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3497281426, data2: 43406, data3: 4562, data4: [145, 122, 0, 160, 201, 6, 143, 243] };
-pub const GUID_DEVICE_IDLE_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1336588058, data2: 37605, data3: 18214, data4: [181, 49, 34, 69, 89, 103, 45, 25] };
-pub const GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_CRITICAL_POWER_TRANSITION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3080876069, data2: 58729, data3: 18114, data4: [165, 4, 43, 150, 202, 210, 37, 161] };
+pub const GUID_DEEP_SLEEP_ENABLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3573741550, data2: 7623, data3: 20221, data4: [165, 93, 240, 75, 111, 92, 5, 69] };
+pub const GUID_DEEP_SLEEP_PLATFORM_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3527356344, data2: 38198, data3: 16440, data4: [156, 148, 28, 224, 46, 92, 33, 82] };
+pub const GUID_DEVICE_EVENT_RBC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3497281426, data2: 43406, data3: 4562, data4: [145, 122, 0, 160, 201, 6, 143, 243] };
+pub const GUID_DEVICE_IDLE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1336588058, data2: 37605, data3: 18214, data4: [181, 49, 34, 69, 89, 103, 45, 25] };
+pub const GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2918014594,
     data2: 47369,
     data3: 17945,
     data4: [153, 73, 245, 215, 29, 172, 11, 203],
 };
-pub const GUID_DEVICE_POWER_POLICY_VIDEO_DIM_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVICE_POWER_POLICY_VIDEO_DIM_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4059823586,
     data2: 43360,
     data3: 16741,
     data4: [159, 136, 80, 102, 121, 17, 206, 150],
 };
-pub const GUID_DEVINTERFACE_DMP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 632611432, data2: 10757, data3: 18798, data4: [128, 59, 38, 104, 55, 251, 218, 75] };
-pub const GUID_DEVINTERFACE_DMR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3498532788, data2: 8598, data3: 19578, data4: [166, 61, 228, 22, 173, 221, 96, 161] };
-pub const GUID_DEVINTERFACE_DMS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3378526126, data2: 42328, data3: 17520, data4: [180, 50, 17, 90, 49, 184, 85, 83] };
-pub const GUID_DISCONNECTED_STANDBY_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1756345049, data2: 61077, data3: 18344, data4: [143, 80, 65, 21, 8, 128, 115, 177] };
-pub const GUID_DISK_ADAPTIVE_POWERDOWN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVINTERFACE_DMP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 632611432, data2: 10757, data3: 18798, data4: [128, 59, 38, 104, 55, 251, 218, 75] };
+pub const GUID_DEVINTERFACE_DMR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3498532788, data2: 8598, data3: 19578, data4: [166, 61, 228, 22, 173, 221, 96, 161] };
+pub const GUID_DEVINTERFACE_DMS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3378526126, data2: 42328, data3: 17520, data4: [180, 50, 17, 90, 49, 184, 85, 83] };
+pub const GUID_DISCONNECTED_STANDBY_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1756345049, data2: 61077, data3: 18344, data4: [143, 80, 65, 21, 8, 128, 115, 177] };
+pub const GUID_DISK_ADAPTIVE_POWERDOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 963261153,
     data2: 18842,
     data3: 16562,
     data4: [145, 36, 169, 106, 254, 112, 118, 103],
 };
-pub const GUID_DISK_BURST_IGNORE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DISK_BURST_IGNORE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2162411022,
     data2: 48020,
     data3: 19160,
     data4: [187, 224, 13, 49, 149, 239, 198, 99],
 };
-pub const GUID_DISK_COALESCING_POWERDOWN_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3278835380, data2: 10632, data3: 19056, data4: [142, 238, 8, 132, 252, 44, 36, 51] };
-pub const GUID_DISK_IDLE_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DISK_COALESCING_POWERDOWN_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3278835380, data2: 10632, data3: 19056, data4: [142, 238, 8, 132, 252, 44, 36, 51] };
+pub const GUID_DISK_IDLE_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1491311528,
     data2: 47334,
     data3: 20214,
     data4: [144, 208, 137, 174, 50, 178, 88, 214],
 };
-pub const GUID_DISK_MAX_POWER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DISK_MAX_POWER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1373545808,
     data2: 47928,
     data3: 19396,
     data4: [153, 27, 234, 207, 55, 190, 94, 200],
 };
-pub const GUID_DISK_NVME_NOPPME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DISK_NVME_NOPPME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4235424438,
     data2: 43821,
     data3: 17390,
     data4: [135, 151, 21, 233, 132, 31, 44, 202],
 };
-pub const GUID_DISK_POWERDOWN_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DISK_POWERDOWN_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1731781316,
     data2: 59557,
     data3: 19010,
     data4: [177, 106, 224, 64, 231, 105, 117, 110],
 };
-pub const GUID_DISK_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1240647, data2: 36929, data3: 19293, data4: [155, 119, 83, 95, 186, 139, 20, 66] };
-pub const GUID_ENABLE_SWITCH_FORCED_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DISK_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1240647, data2: 36929, data3: 19293, data4: [155, 119, 83, 95, 186, 139, 20, 66] };
+pub const GUID_ENABLE_SWITCH_FORCED_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2201643874,
     data2: 57252,
     data3: 18129,
     data4: [130, 248, 224, 158, 52, 208, 41, 214],
 };
-pub const GUID_ENERGY_SAVER_BATTERY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_ENERGY_SAVER_BATTERY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3868611530,
     data2: 53119,
     data3: 20229,
     data4: [170, 115, 203, 131, 63, 169, 10, 212],
 };
-pub const GUID_ENERGY_SAVER_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 332437636, data2: 63310, data3: 18250, data4: [168, 82, 182, 189, 232, 173, 3, 168] };
-pub const GUID_ENERGY_SAVER_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1549513545, data2: 44329, data3: 20194, data4: [157, 11, 43, 37, 39, 15, 122, 129] };
-pub const GUID_ENERGY_SAVER_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_ENERGY_SAVER_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 332437636, data2: 63310, data3: 18250, data4: [168, 82, 182, 189, 232, 173, 3, 168] };
+pub const GUID_ENERGY_SAVER_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1549513545, data2: 44329, data3: 20194, data4: [157, 11, 43, 37, 39, 15, 122, 129] };
+pub const GUID_ENERGY_SAVER_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3733129507,
     data2: 42338,
     data3: 16815,
     data4: [160, 134, 227, 162, 198, 186, 210, 218],
 };
-pub const GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 828816449, data2: 32408, data3: 19971, data4: [179, 78, 236, 15, 95, 43, 33, 142] };
-pub const GUID_GLOBAL_USER_PRESENCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2020510237, data2: 46119, data3: 17220, data4: [146, 7, 9, 231, 11, 220, 190, 169] };
-pub const GUID_GPU_PREFERENCE_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 828816449, data2: 32408, data3: 19971, data4: [179, 78, 236, 15, 95, 43, 33, 142] };
+pub const GUID_GLOBAL_USER_PRESENCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2020510237, data2: 46119, data3: 17220, data4: [146, 7, 9, 231, 11, 220, 190, 169] };
+pub const GUID_GPU_PREFERENCE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3716451114,
     data2: 35421,
     data3: 17489,
     data4: [154, 226, 57, 205, 65, 101, 143, 108],
 };
-pub const GUID_GRAPHICS_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1605669773, data2: 7912, data3: 19215, data4: [154, 60, 80, 54, 176, 171, 153, 92] };
-pub const GUID_HIBERNATE_FASTS4_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_GRAPHICS_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1605669773, data2: 7912, data3: 19215, data4: [154, 60, 80, 54, 176, 171, 153, 92] };
+pub const GUID_HIBERNATE_FASTS4_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2494328105,
     data2: 29646,
     data3: 16806,
     data4: [128, 159, 99, 99, 186, 33, 180, 126],
 };
-pub const GUID_HIBERNATE_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2641892774, data2: 32484, data3: 18814, data4: [136, 136, 81, 90, 5, 240, 35, 100] };
-pub const GUID_HUPR_ADAPTIVE_DISPLAY_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_HIBERNATE_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2641892774, data2: 32484, data3: 18814, data4: [136, 136, 81, 90, 5, 240, 35, 100] };
+pub const GUID_HUPR_ADAPTIVE_DISPLAY_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 175991478,
     data2: 44163,
     data3: 19153,
     data4: [130, 130, 236, 165, 181, 131, 8, 243],
 };
-pub const GUID_IDLE_BACKGROUND_TASK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IDLE_BACKGROUND_TASK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1364996568,
     data2: 63284,
     data3: 5693,
     data4: [160, 253, 17, 160, 140, 145, 232, 241],
 };
-pub const GUID_IDLE_RESILIENCY_PERIOD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3291183530, data2: 43578, data3: 18507, data4: [169, 143, 44, 243, 42, 169, 10, 40] };
-pub const GUID_IDLE_RESILIENCY_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 778047792, data2: 21329, data3: 19869, data4: [142, 4, 37, 41, 102, 186, 208, 84] };
-pub const GUID_INTSTEER_LOAD_PER_PROC_TRIGGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IDLE_RESILIENCY_PERIOD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3291183530, data2: 43578, data3: 18507, data4: [169, 143, 44, 243, 42, 169, 10, 40] };
+pub const GUID_IDLE_RESILIENCY_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 778047792, data2: 21329, data3: 19869, data4: [142, 4, 37, 41, 102, 186, 208, 84] };
+pub const GUID_INTSTEER_LOAD_PER_PROC_TRIGGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1942873677,
     data2: 55072,
     data3: 19378,
     data4: [168, 96, 199, 85, 175, 231, 126, 242],
 };
-pub const GUID_INTSTEER_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 737944825, data2: 24226, data3: 18433, data4: [130, 19, 61, 186, 224, 26, 163, 157] };
-pub const GUID_INTSTEER_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_INTSTEER_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 737944825, data2: 24226, data3: 18433, data4: [130, 19, 61, 186, 224, 26, 163, 157] };
+pub const GUID_INTSTEER_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1214721848,
     data2: 31386,
     data3: 19378,
     data4: [139, 248, 61, 133, 190, 25, 222, 78],
 };
-pub const GUID_INTSTEER_TIME_UNPARK_TRIGGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3602532611, data2: 14447, data3: 19500, data4: [138, 219, 92, 33, 179, 50, 141, 37] };
-pub const GUID_IO_CDROM_EXCLUSIVE_LOCK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_INTSTEER_TIME_UNPARK_TRIGGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3602532611, data2: 14447, data3: 19500, data4: [138, 219, 92, 33, 179, 50, 141, 37] };
+pub const GUID_IO_CDROM_EXCLUSIVE_LOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3159802169,
     data2: 31248,
     data3: 18414,
     data4: [162, 148, 76, 106, 56, 240, 20, 154],
 };
-pub const GUID_IO_CDROM_EXCLUSIVE_UNLOCK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IO_CDROM_EXCLUSIVE_UNLOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2746667645,
     data2: 24117,
     data3: 18565,
     data4: [129, 229, 238, 24, 192, 14, 215, 121],
 };
-pub const GUID_IO_DEVICE_BECOMING_READY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3497276400, data2: 43406, data3: 4562, data4: [145, 122, 0, 160, 201, 6, 143, 243] };
-pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3497276368, data2: 43406, data3: 4562, data4: [145, 122, 0, 160, 201, 6, 143, 243] };
-pub const GUID_IO_DISK_CLONE_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IO_DEVICE_BECOMING_READY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3497276400, data2: 43406, data3: 4562, data4: [145, 122, 0, 160, 201, 6, 143, 243] };
+pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3497276368, data2: 43406, data3: 4562, data4: [145, 122, 0, 160, 201, 6, 143, 243] };
+pub const GUID_IO_DISK_CLONE_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1784776795,
     data2: 31801,
     data3: 17373,
@@ -1880,556 +1880,556 @@ impl ::core::clone::Clone for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
         *self
     }
 }
-pub const GUID_IO_DISK_HEALTH_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 253482564, data2: 14614, data3: 18885, data4: [176, 99, 153, 25, 64, 17, 143, 178] };
-pub const GUID_IO_DISK_LAYOUT_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IO_DISK_HEALTH_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 253482564, data2: 14614, data3: 18885, data4: [176, 99, 153, 25, 64, 17, 143, 178] };
+pub const GUID_IO_DISK_LAYOUT_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 299889996,
     data2: 33897,
     data3: 16889,
     data4: [179, 222, 239, 131, 100, 135, 197, 74],
 };
-pub const GUID_IO_DRIVE_REQUIRES_CLEANING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1913096060, data2: 37101, data3: 17637, data4: [160, 0, 129, 66, 141, 76, 121, 187] };
-pub const GUID_IO_MEDIA_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3497276352, data2: 43406, data3: 4562, data4: [145, 122, 0, 160, 201, 6, 143, 243] };
-pub const GUID_IO_MEDIA_EJECT_REQUEST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3497276369, data2: 43406, data3: 4562, data4: [145, 122, 0, 160, 201, 6, 143, 243] };
-pub const GUID_IO_MEDIA_REMOVAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3497276353, data2: 43406, data3: 4562, data4: [145, 122, 0, 160, 201, 6, 143, 243] };
-pub const GUID_IO_TAPE_ERASE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IO_DRIVE_REQUIRES_CLEANING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1913096060, data2: 37101, data3: 17637, data4: [160, 0, 129, 66, 141, 76, 121, 187] };
+pub const GUID_IO_MEDIA_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3497276352, data2: 43406, data3: 4562, data4: [145, 122, 0, 160, 201, 6, 143, 243] };
+pub const GUID_IO_MEDIA_EJECT_REQUEST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3497276369, data2: 43406, data3: 4562, data4: [145, 122, 0, 160, 201, 6, 143, 243] };
+pub const GUID_IO_MEDIA_REMOVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3497276353, data2: 43406, data3: 4562, data4: [145, 122, 0, 160, 201, 6, 143, 243] };
+pub const GUID_IO_TAPE_ERASE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2234323435,
     data2: 19384,
     data3: 17671,
     data4: [157, 155, 65, 124, 194, 177, 180, 56],
 };
-pub const GUID_IO_VOLUME_BACKGROUND_FORMAT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2732981382, data2: 54733, data3: 16440, data4: [178, 227, 68, 69, 6, 92, 35, 119] };
-pub const GUID_IO_VOLUME_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1936942410, data2: 33066, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
-pub const GUID_IO_VOLUME_CHANGE_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IO_VOLUME_BACKGROUND_FORMAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2732981382, data2: 54733, data3: 16440, data4: [178, 227, 68, 69, 6, 92, 35, 119] };
+pub const GUID_IO_VOLUME_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1936942410, data2: 33066, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
+pub const GUID_IO_VOLUME_CHANGE_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 974529982,
     data2: 44291,
     data3: 18929,
     data4: [142, 248, 107, 186, 193, 130, 209, 253],
 };
-pub const GUID_IO_VOLUME_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1408590605, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };
-pub const GUID_IO_VOLUME_DISMOUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3513406952, data2: 4185, data3: 4562, data4: [143, 253, 0, 160, 201, 160, 109, 50] };
-pub const GUID_IO_VOLUME_DISMOUNT_FAILED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3821384056, data2: 4189, data3: 4562, data4: [143, 253, 0, 160, 201, 160, 109, 50] };
-pub const GUID_IO_VOLUME_FORCE_CLOSED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1092278351, data2: 17214, data3: 19906, data4: [165, 174, 74, 45, 26, 45, 230, 84] };
-pub const GUID_IO_VOLUME_FVE_STATUS_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IO_VOLUME_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1408590605, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };
+pub const GUID_IO_VOLUME_DISMOUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3513406952, data2: 4185, data3: 4562, data4: [143, 253, 0, 160, 201, 160, 109, 50] };
+pub const GUID_IO_VOLUME_DISMOUNT_FAILED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3821384056, data2: 4189, data3: 4562, data4: [143, 253, 0, 160, 201, 160, 109, 50] };
+pub const GUID_IO_VOLUME_FORCE_CLOSED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1092278351, data2: 17214, data3: 19906, data4: [165, 174, 74, 45, 26, 45, 230, 84] };
+pub const GUID_IO_VOLUME_FVE_STATUS_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 103389362,
     data2: 60959,
     data3: 19306,
     data4: [184, 87, 231, 108, 187, 233, 166, 218],
 };
-pub const GUID_IO_VOLUME_INFO_MAKE_COMPAT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 985243858, data2: 61312, data3: 17871, data4: [140, 220, 203, 224, 42, 33, 41, 6] };
-pub const GUID_IO_VOLUME_LOCK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1349552244, data2: 51631, data3: 4561, data4: [143, 239, 0, 160, 201, 160, 109, 50] };
-pub const GUID_IO_VOLUME_LOCK_FAILED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2922310928, data2: 2984, data3: 4562, data4: [143, 251, 0, 160, 201, 160, 109, 50] };
-pub const GUID_IO_VOLUME_MOUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3045083256, data2: 6806, data3: 4562, data4: [143, 253, 0, 160, 201, 160, 109, 50] };
-pub const GUID_IO_VOLUME_NAME_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 770277251, data2: 19462, data3: 4562, data4: [165, 50, 0, 96, 151, 19, 5, 90] };
-pub const GUID_IO_VOLUME_NEED_CHKDSK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IO_VOLUME_INFO_MAKE_COMPAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 985243858, data2: 61312, data3: 17871, data4: [140, 220, 203, 224, 42, 33, 41, 6] };
+pub const GUID_IO_VOLUME_LOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1349552244, data2: 51631, data3: 4561, data4: [143, 239, 0, 160, 201, 160, 109, 50] };
+pub const GUID_IO_VOLUME_LOCK_FAILED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2922310928, data2: 2984, data3: 4562, data4: [143, 251, 0, 160, 201, 160, 109, 50] };
+pub const GUID_IO_VOLUME_MOUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3045083256, data2: 6806, data3: 4562, data4: [143, 253, 0, 160, 201, 160, 109, 50] };
+pub const GUID_IO_VOLUME_NAME_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 770277251, data2: 19462, data3: 4562, data4: [165, 50, 0, 96, 151, 19, 5, 90] };
+pub const GUID_IO_VOLUME_NEED_CHKDSK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2040138080,
     data2: 2571,
     data3: 19971,
     data4: [173, 136, 47, 167, 198, 206, 116, 138],
 };
-pub const GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 770277252, data2: 19462, data3: 4562, data4: [165, 50, 0, 96, 151, 19, 5, 90] };
-pub const GUID_IO_VOLUME_PREPARING_EJECT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 770277252, data2: 19462, data3: 4562, data4: [165, 50, 0, 96, 151, 19, 5, 90] };
+pub const GUID_IO_VOLUME_PREPARING_EJECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3349066094,
     data2: 3500,
     data3: 20090,
     data4: [168, 108, 178, 92, 238, 170, 136, 246],
 };
-pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2939804226, data2: 26146, data3: 16885, data4: [151, 11, 19, 157, 9, 47, 163, 217] };
-pub const GUID_IO_VOLUME_UNLOCK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2592882024, data2: 53451, data3: 4561, data4: [143, 239, 0, 160, 201, 160, 109, 50] };
-pub const GUID_IO_VOLUME_WEARING_OUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2939804226, data2: 26146, data3: 16885, data4: [151, 11, 19, 157, 9, 47, 163, 217] };
+pub const GUID_IO_VOLUME_UNLOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2592882024, data2: 53451, data3: 4561, data4: [143, 239, 0, 160, 201, 160, 109, 50] };
+pub const GUID_IO_VOLUME_WEARING_OUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2268140490,
     data2: 5254,
     data3: 17672,
     data4: [130, 172, 195, 178, 229, 41, 122, 170],
 };
-pub const GUID_IO_VOLUME_WORM_NEAR_FULL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IO_VOLUME_WORM_NEAR_FULL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4089446274,
     data2: 62430,
     data3: 18642,
     data4: [175, 149, 69, 127, 128, 183, 99, 242],
 };
-pub const GUID_LEGACY_RTC_MITIGATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_LEGACY_RTC_MITIGATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 439664067,
     data2: 32363,
     data3: 17454,
     data4: [169, 208, 100, 182, 239, 55, 142, 132],
 };
-pub const GUID_LIDCLOSE_ACTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1554527079, data2: 28229, data3: 17823, data4: [162, 123, 71, 107, 29, 1, 201, 54] };
-pub const GUID_LIDOPEN_POWERSTATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2583630055, data2: 9137, data3: 19463, data4: [169, 209, 92, 50, 6, 215, 65, 180] };
-pub const GUID_LIDSWITCH_STATE_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_LIDCLOSE_ACTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1554527079, data2: 28229, data3: 17823, data4: [162, 123, 71, 107, 29, 1, 201, 54] };
+pub const GUID_LIDOPEN_POWERSTATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2583630055, data2: 9137, data3: 19463, data4: [169, 209, 92, 50, 6, 215, 65, 180] };
+pub const GUID_LIDSWITCH_STATE_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3124629325,
     data2: 47127,
     data3: 16532,
     data4: [162, 209, 213, 99, 121, 230, 160, 243],
 };
-pub const GUID_LIDSWITCH_STATE_RELIABILITY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_LIDSWITCH_STATE_RELIABILITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2924236785,
     data2: 54113,
     data3: 17396,
     data4: [128, 170, 187, 182, 235, 3, 222, 148],
 };
-pub const GUID_LOCK_CONSOLE_ON_WAKE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 242838491, data2: 4109, data3: 18390, data4: [162, 213, 247, 210, 218, 165, 31, 81] };
-pub const GUID_MAX_POWER_SAVINGS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2709787400, data2: 13633, data3: 20395, data4: [188, 129, 247, 21, 86, 242, 11, 74] };
-pub const GUID_MIN_POWER_SAVINGS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_LOCK_CONSOLE_ON_WAKE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 242838491, data2: 4109, data3: 18390, data4: [162, 213, 247, 210, 218, 165, 31, 81] };
+pub const GUID_MAX_POWER_SAVINGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2709787400, data2: 13633, data3: 20395, data4: [188, 129, 247, 21, 86, 242, 11, 74] };
+pub const GUID_MIN_POWER_SAVINGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2355003354,
     data2: 59583,
     data3: 19094,
     data4: [154, 133, 166, 226, 58, 140, 99, 92],
 };
-pub const GUID_MIXED_REALITY_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 509766478, data2: 52996, data3: 20365, data4: [156, 199, 201, 124, 91, 15, 35, 145] };
-pub const GUID_MONITOR_POWER_ON: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_MIXED_REALITY_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 509766478, data2: 52996, data3: 20365, data4: [156, 199, 201, 124, 91, 15, 35, 145] };
+pub const GUID_MONITOR_POWER_ON: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 41095189,
     data2: 17680,
     data3: 17702,
     data4: [153, 230, 229, 161, 126, 189, 26, 234],
 };
-pub const GUID_NON_ADAPTIVE_INPUT_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NON_ADAPTIVE_INPUT_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1524350908,
     data2: 1870,
     data3: 19873,
     data4: [186, 56, 219, 139, 54, 178, 200, 243],
 };
-pub const GUID_PCIEXPRESS_ASPM_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PCIEXPRESS_ASPM_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3994220806,
     data2: 53879,
     data3: 16459,
     data4: [182, 218, 229, 250, 26, 87, 109, 245],
 };
-pub const GUID_PCIEXPRESS_SETTINGS_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PCIEXPRESS_SETTINGS_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1343900947,
     data2: 17071,
     data3: 17449,
     data4: [159, 209, 168, 33, 140, 38, 142, 32],
 };
-pub const GUID_POWERBUTTON_ACTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1984491427, data2: 56732, data3: 20030, data4: [181, 102, 80, 249, 41, 56, 98, 128] };
-pub const GUID_POWERSCHEME_PERSONALITY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_POWERBUTTON_ACTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1984491427, data2: 56732, data3: 20030, data4: [181, 102, 80, 249, 41, 56, 98, 128] };
+pub const GUID_POWERSCHEME_PERSONALITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 610108737,
     data2: 14659,
     data3: 17442,
     data4: [176, 37, 19, 167, 132, 246, 121, 183],
 };
-pub const GUID_POWER_SAVING_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_POWER_SAVING_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3758708928,
     data2: 49683,
     data3: 19150,
     data4: [172, 119, 254, 204, 237, 46, 238, 165],
 };
-pub const GUID_PROCESSOR_ALLOW_THROTTLING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 990172413, data2: 7367, data3: 20259, data4: [171, 28, 209, 51, 120, 25, 196, 187] };
-pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_ALLOW_THROTTLING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 990172413, data2: 7367, data3: 20259, data4: [171, 28, 209, 51, 120, 25, 196, 187] };
+pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4259087403,
     data2: 33636,
     data3: 20188,
     data4: [148, 207, 193, 127, 96, 222, 28, 128],
 };
-pub const GUID_PROCESSOR_CLASS1_INITIAL_PERF: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 531430501, data2: 43312, data3: 19397, data4: [159, 56, 80, 78, 192, 151, 187, 192] };
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_CLASS1_INITIAL_PERF: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 531430501, data2: 43312, data3: 19397, data4: [159, 56, 80, 78, 192, 151, 187, 192] };
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2407220707,
     data2: 50067,
     data3: 18442,
     data4: [135, 140, 246, 122, 195, 208, 112, 130],
 };
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1530095995,
     data2: 59549,
     data3: 19768,
     data4: [170, 70, 158, 125, 251, 124, 210, 249],
 };
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_WEIGHTING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3876087793, data2: 64047, data3: 20302, data4: [174, 161, 77, 138, 11, 162, 59, 32] };
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1895963457, data2: 51017, data3: 19745, data4: [190, 116, 160, 15, 51, 93, 88, 43] };
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_WEIGHTING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3876087793, data2: 64047, data3: 20302, data4: [174, 161, 77, 138, 11, 162, 59, 32] };
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1895963457, data2: 51017, data3: 19745, data4: [190, 116, 160, 15, 51, 93, 88, 43] };
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1759325991,
     data2: 42190,
     data3: 19985,
     data4: [132, 135, 55, 148, 228, 19, 93, 250],
 };
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3755019543,
     data2: 54763,
     data3: 17885,
     data4: [135, 122, 154, 52, 221, 209, 92, 130],
 };
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3351119481, data2: 10263, data3: 19817, data4: [157, 2, 81, 154, 83, 126, 208, 198] };
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3351119481, data2: 10263, data3: 19817, data4: [157, 2, 81, 154, 83, 126, 208, 198] };
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3742640449,
     data2: 8435,
     data3: 20191,
     data4: [154, 74, 156, 131, 211, 215, 23, 209],
 };
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 769481348, data2: 23153, data3: 17278, data4: [145, 42, 219, 11, 140, 120, 135, 50] };
-pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3926270001, data2: 3636, data3: 20465, data4: [155, 109, 235, 16, 89, 51, 64, 40] };
-pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3926270001, data2: 3636, data3: 20465, data4: [155, 109, 235, 16, 89, 51, 64, 41] };
-pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214283847, data2: 49631, data3: 17975, data4: [137, 26, 222, 195, 92, 49, 133, 131] };
-pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214283847, data2: 49631, data3: 17975, data4: [137, 26, 222, 195, 92, 49, 133, 132] };
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_DECREASE_FACTOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 312017468, data2: 48168, data3: 20234, data4: [129, 236, 211, 41, 90, 141, 129, 93] };
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2596376210, data2: 43580, data3: 20007, data4: [179, 7, 1, 174, 55, 48, 113, 41] };
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 769481348, data2: 23153, data3: 17278, data4: [145, 42, 219, 11, 140, 120, 135, 50] };
+pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3926270001, data2: 3636, data3: 20465, data4: [155, 109, 235, 16, 89, 51, 64, 40] };
+pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3926270001, data2: 3636, data3: 20465, data4: [155, 109, 235, 16, 89, 51, 64, 41] };
+pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214283847, data2: 49631, data3: 17975, data4: [137, 26, 222, 195, 92, 49, 133, 131] };
+pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214283847, data2: 49631, data3: 17975, data4: [137, 26, 222, 195, 92, 49, 133, 132] };
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_DECREASE_FACTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 312017468, data2: 48168, data3: 20234, data4: [129, 236, 211, 41, 90, 141, 129, 93] };
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2596376210, data2: 43580, data3: 20007, data4: [179, 7, 1, 174, 55, 48, 113, 41] };
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2486996150,
     data2: 28563,
     data3: 16935,
     data4: [173, 135, 233, 163, 254, 236, 8, 209],
 };
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_WEIGHTING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2282341080, data2: 45397, data3: 17108, data4: [188, 218, 13, 52, 86, 81, 177, 219] };
-pub const GUID_PROCESSOR_DISTRIBUTE_UTILITY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3758125872, data2: 62857, data3: 17133, data4: [164, 1, 93, 219, 16, 231, 133, 211] };
-pub const GUID_PROCESSOR_DUTY_CYCLING: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_WEIGHTING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2282341080, data2: 45397, data3: 17108, data4: [188, 218, 13, 52, 86, 81, 177, 219] };
+pub const GUID_PROCESSOR_DISTRIBUTE_UTILITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3758125872, data2: 62857, data3: 17133, data4: [164, 1, 93, 219, 16, 231, 133, 211] };
+pub const GUID_PROCESSOR_DUTY_CYCLING: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1313099955,
     data2: 24953,
     data3: 20113,
     data4: [184, 241, 91, 185, 147, 143, 129, 161],
 };
-pub const GUID_PROCESSOR_FREQUENCY_LIMIT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1974513215, data2: 48352, data3: 17831, data4: [140, 137, 201, 97, 28, 37, 225, 0] };
-pub const GUID_PROCESSOR_FREQUENCY_LIMIT_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1974513215, data2: 48352, data3: 17831, data4: [140, 137, 201, 97, 28, 37, 225, 1] };
-pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_FREQUENCY_LIMIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1974513215, data2: 48352, data3: 17831, data4: [140, 137, 201, 97, 28, 37, 225, 0] };
+pub const GUID_PROCESSOR_FREQUENCY_LIMIT_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1974513215, data2: 48352, data3: 17831, data4: [140, 137, 201, 97, 28, 37, 225, 1] };
+pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2133810426,
     data2: 61708,
     data3: 18467,
     data4: [181, 225, 233, 58, 232, 95, 70, 181],
 };
-pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4169538599,
     data2: 38375,
     data3: 18268,
     data4: [134, 91, 19, 192, 203, 63, 157, 107],
 };
-pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2133103286,
     data2: 24753,
     data3: 17893,
     data4: [174, 85, 119, 63, 140, 213, 202, 236],
 };
-pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2952804733,
     data2: 39691,
     data3: 18493,
     data4: [152, 201, 105, 42, 96, 96, 207, 191],
 };
-pub const GUID_PROCESSOR_HETERO_INCREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_HETERO_INCREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1074392999,
     data2: 59181,
     data3: 19642,
     data4: [158, 223, 145, 8, 78, 168, 203, 195],
 };
-pub const GUID_PROCESSOR_IDLESTATE_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_IDLESTATE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1760715431,
     data2: 63009,
     data3: 16489,
     data4: [185, 165, 72, 116, 22, 155, 226, 60],
 };
-pub const GUID_PROCESSOR_IDLE_ALLOW_SCALING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1814664112, data2: 36680, data3: 18463, data4: [188, 198, 0, 221, 39, 66, 170, 6] };
-pub const GUID_PROCESSOR_IDLE_DEMOTE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_IDLE_ALLOW_SCALING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1814664112, data2: 36680, data3: 18463, data4: [188, 198, 0, 221, 39, 66, 170, 6] };
+pub const GUID_PROCESSOR_IDLE_DEMOTE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1267914584,
     data2: 23076,
     data3: 18513,
     data4: [164, 112, 129, 93, 120, 174, 225, 25],
 };
-pub const GUID_PROCESSOR_IDLE_DISABLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1568056010, data2: 59584, data3: 16431, data4: [161, 51, 33, 88, 73, 45, 88, 173] };
-pub const GUID_PROCESSOR_IDLE_PROMOTE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_IDLE_DISABLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1568056010, data2: 59584, data3: 16431, data4: [161, 51, 33, 88, 73, 45, 88, 173] };
+pub const GUID_PROCESSOR_IDLE_PROMOTE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2065844355,
     data2: 46028,
     data3: 19833,
     data4: [129, 159, 131, 116, 21, 44, 190, 124],
 };
-pub const GUID_PROCESSOR_IDLE_STATE_MAXIMUM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_IDLE_STATE_MAXIMUM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2571364613,
     data2: 39472,
     data3: 20161,
     data4: [155, 153, 68, 221, 59, 118, 247, 162],
 };
-pub const GUID_PROCESSOR_IDLE_TIME_CHECK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_IDLE_TIME_CHECK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3294108721,
     data2: 35243,
     data3: 17815,
     data4: [142, 43, 156, 156, 171, 68, 14, 107],
 };
-pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1634523813,
     data2: 26974,
     data3: 17733,
     data4: [151, 173, 151, 220, 45, 27, 221, 136],
 };
-pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1634523813,
     data2: 26974,
     data3: 17733,
     data4: [151, 173, 151, 220, 45, 27, 221, 137],
 };
-pub const GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 607169391, data2: 42272, data3: 17570, data4: [150, 1, 247, 242, 59, 81, 52, 177] };
-pub const GUID_PROCESSOR_PARKING_CORE_OVERRIDE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 607169391, data2: 42272, data3: 17570, data4: [150, 1, 247, 242, 59, 81, 52, 177] };
+pub const GUID_PROCESSOR_PARKING_CORE_OVERRIDE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2773881514,
     data2: 63012,
     data3: 17094,
     data4: [164, 67, 115, 151, 208, 100, 192, 79],
 };
-pub const GUID_PROCESSOR_PARKING_DISTRIBUTION_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1272640745, data2: 53507, data3: 18135, data4: [165, 240, 98, 128, 18, 22, 22, 239] };
-pub const GUID_PROCESSOR_PARKING_HEADROOM_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_PARKING_DISTRIBUTION_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1272640745, data2: 53507, data3: 18135, data4: [165, 240, 98, 128, 18, 22, 22, 239] };
+pub const GUID_PROCESSOR_PARKING_HEADROOM_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4147488371,
     data2: 8294,
     data3: 20352,
     data4: [160, 197, 221, 238, 12, 241, 191, 93],
 };
-pub const GUID_PROCESSOR_PARKING_PERF_STATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_PARKING_PERF_STATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1148335559,
     data2: 27277,
     data3: 19648,
     data4: [142, 36, 158, 175, 112, 185, 110, 43],
 };
-pub const GUID_PROCESSOR_PARKING_PERF_STATE_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_PARKING_PERF_STATE_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1148335559,
     data2: 27277,
     data3: 19648,
     data4: [142, 36, 158, 175, 112, 185, 110, 44],
 };
-pub const GUID_PROCESSOR_PERFSTATE_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3151771668, data2: 6377, data3: 17507, data4: [138, 85, 209, 151, 50, 124, 69, 192] };
-pub const GUID_PROCESSOR_PERF_AUTONOMOUS_ACTIVITY_WINDOW: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_PERFSTATE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3151771668, data2: 6377, data3: 17507, data4: [138, 85, 209, 151, 50, 124, 69, 192] };
+pub const GUID_PROCESSOR_PERF_AUTONOMOUS_ACTIVITY_WINDOW: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3488457680,
     data2: 30359,
     data3: 17766,
     data4: [169, 34, 169, 8, 108, 212, 157, 250],
 };
-pub const GUID_PROCESSOR_PERF_AUTONOMOUS_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2343193226, data2: 5318, data3: 17489, data4: [142, 139, 20, 189, 189, 25, 117, 55] };
-pub const GUID_PROCESSOR_PERF_BOOST_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3191042616, data2: 3458, data3: 16710, data4: [169, 96, 79, 55, 73, 212, 112, 199] };
-pub const GUID_PROCESSOR_PERF_BOOST_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1169997892, data2: 55429, data3: 17378, data4: [134, 5, 238, 14, 198, 233, 107, 89] };
-pub const GUID_PROCESSOR_PERF_CORE_PARKING_HISTORY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2010641026, data2: 36634, data3: 17101, data4: [133, 55, 69, 69, 10, 131, 155, 232] };
-pub const GUID_PROCESSOR_PERF_DECREASE_HISTORY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 50394872, data2: 43990, data3: 17833, data4: [183, 79, 73, 8, 105, 26, 64, 181] };
-pub const GUID_PROCESSOR_PERF_DECREASE_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_PERF_AUTONOMOUS_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2343193226, data2: 5318, data3: 17489, data4: [142, 139, 20, 189, 189, 25, 117, 55] };
+pub const GUID_PROCESSOR_PERF_BOOST_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3191042616, data2: 3458, data3: 16710, data4: [169, 96, 79, 55, 73, 212, 112, 199] };
+pub const GUID_PROCESSOR_PERF_BOOST_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1169997892, data2: 55429, data3: 17378, data4: [134, 5, 238, 14, 198, 233, 107, 89] };
+pub const GUID_PROCESSOR_PERF_CORE_PARKING_HISTORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2010641026, data2: 36634, data3: 17101, data4: [133, 55, 69, 69, 10, 131, 155, 232] };
+pub const GUID_PROCESSOR_PERF_DECREASE_HISTORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 50394872, data2: 43990, data3: 17833, data4: [183, 79, 73, 8, 105, 26, 64, 181] };
+pub const GUID_PROCESSOR_PERF_DECREASE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1090252743,
     data2: 11933,
     data3: 19749,
     data4: [161, 133, 12, 253, 133, 116, 186, 198],
 };
-pub const GUID_PROCESSOR_PERF_DECREASE_POLICY_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_PERF_DECREASE_POLICY_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1090252743,
     data2: 11933,
     data3: 19749,
     data4: [161, 133, 12, 253, 133, 116, 186, 199],
 };
-pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 312519492, data2: 65064, data3: 20393, data4: [179, 189, 75, 100, 244, 73, 96, 166] };
-pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 312519492, data2: 65064, data3: 20393, data4: [179, 189, 75, 100, 244, 73, 96, 167] };
-pub const GUID_PROCESSOR_PERF_DECREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 312519492, data2: 65064, data3: 20393, data4: [179, 189, 75, 100, 244, 73, 96, 166] };
+pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 312519492, data2: 65064, data3: 20393, data4: [179, 189, 75, 100, 244, 73, 96, 167] };
+pub const GUID_PROCESSOR_PERF_DECREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3639471003,
     data2: 38351,
     data3: 20373,
     data4: [167, 60, 176, 97, 151, 54, 147, 200],
 };
-pub const GUID_PROCESSOR_PERF_DECREASE_TIME_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_PERF_DECREASE_TIME_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3639471003,
     data2: 38351,
     data3: 20373,
     data4: [167, 60, 176, 97, 151, 54, 147, 201],
 };
-pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 912818078, data2: 58277, data3: 19903, data4: [177, 220, 21, 235, 56, 28, 104, 99] };
-pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 912818078, data2: 58277, data3: 19903, data4: [177, 220, 21, 235, 56, 28, 104, 100] };
-pub const GUID_PROCESSOR_PERF_HISTORY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2099559079, data2: 2948, data3: 18447, data4: [132, 12, 27, 7, 67, 192, 15, 95] };
-pub const GUID_PROCESSOR_PERF_HISTORY_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2099559079, data2: 2948, data3: 18447, data4: [132, 12, 27, 7, 67, 192, 15, 96] };
-pub const GUID_PROCESSOR_PERF_INCREASE_HISTORY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2578706177, data2: 29999, data3: 18081, data4: [128, 251, 119, 48, 1, 31, 35, 84] };
-pub const GUID_PROCESSOR_PERF_INCREASE_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180573520, data2: 46608, data3: 18234, data4: [171, 88, 0, 209, 7, 125, 196, 24] };
-pub const GUID_PROCESSOR_PERF_INCREASE_POLICY_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180573520, data2: 46608, data3: 18234, data4: [171, 88, 0, 209, 7, 125, 196, 25] };
-pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 113958670, data2: 25837, data3: 17546, data4: [137, 39, 206, 123, 249, 14, 179, 93] };
-pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 113958670, data2: 25837, data3: 17546, data4: [137, 39, 206, 123, 249, 14, 179, 94] };
-pub const GUID_PROCESSOR_PERF_INCREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 912818078, data2: 58277, data3: 19903, data4: [177, 220, 21, 235, 56, 28, 104, 99] };
+pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 912818078, data2: 58277, data3: 19903, data4: [177, 220, 21, 235, 56, 28, 104, 100] };
+pub const GUID_PROCESSOR_PERF_HISTORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2099559079, data2: 2948, data3: 18447, data4: [132, 12, 27, 7, 67, 192, 15, 95] };
+pub const GUID_PROCESSOR_PERF_HISTORY_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2099559079, data2: 2948, data3: 18447, data4: [132, 12, 27, 7, 67, 192, 15, 96] };
+pub const GUID_PROCESSOR_PERF_INCREASE_HISTORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2578706177, data2: 29999, data3: 18081, data4: [128, 251, 119, 48, 1, 31, 35, 84] };
+pub const GUID_PROCESSOR_PERF_INCREASE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180573520, data2: 46608, data3: 18234, data4: [171, 88, 0, 209, 7, 125, 196, 24] };
+pub const GUID_PROCESSOR_PERF_INCREASE_POLICY_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180573520, data2: 46608, data3: 18234, data4: [171, 88, 0, 209, 7, 125, 196, 25] };
+pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 113958670, data2: 25837, data3: 17546, data4: [137, 39, 206, 123, 249, 14, 179, 93] };
+pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 113958670, data2: 25837, data3: 17546, data4: [137, 39, 206, 123, 249, 14, 179, 94] };
+pub const GUID_PROCESSOR_PERF_INCREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2555180178,
     data2: 15341,
     data3: 17544,
     data4: [168, 249, 66, 134, 201, 123, 245, 170],
 };
-pub const GUID_PROCESSOR_PERF_INCREASE_TIME_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_PERF_INCREASE_TIME_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2555180178,
     data2: 15341,
     data3: 17544,
     data4: [168, 249, 66, 134, 201, 123, 245, 171],
 };
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 136503089, data2: 40067, data3: 17436, data4: [160, 121, 13, 228, 207, 0, 156, 123] };
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1637577989, data2: 59, data3: 20098, data4: [183, 166, 77, 210, 156, 48, 9, 113] };
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1637577989, data2: 59, data3: 20098, data4: [183, 166, 77, 210, 156, 48, 9, 114] };
-pub const GUID_PROCESSOR_PERF_TIME_CHECK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 136503089, data2: 40067, data3: 17436, data4: [160, 121, 13, 228, 207, 0, 156, 123] };
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1637577989, data2: 59, data3: 20098, data4: [183, 166, 77, 210, 156, 48, 9, 113] };
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1637577989, data2: 59, data3: 20098, data4: [183, 166, 77, 210, 156, 48, 9, 114] };
+pub const GUID_PROCESSOR_PERF_TIME_CHECK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1294664018,
     data2: 32092,
     data3: 18827,
     data4: [136, 226, 52, 52, 83, 146, 162, 197],
 };
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 951597117,
     data2: 52448,
     data3: 19577,
     data4: [158, 62, 86, 164, 241, 124, 196, 128],
 };
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 951597117,
     data2: 52448,
     data3: 19577,
     data4: [158, 62, 86, 164, 241, 124, 196, 129],
 };
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4117076383, data2: 16304, data3: 16666, data4: [162, 38, 63, 1, 152, 222, 193, 48] };
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4117076383, data2: 16304, data3: 16666, data4: [162, 38, 63, 1, 152, 222, 193, 49] };
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4117076383, data2: 16304, data3: 16666, data4: [162, 38, 63, 1, 152, 222, 193, 48] };
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4117076383, data2: 16304, data3: 16666, data4: [162, 38, 63, 1, 152, 222, 193, 49] };
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1027924566,
     data2: 29218,
     data3: 17429,
     data4: [169, 237, 156, 69, 250, 61, 216, 48],
 };
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1027924566,
     data2: 29218,
     data3: 17429,
     data4: [169, 237, 156, 69, 250, 61, 216, 49],
 };
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1032933768,
     data2: 30768,
     data3: 18862,
     data4: [167, 154, 15, 176, 161, 229, 162, 0],
 };
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1032933768,
     data2: 30768,
     data3: 18862,
     data4: [167, 154, 15, 176, 161, 229, 162, 1],
 };
-pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1143457595,
     data2: 38742,
     data3: 19036,
     data4: [184, 75, 199, 189, 167, 156, 115, 32],
 };
-pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1143457595,
     data2: 38742,
     data3: 19036,
     data4: [184, 75, 199, 189, 167, 156, 115, 33],
 };
-pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3465450222, data2: 27270, data3: 17778, data4: [191, 224, 32, 194, 29, 3, 205, 64] };
-pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3465450222, data2: 27270, data3: 17778, data4: [191, 224, 32, 194, 29, 3, 205, 65] };
-pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1414738513, data2: 33470, data3: 18468, data4: [150, 193, 71, 182, 11, 116, 13, 0] };
-pub const GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3465450222, data2: 27270, data3: 17778, data4: [191, 224, 32, 194, 29, 3, 205, 64] };
+pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3465450222, data2: 27270, data3: 17778, data4: [191, 224, 32, 194, 29, 3, 205, 65] };
+pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1414738513, data2: 33470, data3: 18468, data4: [150, 193, 71, 182, 11, 116, 13, 0] };
+pub const GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3643381954,
     data2: 27208,
     data3: 18890,
     data4: [133, 212, 140, 206, 236, 41, 69, 112],
 };
-pub const GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3135277953, data2: 11614, data3: 18056, data4: [173, 106, 19, 36, 51, 86, 101, 75] };
-pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2546969665, data2: 8727, data3: 18411, data4: [153, 45, 97, 139, 25, 119, 201, 7] };
-pub const GUID_PROCESSOR_THREAD_SCHEDULING_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2478356188, data2: 1688, data3: 19740, data4: [158, 228, 6, 68, 233, 0, 200, 93] };
-pub const GUID_PROCESSOR_THROTTLE_MAXIMUM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3159374071, data2: 9184, data3: 18784, data4: [150, 218, 51, 171, 175, 89, 53, 236] };
-pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3159374071, data2: 9184, data3: 18784, data4: [150, 218, 51, 171, 175, 89, 53, 237] };
-pub const GUID_PROCESSOR_THROTTLE_MINIMUM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2302537358, data2: 11247, data3: 16864, data4: [137, 198, 181, 93, 9, 41, 150, 76] };
-pub const GUID_PROCESSOR_THROTTLE_MINIMUM_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2302537358, data2: 11247, data3: 16864, data4: [137, 198, 181, 93, 9, 41, 150, 77] };
-pub const GUID_PROCESSOR_THROTTLE_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1459778308, data2: 19190, data3: 16644, data4: [146, 96, 227, 217, 82, 72, 252, 54] };
-pub const GUID_SESSION_DISPLAY_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3135277953, data2: 11614, data3: 18056, data4: [173, 106, 19, 36, 51, 86, 101, 75] };
+pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2546969665, data2: 8727, data3: 18411, data4: [153, 45, 97, 139, 25, 119, 201, 7] };
+pub const GUID_PROCESSOR_THREAD_SCHEDULING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2478356188, data2: 1688, data3: 19740, data4: [158, 228, 6, 68, 233, 0, 200, 93] };
+pub const GUID_PROCESSOR_THROTTLE_MAXIMUM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3159374071, data2: 9184, data3: 18784, data4: [150, 218, 51, 171, 175, 89, 53, 236] };
+pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3159374071, data2: 9184, data3: 18784, data4: [150, 218, 51, 171, 175, 89, 53, 237] };
+pub const GUID_PROCESSOR_THROTTLE_MINIMUM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2302537358, data2: 11247, data3: 16864, data4: [137, 198, 181, 93, 9, 41, 150, 76] };
+pub const GUID_PROCESSOR_THROTTLE_MINIMUM_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2302537358, data2: 11247, data3: 16864, data4: [137, 198, 181, 93, 9, 41, 150, 77] };
+pub const GUID_PROCESSOR_THROTTLE_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1459778308, data2: 19190, data3: 16644, data4: [146, 96, 227, 217, 82, 72, 252, 54] };
+pub const GUID_SESSION_DISPLAY_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 730120718,
     data2: 44323,
     data3: 19935,
     data4: [147, 219, 5, 255, 189, 126, 252, 165],
 };
-pub const GUID_SESSION_USER_PRESENCE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_SESSION_USER_PRESENCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1007633736,
     data2: 49215,
     data3: 19533,
     data4: [185, 242, 35, 126, 222, 104, 99, 118],
 };
-pub const GUID_SLEEPBUTTON_ACTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_SLEEPBUTTON_ACTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2526636992,
     data2: 44368,
     data3: 18412,
     data4: [146, 59, 111, 65, 135, 77, 217, 235],
 };
-pub const GUID_SLEEP_IDLE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_SLEEP_IDLE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2177708768,
     data2: 30771,
     data3: 17651,
     data4: [135, 55, 112, 129, 243, 141, 31, 112],
 };
-pub const GUID_SLEEP_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 596418472, data2: 2733, data3: 16877, data4: [131, 244, 151, 190, 36, 44, 143, 32] };
-pub const GUID_SPR_ACTIVE_SESSION_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_SLEEP_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 596418472, data2: 2733, data3: 16877, data4: [131, 244, 151, 190, 36, 44, 143, 32] };
+pub const GUID_SPR_ACTIVE_SESSION_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 237293112,
     data2: 50067,
     data3: 18242,
     data4: [189, 177, 116, 79, 75, 158, 224, 142],
 };
-pub const GUID_STANDBY_BUDGET_GRACE_PERIOD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1623228385, data2: 1366, data3: 17871, data4: [153, 3, 213, 110, 50, 33, 2, 66] };
-pub const GUID_STANDBY_BUDGET_PERCENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2682595262, data2: 7024, data3: 18650, data4: [147, 13, 123, 207, 23, 180, 73, 144] };
-pub const GUID_STANDBY_RESERVE_GRACE_PERIOD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3345215122, data2: 29160, data3: 16679, data4: [132, 235, 246, 237, 4, 58, 62, 61] };
-pub const GUID_STANDBY_RESERVE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_STANDBY_BUDGET_GRACE_PERIOD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1623228385, data2: 1366, data3: 17871, data4: [153, 3, 213, 110, 50, 33, 2, 66] };
+pub const GUID_STANDBY_BUDGET_PERCENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2682595262, data2: 7024, data3: 18650, data4: [147, 13, 123, 207, 23, 180, 73, 144] };
+pub const GUID_STANDBY_RESERVE_GRACE_PERIOD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3345215122, data2: 29160, data3: 16679, data4: [132, 235, 246, 237, 4, 58, 62, 61] };
+pub const GUID_STANDBY_RESERVE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1183836133,
     data2: 4440,
     data3: 18156,
     data4: [136, 188, 91, 150, 201, 228, 79, 208],
 };
-pub const GUID_STANDBY_RESET_PERCENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_STANDBY_RESET_PERCENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1238045093,
     data2: 22242,
     data3: 19195,
     data4: [157, 56, 61, 244, 120, 114, 226, 27],
 };
-pub const GUID_STANDBY_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_STANDBY_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 704037339,
     data2: 34522,
     data3: 18629,
     data4: [159, 219, 242, 182, 123, 31, 68, 218],
 };
-pub const GUID_SYSTEM_AWAYMODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2561144192, data2: 503, data3: 18602, data4: [156, 15, 68, 53, 44, 41, 229, 192] };
-pub const GUID_SYSTEM_BUTTON_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1335303817, data2: 61117, data3: 17493, data4: [168, 222, 158, 89, 4, 14, 115, 71] };
-pub const GUID_SYSTEM_COOLING_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_SYSTEM_AWAYMODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2561144192, data2: 503, data3: 18602, data4: [156, 15, 68, 53, 44, 41, 229, 192] };
+pub const GUID_SYSTEM_BUTTON_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1335303817, data2: 61117, data3: 17493, data4: [168, 222, 158, 89, 4, 14, 115, 71] };
+pub const GUID_SYSTEM_COOLING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2496898581,
     data2: 43161,
     data3: 19141,
     data4: [174, 43, 228, 216, 246, 52, 54, 127],
 };
-pub const GUID_TYPICAL_POWER_SAVINGS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 941310498, data2: 63124, data3: 16880, data4: [150, 133, 255, 91, 178, 96, 223, 46] };
-pub const GUID_UNATTEND_SLEEP_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_TYPICAL_POWER_SAVINGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 941310498, data2: 63124, data3: 16880, data4: [150, 133, 255, 91, 178, 96, 223, 46] };
+pub const GUID_UNATTEND_SLEEP_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2076484345,
     data2: 55548,
     data3: 17513,
     data4: [176, 123, 51, 235, 120, 90, 172, 160],
 };
-pub const GUID_USERINTERFACEBUTTON_ACTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_USERINTERFACEBUTTON_ACTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2802214483,
     data2: 36204,
     data3: 16552,
     data4: [145, 14, 161, 245, 75, 132, 199, 229],
 };
-pub const GUID_USER_PRESENCE_PREDICTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2181109509, data2: 64405, data3: 19782, data4: [141, 53, 64, 66, 177, 210, 13, 239] };
-pub const GUID_VIDEO_ADAPTIVE_DISPLAY_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_USER_PRESENCE_PREDICTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2181109509, data2: 64405, data3: 19782, data4: [141, 53, 64, 66, 177, 210, 13, 239] };
+pub const GUID_VIDEO_ADAPTIVE_DISPLAY_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4225346150,
     data2: 38227,
     data3: 16535,
     data4: [186, 68, 237, 110, 157, 101, 234, 184],
 };
-pub const GUID_VIDEO_ADAPTIVE_PERCENT_INCREASE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_VIDEO_ADAPTIVE_PERCENT_INCREASE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4007199967,
     data2: 45378,
     data3: 16771,
     data4: [177, 11, 90, 17, 151, 163, 120, 100],
 };
-pub const GUID_VIDEO_ADAPTIVE_POWERDOWN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_VIDEO_ADAPTIVE_POWERDOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2425724194,
     data2: 54945,
     data3: 18873,
     data4: [175, 147, 188, 232, 133, 173, 51, 91],
 };
-pub const GUID_VIDEO_ANNOYANCE_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2195443501, data2: 52583, data3: 16581, data4: [191, 220, 159, 26, 92, 205, 70, 99] };
-pub const GUID_VIDEO_CONSOLE_LOCK_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_VIDEO_ANNOYANCE_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2195443501, data2: 52583, data3: 16581, data4: [191, 220, 159, 26, 92, 205, 70, 99] };
+pub const GUID_VIDEO_CONSOLE_LOCK_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2395255717,
     data2: 26728,
     data3: 18626,
     data4: [190, 117, 79, 48, 68, 190, 136, 167],
 };
-pub const GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2415846086,
     data2: 11521,
     data3: 18110,
     data4: [173, 185, 57, 138, 221, 197, 180, 255],
 };
-pub const GUID_VIDEO_DIM_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_VIDEO_DIM_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 397058715,
     data2: 35651,
     data3: 19348,
     data4: [170, 254, 53, 246, 77, 170, 241, 238],
 };
-pub const GUID_VIDEO_POWERDOWN_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_VIDEO_POWERDOWN_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1007403041,
     data2: 51368,
     data3: 19975,
     data4: [169, 115, 107, 20, 203, 203, 43, 126],
 };
-pub const GUID_VIDEO_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1964423519, data2: 63350, data3: 17508, data4: [140, 83, 6, 22, 127, 64, 204, 153] };
+pub const GUID_VIDEO_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1964423519, data2: 63350, data3: 17508, data4: [140, 83, 6, 22, 127, 64, 204, 153] };
 pub const HEAP_OPTIMIZE_RESOURCES_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
 pub struct HEAP_OPTIMIZE_RESOURCES_INFORMATION {
@@ -4900,7 +4900,7 @@ impl ::core::clone::Clone for NOTIFY_USER_POWER_SETTING {
         *self
     }
 }
-pub const NO_SUBGROUP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const NO_SUBGROUP_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4272111934,
     data2: 32261,
     data3: 18705,
@@ -5304,13 +5304,13 @@ pub const PPM_FIRMWARE_TPC: u32 = 4096u32;
 pub const PPM_FIRMWARE_TSD: u32 = 8192u32;
 pub const PPM_FIRMWARE_TSS: u32 = 2048u32;
 pub const PPM_FIRMWARE_XPSS: u32 = 128u32;
-pub const PPM_IDLESTATES_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PPM_IDLESTATES_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3121843728,
     data2: 57936,
     data3: 19159,
     data4: [134, 22, 207, 26, 122, 212, 16, 231],
 };
-pub const PPM_IDLESTATE_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PPM_IDLESTATE_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1211694671,
     data2: 63260,
     data3: 20049,
@@ -5357,13 +5357,13 @@ impl ::core::clone::Clone for PPM_IDLE_ACCOUNTING_EX {
         *self
     }
 }
-pub const PPM_IDLE_ACCOUNTING_EX_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PPM_IDLE_ACCOUNTING_EX_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3598368057,
     data2: 33272,
     data3: 19038,
     data4: [129, 82, 114, 227, 30, 201, 18, 238],
 };
-pub const PPM_IDLE_ACCOUNTING_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PPM_IDLE_ACCOUNTING_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3802296184,
     data2: 44551,
     data3: 20192,
@@ -5418,20 +5418,20 @@ impl ::core::clone::Clone for PPM_IDLE_STATE_BUCKET_EX {
         *self
     }
 }
-pub const PPM_PERFMON_PERFSTATE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2144437842, data2: 3326, data3: 16594, data4: [176, 161, 11, 6, 106, 135, 117, 158] };
+pub const PPM_PERFMON_PERFSTATE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2144437842, data2: 3326, data3: 16594, data4: [176, 161, 11, 6, 106, 135, 117, 158] };
 pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_NONE: u32 = 0u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PCCV1: u32 = 2u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PEP: u32 = 4u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: u32 = 1u32;
-pub const PPM_PERFSTATES_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1460194336, data2: 32064, data3: 19444, data4: [180, 170, 43, 1, 51, 141, 1, 38] };
-pub const PPM_PERFSTATE_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PPM_PERFSTATES_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1460194336, data2: 32064, data3: 19444, data4: [180, 170, 43, 1, 51, 141, 1, 38] };
+pub const PPM_PERFSTATE_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2779983325,
     data2: 32569,
     data3: 19132,
     data4: [184, 146, 144, 14, 67, 181, 158, 187],
 };
-pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2573101951, data2: 54867, data3: 18810, data4: [185, 120, 54, 163, 12, 41, 191, 1] };
+pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2573101951, data2: 54867, data3: 18810, data4: [185, 120, 54, 163, 12, 41, 191, 1] };
 #[repr(C)]
 pub struct PPM_PERFSTATE_DOMAIN_EVENT {
     pub State: u32,
@@ -5470,8 +5470,8 @@ impl ::core::clone::Clone for PPM_THERMALCHANGE_EVENT {
         *self
     }
 }
-pub const PPM_THERMALCONSTRAINT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2823996104, data2: 6732, data3: 16955, data4: [140, 44, 243, 13, 130, 147, 26, 136] };
-pub const PPM_THERMAL_POLICY_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1223915448, data2: 26752, data3: 19579, data4: [139, 220, 56, 1, 118, 198, 101, 77] };
+pub const PPM_THERMALCONSTRAINT_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2823996104, data2: 6732, data3: 16955, data4: [140, 44, 243, 13, 130, 147, 26, 136] };
+pub const PPM_THERMAL_POLICY_CHANGE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1223915448, data2: 26752, data3: 19579, data4: [139, 220, 56, 1, 118, 198, 101, 77] };
 #[repr(C)]
 pub struct PPM_THERMAL_POLICY_EVENT {
     pub Mode: u8,

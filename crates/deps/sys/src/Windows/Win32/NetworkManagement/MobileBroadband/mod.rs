@@ -673,10 +673,10 @@ impl ::core::clone::Clone for MBN_VOICE_CLASS {
         *self
     }
 }
-pub const MbnConnectionManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3187597404, data2: 17432, data3: 4573, data4: [144, 237, 0, 28, 37, 124, 207, 241] };
-pub const MbnConnectionProfileManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3187597402, data2: 17432, data3: 4573, data4: [144, 237, 0, 28, 37, 124, 207, 241] };
-pub const MbnDeviceServicesManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 577362595, data2: 10911, data3: 16741, data4: [165, 1, 206, 0, 166, 247, 167, 91] };
-pub const MbnInterfaceManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3187597403, data2: 17432, data3: 4573, data4: [144, 237, 0, 28, 37, 124, 207, 241] };
+pub const MbnConnectionManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3187597404, data2: 17432, data3: 4573, data4: [144, 237, 0, 28, 37, 124, 207, 241] };
+pub const MbnConnectionProfileManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3187597402, data2: 17432, data3: 4573, data4: [144, 237, 0, 28, 37, 124, 207, 241] };
+pub const MbnDeviceServicesManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 577362595, data2: 10911, data3: 16741, data4: [165, 1, 206, 0, 166, 247, 167, 91] };
+pub const MbnInterfaceManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3187597403, data2: 17432, data3: 4573, data4: [144, 237, 0, 28, 37, 124, 207, 241] };
 #[repr(transparent)]
 pub struct WWAEXT_SMS_CONSTANTS(pub i32);
 pub const MBN_MESSAGE_INDEX_NONE: WWAEXT_SMS_CONSTANTS = WWAEXT_SMS_CONSTANTS(0i32);

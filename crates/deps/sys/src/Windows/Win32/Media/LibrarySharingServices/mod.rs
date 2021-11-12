@@ -22,7 +22,7 @@ impl ::core::clone::Clone for WindowsMediaLibrarySharingDeviceAuthorizationStatu
         *self
     }
 }
-pub const WindowsMediaLibrarySharingServices: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WindowsMediaLibrarySharingServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2908232448,
     data2: 31588,
     data3: 20057,

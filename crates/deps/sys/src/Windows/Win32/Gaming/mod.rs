@@ -102,8 +102,8 @@ impl ::core::clone::Clone for GAMING_DEVICE_VENDOR_ID {
         *self
     }
 }
-pub const GameExplorer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2589895056, data2: 12340, data3: 19823, data4: [145, 40, 1, 243, 198, 16, 34, 188] };
-pub const GameStatistics: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GameExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2589895056, data2: 12340, data3: 19823, data4: [145, 40, 1, 243, 198, 16, 34, 188] };
+pub const GameStatistics: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3687340588,
     data2: 49372,
     data3: 18785,
@@ -172,13 +172,13 @@ impl ::core::clone::Clone for XBL_IDP_AUTH_TOKEN_STATUS {
         *self
     }
 }
-pub const XblIdpAuthManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const XblIdpAuthManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3458421579,
     data2: 22232,
     data3: 18808,
     data4: [134, 162, 126, 229, 112, 100, 4, 104],
 };
-pub const XblIdpAuthTokenResult: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const XblIdpAuthTokenResult: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2672374849,
     data2: 29770,
     data3: 16652,

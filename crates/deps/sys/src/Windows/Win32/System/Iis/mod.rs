@@ -51,15 +51,15 @@ impl ::core::clone::Clone for CERT_CONTEXT_EX {
         *self
     }
 }
-pub const CLSID_IImgCtx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611670, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CLSID_IisServiceControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3908797985, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
-pub const CLSID_MSAdminBase_W: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2850461200, data2: 47117, data3: 4560, data4: [185, 185, 0, 160, 201, 34, 231, 80] };
-pub const CLSID_Request: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2450269648, data2: 9689, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
-pub const CLSID_Response: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1189190560, data2: 9693, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
-pub const CLSID_ScriptingContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3648679328, data2: 43112, data3: 4559, data4: [131, 174, 17, 176, 201, 12, 43, 216] };
-pub const CLSID_Server: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2768687456, data2: 9696, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
-pub const CLSID_Session: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1352634144, data2: 9694, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
-pub const CLSID_WamAdmin: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1634960964, data2: 61846, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
+pub const CLSID_IImgCtx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611670, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CLSID_IisServiceControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3908797985, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
+pub const CLSID_MSAdminBase_W: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2850461200, data2: 47117, data3: 4560, data4: [185, 185, 0, 160, 201, 34, 231, 80] };
+pub const CLSID_Request: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2450269648, data2: 9689, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
+pub const CLSID_Response: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1189190560, data2: 9693, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
+pub const CLSID_ScriptingContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3648679328, data2: 43112, data3: 4559, data4: [131, 174, 17, 176, 201, 12, 43, 216] };
+pub const CLSID_Server: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2768687456, data2: 9696, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
+pub const CLSID_Session: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1352634144, data2: 9694, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
+pub const CLSID_WamAdmin: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1634960964, data2: 61846, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONFIGURATION_ENTRY {
@@ -153,24 +153,24 @@ impl ::core::clone::Clone for FTP_PROCESS_STATUS {
         *self
     }
 }
-pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1891485287,
     data2: 13234,
     data3: 17904,
     data4: [172, 82, 195, 202, 70, 247, 166, 86],
 };
-pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
-pub const GUID_IIS_ASPNET_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2951774718, data2: 583, data3: 17013, data4: [156, 78, 2, 31, 61, 193, 218, 53] };
-pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+pub const GUID_IIS_ASPNET_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2951774718, data2: 583, data3: 17013, data4: [156, 78, 2, 31, 61, 193, 218, 53] };
+pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 112807322,
     data2: 45406,
     data3: 17774,
     data4: [164, 239, 55, 201, 132, 162, 203, 75],
 };
-pub const GUID_IIS_ISAPI_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2713846798, data2: 34880, data3: 19505, data4: [186, 17, 152, 113, 3, 26, 25, 234] };
-pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3579657161, data2: 52137, data3: 17631, data4: [130, 126, 19, 45, 58, 69, 150, 194] };
-pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 975851140, data2: 19489, data3: 18817, data4: [174, 16, 63, 218, 13, 155, 15, 131] };
-pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3729148361, data2: 5608, data3: 20458, data4: [157, 133, 28, 221, 165, 32, 195, 52] };
+pub const GUID_IIS_ISAPI_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2713846798, data2: 34880, data3: 19505, data4: [186, 17, 152, 113, 3, 26, 25, 234] };
+pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3579657161, data2: 52137, data3: 17631, data4: [130, 126, 19, 45, 58, 69, 150, 194] };
+pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 975851140, data2: 19489, data3: 18817, data4: [174, 16, 63, 218, 13, 155, 15, 131] };
+pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3729148361, data2: 5608, data3: 20458, data4: [157, 133, 28, 221, 165, 32, 195, 52] };
 pub const HSE_APPEND_LOG_PARAMETER: u32 = 1003u32;
 pub const HSE_APP_FLAG_IN_PROCESS: u32 = 0u32;
 pub const HSE_APP_FLAG_ISOLATED_OOP: u32 = 1u32;
@@ -804,9 +804,9 @@ pub struct IMSAdminBaseSinkW(pub *mut ::core::ffi::c_void);
 pub struct IMSAdminBaseW(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IMSImpExpHelpW(pub *mut ::core::ffi::c_void);
-pub const LIBID_ASPTypeLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3648679328, data2: 43100, data3: 4559, data4: [131, 174, 0, 160, 201, 12, 43, 216] };
-pub const LIBID_IISRSTALib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3908797972, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
-pub const LIBID_WAMREGLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 696396456, data2: 62210, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
+pub const LIBID_ASPTypeLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3648679328, data2: 43100, data3: 4559, data4: [131, 174, 0, 160, 201, 12, 43, 216] };
+pub const LIBID_IISRSTALib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3908797972, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
+pub const LIBID_WAMREGLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 696396456, data2: 62210, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOGGING_PARAMETERS {

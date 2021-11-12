@@ -17,14 +17,14 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn StartXpsPrintJob1(printername: super::super::super::Foundation::PWSTR, jobname: super::super::super::Foundation::PWSTR, outputfilename: super::super::super::Foundation::PWSTR, progressevent: super::super::super::Foundation::HANDLE, completionevent: super::super::super::Foundation::HANDLE, xpsprintjob: *mut IXpsPrintJob, printcontentreceiver: *mut super::IXpsOMPackageTarget) -> ::windows_sys::core::HRESULT;
 }
-pub const ID_DOCUMENTPACKAGETARGET_MSXPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ID_DOCUMENTPACKAGETARGET_MSXPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2628665512,
     data2: 57041,
     data3: 16841,
     data4: [169, 253, 215, 53, 239, 51, 174, 218],
 };
-pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5684082, data2: 35996, data3: 17938, data4: [189, 15, 147, 1, 42, 135, 9, 157] };
-pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5684082, data2: 35996, data3: 17938, data4: [189, 15, 147, 1, 42, 135, 9, 157] };
+pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1675351840,
     data2: 35604,
     data3: 17783,
@@ -67,13 +67,13 @@ impl ::core::clone::Clone for PrintDocumentPackageStatus {
         *self
     }
 }
-pub const PrintDocumentPackageTarget: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PrintDocumentPackageTarget: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1212311198,
     data2: 39239,
     data3: 18154,
     data4: [139, 162, 216, 204, 228, 50, 194, 202],
 };
-pub const PrintDocumentPackageTargetFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PrintDocumentPackageTargetFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 881783165,
     data2: 27777,
     data3: 18818,

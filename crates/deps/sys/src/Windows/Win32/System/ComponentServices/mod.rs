@@ -12,7 +12,7 @@ extern "system" {
     pub fn RecycleSurrogate(lreasoncode: i32) -> ::windows_sys::core::HRESULT;
     pub fn SafeRef(rid: *const ::windows_sys::core::GUID, punk: ::windows_sys::core::IUnknown) -> *mut ::core::ffi::c_void;
 }
-pub const AppDomainHelper: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppDomainHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4012177033,
     data2: 5368,
     data3: 19858,
@@ -135,7 +135,7 @@ impl ::core::clone::Clone for AutoSvcs_Error_Constants {
         *self
     }
 }
-pub const ByotServerEx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674858, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ByotServerEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674858, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
 pub struct CAppData {
     pub m_idApp: u32,
@@ -275,9 +275,9 @@ impl ::core::clone::Clone for COMAdminAuthenticationLevelOptions {
         *self
     }
 }
-pub const COMAdminCatalog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4128818452, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
-pub const COMAdminCatalogCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4128818454, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
-pub const COMAdminCatalogObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4128818453, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
+pub const COMAdminCatalog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4128818452, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
+pub const COMAdminCatalogCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4128818454, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
+pub const COMAdminCatalogObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4128818453, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
 #[repr(transparent)]
 pub struct COMAdminComponentFlags(pub i32);
 pub const COMAdminCompFlagTypeInfoFound: COMAdminComponentFlags = COMAdminComponentFlags(1i32);
@@ -585,7 +585,7 @@ impl ::core::clone::Clone for COMAdminTxIsolationLevelOptions {
         *self
     }
 }
-pub const COMEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674859, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const COMEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674859, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct COMPLUS_APPTYPE(pub i32);
 pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = COMPLUS_APPTYPE(-1i32);
@@ -617,7 +617,7 @@ impl ::core::clone::Clone for COMSVCSEVENTINFO {
         *self
     }
 }
-pub const CRMClerk: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674877, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const CRMClerk: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674877, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct CRMFLAGS(pub i32);
 pub const CRMFLAG_FORGETTARGET: CRMFLAGS = CRMFLAGS(1i32);
@@ -646,7 +646,7 @@ impl ::core::clone::Clone for CRMREGFLAGS {
         *self
     }
 }
-pub const CRMRecoveryClerk: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674878, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const CRMRecoveryClerk: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674878, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const CRR_ACTIVATION_LIMIT: u32 = 4294967294u32;
 pub const CRR_CALL_LIMIT: u32 = 4294967293u32;
 pub const CRR_LIFETIME_LIMIT: u32 = 4294967295u32;
@@ -761,11 +761,11 @@ impl ::core::clone::Clone for CSC_TransactionConfig {
         *self
     }
 }
-pub const CServiceConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674888, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const ClrAssemblyLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1166713781, data2: 9818, data3: 19317, data4: [188, 5, 155, 234, 70, 48, 207, 24] };
-pub const CoMTSLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674860, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const ComServiceEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674883, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const ComSystemAppEventData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674886, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const CServiceConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674888, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ClrAssemblyLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1166713781, data2: 9818, data3: 19317, data4: [188, 5, 155, 234, 70, 48, 207, 24] };
+pub const CoMTSLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674860, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ComServiceEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674883, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ComSystemAppEventData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674886, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ComponentHangMonitorInfo {
@@ -864,9 +864,9 @@ impl ::core::clone::Clone for DUMPTYPE {
         *self
     }
 }
-pub const DispenserManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674880, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const Dummy30040732: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674857, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const EventServer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674620, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const DispenserManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674880, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const Dummy30040732: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674857, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const EventServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674620, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const GUID_STRING_SIZE: u32 = 40u32;
 #[repr(transparent)]
 pub struct GetAppTrackerDataFlags(pub i32);
@@ -881,7 +881,7 @@ impl ::core::clone::Clone for GetAppTrackerDataFlags {
         *self
     }
 }
-pub const GetSecurityCallContextAppObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674856, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const GetSecurityCallContextAppObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674856, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HANG_INFO {
@@ -1136,7 +1136,7 @@ pub struct ITransactionResourcePool(pub *mut ::core::ffi::c_void);
 pub struct ITransactionStatus(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ITxProxyHolder(pub *mut ::core::ffi::c_void);
-pub const LBEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674881, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const LBEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674881, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct LockModes(pub i32);
 pub const LockSetGet: LockModes = LockModes(0i32);
@@ -1148,13 +1148,13 @@ impl ::core::clone::Clone for LockModes {
     }
 }
 pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
-pub const MessageMover: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674879, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const MtsGrp: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1261344141, data2: 915, data3: 4561, data4: [177, 171, 0, 170, 0, 186, 50, 88] };
+pub const MessageMover: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674879, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const MtsGrp: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1261344141, data2: 915, data3: 4561, data4: [177, 171, 0, 170, 0, 186, 50, 88] };
 #[repr(transparent)]
 pub struct ObjectContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ObjectControl(pub *mut ::core::ffi::c_void);
-pub const PoolMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674613, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const PoolMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674613, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
 pub struct RECYCLE_INFO {
     pub guidCombaseProcessIdentifier: ::windows_sys::core::GUID,
@@ -1179,16 +1179,16 @@ impl ::core::clone::Clone for ReleaseModes {
         *self
     }
 }
-pub const SecurityCallContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674855, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const SecurityCallers: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674854, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const SecurityIdentity: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674853, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SecurityCallContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674855, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SecurityCallers: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674854, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SecurityIdentity: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674853, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct SecurityProperty(pub *mut ::core::ffi::c_void);
-pub const ServicePool: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674889, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const ServicePoolConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674890, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const SharedProperty: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704666629, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
-pub const SharedPropertyGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704666635, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
-pub const SharedPropertyGroupManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704666641, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
+pub const ServicePool: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674889, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ServicePoolConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674890, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SharedProperty: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 704666629, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
+pub const SharedPropertyGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 704666635, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
+pub const SharedPropertyGroupManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 704666641, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
 #[repr(transparent)]
 pub struct TRACKING_COLL_TYPE(pub i32);
 pub const TRKCOLL_PROCESSES: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(0i32);
@@ -1200,9 +1200,9 @@ impl ::core::clone::Clone for TRACKING_COLL_TYPE {
         *self
     }
 }
-pub const TrackerServer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674617, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const TransactionContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2040134693, data2: 54214, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
-pub const TransactionContextEx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1555457648, data2: 54228, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
+pub const TrackerServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674617, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const TransactionContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2040134693, data2: 54214, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
+pub const TransactionContextEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1555457648, data2: 54228, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
 #[repr(transparent)]
 pub struct TransactionVote(pub i32);
 pub const TxCommit: TransactionVote = TransactionVote(0i32);

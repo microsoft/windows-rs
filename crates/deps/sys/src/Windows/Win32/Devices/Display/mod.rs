@@ -815,7 +815,7 @@ impl ::core::clone::Clone for DEVINFO {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 3305783056,
         data2: 43612,
         data3: 16967,
@@ -825,7 +825,7 @@ pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Device_AdapterLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 3305783056,
         data2: 43612,
         data3: 16967,
@@ -835,7 +835,7 @@ pub const DEVPKEY_Device_AdapterLuid: super::super::UI::Shell::PropertiesSystem:
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Device_TerminalLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 3305783056,
         data2: 43612,
         data3: 16967,
@@ -845,7 +845,7 @@ pub const DEVPKEY_Device_TerminalLuid: super::super::UI::Shell::PropertiesSystem
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 3305783056,
         data2: 43612,
         data3: 16967,
@@ -2575,21 +2575,21 @@ impl ::core::clone::Clone for GLYPHPOS {
 pub const GS_16BIT_HANDLES: u32 = 4u32;
 pub const GS_8BIT_HANDLES: u32 = 2u32;
 pub const GS_UNICODE_HANDLES: u32 = 1u32;
-pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1531256861,
     data2: 62194,
     data3: 20283,
     data4: [133, 187, 48, 255, 31, 149, 53, 153],
 };
-pub const GUID_DEVINTERFACE_MONITOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVINTERFACE_MONITOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3874519903,
     data2: 61079,
     data3: 19088,
     data4: [176, 118, 51, 245, 123, 244, 234, 167],
 };
-pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 450487536, data2: 63629, data3: 17248, data4: [186, 185, 76, 45, 85, 229, 100, 205] };
-pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 480268672, data2: 42649, data3: 17674, data4: [154, 12, 222, 79, 190, 61, 221, 137] };
-pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 450487536, data2: 63629, data3: 17248, data4: [186, 185, 76, 45, 85, 229, 100, 205] };
+pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 480268672, data2: 42649, data3: 17674, data4: [154, 12, 222, 79, 190, 61, 221, 137] };
+pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4053188655,
     data2: 63599,
     data3: 20378,

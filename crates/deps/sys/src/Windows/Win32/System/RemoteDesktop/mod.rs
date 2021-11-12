@@ -198,7 +198,7 @@ impl ::core::clone::Clone for AATrustClassID {
     }
 }
 pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
-pub const ADsTSUserEx: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ADsTSUserEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3806972646,
     data2: 7803,
     data3: 19342,
@@ -375,13 +375,13 @@ impl ::core::clone::Clone for CONNECTION_CHANGE_NOTIFICATION {
         *self
     }
 }
-pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1259668864,
     data2: 65188,
     data3: 19772,
     data4: [157, 228, 116, 51, 166, 102, 24, 247],
 };
-pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1765769205, data2: 3150, data3: 19735, data4: [184, 224, 31, 112, 50, 94, 93, 88] };
+pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1765769205, data2: 3150, data3: 19735, data4: [184, 224, 31, 112, 50, 94, 93, 88] };
 pub const DISPID_AX_ADMINMESSAGERECEIVED: u32 = 760u32;
 pub const DISPID_AX_AUTORECONNECTED: u32 = 756u32;
 pub const DISPID_AX_AUTORECONNECTING: u32 = 755u32;
@@ -676,20 +676,20 @@ impl ::core::clone::Clone for PLUGIN_TYPE {
 }
 pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256u32;
 pub const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4u32;
-pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 215995022,
     data2: 53433,
     data3: 19487,
     data4: [165, 235, 109, 31, 108, 101, 53, 185],
 };
-pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3979100122,
     data2: 13197,
     data3: 19775,
     data4: [129, 163, 231, 103, 49, 13, 144, 142],
 };
-pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1645401943, data2: 67, data3: 18530, data4: [153, 195, 159, 48, 89, 172, 42, 59] };
-pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 427573882, data2: 309, data3: 19309, data4: [156, 94, 230, 87, 154, 10, 182, 37] };
+pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1645401943, data2: 67, data3: 18530, data4: [153, 195, 159, 48, 89, 172, 42, 59] };
+pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 427573882, data2: 309, data3: 19309, data4: [156, 94, 230, 87, 154, 10, 182, 37] };
 pub type PVIRTUALCHANNELCLOSE = unsafe extern "system" fn(openhandle: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PVIRTUALCHANNELENTRY = unsafe extern "system" fn(pentrypoints: *mut CHANNEL_ENTRY_POINTS) -> super::super::Foundation::BOOL;
@@ -725,7 +725,7 @@ impl ::core::clone::Clone for PolicyAttributeType {
         *self
     }
 }
-pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3838576843, data2: 37934, data3: 19225, data4: [133, 4, 189, 90, 137, 167, 71, 245] };
+pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3838576843, data2: 37934, data3: 19225, data4: [133, 4, 189, 90, 137, 167, 71, 245] };
 #[repr(transparent)]
 pub struct RDV_TASK_STATUS(pub i32);
 pub const RDV_TASK_STATUS_UNKNOWN: RDV_TASK_STATUS = RDV_TASK_STATUS(0i32);
@@ -1104,7 +1104,7 @@ impl ::core::clone::Clone for TSSESSION_STATE {
         *self
     }
 }
-pub const TSUserExInterfaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 152100097, data2: 57228, data3: 4561, data4: [174, 39, 0, 192, 79, 163, 88, 19] };
+pub const TSUserExInterfaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 152100097, data2: 57228, data3: 4561, data4: [174, 39, 0, 192, 79, 163, 88, 19] };
 #[repr(transparent)]
 pub struct TS_SB_SORT_BY(pub i32);
 pub const TS_SB_SORT_BY_NONE: TS_SB_SORT_BY = TS_SB_SORT_BY(0i32);
@@ -1391,7 +1391,7 @@ pub const WRDS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
 pub const WRDS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
 pub const WRDS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
 pub const WRDS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
-pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3533258573, data2: 719, data3: 17024, data4: [140, 72, 22, 36, 180, 79, 135, 6] };
+pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3533258573, data2: 719, data3: 17024, data4: [140, 72, 22, 36, 180, 79, 135, 6] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WRDS_SETTING {
@@ -2586,15 +2586,15 @@ impl ::core::clone::Clone for WTS_PROTOCOL_STATUS {
 pub const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0u32;
 pub const WTS_PROTOCOL_TYPE_ICA: u32 = 1u32;
 pub const WTS_PROTOCOL_TYPE_RDP: u32 = 2u32;
-pub const WTS_QUERY_ALLOWED_INITIAL_APP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WTS_QUERY_ALLOWED_INITIAL_APP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3346864944,
     data2: 23521,
     data3: 19563,
     data4: [160, 225, 189, 109, 46, 92, 159, 204],
 };
-pub const WTS_QUERY_AUDIOENUM_DLL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2616523415, data2: 51331, data3: 19498, data4: [128, 171, 90, 57, 201, 175, 0, 219] };
-pub const WTS_QUERY_LOGON_SCREEN_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2341343207, data2: 2052, data3: 18958, data4: [178, 121, 134, 96, 177, 223, 0, 73] };
-pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WTS_QUERY_AUDIOENUM_DLL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2616523415, data2: 51331, data3: 19498, data4: [128, 171, 90, 57, 201, 175, 0, 219] };
+pub const WTS_QUERY_LOGON_SCREEN_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2341343207, data2: 2052, data3: 18958, data4: [178, 121, 134, 96, 177, 223, 0, 73] };
+pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1099340496,
     data2: 25394,
     data3: 19912,
@@ -2944,7 +2944,7 @@ pub const WTS_WSD_LOGOFF: u32 = 1u32;
 pub const WTS_WSD_POWEROFF: u32 = 8u32;
 pub const WTS_WSD_REBOOT: u32 = 4u32;
 pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
-pub const Workspace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1327365286, data2: 15021, data3: 18657, data4: [132, 6, 75, 194, 26, 80, 29, 124] };
+pub const Workspace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1327365286, data2: 15021, data3: 18657, data4: [132, 6, 75, 194, 26, 80, 29, 124] };
 #[repr(transparent)]
 pub struct _ITSWkspEvents(pub *mut ::core::ffi::c_void);
 #[repr(C)]

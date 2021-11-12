@@ -1,13 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-pub const CLSID_VdsLoader: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_VdsLoader: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2620976481,
     data2: 54629,
     data3: 18216,
     data4: [174, 238, 200, 9, 82, 240, 236, 222],
 };
-pub const CLSID_VdsService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_VdsService: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2098803659,
     data2: 34550,
     data3: 19096,

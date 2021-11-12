@@ -1503,10 +1503,10 @@ impl ::core::clone::Clone for BUGCHECK_ERROR {
     }
 }
 pub const CANNOT_ALLOCATE_MEMORY: u32 = 9u32;
-pub const CATID_ActiveScript: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4038566305, data2: 38983, data3: 4559, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
-pub const CATID_ActiveScriptAuthor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 183380626, data2: 48315, data3: 4560, data4: [140, 114, 0, 192, 79, 194, 176, 133] };
-pub const CATID_ActiveScriptEncode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4038566307, data2: 38983, data3: 4559, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
-pub const CATID_ActiveScriptParse: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4038566306, data2: 38983, data3: 4559, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
+pub const CATID_ActiveScript: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4038566305, data2: 38983, data3: 4559, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
+pub const CATID_ActiveScriptAuthor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 183380626, data2: 48315, data3: 4560, data4: [140, 114, 0, 192, 79, 194, 176, 133] };
+pub const CATID_ActiveScriptEncode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4038566307, data2: 38983, data3: 4559, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
+pub const CATID_ActiveScriptParse: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4038566306, data2: 38983, data3: 4559, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
 pub const CBA_CHECK_ARM_MACHINE_THUMB_TYPE_OVERRIDE: u32 = 2147483648u32;
 pub const CBA_CHECK_ENGOPT_DISALLOW_NETWORK_PATHS: u32 = 1879048192u32;
 pub const CBA_DEBUG_INFO: u32 = 268435456u32;
@@ -1526,7 +1526,7 @@ pub const CBA_SRCSRV_INFO: u32 = 536870912u32;
 pub const CBA_SYMBOLS_UNLOADED: u32 = 4u32;
 pub const CBA_UPDATE_STATUS_BAR: u32 = 1342177280u32;
 pub const CBA_XML_LOG: u32 = 2415919104u32;
-pub const CDebugDocumentHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2209922214, data2: 26748, data3: 4560, data4: [164, 5, 0, 170, 0, 96, 39, 92] };
+pub const CDebugDocumentHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2209922214, data2: 26748, data3: 4560, data4: [164, 5, 0, 170, 0, 96, 39, 92] };
 pub const CERT_PE_IMAGE_DIGEST_ALL_IMPORT_INFO: u32 = 4u32;
 pub const CERT_PE_IMAGE_DIGEST_DEBUG_INFO: u32 = 1u32;
 pub const CERT_PE_IMAGE_DIGEST_NON_PE_INFO: u32 = 8u32;
@@ -3731,7 +3731,7 @@ pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
 pub struct DebugBaseEventCallbacks(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DebugBaseEventCallbacksWide(pub *mut ::core::ffi::c_void);
-pub const DebugHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 201113696, data2: 35869, data3: 4560, data4: [172, 205, 0, 170, 0, 96, 39, 92] };
+pub const DebugHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 201113696, data2: 35869, data3: 4560, data4: [172, 205, 0, 170, 0, 96, 39, 92] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugPropertyInfo {
@@ -3785,7 +3785,7 @@ impl ::core::clone::Clone for DebugStackFrameDescriptor64 {
         *self
     }
 }
-pub const DefaultDebugSessionProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2202085538, data2: 20980, data3: 4560, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
+pub const DefaultDebugSessionProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2202085538, data2: 20980, data3: 4560, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
 #[repr(transparent)]
 pub struct ERRORRESUMEACTION(pub i32);
 pub const ERRORRESUMEACTION_ReexecuteErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(0i32);
@@ -8910,13 +8910,13 @@ impl ::core::clone::Clone for MODULE_WRITE_FLAGS {
         *self
     }
 }
-pub const MachineDebugManager_DEBUG: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MachineDebugManager_DEBUG: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1232510188,
     data2: 14933,
     data3: 19376,
     data4: [182, 151, 136, 254, 222, 119, 232, 234],
 };
-pub const MachineDebugManager_RETAIL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 201995878, data2: 12489, data3: 4560, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
+pub const MachineDebugManager_RETAIL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 201995878, data2: 12489, data3: 4560, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
 #[repr(transparent)]
 pub struct ModelObjectKind(pub i32);
 pub const ObjectPropertyAccessor: ModelObjectKind = ModelObjectKind(0i32);
@@ -8981,14 +8981,14 @@ impl ::core::clone::Clone for OBJECT_ATTRIB_FLAG {
         *self
     }
 }
-pub const OID_JSSIP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 113893392, data2: 14542, data3: 4564, data4: [162, 163, 0, 16, 75, 211, 80, 144] };
-pub const OID_VBSSIP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const OID_JSSIP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 113893392, data2: 14542, data3: 4564, data4: [162, 163, 0, 16, 75, 211, 80, 144] };
+pub const OID_VBSSIP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 371847246,
     data2: 10137,
     data3: 19893,
     data4: [143, 229, 172, 225, 15, 23, 235, 171],
 };
-pub const OID_WSFSIP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 442566000, data2: 14542, data3: 4564, data4: [162, 163, 0, 16, 75, 211, 80, 144] };
+pub const OID_WSFSIP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 442566000, data2: 14542, data3: 4564, data4: [162, 163, 0, 16, 75, 211, 80, 144] };
 #[repr(C)]
 pub struct OMAP {
     pub rva: u32,
@@ -9733,7 +9733,7 @@ impl ::core::clone::Clone for PreferredFormat {
         *self
     }
 }
-pub const ProcessDebugManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2024085538, data2: 20980, data3: 4560, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
+pub const ProcessDebugManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2024085538, data2: 20980, data3: 4560, data4: [143, 32, 0, 128, 95, 44, 208, 100] };
 #[repr(C)]
 pub struct READCONTROLSPACE {
     pub Processor: u16,

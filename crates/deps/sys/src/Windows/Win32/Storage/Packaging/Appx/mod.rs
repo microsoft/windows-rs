@@ -452,31 +452,31 @@ impl ::core::clone::Clone for AppPolicyWindowingModel {
         *self
     }
 }
-pub const AppxBundleFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppxBundleFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 932054086,
     data2: 21380,
     data3: 17335,
     data4: [136, 119, 231, 219, 221, 136, 52, 70],
 };
-pub const AppxEncryptionFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppxEncryptionFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3697692637,
     data2: 55400,
     data3: 18158,
     data4: [135, 128, 141, 25, 108, 183, 57, 247],
 };
-pub const AppxFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppxFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1480761664,
     data2: 65439,
     data3: 16742,
     data4: [143, 92, 98, 245, 183, 176, 199, 129],
 };
-pub const AppxPackageEditor: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppxPackageEditor: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4026856138,
     data2: 44732,
     data3: 19213,
     data4: [191, 88, 229, 22, 213, 188, 192, 171],
 };
-pub const AppxPackagingDiagnosticEventSinkManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppxPackagingDiagnosticEventSinkManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1355418182,
     data2: 5512,
     data3: 16737,

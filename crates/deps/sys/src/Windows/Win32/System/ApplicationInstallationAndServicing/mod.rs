@@ -926,8 +926,8 @@ impl ::core::clone::Clone for ASSEMBLY_INFO {
         *self
     }
 }
-pub const CLSID_EvalCom2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1851660560, data2: 32851, data3: 18016, data4: [183, 149, 107, 97, 46, 41, 188, 88] };
-pub const CLSID_MsmMerge2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4182345173, data2: 10745, data3: 18243, data4: [152, 5, 153, 188, 63, 53, 182, 120] };
+pub const CLSID_EvalCom2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1851660560, data2: 32851, data3: 18016, data4: [183, 149, 107, 97, 46, 41, 188, 88] };
+pub const CLSID_MsmMerge2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4182345173, data2: 10745, data3: 18243, data4: [152, 5, 153, 188, 63, 53, 182, 120] };
 #[repr(C)]
 pub struct COMPATIBILITY_CONTEXT_ELEMENT {
     pub Id: ::windows_sys::core::GUID,
@@ -1222,19 +1222,19 @@ impl ::core::clone::Clone for FUSION_INSTALL_REFERENCE {
         *self
     }
 }
-pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2955910501,
     data2: 64375,
     data3: 20346,
     data4: [175, 165, 179, 145, 48, 159, 17, 201],
 };
-pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 784938083,
     data2: 45251,
     data3: 17889,
     data4: [131, 100, 50, 126, 150, 174, 168, 86],
 };
-pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2364391957,
     data2: 44107,
     data3: 18571,
@@ -1516,7 +1516,7 @@ pub struct IPMTilePropertyEnumerator(pub *mut ::core::ffi::c_void);
 pub struct IPMTilePropertyInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IValidate(pub *mut ::core::ffi::c_void);
-pub const LIBID_MsmMergeTypeLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 182298671, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
+pub const LIBID_MsmMergeTypeLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 182298671, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
 pub const LOGALL: u32 = 15u32;
 pub const LOGERR: u32 = 4u32;
 pub const LOGINFO: u32 = 1u32;
@@ -1879,7 +1879,7 @@ impl ::core::clone::Clone for MSITRANSFORM_VALIDATE {
 }
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
 pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
-pub const MsmMerge: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 182298672, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
+pub const MsmMerge: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 182298672, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
 #[repr(transparent)]
 pub struct PACKMAN_RUNTIME(pub i32);
 pub const PACKMAN_RUNTIME_NATIVE: PACKMAN_RUNTIME = PACKMAN_RUNTIME(1i32);
@@ -2102,7 +2102,7 @@ impl ::core::clone::Clone for PMSIHANDLE {
         *self
     }
 }
-pub const PMSvc: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PMSvc: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3118797308,
     data2: 58212,
     data3: 18810,

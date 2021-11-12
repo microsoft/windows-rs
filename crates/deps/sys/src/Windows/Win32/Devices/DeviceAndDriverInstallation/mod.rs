@@ -2455,455 +2455,455 @@ pub const FLG_PROFITEM_GROUP: u32 = 4u32;
 pub const FLG_REGSVR_DLLINSTALL: u32 = 2u32;
 pub const FLG_REGSVR_DLLREGISTER: u32 = 1u32;
 pub const FORCED_LOG_CONF: u32 = 4u32;
-pub const GUID_ACPI_CMOS_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 982320004, data2: 25861, data3: 16586, data4: [188, 57, 86, 193, 95, 140, 95, 237] };
-pub const GUID_ACPI_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2962333834, data2: 47767, data3: 4560, data4: [189, 20, 0, 170, 0, 183, 179, 42] };
-pub const GUID_ACPI_INTERFACE_STANDARD2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3899219811, data2: 6193, data3: 18544, data4: [168, 207, 156, 47, 3, 249, 220, 181] };
-pub const GUID_ACPI_PORT_RANGES_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4048511131, data2: 52157, data3: 18775, data4: [166, 116, 188, 0, 33, 63, 28, 151] };
-pub const GUID_ACPI_REGS_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 101980518, data2: 29253, data3: 25449, data4: [70, 46, 78, 101, 108, 115, 111, 110] };
-pub const GUID_AGP_TARGET_BUS_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_ACPI_CMOS_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 982320004, data2: 25861, data3: 16586, data4: [188, 57, 86, 193, 95, 140, 95, 237] };
+pub const GUID_ACPI_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2962333834, data2: 47767, data3: 4560, data4: [189, 20, 0, 170, 0, 183, 179, 42] };
+pub const GUID_ACPI_INTERFACE_STANDARD2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3899219811, data2: 6193, data3: 18544, data4: [168, 207, 156, 47, 3, 249, 220, 181] };
+pub const GUID_ACPI_PORT_RANGES_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4048511131, data2: 52157, data3: 18775, data4: [166, 116, 188, 0, 33, 63, 28, 151] };
+pub const GUID_ACPI_REGS_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 101980518, data2: 29253, data3: 25449, data4: [70, 46, 78, 101, 108, 115, 111, 110] };
+pub const GUID_AGP_TARGET_BUS_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2975661288,
     data2: 1745,
     data3: 19767,
     data4: [157, 76, 190, 221, 224, 194, 166, 255],
 };
-pub const GUID_ARBITER_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3863277957, data2: 35854, data3: 4560, data4: [190, 207, 8, 0, 43, 226, 9, 47] };
-pub const GUID_BUS_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1231782528, data2: 28453, data3: 4560, data4: [190, 175, 8, 0, 43, 226, 9, 47] };
-pub const GUID_BUS_RESOURCE_UPDATE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_ARBITER_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3863277957, data2: 35854, data3: 4560, data4: [190, 207, 8, 0, 43, 226, 9, 47] };
+pub const GUID_BUS_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1231782528, data2: 28453, data3: 4560, data4: [190, 175, 8, 0, 43, 226, 9, 47] };
+pub const GUID_BUS_RESOURCE_UPDATE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 667947053,
     data2: 49074,
     data3: 16740,
     data4: [129, 221, 219, 184, 47, 150, 139, 72],
 };
-pub const GUID_BUS_TYPE_1394: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BUS_TYPE_1394: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4149113835,
     data2: 39621,
     data3: 17899,
     data4: [190, 77, 119, 44, 199, 29, 223, 179],
 };
-pub const GUID_BUS_TYPE_ACPI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3618924693, data2: 26, data3: 18754, data4: [137, 31, 167, 212, 102, 16, 168, 67] };
-pub const GUID_BUS_TYPE_AVC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BUS_TYPE_ACPI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3618924693, data2: 26, data3: 18754, data4: [137, 31, 167, 212, 102, 16, 168, 67] };
+pub const GUID_BUS_TYPE_AVC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3228562021,
     data2: 44553,
     data3: 18672,
     data4: [129, 44, 22, 117, 61, 124, 186, 131],
 };
-pub const GUID_BUS_TYPE_DOT4PRT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1142874113, data2: 17218, data3: 4565, data4: [161, 132, 0, 192, 79, 96, 82, 77] };
-pub const GUID_BUS_TYPE_EISA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3720566025, data2: 62460, data3: 4560, data4: [165, 55, 0, 0, 248, 117, 62, 209] };
-pub const GUID_BUS_TYPE_HID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4004460496, data2: 6499, data3: 18372, data4: [170, 72, 114, 71, 109, 183, 207, 73] };
-pub const GUID_BUS_TYPE_INTERNAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 355527283, data2: 2155, data3: 4561, data4: [160, 159, 0, 192, 79, 195, 64, 177] };
-pub const GUID_BUS_TYPE_IRDA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2061598145, data2: 51524, data3: 17622, data4: [136, 31, 76, 46, 97, 5, 59, 193] };
-pub const GUID_BUS_TYPE_ISAPNP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3866556500, data2: 55421, data3: 4560, data4: [146, 178, 0, 160, 201, 5, 95, 197] };
-pub const GUID_BUS_TYPE_LPTENUM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301576704, data2: 11740, data3: 4565, data4: [161, 122, 0, 192, 79, 96, 82, 77] };
-pub const GUID_BUS_TYPE_MCA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 477469050, data2: 56371, data3: 4560, data4: [146, 178, 0, 160, 201, 5, 95, 197] };
-pub const GUID_BUS_TYPE_PCI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3370901424, data2: 46352, data3: 4560, data4: [128, 229, 0, 160, 201, 37, 66, 227] };
-pub const GUID_BUS_TYPE_PCMCIA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 154416688, data2: 44959, data3: 4560, data4: [146, 233, 0, 0, 248, 30, 27, 48] };
-pub const GUID_BUS_TYPE_SCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 928667922, data2: 32844, data3: 17834, data4: [189, 194, 253, 210, 90, 29, 149, 18] };
-pub const GUID_BUS_TYPE_SD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BUS_TYPE_DOT4PRT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1142874113, data2: 17218, data3: 4565, data4: [161, 132, 0, 192, 79, 96, 82, 77] };
+pub const GUID_BUS_TYPE_EISA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3720566025, data2: 62460, data3: 4560, data4: [165, 55, 0, 0, 248, 117, 62, 209] };
+pub const GUID_BUS_TYPE_HID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4004460496, data2: 6499, data3: 18372, data4: [170, 72, 114, 71, 109, 183, 207, 73] };
+pub const GUID_BUS_TYPE_INTERNAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 355527283, data2: 2155, data3: 4561, data4: [160, 159, 0, 192, 79, 195, 64, 177] };
+pub const GUID_BUS_TYPE_IRDA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2061598145, data2: 51524, data3: 17622, data4: [136, 31, 76, 46, 97, 5, 59, 193] };
+pub const GUID_BUS_TYPE_ISAPNP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3866556500, data2: 55421, data3: 4560, data4: [146, 178, 0, 160, 201, 5, 95, 197] };
+pub const GUID_BUS_TYPE_LPTENUM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301576704, data2: 11740, data3: 4565, data4: [161, 122, 0, 192, 79, 96, 82, 77] };
+pub const GUID_BUS_TYPE_MCA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 477469050, data2: 56371, data3: 4560, data4: [146, 178, 0, 160, 201, 5, 95, 197] };
+pub const GUID_BUS_TYPE_PCI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3370901424, data2: 46352, data3: 4560, data4: [128, 229, 0, 160, 201, 37, 66, 227] };
+pub const GUID_BUS_TYPE_PCMCIA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 154416688, data2: 44959, data3: 4560, data4: [146, 233, 0, 0, 248, 30, 27, 48] };
+pub const GUID_BUS_TYPE_SCM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 928667922, data2: 32844, data3: 17834, data4: [189, 194, 253, 210, 90, 29, 149, 18] };
+pub const GUID_BUS_TYPE_SD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3875589124,
     data2: 16438,
     data3: 20105,
     data4: [149, 121, 137, 235, 244, 95, 0, 205],
 };
-pub const GUID_BUS_TYPE_SERENUM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1997621895, data2: 35140, data3: 4561, data4: [189, 144, 0, 160, 201, 6, 190, 45] };
-pub const GUID_BUS_TYPE_SW_DEVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 114361122, data2: 32224, data3: 19695, data4: [142, 37, 25, 125, 14, 116, 66, 226] };
-pub const GUID_BUS_TYPE_USB: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2642275260, data2: 51293, data3: 4561, data4: [158, 180, 0, 96, 8, 195, 161, 154] };
-pub const GUID_BUS_TYPE_USBPRINT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1142874112, data2: 17218, data3: 4565, data4: [161, 132, 0, 192, 79, 96, 82, 77] };
-pub const GUID_D3COLD_AUX_POWER_AND_TIMING_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4511914, data2: 63076, data3: 17800, data4: [159, 252, 42, 254, 175, 89, 80, 185] };
-pub const GUID_D3COLD_SUPPORT_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BUS_TYPE_SERENUM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1997621895, data2: 35140, data3: 4561, data4: [189, 144, 0, 160, 201, 6, 190, 45] };
+pub const GUID_BUS_TYPE_SW_DEVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 114361122, data2: 32224, data3: 19695, data4: [142, 37, 25, 125, 14, 116, 66, 226] };
+pub const GUID_BUS_TYPE_USB: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2642275260, data2: 51293, data3: 4561, data4: [158, 180, 0, 96, 8, 195, 161, 154] };
+pub const GUID_BUS_TYPE_USBPRINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1142874112, data2: 17218, data3: 4565, data4: [161, 132, 0, 192, 79, 96, 82, 77] };
+pub const GUID_D3COLD_AUX_POWER_AND_TIMING_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4511914, data2: 63076, data3: 17800, data4: [159, 252, 42, 254, 175, 89, 80, 185] };
+pub const GUID_D3COLD_SUPPORT_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3011678437,
     data2: 15568,
     data3: 20381,
     data4: [153, 55, 245, 254, 43, 68, 212, 122],
 };
-pub const GUID_DEVCLASS_1394: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1809653697, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
-pub const GUID_DEVCLASS_1394DEBUG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1727156438, data2: 30721, data3: 19044, data4: [177, 57, 238, 168, 10, 69, 11, 36] };
-pub const GUID_DEVCLASS_61883: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2126445504, data2: 12800, data3: 4562, data4: [180, 194, 0, 160, 201, 105, 125, 7] };
-pub const GUID_DEVCLASS_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444324, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_APMSUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3562740760, data2: 51450, data3: 4561, data4: [159, 119, 0, 0, 248, 5, 245, 48] };
-pub const GUID_DEVCLASS_AVC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_1394: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1809653697, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
+pub const GUID_DEVCLASS_1394DEBUG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1727156438, data2: 30721, data3: 19044, data4: [177, 57, 238, 168, 10, 69, 11, 36] };
+pub const GUID_DEVCLASS_61883: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2126445504, data2: 12800, data3: 4562, data4: [180, 194, 0, 160, 201, 105, 125, 7] };
+pub const GUID_DEVCLASS_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444324, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_APMSUPPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3562740760, data2: 51450, data3: 4561, data4: [159, 119, 0, 0, 248, 5, 245, 48] };
+pub const GUID_DEVCLASS_AVC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3228562021,
     data2: 44553,
     data3: 18672,
     data4: [129, 44, 22, 117, 61, 124, 186, 131],
 };
-pub const GUID_DEVCLASS_BATTERY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1919098452, data2: 30884, data3: 4560, data4: [188, 247, 0, 170, 0, 183, 179, 42] };
-pub const GUID_DEVCLASS_BIOMETRIC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_BATTERY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1919098452, data2: 30884, data3: 4560, data4: [188, 247, 0, 170, 0, 183, 179, 42] };
+pub const GUID_DEVCLASS_BIOMETRIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1406312183,
     data2: 14204,
     data3: 19732,
     data4: [134, 75, 235, 58, 133, 118, 147, 89],
 };
-pub const GUID_DEVCLASS_BLUETOOTH: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_BLUETOOTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3771461740,
     data2: 52619,
     data3: 17991,
     data4: [187, 138, 38, 59, 67, 240, 249, 116],
 };
-pub const GUID_DEVCLASS_CAMERA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3393092281, data2: 46275, data3: 19174, data4: [130, 81, 87, 158, 249, 51, 137, 15] };
-pub const GUID_DEVCLASS_CDROM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444325, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_COMPUTEACCELERATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4028276051, data2: 16374, data3: 18642, data4: [159, 151, 200, 167, 0, 75, 225, 12] };
-pub const GUID_DEVCLASS_COMPUTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444326, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_DECODER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1809653698, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
-pub const GUID_DEVCLASS_DISKDRIVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444327, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_DISPLAY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444328, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_DOT4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1215437654, data2: 26517, data3: 4562, data4: [177, 168, 0, 128, 199, 46, 116, 162] };
-pub const GUID_DEVCLASS_DOT4PRINT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1238264520, data2: 28550, data3: 4562, data4: [177, 229, 0, 128, 199, 46, 116, 162] };
-pub const GUID_DEVCLASS_EHSTORAGESILO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2644686863, data2: 63647, data3: 19017, data4: [165, 194, 81, 27, 8, 91, 158, 138] };
-pub const GUID_DEVCLASS_ENUM1394: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3294224213, data2: 56072, data3: 4561, data4: [176, 9, 0, 160, 201, 8, 31, 246] };
-pub const GUID_DEVCLASS_EXTENSION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_CAMERA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3393092281, data2: 46275, data3: 19174, data4: [130, 81, 87, 158, 249, 51, 137, 15] };
+pub const GUID_DEVCLASS_CDROM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444325, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_COMPUTEACCELERATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4028276051, data2: 16374, data3: 18642, data4: [159, 151, 200, 167, 0, 75, 225, 12] };
+pub const GUID_DEVCLASS_COMPUTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444326, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_DECODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1809653698, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
+pub const GUID_DEVCLASS_DISKDRIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444327, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_DISPLAY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444328, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_DOT4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1215437654, data2: 26517, data3: 4562, data4: [177, 168, 0, 128, 199, 46, 116, 162] };
+pub const GUID_DEVCLASS_DOT4PRINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1238264520, data2: 28550, data3: 4562, data4: [177, 229, 0, 128, 199, 46, 116, 162] };
+pub const GUID_DEVCLASS_EHSTORAGESILO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2644686863, data2: 63647, data3: 19017, data4: [165, 194, 81, 27, 8, 91, 158, 138] };
+pub const GUID_DEVCLASS_ENUM1394: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3294224213, data2: 56072, data3: 4561, data4: [176, 9, 0, 160, 201, 8, 31, 246] };
+pub const GUID_DEVCLASS_EXTENSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3807923431,
     data2: 36602,
     data3: 16668,
     data4: [170, 105, 151, 69, 76, 164, 203, 87],
 };
-pub const GUID_DEVCLASS_FDC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444329, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_FIRMWARE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FDC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444329, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_FIRMWARE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4075281778,
     data2: 25704,
     data3: 20022,
     data4: [182, 241, 100, 136, 244, 44, 27, 82],
 };
-pub const GUID_DEVCLASS_FLOPPYDISK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444352, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_FSFILTER_ACTIVITYMONITOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FLOPPYDISK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444352, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_FSFILTER_ACTIVITYMONITOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3094216529,
     data2: 41758,
     data3: 19372,
     data4: [179, 207, 232, 207, 231, 92, 159, 194],
 };
-pub const GUID_DEVCLASS_FSFILTER_ANTIVIRUS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_ANTIVIRUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2983305577,
     data2: 50511,
     data3: 17273,
     data4: [129, 219, 190, 231, 216, 141, 116, 84],
 };
-pub const GUID_DEVCLASS_FSFILTER_BOTTOM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_BOTTOM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 930504352,
     data2: 22872,
     data3: 20425,
     data4: [176, 75, 47, 223, 239, 151, 229, 158],
 };
-pub const GUID_DEVCLASS_FSFILTER_CFSMETADATASERVER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_CFSMETADATASERVER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3452897593,
     data2: 46939,
     data3: 17968,
     data4: [191, 118, 128, 247, 186, 101, 88, 132],
 };
-pub const GUID_DEVCLASS_FSFILTER_COMPRESSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4082658223, data2: 46506, data3: 18869, data4: [141, 108, 5, 105, 40, 76, 99, 159] };
-pub const GUID_DEVCLASS_FSFILTER_CONTENTSCREENER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_COMPRESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4082658223, data2: 46506, data3: 18869, data4: [141, 108, 5, 105, 40, 76, 99, 159] };
+pub const GUID_DEVCLASS_FSFILTER_CONTENTSCREENER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1044317812,
     data2: 51260,
     data3: 17752,
     data4: [187, 38, 152, 32, 225, 235, 165, 197],
 };
-pub const GUID_DEVCLASS_FSFILTER_CONTINUOUSBACKUP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_CONTINUOUSBACKUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1906971896,
     data2: 28589,
     data3: 17954,
     data4: [173, 119, 146, 187, 157, 126, 105, 71],
 };
-pub const GUID_DEVCLASS_FSFILTER_COPYPROTECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_COPYPROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2306371569,
     data2: 39954,
     data3: 16431,
     data4: [156, 158, 23, 117, 60, 127, 67, 117],
 };
-pub const GUID_DEVCLASS_FSFILTER_ENCRYPTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2695299520, data2: 42257, data3: 17151, data4: [170, 108, 6, 220, 3, 149, 87, 111] };
-pub const GUID_DEVCLASS_FSFILTER_HSM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_ENCRYPTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2695299520, data2: 42257, data3: 17151, data4: [170, 108, 6, 220, 3, 149, 87, 111] };
+pub const GUID_DEVCLASS_FSFILTER_HSM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3578155018,
     data2: 10987,
     data3: 17910,
     data4: [148, 130, 244, 177, 121, 156, 49, 119],
 };
-pub const GUID_DEVCLASS_FSFILTER_INFRASTRUCTURE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3848251129, data2: 4748, data3: 19716, data4: [171, 171, 99, 12, 116, 177, 69, 58] };
-pub const GUID_DEVCLASS_FSFILTER_OPENFILEBACKUP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_INFRASTRUCTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3848251129, data2: 4748, data3: 19716, data4: [171, 171, 99, 12, 116, 177, 69, 58] };
+pub const GUID_DEVCLASS_FSFILTER_OPENFILEBACKUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4176261030,
     data2: 26321,
     data3: 16805,
     data4: [137, 155, 102, 88, 93, 114, 22, 183],
 };
-pub const GUID_DEVCLASS_FSFILTER_PHYSICALQUOTAMANAGEMENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1779076728, data2: 48038, data3: 20420, data4: [167, 9, 30, 51, 205, 9, 214, 126] };
-pub const GUID_DEVCLASS_FSFILTER_QUOTAMANAGEMENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_PHYSICALQUOTAMANAGEMENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1779076728, data2: 48038, data3: 20420, data4: [167, 9, 30, 51, 205, 9, 214, 126] };
+pub const GUID_DEVCLASS_FSFILTER_QUOTAMANAGEMENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2231617809,
     data2: 42695,
     data3: 18713,
     data4: [143, 121, 80, 40, 245, 134, 107, 12],
 };
-pub const GUID_DEVCLASS_FSFILTER_REPLICATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_REPLICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1221848004,
     data2: 19704,
     data3: 18687,
     data4: [184, 105, 156, 104, 173, 66, 235, 159],
 };
-pub const GUID_DEVCLASS_FSFILTER_SECURITYENHANCER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_SECURITYENHANCER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3492529114,
     data2: 3214,
     data3: 18757,
     data4: [155, 213, 241, 136, 60, 34, 108, 140],
 };
-pub const GUID_DEVCLASS_FSFILTER_SYSTEM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1562090154, data2: 482, data3: 18095, data4: [132, 159, 39, 43, 63, 50, 76, 70] };
-pub const GUID_DEVCLASS_FSFILTER_SYSTEMRECOVERY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_SYSTEM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1562090154, data2: 482, data3: 18095, data4: [132, 159, 39, 43, 63, 50, 76, 70] };
+pub const GUID_DEVCLASS_FSFILTER_SYSTEMRECOVERY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 766595956,
     data2: 28782,
     data3: 16689,
     data4: [160, 199, 215, 199, 142, 176, 40, 154],
 };
-pub const GUID_DEVCLASS_FSFILTER_TOP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_TOP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3010050804,
     data2: 21864,
     data3: 20098,
     data4: [168, 126, 169, 62, 177, 107, 202, 135],
 };
-pub const GUID_DEVCLASS_FSFILTER_UNDELETE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_UNDELETE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4270790002,
     data2: 50810,
     data3: 18624,
     data4: [187, 172, 11, 92, 109, 102, 202, 251],
 };
-pub const GUID_DEVCLASS_FSFILTER_VIRTUALIZATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_FSFILTER_VIRTUALIZATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4149905088,
     data2: 4312,
     data3: 19514,
     data4: [178, 51, 237, 96, 228, 205, 250, 172],
 };
-pub const GUID_DEVCLASS_GPS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1809653699, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
-pub const GUID_DEVCLASS_HDC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444330, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_HIDCLASS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1952061344, data2: 29907, data3: 4560, data4: [182, 254, 0, 160, 201, 15, 87, 218] };
-pub const GUID_DEVCLASS_HOLOGRAPHIC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_GPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1809653699, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
+pub const GUID_DEVCLASS_HDC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444330, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_HIDCLASS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1952061344, data2: 29907, data3: 4560, data4: [182, 254, 0, 160, 201, 15, 87, 218] };
+pub const GUID_DEVCLASS_HOLOGRAPHIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3591525693,
     data2: 1713,
     data3: 18890,
     data4: [137, 56, 227, 158, 248, 14, 177, 111],
 };
-pub const GUID_DEVCLASS_IMAGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1809653702, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
-pub const GUID_DEVCLASS_INFINIBAND: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 820998450, data2: 55384, data3: 18956, data4: [172, 36, 185, 2, 138, 92, 202, 63] };
-pub const GUID_DEVCLASS_INFRARED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1809653701, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
-pub const GUID_DEVCLASS_KEYBOARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444331, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_LEGACYDRIVER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2395735389, data2: 1151, data3: 4561, data4: [165, 55, 0, 0, 248, 117, 62, 209] };
-pub const GUID_DEVCLASS_MEDIA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444332, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_MEDIUM_CHANGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3461953966, data2: 60382, data3: 4560, data4: [177, 129, 0, 0, 248, 117, 62, 196] };
-pub const GUID_DEVCLASS_MEMORY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1352242250, data2: 63161, data3: 16471, data4: [160, 86, 140, 85, 2, 40, 84, 76] };
-pub const GUID_DEVCLASS_MODEM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444333, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_MONITOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444334, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_MOUSE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444335, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_MTD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444336, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_MULTIFUNCTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444337, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_MULTIPORTSERIAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1351642296, data2: 47634, data3: 4561, data4: [191, 93, 0, 0, 248, 5, 245, 48] };
-pub const GUID_DEVCLASS_NET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444338, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_NETCLIENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444339, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_NETDRIVER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1809653702, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
+pub const GUID_DEVCLASS_INFINIBAND: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 820998450, data2: 55384, data3: 18956, data4: [172, 36, 185, 2, 138, 92, 202, 63] };
+pub const GUID_DEVCLASS_INFRARED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1809653701, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
+pub const GUID_DEVCLASS_KEYBOARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444331, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_LEGACYDRIVER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2395735389, data2: 1151, data3: 4561, data4: [165, 55, 0, 0, 248, 117, 62, 209] };
+pub const GUID_DEVCLASS_MEDIA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444332, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_MEDIUM_CHANGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3461953966, data2: 60382, data3: 4560, data4: [177, 129, 0, 0, 248, 117, 62, 196] };
+pub const GUID_DEVCLASS_MEMORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1352242250, data2: 63161, data3: 16471, data4: [160, 86, 140, 85, 2, 40, 84, 76] };
+pub const GUID_DEVCLASS_MODEM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444333, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_MONITOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444334, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_MOUSE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444335, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_MTD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444336, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_MULTIFUNCTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444337, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_MULTIPORTSERIAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1351642296, data2: 47634, data3: 4561, data4: [191, 93, 0, 0, 248, 5, 245, 48] };
+pub const GUID_DEVCLASS_NET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444338, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_NETCLIENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444339, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_NETDRIVER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2280626897,
     data2: 36720,
     data3: 18926,
     data4: [178, 21, 171, 31, 202, 220, 190, 60],
 };
-pub const GUID_DEVCLASS_NETSERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444340, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_NETTRANS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444341, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_NETUIO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_NETSERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444340, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_NETTRANS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444341, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_NETUIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2022779841,
     data2: 52110,
     data3: 19240,
     data4: [163, 41, 243, 34, 235, 173, 190, 15],
 };
-pub const GUID_DEVCLASS_NODRIVER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444342, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_PCMCIA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444343, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_PNPPRINTERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180233342, data2: 61520, data3: 4561, data4: [182, 189, 0, 192, 79, 163, 114, 167] };
-pub const GUID_DEVCLASS_PORTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444344, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_PRINTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444345, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_PRINTERUPGRADE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444346, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_PRINTQUEUE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_NODRIVER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444342, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_PCMCIA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444343, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_PNPPRINTERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180233342, data2: 61520, data3: 4561, data4: [182, 189, 0, 192, 79, 163, 114, 167] };
+pub const GUID_DEVCLASS_PORTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444344, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_PRINTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444345, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_PRINTERUPGRADE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444346, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_PRINTQUEUE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 517127161,
     data2: 4592,
     data3: 16516,
     data4: [178, 31, 173, 131, 168, 230, 220, 220],
 };
-pub const GUID_DEVCLASS_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1343389123,
     data2: 3894,
     data3: 16734,
     data4: [166, 204, 76, 179, 190, 145, 11, 101],
 };
-pub const GUID_DEVCLASS_SBP2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3565255102, data2: 60448, data3: 4561, data4: [182, 184, 0, 192, 79, 163, 114, 167] };
-pub const GUID_DEVCLASS_SCMDISK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1402367153, data2: 19782, data3: 16742, data4: [191, 35, 197, 34, 64, 60, 212, 149] };
-pub const GUID_DEVCLASS_SCMVOLUME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_SBP2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3565255102, data2: 60448, data3: 4561, data4: [182, 184, 0, 192, 79, 163, 114, 167] };
+pub const GUID_DEVCLASS_SCMDISK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1402367153, data2: 19782, data3: 16742, data4: [191, 35, 197, 34, 64, 60, 212, 149] };
+pub const GUID_DEVCLASS_SCMVOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1405923657,
     data2: 58691,
     data3: 19588,
     data4: [182, 224, 188, 228, 246, 183, 232, 6],
 };
-pub const GUID_DEVCLASS_SCSIADAPTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444347, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_SECURITYACCELERATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 646747553, data2: 60926, data3: 4563, data4: [149, 195, 0, 16, 220, 64, 80, 165] };
-pub const GUID_DEVCLASS_SENSOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_SCSIADAPTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444347, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_SECURITYACCELERATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 646747553, data2: 60926, data3: 4563, data4: [149, 195, 0, 16, 220, 64, 80, 165] };
+pub const GUID_DEVCLASS_SENSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1366676276,
     data2: 50033,
     data3: 18438,
     data4: [179, 186, 113, 253, 83, 201, 37, 141],
 };
-pub const GUID_DEVCLASS_SIDESHOW: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_SIDESHOW: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2574998925,
     data2: 50242,
     data3: 20270,
     data4: [186, 243, 156, 142, 103, 30, 158, 33],
 };
-pub const GUID_DEVCLASS_SMARTCARDREADER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1356681776, data2: 47754, data3: 4561, data4: [191, 93, 0, 0, 248, 5, 245, 48] };
-pub const GUID_DEVCLASS_SMRDISK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_SMARTCARDREADER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1356681776, data2: 47754, data3: 4561, data4: [191, 93, 0, 0, 248, 5, 245, 48] };
+pub const GUID_DEVCLASS_SMRDISK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1397259299,
     data2: 26639,
     data3: 17797,
     data4: [172, 195, 31, 16, 214, 119, 126, 130],
 };
-pub const GUID_DEVCLASS_SMRVOLUME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_SMRVOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1404292867,
     data2: 36698,
     data3: 18312,
     data4: [145, 182, 209, 158, 217, 252, 204, 191],
 };
-pub const GUID_DEVCLASS_SOFTWARECOMPONENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_SOFTWARECOMPONENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1548497714,
     data2: 13389,
     data3: 18492,
     data4: [135, 57, 37, 158, 147, 76, 156, 200],
 };
-pub const GUID_DEVCLASS_SOUND: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444348, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_SYSTEM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444349, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_TAPEDRIVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1837136004, data2: 32033, data3: 4559, data4: [128, 28, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_UCM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_SOUND: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444348, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_SYSTEM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444349, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_TAPEDRIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1837136004, data2: 32033, data3: 4559, data4: [128, 28, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_UCM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3874597404,
     data2: 32571,
     data3: 17523,
     data4: [178, 232, 201, 125, 138, 199, 29, 83],
 };
-pub const GUID_DEVCLASS_UNKNOWN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444350, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_DEVCLASS_USB: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 922525280, data2: 50277, data3: 4559, data4: [128, 86, 68, 69, 83, 84, 0, 0] };
-pub const GUID_DEVCLASS_VOLUME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1906474205, data2: 33066, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
-pub const GUID_DEVCLASS_VOLUMESNAPSHOT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1396464516, data2: 60528, data3: 4562, data4: [149, 5, 0, 192, 79, 121, 222, 175] };
-pub const GUID_DEVCLASS_WCEUSBS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 635162193, data2: 27791, data3: 19058, data4: [138, 109, 181, 76, 43, 79, 200, 53] };
-pub const GUID_DEVCLASS_WPD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVCLASS_UNKNOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444350, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_DEVCLASS_USB: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 922525280, data2: 50277, data3: 4559, data4: [128, 86, 68, 69, 83, 84, 0, 0] };
+pub const GUID_DEVCLASS_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1906474205, data2: 33066, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
+pub const GUID_DEVCLASS_VOLUMESNAPSHOT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1396464516, data2: 60528, data3: 4562, data4: [149, 5, 0, 192, 79, 121, 222, 175] };
+pub const GUID_DEVCLASS_WCEUSBS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 635162193, data2: 27791, data3: 19058, data4: [138, 109, 181, 76, 43, 79, 200, 53] };
+pub const GUID_DEVCLASS_WPD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4005932440,
     data2: 32896,
     data3: 16991,
     data4: [146, 42, 218, 191, 61, 227, 246, 154],
 };
-pub const GUID_DEVICE_INTERFACE_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3409592324, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
-pub const GUID_DEVICE_INTERFACE_REMOVAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3409592325, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
-pub const GUID_DEVICE_RESET_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1688198950, data2: 15296, data3: 18451, data4: [173, 36, 126, 12, 30, 218, 63, 163] };
-pub const GUID_DMA_CACHE_COHERENCY_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVICE_INTERFACE_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3409592324, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
+pub const GUID_DEVICE_INTERFACE_REMOVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3409592325, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
+pub const GUID_DEVICE_RESET_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1688198950, data2: 15296, data3: 18451, data4: [173, 36, 126, 12, 30, 218, 63, 163] };
+pub const GUID_DMA_CACHE_COHERENCY_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3038836730,
     data2: 35418,
     data3: 20032,
     data4: [163, 246, 107, 225, 225, 98, 217, 53],
 };
-pub const GUID_HWPROFILE_CHANGE_CANCELLED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3409592322, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
-pub const GUID_HWPROFILE_CHANGE_COMPLETE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3409592323, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
-pub const GUID_HWPROFILE_QUERY_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3409592321, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
-pub const GUID_INT_ROUTE_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1888754676, data2: 115, data3: 4561, data4: [160, 158, 0, 192, 79, 195, 64, 177] };
-pub const GUID_IOMMU_BUS_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 520020146, data2: 53880, data3: 19172, data4: [189, 220, 27, 52, 221, 100, 128, 67] };
-pub const GUID_KERNEL_SOFT_RESTART_CANCEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 836188135, data2: 35851, data3: 18058, data4: [149, 110, 159, 67, 62, 195, 88, 251] };
-pub const GUID_KERNEL_SOFT_RESTART_FINALIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 552147645, data2: 13578, data3: 19791, data4: [133, 119, 153, 200, 21, 7, 71, 58] };
-pub const GUID_KERNEL_SOFT_RESTART_PREPARE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_HWPROFILE_CHANGE_CANCELLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3409592322, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
+pub const GUID_HWPROFILE_CHANGE_COMPLETE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3409592323, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
+pub const GUID_HWPROFILE_QUERY_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3409592321, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
+pub const GUID_INT_ROUTE_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1888754676, data2: 115, data3: 4561, data4: [160, 158, 0, 192, 79, 195, 64, 177] };
+pub const GUID_IOMMU_BUS_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 520020146, data2: 53880, data3: 19172, data4: [189, 220, 27, 52, 221, 100, 128, 67] };
+pub const GUID_KERNEL_SOFT_RESTART_CANCEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 836188135, data2: 35851, data3: 18058, data4: [149, 110, 159, 67, 62, 195, 88, 251] };
+pub const GUID_KERNEL_SOFT_RESTART_FINALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 552147645, data2: 13578, data3: 19791, data4: [133, 119, 153, 200, 21, 7, 71, 58] };
+pub const GUID_KERNEL_SOFT_RESTART_PREPARE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3728162287,
     data2: 43100,
     data3: 20342,
     data4: [140, 191, 249, 107, 234, 139, 209, 15],
 };
-pub const GUID_LEGACY_DEVICE_DETECTION_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1358868702, data2: 22890, data3: 4562, data4: [165, 184, 0, 0, 248, 26, 70, 25] };
-pub const GUID_MF_ENUMERATION_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2931332592, data2: 21894, data3: 4561, data4: [141, 132, 0, 160, 201, 6, 178, 68] };
-pub const GUID_MSIX_TABLE_CONFIG_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 443172363, data2: 6479, data3: 17757, data4: [179, 75, 184, 76, 91, 5, 113, 43] };
-pub const GUID_NPEM_CONTROL_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1301632829, data2: 46964, data3: 18570, data4: [177, 32, 79, 40, 74, 158, 255, 81] };
-pub const GUID_PARTITION_UNIT_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_LEGACY_DEVICE_DETECTION_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1358868702, data2: 22890, data3: 4562, data4: [165, 184, 0, 0, 248, 26, 70, 25] };
+pub const GUID_MF_ENUMERATION_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2931332592, data2: 21894, data3: 4561, data4: [141, 132, 0, 160, 201, 6, 178, 68] };
+pub const GUID_MSIX_TABLE_CONFIG_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 443172363, data2: 6479, data3: 17757, data4: [179, 75, 184, 76, 91, 5, 113, 43] };
+pub const GUID_NPEM_CONTROL_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1301632829, data2: 46964, data3: 18570, data4: [177, 32, 79, 40, 74, 158, 255, 81] };
+pub const GUID_PARTITION_UNIT_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1379286875,
     data2: 55441,
     data3: 17051,
     data4: [129, 149, 174, 197, 254, 246, 133, 60],
 };
-pub const GUID_PCC_INTERFACE_INTERNAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2093900494, data2: 49545, data3: 18452, data4: [166, 167, 18, 17, 32, 137, 233, 56] };
-pub const GUID_PCC_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1055439459, data2: 3929, data3: 18980, data4: [138, 69, 53, 128, 139, 221, 18, 73] };
-pub const GUID_PCI_ATS_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 17465320, data2: 38645, data3: 18755, data4: [190, 223, 149, 230, 81, 185, 52, 18] };
-pub const GUID_PCI_BUS_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1231782529, data2: 28453, data3: 4560, data4: [190, 175, 8, 0, 43, 226, 9, 47] };
-pub const GUID_PCI_BUS_INTERFACE_STANDARD2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PCC_INTERFACE_INTERNAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2093900494, data2: 49545, data3: 18452, data4: [166, 167, 18, 17, 32, 137, 233, 56] };
+pub const GUID_PCC_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1055439459, data2: 3929, data3: 18980, data4: [138, 69, 53, 128, 139, 221, 18, 73] };
+pub const GUID_PCI_ATS_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 17465320, data2: 38645, data3: 18755, data4: [190, 223, 149, 230, 81, 185, 52, 18] };
+pub const GUID_PCI_BUS_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1231782529, data2: 28453, data3: 4560, data4: [190, 175, 8, 0, 43, 226, 9, 47] };
+pub const GUID_PCI_BUS_INTERFACE_STANDARD2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3734301030,
     data2: 65023,
     data3: 19612,
     data4: [153, 152, 103, 71, 177, 80, 231, 76],
 };
-pub const GUID_PCI_DEVICE_PRESENT_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PCI_DEVICE_PRESENT_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3518508070,
     data2: 48969,
     data3: 17903,
     data4: [178, 22, 113, 203, 215, 136, 155, 87],
 };
-pub const GUID_PCI_EXPRESS_LINK_QUIESCENT_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 342676508, data2: 56035, data3: 17463, data4: [138, 255, 42, 243, 240, 56, 9, 155] };
-pub const GUID_PCI_EXPRESS_ROOT_PORT_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2208789322, data2: 33991, data3: 16737, data4: [154, 152, 96, 0, 237, 12, 74, 51] };
-pub const GUID_PCI_FPGA_CONTROL_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 770963368, data2: 47539, data3: 16483, data4: [146, 21, 181, 209, 74, 11, 38, 110] };
-pub const GUID_PCI_PTM_CONTROL_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 881483451, data2: 47652, data3: 17591, data4: [153, 22, 40, 86, 135, 115, 81, 23] };
-pub const GUID_PCI_SECURITY_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1853822033, data2: 6558, data3: 19148, data4: [186, 45, 118, 43, 78, 223, 70, 116] };
-pub const GUID_PCI_VIRTUALIZATION_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PCI_EXPRESS_LINK_QUIESCENT_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 342676508, data2: 56035, data3: 17463, data4: [138, 255, 42, 243, 240, 56, 9, 155] };
+pub const GUID_PCI_EXPRESS_ROOT_PORT_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2208789322, data2: 33991, data3: 16737, data4: [154, 152, 96, 0, 237, 12, 74, 51] };
+pub const GUID_PCI_FPGA_CONTROL_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 770963368, data2: 47539, data3: 16483, data4: [146, 21, 181, 209, 74, 11, 38, 110] };
+pub const GUID_PCI_PTM_CONTROL_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 881483451, data2: 47652, data3: 17591, data4: [153, 22, 40, 86, 135, 115, 81, 23] };
+pub const GUID_PCI_SECURITY_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1853822033, data2: 6558, data3: 19148, data4: [186, 45, 118, 43, 78, 223, 70, 116] };
+pub const GUID_PCI_VIRTUALIZATION_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1686731591,
     data2: 14922,
     data3: 19829,
     data4: [188, 116, 137, 221, 108, 7, 130, 147],
 };
-pub const GUID_PCMCIA_BUS_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1981233904, data2: 50436, data3: 4561, data4: [148, 127, 0, 192, 79, 185, 96, 238] };
-pub const GUID_PNP_CUSTOM_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2896641934, data2: 36131, data3: 4561, data4: [172, 125, 0, 0, 248, 117, 113, 208] };
-pub const GUID_PNP_EXTENDED_ADDRESS_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PCMCIA_BUS_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1981233904, data2: 50436, data3: 4561, data4: [148, 127, 0, 192, 79, 185, 96, 238] };
+pub const GUID_PNP_CUSTOM_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2896641934, data2: 36131, data3: 4561, data4: [172, 125, 0, 0, 248, 117, 113, 208] };
+pub const GUID_PNP_EXTENDED_ADDRESS_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3102315244,
     data2: 42903,
     data3: 19908,
     data4: [136, 70, 132, 208, 65, 112, 116, 70],
 };
-pub const GUID_PNP_LOCATION_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1881217806, data2: 2811, data3: 18395, data4: [175, 193, 65, 11, 248, 66, 73, 122] };
-pub const GUID_PNP_POWER_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3268347488, data2: 60282, data3: 4561, data4: [189, 127, 0, 0, 248, 117, 113, 208] };
-pub const GUID_PNP_POWER_SETTING_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PNP_LOCATION_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1881217806, data2: 2811, data3: 18395, data4: [175, 193, 65, 11, 248, 66, 73, 122] };
+pub const GUID_PNP_POWER_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3268347488, data2: 60282, data3: 4561, data4: [189, 127, 0, 0, 248, 117, 113, 208] };
+pub const GUID_PNP_POWER_SETTING_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 700881726,
     data2: 51098,
     data3: 17343,
     data4: [187, 222, 169, 50, 250, 27, 234, 126],
 };
-pub const GUID_POWER_DEVICE_ENABLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2189167215, data2: 65200, data3: 4560, data4: [189, 38, 0, 170, 0, 183, 179, 42] };
-pub const GUID_POWER_DEVICE_TIMEOUTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2757601077, data2: 65200, data3: 4560, data4: [189, 38, 0, 170, 0, 183, 179, 42] };
-pub const GUID_POWER_DEVICE_WAKE_ENABLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2840881794, data2: 65200, data3: 4560, data4: [189, 38, 0, 170, 0, 183, 179, 42] };
-pub const GUID_PROCESSOR_PCC_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 934379162, data2: 49692, data3: 17046, data4: [151, 45, 17, 196, 179, 43, 40, 240] };
-pub const GUID_QUERY_CRASHDUMP_FUNCTIONS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_POWER_DEVICE_ENABLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2189167215, data2: 65200, data3: 4560, data4: [189, 38, 0, 170, 0, 183, 179, 42] };
+pub const GUID_POWER_DEVICE_TIMEOUTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2757601077, data2: 65200, data3: 4560, data4: [189, 38, 0, 170, 0, 183, 179, 42] };
+pub const GUID_POWER_DEVICE_WAKE_ENABLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2840881794, data2: 65200, data3: 4560, data4: [189, 38, 0, 170, 0, 183, 179, 42] };
+pub const GUID_PROCESSOR_PCC_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 934379162, data2: 49692, data3: 17046, data4: [151, 45, 17, 196, 179, 43, 40, 240] };
+pub const GUID_QUERY_CRASHDUMP_FUNCTIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2630269183,
     data2: 13026,
     data3: 18484,
     data4: [177, 222, 179, 46, 248, 136, 10, 75],
 };
-pub const GUID_RECOVERY_NVMED_PREPARE_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1268216042, data2: 48615, data3: 16395, data4: [169, 185, 79, 104, 79, 84, 204, 42] };
-pub const GUID_RECOVERY_PCI_PREPARE_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_RECOVERY_NVMED_PREPARE_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1268216042, data2: 48615, data3: 16395, data4: [169, 185, 79, 104, 79, 84, 204, 42] };
+pub const GUID_RECOVERY_PCI_PREPARE_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2430110174,
     data2: 34564,
     data3: 17615,
     data4: [129, 21, 237, 133, 40, 210, 178, 218],
 };
-pub const GUID_REENUMERATE_SELF_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 720044611, data2: 27246, data3: 18539, data4: [130, 252, 216, 21, 246, 185, 112, 6] };
-pub const GUID_SCM_BUS_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 630474627, data2: 52857, data3: 16946, data4: [129, 94, 74, 48, 1, 78, 142, 180] };
-pub const GUID_SCM_BUS_LD_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2609459325, data2: 55147, data3: 20296, data4: [177, 134, 84, 4, 26, 233, 46, 141] };
-pub const GUID_SCM_BUS_NVD_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_REENUMERATE_SELF_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 720044611, data2: 27246, data3: 18539, data4: [130, 252, 216, 21, 246, 185, 112, 6] };
+pub const GUID_SCM_BUS_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 630474627, data2: 52857, data3: 16946, data4: [129, 94, 74, 48, 1, 78, 142, 180] };
+pub const GUID_SCM_BUS_LD_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2609459325, data2: 55147, data3: 20296, data4: [177, 134, 84, 4, 26, 233, 46, 141] };
+pub const GUID_SCM_BUS_NVD_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2380293375,
     data2: 46640,
     data3: 17124,
     data4: [136, 234, 111, 36, 200, 100, 17, 117],
 };
-pub const GUID_SCM_PHYSICAL_NVDIMM_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 7979547, data2: 37246, data3: 16478, data4: [169, 206, 7, 50, 181, 187, 206, 189] };
-pub const GUID_SDEV_IDENTIFIER_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_SCM_PHYSICAL_NVDIMM_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 7979547, data2: 37246, data3: 16478, data4: [169, 206, 7, 50, 181, 187, 206, 189] };
+pub const GUID_SDEV_IDENTIFIER_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1238792952,
     data2: 37228,
     data3: 20200,
     data4: [157, 241, 136, 159, 23, 210, 30, 145],
 };
-pub const GUID_SECURE_DRIVER_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 923756513, data2: 20469, data3: 19092, data4: [154, 53, 6, 197, 217, 204, 48, 226] };
-pub const GUID_TARGET_DEVICE_QUERY_REMOVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3409592326, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
-pub const GUID_TARGET_DEVICE_REMOVE_CANCELLED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3409592327, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
-pub const GUID_TARGET_DEVICE_REMOVE_COMPLETE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3409592328, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
-pub const GUID_TARGET_DEVICE_TRANSPORT_RELATIONS_CHANGED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4243925238, data2: 43055, data3: 18353, data4: [173, 58, 128, 80, 89, 76, 173, 40] };
-pub const GUID_THERMAL_COOLING_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_SECURE_DRIVER_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 923756513, data2: 20469, data3: 19092, data4: [154, 53, 6, 197, 217, 204, 48, 226] };
+pub const GUID_TARGET_DEVICE_QUERY_REMOVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3409592326, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
+pub const GUID_TARGET_DEVICE_REMOVE_CANCELLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3409592327, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
+pub const GUID_TARGET_DEVICE_REMOVE_COMPLETE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3409592328, data2: 18160, data3: 4560, data4: [176, 143, 0, 96, 151, 19, 5, 63] };
+pub const GUID_TARGET_DEVICE_TRANSPORT_RELATIONS_CHANGED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4243925238, data2: 43055, data3: 18353, data4: [173, 58, 128, 80, 89, 76, 173, 40] };
+pub const GUID_THERMAL_COOLING_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3971893160,
     data2: 50328,
     data3: 19385,
     data4: [189, 112, 232, 103, 224, 148, 13, 34],
 };
-pub const GUID_TRANSLATOR_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1813334674, data2: 43727, data3: 4560, data4: [141, 42, 0, 160, 201, 6, 178, 68] };
-pub const GUID_WUDF_DEVICE_HOST_PROBLEM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_TRANSLATOR_INTERFACE_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1813334674, data2: 43727, data3: 4560, data4: [141, 42, 0, 160, 201, 6, 178, 68] };
+pub const GUID_WUDF_DEVICE_HOST_PROBLEM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3292341693,
     data2: 37702,
     data3: 16622,

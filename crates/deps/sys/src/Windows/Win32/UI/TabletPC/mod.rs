@@ -909,7 +909,7 @@ impl ::core::clone::Clone for DYNAMIC_RENDERER_CACHED_DATA {
         *self
     }
 }
-pub const DynamicRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3973262058, data2: 29807, data3: 19915, data4: [191, 104, 8, 39, 87, 250, 255, 24] };
+pub const DynamicRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3973262058, data2: 29807, data3: 19915, data4: [191, 104, 8, 39, 87, 250, 255, 24] };
 pub const EM_GETDRAWATTR: u32 = 1541u32;
 pub const EM_GETFACTOID: u32 = 1549u32;
 pub const EM_GETGESTURESTATUS: u32 = 1545u32;
@@ -1170,90 +1170,90 @@ pub const GESTURE_UP_LEFT: u32 = 61544u32;
 pub const GESTURE_UP_LEFT_LONG: u32 = 61540u32;
 pub const GESTURE_UP_RIGHT: u32 = 61545u32;
 pub const GESTURE_UP_RIGHT_LONG: u32 = 61541u32;
-pub const GUID_DYNAMIC_RENDERER_CACHED_DATA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3209894802, data2: 9663, data3: 19093, data4: [137, 173, 14, 71, 107, 52, 180, 245] };
-pub const GUID_GESTURE_DATA: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DYNAMIC_RENDERER_CACHED_DATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3209894802, data2: 9663, data3: 19093, data4: [137, 173, 14, 71, 107, 52, 180, 245] };
+pub const GUID_GESTURE_DATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1105521679,
     data2: 9898,
     data3: 17754,
     data4: [154, 165, 44, 211, 108, 246, 63, 185],
 };
-pub const GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2195637703,
     data2: 63162,
     data3: 18694,
     data4: [137, 79, 102, 214, 141, 252, 69, 108],
 };
-pub const GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 43066292, data2: 34856, data3: 16651, data4: [178, 80, 160, 83, 101, 149, 229, 220] };
-pub const GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 43066292, data2: 34856, data3: 16651, data4: [178, 80, 160, 83, 101, 149, 229, 220] };
+pub const GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2340417476,
     data2: 38570,
     data3: 19454,
     data4: [172, 38, 138, 95, 11, 224, 123, 245],
 };
-pub const GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 39345041, data2: 1179, data3: 18256, data4: [150, 21, 223, 137, 72, 171, 60, 156] };
-pub const GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 39345041, data2: 1179, data3: 18256, data4: [150, 21, 223, 137, 72, 171, 60, 156] };
+pub const GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3875981316,
     data2: 22512,
     data3: 20224,
     data4: [138, 12, 133, 61, 87, 120, 155, 233],
 };
-pub const GUID_PACKETPROPERTY_GUID_HEIGHT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3860355282, data2: 58439, data3: 16920, data4: [157, 63, 24, 134, 92, 32, 61, 244] };
-pub const GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_HEIGHT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3860355282, data2: 58439, data3: 16920, data4: [157, 63, 24, 134, 92, 32, 61, 244] };
+pub const GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1929859117,
     data2: 63988,
     data3: 19992,
     data4: [179, 242, 44, 225, 177, 163, 97, 12],
 };
-pub const GUID_PACKETPROPERTY_GUID_PACKET_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_PACKET_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1846413247,
     data2: 45031,
     data3: 19703,
     data4: [135, 209, 175, 100, 70, 32, 132, 24],
 };
-pub const GUID_PACKETPROPERTY_GUID_PITCH_ROTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2138986423, data2: 48695, data3: 19425, data4: [163, 86, 122, 132, 22, 14, 24, 147] };
-pub const GUID_PACKETPROPERTY_GUID_ROLL_ROTATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_PITCH_ROTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2138986423, data2: 48695, data3: 19425, data4: [163, 86, 122, 132, 22, 14, 24, 147] };
+pub const GUID_PACKETPROPERTY_GUID_ROLL_ROTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1566400086,
     data2: 27561,
     data3: 19547,
     data4: [159, 176, 133, 28, 145, 113, 78, 86],
 };
-pub const GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2024282966, data2: 2357, data3: 17555, data4: [186, 174, 0, 84, 26, 138, 22, 196] };
-pub const GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1839483019, data2: 21060, data3: 16876, data4: [144, 91, 50, 216, 154, 184, 8, 9] };
-pub const GUID_PACKETPROPERTY_GUID_TIMER_TICK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2024282966, data2: 2357, data3: 17555, data4: [186, 174, 0, 84, 26, 138, 22, 196] };
+pub const GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1839483019, data2: 21060, data3: 16876, data4: [144, 91, 50, 216, 154, 184, 8, 9] };
+pub const GUID_PACKETPROPERTY_GUID_TIMER_TICK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1130696901,
     data2: 65235,
     data3: 17873,
     data4: [139, 118, 113, 211, 234, 122, 130, 157],
 };
-pub const GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 221399392, data2: 5042, data3: 16868, data4: [172, 230, 122, 233, 212, 61, 45, 59] };
-pub const GUID_PACKETPROPERTY_GUID_WIDTH: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 221399392, data2: 5042, data3: 16868, data4: [172, 230, 122, 233, 212, 61, 45, 59] };
+pub const GUID_PACKETPROPERTY_GUID_WIDTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3131828557,
     data2: 10002,
     data3: 18677,
     data4: [190, 157, 143, 139, 94, 160, 113, 26],
 };
-pub const GUID_PACKETPROPERTY_GUID_X: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_X: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1502243471,
     data2: 21184,
     data3: 19360,
     data4: [147, 175, 175, 53, 116, 17, 165, 97],
 };
-pub const GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2832235322,
     data2: 35824,
     data3: 16560,
     data4: [149, 169, 184, 10, 107, 183, 135, 191],
 };
-pub const GUID_PACKETPROPERTY_GUID_Y: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3040845685, data2: 1248, data3: 17560, data4: [167, 238, 195, 13, 187, 90, 144, 17] };
-pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_Y: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3040845685, data2: 1248, data3: 17560, data4: [167, 238, 195, 13, 187, 90, 144, 17] };
+pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1787074944,
     data2: 31802,
     data3: 17847,
     data4: [170, 130, 144, 162, 98, 149, 14, 137],
 };
-pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 244523913, data2: 7543, data3: 17327, data4: [172, 0, 91, 149, 13, 109, 75, 45] };
-pub const GUID_PACKETPROPERTY_GUID_Z: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935334192, data2: 3771, data3: 18312, data4: [160, 228, 15, 49, 100, 144, 5, 93] };
-pub const GestureRecognizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 244523913, data2: 7543, data3: 17327, data4: [172, 0, 91, 149, 13, 109, 75, 45] };
+pub const GUID_PACKETPROPERTY_GUID_Z: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1935334192, data2: 3771, data3: 18312, data4: [160, 228, 15, 49, 100, 144, 5, 93] };
+pub const GestureRecognizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3929065044,
     data2: 50732,
     data3: 17439,
@@ -1299,7 +1299,7 @@ impl ::core::clone::Clone for HRECOWORDLIST {
         *self
     }
 }
-pub const HandwrittenTextInsertion: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2668056290, data2: 59113, data3: 19850, data4: [160, 71, 235, 91, 92, 60, 85, 218] };
+pub const HandwrittenTextInsertion: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2668056290, data2: 59113, data3: 19850, data4: [160, 71, 235, 91, 92, 60, 85, 218] };
 #[repr(transparent)]
 pub struct IDynamicRenderer(pub *mut ::core::ffi::c_void);
 pub const IECN_GESTURE: u32 = 2050u32;
@@ -1509,7 +1509,7 @@ impl ::core::clone::Clone for InPlaceState {
         *self
     }
 }
-pub const Ink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const Ink: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 333335106,
     data2: 36129,
     data3: 19598,
@@ -1622,7 +1622,7 @@ impl ::core::clone::Clone for InkCollectionMode {
         *self
     }
 }
-pub const InkCollector: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkCollector: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1140528467,
     data2: 44404,
     data3: 20200,
@@ -1667,7 +1667,7 @@ impl ::core::clone::Clone for InkCursorButtonState {
         *self
     }
 }
-pub const InkDisp: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkDisp: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2474383924,
     data2: 5405,
     data3: 17936,
@@ -1683,7 +1683,7 @@ impl ::core::clone::Clone for InkDisplayMode {
         *self
     }
 }
-pub const InkDivider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkDivider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2287269536,
     data2: 18051,
     data3: 19175,
@@ -1701,13 +1701,13 @@ impl ::core::clone::Clone for InkDivisionType {
         *self
     }
 }
-pub const InkDrawingAttributes: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkDrawingAttributes: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3636408994,
     data2: 1445,
     data3: 17603,
     data4: [179, 170, 94, 128, 172, 125, 37, 118],
 };
-pub const InkEdit: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkEdit: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3855243765,
     data2: 22468,
     data3: 19928,
@@ -1793,7 +1793,7 @@ impl ::core::clone::Clone for InkMousePointer {
         *self
     }
 }
-pub const InkOverlay: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkOverlay: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1708131910,
     data2: 52707,
     data3: 19080,
@@ -1863,7 +1863,7 @@ impl ::core::clone::Clone for InkPersistenceFormat {
         *self
     }
 }
-pub const InkPicture: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 77718867, data2: 65078, data3: 20446, data4: [134, 94, 52, 65, 148, 230, 148, 36] };
+pub const InkPicture: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 77718867, data2: 65078, data3: 20446, data4: [134, 94, 52, 65, 148, 230, 148, 36] };
 #[repr(transparent)]
 pub struct InkPictureSizeMode(pub i32);
 pub const IPSM_AutoSize: InkPictureSizeMode = InkPictureSizeMode(0i32);
@@ -2016,21 +2016,21 @@ impl ::core::clone::Clone for InkRecognizerCharacterAutoCompletionMode {
         *self
     }
 }
-pub const InkRecognizerContext: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkRecognizerContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2864998967,
     data2: 37417,
     data3: 20416,
     data4: [140, 206, 68, 151, 86, 155, 244, 209],
 };
-pub const InkRecognizerGuide: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkRecognizerGuide: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2272319809,
     data2: 42554,
     data3: 18033,
     data4: [163, 117, 40, 85, 161, 142, 186, 115],
 };
-pub const InkRecognizers: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2681530376, data2: 63206, data3: 20069, data4: [152, 211, 170, 57, 5, 76, 18, 85] };
-pub const InkRectangle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1135637286, data2: 43744, data3: 19298, data4: [168, 61, 95, 215, 104, 183, 53, 60] };
-pub const InkRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkRecognizers: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2681530376, data2: 63206, data3: 20069, data4: [152, 211, 170, 57, 5, 76, 18, 85] };
+pub const InkRectangle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1135637286, data2: 43744, data3: 19298, data4: [168, 61, 95, 215, 104, 183, 53, 60] };
+pub const InkRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2619131620,
     data2: 55275,
     data3: 20203,
@@ -2057,7 +2057,7 @@ impl ::core::clone::Clone for InkShiftKeyModifierFlags {
         *self
     }
 }
-pub const InkStrokes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1223987644, data2: 9230, data3: 18528, data4: [176, 121, 161, 233, 77, 61, 44, 134] };
+pub const InkStrokes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1223987644, data2: 9230, data3: 18528, data4: [176, 121, 161, 233, 77, 61, 44, 134] };
 #[repr(transparent)]
 pub struct InkSystemGesture(pub i32);
 pub const ISG_Tap: InkSystemGesture = InkSystemGesture(16i32);
@@ -2076,9 +2076,9 @@ impl ::core::clone::Clone for InkSystemGesture {
         *self
     }
 }
-pub const InkTablets: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1850723090, data2: 20746, data3: 19776, data4: [147, 4, 29, 161, 10, 233, 20, 124] };
-pub const InkTransform: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3822442812, data2: 5731, data3: 19064, data4: [161, 167, 34, 55, 93, 254, 186, 238] };
-pub const InkWordList: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkTablets: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1850723090, data2: 20746, data3: 19776, data4: [147, 4, 29, 161, 10, 233, 20, 124] };
+pub const InkTransform: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3822442812, data2: 5731, data3: 19064, data4: [161, 167, 34, 55, 93, 254, 186, 238] };
+pub const InkWordList: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2649247892,
     data2: 63263,
     data3: 17649,
@@ -2189,7 +2189,7 @@ impl ::core::clone::Clone for MICUIELEMENTSTATE {
         *self
     }
 }
-pub const MathInputControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MathInputControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3311501676,
     data2: 5336,
     data3: 16528,
@@ -2295,13 +2295,13 @@ impl ::core::clone::Clone for PanelType {
         *self
     }
 }
-pub const PenInputPanel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PenInputPanel: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4148487318,
     data2: 7002,
     data3: 18590,
     data4: [129, 220, 251, 215, 172, 98, 152, 168],
 };
-pub const PenInputPanel_Internal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2150309817, data2: 1387, data3: 18208, data4: [176, 204, 128, 210, 59, 113, 23, 30] };
+pub const PenInputPanel_Internal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2150309817, data2: 1387, data3: 18208, data4: [176, 204, 128, 210, 59, 113, 23, 30] };
 pub type PfnRecoCallback = unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> ::windows_sys::core::HRESULT;
 pub const RECOCONF_HIGHCONFIDENCE: u32 = 1u32;
 pub const RECOCONF_LOWCONFIDENCE: i32 = -1i32;
@@ -2442,7 +2442,7 @@ pub const RF_PERSONALIZABLE: i32 = 16384i32;
 pub const RF_REQUIRESSEGMENTATIONBREAKING: i32 = 131072i32;
 pub const RF_RIGHT_AND_DOWN: i32 = 64i32;
 pub const RF_STROKEREORDER: i32 = 8192i32;
-pub const RealTimeStylus: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RealTimeStylus: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3798677101,
     data2: 63896,
     data3: 17358,
@@ -2568,13 +2568,13 @@ impl ::core::clone::Clone for SelectionHitResult {
         *self
     }
 }
-pub const SketchInk: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SketchInk: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4029223041,
     data2: 59516,
     data3: 19975,
     data4: [151, 218, 160, 160, 55, 97, 229, 134],
 };
-pub const StrokeBuilder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const StrokeBuilder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3893415655,
     data2: 28241,
     data3: 19632,
@@ -2657,8 +2657,8 @@ impl ::core::clone::Clone for TabletPropertyMetricUnit {
         *self
     }
 }
-pub const TextInputPanel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4189161943, data2: 8843, data3: 20267, data4: [134, 80, 185, 127, 89, 224, 44, 140] };
-pub const TipAutoCompleteClient: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const TextInputPanel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4189161943, data2: 8843, data3: 20267, data4: [134, 80, 185, 127, 89, 224, 44, 140] };
+pub const TipAutoCompleteClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2155617900,
     data2: 7424,
     data3: 17727,

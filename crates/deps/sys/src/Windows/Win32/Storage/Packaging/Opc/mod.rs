@@ -285,4 +285,4 @@ impl ::core::clone::Clone for OPC_WRITE_FLAGS {
         *self
     }
 }
-pub const OpcFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1798138784, data2: 40766, data3: 20263, data4: [146, 11, 49, 60, 196, 38, 163, 158] };
+pub const OpcFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1798138784, data2: 40766, data3: 20263, data4: [146, 11, 49, 60, 196, 38, 163, 158] };

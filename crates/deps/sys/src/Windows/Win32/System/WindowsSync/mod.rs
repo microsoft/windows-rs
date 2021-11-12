@@ -246,7 +246,7 @@ impl ::core::clone::Clone for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -256,7 +256,7 @@ pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem:
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -266,7 +266,7 @@ pub const PKEY_CONFIGUI_CLSID: super::super::UI::Shell::PropertiesSystem::PROPER
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -276,7 +276,7 @@ pub const PKEY_CONFIGUI_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -286,7 +286,7 @@ pub const PKEY_CONFIGUI_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -296,7 +296,7 @@ pub const PKEY_CONFIGUI_ICON: super::super::UI::Shell::PropertiesSystem::PROPERT
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_INSTANCEID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -306,7 +306,7 @@ pub const PKEY_CONFIGUI_INSTANCEID: super::super::UI::Shell::PropertiesSystem::P
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_IS_GLOBAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -316,7 +316,7 @@ pub const PKEY_CONFIGUI_IS_GLOBAL: super::super::UI::Shell::PropertiesSystem::PR
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_MENUITEM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -326,7 +326,7 @@ pub const PKEY_CONFIGUI_MENUITEM: super::super::UI::Shell::PropertiesSystem::PRO
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_MENUITEM_NOUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -336,7 +336,7 @@ pub const PKEY_CONFIGUI_MENUITEM_NOUI: super::super::UI::Shell::PropertiesSystem
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -346,7 +346,7 @@ pub const PKEY_CONFIGUI_NAME: super::super::UI::Shell::PropertiesSystem::PROPERT
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -356,7 +356,7 @@ pub const PKEY_CONFIGUI_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::Propert
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -366,7 +366,7 @@ pub const PKEY_CONFIGUI_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PRO
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -376,7 +376,7 @@ pub const PKEY_PROVIDER_CAPABILITIES: super::super::UI::Shell::PropertiesSystem:
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -386,7 +386,7 @@ pub const PKEY_PROVIDER_CLSID: super::super::UI::Shell::PropertiesSystem::PROPER
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CONFIGUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -396,7 +396,7 @@ pub const PKEY_PROVIDER_CONFIGUI: super::super::UI::Shell::PropertiesSystem::PRO
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -406,7 +406,7 @@ pub const PKEY_PROVIDER_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -416,7 +416,7 @@ pub const PKEY_PROVIDER_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -426,7 +426,7 @@ pub const PKEY_PROVIDER_ICON: super::super::UI::Shell::PropertiesSystem::PROPERT
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_INSTANCEID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -436,7 +436,7 @@ pub const PKEY_PROVIDER_INSTANCEID: super::super::UI::Shell::PropertiesSystem::P
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -446,7 +446,7 @@ pub const PKEY_PROVIDER_NAME: super::super::UI::Shell::PropertiesSystem::PROPERT
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -456,7 +456,7 @@ pub const PKEY_PROVIDER_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::Propert
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -663,4 +663,4 @@ impl ::core::clone::Clone for SyncProviderConfiguration {
         *self
     }
 }
-pub const SyncProviderRegistration: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4163587825, data2: 37801, data3: 19934, data4: [128, 21, 247, 149, 10, 26, 110, 49] };
+pub const SyncProviderRegistration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4163587825, data2: 37801, data3: 19934, data4: [128, 21, 247, 149, 10, 26, 110, 49] };

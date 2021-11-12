@@ -123,6 +123,6 @@ impl ::core::clone::Clone for SCE_LOG_ERR_LEVEL {
         *self
     }
 }
-pub const cNodetypeSceAnalysisServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1736462535, data2: 8184, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };
-pub const cNodetypeSceEventLog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 752903832, data2: 19443, data3: 4561, data4: [140, 48, 0, 192, 79, 185, 132, 249] };
-pub const cNodetypeSceTemplateServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 614987543, data2: 7948, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };
+pub const cNodetypeSceAnalysisServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1736462535, data2: 8184, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };
+pub const cNodetypeSceEventLog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 752903832, data2: 19443, data3: 4561, data4: [140, 48, 0, 192, 79, 185, 132, 249] };
+pub const cNodetypeSceTemplateServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 614987543, data2: 7948, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };

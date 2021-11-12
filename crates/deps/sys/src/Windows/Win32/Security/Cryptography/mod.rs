@@ -1530,25 +1530,25 @@ impl ::core::clone::Clone for CASetupProperty {
         *self
     }
 }
-pub const CCertSrvSetup: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CCertSrvSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2518620175,
     data2: 62812,
     data3: 16701,
     data4: [169, 179, 125, 42, 244, 216, 228, 47],
 };
-pub const CCertSrvSetupKeyInformation: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CCertSrvSetupKeyInformation: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 943143174,
     data2: 21555,
     data3: 17971,
     data4: [176, 251, 41, 183, 231, 130, 98, 225],
 };
-pub const CCertificateEnrollmentPolicyServerSetup: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CCertificateEnrollmentPolicyServerSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2950887986,
     data2: 16817,
     data3: 17821,
     data4: [165, 222, 73, 173, 216, 167, 33, 130],
 };
-pub const CCertificateEnrollmentServerSetup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2567107516, data2: 34991, data3: 19704, data4: [174, 98, 113, 64, 83, 21, 82, 182] };
+pub const CCertificateEnrollmentServerSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2567107516, data2: 34991, data3: 19704, data4: [174, 98, 113, 64, 83, 21, 82, 182] };
 #[repr(transparent)]
 pub struct CEPSetupProperty(pub i32);
 pub const ENUM_CEPSETUPPROP_AUTHENTICATION: CEPSetupProperty = CEPSetupProperty(0i32);
@@ -4343,7 +4343,7 @@ impl ::core::clone::Clone for CMC_TAGGED_REQUEST_0 {
         *self
     }
 }
-pub const CMSCEPSetup: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSCEPSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2857327618,
     data2: 36476,
     data3: 18884,

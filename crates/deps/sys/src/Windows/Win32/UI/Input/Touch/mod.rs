@@ -108,7 +108,7 @@ impl ::core::clone::Clone for HTOUCHINPUT {
 pub struct IInertiaProcessor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IManipulationProcessor(pub *mut ::core::ffi::c_void);
-pub const InertiaProcessor: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InertiaProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2880598151,
     data2: 19680,
     data3: 20056,
@@ -128,7 +128,7 @@ impl ::core::clone::Clone for MANIPULATION_PROCESSOR_MANIPULATIONS {
         *self
     }
 }
-pub const ManipulationProcessor: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ManipulationProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1501384624,
     data2: 18429,
     data3: 19199,

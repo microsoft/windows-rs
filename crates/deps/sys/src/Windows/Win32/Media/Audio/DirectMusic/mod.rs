@@ -1,11 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-pub const CLSID_DirectMusic: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1667997456, data2: 3197, data3: 4561, data4: [149, 178, 0, 32, 175, 220, 116, 33] };
-pub const CLSID_DirectMusicCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1209005232, data2: 10418, data3: 4561, data4: [190, 247, 0, 192, 79, 191, 143, 239] };
-pub const CLSID_DirectMusicSynth: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1489155280, data2: 18151, data3: 4561, data4: [137, 172, 0, 160, 201, 5, 65, 41] };
-pub const CLSID_DirectMusicSynthSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2931916003, data2: 42260, data3: 4561, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
-pub const CLSID_DirectSoundPrivate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 296435392, data2: 9708, data3: 4561, data4: [164, 216, 0, 192, 79, 194, 138, 202] };
+pub const CLSID_DirectMusic: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1667997456, data2: 3197, data3: 4561, data4: [149, 178, 0, 32, 175, 220, 116, 33] };
+pub const CLSID_DirectMusicCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1209005232, data2: 10418, data3: 4561, data4: [190, 247, 0, 192, 79, 191, 143, 239] };
+pub const CLSID_DirectMusicSynth: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1489155280, data2: 18151, data3: 4561, data4: [137, 172, 0, 160, 201, 5, 65, 41] };
+pub const CLSID_DirectMusicSynthSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2931916003, data2: 42260, data3: 4561, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
+pub const CLSID_DirectSoundPrivate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 296435392, data2: 9708, data3: 4561, data4: [164, 216, 0, 192, 79, 194, 138, 202] };
 #[repr(C)]
 pub struct CONNECTION {
     pub usSource: u16,
@@ -150,15 +150,15 @@ impl ::core::clone::Clone for DLSID {
         *self
     }
 }
-pub const DLSID_GMInHardware: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259684, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
-pub const DLSID_GSInHardware: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259685, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
-pub const DLSID_ManufacturersID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2956857729, data2: 32917, data3: 4562, data4: [161, 239, 0, 96, 8, 51, 219, 216] };
-pub const DLSID_ProductID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2956857730, data2: 32917, data3: 4562, data4: [161, 239, 0, 96, 8, 51, 219, 216] };
-pub const DLSID_SampleMemorySize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259688, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
-pub const DLSID_SamplePlaybackRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 714209043, data2: 42175, data3: 4562, data4: [187, 223, 0, 96, 8, 51, 219, 216] };
-pub const DLSID_SupportsDLS1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259687, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
-pub const DLSID_SupportsDLS2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4047870437, data2: 18057, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
-pub const DLSID_XGInHardware: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259686, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub const DLSID_GMInHardware: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259684, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub const DLSID_GSInHardware: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259685, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub const DLSID_ManufacturersID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2956857729, data2: 32917, data3: 4562, data4: [161, 239, 0, 96, 8, 51, 219, 216] };
+pub const DLSID_ProductID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2956857730, data2: 32917, data3: 4562, data4: [161, 239, 0, 96, 8, 51, 219, 216] };
+pub const DLSID_SampleMemorySize: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259688, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub const DLSID_SamplePlaybackRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 714209043, data2: 42175, data3: 4562, data4: [187, 223, 0, 96, 8, 51, 219, 216] };
+pub const DLSID_SupportsDLS1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259687, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub const DLSID_SupportsDLS2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4047870437, data2: 18057, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
+pub const DLSID_XGInHardware: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259686, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
 #[repr(C)]
 pub struct DLSVERSION {
     pub dwVersionMS: u32,
@@ -812,7 +812,7 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_D
         *self
     }
 }
-pub const DSPROPSETID_DirectSoundDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2221035394, data2: 9708, data3: 4561, data4: [164, 216, 0, 192, 79, 194, 138, 202] };
+pub const DSPROPSETID_DirectSoundDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2221035394, data2: 9708, data3: 4561, data4: [164, 216, 0, 192, 79, 194, 138, 202] };
 pub const DV_AUDIOMODE: u32 = 3840u32;
 pub const DV_AUDIOQU: u32 = 117440512u32;
 pub const DV_AUDIOSMP: u32 = 939524096u32;
@@ -834,27 +834,27 @@ pub const F_WAVELINK_MULTICHANNEL: u32 = 2u32;
 pub const F_WAVELINK_PHASE_MASTER: u32 = 1u32;
 pub const F_WSMP_NO_COMPRESSION: i32 = 2i32;
 pub const F_WSMP_NO_TRUNCATION: i32 = 1i32;
-pub const GUID_DMUS_PROP_DLS1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259687, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
-pub const GUID_DMUS_PROP_DLS2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4047870437, data2: 18057, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
-pub const GUID_DMUS_PROP_Effects: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3450394129, data2: 26698, data3: 4562, data4: [135, 30, 0, 96, 8, 147, 177, 189] };
-pub const GUID_DMUS_PROP_GM_Hardware: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259684, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
-pub const GUID_DMUS_PROP_GS_Capable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1687595938, data2: 25008, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
-pub const GUID_DMUS_PROP_GS_Hardware: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259685, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
-pub const GUID_DMUS_PROP_INSTRUMENT2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2254426994, data2: 40807, data3: 4562, data4: [135, 42, 0, 96, 8, 147, 177, 189] };
-pub const GUID_DMUS_PROP_LegacyCaps: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3483880898, data2: 161, data3: 4562, data4: [170, 213, 0, 0, 248, 117, 172, 18] };
-pub const GUID_DMUS_PROP_MemorySize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259688, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
-pub const GUID_DMUS_PROP_SampleMemorySize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259688, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
-pub const GUID_DMUS_PROP_SamplePlaybackRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 714209043, data2: 42175, data3: 4562, data4: [187, 223, 0, 96, 8, 51, 219, 216] };
-pub const GUID_DMUS_PROP_SetSynthSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 171596709, data2: 14262, data3: 4562, data4: [185, 249, 0, 0, 248, 117, 172, 18] };
-pub const GUID_DMUS_PROP_SinkUsesDSound: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3189803095, data2: 35154, data3: 4562, data4: [186, 28, 0, 0, 248, 117, 172, 18] };
-pub const GUID_DMUS_PROP_SynthSink_DSOUND: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 178878532, data2: 51319, data3: 4561, data4: [135, 12, 0, 96, 8, 147, 177, 189] };
-pub const GUID_DMUS_PROP_SynthSink_WAVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 178878533, data2: 51319, data3: 4561, data4: [135, 12, 0, 96, 8, 147, 177, 189] };
-pub const GUID_DMUS_PROP_Volume: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4276071973, data2: 58478, data3: 4561, data4: [170, 206, 0, 0, 248, 117, 172, 18] };
-pub const GUID_DMUS_PROP_WavesReverb: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 80434722, data2: 13029, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
-pub const GUID_DMUS_PROP_WriteLatency: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 646582176, data2: 24818, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
-pub const GUID_DMUS_PROP_WritePeriod: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 646582177, data2: 24818, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
-pub const GUID_DMUS_PROP_XG_Capable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1687595937, data2: 25008, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
-pub const GUID_DMUS_PROP_XG_Hardware: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395259686, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub const GUID_DMUS_PROP_DLS1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259687, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub const GUID_DMUS_PROP_DLS2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4047870437, data2: 18057, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
+pub const GUID_DMUS_PROP_Effects: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3450394129, data2: 26698, data3: 4562, data4: [135, 30, 0, 96, 8, 147, 177, 189] };
+pub const GUID_DMUS_PROP_GM_Hardware: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259684, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub const GUID_DMUS_PROP_GS_Capable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1687595938, data2: 25008, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
+pub const GUID_DMUS_PROP_GS_Hardware: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259685, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub const GUID_DMUS_PROP_INSTRUMENT2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2254426994, data2: 40807, data3: 4562, data4: [135, 42, 0, 96, 8, 147, 177, 189] };
+pub const GUID_DMUS_PROP_LegacyCaps: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3483880898, data2: 161, data3: 4562, data4: [170, 213, 0, 0, 248, 117, 172, 18] };
+pub const GUID_DMUS_PROP_MemorySize: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259688, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub const GUID_DMUS_PROP_SampleMemorySize: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259688, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
+pub const GUID_DMUS_PROP_SamplePlaybackRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 714209043, data2: 42175, data3: 4562, data4: [187, 223, 0, 96, 8, 51, 219, 216] };
+pub const GUID_DMUS_PROP_SetSynthSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 171596709, data2: 14262, data3: 4562, data4: [185, 249, 0, 0, 248, 117, 172, 18] };
+pub const GUID_DMUS_PROP_SinkUsesDSound: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3189803095, data2: 35154, data3: 4562, data4: [186, 28, 0, 0, 248, 117, 172, 18] };
+pub const GUID_DMUS_PROP_SynthSink_DSOUND: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 178878532, data2: 51319, data3: 4561, data4: [135, 12, 0, 96, 8, 147, 177, 189] };
+pub const GUID_DMUS_PROP_SynthSink_WAVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 178878533, data2: 51319, data3: 4561, data4: [135, 12, 0, 96, 8, 147, 177, 189] };
+pub const GUID_DMUS_PROP_Volume: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4276071973, data2: 58478, data3: 4561, data4: [170, 206, 0, 0, 248, 117, 172, 18] };
+pub const GUID_DMUS_PROP_WavesReverb: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 80434722, data2: 13029, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
+pub const GUID_DMUS_PROP_WriteLatency: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 646582176, data2: 24818, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
+pub const GUID_DMUS_PROP_WritePeriod: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 646582177, data2: 24818, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
+pub const GUID_DMUS_PROP_XG_Capable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1687595937, data2: 25008, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
+pub const GUID_DMUS_PROP_XG_Hardware: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259686, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
 #[repr(transparent)]
 pub struct IDirectMusic(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

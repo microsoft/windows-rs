@@ -3,7 +3,7 @@
 extern "system" {}
 pub const ALLOW_OUTOFBAND_NOTIFICATION: u32 = 2u32;
 pub const DO_NOT_VIRTUALIZE_STORAGES_AS_DEVICES: u32 = 1u32;
-pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 865901556,
     data2: 48382,
     data3: 20184,
@@ -166,8 +166,8 @@ pub const MTP_NEXTPHASE_READ_DATA: u32 = 1u32;
 pub const MTP_NEXTPHASE_WRITE_DATA: u32 = 2u32;
 pub const MTP_RESPONSE_MAX_PARAMS: u32 = 5u32;
 pub const MTP_RESPONSE_OK: u16 = 8193u16;
-pub const MediaDevMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 632991105, data2: 13664, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
-pub const MediaDevMgrClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MediaDevMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 632991105, data2: 13664, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const MediaDevMgrClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1342442525,
     data2: 48575,
     data3: 18724,
@@ -193,15 +193,15 @@ pub const SAC_MAC_LEN: u32 = 8u32;
 pub const SAC_PROTOCOL_V1: u32 = 2u32;
 pub const SAC_PROTOCOL_WMDM: u32 = 1u32;
 pub const SAC_SESSION_KEYLEN: u32 = 8u32;
-pub const SCP_EVENTID_ACQSECURECLOCK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2250542281, data2: 19033, data3: 17378, data4: [145, 70, 72, 167, 243, 244, 20, 12] };
-pub const SCP_EVENTID_DRMINFO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 557699719, data2: 16850, data3: 17195, data4: [158, 63, 59, 79, 123, 53, 129, 221] };
-pub const SCP_EVENTID_NEEDTOINDIV: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SCP_EVENTID_ACQSECURECLOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2250542281, data2: 19033, data3: 17378, data4: [145, 70, 72, 167, 243, 244, 20, 12] };
+pub const SCP_EVENTID_DRMINFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 557699719, data2: 16850, data3: 17195, data4: [158, 63, 59, 79, 123, 53, 129, 221] };
+pub const SCP_EVENTID_NEEDTOINDIV: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2275739591,
     data2: 46185,
     data3: 17286,
     data4: [185, 118, 213, 209, 206, 83, 138, 111],
 };
-pub const SCP_PARAMID_DRMVERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1104155997, data2: 31943, data3: 16919, data4: [173, 169, 0, 80, 116, 98, 77, 164] };
+pub const SCP_PARAMID_DRMVERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1104155997, data2: 31943, data3: 16919, data4: [173, 169, 0, 80, 116, 98, 77, 164] };
 #[repr(C)]
 pub struct WMDMDATETIME {
     pub wYear: u16,
@@ -308,8 +308,8 @@ impl ::core::clone::Clone for WMDMDetermineMaxPropStringLen {
         *self
     }
 }
-pub const WMDMDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2155560159, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
-pub const WMDMDeviceEnum: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1125004719, data2: 14705, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
+pub const WMDMDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2155560159, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const WMDMDeviceEnum: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1125004719, data2: 14705, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
 #[repr(C)]
 pub struct WMDMID {
     pub cbSize: u32,
@@ -324,7 +324,7 @@ impl ::core::clone::Clone for WMDMID {
     }
 }
 pub const WMDMID_LENGTH: u32 = 128u32;
-pub const WMDMLogger: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 285880834, data2: 23161, data3: 4563, data4: [141, 120, 68, 69, 83, 84, 0, 0] };
+pub const WMDMLogger: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 285880834, data2: 23161, data3: 4563, data4: [141, 120, 68, 69, 83, 84, 0, 0] };
 #[repr(transparent)]
 pub struct WMDMMessage(pub i32);
 pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = WMDMMessage(0i32);
@@ -368,9 +368,9 @@ impl ::core::clone::Clone for WMDMRIGHTS {
         *self
     }
 }
-pub const WMDMStorage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2155560160, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
-pub const WMDMStorageEnum: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3946846779, data2: 15095, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
-pub const WMDMStorageGlobal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2155560161, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const WMDMStorage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2155560160, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const WMDMStorageEnum: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3946846779, data2: 15095, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
+pub const WMDMStorageGlobal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2155560161, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
 pub const WMDM_APP_REVOKED: u32 = 2u32;
 pub const WMDM_CONTENT_FILE: u32 = 4u32;
 pub const WMDM_CONTENT_FOLDER: u32 = 8u32;
@@ -384,19 +384,19 @@ pub const WMDM_DEVICECAP_CANSTOP: u32 = 64u32;
 pub const WMDM_DEVICECAP_CANSTREAMPLAY: u32 = 2u32;
 pub const WMDM_DEVICECAP_CANSTREAMRECORD: u32 = 8u32;
 pub const WMDM_DEVICECAP_HASSECURECLOCK: u32 = 256u32;
-pub const WMDM_DEVICE_PROTOCOL_MSC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WMDM_DEVICE_PROTOCOL_MSC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2765275756,
     data2: 43137,
     data3: 17595,
     data4: [189, 93, 31, 112, 60, 113, 247, 169],
 };
-pub const WMDM_DEVICE_PROTOCOL_MTP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WMDM_DEVICE_PROTOCOL_MTP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2543736037,
     data2: 2812,
     data3: 17924,
     data4: [141, 147, 220, 121, 138, 75, 207, 69],
 };
-pub const WMDM_DEVICE_PROTOCOL_RAPI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 705818001, data2: 35983, data3: 16868, data4: [130, 209, 131, 134, 224, 3, 86, 28] };
+pub const WMDM_DEVICE_PROTOCOL_RAPI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 705818001, data2: 35983, data3: 16868, data4: [130, 209, 131, 134, 224, 3, 86, 28] };
 pub const WMDM_DEVICE_TYPE_DECODE: u32 = 4u32;
 pub const WMDM_DEVICE_TYPE_ENCODE: u32 = 8u32;
 pub const WMDM_DEVICE_TYPE_FILELISTRESYNC: u32 = 512u32;
@@ -703,7 +703,7 @@ pub const WMDM_SEEK_CURRENT: u32 = 2u32;
 pub const WMDM_SEEK_END: u32 = 8u32;
 pub const WMDM_SEEK_REMOTECONTROL: u32 = 1u32;
 pub const WMDM_SEEK_STREAMINGAUDIO: u32 = 2u32;
-pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2112383085,
     data2: 30958,
     data3: 17386,

@@ -795,7 +795,7 @@ impl ::core::clone::Clone for DISCONNECT_CODE {
     }
 }
 pub const DISPIDMASK: u32 = 65535u32;
-pub const DispatchMapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3911340694, data2: 51033, data3: 4561, data4: [160, 43, 0, 192, 79, 182, 128, 159] };
+pub const DispatchMapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3911340694, data2: 51033, data3: 4561, data4: [160, 43, 0, 192, 79, 182, 128, 159] };
 #[repr(transparent)]
 pub struct FINISH_MODE(pub i32);
 pub const FM_ASTRANSFER: FINISH_MODE = FINISH_MODE(0i32);
@@ -3445,7 +3445,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_7 {
         *self
     }
 }
-pub const McastAddressAllocation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3742215922, data2: 41609, data3: 4561, data4: [134, 151, 0, 96, 8, 176, 229, 210] };
+pub const McastAddressAllocation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3742215922, data2: 41609, data3: 4561, data4: [134, 151, 0, 96, 8, 176, 229, 210] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NSID {
@@ -4091,8 +4091,8 @@ impl ::core::clone::Clone for RND_ADVERTISING_SCOPE {
         *self
     }
 }
-pub const Rendezvous: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4043480667, data2: 52059, data3: 4560, data4: [141, 89, 0, 192, 79, 217, 26, 192] };
-pub const RequestMakeCall: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2890465248, data2: 63684, data3: 4561, data4: [160, 48, 0, 192, 79, 182, 128, 159] };
+pub const Rendezvous: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4043480667, data2: 52059, data3: 4560, data4: [141, 89, 0, 192, 79, 217, 26, 192] };
+pub const RequestMakeCall: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2890465248, data2: 63684, data3: 4561, data4: [160, 48, 0, 192, 79, 182, 128, 159] };
 pub const STRINGFORMAT_ASCII: u32 = 1u32;
 pub const STRINGFORMAT_BINARY: u32 = 4u32;
 pub const STRINGFORMAT_DBCS: u32 = 2u32;
@@ -4127,7 +4127,7 @@ impl ::core::clone::Clone for STnefProblemArray {
         *self
     }
 }
-pub const TAPI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 567727246, data2: 43147, data3: 4560, data4: [131, 221, 0, 170, 0, 60, 202, 189] };
+pub const TAPI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 567727246, data2: 43147, data3: 4560, data4: [131, 221, 0, 170, 0, 60, 202, 189] };
 pub const TAPIERR_CONNECTED: i32 = 0i32;
 pub const TAPIERR_DESTBUSY: i32 = -11i32;
 pub const TAPIERR_DESTNOANSWER: i32 = -12i32;

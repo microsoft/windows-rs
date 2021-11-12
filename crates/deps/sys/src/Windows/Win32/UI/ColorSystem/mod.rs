@@ -301,7 +301,7 @@ impl ::core::clone::Clone for BlackInformation {
         *self
     }
 }
-pub const CATID_WcsPlugin: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CATID_WcsPlugin: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2696151776,
     data2: 33344,
     data3: 16479,
